@@ -58,3 +58,31 @@ footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;co
         box-sizing: border-box;
     }
 }
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+@media (max-width: 520px) {
+    .actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .actions .btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

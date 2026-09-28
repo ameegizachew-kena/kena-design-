@@ -9,6 +9,104 @@ header{position:sticky;top:0;z-index:20;background:rgba(8,17,31,.9);backdrop-fil
 footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;color:var(--muted)}footer strong{color:white}
 @media(max-width:800px){.menu{display:block}.nav nav{display:none;position:absolute;top:66px;left:0;right:0;background:var(--bg);padding:20px;flex-direction:column}.nav nav.show{display:flex}.hero{grid-template-columns:1fr;padding-top:60px}.hero-card{max-width:430px}.course-grid{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.course-grid{grid-template-columns:1fr}.section h2{font-size:34px}.hero{min-height:auto}.actions{flex-direction:column}.btn{text-align:center}}
+/* REGISTER FORM - MOBILE RESPONSIVE */
+.register-card {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.register-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Field yoo wrapper qabaate */
+.register-card .form-group,
+.register-card .field {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.register-card label {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    font-weight: 700;
+}
+
+.register-card input,
+.register-card select,
+.register-card button {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.register-card button {
+    margin-top: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* 📱 MOBILE */
+@media (max-width: 520px) {
+
+    .register-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .register-card h1 {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    .register-card form {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .register-card label {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        font-size: 16px;
+    }
+
+    .register-card input,
+    .register-card select,
+    .register-card button {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .register-card input,
+    .register-card select {
+        padding: 12px;
+    }
+
+    .register-card button {
+        padding: 12px;
+        margin-top: 8px;
+    }
+}
 .register-card label {
     font-weight: 700;
 }
@@ -42,3 +140,45 @@ footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;co
     font-weight: 700;
     cursor: pointer;
 }
+@media (max-width: 520px) {
+    .register-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .register-card form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .register-card form label,
+    .register-card form input,
+    .register-card form select,
+    .register-card form button {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .register-card form label {
+        margin-top: 5px;
+        font-weight: 700;
+    }
+
+    .register-card form input,
+    .register-card form select {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .register-card form button {
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 5px;
+    }
+    }

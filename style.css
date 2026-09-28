@@ -110,7 +110,72 @@ footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;co
         width: 100%;
         gap: 12px;
     }
+/* NAVBAR */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
 
+.brand {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.brand span {
+    font-size: 28px;
+}
+
+#navLinks {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#navLinks a {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.menu {
+    display: none;
+    font-size: 28px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 520px) {
+
+    .nav {
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    #navLinks {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        margin-top: 15px;
+    }
+
+    #navLinks.active {
+        display: flex;
+    }
+
+    #navLinks a {
+        width: 100%;
+        padding: 12px 0;
+        text-align: center;
+    }
+    }
     .actions .btn {
         width: 100%;
         max-width: 100%;

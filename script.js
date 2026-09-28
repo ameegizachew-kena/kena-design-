@@ -20,5 +20,5 @@ const questions=[
 const qb=document.getElementById("quizBox");
 qb.innerHTML=questions.map((q,i)=>`<div class="q"><b>${i+1}. ${q[0]}</b>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join("")}</div>`).join("")+`<button class="btn primary quiz-btn" onclick="checkQuiz()">Qabxii Koo Ilaali</button><div id="result" class="result"></div>`;
 function checkQuiz(){let score=0;questions.forEach((q,i)=>{const a=document.querySelector(`input[name="q${i}"]:checked`);if(a&&+a.value===q[2])score++});document.getElementById("result").textContent=`Qabxii kee: ${score}/${questions.length} 🎉`;}
-function toggleMenu(){document.getElementById("navLinks").classList.toggle("show")}
-document.getElementById("year").textContent=new Date().getFullYear();
+function toggleMenu(){document.getElementById("navLinks").classList.toggle("active")}
+ 

@@ -9,3 +9,10 @@ header{position:sticky;top:0;z-index:20;background:rgba(8,17,31,.9);backdrop-fil
 footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;color:var(--muted)}footer strong{color:white}
 @media(max-width:800px){.menu{display:block}.nav nav{display:none;position:absolute;top:66px;left:0;right:0;background:var(--bg);padding:20px;flex-direction:column}.nav nav.show{display:flex}.hero{grid-template-columns:1fr;padding-top:60px}.hero-card{max-width:430px}.course-grid{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.course-grid{grid-template-columns:1fr}.section h2{font-size:34px}.hero{min-height:auto}.actions{flex-direction:column}.btn{text-align:center}}
+.register-card label {
+    font-weight: 700;
+}
+
+.register-card h1 {
+    font-weight: 800;
+}

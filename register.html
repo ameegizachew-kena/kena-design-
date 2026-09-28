@@ -9,7 +9,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<script>
+function registerStudent(event) {
+    event.preventDefault();
+
+    alert("Galmeen kee milkaa'eera! 🎉");
+
+    event.target.reset();
+}
+</script>
 
     <header>
         <div class="nav">
@@ -33,7 +41,7 @@
                     Mee odeeffannoo kee sirriitti guuti.
                 </p>
 
-                <form>
+                <form onsubmit="registerStudent(event)">
 
                     <label for="fullname">
                         Maqaa Guutuu
@@ -163,10 +171,12 @@
 
 
                     <button type="submit">
-                        Galmaa'i
-                    </button>
+    Galmaa'i
+</button>
 
-                </form>
+</form>
+
+            </div>
 
             </div>
 
@@ -174,5 +184,12 @@
 
     </main>
 
-</body>
+</body> <script>
+function registerStudent(event) {
+    event.preventDefault();
+    alert("Galmeen kee milkaa'eera! 🎉");
+    event.target.reset();
+}
+</script>
                       </html>
+      </div>

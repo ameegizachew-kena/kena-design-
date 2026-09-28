@@ -16,3 +16,29 @@ footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;co
 .register-card h1 {
     font-weight: 800;
 }
+.register-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.register-card label {
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.register-card input,
+.register-card select,
+.register-card button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.register-card button {
+    margin-top: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}

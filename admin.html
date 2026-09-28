@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Admin - Kena Design</title>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Kena Design Admin</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -16,217 +22,245 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #07111f;
-      color: white;
-      padding: 20px;
+      background: #f4f7fb;
+      color: #222;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow:
+        0 5px 20px rgba(0,0,0,.07);
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 25px;
+      margin-top: 0;
     }
 
-    .login-box,
-    .admin-box {
-      background: #101c2c;
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-    }
-
-    input,
-    button {
+    input {
       width: 100%;
-      padding: 14px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 10px;
     }
 
     button {
-      background: #32d583;
-      color: #07111f;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      background: #087f3f;
+      color: white;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 10px;
     }
 
     .logout {
-      background: #ef4444;
-      color: white;
-      max-width: 150px;
-    }
-
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
+      background: #b00020;
+      float: right;
     }
 
     .count {
-      background: #18283d;
-      padding: 12px 18px;
-      border-radius: 10px;
+      font-size: 24px;
+      font-weight: bold;
     }
 
-    .search {
-      margin-bottom: 20px;
+    .table-wrap {
+      overflow-x: auto;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      background: #101c2c;
-      border-radius: 12px;
-      overflow: hidden;
+      min-width: 1300px;
     }
 
     th,
     td {
       padding: 12px;
-      border-bottom: 1px solid #26364a;
+      border-bottom: 1px solid #eee;
       text-align: left;
       white-space: nowrap;
     }
 
     th {
-      background: #18283d;
+      background: #f1f4f6;
     }
 
-    .table-box {
-      overflow-x: auto;
-      border-radius: 12px;
+    .paid {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #dff7e5;
+      color: #087f3f;
+      font-weight: bold;
     }
 
-    .hidden {
+    .unpaid {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #ffe6e6;
+      color: #b00020;
+      font-weight: bold;
+    }
+
+    .pending {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #fff3cd;
+      color: #856404;
+      font-weight: bold;
+    }
+
+    .error {
+      color: #b00020;
+      margin-top: 10px;
+    }
+
+    #adminArea {
       display: none;
     }
 
-    .message {
-      text-align: center;
-      padding: 15px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
-      h1 {
-        font-size: 24px;
-      }
-
-      th,
-      td {
-        font-size: 13px;
-        padding: 9px;
-      }
-    }
   </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-  <h1>🔐 Kena Design - Admin</h1>
-
-
   <!-- LOGIN -->
 
-  <div id="loginBox" class="login-box">
+  <div
+    id="loginArea"
+    class="card"
+  >
 
-    <h2>Admin Login</h2>
+    <h1>Kena Design Admin</h1>
+
+    <p>
+      Admin account kee seeni.
+    </p>
 
     <input
-      type="email"
       id="email"
+      type="email"
       placeholder="Admin Email"
     >
 
     <input
-      type="password"
       id="password"
+      type="password"
       placeholder="Password"
     >
 
-    <button onclick="login()">
-      Seeni
+    <button
+      onclick="login()"
+    >
+      Login
     </button>
 
-    <div id="loginMessage" class="message"></div>
+    <div
+      id="loginError"
+      class="error"
+    ></div>
 
   </div>
 
 
   <!-- ADMIN -->
 
-  <div id="adminBox" class="admin-box hidden">
+  <div
+    id="adminArea"
+  >
 
-    <div class="top">
-
-      <div class="count">
-        Barattoota: <strong id="studentCount">0</strong>
-      </div>
+    <div class="card">
 
       <button
         class="logout"
         onclick="logout()"
       >
-        Ba'i
+        Logout
       </button>
 
-    </div>
+      <h1>
+        Kena Design Admin
+      </h1>
 
-
-    <input
-      class="search"
-      type="text"
-      id="search"
-      placeholder="Barataa barbaadi..."
-      oninput="filterStudents()"
-    >
-
-
-    <div class="table-box">
-
-      <table>
-
-        <thead>
-
-          <tr>
-            <th>#</th>
-            <th>Maqaa</th>
-            <th>Maqaa Abbaa</th>
-            <th>Koorniyaa</th>
-            <th>Umurii</th>
-            <th>Bilbila</th>
-            <th>Email</th>
-            <th>Koorsii</th>
-            <th>Teessoo</th>
-          </tr>
-
-        </thead>
-
-        <tbody id="studentTable">
-        </tbody>
-
-      </table>
+      <div class="count">
+        Barattoota:
+        <span id="studentCount">
+          0
+        </span>
+      </div>
 
     </div>
 
-    <div
-      id="dataMessage"
-      class="message"
-    ></div>
+
+    <div class="card">
+
+      <input
+        id="search"
+        type="text"
+        placeholder="Maqaa, phone, course, payment reference barbaadi..."
+        oninput="filterStudents()"
+      >
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="table-wrap">
+
+        <table>
+
+          <thead>
+
+            <tr>
+
+              <th>#</th>
+              <th>Full Name</th>
+              <th>Father Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Address</th>
+
+              <!-- PAYMENT -->
+
+              <th>Payment Status</th>
+              <th>Amount</th>
+              <th>Method</th>
+              <th>Payment Reference</th>
+              <th>Paid Time</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody
+            id="studentTable"
+          ></tbody>
+
+        </table>
+
+      </div>
+
+    </div>
 
   </div>
 
@@ -235,16 +269,15 @@
 
 <script>
 
-  // ==============================
+  // =====================================================
   // SUPABASE
-  // ==============================
+  // =====================================================
 
   const SUPABASE_URL =
     "https://baoczizarrnzxwguyili.supabase.co";
 
   const SUPABASE_KEY =
     "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
-
 
   const supabaseClient =
     window.supabase.createClient(
@@ -256,103 +289,104 @@
   let students = [];
 
 
-  // ==============================
+  // =====================================================
   // LOGIN
-  // ==============================
+  // =====================================================
 
   async function login() {
 
     const email =
-      document.getElementById("email").value.trim();
+      document
+        .getElementById("email")
+        .value
+        .trim();
 
     const password =
-      document.getElementById("password").value;
+      document
+        .getElementById("password")
+        .value;
 
 
-    const message =
-      document.getElementById("loginMessage");
-
-
-    message.textContent =
-      "Seenaa jira...";
-
-
-    const { error } =
-      await supabaseClient.auth.signInWithPassword({
-
-        email: email,
-
-        password: password
-
-      });
-
-
-    if (error) {
-
-      message.textContent =
-        "Login hin milkoofne: " +
-        error.message;
-
-      return;
-    }
-
-
-    message.textContent = "";
-
-    showAdmin();
-
-    loadStudents();
-
-  }
-
-
-  // ==============================
-  // SHOW ADMIN
-  // ==============================
-
-  function showAdmin() {
-
-    document
-      .getElementById("loginBox")
-      .classList.add("hidden");
-
-    document
-      .getElementById("adminBox")
-      .classList.remove("hidden");
-
-  }
-
-
-  // ==============================
-  // LOAD STUDENTS
-  // ==============================
-
-  async function loadStudents() {
-
-    const dataMessage =
-      document.getElementById("dataMessage");
-
-
-    dataMessage.textContent =
-      "Galmee fe'aa jira...";
-
-
-    const { data, error } =
-      await supabaseClient
-        .from("Students")
-        .select("*")
-        .order("created_at", {
-          ascending: false
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth
+        .signInWithPassword({
+          email,
+          password
         });
 
 
     if (error) {
 
-      dataMessage.textContent =
-        "Dogoggora: " +
-        error.message;
+      document
+        .getElementById(
+          "loginError"
+        )
+        .textContent =
+          error.message;
 
-      console.error(error);
+      return;
+    }
+
+
+    showAdmin();
+
+  }
+
+
+  // =====================================================
+  // SHOW ADMIN
+  // =====================================================
+
+  async function showAdmin() {
+
+    document
+      .getElementById(
+        "loginArea"
+      )
+      .style.display = "none";
+
+    document
+      .getElementById(
+        "adminArea"
+      )
+      .style.display = "block";
+
+
+    await loadStudents();
+
+  }
+
+
+  // =====================================================
+  // LOAD STUDENTS
+  // =====================================================
+
+  async function loadStudents() {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .from("Students")
+        .select("*")
+        .order(
+          "created_at",
+          {
+            ascending: false
+          }
+        );
+
+
+    if (error) {
+
+      alert(
+        "Dogoggora: " +
+        error.message
+      );
 
       return;
     }
@@ -362,153 +396,342 @@
 
 
     document
-      .getElementById("studentCount")
-      .textContent = students.length;
+      .getElementById(
+        "studentCount"
+      )
+      .textContent =
+        students.length;
 
 
-    displayStudents(students);
-
-
-    dataMessage.textContent = "";
+    renderStudents(
+      students
+    );
 
   }
 
 
-  // ==============================
-  // DISPLAY STUDENTS
-  // ==============================
+  // =====================================================
+  // RENDER
+  // =====================================================
 
-  function displayStudents(data) {
+  function renderStudents(
+    list
+  ) {
 
     const table =
-      document.getElementById("studentTable");
+      document
+        .getElementById(
+          "studentTable"
+        );
 
 
     table.innerHTML = "";
 
 
-    data.forEach((student, index) => {
+    list.forEach(
+      (student, index) => {
 
-      const row =
-        document.createElement("tr");
-
-
-      row.innerHTML = `
-
-        <td>${index + 1}</td>
-
-        <td>${student.fullname || ""}</td>
-
-        <td>${student.fathername || ""}</td>
-
-        <td>${student.gender || ""}</td>
-
-        <td>${student.age || ""}</td>
-
-        <td>${student.phone || ""}</td>
-
-        <td>${student.email || ""}</td>
-
-        <td>${student.course || ""}</td>
-
-        <td>${student.address || ""}</td>
-
-      `;
+        const tr =
+          document.createElement(
+            "tr"
+          );
 
 
-      table.appendChild(row);
+        const status =
+          String(
+            student.payment_status ||
+            "unpaid"
+          ).toLowerCase();
 
-    });
+
+        let statusClass =
+          "unpaid";
+
+        if (
+          status === "paid"
+        ) {
+          statusClass =
+            "paid";
+        } else if (
+          status === "pending"
+        ) {
+          statusClass =
+            "pending";
+        }
+
+
+        const amount =
+          student.payment_amount
+            ? Number(
+                student.payment_amount
+              ).toLocaleString()
+            : "-";
+
+
+        const paidTime =
+          student.paid_at
+            ? new Date(
+                student.paid_at
+              ).toLocaleString()
+            : "-";
+
+
+        tr.innerHTML = `
+
+          <td>${index + 1}</td>
+
+          <td>
+            ${escapeHtml(
+              student.fullname
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.fathername
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.gender
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.age
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.phone
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.email || "-"
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.course
+            )}
+          </td>
+
+          <td>
+            ${escapeHtml(
+              student.address
+            )}
+          </td>
+
+
+          <!-- PAYMENT STATUS -->
+
+          <td>
+            <span
+              class="${statusClass}"
+            >
+              ${status.toUpperCase()}
+            </span>
+          </td>
+
+
+          <!-- AMOUNT -->
+
+          <td>
+            ${amount} ETB
+          </td>
+
+
+          <!-- METHOD -->
+
+          <td>
+            ${escapeHtml(
+              student.payment_method ||
+              "-"
+            )}
+          </td>
+
+
+          <!-- REFERENCE -->
+
+          <td>
+            ${escapeHtml(
+              student.payment_reference ||
+              "-"
+            )}
+          </td>
+
+
+          <!-- PAID TIME -->
+
+          <td>
+            ${escapeHtml(
+              paidTime
+            )}
+          </td>
+
+        `;
+
+
+        table.appendChild(tr);
+
+      }
+    );
 
   }
 
 
-  // ==============================
+  // =====================================================
   // SEARCH
-  // ==============================
+  // =====================================================
 
   function filterStudents() {
 
-    const search =
+    const q =
       document
-        .getElementById("search")
+        .getElementById(
+          "search"
+        )
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
+
+
+    if (!q) {
+
+      renderStudents(
+        students
+      );
+
+      return;
+    }
 
 
     const filtered =
-      students.filter(student =>
+      students.filter(
+        (student) => {
 
-        (
-          (student.fullname || "") + " " +
-          (student.fathername || "") + " " +
-          (student.phone || "") + " " +
-          (student.course || "") + " " +
-          (student.address || "")
-        )
-        .toLowerCase()
-        .includes(search)
+          const text = [
 
+            student.fullname,
+
+            student.fathername,
+
+            student.phone,
+
+            student.email,
+
+            student.course,
+
+            student.address,
+
+            student.payment_status,
+
+            student.payment_method,
+
+            student.payment_reference
+
+          ]
+            .filter(Boolean)
+            .join(" ")
+            .toLowerCase();
+
+
+          return text.includes(q);
+
+        }
       );
 
 
-    displayStudents(filtered);
+    renderStudents(
+      filtered
+    );
 
   }
 
 
-  // ==============================
+  // =====================================================
+  // HTML ESCAPE
+  // =====================================================
+
+  function escapeHtml(
+    value
+  ) {
+
+    return String(
+      value ?? ""
+    )
+      .replace(
+        /&/g,
+        "&amp;"
+      )
+      .replace(
+        /</g,
+        "&lt;"
+      )
+      .replace(
+        />/g,
+        "&gt;"
+      )
+      .replace(
+        /"/g,
+        "&quot;"
+      )
+      .replace(
+        /'/g,
+        "&#039;"
+      );
+
+  }
+
+
+  // =====================================================
   // LOGOUT
-  // ==============================
+  // =====================================================
 
   async function logout() {
 
-    await supabaseClient.auth.signOut();
+    await supabaseClient.auth
+      .signOut();
 
-    document
-      .getElementById("adminBox")
-      .classList.add("hidden");
-
-    document
-      .getElementById("loginBox")
-      .classList.remove("hidden");
-
-    document
-      .getElementById("password")
-      .value = "";
+    location.reload();
 
   }
 
 
-  // ==============================
-  // CHECK EXISTING SESSION
-  // ==============================
+  // =====================================================
+  // EXISTING SESSION
+  // =====================================================
 
-  async function checkLogin() {
+  async function checkSession() {
 
     const {
-      data: {
-        session
-      }
-    } = await supabaseClient
-      .auth
-      .getSession();
+      data
+    } =
+      await supabaseClient.auth
+        .getSession();
 
 
-    if (session) {
+    if (
+      data &&
+      data.session
+    ) {
 
       showAdmin();
-
-      loadStudents();
 
     }
 
   }
 
 
-  checkLogin();
+  checkSession();
 
 </script>
 
 </body>
-        </html>
+  </html>

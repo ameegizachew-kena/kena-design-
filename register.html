@@ -1,40 +1,124 @@
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galmee Barataa - Kena Design</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: white;
+      padding: 25px;
+    }
+
+    .form-box {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0 15px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      border: none;
+    }
+
+    button {
+      background: #32d583;
+      font-weight: bold;
+      font-size: 17px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="form-box">
+    <h1>Galmee Barataa</h1>
+
+    <form onsubmit="registerStudent(event)">
+
+      <label>Maqaa Guutuu</label>
+      <input type="text" name="fullname" required>
+
+      <label>Maqaa Abbaa</label>
+      <input type="text" name="fathername" required>
+
+      <label>Koorniyaa</label>
+      <select name="gender" required>
+        <option value="">Filadhu</option>
+        <option value="Dhiira">Dhiira</option>
+        <option value="Dhalaa">Dhalaa</option>
+      </select>
+
+      <label>Umurii</label>
+      <input type="number" name="age" required>
+
+      <label>Lakkoofsa Bilbilaa</label>
+      <input type="tel" name="phone" required>
+
+      <label>Email</label>
+      <input type="email" name="email" required>
+
+      <label>Koorsii</label>
+      <input type="text" name="course" required>
+
+      <label>Teessoo</label>
+      <input type="text" name="address" required>
+
+      <button type="submit">Galmaa'i</button>
+
+    </form>
+  </div>
 
 <script>
 const SUPABASE_URL = "https://baoczizarrnzxwguyili.supabase.co";
-
 const SUPABASE_KEY = "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
 const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
+  SUPABASE_URL,
+  SUPABASE_KEY
 );
 
 async function registerStudent(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const form = event.target;
+  const form = event.target;
 
-    const { error } = await supabaseClient
-        .from("Students")
-        .insert([{
-            fullname: form.fullname.value.trim(),
-            fathername: form.fathername.value.trim(),
-            gender: form.gender.value,
-            age: Number(form.age.value),
-            phone: form.phone.value.trim(),
-            email: form.email.value.trim(),
-            course: form.course.value,
-            address: form.address.value.trim()
-        }]);
+  const { error } = await supabaseClient
+    .from("Students")
+    .insert([{
+      fullname: form.fullname.value.trim(),
+      fathername: form.fathername.value.trim(),
+      gender: form.gender.value,
+      age: Number(form.age.value),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      course: form.course.value,
+      address: form.address.value.trim()
+    }]);
 
-    if (error) {
-        alert("Galmeen hin milkoofne: " + error.message);
-        console.error(error);
-        return;
-    }
+  if (error) {
+    alert("Galmeen hin milkoofne: " + error.message);
+    console.error(error);
+    return;
+  }
 
-    alert("Galmeen kee milkaa'eera! 🎉");
-    form.reset();
+  alert("Galmeen kee milkaa'eera! 🎉");
+  form.reset();
 }
 </script>
+
+</body>
+</html>

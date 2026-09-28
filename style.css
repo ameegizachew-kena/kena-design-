@@ -86,3 +86,36 @@ footer{border-top:1px solid var(--border);padding:30px 22px;text-align:center;co
         text-align: center;
     }
 }
+/* BUTTONS */
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+/* MOBILE */
+@media (max-width: 520px) {
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .actions .btn {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+}

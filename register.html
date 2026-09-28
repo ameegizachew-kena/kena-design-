@@ -39,6 +39,10 @@
       font-size: 17px;
       cursor: pointer;
     }
+
+    button:hover {
+      opacity: 0.9;
+    }
   </style>
 </head>
 
@@ -49,12 +53,25 @@
 
     <form onsubmit="registerStudent(event)">
 
+      <!-- Maqaa Guutuu -->
       <label>Maqaa Guutuu</label>
-      <input type="text" name="fullname" required>
+      <input
+        type="text"
+        name="fullname"
+        placeholder="Maqaa kee guutuu"
+        required
+      >
 
+      <!-- Maqaa Abbaa -->
       <label>Maqaa Abbaa</label>
-      <input type="text" name="fathername" required>
+      <input
+        type="text"
+        name="fathername"
+        placeholder="Maqaa abbaa"
+        required
+      >
 
+      <!-- Koorniyaa -->
       <label>Koorniyaa</label>
       <select name="gender" required>
         <option value="">Filadhu</option>
@@ -62,63 +79,231 @@
         <option value="Dhalaa">Dhalaa</option>
       </select>
 
+      <!-- Umurii -->
       <label>Umurii</label>
-      <input type="number" name="age" required>
+      <input
+        type="number"
+        name="age"
+        placeholder="Umurii kee"
+        min="1"
+        max="100"
+        required
+      >
 
+      <!-- Lakkoofsa Bilbilaa -->
       <label>Lakkoofsa Bilbilaa</label>
-      <input type="tel" name="phone" required>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="09xxxxxxxx ykn 07xxxxxxxx"
+        pattern="(09|07)[0-9]{8}"
+        maxlength="10"
+        required
+      >
 
+      <!-- Email -->
       <label>Email</label>
-      <input type="email" name="email" required>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email (dirqama miti)"
+      >
 
+      <!-- Koorsii -->
       <label>Koorsii</label>
-      <input type="text" name="course" required>
+      <select name="course" required>
+        <option value="">Koorsii filadhu</option>
+        <option value="Video Editing">Video Editing</option>
+        <option value="Graphic Design">Graphic Design</option>
+        <option value="Web Design">Web Design</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+        <option value="Photography">Photography</option>
+        <option value="Flayer Package">Flayer Package</option>
+        <option value="YouTube Thumbnail">YouTube Thumbnail</option>
+        <option value="Poster Design">Poster Design</option>
+      </select>
 
+      <!-- Teessoo -->
       <label>Teessoo</label>
-      <input type="text" name="address" required>
 
-      <button type="submit">Galmaa'i</button>
+      <select
+        name="address"
+        id="addressSelect"
+        required
+        onchange="showOtherAddress()"
+      >
+        <option value="">Teessoo filadhu</option>
+
+        <option value="Finfinnee">Finfinnee</option>
+        <option value="Adamaa">Adamaa</option>
+        <option value="Bishooftuu">Bishooftuu</option>
+        <option value="Jimmaa">Jimmaa</option>
+        <option value="Baahir Daar">Baahir Daar</option>
+        <option value="Dirree Dhawaa">Dirree Dhawaa</option>
+        <option value="Maqalee">Maqalee</option>
+        <option value="Naqamtee">Naqamtee</option>
+        <option value="Harar">Harar</option>
+        <option value="Booranaa">Booranaa</option>
+        <option value="Wallaggaa">Wallaggaa</option>
+        <option value="Arsii">Arsii</option>
+        <option value="Bale">Bale</option>
+        <option value="Guji">Guji</option>
+        <option value="Shambu">Shambu</option>
+        <option value="Amboo">Amboo</option>
+        <option value="Baakko">Baakko</option>
+        <option value="Saqalaa">Saqalaa</option>
+        <option value="Gimbi">Gimbi</option>
+        <option value="Najjoo">Najjoo</option>
+        <option value="Mandii">Mandii</option>
+        <option value="Assosa">Assosa</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- Other Address -->
+      <input
+        type="text"
+        name="otherAddress"
+        id="otherAddress"
+        placeholder="Teessoo kee barreessi"
+        style="display:none;"
+      >
+
+      <!-- Submit -->
+      <button type="submit">
+        Galmaa'i
+      </button>
 
     </form>
   </div>
 
-<script>
-const SUPABASE_URL = "https://baoczizarrnzxwguyili.supabase.co";
-const SUPABASE_KEY = "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
-const supabaseClient = window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+  <script>
 
-async function registerStudent(event) {
-  event.preventDefault();
+    // ==============================
+    // SUPABASE
+    // ==============================
 
-  const form = event.target;
+    const SUPABASE_URL =
+      "https://baoczizarrnzxwguyili.supabase.co";
 
-  const { error } = await supabaseClient
-    .from("Students")
-    .insert([{
-      fullname: form.fullname.value.trim(),
-      fathername: form.fathername.value.trim(),
-      gender: form.gender.value,
-      age: Number(form.age.value),
-      phone: form.phone.value.trim(),
-      email: form.email.value.trim(),
-      course: form.course.value,
-      address: form.address.value.trim()
-    }]);
+    const SUPABASE_KEY =
+      "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
-  if (error) {
-    alert("Galmeen hin milkoofne: " + error.message);
-    console.error(error);
-    return;
-  }
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
 
-  alert("Galmeen kee milkaa'eera! 🎉");
-  form.reset();
-}
-</script>
+
+    // ==============================
+    // OTHER ADDRESS
+    // ==============================
+
+    function showOtherAddress() {
+
+      const select =
+        document.getElementById("addressSelect");
+
+      const otherInput =
+        document.getElementById("otherAddress");
+
+      if (select.value === "Other") {
+
+        otherInput.style.display = "block";
+        otherInput.required = true;
+
+      } else {
+
+        otherInput.style.display = "none";
+        otherInput.required = false;
+        otherInput.value = "";
+
+      }
+    }
+
+
+    // ==============================
+    // REGISTER STUDENT
+    // ==============================
+
+    async function registerStudent(event) {
+
+      event.preventDefault();
+
+      const form = event.target;
+
+
+      // Address filatame ykn Other keessatti barreeffame
+      const addressValue =
+        form.address.value === "Other"
+          ? form.otherAddress.value.trim()
+          : form.address.value;
+
+
+      // Supabase keessatti galchi
+      const { error } =
+        await supabaseClient
+          .from("Students")
+          .insert([{
+
+            fullname:
+              form.fullname.value.trim(),
+
+            fathername:
+              form.fathername.value.trim(),
+
+            gender:
+              form.gender.value,
+
+            age:
+              Number(form.age.value),
+
+            phone:
+              form.phone.value.trim(),
+
+            email:
+              form.email.value.trim(),
+
+            course:
+              form.course.value,
+
+            address:
+              addressValue
+
+          }]);
+
+
+      // Yoo dogoggorri jiraate
+      if (error) {
+
+        alert(
+          "Galmeen hin milkoofne: "
+          + error.message
+        );
+
+        console.error(error);
+
+        return;
+      }
+
+
+      // Yoo milkaa'e
+      alert(
+        "Galmeen kee milkaa'eera! 🎉"
+      );
+
+
+      // Form qulqulleessi
+      form.reset();
+
+
+      // Other textbox dhoksi
+      showOtherAddress();
+
+    }
+
+  </script>
 
 </body>
 </html>

@@ -680,6 +680,7 @@ form.addEventListener(
   async function (e) {
 
     e.preventDefault();
+    e.stopPropagation();
 
     /* -----------------------------------------------
        COURSE
@@ -911,32 +912,25 @@ form.addEventListener(
          2. UPLOAD PRIVATE SCREENSHOT
       ============================================= */
 
-      const {
-        error: uploadError
-      } =
-        await supabaseClient
-          .storage
-          .from("payment-proofs")
-          .upload(
-            filePath,
-            screenshot,
-            {
-              cacheControl: "3600",
-              upsert: false,
-              contentType:
-                screenshot.type
-            }
-          );
+      console.log("UPLOAD START");
 
-      if (uploadError) {
+const {
+  error: uploadError
+} =
+await supabaseClient
+  .storage
+  .from("payment-proofs")
+  .upload(
+    filePath,
+    screenshot,
+    {
+      cacheControl:"3600",
+      upsert:false,
+      contentType:screenshot.type
+    }
+  );
 
-        throw new Error(
-          "Screenshot upload hin milkoofne: " +
-          uploadError.message
-        );
-
-      }
-
+console.log("UPLOAD DONE", uploadError);
 
       /* =============================================
          3. STUDENT DATA
@@ -1081,49 +1075,50 @@ form.addEventListener(
         "Galmaa'i & Kaffaltii Mirkaneessaf Ergi";
 
 
-    } catch (err) {
+} catch (err) {
+
+  console.error(
+    "Registration error:",
+    err
+  );
+
+
+  if (uploadedFilePath) {
+
+    try {
+
+      await supabaseClient
+        .storage
+        .from("payment-proofs")
+        .remove([
+          uploadedFilePath
+        ]);
+
+    } catch (cleanupError) {
 
       console.error(
-        "Registration error:",
-        err
+        "Screenshot cleanup error:",
+        cleanupError
+      );
+
+    }
+
+  }
+
+      showStatus(
+        err.message ||
+        "Galmee erguu irratti dogoggorri uumame.",
+        "error"
       );
 
 
-      /* ---------------------------------------------
-         CLEANUP UPLOADED FILE IF DATABASE FAILED
-      ---------------------------------------------- */
-
-      if (
-        uploadedFilePath
-      ) {
-
-        try {
-
-          await supabaseClient
-            .storage
-            .from("payment-proofs")
-            .remove([
-              uploadedFilePath
-            ]);
-
-        } catch (
-          cleanupError
-        ) {
-
-          console.error(
-            "Screenshot cleanup error:",
-            cleanupError
-          );
-
-        }
-
-      }
+      payButton.disabled = false;
 
 
-      /* ---------------------------------------------
-         SHOW REAL ERROR
-      ---------------------------------------------- */
+      payButton.textContent =
+        "Galmaa'i & Kaffaltii Mirkaneessaf Ergi";
 
-      showStatus(
 
-        err.message ||
+    }
+  }
+);

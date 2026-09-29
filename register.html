@@ -121,6 +121,7 @@
       margin-top: 10px;
       font-size: 14px;
       color: #666;
+      line-height: 1.6;
     }
 
     button {
@@ -422,19 +423,6 @@
       </div>
 
 
-      <!-- TRANSACTION -->
-      <label>
-        Transaction / Reference Number
-      </label>
-
-      <input
-        id="paymentReference"
-        type="text"
-        required
-        placeholder="Lakkoofsa transaction galchi"
-      >
-
-
       <!-- SCREENSHOT -->
       <label>
         Screenshot Kaffaltii
@@ -456,6 +444,7 @@
 
         📌 PNG, JPG ykn WEBP qofa.
         <br>
+
         📌 5MB gadi ta'uu qaba.
 
       </div>
@@ -813,31 +802,6 @@ form.addEventListener(
 
 
     /* -----------------------------------------------
-       PAYMENT REFERENCE
-    ------------------------------------------------ */
-
-    const paymentReference =
-      document
-        .getElementById(
-          "paymentReference"
-        )
-        .value
-        .trim();
-
-
-    if (!paymentReference) {
-
-      showStatus(
-        "Transaction / Reference Number galchi.",
-        "error"
-      );
-
-      return;
-
-    }
-
-
-    /* -----------------------------------------------
        SCREENSHOT
     ------------------------------------------------ */
 
@@ -933,7 +897,7 @@ form.addEventListener(
 
 
       /* =============================================
-         1. CREATE UNIQUE FILE NAME
+         1. UNIQUE FILE NAME
       ============================================= */
 
       const safePhone =
@@ -966,11 +930,6 @@ form.addEventListener(
         extension;
 
 
-      /*
-        Private bucket keessatti
-        proofs/ folder jalatti galma'a.
-      */
-
       const filePath =
         "proofs/" +
         fileName;
@@ -981,7 +940,7 @@ form.addEventListener(
 
 
       /* =============================================
-         2. UPLOAD SCREENSHOT
+         2. UPLOAD PRIVATE SCREENSHOT
       ============================================= */
 
       const {
@@ -1013,27 +972,7 @@ form.addEventListener(
 
 
       /* =============================================
-         3. PRIVATE STORAGE PATH
-      ============================================= */
-
-      /*
-        IMPORTANT:
-
-        getPublicUrl() hin fayyadamnu.
-
-        Bucket private waan ta'eef
-        path qofa database keessa kaa'ama.
-
-        Fakkeenya:
-        proofs/1761234567890_0912345678_abcd1234.jpg
-      */
-
-      const screenshotPath =
-        filePath;
-
-
-      /* =============================================
-         4. STUDENT DATA
+         3. STUDENT DATA
       ============================================= */
 
       const studentData = {
@@ -1105,17 +1044,14 @@ form.addEventListener(
             selectedCourse
           ],
 
-        payment_reference:
-
-          paymentReference,
-
         /*
-          PRIVATE STORAGE PATH
+          Transaction / Reference Number
+          HIN JIRU.
         */
 
         payment_screenshot_url:
 
-          screenshotPath,
+          filePath,
 
         paid_at:
 
@@ -1125,7 +1061,7 @@ form.addEventListener(
 
 
       /* =============================================
-         5. INSERT INTO STUDENTS
+         4. INSERT STUDENT
       ============================================= */
 
       const {
@@ -1149,7 +1085,7 @@ form.addEventListener(
 
 
       /* =============================================
-         6. SUCCESS
+         5. SUCCESS
       ============================================= */
 
       form.reset();
@@ -1173,4 +1109,80 @@ form.addEventListener(
 
       showStatus(
 
-        "Galmeen kee 
+        "Galmeen kee milkaa'eera! ✅ " +
+        "Kaffaltiin kee PENDING dha. " +
+        "Admin'n screenshot ilaalee booda mirkaneessa.",
+
+        "success"
+
+      );
+
+
+      payButton.disabled =
+        false;
+
+      payButton.textContent =
+        "Galmaa'i & Kaffaltii Mirkaneessaf Ergi";
+
+
+    } catch (err) {
+
+
+      console.error(
+        "Registration error:",
+        err
+      );
+
+
+      /* ---------------------------------------------
+         CLEANUP UPLOADED FILE IF DATABASE FAILED
+      ---------------------------------------------- */
+
+      if (
+        uploadedFilePath
+      ) {
+
+        try {
+
+          await supabaseClient
+            .storage
+            .from("payment-proofs")
+            .remove([
+              uploadedFilePath
+            ]);
+
+        } catch (
+          cleanupError
+        ) {
+
+          console.error(
+            "Screenshot cleanup error:",
+            cleanupError
+          );
+
+        }
+
+      }
+
+
+      showStatus(
+
+        err.message ||
+        "Galmee erguu irratti dogoggorri uumame.",
+
+        "error"
+
+      );
+
+
+      payButton.disabled =
+        false;
+
+
+      payButton.textContent =
+        "Galmaa'i & Kaffaltii Mirkaneessaf Ergi";
+
+    }
+
+  }
+)

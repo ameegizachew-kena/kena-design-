@@ -180,6 +180,7 @@
 <body>
 
 <div class="container">
+
   <div class="card">
 
     <h1>Kena Design</h1>
@@ -190,7 +191,9 @@
 
     <form id="registrationForm">
 
+      <!-- FULL NAME -->
       <label>Full Name</label>
+
       <input
         id="fullname"
         type="text"
@@ -198,7 +201,10 @@
         placeholder="Maqaa guutuu"
       >
 
+
+      <!-- FATHER NAME -->
       <label>Father Name</label>
+
       <input
         id="fathername"
         type="text"
@@ -206,14 +212,30 @@
         placeholder="Maqaa abbaa"
       >
 
+
+      <!-- GENDER -->
       <label>Gender</label>
+
       <select id="gender" required>
-        <option value="">Filadhu</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
+
+        <option value="">
+          Filadhu
+        </option>
+
+        <option value="Male">
+          Male
+        </option>
+
+        <option value="Female">
+          Female
+        </option>
+
       </select>
 
+
+      <!-- AGE -->
       <label>Age</label>
+
       <input
         id="age"
         type="number"
@@ -223,7 +245,10 @@
         placeholder="Umurii"
       >
 
+
+      <!-- PHONE -->
       <label>Phone</label>
+
       <input
         id="phone"
         type="tel"
@@ -233,16 +258,25 @@
         placeholder="09xxxxxxxx"
       >
 
+
+      <!-- EMAIL -->
       <label>Email (Optional)</label>
+
       <input
         id="email"
         type="email"
         placeholder="email@example.com"
       >
 
+
+      <!-- COURSE -->
       <label>Course</label>
+
       <select id="course" required>
-        <option value="">Course filadhu</option>
+
+        <option value="">
+          Course filadhu
+        </option>
 
         <option value="Video Editing">
           Video Editing — 530 ETB
@@ -275,17 +309,24 @@
         <option value="Poster Design">
           Poster Design — 400 ETB
         </option>
+
       </select>
 
+
+      <!-- PRICE -->
       <div id="priceBox" class="price-box">
         Gatii: - ETB
       </div>
 
 
+      <!-- ADDRESS -->
       <label>Address</label>
 
       <select id="address" required>
-        <option value="">Address filadhu</option>
+
+        <option value="">
+          Address filadhu
+        </option>
 
         <option>Finfinnee</option>
         <option>Adamaa</option>
@@ -310,10 +351,15 @@
         <option>Mandii</option>
         <option>Assosa</option>
         <option>Other</option>
+
       </select>
 
 
-      <div id="otherAddressBox" class="other-address">
+      <!-- OTHER ADDRESS -->
+      <div
+        id="otherAddressBox"
+        class="other-address"
+      >
 
         <label>Other Address</label>
 
@@ -327,37 +373,48 @@
 
 
       <!-- PAYMENT -->
-
       <div class="payment-box">
 
-        <strong>💳 Payment Method</strong>
+        <strong>
+          💳 Payment Method
+        </strong>
 
         <div class="methods">
 
           <label class="method">
+
             <input
               type="radio"
               name="paymentMethod"
               value="Telebirr"
               required
             >
+
             📱 Telebirr
+
           </label>
 
+
           <label class="method">
+
             <input
               type="radio"
               name="paymentMethod"
               value="CBE Birr"
               required
             >
+
             🏦 CBE Birr
+
           </label>
 
         </div>
 
 
-        <div id="accountInfo" class="account-info">
+        <div
+          id="accountInfo"
+          class="account-info"
+        >
           Kaffaltii kee dura
           Telebirr ykn CBE Birr filadhu.
         </div>
@@ -365,8 +422,7 @@
       </div>
 
 
-      <!-- TRANSACTION NUMBER -->
-
+      <!-- TRANSACTION -->
       <label>
         Transaction / Reference Number
       </label>
@@ -380,7 +436,6 @@
 
 
       <!-- SCREENSHOT -->
-
       <label>
         Screenshot Kaffaltii
       </label>
@@ -393,11 +448,20 @@
       >
 
       <div class="proof-note">
+
         Screenshot ragaa kaffaltii kee asitti olkaa'i.
         Admin'n erga ilaalee booda kaffaltiin mirkanaa'a.
+
+        <br><br>
+
+        📌 PNG, JPG ykn WEBP qofa.
+        <br>
+        📌 5MB gadi ta'uu qaba.
+
       </div>
 
 
+      <!-- SUBMIT -->
       <button
         id="payButton"
         type="submit"
@@ -408,627 +472,705 @@
     </form>
 
 
+    <!-- STATUS -->
     <div
       id="status"
       class="status"
     ></div>
 
   </div>
+
 </div>
 
 
 <script>
 
-  // =====================================================
-  // SUPABASE
-  // =====================================================
+/* =====================================================
+   SUPABASE
+===================================================== */
 
-  const SUPABASE_URL =
-    "https://baoczizarrnzxwguyili.supabase.co";
+const SUPABASE_URL =
+  "https://baoczizarrnzxwguyili.supabase.co";
 
-  const SUPABASE_KEY =
-    "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
+const SUPABASE_KEY =
+  "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
-  const supabaseClient =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
-    );
-
-
-  // =====================================================
-  // COURSE PRICES
-  // =====================================================
-
-  const PRICES = {
-
-    "Video Editing": 530,
-
-    "Web Design": 1000,
-
-    "Graphic Design": 400,
-
-    "Digital Marketing": 400,
-
-    "Photography": 400,
-
-    "Flayer Package": 400,
-
-    "YouTube Thumbnail": 400,
-
-    "Poster Design": 400
-
-  };
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
-  // =====================================================
-  // ELEMENTS
-  // =====================================================
+/* =====================================================
+   COURSE PRICES
+===================================================== */
 
-  const course =
-    document.getElementById("course");
+const PRICES = {
 
-  const priceBox =
-    document.getElementById("priceBox");
+  "Video Editing": 530,
 
-  const address =
-    document.getElementById("address");
+  "Web Design": 1000,
 
-  const otherAddressBox =
-    document.getElementById(
-      "otherAddressBox"
-    );
+  "Graphic Design": 400,
 
-  const otherAddress =
-    document.getElementById(
-      "otherAddress"
-    );
+  "Digital Marketing": 400,
 
-  const form =
-    document.getElementById(
-      "registrationForm"
-    );
+  "Photography": 400,
 
-  const payButton =
-    document.getElementById(
-      "payButton"
-    );
+  "Flayer Package": 400,
 
-  const statusBox =
-    document.getElementById(
-      "status"
-    );
+  "YouTube Thumbnail": 400,
 
-  const accountInfo =
-    document.getElementById(
-      "accountInfo"
-    );
+  "Poster Design": 400
+
+};
 
 
-  // =====================================================
-  // COURSE PRICE
-  // =====================================================
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-  course.addEventListener(
-    "change",
-    () => {
+const course =
+  document.getElementById("course");
 
-      const amount =
-        PRICES[course.value];
+const priceBox =
+  document.getElementById("priceBox");
+
+const address =
+  document.getElementById("address");
+
+const otherAddressBox =
+  document.getElementById(
+    "otherAddressBox"
+  );
+
+const otherAddress =
+  document.getElementById(
+    "otherAddress"
+  );
+
+const form =
+  document.getElementById(
+    "registrationForm"
+  );
+
+const payButton =
+  document.getElementById(
+    "payButton"
+  );
+
+const statusBox =
+  document.getElementById(
+    "status"
+  );
+
+const accountInfo =
+  document.getElementById(
+    "accountInfo"
+  );
+
+
+/* =====================================================
+   COURSE PRICE
+===================================================== */
+
+course.addEventListener(
+  "change",
+  function () {
+
+    const amount =
+      PRICES[course.value];
+
+    if (amount) {
 
       priceBox.textContent =
-        amount
-          ? `Gatii: ${amount.toLocaleString()} ETB`
-          : "Gatii: - ETB";
+        `Gatii: ${amount.toLocaleString()} ETB`;
+
+    } else {
+
+      priceBox.textContent =
+        "Gatii: - ETB";
 
     }
-  );
+
+  }
+);
 
 
-  // =====================================================
-  // OTHER ADDRESS
-  // =====================================================
+/* =====================================================
+   OTHER ADDRESS
+===================================================== */
 
-  address.addEventListener(
-    "change",
-    () => {
+address.addEventListener(
+  "change",
+  function () {
 
-      if (address.value === "Other") {
+    if (address.value === "Other") {
 
-        otherAddressBox.style.display =
-          "block";
+      otherAddressBox.style.display =
+        "block";
 
-        otherAddress.required =
-          true;
+      otherAddress.required =
+        true;
 
-      } else {
+    } else {
 
-        otherAddressBox.style.display =
-          "none";
+      otherAddressBox.style.display =
+        "none";
 
-        otherAddress.required =
-          false;
+      otherAddress.required =
+        false;
 
-        otherAddress.value = "";
-
-      }
+      otherAddress.value =
+        "";
 
     }
-  );
+
+  }
+);
 
 
-  // =====================================================
-  // PAYMENT METHOD
-  // =====================================================
+/* =====================================================
+   PAYMENT METHOD
+===================================================== */
 
-  document
-    .querySelectorAll(
-      'input[name="paymentMethod"]'
-    )
-    .forEach(
-      radio => {
+document
+  .querySelectorAll(
+    'input[name="paymentMethod"]'
+  )
+  .forEach(
+    function (radio) {
 
-        radio.addEventListener(
-          "change",
-          () => {
+      radio.addEventListener(
+        "change",
+        function () {
 
-            if (
-              radio.value ===
-              "Telebirr"
-            ) {
+          if (
+            radio.value ===
+            "Telebirr"
+          ) {
 
-              accountInfo.innerHTML =
-                "📱 <strong>Telebirr</strong><br>" +
-                "Lakkoofsa: 0923502464<br>" +
-                "Maqaa: Amanuel";
-
-            }
-
-
-            if (
-              radio.value ===
-              "CBE Birr"
-            ) {
-
-              accountInfo.innerHTML =
-                "🏦 <strong>CBE Birr</strong><br>" +
-                "Lakkoofsa: 0923502464<br>" +
-                "Maqaa: Amanuel";
-
-            }
+            accountInfo.innerHTML =
+              "📱 <strong>Telebirr</strong><br>" +
+              "Lakkoofsa: 0923502464<br>" +
+              "Maqaa: Amanuel";
 
           }
+
+
+          if (
+            radio.value ===
+            "CBE Birr"
+          ) {
+
+            accountInfo.innerHTML =
+              "🏦 <strong>CBE Birr</strong><br>" +
+              "Lakkoofsa: 0923502464<br>" +
+              "Maqaa: Amanuel";
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+
+/* =====================================================
+   STATUS MESSAGE
+===================================================== */
+
+function showStatus(
+  message,
+  type
+) {
+
+  statusBox.textContent =
+    message;
+
+  statusBox.className =
+    "status " + type;
+
+  statusBox.style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   SUBMIT FORM
+===================================================== */
+
+form.addEventListener(
+  "submit",
+  async function (e) {
+
+    e.preventDefault();
+
+
+    /* -----------------------------------------------
+       COURSE
+    ------------------------------------------------ */
+
+    const selectedCourse =
+      course.value;
+
+
+    if (
+      !PRICES[selectedCourse]
+    ) {
+
+      showStatus(
+        "Course sirriitti filadhu.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       ADDRESS
+    ------------------------------------------------ */
+
+    let selectedAddress =
+      address.value;
+
+
+    if (
+      selectedAddress ===
+      "Other"
+    ) {
+
+      selectedAddress =
+        otherAddress.value.trim();
+
+
+      if (!selectedAddress) {
+
+        showStatus(
+          "Address kee galchi.",
+          "error"
         );
 
+        return;
+
       }
+
+    }
+
+
+    /* -----------------------------------------------
+       PHONE
+    ------------------------------------------------ */
+
+    const phone =
+      document
+        .getElementById("phone")
+        .value
+        .trim();
+
+
+    if (
+      !/^(09|07)[0-9]{8}$/.test(
+        phone
+      )
+    ) {
+
+      showStatus(
+        "Phone 09xxxxxxxx ykn 07xxxxxxxx ta'uu qaba.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       PAYMENT METHOD
+    ------------------------------------------------ */
+
+    const paymentMethod =
+      document.querySelector(
+        'input[name="paymentMethod"]:checked'
+      )?.value;
+
+
+    if (!paymentMethod) {
+
+      showStatus(
+        "Telebirr ykn CBE Birr keessaa tokko filadhu.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       PAYMENT REFERENCE
+    ------------------------------------------------ */
+
+    const paymentReference =
+      document
+        .getElementById(
+          "paymentReference"
+        )
+        .value
+        .trim();
+
+
+    if (!paymentReference) {
+
+      showStatus(
+        "Transaction / Reference Number galchi.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       SCREENSHOT
+    ------------------------------------------------ */
+
+    const screenshotInput =
+      document.getElementById(
+        "paymentScreenshot"
+      );
+
+    const screenshot =
+      screenshotInput.files[0];
+
+
+    if (!screenshot) {
+
+      showStatus(
+        "Screenshot kaffaltii kee olkaa'i.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       FILE SIZE
+    ------------------------------------------------ */
+
+    if (
+      screenshot.size >
+      5 * 1024 * 1024
+    ) {
+
+      showStatus(
+        "Screenshot 5MB gadi ta'uu qaba.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       FILE TYPE
+    ------------------------------------------------ */
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+
+    if (
+      !allowedTypes.includes(
+        screenshot.type
+      )
+    ) {
+
+      showStatus(
+        "PNG, JPG ykn WEBP qofa fayyadami.",
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* -----------------------------------------------
+       DISABLE BUTTON
+    ------------------------------------------------ */
+
+    payButton.disabled =
+      true;
+
+    payButton.textContent =
+      "Ergaa jira...";
+
+
+    showStatus(
+      "Galmee fi screenshot kee ergaa jirra...",
+      "waiting"
     );
 
 
-  // =====================================================
-  // STATUS
-  // =====================================================
-
-  function showStatus(
-    message,
-    type
-  ) {
-
-    statusBox.textContent =
-      message;
-
-    statusBox.className =
-      "status " + type;
-
-    statusBox.style.display =
-      "block";
-
-  }
+    let uploadedFilePath =
+      null;
 
 
-  // =====================================================
-  // SUBMIT
-  // =====================================================
-
-  form.addEventListener(
-    "submit",
-    async (e) => {
-
-      e.preventDefault();
+    try {
 
 
-      const selectedCourse =
-        course.value;
+      /* =============================================
+         1. CREATE UNIQUE FILE NAME
+      ============================================= */
 
-
-      if (!PRICES[selectedCourse]) {
-
-        showStatus(
-          "Course sirriitti filadhu.",
-          "error"
-        );
-
-        return;
-      }
-
-
-      let selectedAddress =
-        address.value;
-
-
-      if (
-        selectedAddress ===
-        "Other"
-      ) {
-
-        selectedAddress =
-          otherAddress.value.trim();
-
-
-        if (!selectedAddress) {
-
-          showStatus(
-            "Address kee galchi.",
-            "error"
-          );
-
-          return;
-        }
-
-      }
-
-
-      const phone =
-        document
-          .getElementById("phone")
-          .value.trim();
-
-
-      if (
-        !/^(09|07)[0-9]{8}$/.test(
-          phone
-        )
-      ) {
-
-        showStatus(
-          "Phone 09xxxxxxxx ykn 07xxxxxxxx ta'uu qaba.",
-          "error"
-        );
-
-        return;
-      }
-
-
-      const paymentMethod =
-        document.querySelector(
-          'input[name="paymentMethod"]:checked'
-        )?.value;
-
-
-      if (!paymentMethod) {
-
-        showStatus(
-          "Telebirr ykn CBE Birr keessaa tokko filadhu.",
-          "error"
-        );
-
-        return;
-      }
-
-
-      const paymentReference =
-        document
-          .getElementById(
-            "paymentReference"
-          )
-          .value.trim();
-
-
-      if (!paymentReference) {
-
-        showStatus(
-          "Transaction / Reference Number galchi.",
-          "error"
-        );
-
-        return;
-      }
-
-
-      const screenshotInput =
-        document.getElementById(
-          "paymentScreenshot"
+      const safePhone =
+        phone.replace(
+          /[^0-9]/g,
+          ""
         );
 
 
-      const screenshot =
-        screenshotInput.files[0];
+      const extension =
+        screenshot.name
+          .split(".")
+          .pop()
+          .toLowerCase();
 
 
-      if (!screenshot) {
-
-        showStatus(
-          "Screenshot kaffaltii kee olkaa'i.",
-          "error"
-        );
-
-        return;
-      }
+      const uniquePart =
+        Date.now() +
+        "_" +
+        Math.random()
+          .toString(36)
+          .substring(2, 10);
 
 
-      // Check file size
-      if (
-        screenshot.size >
-        5 * 1024 * 1024
-      ) {
-
-        showStatus(
-          "Screenshot 5MB gadi ta'uu qaba.",
-          "error"
-        );
-
-        return;
-      }
+      const fileName =
+        uniquePart +
+        "_" +
+        safePhone +
+        "." +
+        extension;
 
 
-      // Check image
-      if (
-        ![
-          "image/jpeg",
-          "image/png",
-          "image/webp"
-        ].includes(
-          screenshot.type
-        )
-      ) {
+      /*
+        Private bucket keessatti
+        proofs/ folder jalatti galma'a.
+      */
 
-        showStatus(
-          "PNG, JPG ykn WEBP qofa fayyadami.",
-          "error"
-        );
-
-        return;
-      }
+      const filePath =
+        "proofs/" +
+        fileName;
 
 
-      payButton.disabled =
-        true;
-
-      payButton.textContent =
-        "Ergaa jira...";
+      uploadedFilePath =
+        filePath;
 
 
-      showStatus(
-        "Galmee fi screenshot kee ergaa jirra...",
-        "waiting"
-      );
+      /* =============================================
+         2. UPLOAD SCREENSHOT
+      ============================================= */
 
-
-      try {
-
-        // =================================================
-        // 1. CREATE UNIQUE FILE NAME
-        // =================================================
-
-        const safePhone =
-          phone.replace(
-            /[^0-9]/g,
-            ""
+      const {
+        error: uploadError
+      } =
+        await supabaseClient
+          .storage
+          .from("payment-proofs")
+          .upload(
+            filePath,
+            screenshot,
+            {
+              cacheControl: "3600",
+              upsert: false,
+              contentType:
+                screenshot.type
+            }
           );
 
 
-        const fileName =
-          Date.now() +
-          "_" +
-          safePhone +
-          "_" +
-          Math.random()
-            .toString(36)
-            .substring(2, 8) +
-          "." +
-          (
-            screenshot.name
-              .split(".")
-              .pop()
-              .toLowerCase()
-          );
+      if (uploadError) {
+
+        throw new Error(
+          "Screenshot upload hin milkoofne: " +
+          uploadError.message
+        );
+
+      }
 
 
-        const filePath =
-          "proofs/" +
-          fileName;
+      /* =============================================
+         3. PRIVATE STORAGE PATH
+      ============================================= */
+
+      /*
+        IMPORTANT:
+
+        getPublicUrl() hin fayyadamnu.
+
+        Bucket private waan ta'eef
+        path qofa database keessa kaa'ama.
+
+        Fakkeenya:
+        proofs/1761234567890_0912345678_abcd1234.jpg
+      */
+
+      const screenshotPath =
+        filePath;
 
 
-        // =================================================
-        // 2. UPLOAD SCREENSHOT
-        // =================================================
+      /* =============================================
+         4. STUDENT DATA
+      ============================================= */
 
-        const {
-          error: uploadError
-        } =
-          await supabaseClient
-            .storage
-            .from("payment-proofs")
-            .upload(
-              filePath,
-              screenshot,
-              {
-                cacheControl: "3600",
-                upsert: false,
-                contentType:
-                  screenshot.type
-              }
-            );
+      const studentData = {
 
+        fullname:
+          document
+            .getElementById(
+              "fullname"
+            )
+            .value
+            .trim(),
 
-        if (uploadError) {
+        fathername:
+          document
+            .getElementById(
+              "fathername"
+            )
+            .value
+            .trim(),
 
-          throw uploadError;
+        gender:
+          document
+            .getElementById(
+              "gender"
+            )
+            .value,
 
-        }
-
-
-        // =================================================
-        // 3. GET PUBLIC URL
-        // =================================================
-
-        const {
-          data: publicData
-        } =
-          supabaseClient
-            .storage
-            .from("payment-proofs")
-            .getPublicUrl(
-              filePath
-            );
-
-
-        const screenshotUrl =
-          publicData.publicUrl;
-
-
-        // =================================================
-        // 4. INSERT STUDENT
-        // =================================================
-
-        const studentData = {
-
-          fullname:
+        age:
+          Number(
             document
               .getElementById(
-                "fullname"
+                "age"
               )
-              .value.trim(),
+              .value
+          ),
 
-          fathername:
-            document
-              .getElementById(
-                "fathername"
-              )
-              .value.trim(),
-
-          gender:
-            document
-              .getElementById(
-                "gender"
-              )
-              .value,
-
-          age:
-            Number(
-              document
-                .getElementById(
-                  "age"
-                )
-                .value
-            ),
+        phone:
 
           phone,
 
-          email:
-            document
-              .getElementById(
-                "email"
-              )
-              .value.trim() ||
-            null,
+        email:
+          document
+            .getElementById(
+              "email"
+            )
+            .value
+            .trim() ||
+          null,
 
-          course:
-            selectedCourse,
+        course:
 
-          address:
-            selectedAddress,
+          selectedCourse,
 
-          payment_status:
-            "PENDING",
+        address:
 
-          payment_method:
-            paymentMethod,
+          selectedAddress,
 
-          payment_amount:
-            PRICES[
-              selectedCourse
-            ],
+        payment_status:
 
-          payment_reference:
-            paymentReference,
+          "PENDING",
 
-          payment_screenshot_url:
-            screenshotUrl,
+        payment_method:
 
-          paid_at:
-            null
+          paymentMethod,
 
-        };
+        payment_amount:
 
+          PRICES[
+            selectedCourse
+          ],
 
-        const {
-          error: insertError
-        } =
-          await supabaseClient
-            .from("Students")
-            .insert(
-              [studentData]
-            );
+        payment_reference:
 
+          paymentReference,
 
-        if (insertError) {
+        /*
+          PRIVATE STORAGE PATH
+        */
 
-          throw insertError;
+        payment_screenshot_url:
 
-        }
+          screenshotPath,
+
+        paid_at:
+
+          null
+
+      };
 
 
-        // =================================================
-        // SUCCESS
-        // =================================================
+      /* =============================================
+         5. INSERT INTO STUDENTS
+      ============================================= */
 
-        form.reset();
-
-        priceBox.textContent =
-          "Gatii: - ETB";
-
-        otherAddressBox.style.display =
-          "none";
-
-        accountInfo.innerHTML =
-          "Kaffaltii kee dura Telebirr ykn CBE Birr filadhu.";
+      const {
+        error: insertError
+      } =
+        await supabaseClient
+          .from("Students")
+          .insert(
+            [studentData]
+          );
 
 
-        showStatus(
-          "Galmeen kee milkaa'eera! ✅ " +
-          "Kaffaltiin kee PENDING dha. " +
-          "Admin'n screenshot fi transaction number ilaalee booda mirkaneessa.",
-          "success"
+      if (insertError) {
+
+        throw new Error(
+          "Galmee database keessa galchuu hin dandeenye: " +
+          insertError.message
         );
-
-
-      } catch (err) {
-
-        console.error(
-          "Registration error:",
-          err
-        );
-
-
-        showStatus(
-          err.message ||
-          "Galmee erguu irratti dogoggorri uumame.",
-          "error"
-        );
-
-
-        payButton.disabled =
-          false;
-
-        payButton.textContent =
-          "Galmaa'i & Kaffaltii Mirkaneessaf Ergi";
 
       }
 
-    }
-  );
 
-</script>
+      /* =============================================
+         6. SUCCESS
+      ============================================= */
 
-</body>
-  </html>
+      form.reset();
+
+
+      priceBox.textContent =
+        "Gatii: - ETB";
+
+
+      otherAddressBox.style.display =
+        "none";
+
+
+      otherAddress.required =
+        false;
+
+
+      accountInfo.innerHTML =
+        "Kaffaltii kee dura Telebirr ykn CBE Birr filadhu.";
+
+
+      showStatus(
+
+        "Galmeen kee 

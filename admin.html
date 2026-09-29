@@ -38,8 +38,7 @@
       padding: 20px;
       border-radius: 16px;
       margin-bottom: 20px;
-      box-shadow:
-        0 5px 20px rgba(0,0,0,.07);
+      box-shadow: 0 5px 20px rgba(0,0,0,.07);
     }
 
     h1 {
@@ -91,7 +90,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1650px;
+      min-width: 1700px;
     }
 
     th,
@@ -116,15 +115,6 @@
       font-weight: bold;
     }
 
-    .unpaid {
-      display: inline-block;
-      padding: 5px 9px;
-      border-radius: 20px;
-      background: #ffe6e6;
-      color: #b00020;
-      font-weight: bold;
-    }
-
     .pending {
       display: inline-block;
       padding: 5px 9px;
@@ -134,14 +124,12 @@
       font-weight: bold;
     }
 
-    .error {
+    .unpaid {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #ffe6e6;
       color: #b00020;
-      margin-top: 10px;
-    }
-
-    .success {
-      color: #087f3f;
-      margin-top: 10px;
       font-weight: bold;
     }
 
@@ -158,6 +146,11 @@
       font-weight: bold;
     }
 
+    .error {
+      color: #b00020;
+      margin-top: 10px;
+    }
+
     #adminArea {
       display: none;
     }
@@ -172,9 +165,7 @@
 <div class="container">
 
 
-  <!-- =====================================================
-       LOGIN
-  ====================================================== -->
+  <!-- LOGIN -->
 
   <div
     id="loginArea"
@@ -199,9 +190,7 @@
       placeholder="Password"
     >
 
-    <button
-      onclick="login()"
-    >
+    <button onclick="login()">
       Login
     </button>
 
@@ -214,16 +203,10 @@
 
 
 
-  <!-- =====================================================
-       ADMIN
-  ====================================================== -->
+  <!-- ADMIN AREA -->
 
-  <div
-    id="adminArea"
-  >
+  <div id="adminArea">
 
-
-    <!-- HEADER -->
 
     <div class="card">
 
@@ -258,7 +241,7 @@
       <input
         id="search"
         type="text"
-        placeholder="Maqaa, phone, course, payment reference, status barbaadi..."
+        placeholder="Maqaa, phone, course, reference, status barbaadi..."
         oninput="filterStudents()"
       >
 
@@ -302,7 +285,7 @@
 
               <th>Method</th>
 
-              <th>Payment Reference</th>
+              <th>Reference</th>
 
               <th>Screenshot</th>
 
@@ -319,13 +302,11 @@
             id="studentTable"
           ></tbody>
 
-
         </table>
 
       </div>
 
     </div>
-
 
   </div>
 
@@ -378,14 +359,12 @@
 
 
     const {
-      data,
       error
     } =
       await supabaseClient.auth
         .signInWithPassword({
 
           email,
-
           password
 
         });
@@ -485,6 +464,214 @@
 
 
   // =====================================================
+  // GET STORAGE PATH
+  // =====================================================
+
+  function getStoragePath(url) {
+
+    if (!url) {
+      return null;
+    }
+
+
+    try {
+
+      const marker =
+        "/storage/v1/object/public/payment-proofs/";
+
+
+      if (
+        url.includes(marker)
+      ) {
+
+        return decodeURIComponent(
+          url.split(marker)[1]
+        );
+
+      }
+
+
+      /*
+        Yoo gara fuulduraatti
+        payment_screenshot_url
+        keessatti object path qofa
+        yoo kuufame:
+        fakkeenya:
+        abc123/screenshot.jpg
+      */
+
+      if (
+        !url.startsWith("http")
+      ) {
+
+        return url;
+
+      }
+
+
+    } catch (e) {
+
+      console.error(e);
+
+    }
+
+
+    return null;
+
+  }
+
+
+
+  // =====================================================
+  // CREATE PRIVATE SIGNED URL
+  // =====================================================
+
+  async function createScreenshotUrl(
+    student
+  ) {
+
+    const original =
+      student.payment_screenshot_url;
+
+
+    const path =
+      getStoragePath(
+        original
+      );
+
+
+    if (!path) {
+
+      return null;
+
+    }
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .storage
+        .from("payment-proofs")
+        .createSignedUrl(
+          path,
+          300
+        );
+
+
+    if (error) {
+
+      console.error(
+        "Signed URL error:",
+        error.message
+      );
+
+      return null;
+
+    }
+
+
+    return data?.signedUrl || null;
+
+  }
+
+
+
+  // =====================================================
+  // VIEW SCREENSHOT
+  // =====================================================
+
+  async function viewScreenshot(
+    studentId
+  ) {
+
+    const student =
+      students.find(
+        s =>
+          String(s.id) ===
+          String(studentId)
+      );
+
+
+    if (!student) {
+
+      alert(
+        "Student hin argamne."
+      );
+
+      return;
+
+    }
+
+
+    if (
+      !student.payment_screenshot_url
+    ) {
+
+      alert(
+        "Screenshot hin jiru."
+      );
+
+      return;
+
+    }
+
+
+    const button =
+      document.getElementById(
+        "view-" + studentId
+      );
+
+
+    if (button) {
+
+      button.disabled = true;
+
+      button.textContent =
+        "Opening...";
+
+    }
+
+
+    const signedUrl =
+      await createScreenshotUrl(
+        student
+      );
+
+
+    if (button) {
+
+      button.disabled = false;
+
+      button.textContent =
+        "View";
+
+    }
+
+
+    if (!signedUrl) {
+
+      alert(
+        "Screenshot banamee jira ykn URL isaa sirrii miti."
+      );
+
+      return;
+
+    }
+
+
+    window.open(
+      signedUrl,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }
+
+
+
+  // =====================================================
   // RENDER STUDENTS
   // =====================================================
 
@@ -529,7 +716,10 @@
           statusClass =
             "paid";
 
-        } else if (
+        }
+
+
+        if (
           status === "UNPAID"
         ) {
 
@@ -555,32 +745,24 @@
             : "-";
 
 
-        const screenshot =
-          student.payment_screenshot_url;
-
-
         let screenshotHtml =
           "-";
 
 
-        if (screenshot) {
+        if (
+          student.payment_screenshot_url
+        ) {
 
           screenshotHtml = `
 
-            <a
-              href="${escapeHtml(screenshot)}"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              id="view-${student.id}"
+              class="view-btn"
+              type="button"
+              onclick="viewScreenshot('${student.id}')"
             >
-
-              <button
-                class="view-btn"
-                type="button"
-              >
-                View
-              </button>
-
-            </a>
+              View
+            </button>
 
           `;
 
@@ -591,7 +773,9 @@
           "-";
 
 
-        if (status === "PENDING") {
+        if (
+          status === "PENDING"
+        ) {
 
           actionHtml = `
 
@@ -605,7 +789,10 @@
 
           `;
 
-        } else if (
+        }
+
+
+        if (
           status === "PAID"
         ) {
 
@@ -628,13 +815,11 @@
             ${index + 1}
           </td>
 
-
           <td>
             ${escapeHtml(
               student.fullname
             )}
           </td>
-
 
           <td>
             ${escapeHtml(
@@ -642,13 +827,11 @@
             )}
           </td>
 
-
           <td>
             ${escapeHtml(
               student.gender
             )}
           </td>
-
 
           <td>
             ${escapeHtml(
@@ -656,13 +839,11 @@
             )}
           </td>
 
-
           <td>
             ${escapeHtml(
               student.phone
             )}
           </td>
-
 
           <td>
             ${escapeHtml(
@@ -670,20 +851,17 @@
             )}
           </td>
 
-
           <td>
             ${escapeHtml(
               student.course
             )}
           </td>
 
-
           <td>
             ${escapeHtml(
               student.address
             )}
           </td>
-
 
           <td>
 
@@ -695,11 +873,9 @@
 
           </td>
 
-
           <td>
             ${amount} ETB
           </td>
-
 
           <td>
             ${escapeHtml(
@@ -708,7 +884,6 @@
             )}
           </td>
 
-
           <td>
             ${escapeHtml(
               student.payment_reference ||
@@ -716,18 +891,15 @@
             )}
           </td>
 
-
           <td>
             ${screenshotHtml}
           </td>
-
 
           <td>
             ${escapeHtml(
               paidTime
             )}
           </td>
-
 
           <td>
             ${actionHtml}
@@ -755,7 +927,9 @@
 
     const student =
       students.find(
-        s => String(s.id) === String(studentId)
+        s =>
+          String(s.id) ===
+          String(studentId)
       );
 
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="om">
+
 <head>
 
   <meta charset="UTF-8">
@@ -27,7 +28,7 @@
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 1500px;
       margin: auto;
       padding: 20px;
     }
@@ -54,14 +55,23 @@
     }
 
     button {
-      padding: 12px 18px;
+      padding: 10px 15px;
       border: none;
       border-radius: 10px;
       background: #087f3f;
       color: white;
       font-weight: bold;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 5px;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
     }
 
     .logout {
@@ -81,7 +91,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 1300px;
+      min-width: 1650px;
     }
 
     th,
@@ -90,6 +100,7 @@
       border-bottom: 1px solid #eee;
       text-align: left;
       white-space: nowrap;
+      vertical-align: middle;
     }
 
     th {
@@ -128,6 +139,25 @@
       margin-top: 10px;
     }
 
+    .success {
+      color: #087f3f;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .view-btn {
+      background: #1769aa;
+    }
+
+    .paid-btn {
+      background: #087f3f;
+    }
+
+    .already-paid {
+      color: #087f3f;
+      font-weight: bold;
+    }
+
     #adminArea {
       display: none;
     }
@@ -136,11 +166,15 @@
 
 </head>
 
+
 <body>
 
 <div class="container">
 
-  <!-- LOGIN -->
+
+  <!-- =====================================================
+       LOGIN
+  ====================================================== -->
 
   <div
     id="loginArea"
@@ -179,11 +213,17 @@
   </div>
 
 
-  <!-- ADMIN -->
+
+  <!-- =====================================================
+       ADMIN
+  ====================================================== -->
 
   <div
     id="adminArea"
   >
+
+
+    <!-- HEADER -->
 
     <div class="card">
 
@@ -199,26 +239,34 @@
       </h1>
 
       <div class="count">
+
         Barattoota:
         <span id="studentCount">
           0
         </span>
+
       </div>
 
     </div>
 
+
+
+    <!-- SEARCH -->
 
     <div class="card">
 
       <input
         id="search"
         type="text"
-        placeholder="Maqaa, phone, course, payment reference barbaadi..."
+        placeholder="Maqaa, phone, course, payment reference, status barbaadi..."
         oninput="filterStudents()"
       >
 
     </div>
 
+
+
+    <!-- TABLE -->
 
     <div class="card">
 
@@ -231,30 +279,46 @@
             <tr>
 
               <th>#</th>
+
               <th>Full Name</th>
+
               <th>Father Name</th>
+
               <th>Gender</th>
+
               <th>Age</th>
+
               <th>Phone</th>
+
               <th>Email</th>
+
               <th>Course</th>
+
               <th>Address</th>
 
-              <!-- PAYMENT -->
-
               <th>Payment Status</th>
+
               <th>Amount</th>
+
               <th>Method</th>
+
               <th>Payment Reference</th>
+
+              <th>Screenshot</th>
+
               <th>Paid Time</th>
+
+              <th>Action</th>
 
             </tr>
 
           </thead>
 
+
           <tbody
             id="studentTable"
           ></tbody>
+
 
         </table>
 
@@ -262,12 +326,15 @@
 
     </div>
 
+
   </div>
 
 </div>
 
 
+
 <script>
+
 
   // =====================================================
   // SUPABASE
@@ -279,6 +346,7 @@
   const SUPABASE_KEY =
     "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
+
   const supabaseClient =
     window.supabase.createClient(
       SUPABASE_URL,
@@ -287,6 +355,7 @@
 
 
   let students = [];
+
 
 
   // =====================================================
@@ -301,6 +370,7 @@
         .value
         .trim();
 
+
     const password =
       document
         .getElementById("password")
@@ -313,27 +383,30 @@
     } =
       await supabaseClient.auth
         .signInWithPassword({
+
           email,
+
           password
+
         });
 
 
     if (error) {
 
       document
-        .getElementById(
-          "loginError"
-        )
+        .getElementById("loginError")
         .textContent =
           error.message;
 
       return;
+
     }
 
 
     showAdmin();
 
   }
+
 
 
   // =====================================================
@@ -343,21 +416,21 @@
   async function showAdmin() {
 
     document
-      .getElementById(
-        "loginArea"
-      )
-      .style.display = "none";
+      .getElementById("loginArea")
+      .style.display =
+        "none";
+
 
     document
-      .getElementById(
-        "adminArea"
-      )
-      .style.display = "block";
+      .getElementById("adminArea")
+      .style.display =
+        "block";
 
 
     await loadStudents();
 
   }
+
 
 
   // =====================================================
@@ -389,16 +462,16 @@
       );
 
       return;
+
     }
 
 
-    students = data || [];
+    students =
+      data || [];
 
 
     document
-      .getElementById(
-        "studentCount"
-      )
+      .getElementById("studentCount")
       .textContent =
         students.length;
 
@@ -410,8 +483,9 @@
   }
 
 
+
   // =====================================================
-  // RENDER
+  // RENDER STUDENTS
   // =====================================================
 
   function renderStudents(
@@ -440,23 +514,28 @@
         const status =
           String(
             student.payment_status ||
-            "unpaid"
-          ).toLowerCase();
+            "PENDING"
+          ).toUpperCase();
 
 
         let statusClass =
-          "unpaid";
+          "pending";
+
 
         if (
-          status === "paid"
+          status === "PAID"
         ) {
+
           statusClass =
             "paid";
+
         } else if (
-          status === "pending"
+          status === "UNPAID"
         ) {
+
           statusClass =
-            "pending";
+            "unpaid";
+
         }
 
 
@@ -476,9 +555,79 @@
             : "-";
 
 
+        const screenshot =
+          student.payment_screenshot_url;
+
+
+        let screenshotHtml =
+          "-";
+
+
+        if (screenshot) {
+
+          screenshotHtml = `
+
+            <a
+              href="${escapeHtml(screenshot)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              <button
+                class="view-btn"
+                type="button"
+              >
+                View
+              </button>
+
+            </a>
+
+          `;
+
+        }
+
+
+        let actionHtml =
+          "-";
+
+
+        if (status === "PENDING") {
+
+          actionHtml = `
+
+            <button
+              class="paid-btn"
+              type="button"
+              onclick="markAsPaid('${student.id}')"
+            >
+              PAID
+            </button>
+
+          `;
+
+        } else if (
+          status === "PAID"
+        ) {
+
+          actionHtml = `
+
+            <span
+              class="already-paid"
+            >
+              ✓ Paid
+            </span>
+
+          `;
+
+        }
+
+
         tr.innerHTML = `
 
-          <td>${index + 1}</td>
+          <td>
+            ${index + 1}
+          </td>
+
 
           <td>
             ${escapeHtml(
@@ -486,11 +635,13 @@
             )}
           </td>
 
+
           <td>
             ${escapeHtml(
               student.fathername
             )}
           </td>
+
 
           <td>
             ${escapeHtml(
@@ -498,11 +649,13 @@
             )}
           </td>
 
+
           <td>
             ${escapeHtml(
               student.age
             )}
           </td>
+
 
           <td>
             ${escapeHtml(
@@ -510,17 +663,20 @@
             )}
           </td>
 
+
           <td>
             ${escapeHtml(
               student.email || "-"
             )}
           </td>
 
+
           <td>
             ${escapeHtml(
               student.course
             )}
           </td>
+
 
           <td>
             ${escapeHtml(
@@ -529,25 +685,21 @@
           </td>
 
 
-          <!-- PAYMENT STATUS -->
-
           <td>
+
             <span
               class="${statusClass}"
             >
-              ${status.toUpperCase()}
+              ${escapeHtml(status)}
             </span>
+
           </td>
 
-
-          <!-- AMOUNT -->
 
           <td>
             ${amount} ETB
           </td>
 
-
-          <!-- METHOD -->
 
           <td>
             ${escapeHtml(
@@ -557,8 +709,6 @@
           </td>
 
 
-          <!-- REFERENCE -->
-
           <td>
             ${escapeHtml(
               student.payment_reference ||
@@ -567,12 +717,20 @@
           </td>
 
 
-          <!-- PAID TIME -->
+          <td>
+            ${screenshotHtml}
+          </td>
+
 
           <td>
             ${escapeHtml(
               paidTime
             )}
+          </td>
+
+
+          <td>
+            ${actionHtml}
           </td>
 
         `;
@@ -586,6 +744,88 @@
   }
 
 
+
+  // =====================================================
+  // MARK AS PAID
+  // =====================================================
+
+  async function markAsPaid(
+    studentId
+  ) {
+
+    const student =
+      students.find(
+        s => String(s.id) === String(studentId)
+      );
+
+
+    if (!student) {
+
+      alert(
+        "Student hin argamne."
+      );
+
+      return;
+
+    }
+
+
+    const confirmation =
+      confirm(
+        "Payment kana mirkaneessitee PAID gochuu barbaaddaa?"
+      );
+
+
+    if (!confirmation) {
+
+      return;
+
+    }
+
+
+    const {
+      error
+    } =
+      await supabaseClient
+        .from("Students")
+        .update({
+
+          payment_status:
+            "PAID",
+
+          paid_at:
+            new Date().toISOString()
+
+        })
+        .eq(
+          "id",
+          studentId
+        );
+
+
+    if (error) {
+
+      alert(
+        "Payment update hin milkoofne:\n" +
+        error.message
+      );
+
+      return;
+
+    }
+
+
+    alert(
+      "Payment PAID godhameera."
+    );
+
+
+    await loadStudents();
+
+  }
+
+
+
   // =====================================================
   // SEARCH
   // =====================================================
@@ -594,9 +834,7 @@
 
     const q =
       document
-        .getElementById(
-          "search"
-        )
+        .getElementById("search")
         .value
         .toLowerCase()
         .trim();
@@ -609,12 +847,13 @@
       );
 
       return;
+
     }
 
 
     const filtered =
       students.filter(
-        (student) => {
+        student => {
 
           const text = [
 
@@ -634,7 +873,9 @@
 
             student.payment_method,
 
-            student.payment_reference
+            student.payment_reference,
+
+            student.payment_amount
 
           ]
             .filter(Boolean)
@@ -655,6 +896,7 @@
   }
 
 
+
   // =====================================================
   // HTML ESCAPE
   // =====================================================
@@ -666,28 +908,34 @@
     return String(
       value ?? ""
     )
+
       .replace(
         /&/g,
         "&amp;"
       )
+
       .replace(
         /</g,
         "&lt;"
       )
+
       .replace(
         />/g,
         "&gt;"
       )
+
       .replace(
         /"/g,
         "&quot;"
       )
+
       .replace(
         /'/g,
         "&#039;"
       );
 
   }
+
 
 
   // =====================================================
@@ -699,9 +947,11 @@
     await supabaseClient.auth
       .signOut();
 
+
     location.reload();
 
   }
+
 
 
   // =====================================================
@@ -731,7 +981,9 @@
 
   checkSession();
 
+
 </script>
 
 </body>
+
   </html>

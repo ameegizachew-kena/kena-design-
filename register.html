@@ -202,7 +202,6 @@
         placeholder="Maqaa guutuu"
       >
 
-
       <!-- FATHER NAME -->
       <label>Father Name</label>
 
@@ -212,7 +211,6 @@
         required
         placeholder="Maqaa abbaa"
       >
-
 
       <!-- GENDER -->
       <label>Gender</label>
@@ -233,7 +231,6 @@
 
       </select>
 
-
       <!-- AGE -->
       <label>Age</label>
 
@@ -245,7 +242,6 @@
         required
         placeholder="Umurii"
       >
-
 
       <!-- PHONE -->
       <label>Phone</label>
@@ -259,7 +255,6 @@
         placeholder="09xxxxxxxx"
       >
 
-
       <!-- EMAIL -->
       <label>Email (Optional)</label>
 
@@ -268,7 +263,6 @@
         type="email"
         placeholder="email@example.com"
       >
-
 
       <!-- COURSE -->
       <label>Course</label>
@@ -313,12 +307,10 @@
 
       </select>
 
-
       <!-- PRICE -->
       <div id="priceBox" class="price-box">
         Gatii: - ETB
       </div>
-
 
       <!-- ADDRESS -->
       <label>Address</label>
@@ -355,12 +347,8 @@
 
       </select>
 
-
       <!-- OTHER ADDRESS -->
-      <div
-        id="otherAddressBox"
-        class="other-address"
-      >
+      <div id="otherAddressBox" class="other-address">
 
         <label>Other Address</label>
 
@@ -371,7 +359,6 @@
         >
 
       </div>
-
 
       <!-- PAYMENT -->
       <div class="payment-box">
@@ -395,7 +382,6 @@
 
           </label>
 
-
           <label class="method">
 
             <input
@@ -411,12 +397,8 @@
 
         </div>
 
-
         <!-- PAYMENT ACCOUNT -->
-        <div
-          id="accountInfo"
-          class="account-info"
-        >
+        <div id="accountInfo" class="account-info">
 
           📱 <strong>Telebirr:</strong>
           0923502464 — Amanuel
@@ -429,7 +411,6 @@
         </div>
 
       </div>
-
 
       <!-- SCREENSHOT -->
       <label>
@@ -457,7 +438,6 @@
 
       </div>
 
-
       <!-- SUBMIT -->
       <button
         id="payButton"
@@ -468,12 +448,8 @@
 
     </form>
 
-
     <!-- STATUS -->
-    <div
-      id="status"
-      class="status"
-    ></div>
+    <div id="status" class="status"></div>
 
   </div>
 
@@ -655,7 +631,6 @@ document
 
           }
 
-
           if (
             radio.value ===
             "CBE Birr"
@@ -706,14 +681,12 @@ form.addEventListener(
 
     e.preventDefault();
 
-
     /* -----------------------------------------------
        COURSE
     ------------------------------------------------ */
 
     const selectedCourse =
       course.value;
-
 
     if (
       !PRICES[selectedCourse]
@@ -736,7 +709,6 @@ form.addEventListener(
     let selectedAddress =
       address.value;
 
-
     if (
       selectedAddress ===
       "Other"
@@ -744,7 +716,6 @@ form.addEventListener(
 
       selectedAddress =
         otherAddress.value.trim();
-
 
       if (!selectedAddress) {
 
@@ -769,7 +740,6 @@ form.addEventListener(
         .getElementById("phone")
         .value
         .trim();
-
 
     if (
       !/^(09|07)[0-9]{8}$/.test(
@@ -796,7 +766,6 @@ form.addEventListener(
         'input[name="paymentMethod"]:checked'
       )?.value;
 
-
     if (!paymentMethod) {
 
       showStatus(
@@ -820,7 +789,6 @@ form.addEventListener(
 
     const screenshot =
       screenshotInput.files[0];
-
 
     if (!screenshot) {
 
@@ -863,7 +831,6 @@ form.addEventListener(
       "image/webp"
     ];
 
-
     if (
       !allowedTypes.includes(
         screenshot.type
@@ -890,7 +857,6 @@ form.addEventListener(
     payButton.textContent =
       "Ergaa jira...";
 
-
     showStatus(
       "Galmee fi screenshot kee ergaa jirra...",
       "waiting"
@@ -903,7 +869,6 @@ form.addEventListener(
 
     try {
 
-
       /* =============================================
          1. UNIQUE FILE NAME
       ============================================= */
@@ -914,13 +879,11 @@ form.addEventListener(
           ""
         );
 
-
       const extension =
         screenshot.name
           .split(".")
           .pop()
           .toLowerCase();
-
 
       const uniquePart =
         Date.now() +
@@ -929,7 +892,6 @@ form.addEventListener(
           .toString(36)
           .substring(2, 10);
 
-
       const fileName =
         uniquePart +
         "_" +
@@ -937,11 +899,9 @@ form.addEventListener(
         "." +
         extension;
 
-
       const filePath =
         "proofs/" +
         fileName;
-
 
       uploadedFilePath =
         filePath;
@@ -967,7 +927,6 @@ form.addEventListener(
                 screenshot.type
             }
           );
-
 
       if (uploadError) {
 
@@ -1068,7 +1027,6 @@ form.addEventListener(
             [studentData]
           );
 
-
       if (insertError) {
 
         throw new Error(
@@ -1085,18 +1043,17 @@ form.addEventListener(
 
       form.reset();
 
-
       priceBox.textContent =
         "Gatii: - ETB";
-
 
       otherAddressBox.style.display =
         "none";
 
-
       otherAddress.required =
         false;
 
+      otherAddress.value =
+        "";
 
       /* PAYMENT ACCOUNT RESET */
 
@@ -1125,7 +1082,6 @@ form.addEventListener(
 
 
     } catch (err) {
-
 
       console.error(
         "Registration error:",
@@ -1164,11 +1120,10 @@ form.addEventListener(
       }
 
 
+      /* ---------------------------------------------
+         SHOW REAL ERROR
+      ---------------------------------------------- */
+
       showStatus(
 
         err.message ||
-        "Galmee erguu irratti dogoggorri uumame.",
-
-        "error"
-
-  

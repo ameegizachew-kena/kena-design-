@@ -412,12 +412,20 @@
         </div>
 
 
+        <!-- PAYMENT ACCOUNT -->
         <div
           id="accountInfo"
           class="account-info"
         >
-          Kaffaltii kee dura
-          Telebirr ykn CBE Birr filadhu.
+
+          📱 <strong>Telebirr:</strong>
+          0923502464 — Amanuel
+
+          <br>
+
+          🏦 <strong>CBE Birr:</strong>
+          0923502464 — Amanuel
+
         </div>
 
       </div>
@@ -1010,7 +1018,6 @@ form.addEventListener(
           ),
 
         phone:
-
           phone,
 
         email:
@@ -1023,38 +1030,26 @@ form.addEventListener(
           null,
 
         course:
-
           selectedCourse,
 
         address:
-
           selectedAddress,
 
         payment_status:
-
           "PENDING",
 
         payment_method:
-
           paymentMethod,
 
         payment_amount:
-
           PRICES[
             selectedCourse
           ],
 
-        /*
-          Transaction / Reference Number
-          HIN JIRU.
-        */
-
         payment_screenshot_url:
-
           filePath,
 
         paid_at:
-
           null
 
       };
@@ -1103,8 +1098,12 @@ form.addEventListener(
         false;
 
 
+      /* PAYMENT ACCOUNT RESET */
+
       accountInfo.innerHTML =
-        "Kaffaltii kee dura Telebirr ykn CBE Birr filadhu.";
+        "📱 <strong>Telebirr:</strong> 0923502464 — Amanuel" +
+        "<br>" +
+        "🏦 <strong>CBE Birr:</strong> 0923502464 — Amanuel";
 
 
       showStatus(
@@ -1172,17 +1171,4 @@ form.addEventListener(
 
         "error"
 
-      );
-
-
-      payButton.disabled =
-        false;
-
-
-      payButton.textContent =
-        "Galmaa'i & Kaffaltii Mirkaneessaf Ergi";
-
-    }
-
-  }
-)
+  

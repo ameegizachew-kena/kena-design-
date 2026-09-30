@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kena Design Learning - Lesson 1</title>
+<title>Kena Design Learning</title>
 
 <style>
 *{
@@ -13,7 +13,7 @@
 
 body{
   margin:0;
-  padding:10px;
+  padding:8px;
   background:#07111f;
   color:white;
   font-family:Arial,sans-serif;
@@ -39,7 +39,7 @@ body{
 }
 
 h1{
-  font-size:34px;
+  font-size:32px;
   margin:10px 0 20px;
 }
 
@@ -51,43 +51,11 @@ h3{
   font-size:21px;
 }
 
-p{
+p,li{
   color:#d7e0eb;
   font-size:17px;
   line-height:1.8;
 }
-
-ul,ol{
-  font-size:17px;
-  line-height:1.9;
-}
-
-li{
-  margin-bottom:5px;
-}
-
-.backBtn,
-.nextBtn{
-  display:block;
-  width:100%;
-  text-align:center;
-  padding:14px;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-  font-weight:bold;
-  margin-top:10px;
-}
-
-.backBtn{
-  background:#334155;
-}
-
-.nextBtn{
-  background:#2563eb;
-}
-
-/* CONTENT */
 
 .contentBox{
   background:#0f2740;
@@ -104,21 +72,23 @@ li{
   margin:15px 0;
 }
 
-.good{
-  color:#4ade80;
+.backBtn,
+.nextBtn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:15px;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
   font-weight:bold;
+  margin-top:10px;
+  background:#2563eb;
 }
-
-.bad{
-  color:#f87171;
-  font-weight:bold;
-}
-
-/* VIDEO */
 
 .videoBox{
   width:100%;
-  min-height:230px;
+  min-height:220px;
   background:#020617;
   border:1px solid #334155;
   border-radius:12px;
@@ -127,58 +97,7 @@ li{
   justify-content:center;
   text-align:center;
   padding:20px;
-  margin-top:20px;
 }
-
-.videoBox h3{
-  color:#94a3b8;
-}
-
-/* CLICKABLE NOTES / ASSIGNMENT */
-
-.clickBox{
-  width:100%;
-  border:0;
-  text-align:left;
-  color:white;
-  padding:20px;
-  border-radius:10px;
-  font-size:21px;
-  font-weight:bold;
-  cursor:pointer;
-  margin-top:20px;
-}
-
-.notesBtn{
-  background:#172554;
-  border-left:5px solid #2563eb;
-}
-
-.assignmentBtn{
-  background:#3f2b0b;
-  border-left:5px solid #f59e0b;
-}
-
-.clickContent{
-  display:none;
-  padding:20px;
-  border-radius:0 0 10px 10px;
-}
-
-.clickContent.show{
-  display:block;
-}
-
-.arrow{
-  float:right;
-  transition:.2s;
-}
-
-.arrow.open{
-  transform:rotate(180deg);
-}
-
-/* COMPLETE */
 
 .completeBtn{
   width:100%;
@@ -209,26 +128,19 @@ li{
 }
 
 @media(max-width:600px){
-
-  body{
-    padding:7px;
-  }
-
   .card{
     padding:15px;
   }
 
   h1{
-    font-size:31px;
+    font-size:28px;
   }
 
   h2{
     font-size:24px;
   }
 
-  p,
-  ul,
-  ol{
+  p,li{
     font-size:16px;
   }
 }
@@ -239,369 +151,33 @@ li{
 
 <div class="container">
 
-<!-- HEADER -->
+<div class="card">
+
+<div class="course">
+🎓 Kena Design Learning
+</div>
+
+<h1 id="lessonTitle">
+Lesson
+</h1>
+
+<a class="backBtn" href="./student.html">
+← Back to Student Portal
+</a>
+
+</div>
+
 
 <div class="card">
 
-  <div class="course">
-    🎓 Kena Design Learning
-  </div>
+<h2>📚 Content</h2>
 
-  <h1>
-    Lesson 1 — YouTube Thumbnail Basics
-  </h1>
-
-  <a
-    class="backBtn"
-    href="./student.html"
-  >
-    ← Back to Student Portal
-  </a>
+<div id="content" class="contentBox">
+Loading...
+</div>
 
 </div>
 
-
-<!-- =========================
-     CONTENT
-========================= -->
-
-<div class="card">
-
-<h2>
-📚 Content
-</h2>
-
-<div class="contentBox">
-
-<h3>
-1. YouTube Thumbnail jechuun maal?
-</h3>
-
-<p>
-<strong>YouTube Thumbnail</strong> jechuun suuraa xiqqaa
-video YouTube tokko bakka bu'uudha. Yeroo namni
-YouTube irratti video barbaadu, wanta inni jalqaba
-ilaalu keessaa tokko thumbnail dha.
-</p>
-
-<p>
-Thumbnail gaariin nama:
-</p>
-
-<ul>
-<li>Video sana akka ilaalu,</li>
-<li>Akka cuqaasu,</li>
-<li>Akka fedhii itti qabaatu</li>
-</ul>
-
-<p>
-gochuu danda'a.
-</p>
-
-<p>
-Kanaaf thumbnail qopheessuun suuraa kaa'uu qofa miti.
-Suuraa, halluu, barreeffama fi design sirriitti
-walitti fiduun barbaachisaa dha.
-</p>
-
-
-<h3>
-2. Maaliif Thumbnail barbaachisaa dha?
-</h3>
-
-<p>
-Namni tokko video kee yeroo argu, yeroo baay'ee
-murtoo isaa saffisaan godha.
-</p>
-
-<div class="example">
-
-<p>
-<span class="bad">Thumbnail A:</span><br>
-Suuraa ifa hin taane, barreeffama baay'ee qabu.
-</p>
-
-<p>
-<span class="good">Thumbnail B:</span><br>
-Suuraa qulqulluu, title gabaabaa fi halluu
-nama hawwatu qabu.
-</p>
-
-</div>
-
-<p>
-Namni tokko yeroo baay'ee thumbnail ifa ta'eefi
-hubachuuf salphaa ta'e filachuu danda'a.
-</p>
-
-<p>
-Kanaaf thumbnail:
-</p>
-
-<ul>
-<li>Nama hawwata.</li>
-<li>Video maal akka irratti ta'e agarsiisa.</li>
-<li>Channel kee professional fakkeessa.</li>
-<li>Namni video kee akka cuqaasu kakaasa.</li>
-</ul>
-
-
-<h3>
-3. Thumbnail gaarii maal qabaachuu qaba?
-</h3>
-
-<h3>🎨 A. Suuraa qulqulluu</h3>
-
-<p>
-Suuraan ati fayyadamtu qulqulluu fi ifa ta'uu qaba.
-</p>
-
-<ul>
-<li>Suuraa blur ta'e hin fayyadamin.</li>
-<li>Suuraa baay'ee xiqqaa hin fayyadamin.</li>
-<li>Suuraa ifa hin qabne hin fayyadamin.</li>
-</ul>
-
-<p>
-Suuraa qulqulluu fayyadamuun design kee bareecha.
-</p>
-
-
-<h3>✍️ B. Barreeffama gabaabaa</h3>
-
-<p>
-Thumbnail irratti barreeffama dheeraa hin guutin.
-</p>
-
-<p class="bad">
-❌ “Akkaataa YouTube Thumbnail Gaarii Ta'e
-Itti Hojjennu Har'a Baranna”
-</p>
-
-<p class="good">
-✅ “Thumbnail Gaarii Hojjedhu!”
-</p>
-
-<p>
-Barreeffamni thumbnail irratti argamu gabaabaa,
-guddaa fi dubbifamuu salphaa ta'uu qaba.
-</p>
-
-
-<h3>🌈 C. Halluu sirrii</h3>
-
-<p>
-Halluun thumbnail keessatti gahee guddaa qaba.
-Halluu baay'ee walitti makuun design kee jeequu danda'a.
-</p>
-
-<ul>
-<li>Halluu 2 ykn 3 fayyadami.</li>
-<li>Background ifa ykn dukkana fayyadami.</li>
-<li>Text ifa godhi.</li>
-</ul>
-
-
-<h3>👤 D. Subject ijoo</h3>
-
-<p>
-Thumbnail keessatti wanti ijoo maal akka ta'e
-namni battalum hubachuu qaba.
-</p>
-
-<p>
-Fakkeenyaaf, yoo video kee waa'ee
-<strong>Laptop</strong> ta'e, laptop ykn nama laptop
-fayyadamu ifatti mul'achuu qaba.
-</p>
-
-<p>
-Subject ijoo bakka dhokataa keessa hin kaa'in.
-</p>
-
-
-<h3>🧹 E. Design qulqulluu</h3>
-
-<p>
-Thumbnail kee wantoota baay'eedhaan hin guutin.
-Suuraa 10, text baay'ee fi halluu hedduu yoo
-walitti qabde, namni maal akka ilaalu hin hubatu.
-</p>
-
-<p>
-<strong>Simple = Clear = Professional.</strong>
-</p>
-
-
-<h3>
-4. Thumbnail keessatti Composition
-</h3>
-
-<p>
-Composition jechuun wantoota design keessa jiran
-akkamitti bakka buufnu jechuudha.
-</p>
-
-<div class="example">
-
-<p>
-<strong>Bitaa:</strong> Suuraa namaa
-</p>
-
-<p>
-<strong>Mirga:</strong> Title
-</p>
-
-<p>
-<strong>Duuba:</strong> Background
-</p>
-
-</div>
-
-<p>
-Akka kanaan wantoonni wal hin tuqne fi dubbifamuun
-salphaa ta'uu qabu.
-</p>
-
-
-<h3>
-5. Font filachuu
-</h3>
-
-<p>
-Font jechuun boca barreeffamaa dha.
-</p>
-
-<ul>
-<li>Guddaa ta'uu qaba.</li>
-<li>Ifa ta'uu qaba.</li>
-<li>Dubbifamuu salphaa ta'uu qaba.</li>
-</ul>
-
-<p>
-Font baay'ee decoration qabu yeroo hunda hin fayyadamin.
-Title yeroo ilaaltu namni sekondii muraasa keessatti
-dubbisuu danda'uu qaba.
-</p>
-
-
-<h3>
-6. Contrast
-</h3>
-
-<p>
-Contrast jechuun wantoota lama gidduutti garaagarummaa
-ifaa uumuu dha.
-</p>
-
-<div class="example">
-
-<p>
-Background dukkana + Text adii
-</p>
-
-<p>
-ykn
-</p>
-
-<p>
-Background ifa + Text gurraacha
-</p>
-
-</div>
-
-<p>
-Contrast gaariin text akka ifatti mul'atu gargaara.
-</p>
-
-
-<h3>
-7. Fakkeenya Thumbnail gaarii
-</h3>
-
-<p>
-Mee video tokko haa fudhannu:
-</p>
-
-<div class="example">
-
-<p>
-<strong>Video:</strong>
-“YouTube Channel Akkaataa Hojjennu”
-</p>
-
-<p>
-<strong>Suuraa:</strong>
-Nama laptop dura taa'e
-</p>
-
-<p>
-<strong>Title:</strong>
-START YOUTUBE
-</p>
-
-<p>
-<strong>Background:</strong>
-Blue
-</p>
-
-<p>
-<strong>Text:</strong>
-Adii
-</p>
-
-<p>
-<strong>Highlight:</strong>
-Yellow
-</p>
-
-</div>
-
-<p>
-Kun namni thumbnail ilaaluun video maal irratti
-akka ta'e saffisaan akka hubatu gargaara.
-</p>
-
-
-<h3>
-8. Dogoggora barattoonni yeroo baay'ee hojjetan
-</h3>
-
-<h3>❌ Text baay'ee</h3>
-
-<p>
-Thumbnail akka kitaabaatti hin guutin.
-</p>
-
-<h3>❌ Suuraa qulqullina hin qabne</h3>
-
-<p>
-Suuraa blur ykn resolution gadi aanaa hin fayyadamin.
-</p>
-
-<h3>❌ Halluu hedduu</h3>
-
-<p>
-Halluu 6–7 walitti makuun design jeequu danda'a.
-</p>
-
-<h3>❌ Font xixiqqaa</h3>
-
-<p>
-Mobile irratti namni dubbisuu hin danda'u.
-</p>
-
-<h3>❌ Wantoota baay'ee</h3>
-
-<p>
-Thumbnail keessatti wanti ijoo tokko ifa ta'uu qaba.
-</p>
-
-</div>
-</div>
-
-
-<!-- VIDEO -->
 
 <div class="card">
 
@@ -611,13 +187,10 @@ Thumbnail keessatti wanti ijoo tokko ifa ta'uu qaba.
 
 🎬
 
-<h3>
-Lesson Video
-</h3>
+<h3>Lesson Video</h3>
 
 <p>
-Video barnootaa as irratti yeroo qophaa'u
-ni dabalama.
+Video barnootaa as irratti yeroo qophaa'u ni dabalama.
 </p>
 
 </div>
@@ -627,241 +200,34 @@ ni dabalama.
 </div>
 
 
-<!-- =========================
-     NOTES CLICK BUTTON
-========================= -->
+<div class="card">
+
+<h2>📝 Assignment</h2>
+
+<div id="assignment" class="contentBox">
+Loading...
+</div>
+
+</div>
+
 
 <div class="card">
 
 <button
-  class="clickBox notesBtn"
-  onclick="toggleBox('notesContent','notesArrow')"
->
-
-📖 Notes
-
-<span
-  id="notesArrow"
-  class="arrow"
->
-▼
-</span>
-
-</button>
-
-
-<div
-  id="notesContent"
-  class="clickContent"
-  style="background:#172554;"
->
-
-<h3>
-📝 Note — Yaadannoo Lesson 1
-</h3>
-
-<p>
-Barataan wantoota kana yaadachuu qaba:
-</p>
-
-<ol>
-
-<li>
-Thumbnail video YouTube bakka bu'a.
-</li>
-
-<li>
-Thumbnail gaariin nama hawwata.
-</li>
-
-<li>
-Suuraa qulqulluu fayyadami.
-</li>
-
-<li>
-Text gabaabaa fayyadami.
-</li>
-
-<li>
-Font guddaa fi dubbifamuu salphaa fayyadami.
-</li>
-
-<li>
-Halluu wal-siman fayyadami.
-</li>
-
-<li>
-Subject ijoo ifa godhi.
-</li>
-
-<li>
-Design kee hin guutin.
-</li>
-
-<li>
-Contrast gaarii fayyadami.
-</li>
-
-<li>
-Thumbnail kee mobile irrattis dubbifamuu
-danda'uu qaba.
-</li>
-
-</ol>
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     ASSIGNMENT CLICK BUTTON
-========================= -->
-
-<div class="card">
-
-<button
-  class="clickBox assignmentBtn"
-  onclick="toggleBox('assignmentContent','assignmentArrow')"
->
-
-📝 Assignment
-
-<span
-  id="assignmentArrow"
-  class="arrow"
->
-▼
-</span>
-
-</button>
-
-
-<div
-  id="assignmentContent"
-  class="clickContent"
-  style="background:#3f2b0b;"
->
-
-<h3>
-📋 ASSIGNMENT — Hojii Barataa
-</h3>
-
-<p>
-Amma ati
-<strong>
-YouTube Thumbnail tokko ofii keetiin qopheessi.
-</strong>
-</p>
-
-<h3>
-Ulaagaalee:
-</h3>
-
-<ul>
-
-<li>
-✅ Suuraa qulqulluu tokko fayyadami.
-</li>
-
-<li>
-✅ Title gabaabaa tokko barreessi.
-</li>
-
-<li>
-✅ Halluu 2 ykn 3 fayyadami.
-</li>
-
-<li>
-✅ Font dubbifamuu salphaa fayyadami.
-</li>
-
-<li>
-✅ Subject ijoo ifa godhi.
-</li>
-
-<li>
-✅ Background sirrii qopheessi.
-</li>
-
-<li>
-✅ Design qulqulluu godhi.
-</li>
-
-<li>
-✅ Thumbnail mobile irratti ilaaluun
-dubbifamuu akka danda'u mirkaneessi.
-</li>
-
-</ul>
-
-<h3>
-🎯 Kaayyoo Assignment
-</h3>
-
-<p>
-Assignment kana booda barataan:
-</p>
-
-<p>
-<strong>
-“Thumbnail YouTube tokko ofii koo
-qopheessuu nan danda'a.”
-</strong>
-</p>
-
-<p>
-jedhee hojii isaa agarsiisuu qaba.
-</p>
-
-</div>
-
-</div>
-
-
-<!-- COMPLETE -->
-
-<div class="card">
-
-<button
-  id="completeBtn"
-  class="completeBtn"
-  onclick="completeLesson()"
+id="completeBtn"
+class="completeBtn"
+onclick="completeLesson()"
 >
 ✓ Mark Lesson as Completed
 </button>
 
-<div
-  id="status"
-  class="status"
->
-✅ Lesson 1 completed!
+<div id="status" class="status">
+✅ Lesson completed!
 </div>
 
-<a
-  class="nextBtn"
-  href="./student.html"
->
+<a class="nextBtn" href="./student.html">
 ← Back to Student Portal
 </a>
-
-</div>
-
-
-<!-- NEXT -->
-
-<div class="card">
-
-<h2>
-📚 Lesson 2
-</h2>
-
-<p>
-<strong>
-Thumbnail Design Tools
-</strong>
-irratti itti fufa.
-</p>
 
 </div>
 
@@ -870,37 +236,514 @@ irratti itti fufa.
 
 <script>
 
-/* NOTES / ASSIGNMENT OPEN & CLOSE */
+/* =========================
+   GET COURSE
+========================= */
 
-function toggleBox(contentId, arrowId){
+const params =
+new URLSearchParams(
+window.location.search
+);
 
-  const content =
-    document.getElementById(contentId);
+const course =
+params.get("course") || "Graphic Design";
 
-  const arrow =
-    document.getElementById(arrowId);
 
-  if(!content || !arrow){
-    return;
-  }
+/* =========================
+   COURSE LESSONS
+========================= */
 
-  content.classList.toggle("show");
+const COURSES = {
 
-  arrow.classList.toggle("open");
+"Video Editing": {
+
+title:"Video Editing — Lesson 1",
+
+content:`
+
+<h3>1. Video Editing jechuun maal?</h3>
+
+<p>
+Video Editing jechuun video waraabame tokko
+sirreessuu, kutuu, walitti qabuufi bareechuudha.
+</p>
+
+<h3>2. Maaliif Video Editing barbaachisa?</h3>
+
+<ul>
+<li>Video qulqulluu uuma.</li>
+<li>Dogoggora keessaa balleessa.</li>
+<li>Sound fi music sirreessa.</li>
+<li>Video nama hawwatu uuma.</li>
+</ul>
+
+<h3>3. Wantoota ijoo</h3>
+
+<ul>
+<li>Cut</li>
+<li>Trim</li>
+<li>Transition</li>
+<li>Text</li>
+<li>Music</li>
+<li>Sound Effect</li>
+</ul>
+
+<div class="example">
+<strong>Kaayyoo:</strong>
+Video tokko qulqulluu fi professional gochuu.
+</div>
+
+`,
+
+assignment:`
+
+<p>
+Video gabaabaa tokko filadhu.
+</p>
+
+<ul>
+<li>Clip tokko kutu.</li>
+<li>Text itti dabali.</li>
+<li>Music itti dabali.</li>
+<li>Video export godhi.</li>
+</ul>
+
+`
+
+},
+
+
+"Graphic Design": {
+
+title:"Graphic Design — Lesson 1",
+
+content:`
+
+<h3>1. Graphic Design jechuun maal?</h3>
+
+<p>
+Graphic Design jechuun suuraa, text, halluu fi
+shape fayyadamuun ergaa tokko karaa mul'ataa
+dabarsuudha.
+</p>
+
+<h3>2. Wantoota ijoo Graphic Design</h3>
+
+<ul>
+<li>Typography</li>
+<li>Color</li>
+<li>Shape</li>
+<li>Layout</li>
+<li>Contrast</li>
+<li>Composition</li>
+</ul>
+
+<h3>3. Design gaarii</h3>
+
+<p>
+Design gaariin qulqulluu, ifa fi dubbifamuu
+salphaa ta'uu qaba.
+</p>
+
+<div class="example">
+<strong>Yaadadhu:</strong>
+Simple = Clear = Professional
+</div>
+
+`,
+
+assignment:`
+
+<p>
+Poster ykn social media design tokko qopheessi.
+</p>
+
+<ul>
+<li>Halluu 2 ykn 3 fayyadami.</li>
+<li>Font dubbifamuu salphaa fayyadami.</li>
+<li>Title ifa godhi.</li>
+<li>Design qulqulluu godhi.</li>
+</ul>
+
+`
+
+},
+
+
+"Web Design": {
+
+title:"Web Design — Lesson 1",
+
+content:`
+
+<h3>1. Web Design jechuun maal?</h3>
+
+<p>
+Web Design jechuun website tokko akka bareedu,
+mobile fi computer irratti akka sirriitti hojjetu
+qopheessuudha.
+</p>
+
+<h3>2. HTML</h3>
+
+<p>
+HTML website keessatti content fi structure uuma.
+</p>
+
+<h3>3. CSS</h3>
+
+<p>
+CSS halluu, size, spacing fi design website
+to'ata.
+</p>
+
+<h3>4. JavaScript</h3>
+
+<p>
+JavaScript website akka interactive ta'u gargaara.
+</p>
+
+<ul>
+<li>HTML = Structure</li>
+<li>CSS = Design</li>
+<li>JavaScript = Interaction</li>
+</ul>
+
+`,
+
+assignment:`
+
+<p>
+HTML fi CSS fayyadamuun webpage xiqqoo tokko
+qopheessi.
+</p>
+
+`
+
+},
+
+
+"Digital Marketing": {
+
+title:"Digital Marketing — Lesson 1",
+
+content:`
+
+<h3>1. Digital Marketing jechuun maal?</h3>
+
+<p>
+Digital Marketing jechuun internet fi social media
+fayyadamuun product ykn service beeksisuudha.
+</p>
+
+<h3>2. Bakka Digital Marketing</h3>
+
+<ul>
+<li>Facebook</li>
+<li>Instagram</li>
+<li>YouTube</li>
+<li>TikTok</li>
+<li>Google</li>
+</ul>
+
+<h3>3. Content Marketing</h3>
+
+<p>
+Content gaarii qopheessuun audience hawwachuu fi
+customer argachuu dandeessa.
+</p>
+
+<div class="example">
+<strong>Content gaarii:</strong>
+Namaaf faayidaa qaba + ifa dha + nama hawwata.
+</div>
+
+`,
+
+assignment:`
+
+<p>
+Business tokko filadhu.
+</p>
+
+<ul>
+<li>Audience isaa murteessi.</li>
+<li>Post tokko qopheessi.</li>
+<li>Caption barreessi.</li>
+<li>CTA itti dabali.</li>
+</ul>
+
+`
+
+},
+
+
+"Photography": {
+
+title:"Photography — Lesson 1",
+
+content:`
+
+<h3>1. Photography jechuun maal?</h3>
+
+<p>
+Photography jechuun camera fayyadamuun
+suuraa qabachuudha.
+</p>
+
+<h3>2. Composition</h3>
+
+<ul>
+<li>Rule of Thirds</li>
+<li>Leading Lines</li>
+<li>Balance</li>
+<li>Framing</li>
+</ul>
+
+<h3>3. Lighting</h3>
+
+<p>
+Ifni suuraa keessatti gahee guddaa qaba.
+Suuraa gaarii argachuuf lighting sirrii fayyadamuun
+barbaachisaa dha.
+</p>
+
+<h3>4. Focus</h3>
+
+<p>
+Subject ijoo ifa ta'uu qaba.
+</p>
+
+`,
+
+assignment:`
+
+<p>
+Suuraa 3 qopheessi:</p>
+
+<ul>
+<li>Portrait tokko</li>
+<li>Object tokko</li>
+<li>Outdoor photo tokko</li>
+</ul>
+
+`
+
+},
+
+
+"Flayer Package": {
+
+title:"Flayer Package — Lesson 1",
+
+content:`
+
+<h3>1. Flyer jechuun maal?</h3>
+
+<p>
+Flyer jechuun odeeffannoo product, service,
+event ykn business tokko beeksisuuf qophaa'uudha.
+</p>
+
+<h3>2. Flyer gaarii maal qaba?</h3>
+
+<ul>
+<li>Title guddaa</li>
+<li>Suuraa qulqulluu</li>
+<li>Halluu sirrii</li>
+<li>Contact information</li>
+<li>Call To Action</li>
+</ul>
+
+<h3>3. Layout</h3>
+
+<p>
+Odeeffannoon flyer keessatti sirnaan qoodamuu qaba.
+</p>
+
+`,
+
+assignment:`
+
+<p>
+Business tokkoof flyer tokko qopheessi.</p>
+
+<ul>
+<li>Business name</li>
+<li>Product/service</li>
+<li>Phone number</li>
+<li>Location</li>
+<li>Call To Action</li>
+</ul>
+
+`
+
+},
+
+
+"YouTube Thumbnail": {
+
+title:"YouTube Thumbnail — Lesson 1",
+
+content:`
+
+<h3>1. YouTube Thumbnail jechuun maal?</h3>
+
+<p>
+YouTube Thumbnail jechuun suuraa xiqqaa
+video YouTube tokko bakka bu'uudha.
+</p>
+
+<p>
+Thumbnail gaariin nama:
+</p>
+
+<ul>
+<li>Video akka ilaalu</li>
+<li>Akka cuqaasu</li>
+<li>Akka fedhii itti qabaatu</li>
+</ul>
+
+<h3>2. Thumbnail gaarii maal qaba?</h3>
+
+<ul>
+<li>Suuraa qulqulluu</li>
+<li>Text gabaabaa</li>
+<li>Halluu sirrii</li>
+<li>Subject ijoo</li>
+<li>Contrast gaarii</li>
+</ul>
+
+<h3>3. Font</h3>
+
+<p>
+Font guddaa fi dubbifamuu salphaa fayyadami.
+</p>
+
+<div class="example">
+<strong>Simple = Clear = Professional</strong>
+</div>
+
+<h3>4. Composition</h3>
+
+<p>
+Suuraa, title fi background sirnaan qoodi.
+</p>
+
+`,
+
+assignment:`
+
+<p>
+YouTube Thumbnail tokko qopheessi.</p>
+
+<ul>
+<li>Suuraa qulqulluu tokko fayyadami.</li>
+<li>Title gabaabaa barreessi.</li>
+<li>Halluu 2 ykn 3 fayyadami.</li>
+<li>Font guddaa fayyadami.</li>
+<li>Subject ijoo ifa godhi.</li>
+</ul>
+
+`
+
+},
+
+
+"Poster Design": {
+
+title:"Poster Design — Lesson 1",
+
+content:`
+
+<h3>1. Poster Design jechuun maal?</h3>
+
+<p>
+Poster jechuun event, product, service ykn
+beeksisa tokko namaaf mul'isuuf qophaa'uudha.
+</p>
+
+<h3>2. Poster gaarii</h3>
+
+<ul>
+<li>Title guddaa</li>
+<li>Suuraa qulqulluu</li>
+<li>Halluu sirrii</li>
+<li>Information barbaachisaa</li>
+<li>Contact</li>
+</ul>
+
+<h3>3. Typography</h3>
+
+<p>
+Font muraasa fayyadamuun poster kee professional
+godha.
+</p>
+
+<h3>4. Color</h3>
+
+<p>
+Halluu wal-siman filadhu. Halluu baay'ee walitti
+makuu irraa of qusadhu.
+</p>
+
+`,
+
+assignment:`
+
+<p>
+Event ykn business tokkoof poster tokko qopheessi.
+</p>
+
+<ul>
+<li>Title</li>
+<li>Date</li>
+<li>Location</li>
+<li>Contact</li>
+<li>Suuraa</li>
+</ul>
+
+`
 
 }
 
+};
 
-/* LESSON COMPLETION */
 
-const LESSON_KEY =
-  "kena_youtube_thumbnail_lesson_1";
+/* =========================
+   SHOW COURSE
+========================= */
+
+const selected =
+COURSES[course] ||
+COURSES["Graphic Design"];
+
+document.getElementById(
+"lessonTitle"
+).textContent = selected.title;
+
+document.getElementById(
+"content"
+).innerHTML = selected.content;
+
+document.getElementById(
+"assignment"
+).innerHTML = selected.assignment;
+
+
+/* =========================
+   COMPLETION
+========================= */
+
+const lessonKey =
+"kena_lesson_completed_" +
+encodeURIComponent(course);
 
 
 function completeLesson(){
 
   localStorage.setItem(
-    LESSON_KEY,
+    lessonKey,
     "completed"
   );
 
@@ -911,49 +754,50 @@ function completeLesson(){
 
 function showCompleted(){
 
-  const button =
-    document.getElementById("completeBtn");
+  const btn =
+  document.getElementById(
+    "completeBtn"
+  );
 
   const status =
-    document.getElementById("status");
+  document.getElementById(
+    "status"
+  );
 
-  if(button){
+  if(btn){
 
-    button.textContent =
-      "✓ Lesson Completed";
+    btn.textContent =
+    "✓ Lesson Completed";
 
-    button.classList.add("done");
+    btn.classList.add("done");
 
   }
 
   if(status){
 
     status.style.display =
-      "block";
+    "block";
 
   }
 
 }
 
 
-/* CHECK COMPLETION */
-
 window.addEventListener(
-  "load",
-  function(){
+"load",
+function(){
 
-    if(
-      localStorage.getItem(
-        LESSON_KEY
-      ) === "completed"
-    ){
+  if(
+    localStorage.getItem(
+      lessonKey
+    ) === "completed"
+  ){
 
-      showCompleted();
-
-    }
+    showCompleted();
 
   }
-);
+
+});
 
 </script>
 

@@ -72,6 +72,7 @@
       color: white;
       padding: 12px 18px;
       font-size: 16px;
+      margin-right: 8px;
     }
 
     .search {
@@ -152,7 +153,7 @@
 
     table {
       width: 100%;
-      min-width: 1500px;
+      min-width: 1450px;
       border-collapse: collapse;
       background: white;
     }
@@ -204,12 +205,6 @@
       color: white;
       padding: 11px 18px;
       font-size: 14px;
-    }
-
-    .paidBtn:disabled {
-      background: #86efac;
-      color: #166534;
-      cursor: default;
     }
 
     .viewBtn {
@@ -305,8 +300,10 @@
 
   <div class="card">
     <div class="top">
+
       <div>
         <h1>Kena Design Admin</h1>
+
         <div class="subtitle">
           Barattoota: <span id="totalTop">0</span>
         </div>
@@ -321,6 +318,7 @@
           Logout
         </button>
       </div>
+
     </div>
   </div>
 
@@ -367,7 +365,6 @@
       </button>
 
     </div>
-
   </div>
 
   <div class="card">
@@ -421,7 +418,6 @@
             <th>Address</th>
             <th>Amount</th>
             <th>Method</th>
-            <th>Reference</th>
             <th>Status</th>
             <th>Screenshot</th>
             <th>Paid Time</th>
@@ -461,14 +457,14 @@ const supabaseClient =
     SUPABASE_KEY
   );
 
-
 let students = [];
 let currentFilter = "ALL";
 
 
 function showMessage(text, type = "error") {
 
-  const box = document.getElementById("message");
+  const box =
+    document.getElementById("message");
 
   box.textContent = text;
 
@@ -495,7 +491,9 @@ async function checkAdmin() {
     !data ||
     !data.user
   ) {
+
     window.location.href = "index.html";
+
     return false;
   }
 
@@ -503,8 +501,11 @@ async function checkAdmin() {
     data.user.email.toLowerCase() !==
     ADMIN_EMAIL.toLowerCase()
   ) {
+
     await supabaseClient.auth.signOut();
+
     window.location.href = "index.html";
+
     return false;
   }
 
@@ -584,7 +585,8 @@ function getStatus(student) {
 
 function updateStats() {
 
-  const total = students.length;
+  const total =
+    students.length;
 
   const paid =
     students.filter(
@@ -600,7 +602,6 @@ function updateStats() {
     students.filter(
       s => getStatus(s) === "UNPAID"
     ).length;
-
 
   document.getElementById("totalTop").textContent =
     total;
@@ -628,7 +629,6 @@ function setFilter(filter) {
     .forEach(btn => {
       btn.classList.remove("active");
     });
-
 
   if (filter === "ALL") {
     document
@@ -670,7 +670,6 @@ function renderStudents() {
       .trim()
       .toLowerCase();
 
-
   let filtered =
     students.filter(student => {
 
@@ -684,11 +683,9 @@ function renderStudents() {
         return false;
       }
 
-
       if (!search) {
         return true;
       }
-
 
       const text = [
 
@@ -703,14 +700,11 @@ function renderStudents() {
         student.address,
         student.other_address,
         student.payment_method,
-        student.payment_reference,
-        student.payment_tx_ref,
         student.payment_status
 
       ]
       .join(" ")
       .toLowerCase();
-
 
       return text.includes(search);
 
@@ -726,7 +720,6 @@ function renderStudents() {
       "block";
 
     return;
-
   }
 
 
@@ -745,19 +738,14 @@ function renderStudents() {
 
     const amount =
       student.payment_amount != null
-        ? Number(student.payment_amount).toLocaleString() +
-          " ETB"
+        ? Number(
+            student.payment_amount
+          ).toLocaleString() + " ETB"
         : "-";
 
 
     const method =
       student.payment_method ||
-      "-";
-
-
-    const reference =
-      student.payment_reference ||
-      student.payment_tx_ref ||
       "-";
 
 
@@ -785,7 +773,6 @@ function renderStudents() {
           View
         </button>
       `;
-
     }
 
 
@@ -814,13 +801,14 @@ function renderStudents() {
           PAID
         </button>
       `;
-
     }
 
 
     tr.innerHTML = `
 
-      <td>${index + 1}</td>
+      <td>
+        ${index + 1}
+      </td>
 
       <td>
         ${escapeHTML(
@@ -880,10 +868,6 @@ function renderStudents() {
 
       <td>
         ${escapeHTML(method)}
-      </td>
-
-      <td>
-        ${escapeHTML(reference)}
       </td>
 
       <td>
@@ -952,6 +936,7 @@ async function markPaid(id) {
 
     await loadStudents();
 
+
   } catch (error) {
 
     console.error(error);
@@ -992,6 +977,7 @@ async function viewScreenshot(path) {
       !data ||
       !data.signedUrl
     ) {
+
       throw new Error(
         "Screenshot URL hin uumamne."
       );
@@ -1002,6 +988,7 @@ async function viewScreenshot(path) {
       data.signedUrl,
       "_blank"
     );
+
 
   } catch (error) {
 
@@ -1029,8 +1016,10 @@ async function logout() {
 
 function escapeHTML(value) {
 
-  if (value === null ||
-      value === undefined) {
+  if (
+    value === null ||
+    value === undefined
+  ) {
     return "";
   }
 

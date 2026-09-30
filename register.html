@@ -68,11 +68,6 @@
       background: #fff;
     }
 
-    textarea {
-      min-height: 90px;
-      resize: vertical;
-    }
-
     input:focus,
     select:focus,
     textarea:focus {
@@ -217,7 +212,6 @@
 <body>
 
 <div class="container">
-
   <div class="card">
 
     <div class="logo">
@@ -227,7 +221,6 @@
 
     <form id="registrationForm">
 
-      <!-- FULL NAME -->
       <label for="fullname">Full Name *</label>
       <input
         type="text"
@@ -237,7 +230,6 @@
         required
       >
 
-      <!-- FATHER NAME -->
       <label for="fathername">Father's Name *</label>
       <input
         type="text"
@@ -247,7 +239,6 @@
         required
       >
 
-      <!-- GENDER + AGE -->
       <div class="row">
 
         <div>
@@ -274,7 +265,6 @@
 
       </div>
 
-      <!-- PHONE -->
       <label for="phone">Phone Number *</label>
       <input
         type="tel"
@@ -286,7 +276,6 @@
         required
       >
 
-      <!-- EMAIL -->
       <label for="email">Email (Optional)</label>
       <input
         type="email"
@@ -295,7 +284,6 @@
         placeholder="example@gmail.com"
       >
 
-      <!-- COURSE -->
       <label for="course">Choose Course *</label>
       <select id="course" name="course" required>
 
@@ -335,7 +323,6 @@
 
       </select>
 
-      <!-- ADDRESS -->
       <label for="address">Address *</label>
 
       <select id="address" name="address" required>
@@ -368,7 +355,6 @@
 
       </select>
 
-      <!-- OTHER ADDRESS -->
       <div id="otherAddressBox" class="hidden">
 
         <label for="other_address">Other Address *</label>
@@ -382,7 +368,6 @@
 
       </div>
 
-      <!-- PAYMENT -->
       <div class="payment-box">
 
         <h3>Payment Information</h3>
@@ -392,11 +377,13 @@
         </p>
 
         <div class="account">
-          📱 Telebirr: <strong>0923502464 — Amanuel</strong>
+          📱 Telebirr:
+          <strong>0923502464 — Amanuel</strong>
         </div>
 
         <div class="account">
-          🏦 CBE Birr: <strong>0923502464 — Amanuel</strong>
+          🏦 CBE Birr:
+          <strong>0923502464 — Amanuel</strong>
         </div>
 
         <div class="amount" id="courseAmount">
@@ -405,7 +392,6 @@
 
       </div>
 
-      <!-- PAYMENT METHOD -->
       <label for="payment_method">Payment Method *</label>
 
       <select id="payment_method" name="payment_method" required>
@@ -416,7 +402,6 @@
 
       </select>
 
-      <!-- SCREENSHOT -->
       <label for="screenshot">
         Payment Screenshot *
       </label>
@@ -445,18 +430,15 @@
         before confirming your registration.
       </div>
 
-      <!-- SUBMIT -->
       <button type="submit" id="submitBtn">
         Submit Registration
       </button>
 
-      <!-- SUCCESS -->
       <div
         id="successMessage"
         class="message success"
       ></div>
 
-      <!-- ERROR -->
       <div
         id="errorMessage"
         class="message error"
@@ -469,14 +451,12 @@
     </div>
 
   </div>
-
 </div>
-
 
 <script>
 
 /* =========================================================
-   SUPABASE CONFIGURATION
+   SUPABASE
    ========================================================= */
 
 const SUPABASE_URL =
@@ -607,8 +587,7 @@ function showError(message) {
 
   errorMessage.style.display = "block";
 
-  errorMessage.textContent =
-    message;
+  errorMessage.textContent = message;
 
 }
 
@@ -623,8 +602,7 @@ function showSuccess(message) {
 
   successMessage.style.display = "block";
 
-  successMessage.textContent =
-    message;
+  successMessage.textContent = message;
 
 }
 
@@ -641,15 +619,17 @@ form.addEventListener("submit", async function (event) {
   errorMessage.style.display = "none";
 
   submitBtn.disabled = true;
-  submitBtn.textContent =
-    "Submitting...";
+  submitBtn.textContent = "Submitting...";
+
+
+  let uploadedFilePath = null;
 
 
   try {
 
-    /* ---------------------------------------------
-       GET FORM VALUES
-       --------------------------------------------- */
+    /* =====================================================
+       FORM VALUES
+       ===================================================== */
 
     const fullname =
       document
@@ -702,9 +682,9 @@ form.addEventListener("submit", async function (event) {
         .value;
 
 
-    /* ---------------------------------------------
-       VALIDATE PHONE
-       --------------------------------------------- */
+    /* =====================================================
+       PHONE
+       ===================================================== */
 
     const phonePattern =
       /^(09|07)[0-9]{8}$/;
@@ -718,9 +698,9 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    /* ---------------------------------------------
-       VALIDATE COURSE
-       --------------------------------------------- */
+    /* =====================================================
+       COURSE
+       ===================================================== */
 
     if (!selectedCourse) {
 
@@ -730,10 +710,6 @@ form.addEventListener("submit", async function (event) {
 
     }
 
-
-    /* ---------------------------------------------
-       GET COURSE PRICE
-       --------------------------------------------- */
 
     const selectedOption =
       course.options[
@@ -747,9 +723,9 @@ form.addEventListener("submit", async function (event) {
       );
 
 
-    /* ---------------------------------------------
-       VALIDATE ADDRESS
-       --------------------------------------------- */
+    /* =====================================================
+       ADDRESS
+       ===================================================== */
 
     if (!selectedAddress) {
 
@@ -771,9 +747,9 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    /* ---------------------------------------------
-       VALIDATE PAYMENT METHOD
-       --------------------------------------------- */
+    /* =====================================================
+       PAYMENT METHOD
+       ===================================================== */
 
     if (!paymentMethod) {
 
@@ -784,9 +760,9 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    /* ---------------------------------------------
-       VALIDATE SCREENSHOT
-       --------------------------------------------- */
+    /* =====================================================
+       SCREENSHOT
+       ===================================================== */
 
     if (!screenshot.files.length) {
 
@@ -800,10 +776,9 @@ form.addEventListener("submit", async function (event) {
       screenshot.files[0];
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        FILE SIZE
-       Maximum 5MB
-       --------------------------------------------- */
+       ===================================================== */
 
     const maxSize =
       5 * 1024 * 1024;
@@ -819,9 +794,9 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    /* ---------------------------------------------
+    /* =====================================================
        FILE TYPE
-       --------------------------------------------- */
+       ===================================================== */
 
     const allowedTypes = [
       "image/jpeg",
@@ -842,89 +817,38 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    /* =================================================
-       CREATE UNIQUE FILE PATH
-       ================================================= */
+    /* =====================================================
+       EDGE FUNCTION UPLOAD
+       ===================================================== */
 
-    const fileExtension =
-      screenshotFile.name
-        .split(".")
-        .pop()
-        .toLowerCase();
-
-    const uniqueFilePath =
-      "proofs/" +
-      Date.now() +
-      "_" +
-      phone +
-      "_" +
-      Math.random()
-        .toString(36)
-        .substring(2, 8) +
-      "." +
-      fileExtension;
+    submitBtn.textContent =
+      "Uploading screenshot...";
 
 
-    /* =================================================
-       CREATE SIGNED UPLOAD URL
+    const uploadForm =
+      new FormData();
 
-       IMPORTANT:
-       This avoids requiring public SELECT
-       permission for anon users.
-       ================================================= */
+    uploadForm.append(
+      "file",
+      screenshotFile
+    );
+
+    uploadForm.append(
+      "phone",
+      phone
+    );
+
 
     const {
-      data: signedUpload,
-      error: signedUploadError
-    } =
-      await supabaseClient
-        .storage
-        .from("payment-proofs")
-        .createSignedUploadUrl(
-          uniqueFilePath
-        );
-
-
-    if (signedUploadError) {
-
-      throw new Error(
-        "Signed upload URL uumuu hin dandeenye: " +
-        signedUploadError.message
-      );
-
-    }
-
-    if (
-      !signedUpload ||
-      !signedUpload.token
-    ) {
-
-      throw new Error(
-        "Upload token hin argamne."
-      );
-
-    }
-
-
-    /* =================================================
-       UPLOAD USING SIGNED URL
-       ================================================= */
-
-    const {
+      data: uploadData,
       error: uploadError
     } =
-      await supabaseClient
-        .storage
-        .from("payment-proofs")
-        .uploadToSignedUrl(
-          uniqueFilePath,
-          signedUpload.token,
-          screenshotFile,
-          {
-            contentType:
-              screenshotFile.type
-          }
-        );
+      await supabaseClient.functions.invoke(
+        "upload-payment-proof",
+        {
+          body: uploadForm
+        }
+      );
 
 
     if (uploadError) {
@@ -937,9 +861,31 @@ form.addEventListener("submit", async function (event) {
     }
 
 
-    /* =================================================
-       INSERT STUDENT INTO DATABASE
-       ================================================= */
+    if (
+      !uploadData ||
+      !uploadData.success ||
+      !uploadData.path
+    ) {
+
+      throw new Error(
+        uploadData?.error ||
+        "Screenshot path hin argamne."
+      );
+
+    }
+
+
+    uploadedFilePath =
+      uploadData.path;
+
+
+    /* =====================================================
+       DATABASE INSERT
+       ===================================================== */
+
+    submitBtn.textContent =
+      "Saving registration...";
+
 
     const {
       error: insertError
@@ -990,10 +936,81 @@ form.addEventListener("submit", async function (event) {
             null,
 
           payment_screenshot_url:
-            uniqueFilePath
+            uploadedFilePath
 
         }]);
 
 
-    /* =================================================
-       DATAB
+    /* =====================================================
+       DATABASE ERROR
+       ===================================================== */
+
+    if (insertError) {
+
+      /*
+       * Screenshot upload milkaa'ee,
+       * database insert yoo kufe,
+       * file sana deebinee haquuf yaalla.
+       */
+
+      try {
+
+        await supabaseClient
+          .storage
+          .from("payment-proofs")
+          .remove([
+            uploadedFilePath
+          ]);
+
+      } catch (cleanupError) {
+
+        console.error(
+          "Cleanup error:",
+          cleanupError
+        );
+
+      }
+
+
+      throw new Error(
+        "Registration hin milkoofne: " +
+        insertError.message
+      );
+
+    }
+
+
+    /* =====================================================
+       SUCCESS
+       ===================================================== */
+
+    showSuccess(
+      "Registration kee milkaa'eera! " +
+      "Payment status kee PENDING dha. " +
+      "Admin'n payment screenshot kee erga mirkaneesse booda " +
+      "registration kee ni confirm godha."
+    );
+
+
+    form.reset();
+
+    courseAmount.textContent =
+      "Course fee: —";
+
+    otherAddressBox.classList.add(
+      "hidden"
+    );
+
+    otherAddress.required = false;
+
+
+  } catch (error) {
+
+    console.error(
+      "Registration error:",
+      error
+    );
+
+
+    showError(
+     

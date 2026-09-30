@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kena Design - Lesson</title>
+<title>Kena Design - Lesson 1</title>
 
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -46,8 +45,8 @@ body{
   background:#334155;
   color:white;
   text-decoration:none;
-  padding:10px 15px;
-  border-radius:8px;
+  padding:11px 17px;
+  border-radius:9px;
   font-weight:bold;
 }
 
@@ -58,26 +57,84 @@ body{
 }
 
 h1{
-  margin-top:5px;
+  font-size:34px;
+  margin:5px 0 15px;
 }
 
 h2{
+  font-size:27px;
   margin-top:0;
 }
 
+h3{
+  font-size:21px;
+}
+
 p{
-  line-height:1.7;
-  color:#cbd5e1;
+  line-height:1.8;
+  color:#d5deea;
+  font-size:17px;
+}
+
+ul{
+  line-height:1.9;
+  color:#f1f5f9;
+  font-size:17px;
 }
 
 .lessonNumber{
   color:#94a3b8;
+  font-size:18px;
   margin-bottom:5px;
 }
 
+/* CONTENT */
+
+.contentBox{
+  background:#0f2740;
+  border-left:5px solid #32d583;
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
+}
+
+.contentBox h3{
+  color:#32d583;
+}
+
+/* NOTE */
+
+.note{
+  background:#172554;
+  border-left:5px solid #2563eb;
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
+}
+
+.note h3{
+  color:#93c5fd;
+}
+
+/* ASSIGNMENT */
+
+.assignment{
+  background:#3f2b0b;
+  border-left:5px solid #f59e0b;
+  padding:20px;
+  border-radius:10px;
+  margin-top:20px;
+}
+
+.assignment h3{
+  color:#fbbf24;
+}
+
+/* VIDEO */
+
 .videoBox{
   width:100%;
-  min-height:250px;
+  min-height:230px;
   background:#020617;
   border:1px solid #334155;
   border-radius:12px;
@@ -87,36 +144,22 @@ p{
   text-align:center;
   color:#94a3b8;
   padding:20px;
-  margin-top:15px;
+  margin-top:20px;
 }
 
-.note{
-  background:#172554;
-  border-left:4px solid #2563eb;
-  padding:15px;
-  border-radius:8px;
-  margin-top:15px;
-}
-
-.assignment{
-  background:#3f2b0b;
-  border-left:4px solid #f59e0b;
-  padding:15px;
-  border-radius:8px;
-  margin-top:15px;
-}
+/* COMPLETE */
 
 .completeBtn{
   width:100%;
   background:#32d583;
   color:#07111f;
   border:0;
-  padding:14px;
-  border-radius:9px;
-  font-size:16px;
+  padding:15px;
+  border-radius:10px;
+  font-size:17px;
   font-weight:bold;
   cursor:pointer;
-  margin-top:15px;
+  margin-top:20px;
 }
 
 .completeBtn.done{
@@ -141,10 +184,10 @@ p{
   background:#2563eb;
   color:white;
   text-decoration:none;
-  padding:13px;
+  padding:14px;
   border-radius:9px;
   font-weight:bold;
-  margin-top:10px;
+  margin-top:12px;
 }
 
 @media(max-width:600px){
@@ -157,21 +200,24 @@ p{
     padding:15px;
   }
 
-  .header{
-    align-items:flex-start;
+  h1{
+    font-size:31px;
+  }
+
+  h2{
+    font-size:24px;
+  }
+
+  p,
+  ul{
+    font-size:16px;
   }
 
   .backBtn{
     width:100%;
     text-align:center;
   }
-
-  .videoBox{
-    min-height:200px;
-  }
-
 }
-
 </style>
 </head>
 
@@ -179,228 +225,436 @@ p{
 
 <div class="container">
 
-  <!-- HEADER -->
+<!-- HEADER -->
 
-  <div class="card">
+<div class="card">
 
-    <div class="header">
+  <div class="header">
 
-      <div>
-        <div class="course">
-          🎓 Kena Design Learning
-        </div>
+    <div>
 
-        <h1>
-          Lesson 1 — Thumbnail Basics
-        </h1>
+      <div class="course">
+        🎓 Kena Design Learning
       </div>
 
-      <a
-        class="backBtn"
-        href="./student.html"
-      >
-        ← Back
-      </a>
+      <h1>
+        Lesson 1 — Thumbnail Basics
+      </h1>
 
     </div>
-
-  </div>
-
-
-  <!-- LESSON -->
-
-  <div class="card">
-
-    <div class="lessonNumber">
-      Lesson 1
-    </div>
-
-    <h2>
-      🎨 YouTube Thumbnail Basics
-    </h2>
-
-    <p>
-      Barnoota kana keessatti
-      YouTube Thumbnail maal akka ta'e,
-      maaliif barbaachisaa akka ta'e fi
-      thumbnail gaarii akkamitti akka
-      qopheessinu baratta.
-    </p>
-
-
-    <!-- VIDEO -->
-
-    <div class="videoBox">
-
-      <div>
-
-        🎬<br><br>
-
-        <strong>
-          Lesson Video
-        </strong>
-
-        <br><br>
-
-        Video barnootaa as irratti
-        ni dabalama.
-
-      </div>
-
-    </div>
-
-
-    <!-- NOTES -->
-
-    <div class="note">
-
-      <h3>
-        📖 Notes
-      </h3>
-
-      <p>
-        YouTube Thumbnail jechuun
-        suuraa xiqqaa video YouTube
-        bakka bu'uudha.
-      </p>
-
-      <p>
-        Thumbnail gaariin nama akka
-        video kee cuqaasu gochuu danda'a.
-        Kanaaf:
-      </p>
-
-      <ul>
-
-        <li>
-          Suuraa qulqulluu fayyadami.
-        </li>
-
-        <li>
-          Halluu wal siman fayyadami.
-        </li>
-
-        <li>
-          Barreeffama gabaabaa fi
-          dubbifamuu danda'u fayyadami.
-        </li>
-
-        <li>
-          Subject ijoo ifa godhi.
-        </li>
-
-        <li>
-          Design kee baay'ee hin guutin.
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <!-- ASSIGNMENT -->
-
-    <div class="assignment">
-
-      <h3>
-        📝 Assignment
-      </h3>
-
-      <p>
-        YouTube Thumbnail tokko
-        qopheessi.
-      </p>
-
-      <p>
-        Thumbnail kee keessatti:
-      </p>
-
-      <ul>
-
-        <li>
-          Suuraa tokko fayyadami.
-        </li>
-
-        <li>
-          Barreeffama gabaabaa dabali.
-        </li>
-
-        <li>
-          Halluu lama ykn sadii fayyadami.
-        </li>
-
-        <li>
-          Design qulqulluu godhi.
-        </li>
-
-      </ul>
-
-    </div>
-
-
-    <!-- COMPLETE -->
-
-    <button
-      id="completeBtn"
-      class="completeBtn"
-      onclick="completeLesson()"
-    >
-      ✓ Mark Lesson as Completed
-    </button>
-
-
-    <div
-      id="status"
-      class="status"
-    >
-      ✅ Lesson completed!
-    </div>
-
 
     <a
-      class="nextBtn"
+      class="backBtn"
       href="./student.html"
     >
-      ← Back to Student Portal
+      ← Back
     </a>
-
-  </div>
-
-
-  <!-- NEXT LESSON -->
-
-  <div class="card">
-
-    <h2>
-      📚 Next
-    </h2>
-
-    <p>
-      Lesson itti aanu yeroo qopheeffamu
-      as keessatti ni mul'ata.
-    </p>
 
   </div>
 
 </div>
 
 
+<!-- MAIN LESSON -->
+
+<div class="card">
+
+  <div class="lessonNumber">
+    Lesson 1
+  </div>
+
+  <h2>
+    🎨 YouTube Thumbnail Basics
+  </h2>
+
+
+  <!-- INTRODUCTION -->
+
+  <div class="contentBox">
+
+    <h3>
+      📚 Content — YouTube Thumbnail jechuun maal?
+    </h3>
+
+    <p>
+      <strong>YouTube Thumbnail</strong>
+      jechuun suuraa xiqqaa video YouTube
+      tokko bakka bu'uudha.
+    </p>
+
+    <p>
+      Yeroo namni YouTube irratti video
+      barbaadu, wanta inni jalqaba ilaalu
+      keessaa tokko thumbnail dha.
+    </p>
+
+    <p>
+      Thumbnail gaariin nama video kee
+      akka ilaalu, akka cuqaasu fi akka
+      fedhii itti qabaatu gochuu danda'a.
+    </p>
+
+    <p>
+      Kanaaf thumbnail qopheessuun
+      suuraa kaa'uu qofa miti. Suuraa,
+      halluu, barreeffama fi design
+      sirriitti walitti fiduun barbaachisaa dha.
+    </p>
+
+
+    <h3>
+      🎯 Maaliif Thumbnail barbaachisaa dha?
+    </h3>
+
+    <p>
+      Namni tokko video kee yeroo argu,
+      yeroo baay'ee murtoo isaa saffisaan
+      godha.
+    </p>
+
+    <p>
+      Thumbnail gaariin:
+    </p>
+
+    <ul>
+      <li>Nama hawwata.</li>
+      <li>Video maal irratti akka ta'e agarsiisa.</li>
+      <li>Channel kee professional fakkeessa.</li>
+      <li>Namni video kee akka cuqaasu kakaasa.</li>
+    </ul>
+
+
+    <h3>
+      🎨 Thumbnail gaarii maal qabaachuu qaba?
+    </h3>
+
+    <p>
+      <strong>1. Suuraa qulqulluu</strong>
+    </p>
+
+    <p>
+      Suuraan ati fayyadamtu qulqulluu fi
+      ifa ta'uu qaba. Suuraa blur ta'e ykn
+      qulqullina gadi aanaa qabu hin fayyadamin.
+    </p>
+
+
+    <p>
+      <strong>2. Barreeffama gabaabaa</strong>
+    </p>
+
+    <p>
+      Thumbnail irratti barreeffama dheeraa
+      hin guutin.
+    </p>
+
+    <p>
+      Fakkeenyaaf:
+      <strong>
+        "Thumbnail Gaarii Hojjedhu!"
+      </strong>
+      jechuun barreeffama gabaabaa fi
+      hubachuuf salphaa dha.
+    </p>
+
+
+    <p>
+      <strong>3. Halluu sirrii</strong>
+    </p>
+
+    <p>
+      Halluu baay'ee walitti makuun design
+      kee jeequu danda'a. Halluu 2 ykn 3
+      wal-siman fayyadamuun gaarii dha.
+    </p>
+
+
+    <p>
+      <strong>4. Subject ijoo</strong>
+    </p>
+
+    <p>
+      Thumbnail keessatti wanti ijoo maal
+      akka ta'e namni battalum hubachuu qaba.
+    </p>
+
+
+    <p>
+      <strong>5. Design qulqulluu</strong>
+    </p>
+
+    <p>
+      Thumbnail kee wantoota baay'eedhaan
+      hin guutin. Wantoonni muraasni garuu
+      sirriitti qindaa'an design bareedaa uumu.
+    </p>
+
+
+    <p>
+      <strong>6. Font filachuu</strong>
+    </p>
+
+    <p>
+      Font guddaa, ifa fi dubbifamuu salphaa
+      ta'e fayyadami. Mobile irrattis namni
+      dubbisuu akka danda'u mirkaneessi.
+    </p>
+
+
+    <p>
+      <strong>7. Contrast</strong>
+    </p>
+
+    <p>
+      Background fi text gidduutti garaagarummaa
+      ifaa qabaachuun text akka ifatti mul'atu
+      gargaara.
+    </p>
+
+
+    <h3>
+      ❌ Dogoggora irraa of eegi
+    </h3>
+
+    <ul>
+      <li>Text baay'ee hin fayyadamin.</li>
+      <li>Suuraa blur hin fayyadamin.</li>
+      <li>Halluu hedduu hin makiin.</li>
+      <li>Font xixiqqaa hin fayyadamin.</li>
+      <li>Thumbnail wantoota baay'eedhaan hin guutin.</li>
+    </ul>
+
+
+    <h3>
+      💡 Fakkeenya
+    </h3>
+
+    <p>
+      Yoo video kee
+      <strong>
+        "YouTube Channel Akkaataa Hojjennu"
+      </strong>
+      jedhu ta'e:
+    </p>
+
+    <ul>
+      <li>Suuraa namaa ykn laptop fayyadami.</li>
+      <li>Title gabaabaa barreessi.</li>
+      <li>Halluu 2 ykn 3 fayyadami.</li>
+      <li>Subject ijoo ifa godhi.</li>
+      <li>Design qulqulluu qopheessi.</li>
+    </ul>
+
+  </div>
+
+
+  <!-- VIDEO -->
+
+  <div class="videoBox">
+
+    <div>
+
+      🎬
+
+      <h3>
+        Lesson Video
+      </h3>
+
+      <p>
+        Video barnootaa as irratti
+        yeroo qophaa'u ni dabalama.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- NOTE -->
+
+  <div class="note">
+
+    <h3>
+      📖 NOTE — Yaadannoo Lesson 1
+    </h3>
+
+    <p>
+      Barataan wantoota armaan gadii
+      sirriitti yaadachuu qaba:
+    </p>
+
+    <ul>
+
+      <li>
+        Thumbnail video YouTube bakka bu'a.
+      </li>
+
+      <li>
+        Thumbnail gaariin nama hawwata.
+      </li>
+
+      <li>
+        Suuraa qulqulluu fayyadami.
+      </li>
+
+      <li>
+        Text gabaabaa fayyadami.
+      </li>
+
+      <li>
+        Font guddaa fi dubbifamuu salphaa fayyadami.
+      </li>
+
+      <li>
+        Halluu wal-siman fayyadami.
+      </li>
+
+      <li>
+        Subject ijoo ifa godhi.
+      </li>
+
+      <li>
+        Design kee hin guutin.
+      </li>
+
+      <li>
+        Contrast gaarii fayyadami.
+      </li>
+
+      <li>
+        Thumbnail mobile irrattis dubbifamuu
+        danda'uu qaba.
+      </li>
+
+    </ul>
+
+  </div>
+
+
+  <!-- ASSIGNMENT -->
+
+  <div class="assignment">
+
+    <h3>
+      📝 ASSIGNMENT — Hojii Barataa
+    </h3>
+
+    <p>
+      Amma ati
+      <strong>
+        YouTube Thumbnail tokko
+      </strong>
+      ofii keetiin qopheessi.
+    </p>
+
+    <p>
+      Thumbnail kee keessatti:
+    </p>
+
+    <ul>
+
+      <li>
+        Suuraa qulqulluu tokko fayyadami.
+      </li>
+
+      <li>
+        Title gabaabaa tokko barreessi.
+      </li>
+
+      <li>
+        Halluu 2 ykn 3 fayyadami.
+      </li>
+
+      <li>
+        Font dubbifamuu salphaa fayyadami.
+      </li>
+
+      <li>
+        Subject ijoo ifa godhi.
+      </li>
+
+      <li>
+        Background sirrii qopheessi.
+      </li>
+
+      <li>
+        Design qulqulluu godhi.
+      </li>
+
+      <li>
+        Mobile irratti ilaaluun dubbifamuu
+        akka danda'u mirkaneessi.
+      </li>
+
+    </ul>
+
+    <p>
+      🎯 Kaayyoon assignment kanaa:
+      barataan YouTube Thumbnail tokko
+      ofii isaa qopheessuu danda'uu qaba.
+    </p>
+
+  </div>
+
+
+  <!-- COMPLETE -->
+
+  <button
+    id="completeBtn"
+    class="completeBtn"
+    onclick="completeLesson()"
+  >
+    ✓ Mark Lesson as Completed
+  </button>
+
+
+  <div
+    id="status"
+    class="status"
+  >
+    ✅ Lesson 1 completed!
+  </div>
+
+
+  <a
+    class="nextBtn"
+    href="./student.html"
+  >
+    ← Back to Student Portal
+  </a>
+
+</div>
+
+
+<!-- NEXT -->
+
+<div class="card">
+
+  <h2>
+    📚 Next Lesson
+  </h2>
+
+  <p>
+    Lesson 2 — Thumbnail Design Tools
+    yeroo qophaa'u as keessatti ni mul'ata.
+  </p>
+
+</div>
+
+</div>
+
+
 <script>
 
-const COURSE_NAME =
-  "YouTube Thumbnail";
-
 const LESSON_KEY =
-  "kena_" +
-  COURSE_NAME +
-  "_lesson_1_completed";
+  "kena_youtube_thumbnail_lesson_1";
 
 
 function completeLesson(){
 
   localStorage.setItem(
     LESSON_KEY,
-    "true"
+    "completed"
   );
 
   showCompleted();
@@ -440,7 +694,7 @@ window.addEventListener(
     if(
       localStorage.getItem(
         LESSON_KEY
-      ) === "true"
+      ) === "completed"
     ){
 
       showCompleted();

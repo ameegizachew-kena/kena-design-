@@ -103,11 +103,6 @@
       color: #fecaca;
     }
 
-    .success {
-      background: #064e3b;
-      color: #6ee7b7;
-    }
-
     .header {
       display: flex;
       justify-content: space-between;
@@ -171,13 +166,13 @@
     .lessonBtn {
       background: #2563eb;
       color: white;
-      padding: 10px 15px;
+      padding: 11px 16px;
       border-radius: 8px;
-      border: 0;
       text-decoration: none;
       display: inline-block;
       font-weight: bold;
       cursor: pointer;
+      border: 0;
       font-size: 15px;
     }
 
@@ -207,9 +202,13 @@
       .courseName {
         font-size: 21px;
       }
+
+      .lessonBtn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
-
 </head>
 
 <body>
@@ -219,23 +218,13 @@
   <div id="loginBox" class="card">
 
     <div class="title">
-
       <h1>🎓 Kena Design</h1>
-
-      <p>
-        Student Learning Portal
-      </p>
-
+      <p>Student Learning Portal</p>
     </div>
 
-    <div
-      id="loginMessage"
-      class="message"
-    ></div>
+    <div id="loginMessage" class="message"></div>
 
-    <label>
-      Phone
-    </label>
+    <label>Phone</label>
 
     <input
       id="phone"
@@ -245,9 +234,7 @@
       placeholder="09xxxxxxxx"
     >
 
-    <label>
-      PIN
-    </label>
+    <label>PIN</label>
 
     <input
       id="pin"
@@ -281,16 +268,12 @@
       <div class="header">
 
         <div>
-
-          <h1>
-            🎓 Kena Design Learning
-          </h1>
+          <h1>🎓 Kena Design Learning</h1>
 
           <div
             id="welcome"
             class="welcome"
           ></div>
-
         </div>
 
         <button
@@ -311,9 +294,7 @@
 
       <div class="course">
 
-        <div>
-          Your Course
-        </div>
+        <div>Your Course</div>
 
         <div
           id="courseName"
@@ -333,9 +314,7 @@
 
     <div class="card">
 
-      <h2>
-        📚 Lessons
-      </h2>
+      <h2>📚 Lessons</h2>
 
       <div id="lessons"></div>
 
@@ -345,10 +324,6 @@
 
 
   <script>
-
-    /* =========================
-       SETTINGS
-    ========================= */
 
     const FUNCTION_URL =
       "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
@@ -362,172 +337,94 @@
 
       "Video Editing": [
         {
-          title:
-            "Lesson 1 — Introduction",
-
-          description:
-            "Video Editing maal akka ta'e baradhu.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Introduction",
+          description: "Video Editing maal akka ta'e baradhu.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 2 — Editing Basics",
-
-          description:
-            "Cut, trim fi timeline bu'uuraa.",
-
-          link:
-            "#"
+          title: "Lesson 2 — Editing Basics",
+          description: "Cut, trim fi timeline bu'uuraa.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 3 — Audio Editing",
-
-          description:
-            "Sagalee fi music sirreessuu.",
-
-          link:
-            "#"
+          title: "Lesson 3 — Audio Editing",
+          description: "Sagalee fi music sirreessuu.",
+          link: "#"
         }
       ],
 
 
       "Graphic Design": [
         {
-          title:
-            "Lesson 1 — Introduction",
-
-          description:
-            "Graphic Design maal akka ta'e baradhu.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Introduction",
+          description: "Graphic Design maal akka ta'e baradhu.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 2 — Design Basics",
-
-          description:
-            "Layout, shape fi typography.",
-
-          link:
-            "#"
+          title: "Lesson 2 — Design Basics",
+          description: "Layout, shape fi typography.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 3 — Color",
-
-          description:
-            "Color theory fi color combination.",
-
-          link:
-            "#"
+          title: "Lesson 3 — Color",
+          description: "Color theory fi color combination.",
+          link: "#"
         }
       ],
 
 
       "Web Design": [
         {
-          title:
-            "Lesson 1 — Introduction",
-
-          description:
-            "Web Design bu'uuraa.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Introduction",
+          description: "Web Design bu'uuraa.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 2 — HTML",
-
-          description:
-            "HTML irraa website ijaaruu.",
-
-          link:
-            "#"
+          title: "Lesson 2 — HTML",
+          description: "HTML irraa website ijaaruu.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 3 — CSS",
-
-          description:
-            "CSS fi website styling.",
-
-          link:
-            "#"
+          title: "Lesson 3 — CSS",
+          description: "CSS fi website styling.",
+          link: "#"
         }
       ],
 
 
       "Digital Marketing": [
         {
-          title:
-            "Lesson 1 — Introduction",
-
-          description:
-            "Digital Marketing bu'uuraa.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Introduction",
+          description: "Digital Marketing bu'uuraa.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 2 — Social Media",
-
-          description:
-            "Social media marketing.",
-
-          link:
-            "#"
+          title: "Lesson 2 — Social Media",
+          description: "Social media marketing.",
+          link: "#"
         }
       ],
 
 
       "Photography": [
         {
-          title:
-            "Lesson 1 — Introduction",
-
-          description:
-            "Photography bu'uuraa.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Introduction",
+          description: "Photography bu'uuraa.",
+          link: "#"
         },
-
         {
-          title:
-            "Lesson 2 — Camera Basics",
-
-          description:
-            "Camera settings fi shooting.",
-
-          link:
-            "#"
+          title: "Lesson 2 — Camera Basics",
+          description: "Camera settings fi shooting.",
+          link: "#"
         }
       ],
 
 
       "Flayer Package": [
         {
-          title:
-            "Lesson 1 — Flyer Design",
-
-          description:
-            "Flyer design bu'uuraa.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Flyer Design",
+          description: "Flyer design bu'uuraa.",
+          link: "#"
         }
       ],
 
@@ -538,28 +435,18 @@
 
       "YouTube Thumbnail": [
         {
-          title:
-            "Lesson 1 — Thumbnail Basics",
-
-          description:
-            "YouTube thumbnail ijaaruu.",
-
-          link:
-            "./lesson.html?course=YouTube%20Thumbnail"
+          title: "Lesson 1 — Thumbnail Basics",
+          description: "YouTube thumbnail ijaaruu.",
+          link: "./lesson.html"
         }
       ],
 
 
       "Poster Design": [
         {
-          title:
-            "Lesson 1 — Poster Design",
-
-          description:
-            "Poster design bu'uuraa.",
-
-          link:
-            "#"
+          title: "Lesson 1 — Poster Design",
+          description: "Poster design bu'uuraa.",
+          link: "#"
         }
       ]
 
@@ -585,32 +472,20 @@
           .trim();
 
       if (!phone) {
-
-        showLoginMessage(
-          "Phone galchi."
-        );
-
+        showLoginMessage("Phone galchi.");
         return;
       }
 
       if (!pin) {
-
-        showLoginMessage(
-          "PIN galchi."
-        );
-
+        showLoginMessage("PIN galchi.");
         return;
       }
 
       const button =
-        document.getElementById(
-          "loginBtn"
-        );
+        document.getElementById("loginBtn");
 
       button.disabled = true;
-
-      button.textContent =
-        "Logging in...";
+      button.textContent = "Logging in...";
 
       try {
 
@@ -618,22 +493,17 @@
           await fetch(
             FUNCTION_URL,
             {
-              method:
-                "POST",
+              method: "POST",
 
               headers: {
                 "Content-Type":
                   "application/json"
               },
 
-              body:
-                JSON.stringify({
-                  phone:
-                    phone,
-
-                  pin:
-                    pin
-                })
+              body: JSON.stringify({
+                phone: phone,
+                pin: pin
+              })
             }
           );
 
@@ -644,7 +514,6 @@
           !response.ok ||
           !result.success
         ) {
-
           throw new Error(
             result.message ||
             "Login hin milkoofne."
@@ -656,20 +525,14 @@
 
         sessionStorage.setItem(
           "kena_student",
-          JSON.stringify(
-            student
-          )
+          JSON.stringify(student)
         );
 
-        showDashboard(
-          student
-        );
+        showDashboard(student);
 
       } catch (error) {
 
-        console.error(
-          error
-        );
+        console.error(error);
 
         showLoginMessage(
           error.message
@@ -677,11 +540,9 @@
 
       } finally {
 
-        button.disabled =
-          false;
+        button.disabled = false;
+        button.textContent = "Login";
 
-        button.textContent =
-          "Login";
       }
     }
 
@@ -690,28 +551,21 @@
        DASHBOARD
     ========================= */
 
-    function showDashboard(
-      student
-    ) {
+    function showDashboard(student) {
 
       document.getElementById(
         "loginBox"
-      ).style.display =
-        "none";
+      ).style.display = "none";
 
       document.getElementById(
         "dashboard"
-      ).style.display =
-        "block";
+      ).style.display = "block";
 
       document.getElementById(
         "welcome"
       ).textContent =
         "Welcome " +
-        (
-          student.fullname ||
-          "Student"
-        );
+        (student.fullname || "Student");
 
       document.getElementById(
         "courseName"
@@ -719,9 +573,8 @@
         student.course ||
         "Course hin argamne";
 
-      renderLessons(
-        student.course
-      );
+      renderLessons(student.course);
+
     }
 
 
@@ -729,23 +582,17 @@
        LESSONS
     ========================= */
 
-    function renderLessons(
-      course
-    ) {
+    function renderLessons(course) {
 
       const box =
-        document.getElementById(
-          "lessons"
-        );
+        document.getElementById("lessons");
 
       const lessons =
         COURSES[course] || [];
 
       box.innerHTML = "";
 
-      if (
-        lessons.length === 0
-      ) {
+      if (lessons.length === 0) {
 
         box.innerHTML = `
           <div class="noLessons">
@@ -757,60 +604,46 @@
         return;
       }
 
-      lessons.forEach(
-        (lesson) => {
+      lessons.forEach((lesson) => {
 
-          const lessonDiv =
-            document.createElement(
-              "div"
-            );
+        const lessonDiv =
+          document.createElement("div");
 
-          lessonDiv.className =
-            "lesson";
+        lessonDiv.className =
+          "lesson";
 
-          lessonDiv.innerHTML = `
-            <h3>
-              ${escapeHTML(
-                lesson.title
-              )}
-            </h3>
+        lessonDiv.innerHTML = `
+          <h3>
+            ${escapeHTML(lesson.title)}
+          </h3>
 
-            <p>
-              ${escapeHTML(
-                lesson.description
-              )}
-            </p>
+          <p>
+            ${escapeHTML(lesson.description)}
+          </p>
 
-            <button
-              class="lessonBtn"
-              type="button"
-            >
-              📖 Open Lesson
-            </button>
-          `;
+          <button
+            class="lessonBtn"
+            type="button"
+          >
+            📖 Open Lesson
+          </button>
+        `;
 
-          const button =
-            lessonDiv.querySelector(
-              ".lessonBtn"
-            );
-
-          button.addEventListener(
-            "click",
-            function () {
-
-              openLesson(
-                lesson.link
-              );
-
-            }
+        const button =
+          lessonDiv.querySelector(
+            ".lessonBtn"
           );
 
-          box.appendChild(
-            lessonDiv
-          );
+        button.addEventListener(
+          "click",
+          function () {
+            openLesson(lesson.link);
+          }
+        );
 
-        }
-      );
+        box.appendChild(lessonDiv);
+
+      });
     }
 
 
@@ -818,25 +651,18 @@
        OPEN LESSON
     ========================= */
 
-    function openLesson(
-      link
-    ) {
+    function openLesson(link) {
 
-      if (
-        !link ||
-        link === "#"
-      ) {
+      if (!link || link === "#") {
 
-        showLoginMessage(
+        alert(
           "Lesson link hin qophoofne."
         );
 
         return;
       }
 
-      window.location.assign(
-        link
-      );
+      window.location.href = link;
     }
 
 
@@ -844,17 +670,14 @@
        LOGIN MESSAGE
     ========================= */
 
-    function showLoginMessage(
-      text
-    ) {
+    function showLoginMessage(text) {
 
       const box =
         document.getElementById(
           "loginMessage"
         );
 
-      box.textContent =
-        text;
+      box.textContent = text;
 
       box.className =
         "message error";
@@ -876,18 +699,16 @@
 
       document.getElementById(
         "dashboard"
-      ).style.display =
-        "none";
+      ).style.display = "none";
 
       document.getElementById(
         "loginBox"
-      ).style.display =
-        "block";
+      ).style.display = "block";
 
       document.getElementById(
         "pin"
-      ).value =
-        "";
+      ).value = "";
+
     }
 
 
@@ -895,64 +716,20 @@
        SECURITY
     ========================= */
 
-    function escapeHTML(
-      value
-    ) {
+    function escapeHTML(value) {
 
-      return String(
-        value ?? ""
-      )
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-    }
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-
-    function escapeAttribute(
-      value
-    ) {
-
-      return String(
-        value ?? ""
-      )
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        );
     }
 
 
     /* =========================
-       EXISTING LOGIN
+       AUTO LOGIN
     ========================= */
 
     window.addEventListener(
@@ -971,19 +748,13 @@
           }
 
           const student =
-            JSON.parse(
-              saved
-            );
+            JSON.parse(saved);
 
           if (
             student &&
-            student.payment_status ===
-              "PAID"
+            student.payment_status === "PAID"
           ) {
-
-            showDashboard(
-              student
-            );
+            showDashboard(student);
           }
 
         } catch (error) {
@@ -991,6 +762,7 @@
           sessionStorage.removeItem(
             "kena_student"
           );
+
         }
 
       }

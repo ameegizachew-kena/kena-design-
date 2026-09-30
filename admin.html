@@ -15,95 +15,150 @@
 
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      padding: 15px;
       background: #07111f;
       color: white;
+      font-family: Arial, sans-serif;
     }
 
     .container {
-      width: 96%;
       max-width: 1200px;
-      margin: 15px auto;
+      margin: auto;
     }
 
     .card {
       background: #101c2c;
-      border-radius: 18px;
-      padding: 18px;
+      padding: 20px;
+      border-radius: 16px;
       margin-bottom: 15px;
-      box-shadow: 0 8px 25px rgba(0,0,0,.18);
-    }
-
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
     }
 
     h1 {
-      margin: 0;
+      margin-top: 0;
+    }
+
+    /* LOGIN */
+
+    #loginPage {
+      max-width: 430px;
+      margin: 70px auto;
+    }
+
+    .login-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .login-title h1 {
       font-size: 28px;
     }
 
+    .login-title p {
+      color: #9fb0c5;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #cbd5e1;
+      font-weight: bold;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #334155;
+      border-radius: 9px;
+      background: #07111f;
+      color: white;
+      outline: none;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    input:focus {
+      border-color: #32d583;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 9px;
+      background: #32d583;
+      color: #07111f;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    /* HEADER */
+
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
     .subtitle {
-      margin-top: 8px;
       color: #9fb0c5;
       font-weight: bold;
+      margin-top: 7px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 8px;
     }
 
     button {
       border: 0;
-      cursor: pointer;
       border-radius: 9px;
+      padding: 10px 15px;
       font-weight: bold;
+      cursor: pointer;
     }
 
     .refresh {
       background: #2563eb;
       color: white;
-      padding: 10px 15px;
     }
 
     .logout {
       background: #dc2626;
       color: white;
-      padding: 10px 15px;
-      margin-left: 5px;
     }
+
+    /* SEARCH */
 
     .search {
       width: 100%;
-      padding: 13px;
-      border: 1px solid #334155;
-      border-radius: 10px;
-      background: #07111f;
-      color: white;
-      outline: none;
-      font-size: 15px;
-    }
-
-    .search:focus {
-      border-color: #32d583;
+      margin-bottom: 10px;
     }
 
     .filters {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-top: 12px;
     }
 
-    .filterBtn {
-      padding: 9px 13px;
+    .filter-btn {
       background: #334155;
       color: white;
     }
 
-    .filterBtn.active {
+    .filter-btn.active {
       background: #059669;
     }
+
+    /* STATS */
 
     .stats {
       display: grid;
@@ -112,8 +167,8 @@
     }
 
     .stat {
-      padding: 15px;
-      border-radius: 13px;
+      padding: 18px;
+      border-radius: 14px;
       text-align: center;
       font-weight: bold;
     }
@@ -129,25 +184,27 @@
       color: #7dd3fc;
     }
 
-    .paidStat {
+    .paid-stat {
       background: #064e3b;
       color: #6ee7b7;
     }
 
-    .pendingStat {
+    .pending-stat {
       background: #713f12;
       color: #fde68a;
     }
 
-    .unpaidStat {
+    .unpaid-stat {
       background: #7f1d1d;
       color: #fecaca;
     }
 
+    /* MESSAGE */
+
     .message {
       display: none;
       padding: 13px;
-      border-radius: 10px;
+      border-radius: 9px;
       margin-bottom: 15px;
       font-weight: bold;
       word-break: break-word;
@@ -163,38 +220,40 @@
       color: #6ee7b7;
     }
 
+    /* LOADING */
+
     .loading {
       text-align: center;
-      padding: 35px 10px;
+      padding: 35px;
       color: #9fb0c5;
       font-weight: bold;
     }
 
-    .tableWrap {
+    /* TABLE */
+
+    .table-wrap {
       width: 100%;
       overflow-x: auto;
-      border-radius: 12px;
     }
 
     table {
       width: 100%;
-      min-width: 1100px;
+      min-width: 1050px;
       border-collapse: collapse;
     }
 
     th {
       background: #07111f;
       color: #9fb0c5;
-      padding: 12px;
+      padding: 11px;
       text-align: left;
       white-space: nowrap;
     }
 
     td {
-      padding: 12px;
+      padding: 11px;
       border-bottom: 1px solid #26364a;
       white-space: nowrap;
-      vertical-align: middle;
     }
 
     tr:hover {
@@ -224,20 +283,20 @@
       color: #fecaca;
     }
 
-    .paidBtn {
+    .paid-btn {
       background: #059669;
       color: white;
       padding: 8px 12px;
       font-size: 12px;
     }
 
-    .paidBtn:disabled {
+    .paid-btn:disabled {
       background: #166534;
       opacity: .7;
       cursor: not-allowed;
     }
 
-    .viewBtn {
+    .view-btn {
       background: #2563eb;
       color: white;
       padding: 8px 12px;
@@ -264,7 +323,7 @@
       padding: 15px;
     }
 
-    .modalBox {
+    .modal-box {
       width: 100%;
       max-width: 700px;
       max-height: 90vh;
@@ -274,21 +333,20 @@
       padding: 15px;
     }
 
-    .modalTop {
+    .modal-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
     }
 
-    .modalTop h3 {
+    .modal-top h3 {
       margin: 0;
     }
 
-    .closeBtn {
+    .close-btn {
       background: #dc2626;
       color: white;
-      padding: 8px 12px;
     }
 
     #screenshotImage {
@@ -296,15 +354,14 @@
       max-height: 70vh;
       object-fit: contain;
       border-radius: 10px;
-      background: #07111f;
     }
 
     /* MOBILE */
 
     @media (max-width: 700px) {
 
-      .container {
-        width: 94%;
+      body {
+        padding: 8px;
       }
 
       .card {
@@ -312,8 +369,8 @@
         border-radius: 14px;
       }
 
-      h1 {
-        font-size: 23px;
+      #loginPage {
+        margin: 40px auto;
       }
 
       .stats {
@@ -321,38 +378,27 @@
       }
 
       .stat {
-        padding: 12px 6px;
+        padding: 13px 7px;
       }
 
       .stat strong {
         font-size: 23px;
       }
 
-      .top {
+      .header-row {
         align-items: flex-start;
       }
 
-      .refresh,
-      .logout {
+      .buttons button {
         padding: 9px 12px;
         font-size: 12px;
       }
 
-      /*
-        Mobile irratti:
-        Full Name
-        Course
-        Amount
-        Method
-        Status
-        Screenshot
-        Action
-        qofa mul'ata.
-      */
-
       table {
         min-width: 760px;
       }
+
+      /* Mobile irratti odeeffannoo barbaachisaa qofa */
 
       th:nth-child(1),
       td:nth-child(1),
@@ -382,8 +428,8 @@
 
       th,
       td {
-        padding: 10px 8px;
-        font-size: 13px;
+        padding: 9px 7px;
+        font-size: 12px;
       }
     }
   </style>
@@ -391,26 +437,90 @@
 
 <body>
 
-<div class="container">
+<!-- =========================
+     LOGIN PAGE
+========================= -->
+
+<div
+  id="loginPage"
+  class="card">
+
+  <div class="login-title">
+
+    <h1>Kena Design Admin</h1>
+
+    <p>
+      Admin account keessanitti seeni
+    </p>
+
+  </div>
+
+  <div id="loginMessage"
+       class="message">
+  </div>
+
+  <label>
+    Email
+  </label>
+
+  <input
+    id="loginEmail"
+    type="email"
+    value="ameegizachew@gmail.com"
+    placeholder="Admin email"
+  >
+
+  <label>
+    Password
+  </label>
+
+  <input
+    id="loginPassword"
+    type="password"
+    placeholder="Password kee galchi"
+  >
+
+  <button
+    id="loginButton"
+    class="login-btn"
+    onclick="loginAdmin()">
+    Login
+  </button>
+
+</div>
+
+
+<!-- =========================
+     ADMIN PAGE
+========================= -->
+
+<div
+  id="adminPage"
+  class="container"
+  style="display:none;">
 
   <!-- HEADER -->
 
   <div class="card">
 
-    <div class="top">
+    <div class="header-row">
 
       <div>
 
-        <h1>Kena Design Admin</h1>
+        <h1>
+          Kena Design Admin
+        </h1>
 
         <div class="subtitle">
           Barattoota:
-          <span id="totalTop">0</span>
+          <span id="totalTop">
+            0
+          </span>
         </div>
 
       </div>
 
-      <div>
+      <div class="buttons">
 
         <button
           class="refresh"
@@ -454,29 +564,29 @@
     <div class="filters">
 
       <button
-        class="filterBtn active"
         id="allBtn"
+        class="filter-btn active"
         onclick="setFilter('ALL')">
         Hunda
       </button>
 
       <button
-        class="filterBtn"
-        id="paidBtnFilter"
+        id="paidFilter"
+        class="filter-btn"
         onclick="setFilter('PAID')">
         🟢 PAID
       </button>
 
       <button
-        class="filterBtn"
-        id="pendingBtnFilter"
+        id="pendingFilter"
+        class="filter-btn"
         onclick="setFilter('PENDING')">
         🟡 PENDING
       </button>
 
       <button
-        class="filterBtn"
-        id="unpaidBtnFilter"
+        id="unpaidFilter"
+        class="filter-btn"
         onclick="setFilter('UNPAID')">
         🔴 UNPAID
       </button>
@@ -494,22 +604,30 @@
 
       <div class="stat total">
         Total
-        <strong id="totalCount">0</strong>
+        <strong id="totalCount">
+          0
+        </strong>
       </div>
 
-      <div class="stat paidStat">
+      <div class="stat paid-stat">
         Paid
-        <strong id="paidCount">0</strong>
+        <strong id="paidCount">
+          0
+        </strong>
       </div>
 
-      <div class="stat pendingStat">
+      <div class="stat pending-stat">
         Pending
-        <strong id="pendingCount">0</strong>
+        <strong id="pendingCount">
+          0
+        </strong>
       </div>
 
-      <div class="stat unpaidStat">
+      <div class="stat unpaid-stat">
         Unpaid
-        <strong id="unpaidCount">0</strong>
+        <strong id="unpaidCount">
+          0
+        </strong>
       </div>
 
     </div>
@@ -527,7 +645,7 @@
       Loading...
     </div>
 
-    <div class="tableWrap">
+    <div class="table-wrap">
 
       <table
         id="studentsTable"
@@ -571,7 +689,9 @@
 
         </thead>
 
-        <tbody id="studentsBody"></tbody>
+        <tbody
+          id="studentsBody">
+        </tbody>
 
       </table>
 
@@ -588,20 +708,24 @@
 </div>
 
 
-<!-- SCREENSHOT MODAL -->
+<!-- =========================
+     SCREENSHOT MODAL
+========================= -->
 
 <div
   id="imageModal"
   class="modal">
 
-  <div class="modalBox">
+  <div class="modal-box">
 
-    <div class="modalTop">
+    <div class="modal-top">
 
-      <h3>Payment Screenshot</h3>
+      <h3>
+        Payment Screenshot
+      </h3>
 
       <button
-        class="closeBtn"
+        class="close-btn"
         onclick="closeModal()">
         Close
       </button>
@@ -619,6 +743,10 @@
 
 
 <script>
+
+/* =========================
+   SUPABASE
+========================= */
 
 const SUPABASE_URL =
   "https://baoczizarrnzxwguyili.supabase.co";
@@ -639,11 +767,36 @@ const supabaseClient =
 
 let students = [];
 
-let currentFilter = "ALL";
+let currentFilter =
+  "ALL";
 
 
 /* =========================
-   MESSAGE
+   LOGIN MESSAGE
+========================= */
+
+function showLoginMessage(
+  text
+) {
+
+  const box =
+    document.getElementById(
+      "loginMessage"
+    );
+
+  box.textContent =
+    text;
+
+  box.className =
+    "message error";
+
+  box.style.display =
+    "block";
+}
+
+
+/* =========================
+   ADMIN MESSAGE
 ========================= */
 
 function showMessage(
@@ -656,22 +809,165 @@ function showMessage(
       "message"
     );
 
-  box.textContent = text;
+  box.textContent =
+    text;
 
   box.className =
     "message " + type;
 
   box.style.display =
     "block";
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+async function loginAdmin() {
+
+  const email =
+    document
+      .getElementById(
+        "loginEmail"
+      )
+      .value
+      .trim();
+
+  const password =
+    document
+      .getElementById(
+        "loginPassword"
+      )
+      .value;
+
+
+  if (!email) {
+
+    showLoginMessage(
+      "Email galchi."
+    );
+
+    return;
+  }
+
+
+  if (!password) {
+
+    showLoginMessage(
+      "Password galchi."
+    );
+
+    return;
+  }
+
+
+  const button =
+    document.getElementById(
+      "loginButton"
+    );
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "Logging in...";
+
+
+  try {
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .auth
+        .signInWithPassword({
+          email: email,
+          password: password
+        });
+
+
+    if (error) {
+      throw error;
+    }
+
+
+    if (
+      !data ||
+      !data.user
+    ) {
+
+      throw new Error(
+        "Login hin milkoofne."
+      );
+    }
+
+
+    if (
+      data.user.email
+        .toLowerCase() !==
+      ADMIN_EMAIL.toLowerCase()
+    ) {
+
+      await supabaseClient
+        .auth
+        .signOut();
+
+      throw new Error(
+        "Email kun admin email miti."
+      );
+    }
+
+
+    document.getElementById(
+      "loginPage"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "adminPage"
+    ).style.display =
+      "block";
+
+
+    await loadStudents();
+
+
+  } catch (error) {
+
+    console.error(
+      "LOGIN ERROR:",
+      error
+    );
+
+
+    showLoginMessage(
+      "Login hin milkoofne: " +
+      error.message
+    );
+
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "Login";
+
+  }
 
 }
 
 
 /* =========================
-   ADMIN CHECK
+   CHECK EXISTING SESSION
 ========================= */
 
-async function checkAdmin() {
+async function checkExistingSession() {
 
   try {
 
@@ -682,17 +978,19 @@ async function checkAdmin() {
 
           reject(
             new Error(
-              "Supabase login verification timeout."
+              "Session timeout"
             )
           );
 
-        }, 10000);
+        }, 8000);
 
       });
 
 
     const sessionRequest =
-      supabaseClient.auth.getSession();
+      supabaseClient
+        .auth
+        .getSession();
 
 
     const {
@@ -706,7 +1004,7 @@ async function checkAdmin() {
 
 
     if (error) {
-      throw error;
+      return;
     }
 
 
@@ -715,81 +1013,51 @@ async function checkAdmin() {
       data.session;
 
 
-    if (!session) {
+    if (
+      !session ||
+      !session.user
+    ) {
 
-      showMessage(
-        "Admin login hin jiru. Mee login godhi.",
-        "error"
-      );
-
-      document.getElementById(
-        "loading"
-      ).style.display =
-        "none";
-
-      return false;
+      return;
     }
-
-
-    const email =
-      session.user &&
-      session.user.email
-        ? session.user.email.toLowerCase()
-        : "";
 
 
     if (
-      email !==
+      session.user.email
+        .toLowerCase() !==
       ADMIN_EMAIL.toLowerCase()
     ) {
 
-      await supabaseClient.auth.signOut();
+      await supabaseClient
+        .auth
+        .signOut();
 
-      showMessage(
-        "Ati admin miti.",
-        "error"
-      );
-
-      document.getElementById(
-        "loading"
-      ).style.display =
-        "none";
-
-      return false;
+      return;
     }
 
 
-    return true;
-
-
-  } catch (error) {
-
-    console.error(
-      "ADMIN CHECK ERROR:",
-      error
-    );
-
-
     document.getElementById(
-      "loading"
+      "loginPage"
     ).style.display =
       "none";
 
 
     document.getElementById(
-      "studentsTable"
+      "adminPage"
     ).style.display =
-      "table";
+      "block";
 
 
-    showMessage(
-      "Supabase/Admin connection rakkoo qaba: " +
-      error.message,
-      "error"
+    await loadStudents();
+
+
+  } catch (error) {
+
+    console.log(
+      "No existing session:",
+      error.message
     );
 
-
-    return false;
   }
 
 }
@@ -833,8 +1101,11 @@ async function loadStudents() {
       }, 15000);
 
 
-    const request =
-      supabaseClient
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
         .from("Students")
         .select("*")
         .order(
@@ -848,17 +1119,9 @@ async function loadStudents() {
         );
 
 
-    const result =
-      await request;
-
-
-    clearTimeout(timeout);
-
-
-    const {
-      data,
-      error
-    } = result;
+    clearTimeout(
+      timeout
+    );
 
 
     if (error) {
@@ -926,16 +1189,20 @@ async function loadStudents() {
    STATUS
 ========================= */
 
-function getStatus(student) {
+function getStatus(
+  student
+) {
 
   const status =
     String(
-      student.payment_status || ""
+      student.payment_status ||
+      ""
     ).toUpperCase();
 
 
   if (
-    status === "PAID"
+    status ===
+    "PAID"
   ) {
 
     return "PAID";
@@ -944,7 +1211,8 @@ function getStatus(student) {
 
 
   if (
-    status === "PENDING"
+    status ===
+    "PENDING"
   ) {
 
     return "PENDING";
@@ -1027,7 +1295,9 @@ function updateStats() {
    FILTER
 ========================= */
 
-function setFilter(filter) {
+function setFilter(
+  filter
+) {
 
   currentFilter =
     filter;
@@ -1035,19 +1305,22 @@ function setFilter(filter) {
 
   document
     .querySelectorAll(
-      ".filterBtn"
+      ".filter-btn"
     )
-    .forEach(btn => {
+    .forEach(
+      button => {
 
-      btn.classList.remove(
-        "active"
-      );
+        button.classList.remove(
+          "active"
+        );
 
-    });
+      }
+    );
 
 
   if (
-    filter === "ALL"
+    filter ===
+    "ALL"
   ) {
 
     document
@@ -1062,12 +1335,13 @@ function setFilter(filter) {
 
 
   if (
-    filter === "PAID"
+    filter ===
+    "PAID"
   ) {
 
     document
       .getElementById(
-        "paidBtnFilter"
+        "paidFilter"
       )
       .classList.add(
         "active"
@@ -1077,12 +1351,13 @@ function setFilter(filter) {
 
 
   if (
-    filter === "PENDING"
+    filter ===
+    "PENDING"
   ) {
 
     document
       .getElementById(
-        "pendingBtnFilter"
+        "pendingFilter"
       )
       .classList.add(
         "active"
@@ -1092,12 +1367,13 @@ function setFilter(filter) {
 
 
   if (
-    filter === "UNPAID"
+    filter ===
+    "UNPAID"
   ) {
 
     document
       .getElementById(
-        "unpaidBtnFilter"
+        "unpaidFilter"
       )
       .classList.add(
         "active"
@@ -1112,7 +1388,7 @@ function setFilter(filter) {
 
 
 /* =========================
-   RENDER
+   RENDER STUDENTS
 ========================= */
 
 function renderStudents() {
@@ -1121,7 +1397,6 @@ function renderStudents() {
     document.getElementById(
       "studentsBody"
     );
-
 
   const empty =
     document.getElementById(
@@ -1144,7 +1419,9 @@ function renderStudents() {
       student => {
 
         const status =
-          getStatus(student);
+          getStatus(
+            student
+          );
 
 
         if (
@@ -1160,7 +1437,9 @@ function renderStudents() {
 
 
         if (!search) {
+
           return true;
+
         }
 
 
@@ -1171,10 +1450,6 @@ function renderStudents() {
           student["Full name"],
 
           student.fathername,
-
-          student.gender,
-
-          student.age,
 
           student.phone,
 
@@ -1204,11 +1479,13 @@ function renderStudents() {
     );
 
 
-  body.innerHTML = "";
+  body.innerHTML =
+    "";
 
 
   if (
-    filtered.length === 0
+    filtered.length ===
+    0
   ) {
 
     empty.style.display =
@@ -1227,7 +1504,9 @@ function renderStudents() {
     (student, index) => {
 
       const status =
-        getStatus(student);
+        getStatus(
+          student
+        );
 
 
       let statusClass =
@@ -1235,7 +1514,8 @@ function renderStudents() {
 
 
       if (
-        status === "PAID"
+        status ===
+        "PAID"
       ) {
 
         statusClass =
@@ -1245,7 +1525,8 @@ function renderStudents() {
 
 
       if (
-        status === "PENDING"
+        status ===
+        "PENDING"
       ) {
 
         statusClass =
@@ -1297,7 +1578,8 @@ function renderStudents() {
 
 
       const amount =
-        student.payment_amount != null
+        student.payment_amount !=
+        null
           ? Number(
               student.payment_amount
             ).toLocaleString() +
@@ -1321,110 +1603,133 @@ function renderStudents() {
       const screenshot =
         student.payment_screenshot_url
           ? `
-              <button
-                class="viewBtn"
-                onclick="viewScreenshot('${escapeJS(student.payment_screenshot_url)}')">
-                View
-              </button>
-            `
+            <button
+              class="view-btn"
+              onclick="viewScreenshot('${escapeJS(
+                student.payment_screenshot_url
+              )}')">
+              View
+            </button>
+          `
           : "-";
 
 
       const action =
-        status === "PAID"
+        status ===
+        "PAID"
           ? `
-              <button
-                class="paidBtn"
-                disabled>
-                ✓ PAID
-              </button>
-            `
+            <button
+              class="paid-btn"
+              disabled>
+              ✓ PAID
+            </button>
+          `
           : `
-              <button
-                class="paidBtn"
-                onclick="markPaid('${escapeJS(student.id)}')">
-                PAID
-              </button>
-            `;
+            <button
+              class="paid-btn"
+              onclick="markPaid('${escapeJS(
+                student.id
+              )}')">
+              PAID
+            </button>
+          `;
 
 
-      const tr =
-        document.createElement(
-          "tr"
-        );
+      body.insertAdjacentHTML(
+        "beforeend",
+        `
+        <tr>
 
+          <td>
+            ${index + 1}
+          </td>
 
-      tr.innerHTML = `
+          <td>
+            ${escapeHTML(
+              fullname
+            )}
+          </td>
 
-        <td>
-          ${index + 1}
-        </td>
+          <td>
+            ${escapeHTML(
+              fathername
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(fullname)}
-        </td>
+          <td>
+            ${escapeHTML(
+              gender
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(fathername)}
-        </td>
+          <td>
+            ${escapeHTML(
+              age
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(gender)}
-        </td>
+          <td>
+            ${escapeHTML(
+              phone
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(age)}
-        </td>
+          <td>
+            ${escapeHTML(
+              email
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(phone)}
-        </td>
+          <td>
+            ${escapeHTML(
+              course
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(email)}
-        </td>
+          <td>
+            ${escapeHTML(
+              address
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(course)}
-        </td>
+          <td>
+            ${escapeHTML(
+              amount
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(address)}
-        </td>
+          <td>
+            ${escapeHTML(
+              method
+            )}
+          </td>
 
-        <td>
-          ${escapeHTML(amount)}
-        </td>
+          <td>
+            <span
+              class="status ${statusClass}">
+              ${escapeHTML(
+                status
+              )}
+            </span>
+          </td>
 
-        <td>
-          ${escapeHTML(method)}
-        </td>
+          <td>
+            ${screenshot}
+          </td>
 
-        <td>
+          <td>
+            ${escapeHTML(
+              paidTime
+            )}
+          </td>
 
-          <span
-            class="status ${statusClass}">
-            ${escapeHTML(status)}
-          </span>
+          <td>
+            ${action}
+          </td>
 
-        </td>
-
-        <td>
-          ${screenshot}
-        </td>
-
-        <td>
-          ${escapeHTML(paidTime)}
-        </td>
-
-        <td>
-          ${action}
-        </td>
-
-      `;
-
-
-      body.appendChild(tr);
+        </tr>
+        `
+      );
 
     }
   );
@@ -1436,7 +1741,9 @@ function renderStudents() {
    MARK PAID
 ========================= */
 
-async function markPaid(id) {
+async function markPaid(
+  id
+) {
 
   const ok =
     confirm(
@@ -1457,12 +1764,14 @@ async function markPaid(id) {
       await supabaseClient
         .from("Students")
         .update({
+
           payment_status:
             "PAID",
 
           paid_at:
             new Date()
               .toISOString()
+
         })
         .eq(
           "id",
@@ -1610,16 +1919,19 @@ function closeModal() {
 
 async function logout() {
 
-  try {
+  await supabaseClient
+    .auth
+    .signOut();
 
-    await supabaseClient.auth.signOut();
+  document.getElementById(
+    "adminPage"
+  ).style.display =
+    "none";
 
-  } finally {
-
-    window.location.href =
-      "index.html";
-
-  }
+  document.getElementById(
+    "loginPage"
+  ).style.display =
+    "block";
 
 }
 
@@ -1628,7 +1940,9 @@ async function logout() {
    SECURITY
 ========================= */
 
-function escapeHTML(value) {
+function escapeHTML(
+  value
+) {
 
   return String(
     value ?? ""
@@ -1657,7 +1971,9 @@ function escapeHTML(value) {
 }
 
 
-function escapeJS(value) {
+function escapeJS(
+  value
+) {
 
   return String(
     value ?? ""
@@ -1678,33 +1994,7 @@ function escapeJS(value) {
    START
 ========================= */
 
-async function startAdmin() {
-
-  const loading =
-    document.getElementById(
-      "loading"
-    );
-
-
-  loading.style.display =
-    "block";
-
-
-  const isAdmin =
-    await checkAdmin();
-
-
-  if (!isAdmin) {
-    return;
-  }
-
-
-  await loadStudents();
-
-}
-
-
-startAdmin();
+checkExistingSession();
 
 
 /* =========================
@@ -1720,7 +2010,8 @@ document
     function(event) {
 
       if (
-        event.target === this
+        event.target ===
+        this
       ) {
 
         closeModal();

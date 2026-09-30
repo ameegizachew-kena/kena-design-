@@ -1,449 +1,807 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-<title>Kena Design Lesson</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<style>
-*{
-  box-sizing:border-box;
-}
+  <title>Kena Design Learning</title>
 
-body{
-  margin:0;
-  padding:15px;
-  background:#07111f;
-  color:white;
-  font-family:Arial,sans-serif;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.container{
-  max-width:900px;
-  margin:auto;
-}
+    body {
+      margin: 0;
+      padding: 15px;
+      background: #07111f;
+      color: white;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
 
-.header{
-  background:#101c2c;
-  padding:25px;
-  border-radius:18px;
-  margin-bottom:20px;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
 
-.header h1{
-  margin:0 0 10px;
-  font-size:30px;
-}
+    .header {
+      background: #101c2c;
+      padding: 30px 20px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+    }
 
-.header p{
-  color:#aebbd0;
-  margin:0;
-}
+    .header h1 {
+      margin: 0;
+      font-size: 38px;
+    }
 
-.course-box{
-  background:linear-gradient(135deg,#075e4d,#168c7b);
-  padding:25px;
-  border-radius:18px;
-  margin-bottom:20px;
-}
+    .header p {
+      color: #aebbd0;
+      font-size: 20px;
+      margin-bottom: 0;
+    }
 
-.course-box h2{
-  margin:0 0 8px;
-}
+    .course-card {
+      background: linear-gradient(
+        135deg,
+        #08785f,
+        #159b88
+      );
+      padding: 35px 20px;
+      border-radius: 22px;
+      margin-bottom: 30px;
+    }
 
-.lesson{
-  background:#101c2c;
-  padding:22px;
-  border-radius:18px;
-  margin-bottom:20px;
-}
+    .course-card h2 {
+      font-size: 32px;
+      margin: 5px 0 15px;
+    }
 
-.lesson h2{
-  margin-top:0;
-}
+    .paid {
+      display: inline-block;
+      background: #18c65b;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 18px;
+    }
 
-.lesson p{
-  color:#c0cada;
-  line-height:1.7;
-}
+    .lesson-card {
+      background: #101c2c;
+      padding: 25px 20px;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
 
-.video{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-  border-radius:14px;
-  background:#000;
-  margin-top:15px;
-}
+    .lesson-card h2 {
+      font-size: 30px;
+      line-height: 1.3;
+      margin-top: 0;
+    }
 
-.notes{
-  background:#18283b;
-  padding:18px;
-  border-radius:14px;
-  margin-top:20px;
-  line-height:1.8;
-}
+    .lesson-card p,
+    .lesson-card li {
+      color: #c8d2df;
+      font-size: 18px;
+    }
 
-.assignment{
-  background:#1d2938;
-  padding:18px;
-  border-radius:14px;
-  margin-top:20px;
-}
+    .info-box {
+      background: #192c40;
+      padding: 25px;
+      border-radius: 18px;
+      margin-top: 22px;
+    }
 
-.back{
-  display:inline-block;
-  background:#2563eb;
-  color:white;
-  text-decoration:none;
-  padding:12px 20px;
-  border-radius:10px;
-  margin-bottom:20px;
-  font-weight:bold;
-}
+    .info-box h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
 
-.complete{
-  width:100%;
-  border:0;
-  background:#19b86b;
-  color:white;
-  padding:15px;
-  border-radius:12px;
-  font-size:17px;
-  font-weight:bold;
-  margin-top:20px;
-}
+    .code-box {
+      background: #07111f;
+      border: 1px solid #344b63;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      color: #69d9ff;
+    }
 
-.status{
-  display:none;
-  background:#075e4d;
-  padding:15px;
-  border-radius:12px;
-  margin-top:15px;
-  text-align:center;
-}
+    .example-box {
+      background: #07111f;
+      padding: 18px;
+      border-radius: 12px;
+      color: #dce8f5;
+      font-size: 17px;
+    }
 
-@media(max-width:600px){
-  body{
-    padding:10px;
-  }
+    .video-box {
+      background: #192c40;
+      padding: 25px;
+      border-radius: 18px;
+      margin-top: 22px;
+      font-size: 19px;
+    }
 
-  .header h1{
-    font-size:25px;
-  }
+    .assignment-box {
+      background: #192c40;
+      border-left: 5px solid #ffd43b;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 25px;
+    }
 
-  .course-box h2{
-    font-size:23px;
-  }
-}
-</style>
+    .assignment-box h3 {
+      margin-top: 0;
+      font-size: 25px;
+    }
+
+    .complete-btn {
+      width: 100%;
+      border: none;
+      background: #19bf68;
+      color: white;
+      padding: 17px;
+      border-radius: 14px;
+      font-size: 19px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 25px;
+    }
+
+    .complete-btn:hover {
+      background: #13a957;
+    }
+
+    .completed-message {
+      background: #08785f;
+      color: white;
+      padding: 17px;
+      border-radius: 14px;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .next-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      background: #286bea;
+      color: white;
+      padding: 16px;
+      border-radius: 14px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    .logout-btn {
+      background: #e52d2d;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .error-box {
+      background: #941f1f;
+      color: white;
+      padding: 18px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .header h1 {
+        font-size: 31px;
+      }
+
+      .header p {
+        font-size: 18px;
+      }
+
+      .course-card h2 {
+        font-size: 29px;
+      }
+
+      .lesson-card h2 {
+        font-size: 27px;
+      }
+
+      .lesson-card p,
+      .lesson-card li {
+        font-size: 17px;
+      }
+
+      .info-box {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="container">
 
-<a class="back" href="student.html">
-← Back to Learning Portal
-</a>
+  <!-- HEADER -->
+  <div class="header">
 
-<div class="header">
-  <h1>🎓 Kena Design Learning</h1>
-  <p>Barnoota kee as irraa itti fufi.</p>
-</div>
+    <h1>🎓 Kena Design Learning</h1>
 
-<div class="course-box">
-  <p>Your Course</p>
-  <h2 id="courseName">Loading...</h2>
-  <strong>✓ PAYMENT PAID</strong>
-</div>
-
-<div class="lesson">
-
-  <h2 id="lessonTitle">
-    📖 Lesson 1 — Introduction
-  </h2>
-
-  <p id="lessonDescription">
-    Barnoota kee jalqabi.
-  </p>
-
-  <div id="videoArea"></div>
-
-  <div class="notes">
-    <h3>📚 Notes</h3>
-
-    <p id="notesText">
-      Barnoota kana keessatti bu'uura course kee ni baratta.
-      Video ilaali, notes dubbisi, achiis assignment hojjedhu.
-    </p>
-  </div>
-
-  <div class="assignment">
-
-    <h3>📝 Assignment</h3>
-
-    <p id="assignmentText">
-      Barnoota har'aa irraa wantoota ijoo sadii barreessi.
+    <p id="welcomeText">
+      Barnoota kee as irraa itti fufi.
     </p>
 
+    <button
+      class="logout-btn"
+      onclick="logoutStudent()">
+      Logout
+    </button>
+
   </div>
 
-  <button
-    class="complete"
-    onclick="completeLesson()">
-    ✅ Mark Lesson as Completed
-  </button>
 
-  <div id="completed" class="status">
-    ✅ Lesson completed!
+  <!-- ERROR -->
+  <div
+    id="errorBox"
+    class="error-box hidden">
+  </div>
+
+
+  <!-- COURSE -->
+  <div class="course-card">
+
+    <div style="font-size:20px;">
+      Your Course
+    </div>
+
+    <h2 id="courseName">
+      YouTube Thumbnail
+    </h2>
+
+    <div class="paid">
+      ✓ PAYMENT PAID
+    </div>
+
+  </div>
+
+
+  <!-- LESSON 1 -->
+  <section class="lesson-card">
+
+    <h2>
+      📖 Lesson 1 — Thumbnail Basics
+    </h2>
+
+    <p>
+      YouTube Thumbnail jechuun maal akka ta'e,
+      maaliif barbaachisaa akka ta'e fi thumbnail
+      nama hawwatu akkamitti hojjechuu akka dandeessu
+      baratta.
+    </p>
+
+
+    <div class="video-box">
+
+      🎥 <strong>
+        Video lesson yeroo ammaa qophaa'aa jira.
+      </strong>
+
+      <br>
+
+      Notes fi assignment as irraa jalqabi.
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h3>
+        📚 Notes
+      </h3>
+
+      <p>
+        Thumbnail jechuun suuraa video tokko bakka
+        YouTube irratti mul'atuudha.
+      </p>
+
+      <p>
+        Thumbnail gaariin:
+      </p>
+
+      <ul>
+        <li>Suuraa qulqulluu qaba.</li>
+        <li>Text gabaabaa fi dubbifamuu danda'u qaba.</li>
+        <li>Color walitti madaalu qaba.</li>
+        <li>Nama video sana akka ilaalu hawwata.</li>
+      </ul>
+
+      <p>
+        Thumbnail nama hawwatu taanaan namoonni video
+        kee caalaatti cuqaasuu danda'u.
+      </p>
+
+    </div>
+
+
+    <div class="assignment-box">
+
+      <h3>
+        📝 Assignment
+      </h3>
+
+      <p>
+        YouTube video tokko filadhu.
+        Thumbnail isaa ilaali.
+      </p>
+
+      <p>
+        Sana booda thumbnail nama hawwatu tokko
+        fakkeenya godhi.
+      </p>
+
+      <p>
+        Thumbnail kee keessatti:
+      </p>
+
+      <ul>
+        <li>🖼️ Image</li>
+        <li>✍️ Text</li>
+        <li>🎨 Background</li>
+      </ul>
+
+      fayyadami.
+
+    </div>
+
+
+    <button
+      id="complete1Btn"
+      class="complete-btn"
+      onclick="completeLesson(1)">
+      ✅ Mark Lesson as Completed
+    </button>
+
+
+    <div
+      id="lesson1Completed"
+      class="completed-message hidden">
+      ✅ Lesson 1 completed!
+    </div>
+
+  </section>
+
+
+
+  <!-- LESSON 2 -->
+  <section class="lesson-card">
+
+    <h2>
+      🛠️ Lesson 2 — Thumbnail Design Tools
+    </h2>
+
+    <p>
+      Lesson kana keessatti meeshaalee thumbnail
+      hojjechuuf barbaachisan fi akka sirriitti
+      itti fayyadamtu baratta.
+    </p>
+
+
+    <div class="info-box">
+
+      <h3>
+        🎯 Kaayyoo Lesson kanaa
+      </h3>
+
+      <p>
+        Lesson kana booda:
+      </p>
+
+      <ul>
+        <li>YouTube Thumbnail size sirrii beekta.</li>
+        <li>Background filachuu dandeessa.</li>
+        <li>Text fi font sirriitti fayyadamuu dandeessa.</li>
+        <li>Images fi elements itti dabalu dandeessa.</li>
+        <li>Thumbnail qulqulluu qopheessuu dandeessa.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h3>
+        📐 1. Thumbnail Size
+      </h3>
+
+      <p>
+        YouTube thumbnail'f size:
+      </p>
+
+      <div class="code-box">
+        1280 × 720 pixels
+      </div>
+
+      <p>
+        Ratio isaa <strong>16:9</strong> dha.
+      </p>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h3>
+        🎨 2. Background
+      </h3>
+
+      <p>
+        Background qulqulluu fi ifa ta'e filadhu.
+        Background fi text gidduutti contrast gaarii
+        qabaachuun thumbnail akka salphaatti
+        dubbifamu taasisa.
+      </p>
+
+      <ul>
+        <li>Background baay'ee walxaxaa hin godhin.</li>
+        <li>Color walitti madaalu fayyadami.</li>
+        <li>Subject kee ifatti mul'isi.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h3>
+        ✍️ 3. Text fi Font
+      </h3>
+
+      <p>
+        Thumbnail irratti text gabaabaa fi jabaa
+        fayyadami.
+      </p>
+
+      <div class="example-box">
+
+        ❌ Akkaataa YouTube Thumbnail bareedaa
+        itti hojjetan
+
+        <br><br>
+
+        ✅ THUMBNAIL PRO!
+
+      </div>
+
+      <p>
+        Font salphaa, guddaa fi dubbifamuu danda'u
+        filadhu.
+      </p>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h3>
+        🖼️ 4. Image fi Elements
+      </h3>
+
+      <p>
+        Suuraa ijoo thumbnail kee ifatti mul'atu
+        filadhu.
+      </p>
+
+      <ul>
+        <li>Suuraa qulqulluu fayyadami.</li>
+        <li>Subject ijoo gara fuulduraatti kaa'i.</li>
+        <li>Elements baay'ee hin guutin.</li>
+        <li>Arrow ykn shape yoo barbaachise itti dabali.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <h3>
+        💡 Yaadannoo
+      </h3>
+
+      <p>
+        Thumbnail gaariin nama yeroo jalqaba ilaaluun
+        video sana akka cuqaasu hawwata.
+      </p>
+
+      <p>
+        Kanaaf design kee salphaa, ifaa fi nama
+        hawwatu godhi.
+      </p>
+
+    </div>
+
+
+    <div class="assignment-box">
+
+      <h3>
+        📝 Assignment
+      </h3>
+
+      <p>
+        YouTube thumbnail tokko qopheessi.
+      </p>
+
+      <p>
+        Size isaa:
+      </p>
+
+      <div class="code-box">
+        1280 × 720
+      </div>
+
+      <p>
+        Thumbnail kee keessatti:
+      </p>
+
+      <ul>
+        <li>🖼️ Image tokko</li>
+        <li>✍️ Text gabaabaa</li>
+        <li>🎨 Background</li>
+        <li>🔷 Element tokko ykn lama</li>
+      </ul>
+
+      <p>
+        fayyadami.
+      </p>
+
+    </div>
+
+
+    <button
+      id="complete2Btn"
+      class="complete-btn"
+      onclick="completeLesson(2)">
+      ✅ Mark Lesson 2 as Completed
+    </button>
+
+
+    <div
+      id="lesson2Completed"
+      class="completed-message hidden">
+      ✅ Lesson 2 completed!
+    </div>
+
+  </section>
+
+
+  <div
+    id="nextLesson"
+    class="lesson-card hidden">
+
+    <h2>
+      🎉 Gaarii hojjetta!
+    </h2>
+
+    <p>
+      Lesson 1 fi Lesson 2 xumurteetta.
+      Barnoota itti aanuuf qophoofteetta.
+    </p>
+
+    <a
+      href="student.html"
+      class="next-btn">
+      ← Gara Student Portal Deebi'i
+    </a>
+
   </div>
 
 </div>
 
-</div>
 
 <script>
 
-const params =
-  new URLSearchParams(window.location.search);
-
-const course =
-  params.get("course") || "YouTube Thumbnail";
-
-const courseName =
-  document.getElementById("courseName");
-
-const lessonTitle =
-  document.getElementById("lessonTitle");
-
-const lessonDescription =
-  document.getElementById("lessonDescription");
-
-const notesText =
-  document.getElementById("notesText");
-
-const assignmentText =
-  document.getElementById("assignmentText");
-
-const videoArea =
-  document.getElementById("videoArea");
-
-
-const lessons = {
-
-  "YouTube Thumbnail": {
-
-    title:
-      "📖 Lesson 1 — Thumbnail Basics",
-
-    description:
-      "YouTube Thumbnail jechuun maal akka ta'e, maaliif barbaachisaa akka ta'e fi thumbnail nama hawwatu akkamitti hojjechuu akka dandeessu baratta.",
-
-    notes:
-      "Thumbnail gaarii keessatti suuraa qulqulluu, barruu gabaabaa, halluu wal-simu fi message ifa ta'e fayyadami. Thumbnail nama hawwatu taanaan namoonni video kee cuqaasuu danda'u.",
-
-    assignment:
-      "YouTube video tokko filadhu. Thumbnail isaa ilaaliitii wantoota nama hawwatan 3 barreessi.",
-
-    video:""
-
-  },
-
-  "Graphic Design": {
-
-    title:
-      "📖 Lesson 1 — Graphic Design Basics",
-
-    description:
-      "Graphic Design bu'uura isaa, color, typography fi composition baratta.",
-
-    notes:
-      "Design gaarii keessatti alignment, contrast, hierarchy fi spacing sirriitti fayyadami.",
-
-    assignment:
-      "Poster salphaa tokko hojjedhu; color lama ykn sadii qofa fayyadami.",
-
-    video:""
-
-  },
-
-  "Video Editing": {
-
-    title:
-      "📖 Lesson 1 — Video Editing Basics",
-
-    description:
-      "Video editing maal akka ta'e, clips akkamitti qindeessuu fi video qulqulluu akkamitti uumuu akka dandeessu baratta.",
-
-    notes:
-      "Cut, trim, transition, audio fi text video editing keessatti wantoota bu'uuraa dha.",
-
-    assignment:
-      "Clips sadii walitti qabiitii video gabaabaa sekondii 30–60 hojjedhu.",
-
-    video:""
-
-  },
-
-  "Web Design": {
-
-    title:
-      "📖 Lesson 1 — Web Design Basics",
-
-    description:
-      "HTML, CSS fi structure website bu'uuraa baratta.",
-
-    notes:
-      "HTML structure website ti. CSS ammoo halluu, spacing, size fi appearance to'ata.",
-
-    assignment:
-      "HTML keessatti page salphaa maqaa fi button qabu hojjedhu.",
-
-    video:""
-
-  },
-
-  "Digital Marketing": {
-
-    title:
-      "📖 Lesson 1 — Digital Marketing Basics",
-
-    description:
-      "Digital marketing maal akka ta'e fi social media irratti business akkamitti beeksisuu akka dandeessu baratta.",
-
-    notes:
-      "Audience kee beekuun, content sirrii uumuu fi consistency qabaachuun barbaachisaa dha.",
-
-    assignment:
-      "Business tokko filadhuutii social media post sadii itti qopheessi.",
-
-    video:""
-
-  },
-
-  "Photography": {
-
-    title:
-      "📖 Lesson 1 — Photography Basics",
-
-    description:
-      "Camera, light, composition fi suuraa qulqulluu kaasuu bu'uura isaa baratta.",
-
-    notes:
-      "Lighting, focus, composition fi angle suuraa gaarii keessatti murteessoo dha.",
-
-    assignment:
-      "Suuraa tokko kaasii lighting fi composition isaa ibsi.",
-
-    video:""
-
-  },
-
-  "Flayer Package": {
-
-    title:
-      "📖 Lesson 1 — Flyer Design Basics",
-
-    description:
-      "Flyer professional ta'e akkamitti hojjechuu akka dandeessu baratta.",
-
-    notes:
-      "Flyer keessatti title, offer, image, contact fi call-to-action ifa ta'e qabaachuu qaba.",
-
-    assignment:
-      "Business tokkoof flyer salphaa tokko hojjedhu.",
-
-    video:""
-
-  },
-
-  "Poster Design": {
-
-    title:
-      "📖 Lesson 1 — Poster Design Basics",
-
-    description:
-      "Poster nama hawwatu fi message isaa saffisaan dabarsu akkamitti hojjechuu akka dandeessu baratta.",
-
-    notes:
-      "Poster keessatti headline guddaa, image gaarii fi message gabaabaa fayyadami.",
-
-    assignment:
-      "Event tokkoof poster tokko design godhi.",
-
-    video:""
+  /*
+   * COURSE
+   */
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const courseFromURL =
+    params.get("course");
+
+  if (courseFromURL) {
+
+    document.getElementById("courseName")
+      .textContent = courseFromURL;
 
   }
 
-};
+
+  /*
+   * STUDENT NAME
+   */
+  const savedStudent =
+    localStorage.getItem("kena_student");
+
+  if (savedStudent) {
+
+    try {
+
+      const student =
+        JSON.parse(savedStudent);
+
+      if (student.fullname) {
+
+        document.getElementById("welcomeText")
+          .textContent =
+          "Welcome " + student.fullname +
+          " — Barnoota kee as irraa itti fufi.";
+
+      }
+
+    } catch (e) {
+
+      console.log("Student data parse error");
+
+    }
+
+  }
 
 
-const selected =
-  lessons[course] ||
-  lessons["YouTube Thumbnail"];
+  /*
+   * LESSON COMPLETION
+   */
+  function loadCompletedLessons() {
+
+    const lesson1 =
+      localStorage.getItem("kena_lesson_1");
+
+    const lesson2 =
+      localStorage.getItem("kena_lesson_2");
 
 
-courseName.textContent =
-  course;
+    if (lesson1 === "completed") {
 
-lessonTitle.textContent =
-  selected.title;
+      document.getElementById(
+        "lesson1Completed"
+      ).style.display = "block";
 
-lessonDescription.textContent =
-  selected.description;
+      document.getElementById(
+        "complete1Btn"
+      ).textContent = "✅ Lesson 1 Completed";
 
-notesText.textContent =
-  selected.notes;
-
-assignmentText.textContent =
-  selected.assignment;
+    }
 
 
-/*
-  Yeroo video YouTube kee qopheessite,
-  URL isaa asitti galchi.
+    if (lesson2 === "completed") {
 
-  Fakkeenya:
-  selected.video =
-  "https://www.youtube.com/embed/VIDEO_ID";
-*/
+      document.getElementById(
+        "lesson2Completed"
+      ).style.display = "block";
 
-if(selected.video){
+      document.getElementById(
+        "complete2Btn"
+      ).textContent = "✅ Lesson 2 Completed";
 
-  videoArea.innerHTML = `
-    <iframe
-      class="video"
-      src="${selected.video}"
-      allowfullscreen>
-    </iframe>
-  `;
-
-}else{
-
-  videoArea.innerHTML = `
-    <div class="notes">
-      🎥 Video lesson yeroo ammaa qophaa'aa jira.
-      Notes fi assignment as irraa jalqabi.
-    </div>
-  `;
-
-}
+    }
 
 
-function completeLesson(){
+    if (
+      lesson1 === "completed" &&
+      lesson2 === "completed"
+    ) {
 
-  localStorage.setItem(
-    "lesson_completed_" + course,
-    "true"
-  );
+      document.getElementById(
+        "nextLesson"
+      ).style.display = "block";
 
-  document.getElementById(
-    "completed"
-  ).style.display = "block";
+    }
 
-}
+  }
+
+
+  /*
+   * COMPLETE LESSON
+   */
+  function completeLesson(number) {
+
+    localStorage.setItem(
+      "kena_lesson_" + number,
+      "completed"
+    );
+
+
+    const message =
+      document.getElementById(
+        "lesson" + number + "Completed"
+      );
+
+    const button =
+      document.getElementById(
+        "complete" + number + "Btn"
+      );
+
+
+    if (message) {
+
+      message.style.display = "block";
+
+    }
+
+
+    if (button) {
+
+      button.textContent =
+        "✅ Lesson " +
+        number +
+        " Completed";
+
+    }
+
+
+    if (
+      localStorage.getItem("kena_lesson_1")
+      === "completed"
+      &&
+      localStorage.getItem("kena_lesson_2")
+      === "completed"
+    ) {
+
+      document.getElementById(
+        "nextLesson"
+      ).style.display = "block";
+
+    }
+
+  }
+
+
+  /*
+   * LOGOUT
+   */
+  function logoutStudent() {
+
+    localStorage.removeItem("kena_student");
+
+    localStorage.removeItem(
+      "kena_lesson_1"
+    );
+
+    localStorage.removeItem(
+      "kena_lesson_2"
+    );
+
+    window.location.href =
+      "student.html";
+
+  }
+
+
+  loadCompletedLessons();
 
 </script>
 

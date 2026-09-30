@@ -6,8 +6,6 @@
 
   <title>Kena Design - Registration</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
   <style>
     * {
       box-sizing: border-box;
@@ -66,11 +64,6 @@
       border-radius: 9px;
       font-size: 15px;
       background: #fff;
-    }
-
-    textarea {
-      min-height: 90px;
-      resize: vertical;
     }
 
     input:focus,
@@ -192,6 +185,14 @@
       font-size: 13px;
     }
 
+    .loading {
+      text-align: center;
+      margin-top: 12px;
+      color: #0b7a3e;
+      font-size: 14px;
+      display: none;
+    }
+
     @media (max-width: 600px) {
       .container {
         margin: 10px auto;
@@ -252,7 +253,12 @@
 
         <div>
           <label for="gender">Gender *</label>
-          <select id="gender" name="gender" required>
+
+          <select
+            id="gender"
+            name="gender"
+            required
+          >
             <option value="">Select gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
@@ -261,6 +267,7 @@
 
         <div>
           <label for="age">Age *</label>
+
           <input
             type="number"
             id="age"
@@ -276,6 +283,7 @@
 
       <!-- PHONE -->
       <label for="phone">Phone Number *</label>
+
       <input
         type="tel"
         id="phone"
@@ -288,6 +296,7 @@
 
       <!-- EMAIL -->
       <label for="email">Email (Optional)</label>
+
       <input
         type="email"
         id="email"
@@ -298,39 +307,67 @@
       <!-- COURSE -->
       <label for="course">Choose Course *</label>
 
-      <select id="course" name="course" required>
+      <select
+        id="course"
+        name="course"
+        required
+      >
 
         <option value="">Select course</option>
 
-        <option value="Video Editing" data-price="530">
+        <option
+          value="Video Editing"
+          data-price="530"
+        >
           Video Editing - 530 ETB
         </option>
 
-        <option value="Web Design" data-price="1000">
+        <option
+          value="Web Design"
+          data-price="1000"
+        >
           Web Design - 1,000 ETB
         </option>
 
-        <option value="Graphic Design" data-price="400">
+        <option
+          value="Graphic Design"
+          data-price="400"
+        >
           Graphic Design - 400 ETB
         </option>
 
-        <option value="Digital Marketing" data-price="400">
+        <option
+          value="Digital Marketing"
+          data-price="400"
+        >
           Digital Marketing - 400 ETB
         </option>
 
-        <option value="Photography" data-price="400">
+        <option
+          value="Photography"
+          data-price="400"
+        >
           Photography - 400 ETB
         </option>
 
-        <option value="Flayer Package" data-price="400">
+        <option
+          value="Flayer Package"
+          data-price="400"
+        >
           Flayer Package - 400 ETB
         </option>
 
-        <option value="YouTube Thumbnail" data-price="400">
+        <option
+          value="YouTube Thumbnail"
+          data-price="400"
+        >
           YouTube Thumbnail - 400 ETB
         </option>
 
-        <option value="Poster Design" data-price="400">
+        <option
+          value="Poster Design"
+          data-price="400"
+        >
           Poster Design - 400 ETB
         </option>
 
@@ -339,40 +376,119 @@
       <!-- ADDRESS -->
       <label for="address">Address *</label>
 
-      <select id="address" name="address" required>
+      <select
+        id="address"
+        name="address"
+        required
+      >
 
-        <option value="">Select your address</option>
+        <option value="">
+          Select your address
+        </option>
 
-        <option value="Finfinnee">Finfinnee</option>
-        <option value="Adamaa">Adamaa</option>
-        <option value="Bishooftuu">Bishooftuu</option>
-        <option value="Jimmaa">Jimmaa</option>
-        <option value="Baahir Daar">Baahir Daar</option>
-        <option value="Dirree Dhawaa">Dirree Dhawaa</option>
-        <option value="Maqalee">Maqalee</option>
-        <option value="Naqamtee">Naqamtee</option>
-        <option value="Harar">Harar</option>
-        <option value="Booranaa">Booranaa</option>
-        <option value="Wallaggaa">Wallaggaa</option>
-        <option value="Arsii">Arsii</option>
-        <option value="Bale">Bale</option>
-        <option value="Guji">Guji</option>
-        <option value="Shambu">Shambu</option>
-        <option value="Amboo">Amboo</option>
-        <option value="Baakko">Baakko</option>
-        <option value="Saqalaa">Saqalaa</option>
-        <option value="Gimbi">Gimbi</option>
-        <option value="Najjoo">Najjoo</option>
-        <option value="Mandii">Mandii</option>
-        <option value="Assosa">Assosa</option>
-        <option value="Other">Other</option>
+        <option value="Finfinnee">
+          Finfinnee
+        </option>
+
+        <option value="Adamaa">
+          Adamaa
+        </option>
+
+        <option value="Bishooftuu">
+          Bishooftuu
+        </option>
+
+        <option value="Jimmaa">
+          Jimmaa
+        </option>
+
+        <option value="Baahir Daar">
+          Baahir Daar
+        </option>
+
+        <option value="Dirree Dhawaa">
+          Dirree Dhawaa
+        </option>
+
+        <option value="Maqalee">
+          Maqalee
+        </option>
+
+        <option value="Naqamtee">
+          Naqamtee
+        </option>
+
+        <option value="Harar">
+          Harar
+        </option>
+
+        <option value="Booranaa">
+          Booranaa
+        </option>
+
+        <option value="Wallaggaa">
+          Wallaggaa
+        </option>
+
+        <option value="Arsii">
+          Arsii
+        </option>
+
+        <option value="Bale">
+          Bale
+        </option>
+
+        <option value="Guji">
+          Guji
+        </option>
+
+        <option value="Shambu">
+          Shambu
+        </option>
+
+        <option value="Amboo">
+          Amboo
+        </option>
+
+        <option value="Baakko">
+          Baakko
+        </option>
+
+        <option value="Saqalaa">
+          Saqalaa
+        </option>
+
+        <option value="Gimbi">
+          Gimbi
+        </option>
+
+        <option value="Najjoo">
+          Najjoo
+        </option>
+
+        <option value="Mandii">
+          Mandii
+        </option>
+
+        <option value="Assosa">
+          Assosa
+        </option>
+
+        <option value="Other">
+          Other
+        </option>
 
       </select>
 
       <!-- OTHER ADDRESS -->
-      <div id="otherAddressBox" class="hidden">
+      <div
+        id="otherAddressBox"
+        class="hidden"
+      >
 
-        <label for="other_address">Other Address *</label>
+        <label for="other_address">
+          Other Address *
+        </label>
 
         <input
           type="text"
@@ -383,39 +499,63 @@
 
       </div>
 
-      <!-- PAYMENT -->
+      <!-- PAYMENT INFORMATION -->
       <div class="payment-box">
 
-        <h3>Payment Information</h3>
+        <h3>
+          Payment Information
+        </h3>
 
         <p>
-          Please pay the course fee using one of the following payment methods.
+          Please pay the course fee using one
+          of the following payment methods.
         </p>
 
         <div class="account">
           📱 Telebirr:
-          <strong>0923502464 — Amanuel</strong>
+          <strong>
+            0923502464 — Amanuel
+          </strong>
         </div>
 
         <div class="account">
           🏦 CBE Birr:
-          <strong>0923502464 — Amanuel</strong>
+          <strong>
+            0923502464 — Amanuel
+          </strong>
         </div>
 
-        <div class="amount" id="courseAmount">
+        <div
+          class="amount"
+          id="courseAmount"
+        >
           Course fee: —
         </div>
 
       </div>
 
       <!-- PAYMENT METHOD -->
-      <label for="payment_method">Payment Method *</label>
+      <label for="payment_method">
+        Payment Method *
+      </label>
 
-      <select id="payment_method" name="payment_method" required>
+      <select
+        id="payment_method"
+        name="payment_method"
+        required
+      >
 
-        <option value="">Select payment method</option>
-        <option value="Telebirr">Telebirr</option>
-        <option value="CBE Birr">CBE Birr</option>
+        <option value="">
+          Select payment method
+        </option>
+
+        <option value="Telebirr">
+          Telebirr
+        </option>
+
+        <option value="CBE Birr">
+          CBE Birr
+        </option>
 
       </select>
 
@@ -441,17 +581,33 @@
 
       </div>
 
+      <!-- NOTICE -->
       <div class="notice">
-        ⚠️ After registration, your payment status will be
-        <strong>PENDING</strong>.
-        The Kena Design admin will check your payment screenshot
-        before confirming your registration.
+
+        ⚠️ After registration, your payment status
+        will be <strong>PENDING</strong>.
+
+        The Kena Design admin will check your
+        payment screenshot before confirming
+        your registration.
+
       </div>
 
       <!-- SUBMIT -->
-      <button type="submit" id="submitBtn">
+      <button
+        type="submit"
+        id="submitBtn"
+      >
         Submit Registration
       </button>
+
+      <div
+        class="loading"
+        id="loadingMessage"
+      >
+        ⏳ Galmee kee ergaa jira...
+        Mee xiqqoo eegi.
+      </div>
 
       <!-- SUCCESS -->
       <div
@@ -479,29 +635,11 @@
 <script>
 
 /* =========================================================
-   SUPABASE CONFIGURATION
+   KENA DESIGN EDGE FUNCTION
    ========================================================= */
 
-const SUPABASE_URL =
-  "https://baoczizarrnzxwguyili.supabase.co";
-
-const SUPABASE_ANON_KEY =
-  "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
-
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY
-  );
-
-
-/* =========================================================
-   EDGE FUNCTION URL
-   ========================================================= */
-
-const UPLOAD_FUNCTION_URL =
-  SUPABASE_URL +
-  "/functions/v1/upload-payment-proof";
+const EDGE_FUNCTION_URL =
+  "https://baoczizarrnzxwguyili.supabase.co/functions/v1/upload-payment-proof";
 
 
 /* =========================================================
@@ -509,88 +647,129 @@ const UPLOAD_FUNCTION_URL =
    ========================================================= */
 
 const form =
-  document.getElementById("registrationForm");
+  document.getElementById(
+    "registrationForm"
+  );
 
 const course =
-  document.getElementById("course");
+  document.getElementById(
+    "course"
+  );
 
 const address =
-  document.getElementById("address");
+  document.getElementById(
+    "address"
+  );
 
 const otherAddressBox =
-  document.getElementById("otherAddressBox");
+  document.getElementById(
+    "otherAddressBox"
+  );
 
 const otherAddress =
-  document.getElementById("other_address");
+  document.getElementById(
+    "other_address"
+  );
 
 const courseAmount =
-  document.getElementById("courseAmount");
+  document.getElementById(
+    "courseAmount"
+  );
 
 const screenshot =
-  document.getElementById("screenshot");
+  document.getElementById(
+    "screenshot"
+  );
 
 const submitBtn =
-  document.getElementById("submitBtn");
+  document.getElementById(
+    "submitBtn"
+  );
+
+const loadingMessage =
+  document.getElementById(
+    "loadingMessage"
+  );
 
 const successMessage =
-  document.getElementById("successMessage");
+  document.getElementById(
+    "successMessage"
+  );
 
 const errorMessage =
-  document.getElementById("errorMessage");
+  document.getElementById(
+    "errorMessage"
+  );
 
 
 /* =========================================================
    COURSE PRICE
    ========================================================= */
 
-course.addEventListener("change", function () {
+course.addEventListener(
+  "change",
+  function () {
 
-  const selected =
-    course.options[course.selectedIndex];
+    const selected =
+      course.options[
+        course.selectedIndex
+      ];
 
-  const price =
-    selected.getAttribute("data-price");
+    const price =
+      selected.getAttribute(
+        "data-price"
+      );
 
-  if (price) {
+    if (price) {
 
-    courseAmount.textContent =
-      "Course fee: " +
-      Number(price).toLocaleString() +
-      " ETB";
+      courseAmount.textContent =
+        "Course fee: " +
+        Number(price).toLocaleString() +
+        " ETB";
 
-  } else {
+    } else {
 
-    courseAmount.textContent =
-      "Course fee: —";
+      courseAmount.textContent =
+        "Course fee: —";
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================================
    OTHER ADDRESS
    ========================================================= */
 
-address.addEventListener("change", function () {
+address.addEventListener(
+  "change",
+  function () {
 
-  if (address.value === "Other") {
+    if (
+      address.value === "Other"
+    ) {
 
-    otherAddressBox.classList.remove("hidden");
+      otherAddressBox.classList.remove(
+        "hidden"
+      );
 
-    otherAddress.required = true;
+      otherAddress.required = true;
 
-  } else {
+    } else {
 
-    otherAddressBox.classList.add("hidden");
+      otherAddressBox.classList.add(
+        "hidden"
+      );
 
-    otherAddress.required = false;
+      otherAddress.required = false;
 
-    otherAddress.value = "";
+      otherAddress.value = "";
+
+    }
 
   }
-
-});
+);
 
 
 /* =========================================================
@@ -599,45 +778,62 @@ address.addEventListener("change", function () {
 
 document
   .getElementById("phone")
-  .addEventListener("input", function () {
+  .addEventListener(
+    "input",
+    function () {
 
-    this.value =
-      this.value
-        .replace(/[^0-9]/g, "")
-        .slice(0, 10);
+      this.value =
+        this.value
+          .replace(
+            /[^0-9]/g,
+            ""
+          )
+          .slice(
+            0,
+            10
+          );
 
-  });
+    }
+  );
 
 
 /* =========================================================
-   SHOW ERROR
+   MESSAGE FUNCTIONS
    ========================================================= */
 
-function showError(message) {
+function showError(
+  message
+) {
 
-  successMessage.style.display = "none";
+  successMessage.style.display =
+    "none";
 
-  errorMessage.style.display = "block";
+  loadingMessage.style.display =
+    "none";
+
+  errorMessage.style.display =
+    "block";
 
   errorMessage.textContent =
     message;
-
 }
 
 
-/* =========================================================
-   SHOW SUCCESS
-   ========================================================= */
+function showSuccess(
+  message
+) {
 
-function showSuccess(message) {
+  errorMessage.style.display =
+    "none";
 
-  errorMessage.style.display = "none";
+  loadingMessage.style.display =
+    "none";
 
-  successMessage.style.display = "block";
+  successMessage.style.display =
+    "block";
 
   successMessage.textContent =
     message;
-
 }
 
 
@@ -651,10 +847,18 @@ form.addEventListener(
 
     event.preventDefault();
 
-    successMessage.style.display = "none";
-    errorMessage.style.display = "none";
+    successMessage.style.display =
+      "none";
 
-    submitBtn.disabled = true;
+    errorMessage.style.display =
+      "none";
+
+    loadingMessage.style.display =
+      "block";
+
+    submitBtn.disabled =
+      true;
+
     submitBtn.textContent =
       "Submitting...";
 
@@ -662,42 +866,54 @@ form.addEventListener(
     try {
 
       /* ---------------------------------------------
-         GET FORM VALUES
+         GET VALUES
          --------------------------------------------- */
 
       const fullname =
         document
-          .getElementById("fullname")
+          .getElementById(
+            "fullname"
+          )
           .value
           .trim();
 
       const fathername =
         document
-          .getElementById("fathername")
+          .getElementById(
+            "fathername"
+          )
           .value
           .trim();
 
       const gender =
         document
-          .getElementById("gender")
+          .getElementById(
+            "gender"
+          )
           .value;
 
       const age =
         Number(
           document
-            .getElementById("age")
+            .getElementById(
+              "age"
+            )
             .value
         );
 
       const phone =
         document
-          .getElementById("phone")
+          .getElementById(
+            "phone"
+          )
           .value
           .trim();
 
       const email =
         document
-          .getElementById("email")
+          .getElementById(
+            "email"
+          )
           .value
           .trim();
 
@@ -712,18 +928,24 @@ form.addEventListener(
 
       const paymentMethod =
         document
-          .getElementById("payment_method")
+          .getElementById(
+            "payment_method"
+          )
           .value;
 
 
       /* ---------------------------------------------
-         VALIDATE PHONE
+         PHONE
          --------------------------------------------- */
 
       const phonePattern =
         /^(09|07)[0-9]{8}$/;
 
-      if (!phonePattern.test(phone)) {
+      if (
+        !phonePattern.test(
+          phone
+        )
+      ) {
 
         throw new Error(
           "Phone number sirrii galchi. Fakkeenya: 0912345678"
@@ -733,10 +955,12 @@ form.addEventListener(
 
 
       /* ---------------------------------------------
-         VALIDATE COURSE
+         COURSE
          --------------------------------------------- */
 
-      if (!selectedCourse) {
+      if (
+        !selectedCourse
+      ) {
 
         throw new Error(
           "Course tokko filadhu."
@@ -746,7 +970,7 @@ form.addEventListener(
 
 
       /* ---------------------------------------------
-         GET COURSE PRICE
+         COURSE PRICE
          --------------------------------------------- */
 
       const selectedOption =
@@ -756,22 +980,26 @@ form.addEventListener(
 
       const paymentAmount =
         Number(
-          selectedOption
-            .getAttribute("data-price")
+          selectedOption.getAttribute(
+            "data-price"
+          )
         );
 
 
       /* ---------------------------------------------
-         VALIDATE ADDRESS
+         ADDRESS
          --------------------------------------------- */
 
-      if (!selectedAddress) {
+      if (
+        !selectedAddress
+      ) {
 
         throw new Error(
           "Address kee filadhu."
         );
 
       }
+
 
       if (
         selectedAddress === "Other" &&
@@ -786,10 +1014,12 @@ form.addEventListener(
 
 
       /* ---------------------------------------------
-         VALIDATE PAYMENT METHOD
+         PAYMENT METHOD
          --------------------------------------------- */
 
-      if (!paymentMethod) {
+      if (
+        !paymentMethod
+      ) {
 
         throw new Error(
           "Payment method filadhu."
@@ -799,10 +1029,12 @@ form.addEventListener(
 
 
       /* ---------------------------------------------
-         VALIDATE SCREENSHOT
+         SCREENSHOT
          --------------------------------------------- */
 
-      if (!screenshot.files.length) {
+      if (
+        !screenshot.files.length
+      ) {
 
         throw new Error(
           "Payment screenshot olchi."
@@ -815,15 +1047,15 @@ form.addEventListener(
 
 
       /* ---------------------------------------------
-         FILE SIZE
-         Maximum 5MB
+         MAX 5MB
          --------------------------------------------- */
 
       const maxSize =
         5 * 1024 * 1024;
 
       if (
-        screenshotFile.size > maxSize
+        screenshotFile.size >
+        maxSize
       ) {
 
         throw new Error(
@@ -857,128 +1089,269 @@ form.addEventListener(
 
 
       /* =================================================
-         UPLOAD SCREENSHOT THROUGH EDGE FUNCTION
+         SEND EVERYTHING TO EDGE FUNCTION
          ================================================= */
 
-      const uploadFormData =
+      const formData =
         new FormData();
 
-      uploadFormData.append(
-        "file",
-        screenshotFile
+
+      formData.append(
+        "fullname",
+        fullname
       );
 
-      uploadFormData.append(
+      formData.append(
+        "fathername",
+        fathername
+      );
+
+      formData.append(
+        "gender",
+        gender
+      );
+
+      formData.append(
+        "age",
+        String(age)
+      );
+
+      formData.append(
         "phone",
         phone
       );
 
+      formData.append(
+        "email",
+        email
+      );
 
-      const uploadResponse =
-        await fetch(
-          UPLOAD_FUNCTION_URL,
-          {
-            method: "POST",
-            headers: {
-              "apikey":
-                SUPABASE_ANON_KEY
-            },
-            body:
-              uploadFormData
-          }
+      formData.append(
+        "course",
+        selectedCourse
+      );
+
+      formData.append(
+        "address",
+        selectedAddress
+      );
+
+      formData.append(
+        "other_address",
+        selectedAddress === "Other"
+          ? selectedOtherAddress
+          : ""
+      );
+
+      formData.append(
+        "payment_status",
+        "PENDING"
+      );
+
+      formData.append(
+        "payment_amount",
+        String(paymentAmount)
+      );
+
+      formData.append(
+        "payment_method",
+        paymentMethod
+      );
+
+      /*
+        Transaction/reference number
+        intentionally NOT included.
+      */
+
+      formData.append(
+        "screenshot",
+        screenshotFile
+      );
+
+
+      /* =================================================
+         ABORT CONTROLLER
+         Prevent endless loading
+         ================================================= */
+
+      const controller =
+        new AbortController();
+
+      const timeout =
+        setTimeout(
+          function () {
+            controller.abort();
+          },
+          90000
         );
 
 
-      let uploadResult = null;
+      let response;
 
       try {
 
-        uploadResult =
-          await uploadResponse.json();
+        response =
+          await fetch(
+            EDGE_FUNCTION_URL,
+            {
+              method: "POST",
+              body: formData,
+              signal: controller.signal
+            }
+          );
 
-      } catch {
+      } finally {
 
-        throw new Error(
-          "Edge Function irraa deebii sirrii hin argamne."
-        );
-
-      }
-
-
-      if (
-        !uploadResponse.ok ||
-        !uploadResult ||
-        !uploadResult.success
-      ) {
-
-        throw new Error(
-          "Screenshot upload hin milkoofne: " +
-          (
-            uploadResult &&
-            uploadResult.error
-              ? uploadResult.error
-              : "Unknown upload error."
-          )
-        );
-
-      }
-
-
-      /* ---------------------------------------------
-         FILE PATH FROM EDGE FUNCTION
-         --------------------------------------------- */
-
-      const screenshotPath =
-        uploadResult.path;
-
-
-      if (!screenshotPath) {
-
-        throw new Error(
-          "Screenshot path hin argamne."
+        clearTimeout(
+          timeout
         );
 
       }
 
 
       /* =================================================
-         INSERT STUDENT INTO DATABASE
+         READ RESPONSE
          ================================================= */
 
-      const {
-        error: insertError
-      } =
-        await supabaseClient
-          .from("Students")
-          .insert([{
+      const responseText =
+        await response.text();
 
-            fullname:
-              fullname,
+      let result = null;
 
-            fathername:
-              fathername,
+      try {
 
-            gender:
-              gender,
+        result =
+          responseText
+            ? JSON.parse(
+                responseText
+              )
+            : null;
 
-            age:
-              age,
+      } catch (jsonError) {
 
-            phone:
-              phone,
+        result = null;
 
-            email:
-              email || null,
+      }
 
-            course:
-              selectedCourse,
 
-            address:
-              selectedAddress,
+      /* =================================================
+         EDGE FUNCTION ERROR
+         ================================================= */
 
-            other_address:
-              selectedAddress === "Other"
-                ? selectedOtherAddress
-                : null,
+      if (
+        !response.ok
+      ) {
 
-            pay
+        const serverMessage =
+          result &&
+          (
+            result.error ||
+            result.message
+          )
+            ? (
+                result.error ||
+                result.message
+              )
+            : responseText ||
+              "Server error";
+
+        throw new Error(
+          "Galmeen hin milkoofne: " +
+          serverMessage
+        );
+
+      }
+
+
+      /* =================================================
+         SUCCESS CHECK
+         ================================================= */
+
+      if (
+        result &&
+        result.success === false
+      ) {
+
+        throw new Error(
+          result.error ||
+          "Galmeen hin milkoofne."
+        );
+
+      }
+
+
+      /* =================================================
+         SUCCESS
+         ================================================= */
+
+      showSuccess(
+        "✅ Galmeen kee milkaa'eera! " +
+        "Payment status kee PENDING dha. " +
+        "Adminiin screenshot payment kee ilaalee " +
+        "erga mirkaneesse booda galmeen kee ni mirkanaa'a."
+      );
+
+
+      /* Clear form */
+
+      form.reset();
+
+      courseAmount.textContent =
+        "Course fee: —";
+
+      otherAddressBox.classList.add(
+        "hidden"
+      );
+
+      otherAddress.required =
+        false;
+
+
+    } catch (error) {
+
+      console.error(
+        "Registration error:",
+        error
+      );
+
+
+      if (
+        error.name ===
+        "AbortError"
+      ) {
+
+        showError(
+          "⏳ Server irraa deebiin yeroo dheeraa fudhate. " +
+          "Mee Edge Function Logs ilaali; booda irra deebi'ii yaali."
+        );
+
+      } else {
+
+        showError(
+          error.message ||
+          "Dogoggorri hin beekamne uumame."
+        );
+
+      }
+
+
+    } finally {
+
+      submitBtn.disabled =
+        false;
+
+      submitBtn.textContent =
+        "Submit Registration";
+
+      loadingMessage.style.display =
+        "none";
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>

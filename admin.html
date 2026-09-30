@@ -31,7 +31,7 @@
       border-radius: 24px;
       padding: 25px;
       margin-bottom: 25px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 25px rgba(0,0,0,.08);
     }
 
     .top {
@@ -44,12 +44,12 @@
 
     h1 {
       margin: 0;
-      font-size: 38px;
+      font-size: 36px;
     }
 
     .subtitle {
-      margin-top: 12px;
-      font-size: 24px;
+      margin-top: 10px;
+      font-size: 21px;
       font-weight: bold;
     }
 
@@ -63,8 +63,8 @@
     .logout {
       background: #c4002f;
       color: white;
-      padding: 15px 25px;
-      font-size: 18px;
+      padding: 14px 22px;
+      font-size: 17px;
     }
 
     .refresh {
@@ -149,6 +149,7 @@
       width: 100%;
       overflow-x: auto;
       border-radius: 15px;
+      -webkit-overflow-scrolling: touch;
     }
 
     table {
@@ -246,49 +247,207 @@
       font-weight: bold;
     }
 
-    @media (max-width: 800px) {
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 700px) {
+
       .container {
         width: 94%;
+        margin: 12px auto;
       }
 
       .card {
-        padding: 18px;
+        padding: 16px;
         border-radius: 20px;
+        margin-bottom: 16px;
       }
 
       h1 {
-        font-size: 32px;
+        font-size: 28px;
       }
 
       .subtitle {
-        font-size: 21px;
+        font-size: 18px;
+      }
+
+      .top {
+        align-items: flex-start;
+      }
+
+      .logout {
+        padding: 11px 17px;
+        font-size: 15px;
+      }
+
+      .refresh {
+        padding: 10px 15px;
+        font-size: 14px;
       }
 
       .stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .stat {
+        padding: 15px 8px;
       }
 
       .stat strong {
         font-size: 26px;
       }
 
-      .logout {
-        padding: 12px 18px;
+      .filters {
+        gap: 8px;
+      }
+
+      .filterBtn {
+        padding: 11px 15px;
+        font-size: 14px;
+      }
+
+      .search {
+        padding: 15px;
+        font-size: 15px;
+      }
+
+      /*
+        Mobile irratti:
+        Full Name
+        Course
+        Amount
+        Method
+        Status
+        Screenshot
+        Action
+
+        qofa mul'ata.
+      */
+
+      table {
+        min-width: 760px;
+      }
+
+      /* # */
+      th:nth-child(1),
+      td:nth-child(1),
+
+      /* Father Name */
+      th:nth-child(3),
+      td:nth-child(3),
+
+      /* Gender */
+      th:nth-child(4),
+      td:nth-child(4),
+
+      /* Age */
+      th:nth-child(5),
+      td:nth-child(5),
+
+      /* Phone */
+      th:nth-child(6),
+      td:nth-child(6),
+
+      /* Email */
+      th:nth-child(7),
+      td:nth-child(7),
+
+      /* Address */
+      th:nth-child(9),
+      td:nth-child(9),
+
+      /* Paid Time */
+      th:nth-child(14),
+      td:nth-child(14) {
+        display: none;
+      }
+
+      /* Full Name */
+      th:nth-child(2),
+      td:nth-child(2) {
+        min-width: 150px;
+      }
+
+      /* Course */
+      th:nth-child(8),
+      td:nth-child(8) {
+        min-width: 130px;
+      }
+
+      /* Amount */
+      th:nth-child(10),
+      td:nth-child(10) {
+        min-width: 90px;
+      }
+
+      /* Method */
+      th:nth-child(11),
+      td:nth-child(11) {
+        min-width: 105px;
+      }
+
+      /* Status */
+      th:nth-child(12),
+      td:nth-child(12) {
+        min-width: 105px;
+      }
+
+      /* Screenshot */
+      th:nth-child(13),
+      td:nth-child(13) {
+        min-width: 105px;
+      }
+
+      /* Action */
+      th:nth-child(15),
+      td:nth-child(15) {
+        min-width: 90px;
+      }
+
+      th,
+      td {
+        padding: 12px 10px;
+        font-size: 14px;
+      }
+
+      .viewBtn,
+      .paidBtn {
+        padding: 10px 14px;
+        font-size: 13px;
       }
     }
 
     @media (max-width: 450px) {
+
+      .container {
+        width: 95%;
+      }
+
+      .card {
+        padding: 13px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
       .stats {
-        grid-template-columns: 1fr 1fr;
         gap: 8px;
       }
 
       .stat {
-        padding: 14px 8px;
+        padding: 13px 5px;
       }
 
       .stat strong {
         font-size: 23px;
+      }
+
+      .filterBtn {
+        padding: 10px 13px;
+        font-size: 13px;
       }
     }
   </style>
@@ -299,30 +458,46 @@
 <div class="container">
 
   <div class="card">
+
     <div class="top">
 
       <div>
+
         <h1>Kena Design Admin</h1>
 
         <div class="subtitle">
-          Barattoota: <span id="totalTop">0</span>
+          Barattoota:
+          <span id="totalTop">0</span>
         </div>
+
       </div>
 
       <div>
-        <button class="refresh" onclick="loadStudents()">
+
+        <button
+          class="refresh"
+          onclick="loadStudents()">
           ↻ Refresh
         </button>
 
-        <button class="logout" onclick="logout()">
+        <button
+          class="logout"
+          onclick="logout()">
           Logout
         </button>
+
       </div>
 
     </div>
+
   </div>
 
-  <div id="message" class="message"></div>
+
+  <div
+    id="message"
+    class="message">
+  </div>
+
 
   <div class="card">
 
@@ -333,6 +508,7 @@
       placeholder="Maqaa, phone, course, status, address barbaadi..."
       oninput="renderStudents()"
     >
+
 
     <div class="filters">
 
@@ -365,74 +541,160 @@
       </button>
 
     </div>
+
   </div>
+
 
   <div class="card">
 
     <div class="stats">
 
       <div class="stat total">
+
         Total
-        <strong id="totalCount">0</strong>
+
+        <strong id="totalCount">
+          0
+        </strong>
+
       </div>
+
 
       <div class="stat paidStat">
+
         Paid
-        <strong id="paidCount">0</strong>
+
+        <strong id="paidCount">
+          0
+        </strong>
+
       </div>
+
 
       <div class="stat pendingStat">
+
         Pending
-        <strong id="pendingCount">0</strong>
+
+        <strong id="pendingCount">
+          0
+        </strong>
+
       </div>
 
+
       <div class="stat unpaidStat">
+
         Unpaid
-        <strong id="unpaidCount">0</strong>
+
+        <strong id="unpaidCount">
+          0
+        </strong>
+
       </div>
 
     </div>
 
   </div>
 
+
   <div class="card">
 
-    <div id="loading" class="loading">
+    <div
+      id="loading"
+      class="loading">
       Loading...
     </div>
 
+
     <div class="tableWrap">
 
-      <table id="studentsTable" style="display:none;">
+      <table
+        id="studentsTable"
+        style="display:none;">
 
         <thead>
+
           <tr>
+
             <th>#</th>
-            <th>Full Name</th>
-            <th>Father Name</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Course</th>
-            <th>Address</th>
-            <th>Amount</th>
-            <th>Method</th>
-            <th>Status</th>
-            <th>Screenshot</th>
-            <th>Paid Time</th>
-            <th>Action</th>
+
+            <th>
+              Full Name
+            </th>
+
+            <th>
+              Father Name
+            </th>
+
+            <th>
+              Gender
+            </th>
+
+            <th>
+              Age
+            </th>
+
+            <th>
+              Phone
+            </th>
+
+            <th>
+              Email
+            </th>
+
+            <th>
+              Course
+            </th>
+
+            <th>
+              Address
+            </th>
+
+            <th>
+              Amount
+            </th>
+
+            <th>
+              Method
+            </th>
+
+            <th>
+              Status
+            </th>
+
+            <th>
+              Screenshot
+            </th>
+
+            <th>
+              Paid Time
+            </th>
+
+            <th>
+              Action
+            </th>
+
           </tr>
+
         </thead>
 
-        <tbody id="studentsBody"></tbody>
+
+        <tbody
+          id="studentsBody">
+        </tbody>
 
       </table>
 
     </div>
 
-    <div id="empty" class="empty" style="display:none;">
+
+    <div
+      id="empty"
+      class="empty"
+      style="display:none;">
+
       Barataa hin argamne.
+
     </div>
 
   </div>
@@ -451,31 +713,44 @@ const SUPABASE_KEY =
 const ADMIN_EMAIL =
   "ameegizachew@gmail.com";
 
+
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
 
+
 let students = [];
+
 let currentFilter = "ALL";
 
 
-function showMessage(text, type = "error") {
+function showMessage(
+  text,
+  type = "error"
+) {
 
   const box =
-    document.getElementById("message");
+    document.getElementById(
+      "message"
+    );
 
   box.textContent = text;
 
   box.className =
     "message " + type;
 
-  box.style.display = "block";
+  box.style.display =
+    "block";
 
   setTimeout(() => {
-    box.style.display = "none";
+
+    box.style.display =
+      "none";
+
   }, 5000);
+
 }
 
 
@@ -484,7 +759,9 @@ async function checkAdmin() {
   const {
     data,
     error
-  } = await supabaseClient.auth.getUser();
+  } =
+    await supabaseClient.auth.getUser();
+
 
   if (
     error ||
@@ -492,10 +769,12 @@ async function checkAdmin() {
     !data.user
   ) {
 
-    window.location.href = "index.html";
+    window.location.href =
+      "index.html";
 
     return false;
   }
+
 
   if (
     data.user.email.toLowerCase() !==
@@ -504,48 +783,69 @@ async function checkAdmin() {
 
     await supabaseClient.auth.signOut();
 
-    window.location.href = "index.html";
+    window.location.href =
+      "index.html";
 
     return false;
   }
 
+
   return true;
+
 }
 
 
 async function loadStudents() {
 
-  document.getElementById("loading").style.display =
+  document.getElementById(
+    "loading"
+  ).style.display =
     "block";
 
-  document.getElementById("studentsTable").style.display =
+
+  document.getElementById(
+    "studentsTable"
+  ).style.display =
     "none";
+
 
   try {
 
     const {
       data,
       error
-    } = await supabaseClient
-      .from("Students")
-      .select("*")
-      .order("created_at", {
-        ascending: false
-      });
+    } =
+      await supabaseClient
+        .from("Students")
+        .select("*")
+        .order(
+          "created_at",
+          {
+            ascending: false
+          }
+        );
+
 
     if (error) {
+
       throw error;
+
     }
 
-    students = data || [];
+
+    students =
+      data || [];
+
 
     updateStats();
 
     renderStudents();
 
+
   } catch (error) {
 
     console.error(error);
+
 
     showMessage(
       "Barattoota fiduu hin dandeenye: " +
@@ -553,14 +853,22 @@ async function loadStudents() {
       "error"
     );
 
+
   } finally {
 
-    document.getElementById("loading").style.display =
+    document.getElementById(
+      "loading"
+    ).style.display =
       "none";
 
-    document.getElementById("studentsTable").style.display =
+
+    document.getElementById(
+      "studentsTable"
+    ).style.display =
       "table";
+
   }
+
 }
 
 
@@ -571,15 +879,23 @@ function getStatus(student) {
       student.payment_status || ""
     ).toUpperCase();
 
+
   if (status === "PAID") {
+
     return "PAID";
+
   }
+
 
   if (status === "PENDING") {
+
     return "PENDING";
+
   }
 
+
   return "UNPAID";
+
 }
 
 
@@ -588,312 +904,439 @@ function updateStats() {
   const total =
     students.length;
 
+
   const paid =
     students.filter(
       s => getStatus(s) === "PAID"
     ).length;
+
 
   const pending =
     students.filter(
       s => getStatus(s) === "PENDING"
     ).length;
 
+
   const unpaid =
     students.filter(
       s => getStatus(s) === "UNPAID"
     ).length;
 
-  document.getElementById("totalTop").textContent =
+
+  document.getElementById(
+    "totalTop"
+  ).textContent =
     total;
 
-  document.getElementById("totalCount").textContent =
+
+  document.getElementById(
+    "totalCount"
+  ).textContent =
     total;
 
-  document.getElementById("paidCount").textContent =
+
+  document.getElementById(
+    "paidCount"
+  ).textContent =
     paid;
 
-  document.getElementById("pendingCount").textContent =
+
+  document.getElementById(
+    "pendingCount"
+  ).textContent =
     pending;
 
-  document.getElementById("unpaidCount").textContent =
+
+  document.getElementById(
+    "unpaidCount"
+  ).textContent =
     unpaid;
+
 }
 
 
 function setFilter(filter) {
 
-  currentFilter = filter;
+  currentFilter =
+    filter;
+
 
   document
-    .querySelectorAll(".filterBtn")
+    .querySelectorAll(
+      ".filterBtn"
+    )
     .forEach(btn => {
-      btn.classList.remove("active");
+
+      btn.classList.remove(
+        "active"
+      );
+
     });
 
+
   if (filter === "ALL") {
+
     document
       .getElementById("allBtn")
       .classList.add("active");
+
   }
+
 
   if (filter === "PAID") {
+
     document
-      .getElementById("paidBtnFilter")
+      .getElementById(
+        "paidBtnFilter"
+      )
       .classList.add("active");
+
   }
+
 
   if (filter === "PENDING") {
+
     document
-      .getElementById("pendingBtnFilter")
+      .getElementById(
+        "pendingBtnFilter"
+      )
       .classList.add("active");
+
   }
+
 
   if (filter === "UNPAID") {
+
     document
-      .getElementById("unpaidBtnFilter")
+      .getElementById(
+        "unpaidBtnFilter"
+      )
       .classList.add("active");
+
   }
 
+
   renderStudents();
+
 }
 
 
 function renderStudents() {
 
   const body =
-    document.getElementById("studentsBody");
+    document.getElementById(
+      "studentsBody"
+    );
+
 
   const search =
     document
-      .getElementById("search")
+      .getElementById(
+        "search"
+      )
       .value
       .trim()
       .toLowerCase();
 
+
   let filtered =
-    students.filter(student => {
+    students.filter(
+      student => {
 
-      const status =
-        getStatus(student);
+        const status =
+          getStatus(student);
 
-      if (
-        currentFilter !== "ALL" &&
-        status !== currentFilter
-      ) {
-        return false;
+
+        if (
+          currentFilter !== "ALL" &&
+          status !== currentFilter
+        ) {
+
+          return false;
+
+        }
+
+
+        if (!search) {
+
+          return true;
+
+        }
+
+
+        const text = [
+
+          student.fullname,
+
+          student["Full name"],
+
+          student.fathername,
+
+          student.gender,
+
+          student.age,
+
+          student.phone,
+
+          student.email,
+
+          student.course,
+
+          student.address,
+
+          student.other_address,
+
+          student.payment_method,
+
+          student.payment_status
+
+        ]
+        .join(" ")
+        .toLowerCase();
+
+
+        return text.includes(
+          search
+        );
+
       }
-
-      if (!search) {
-        return true;
-      }
-
-      const text = [
-
-        student.fullname,
-        student["Full name"],
-        student.fathername,
-        student.gender,
-        student.age,
-        student.phone,
-        student.email,
-        student.course,
-        student.address,
-        student.other_address,
-        student.payment_method,
-        student.payment_status
-
-      ]
-      .join(" ")
-      .toLowerCase();
-
-      return text.includes(search);
-
-    });
+    );
 
 
   body.innerHTML = "";
 
 
-  if (filtered.length === 0) {
+  if (
+    filtered.length === 0
+  ) {
 
-    document.getElementById("empty").style.display =
+    document.getElementById(
+      "empty"
+    ).style.display =
       "block";
 
     return;
+
   }
 
 
-  document.getElementById("empty").style.display =
+  document.getElementById(
+    "empty"
+  ).style.display =
     "none";
 
 
-  filtered.forEach((student, index) => {
+  filtered.forEach(
+    (student, index) => {
 
-    const status =
-      getStatus(student);
-
-    const tr =
-      document.createElement("tr");
+      const status =
+        getStatus(student);
 
 
-    const amount =
-      student.payment_amount != null
-        ? Number(
-            student.payment_amount
-          ).toLocaleString() + " ETB"
-        : "-";
+      const tr =
+        document.createElement(
+          "tr"
+        );
 
 
-    const method =
-      student.payment_method ||
-      "-";
+      const amount =
+        student.payment_amount != null
+          ? Number(
+              student.payment_amount
+            ).toLocaleString() +
+            " ETB"
+          : "-";
 
 
-    const paidTime =
-      student.paid_at
-        ? new Date(
-            student.paid_at
-          ).toLocaleString()
-        : "-";
+      const method =
+        student.payment_method ||
+        "-";
 
 
-    let screenshotHTML = "-";
+      const paidTime =
+        student.paid_at
+          ? new Date(
+              student.paid_at
+            ).toLocaleString()
+          : "-";
 
 
-    if (
-      student.payment_screenshot_url
-    ) {
+      let screenshotHTML =
+        "-";
 
-      screenshotHTML = `
-        <button
-          class="viewBtn"
-          onclick="viewScreenshot('${escapeAttr(
-            student.payment_screenshot_url
-          )}')">
-          View
-        </button>
+
+      if (
+        student.payment_screenshot_url
+      ) {
+
+        screenshotHTML = `
+
+          <button
+            class="viewBtn"
+            onclick="viewScreenshot('${escapeAttr(
+              student.payment_screenshot_url
+            )}')">
+
+            View
+
+          </button>
+
+        `;
+
+      }
+
+
+      let actionHTML =
+        "-";
+
+
+      if (
+        status === "PAID"
+      ) {
+
+        actionHTML = `
+
+          <span
+            style="
+              color:#059669;
+              font-weight:bold;
+              font-size:16px;
+            ">
+
+            ✓ Paid
+
+          </span>
+
+        `;
+
+      } else {
+
+        actionHTML = `
+
+          <button
+            class="paidBtn"
+            onclick="markPaid('${student.id}')">
+
+            PAID
+
+          </button>
+
+        `;
+
+      }
+
+
+      tr.innerHTML = `
+
+        <td>
+          ${index + 1}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.fullname ||
+            student["Full name"] ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.fathername ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.gender ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.age ??
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.phone ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.email ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.course ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            student.address ||
+            student.other_address ||
+            "-"
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            amount
+          )}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            method
+          )}
+        </td>
+
+        <td>
+
+          <span
+            class="
+              status
+              status-${status.toLowerCase()}
+            ">
+
+            ${status}
+
+          </span>
+
+        </td>
+
+        <td>
+          ${screenshotHTML}
+        </td>
+
+        <td>
+          ${escapeHTML(
+            paidTime
+          )}
+        </td>
+
+        <td>
+          ${actionHTML}
+        </td>
+
       `;
+
+
+      body.appendChild(tr);
+
     }
-
-
-    let actionHTML = "-";
-
-
-    if (status === "PAID") {
-
-      actionHTML = `
-        <span
-          style="
-            color:#059669;
-            font-weight:bold;
-            font-size:16px;
-          ">
-          ✓ Paid
-        </span>
-      `;
-
-    } else {
-
-      actionHTML = `
-        <button
-          class="paidBtn"
-          onclick="markPaid('${student.id}')">
-          PAID
-        </button>
-      `;
-    }
-
-
-    tr.innerHTML = `
-
-      <td>
-        ${index + 1}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.fullname ||
-          student["Full name"] ||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.fathername || "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.gender || "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.age ?? "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.phone || "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.email || "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.course || "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(
-          student.address ||
-          student.other_address ||
-          "-"
-        )}
-      </td>
-
-      <td>
-        ${escapeHTML(amount)}
-      </td>
-
-      <td>
-        ${escapeHTML(method)}
-      </td>
-
-      <td>
-        <span class="status status-${status.toLowerCase()}">
-          ${status}
-        </span>
-      </td>
-
-      <td>
-        ${screenshotHTML}
-      </td>
-
-      <td>
-        ${escapeHTML(paidTime)}
-      </td>
-
-      <td>
-        ${actionHTML}
-      </td>
-
-    `;
-
-
-    body.appendChild(tr);
-
-  });
+  );
 
 }
 
@@ -905,8 +1348,11 @@ async function markPaid(id) {
       "Kaffaltii barataa kana mirkaneessitee PAID gochuu barbaaddaa?"
     );
 
+
   if (!ok) {
+
     return;
+
   }
 
 
@@ -914,17 +1360,28 @@ async function markPaid(id) {
 
     const {
       error
-    } = await supabaseClient
-      .from("Students")
-      .update({
-        payment_status: "PAID",
-        paid_at: new Date().toISOString()
-      })
-      .eq("id", id);
+    } =
+      await supabaseClient
+        .from("Students")
+        .update({
+
+          payment_status:
+            "PAID",
+
+          paid_at:
+            new Date().toISOString()
+
+        })
+        .eq(
+          "id",
+          id
+        );
 
 
     if (error) {
+
       throw error;
+
     }
 
 
@@ -940,6 +1397,7 @@ async function markPaid(id) {
   } catch (error) {
 
     console.error(error);
+
 
     showMessage(
       "PAID gochuu hin dandeenye: " +
@@ -959,17 +1417,22 @@ async function viewScreenshot(path) {
     const {
       data,
       error
-    } = await supabaseClient
-      .storage
-      .from("payment-proofs")
-      .createSignedUrl(
-        path,
-        60 * 10
-      );
+    } =
+      await supabaseClient
+        .storage
+        .from(
+          "payment-proofs"
+        )
+        .createSignedUrl(
+          path,
+          60 * 10
+        );
 
 
     if (error) {
+
       throw error;
+
     }
 
 
@@ -981,6 +1444,7 @@ async function viewScreenshot(path) {
       throw new Error(
         "Screenshot URL hin uumamne."
       );
+
     }
 
 
@@ -992,68 +1456,4 @@ async function viewScreenshot(path) {
 
   } catch (error) {
 
-    console.error(error);
-
-    showMessage(
-      "Screenshot banuu hin dandeenye: " +
-      error.message,
-      "error"
-    );
-
-  }
-
-}
-
-
-async function logout() {
-
-  await supabaseClient.auth.signOut();
-
-  window.location.href =
-    "index.html";
-}
-
-
-function escapeHTML(value) {
-
-  if (
-    value === null ||
-    value === undefined
-  ) {
-    return "";
-  }
-
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-
-function escapeAttr(value) {
-
-  return String(value)
-    .replace(/\\/g, "\\\\")
-    .replace(/'/g, "\\'");
-}
-
-
-(async function() {
-
-  const isAdmin =
-    await checkAdmin();
-
-  if (!isAdmin) {
-    return;
-  }
-
-  await loadStudents();
-
-})();
-
-</script>
-
-</body>
-</html>
+    console.error(er

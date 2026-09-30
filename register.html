@@ -68,6 +68,11 @@
       background: #fff;
     }
 
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
     input:focus,
     select:focus,
     textarea:focus {
@@ -212,6 +217,7 @@
 <body>
 
 <div class="container">
+
   <div class="card">
 
     <div class="logo">
@@ -221,6 +227,7 @@
 
     <form id="registrationForm">
 
+      <!-- FULL NAME -->
       <label for="fullname">Full Name *</label>
       <input
         type="text"
@@ -230,6 +237,7 @@
         required
       >
 
+      <!-- FATHER NAME -->
       <label for="fathername">Father's Name *</label>
       <input
         type="text"
@@ -239,6 +247,7 @@
         required
       >
 
+      <!-- GENDER + AGE -->
       <div class="row">
 
         <div>
@@ -265,6 +274,7 @@
 
       </div>
 
+      <!-- PHONE -->
       <label for="phone">Phone Number *</label>
       <input
         type="tel"
@@ -276,6 +286,7 @@
         required
       >
 
+      <!-- EMAIL -->
       <label for="email">Email (Optional)</label>
       <input
         type="email"
@@ -284,7 +295,9 @@
         placeholder="example@gmail.com"
       >
 
+      <!-- COURSE -->
       <label for="course">Choose Course *</label>
+
       <select id="course" name="course" required>
 
         <option value="">Select course</option>
@@ -323,6 +336,7 @@
 
       </select>
 
+      <!-- ADDRESS -->
       <label for="address">Address *</label>
 
       <select id="address" name="address" required>
@@ -355,6 +369,7 @@
 
       </select>
 
+      <!-- OTHER ADDRESS -->
       <div id="otherAddressBox" class="hidden">
 
         <label for="other_address">Other Address *</label>
@@ -368,6 +383,7 @@
 
       </div>
 
+      <!-- PAYMENT -->
       <div class="payment-box">
 
         <h3>Payment Information</h3>
@@ -392,6 +408,7 @@
 
       </div>
 
+      <!-- PAYMENT METHOD -->
       <label for="payment_method">Payment Method *</label>
 
       <select id="payment_method" name="payment_method" required>
@@ -402,6 +419,7 @@
 
       </select>
 
+      <!-- SCREENSHOT -->
       <label for="screenshot">
         Payment Screenshot *
       </label>
@@ -430,15 +448,18 @@
         before confirming your registration.
       </div>
 
+      <!-- SUBMIT -->
       <button type="submit" id="submitBtn">
         Submit Registration
       </button>
 
+      <!-- SUCCESS -->
       <div
         id="successMessage"
         class="message success"
       ></div>
 
+      <!-- ERROR -->
       <div
         id="errorMessage"
         class="message error"
@@ -451,12 +472,14 @@
     </div>
 
   </div>
+
 </div>
+
 
 <script>
 
 /* =========================================================
-   SUPABASE
+   SUPABASE CONFIGURATION
    ========================================================= */
 
 const SUPABASE_URL =
@@ -470,6 +493,15 @@ const supabaseClient =
     SUPABASE_URL,
     SUPABASE_ANON_KEY
   );
+
+
+/* =========================================================
+   EDGE FUNCTION URL
+   ========================================================= */
+
+const UPLOAD_FUNCTION_URL =
+  SUPABASE_URL +
+  "/functions/v1/upload-payment-proof";
 
 
 /* =========================================================
@@ -587,7 +619,8 @@ function showError(message) {
 
   errorMessage.style.display = "block";
 
-  errorMessage.textContent = message;
+  errorMessage.textContent =
+    message;
 
 }
 
@@ -602,7 +635,8 @@ function showSuccess(message) {
 
   successMessage.style.display = "block";
 
-  successMessage.textContent = message;
+  successMessage.textContent =
+    message;
 
 }
 
@@ -611,406 +645,315 @@ function showSuccess(message) {
    FORM SUBMIT
    ========================================================= */
 
-form.addEventListener("submit", async function (event) {
+form.addEventListener(
+  "submit",
+  async function (event) {
 
-  event.preventDefault();
+    event.preventDefault();
 
-  successMessage.style.display = "none";
-  errorMessage.style.display = "none";
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
 
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Submitting...";
-
-
-  let uploadedFilePath = null;
+    submitBtn.disabled = true;
+    submitBtn.textContent =
+      "Submitting...";
 
 
-  try {
+    try {
 
-    /* =====================================================
-       FORM VALUES
-       ===================================================== */
+      /* ---------------------------------------------
+         GET FORM VALUES
+         --------------------------------------------- */
 
-    const fullname =
-      document
-        .getElementById("fullname")
-        .value
-        .trim();
-
-    const fathername =
-      document
-        .getElementById("fathername")
-        .value
-        .trim();
-
-    const gender =
-      document
-        .getElementById("gender")
-        .value;
-
-    const age =
-      Number(
+      const fullname =
         document
-          .getElementById("age")
+          .getElementById("fullname")
           .value
-      );
-
-    const phone =
-      document
-        .getElementById("phone")
-        .value
-        .trim();
-
-    const email =
-      document
-        .getElementById("email")
-        .value
-        .trim();
-
-    const selectedCourse =
-      course.value;
-
-    const selectedAddress =
-      address.value;
-
-    const selectedOtherAddress =
-      otherAddress.value.trim();
-
-    const paymentMethod =
-      document
-        .getElementById("payment_method")
-        .value;
-
-
-    /* =====================================================
-       PHONE
-       ===================================================== */
-
-    const phonePattern =
-      /^(09|07)[0-9]{8}$/;
-
-    if (!phonePattern.test(phone)) {
-
-      throw new Error(
-        "Phone number sirrii galchi. Fakkeenya: 0912345678"
-      );
-
-    }
-
-
-    /* =====================================================
-       COURSE
-       ===================================================== */
-
-    if (!selectedCourse) {
-
-      throw new Error(
-        "Course tokko filadhu."
-      );
-
-    }
-
-
-    const selectedOption =
-      course.options[
-        course.selectedIndex
-      ];
-
-    const paymentAmount =
-      Number(
-        selectedOption
-          .getAttribute("data-price")
-      );
-
-
-    /* =====================================================
-       ADDRESS
-       ===================================================== */
-
-    if (!selectedAddress) {
-
-      throw new Error(
-        "Address kee filadhu."
-      );
-
-    }
-
-    if (
-      selectedAddress === "Other" &&
-      !selectedOtherAddress
-    ) {
-
-      throw new Error(
-        "Other address kee barreessi."
-      );
-
-    }
-
-
-    /* =====================================================
-       PAYMENT METHOD
-       ===================================================== */
-
-    if (!paymentMethod) {
-
-      throw new Error(
-        "Payment method filadhu."
-      );
-
-    }
-
-
-    /* =====================================================
-       SCREENSHOT
-       ===================================================== */
-
-    if (!screenshot.files.length) {
-
-      throw new Error(
-        "Payment screenshot olchi."
-      );
-
-    }
-
-    const screenshotFile =
-      screenshot.files[0];
-
-
-    /* =====================================================
-       FILE SIZE
-       ===================================================== */
-
-    const maxSize =
-      5 * 1024 * 1024;
-
-    if (
-      screenshotFile.size > maxSize
-    ) {
-
-      throw new Error(
-        "Screenshot 5MB oluu ta'uu hin qabu."
-      );
-
-    }
-
-
-    /* =====================================================
-       FILE TYPE
-       ===================================================== */
-
-    const allowedTypes = [
-      "image/jpeg",
-      "image/png",
-      "image/webp"
-    ];
-
-    if (
-      !allowedTypes.includes(
-        screenshotFile.type
-      )
-    ) {
-
-      throw new Error(
-        "Screenshot JPEG, PNG ykn WEBP ta'uu qaba."
-      );
-
-    }
-
-
-    /* =====================================================
-       EDGE FUNCTION UPLOAD
-       ===================================================== */
-
-    submitBtn.textContent =
-      "Uploading screenshot...";
-
-
-    const uploadForm =
-      new FormData();
-
-    uploadForm.append(
-      "file",
-      screenshotFile
-    );
-
-    uploadForm.append(
-      "phone",
-      phone
-    );
-
-
-    const {
-      data: uploadData,
-      error: uploadError
-    } =
-      await supabaseClient.functions.invoke(
-        "upload-payment-proof",
-        {
-          body: uploadForm
-        }
-      );
-
-
-    if (uploadError) {
-
-      throw new Error(
-        "Screenshot upload hin milkoofne: " +
-        uploadError.message
-      );
-
-    }
-
-
-    if (
-      !uploadData ||
-      !uploadData.success ||
-      !uploadData.path
-    ) {
-
-      throw new Error(
-        uploadData?.error ||
-        "Screenshot path hin argamne."
-      );
-
-    }
-
-
-    uploadedFilePath =
-      uploadData.path;
-
-
-    /* =====================================================
-       DATABASE INSERT
-       ===================================================== */
-
-    submitBtn.textContent =
-      "Saving registration...";
-
-
-    const {
-      error: insertError
-    } =
-      await supabaseClient
-        .from("Students")
-        .insert([{
-
-          fullname:
-            fullname,
-
-          fathername:
-            fathername,
-
-          gender:
-            gender,
-
-          age:
-            age,
-
-          phone:
-            phone,
-
-          email:
-            email || null,
-
-          course:
-            selectedCourse,
-
-          address:
-            selectedAddress,
-
-          other_address:
-            selectedAddress === "Other"
-              ? selectedOtherAddress
-              : null,
-
-          payment_status:
-            "PENDING",
-
-          payment_amount:
-            paymentAmount,
-
-          payment_method:
-            paymentMethod,
-
-          payment_reference:
-            null,
-
-          payment_screenshot_url:
-            uploadedFilePath
-
-        }]);
-
-
-    /* =====================================================
-       DATABASE ERROR
-       ===================================================== */
-
-    if (insertError) {
-
-      /*
-       * Screenshot upload milkaa'ee,
-       * database insert yoo kufe,
-       * file sana deebinee haquuf yaalla.
-       */
-
-      try {
-
-        await supabaseClient
-          .storage
-          .from("payment-proofs")
-          .remove([
-            uploadedFilePath
-          ]);
-
-      } catch (cleanupError) {
-
-        console.error(
-          "Cleanup error:",
-          cleanupError
+          .trim();
+
+      const fathername =
+        document
+          .getElementById("fathername")
+          .value
+          .trim();
+
+      const gender =
+        document
+          .getElementById("gender")
+          .value;
+
+      const age =
+        Number(
+          document
+            .getElementById("age")
+            .value
+        );
+
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
+      const email =
+        document
+          .getElementById("email")
+          .value
+          .trim();
+
+      const selectedCourse =
+        course.value;
+
+      const selectedAddress =
+        address.value;
+
+      const selectedOtherAddress =
+        otherAddress.value.trim();
+
+      const paymentMethod =
+        document
+          .getElementById("payment_method")
+          .value;
+
+
+      /* ---------------------------------------------
+         VALIDATE PHONE
+         --------------------------------------------- */
+
+      const phonePattern =
+        /^(09|07)[0-9]{8}$/;
+
+      if (!phonePattern.test(phone)) {
+
+        throw new Error(
+          "Phone number sirrii galchi. Fakkeenya: 0912345678"
         );
 
       }
 
 
-      throw new Error(
-        "Registration hin milkoofne: " +
-        insertError.message
+      /* ---------------------------------------------
+         VALIDATE COURSE
+         --------------------------------------------- */
+
+      if (!selectedCourse) {
+
+        throw new Error(
+          "Course tokko filadhu."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         GET COURSE PRICE
+         --------------------------------------------- */
+
+      const selectedOption =
+        course.options[
+          course.selectedIndex
+        ];
+
+      const paymentAmount =
+        Number(
+          selectedOption
+            .getAttribute("data-price")
+        );
+
+
+      /* ---------------------------------------------
+         VALIDATE ADDRESS
+         --------------------------------------------- */
+
+      if (!selectedAddress) {
+
+        throw new Error(
+          "Address kee filadhu."
+        );
+
+      }
+
+      if (
+        selectedAddress === "Other" &&
+        !selectedOtherAddress
+      ) {
+
+        throw new Error(
+          "Other address kee barreessi."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         VALIDATE PAYMENT METHOD
+         --------------------------------------------- */
+
+      if (!paymentMethod) {
+
+        throw new Error(
+          "Payment method filadhu."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         VALIDATE SCREENSHOT
+         --------------------------------------------- */
+
+      if (!screenshot.files.length) {
+
+        throw new Error(
+          "Payment screenshot olchi."
+        );
+
+      }
+
+      const screenshotFile =
+        screenshot.files[0];
+
+
+      /* ---------------------------------------------
+         FILE SIZE
+         Maximum 5MB
+         --------------------------------------------- */
+
+      const maxSize =
+        5 * 1024 * 1024;
+
+      if (
+        screenshotFile.size > maxSize
+      ) {
+
+        throw new Error(
+          "Screenshot 5MB oluu ta'uu hin qabu."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         FILE TYPE
+         --------------------------------------------- */
+
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+      ];
+
+      if (
+        !allowedTypes.includes(
+          screenshotFile.type
+        )
+      ) {
+
+        throw new Error(
+          "Screenshot JPEG, PNG ykn WEBP ta'uu qaba."
+        );
+
+      }
+
+
+      /* =================================================
+         UPLOAD SCREENSHOT THROUGH EDGE FUNCTION
+         ================================================= */
+
+      const uploadFormData =
+        new FormData();
+
+      uploadFormData.append(
+        "file",
+        screenshotFile
       );
 
-    }
+      uploadFormData.append(
+        "phone",
+        phone
+      );
 
 
-    /* =====================================================
-       SUCCESS
-       ===================================================== */
-
-    showSuccess(
-      "Registration kee milkaa'eera! " +
-      "Payment status kee PENDING dha. " +
-      "Admin'n payment screenshot kee erga mirkaneesse booda " +
-      "registration kee ni confirm godha."
-    );
-
-
-    form.reset();
-
-    courseAmount.textContent =
-      "Course fee: —";
-
-    otherAddressBox.classList.add(
-      "hidden"
-    );
-
-    otherAddress.required = false;
+      const uploadResponse =
+        await fetch(
+          UPLOAD_FUNCTION_URL,
+          {
+            method: "POST",
+            headers: {
+              "apikey":
+                SUPABASE_ANON_KEY
+            },
+            body:
+              uploadFormData
+          }
+        );
 
 
-  } catch (error) {
+      let uploadResult = null;
 
-    console.error(
-      "Registration error:",
-      error
-    );
+      try {
+
+        uploadResult =
+          await uploadResponse.json();
+
+      } catch {
+
+        throw new Error(
+          "Edge Function irraa deebii sirrii hin argamne."
+        );
+
+      }
 
 
-    showError(
-     
+      if (
+        !uploadResponse.ok ||
+        !uploadResult ||
+        !uploadResult.success
+      ) {
+
+        throw new Error(
+          "Screenshot upload hin milkoofne: " +
+          (
+            uploadResult &&
+            uploadResult.error
+              ? uploadResult.error
+              : "Unknown upload error."
+          )
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         FILE PATH FROM EDGE FUNCTION
+         --------------------------------------------- */
+
+      const screenshotPath =
+        uploadResult.path;
+
+
+      if (!screenshotPath) {
+
+        throw new Error(
+          "Screenshot path hin argamne."
+        );
+
+      }
+
+
+      /* =================================================
+         INSERT STUDENT INTO DATABASE
+         ================================================= */
+
+      const {
+        error: insertError
+      } =
+        await supabaseClient
+          .from("Students")
+          .insert([{
+
+            fullname:
+              fullname,
+
+            fathername:
+             

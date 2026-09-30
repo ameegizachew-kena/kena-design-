@@ -21,7 +21,7 @@ body{
 
 .container{
   width:100%;
-  max-width:850px;
+  max-width:900px;
   margin:auto;
 }
 
@@ -40,19 +40,10 @@ body{
   flex-wrap:wrap;
 }
 
-.backBtn{
-  display:inline-block;
-  background:#334155;
-  color:white;
-  text-decoration:none;
-  padding:11px 17px;
-  border-radius:9px;
-  font-weight:bold;
-}
-
 .course{
   color:#32d583;
   font-weight:bold;
+  font-size:18px;
   margin-bottom:8px;
 }
 
@@ -76,10 +67,25 @@ p{
   font-size:17px;
 }
 
-ul{
+ul,ol{
   line-height:1.9;
   color:#f1f5f9;
   font-size:17px;
+}
+
+li{
+  margin-bottom:5px;
+}
+
+.backBtn{
+  display:inline-block;
+  background:#334155;
+  color:white;
+  text-decoration:none;
+  padding:12px 18px;
+  border-radius:9px;
+  font-weight:bold;
+  text-align:center;
 }
 
 .lessonNumber{
@@ -100,6 +106,45 @@ ul{
 
 .contentBox h3{
   color:#32d583;
+}
+
+.section{
+  margin-top:25px;
+}
+
+.example{
+  background:#020617;
+  border:1px solid #334155;
+  padding:18px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+.good{
+  color:#4ade80;
+  font-weight:bold;
+}
+
+.bad{
+  color:#f87171;
+  font-weight:bold;
+}
+
+/* VIDEO */
+
+.videoBox{
+  width:100%;
+  min-height:230px;
+  background:#020617;
+  border:1px solid #334155;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#94a3b8;
+  padding:20px;
+  margin-top:20px;
 }
 
 /* NOTE */
@@ -130,24 +175,19 @@ ul{
   color:#fbbf24;
 }
 
-/* VIDEO */
-
-.videoBox{
-  width:100%;
-  min-height:230px;
-  background:#020617;
-  border:1px solid #334155;
-  border-radius:12px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:#94a3b8;
-  padding:20px;
-  margin-top:20px;
+.goal{
+  background:#064e3b;
+  border-left:5px solid #32d583;
+  padding:18px;
+  border-radius:10px;
+  margin-top:18px;
 }
 
-/* COMPLETE */
+.goal strong{
+  color:#6ee7b7;
+}
+
+/* BUTTON */
 
 .completeBtn{
   width:100%;
@@ -209,13 +249,19 @@ ul{
   }
 
   p,
-  ul{
+  ul,
+  ol{
     font-size:16px;
   }
 
   .backBtn{
     width:100%;
-    text-align:center;
+  }
+
+  .contentBox,
+  .note,
+  .assignment{
+    padding:16px;
   }
 }
 </style>
@@ -238,7 +284,7 @@ ul{
       </div>
 
       <h1>
-        Lesson 1 — Thumbnail Basics
+        Lesson 1 — YouTube Thumbnail Basics
       </h1>
 
     </div>
@@ -255,7 +301,7 @@ ul{
 </div>
 
 
-<!-- MAIN LESSON -->
+<!-- LESSON -->
 
 <div class="card">
 
@@ -264,186 +310,479 @@ ul{
   </div>
 
   <h2>
-    🎨 YouTube Thumbnail Basics
+    🎨 Lesson 1 — YouTube Thumbnail Basics
   </h2>
 
 
-  <!-- INTRODUCTION -->
+  <!-- =========================
+       CONTENT
+  ========================== -->
 
   <div class="contentBox">
 
     <h3>
-      📚 Content — YouTube Thumbnail jechuun maal?
+      1. Content — YouTube Thumbnail jechuun maal?
     </h3>
 
     <p>
       <strong>YouTube Thumbnail</strong>
-      jechuun suuraa xiqqaa video YouTube
-      tokko bakka bu'uudha.
-    </p>
-
-    <p>
-      Yeroo namni YouTube irratti video
-      barbaadu, wanta inni jalqaba ilaalu
+      jechuun suuraa xiqqaa video YouTube tokko
+      bakka bu'uudha. Yeroo namni YouTube irratti
+      video barbaadu, wanta inni jalqaba ilaalu
       keessaa tokko thumbnail dha.
     </p>
 
     <p>
-      Thumbnail gaariin nama video kee
-      akka ilaalu, akka cuqaasu fi akka
-      fedhii itti qabaatu gochuu danda'a.
-    </p>
-
-    <p>
-      Kanaaf thumbnail qopheessuun
-      suuraa kaa'uu qofa miti. Suuraa,
-      halluu, barreeffama fi design
-      sirriitti walitti fiduun barbaachisaa dha.
-    </p>
-
-
-    <h3>
-      🎯 Maaliif Thumbnail barbaachisaa dha?
-    </h3>
-
-    <p>
-      Namni tokko video kee yeroo argu,
-      yeroo baay'ee murtoo isaa saffisaan
-      godha.
-    </p>
-
-    <p>
-      Thumbnail gaariin:
+      Thumbnail gaariin nama:
     </p>
 
     <ul>
-      <li>Nama hawwata.</li>
-      <li>Video maal irratti akka ta'e agarsiisa.</li>
-      <li>Channel kee professional fakkeessa.</li>
-      <li>Namni video kee akka cuqaasu kakaasa.</li>
+      <li>Video sana akka ilaalu,</li>
+      <li>Akka cuqaasu,</li>
+      <li>Akka fedhii itti qabaatu</li>
     </ul>
 
-
-    <h3>
-      🎨 Thumbnail gaarii maal qabaachuu qaba?
-    </h3>
-
     <p>
-      <strong>1. Suuraa qulqulluu</strong>
+      gochuu danda'a.
     </p>
 
     <p>
-      Suuraan ati fayyadamtu qulqulluu fi
-      ifa ta'uu qaba. Suuraa blur ta'e ykn
-      qulqullina gadi aanaa qabu hin fayyadamin.
+      Kanaaf thumbnail qopheessuun suuraa kaa'uu
+      qofa miti. Suuraa, halluu, barreeffama fi
+      design sirriitti walitti fiduun barbaachisaa dha.
     </p>
 
 
-    <p>
-      <strong>2. Barreeffama gabaabaa</strong>
-    </p>
+    <!-- 2 -->
 
-    <p>
-      Thumbnail irratti barreeffama dheeraa
-      hin guutin.
-    </p>
+    <div class="section">
 
-    <p>
-      Fakkeenyaaf:
-      <strong>
-        "Thumbnail Gaarii Hojjedhu!"
-      </strong>
-      jechuun barreeffama gabaabaa fi
-      hubachuuf salphaa dha.
-    </p>
+      <h3>
+        2. Maaliif Thumbnail barbaachisaa dha?
+      </h3>
 
+      <p>
+        Namni tokko video kee yeroo argu,
+        yeroo baay'ee murtoo isaa saffisaan godha.
+      </p>
 
-    <p>
-      <strong>3. Halluu sirrii</strong>
-    </p>
+      <p>
+        Fakkeenyaaf, thumbnails lama yoo jiraatan:
+      </p>
 
-    <p>
-      Halluu baay'ee walitti makuun design
-      kee jeequu danda'a. Halluu 2 ykn 3
-      wal-siman fayyadamuun gaarii dha.
-    </p>
+      <div class="example">
 
+        <p>
+          <span class="bad">Thumbnail A:</span><br>
+          Suuraa ifa hin taane, barreeffama
+          baay'ee qabu.
+        </p>
 
-    <p>
-      <strong>4. Subject ijoo</strong>
-    </p>
+        <p>
+          <span class="good">Thumbnail B:</span><br>
+          Suuraa qulqulluu, title gabaabaa fi
+          halluu nama hawwatu qabu.
+        </p>
 
-    <p>
-      Thumbnail keessatti wanti ijoo maal
-      akka ta'e namni battalum hubachuu qaba.
-    </p>
+      </div>
 
+      <p>
+        Namni tokko yeroo baay'ee thumbnail ifa
+        ta'eefi hubachuuf salphaa ta'e filachuu danda'a.
+      </p>
 
-    <p>
-      <strong>5. Design qulqulluu</strong>
-    </p>
+      <p>
+        Kanaaf thumbnail:
+      </p>
 
-    <p>
-      Thumbnail kee wantoota baay'eedhaan
-      hin guutin. Wantoonni muraasni garuu
-      sirriitti qindaa'an design bareedaa uumu.
-    </p>
+      <ul>
+        <li>Nama hawwata.</li>
+        <li>Video maal akka irratti ta'e agarsiisa.</li>
+        <li>Channel kee professional fakkeessa.</li>
+        <li>Namni video kee akka cuqaasu kakaasa.</li>
+      </ul>
 
-
-    <p>
-      <strong>6. Font filachuu</strong>
-    </p>
-
-    <p>
-      Font guddaa, ifa fi dubbifamuu salphaa
-      ta'e fayyadami. Mobile irrattis namni
-      dubbisuu akka danda'u mirkaneessi.
-    </p>
+    </div>
 
 
-    <p>
-      <strong>7. Contrast</strong>
-    </p>
+    <!-- 3 -->
 
-    <p>
-      Background fi text gidduutti garaagarummaa
-      ifaa qabaachuun text akka ifatti mul'atu
-      gargaara.
-    </p>
+    <div class="section">
 
+      <h3>
+        3. Thumbnail gaarii maal qabaachuu qaba?
+      </h3>
 
-    <h3>
-      ❌ Dogoggora irraa of eegi
-    </h3>
-
-    <ul>
-      <li>Text baay'ee hin fayyadamin.</li>
-      <li>Suuraa blur hin fayyadamin.</li>
-      <li>Halluu hedduu hin makiin.</li>
-      <li>Font xixiqqaa hin fayyadamin.</li>
-      <li>Thumbnail wantoota baay'eedhaan hin guutin.</li>
-    </ul>
+      <p>
+        Thumbnail gaariin wantoota ijoo muraasa qaba.
+      </p>
 
 
-    <h3>
-      💡 Fakkeenya
-    </h3>
+      <h3>
+        🎨 A. Suuraa qulqulluu
+      </h3>
 
-    <p>
-      Yoo video kee
-      <strong>
-        "YouTube Channel Akkaataa Hojjennu"
-      </strong>
-      jedhu ta'e:
-    </p>
+      <p>
+        Suuraan ati fayyadamtu qulqulluu fi ifa
+        ta'uu qaba.
+      </p>
 
-    <ul>
-      <li>Suuraa namaa ykn laptop fayyadami.</li>
-      <li>Title gabaabaa barreessi.</li>
-      <li>Halluu 2 ykn 3 fayyadami.</li>
-      <li>Subject ijoo ifa godhi.</li>
-      <li>Design qulqulluu qopheessi.</li>
-    </ul>
+      <p>
+        Suuraa:
+      </p>
+
+      <ul>
+        <li>Blur ta'e,</li>
+        <li>Baay'ee xiqqaa ta'e,</li>
+        <li>Ifa hin qabne</li>
+      </ul>
+
+      <p>
+        fayyadamuun design kee miidhuu danda'a.
+      </p>
+
+
+      <h3>
+        ✍️ B. Barreeffama gabaabaa
+      </h3>
+
+      <p>
+        Thumbnail irratti barreeffama dheeraa
+        hin guutin.
+      </p>
+
+      <p>
+        Fakkeenyaaf:
+      </p>
+
+      <p class="bad">
+        ❌ “Akkaataa YouTube Thumbnail Gaarii Ta'e
+        Itti Hojjennu Har'a Baranna”
+      </p>
+
+      <p>
+        irra:
+      </p>
+
+      <p class="good">
+        ✅ “Thumbnail Gaarii Hojjedhu!”
+      </p>
+
+      <p>
+        jedhuun salphaa dha.
+      </p>
+
+      <p>
+        Barreeffamni thumbnail irratti argamu
+        gabaabaa, guddaa fi dubbifamuu salphaa
+        ta'uu qaba.
+      </p>
+
+
+      <h3>
+        🌈 C. Halluu sirrii
+      </h3>
+
+      <p>
+        Halluun thumbnail keessatti gahee guddaa qaba.
+      </p>
+
+      <p>
+        Halluu baay'ee walitti makuun design kee
+        jeequu danda'a.
+      </p>
+
+      <p>
+        Yeroo baay'ee:
+      </p>
+
+      <ul>
+        <li>Halluu 2 ykn 3</li>
+        <li>Background ifa ykn dukkana</li>
+        <li>Text ifa</li>
+      </ul>
+
+      <p>
+        fayyadamuun design qulqulluu uuma.
+      </p>
+
+
+      <h3>
+        👤 D. Subject ijoo
+      </h3>
+
+      <p>
+        Thumbnail keessatti wanti ijoo maal akka ta'e
+        namni battalum hubachuu qaba.
+      </p>
+
+      <p>
+        Fakkeenyaaf, yoo video kee waa'ee
+        <strong>Laptop</strong> ta'e, laptop ykn
+        nama laptop fayyadamu ifatti mul'achuu qaba.
+      </p>
+
+      <p>
+        Subject ijoo bakka dhokataa keessa hin kaa'in.
+      </p>
+
+
+      <h3>
+        🧹 E. Design qulqulluu
+      </h3>
+
+      <p>
+        Thumbnail kee wantoota baay'eedhaan hin guutin.
+      </p>
+
+      <p>
+        Suuraa 10, text baay'ee fi halluu hedduu
+        yoo walitti qabde, namni maal akka ilaalu
+        hin hubatu.
+      </p>
+
+      <p>
+        <strong>
+          Simple = Clear = Professional.
+        </strong>
+      </p>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="section">
+
+      <h3>
+        4. Thumbnail keessatti Composition
+      </h3>
+
+      <p>
+        Composition jechuun wantoota design keessa
+        jiran akkamitti bakka buufnu jechuudha.
+      </p>
+
+      <p>
+        Fakkeenyaaf:
+      </p>
+
+      <div class="example">
+
+        <p>
+          <strong>Bitaa:</strong> Suuraa namaa
+        </p>
+
+        <p>
+          <strong>Mirga:</strong> Title
+        </p>
+
+        <p>
+          <strong>Duuba:</strong> Background
+        </p>
+
+      </div>
+
+      <p>
+        Akka kanaan wantoonni wal hin tuqne fi
+        dubbifamuun salphaa ta'uu qabu.
+      </p>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="section">
+
+      <h3>
+        5. Font filachuu
+      </h3>
+
+      <p>
+        Font jechuun boca barreeffamaa dha.
+      </p>
+
+      <p>
+        Thumbnail keessatti font:
+      </p>
+
+      <ul>
+        <li>Guddaa,</li>
+        <li>Ifa,</li>
+        <li>Dubbifamuu salphaa</li>
+      </ul>
+
+      <p>
+        ta'uu qaba.
+      </p>
+
+      <p>
+        Font baay'ee decoration qabu yeroo hunda
+        hin fayyadamin.
+      </p>
+
+      <p>
+        Title yeroo ilaaltu namni sekondii muraasa
+        keessatti dubbisuu danda'uu qaba.
+      </p>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="section">
+
+      <h3>
+        6. Contrast
+      </h3>
+
+      <p>
+        Contrast jechuun wantoota lama gidduutti
+        garaagarummaa ifaa uumuu dha.
+      </p>
+
+      <p>
+        Fakkeenyaaf:
+      </p>
+
+      <div class="example">
+
+        <p>
+          Background dukkana +
+          Text adii
+        </p>
+
+        <p>
+          ykn
+        </p>
+
+        <p>
+          Background ifa +
+          Text gurraacha
+        </p>
+
+      </div>
+
+      <p>
+        Contrast gaariin text akka ifatti mul'atu
+        gargaara.
+      </p>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="section">
+
+      <h3>
+        7. Fakkeenya Thumbnail gaarii
+      </h3>
+
+      <p>
+        Mee video tokko haa fudhannu:
+      </p>
+
+      <div class="example">
+
+        <p>
+          <strong>Video:</strong>
+        </p>
+
+        <p>
+          “YouTube Channel Akkaataa Hojjennu”
+        </p>
+
+        <p>
+          <strong>Thumbnail irratti:</strong>
+        </p>
+
+        <p>
+          <strong>Suuraa:</strong>
+          Nama laptop dura taa'e
+        </p>
+
+        <p>
+          <strong>Title:</strong>
+          START YOUTUBE
+        </p>
+
+        <p>
+          <strong>Background:</strong>
+          Blue
+        </p>
+
+        <p>
+          <strong>Text:</strong>
+          Adii
+        </p>
+
+        <p>
+          <strong>Highlight:</strong>
+          Yellow
+        </p>
+
+      </div>
+
+      <p>
+        Kun namni thumbnail ilaaluun video maal
+        irratti akka ta'e saffisaan akka hubatu gargaara.
+      </p>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="section">
+
+      <h3>
+        8. Dogoggora barattoonni yeroo baay'ee hojjetan
+      </h3>
+
+      <h3>
+        ❌ Text baay'ee
+      </h3>
+
+      <p>
+        Thumbnail akka kitaabaatti hin guutin.
+      </p>
+
+      <h3>
+        ❌ Suuraa qulqullina hin qabne
+      </h3>
+
+      <p>
+        Suuraa blur ykn resolution gadi aanaa hin fayyadamin.
+      </p>
+
+      <h3>
+        ❌ Halluu hedduu
+      </h3>
+
+      <p>
+        Halluu 6–7 walitti makuun design jeequu danda'a.
+      </p>
+
+      <h3>
+        ❌ Font xixiqqaa
+      </h3>
+
+      <p>
+        Mobile irratti namni dubbisuu hin danda'u.
+      </p>
+
+      <h3>
+        ❌ Wantoota baay'ee
+      </h3>
+
+      <p>
+        Thumbnail keessatti wanti ijoo tokko ifa ta'uu qaba.
+      </p>
+
+    </div>
 
   </div>
 
@@ -461,8 +800,8 @@ ul{
       </h3>
 
       <p>
-        Video barnootaa as irratti
-        yeroo qophaa'u ni dabalama.
+        Video barnootaa as irratti yeroo
+        qophaa'u ni dabalama.
       </p>
 
     </div>
@@ -470,20 +809,21 @@ ul{
   </div>
 
 
-  <!-- NOTE -->
+  <!-- =========================
+       NOTE
+  ========================== -->
 
   <div class="note">
 
     <h3>
-      📖 NOTE — Yaadannoo Lesson 1
+      📝 NOTE — Yaadannoo Lesson 1
     </h3>
 
     <p>
-      Barataan wantoota armaan gadii
-      sirriitti yaadachuu qaba:
+      Barataan wantoota kana yaadachuu qaba:
     </p>
 
-    <ul>
+    <ol>
 
       <li>
         Thumbnail video YouTube bakka bu'a.
@@ -522,77 +862,97 @@ ul{
       </li>
 
       <li>
-        Thumbnail mobile irrattis dubbifamuu
+        Thumbnail kee mobile irrattis dubbifamuu
         danda'uu qaba.
       </li>
 
-    </ul>
+    </ol>
 
   </div>
 
 
-  <!-- ASSIGNMENT -->
+  <!-- =========================
+       ASSIGNMENT
+  ========================== -->
 
   <div class="assignment">
 
     <h3>
-      📝 ASSIGNMENT — Hojii Barataa
+      📋 ASSIGNMENT — Hojii Barataa
     </h3>
 
     <p>
       Amma ati
       <strong>
         YouTube Thumbnail tokko
+        ofii keetiin qopheessi.
       </strong>
-      ofii keetiin qopheessi.
     </p>
 
-    <p>
-      Thumbnail kee keessatti:
-    </p>
+    <h3>
+      Ulaagaalee:
+    </h3>
 
     <ul>
 
       <li>
-        Suuraa qulqulluu tokko fayyadami.
+        ✅ Suuraa qulqulluu tokko fayyadami.
       </li>
 
       <li>
-        Title gabaabaa tokko barreessi.
+        ✅ Title gabaabaa tokko barreessi.
       </li>
 
       <li>
-        Halluu 2 ykn 3 fayyadami.
+        ✅ Halluu 2 ykn 3 fayyadami.
       </li>
 
       <li>
-        Font dubbifamuu salphaa fayyadami.
+        ✅ Font dubbifamuu salphaa fayyadami.
       </li>
 
       <li>
-        Subject ijoo ifa godhi.
+        ✅ Subject ijoo ifa godhi.
       </li>
 
       <li>
-        Background sirrii qopheessi.
+        ✅ Background sirrii qopheessi.
       </li>
 
       <li>
-        Design qulqulluu godhi.
+        ✅ Design qulqulluu godhi.
       </li>
 
       <li>
-        Mobile irratti ilaaluun dubbifamuu
-        akka danda'u mirkaneessi.
+        ✅ Thumbnail mobile irratti ilaaluun
+        dubbifamuu akka danda'u mirkaneessi.
       </li>
 
     </ul>
 
-    <p>
-      🎯 Kaayyoon assignment kanaa:
-      barataan YouTube Thumbnail tokko
-      ofii isaa qopheessuu danda'uu qaba.
-    </p>
+
+    <div class="goal">
+
+      <h3>
+        🎯 Kaayyoo Assignment
+      </h3>
+
+      <p>
+        Assignment kana booda barataan:
+      </p>
+
+      <p>
+        <strong>
+          “Thumbnail YouTube tokko ofii koo
+          qopheessuu nan danda'a.”
+        </strong>
+      </p>
+
+      <p>
+        jedhee hojii isaa agarsiisuu qaba.
+      </p>
+
+    </div>
 
   </div>
 
@@ -626,20 +986,23 @@ ul{
 </div>
 
 
-<!-- NEXT -->
+<!-- NEXT LESSON -->
 
 <div class="card">
 
   <h2>
-    📚 Next Lesson
+    📚 Lesson 2
   </h2>
 
   <p>
-    Lesson 2 — Thumbnail Design Tools
-    yeroo qophaa'u as keessatti ni mul'ata.
+    <strong>
+      Thumbnail Design Tools
+    </strong>
+    irratti itti fufa.
   </p>
 
 </div>
+
 
 </div>
 

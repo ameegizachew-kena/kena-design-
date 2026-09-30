@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="om">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
 <title>Kena Design Learning</title>
 
 <style>
+
 *{
   box-sizing:border-box;
 }
@@ -129,7 +137,12 @@ input:focus{
 }
 
 .course{
-  background:linear-gradient(135deg,#064e3b,#0f766e);
+  background:linear-gradient(
+    135deg,
+    #064e3b,
+    #0f766e
+  );
+
   padding:22px;
   border-radius:15px;
 }
@@ -168,20 +181,30 @@ input:focus{
 }
 
 .lessonBtn{
-  display:inline-flex;
+  display:flex;
   align-items:center;
   justify-content:center;
-  min-height:44px;
+
+  width:100%;
+  min-height:48px;
+
   background:#2563eb;
   color:white;
-  padding:10px 16px;
+
+  padding:12px 16px;
+
   border-radius:8px;
+
   text-decoration:none;
+
   font-weight:bold;
+  font-size:15px;
+
   cursor:pointer;
   border:0;
-  font-size:15px;
+
   -webkit-tap-highlight-color:transparent;
+
   touch-action:manipulation;
 }
 
@@ -216,23 +239,46 @@ input:focus{
   .lessonBtn{
     width:100%;
   }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <!-- LOGIN -->
-<div id="loginBox" class="card">
+
+<div
+  id="loginBox"
+  class="card"
+>
 
   <div class="title">
-    <h1>🎓 Kena Design</h1>
-    <p>Student Learning Portal</p>
+
+    <h1>
+      🎓 Kena Design
+    </h1>
+
+    <p>
+      Student Learning Portal
+    </p>
+
   </div>
 
-  <div id="loginMessage" class="message"></div>
 
-  <label>Phone</label>
+  <div
+    id="loginMessage"
+    class="message"
+  ></div>
+
+
+  <label>
+    Phone
+  </label>
 
   <input
     id="phone"
@@ -242,15 +288,20 @@ input:focus{
     placeholder="09xxxxxxxx"
   >
 
-  <label>PIN</label>
+
+  <label>
+    Course PIN
+  </label>
 
   <input
     id="pin"
-    type="password"
-    inputmode="numeric"
+    type="text"
+    inputmode="text"
     maxlength="6"
-    placeholder="PIN kee galchi"
+    placeholder="Course PIN kee galchi"
+    autocomplete="off"
   >
+
 
   <button
     id="loginBtn"
@@ -263,25 +314,35 @@ input:focus{
 </div>
 
 
+
 <!-- DASHBOARD -->
+
 <div
   id="dashboard"
   class="container"
   style="display:none;"
 >
 
+
+  <!-- HEADER -->
+
   <div class="card">
 
     <div class="header">
 
       <div>
-        <h1>🎓 Kena Design Learning</h1>
+
+        <h1>
+          🎓 Kena Design Learning
+        </h1>
 
         <div
           id="welcome"
           class="welcome"
         ></div>
+
       </div>
+
 
       <button
         class="logout"
@@ -295,12 +356,16 @@ input:focus{
   </div>
 
 
+
   <!-- COURSE -->
+
   <div class="card">
 
     <div class="course">
 
-      <div>Your Course</div>
+      <div>
+        Your Course
+      </div>
 
       <div
         id="courseName"
@@ -316,22 +381,30 @@ input:focus{
   </div>
 
 
+
   <!-- LESSONS -->
+
   <div class="card">
 
-    <h2>📚 Lessons</h2>
+    <h2>
+      📚 Lessons
+    </h2>
 
     <div id="lessons"></div>
 
   </div>
 
+
 </div>
+
 
 
 <script>
 
+
 const FUNCTION_URL =
 "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
+
 
 
 /* =========================
@@ -340,202 +413,263 @@ const FUNCTION_URL =
 
 const COURSES = {
 
+
 "Video Editing":[
 
 {
 title:"Lesson 1 — Video Editing Basics",
-description:"Video Editing maal akka ta'e fi bu'uura isaa baradhu.",
-link:"./lesson.html?course=Video%20Editing&lesson=1"
+description:
+"Video Editing maal akka ta'e fi bu'uura isaa baradhu.",
+link:
+"./lesson.html?course=Video%20Editing&lesson=1"
 },
 
 {
 title:"Lesson 2 — Cut, Trim & Timeline",
-description:"Cut, trim fi timeline fayyadamuun video sirreessuu.",
-link:"./lesson.html?course=Video%20Editing&lesson=2"
+description:
+"Cut, trim fi timeline fayyadamuun video sirreessuu.",
+link:
+"./lesson.html?course=Video%20Editing&lesson=2"
 },
 
 {
 title:"Lesson 3 — Audio Editing",
-description:"Sagalee, music fi sound effect sirreessuu.",
-link:"./lesson.html?course=Video%20Editing&lesson=3"
+description:
+"Sagalee, music fi sound effect sirreessuu.",
+link:
+"./lesson.html?course=Video%20Editing&lesson=3"
 },
 
 {
 title:"Lesson 4 — Video Effects",
-description:"Effect fi transition video keessatti fayyadamu.",
-link:"./lesson.html?course=Video%20Editing&lesson=4"
+description:
+"Effect fi transition video keessatti fayyadamu.",
+link:
+"./lesson.html?course=Video%20Editing&lesson=4"
 }
 
 ],
+
 
 
 "Graphic Design":[
 
 {
 title:"Lesson 1 — Graphic Design Basics",
-description:"Graphic Design maal akka ta'e fi hojii isaa.",
-link:"./lesson.html?course=Graphic%20Design&lesson=1"
+description:
+"Graphic Design maal akka ta'e fi hojii isaa.",
+link:
+"./lesson.html?course=Graphic%20Design&lesson=1"
 },
 
 {
 title:"Lesson 2 — Design Principles",
-description:"Balance, alignment, contrast fi composition.",
-link:"./lesson.html?course=Graphic%20Design&lesson=2"
+description:
+"Balance, alignment, contrast fi composition.",
+link:
+"./lesson.html?course=Graphic%20Design&lesson=2"
 },
 
 {
 title:"Lesson 3 — Typography",
-description:"Font fi barreeffama design keessatti fayyadamu.",
-link:"./lesson.html?course=Graphic%20Design&lesson=3"
+description:
+"Font fi barreeffama design keessatti fayyadamu.",
+link:
+"./lesson.html?course=Graphic%20Design&lesson=3"
 },
 
 {
 title:"Lesson 4 — Color Theory",
-description:"Halluu filachuu fi walitti makuu.",
-link:"./lesson.html?course=Graphic%20Design&lesson=4"
+description:
+"Halluu filachuu fi walitti makuu.",
+link:
+"./lesson.html?course=Graphic%20Design&lesson=4"
 }
 
 ],
+
 
 
 "Web Design":[
 
 {
 title:"Lesson 1 — Web Design Introduction",
-description:"Website fi Web Design bu'uuraa.",
-link:"./lesson.html?course=Web%20Design&lesson=1"
+description:
+"Website fi Web Design bu'uuraa.",
+link:
+"./lesson.html?course=Web%20Design&lesson=1"
 },
 
 {
 title:"Lesson 2 — HTML Basics",
-description:"HTML fayyadamuun page ijaaruu.",
-link:"./lesson.html?course=Web%20Design&lesson=2"
+description:
+"HTML fayyadamuun page ijaaruu.",
+link:
+"./lesson.html?course=Web%20Design&lesson=2"
 },
 
 {
 title:"Lesson 3 — CSS Basics",
-description:"CSS fayyadamuun website bareechuu.",
-link:"./lesson.html?course=Web%20Design&lesson=3"
+description:
+"CSS fayyadamuun website bareechuu.",
+link:
+"./lesson.html?course=Web%20Design&lesson=3"
 },
 
 {
 title:"Lesson 4 — Responsive Design",
-description:"Website mobile irratti hojjetu qopheessuu.",
-link:"./lesson.html?course=Web%20Design&lesson=4"
+description:
+"Website mobile irratti hojjetu qopheessuu.",
+link:
+"./lesson.html?course=Web%20Design&lesson=4"
 }
 
 ],
+
 
 
 "Digital Marketing":[
 
 {
 title:"Lesson 1 — Digital Marketing Basics",
-description:"Digital Marketing maal akka ta'e.",
-link:"./lesson.html?course=Digital%20Marketing&lesson=1"
+description:
+"Digital Marketing maal akka ta'e.",
+link:
+"./lesson.html?course=Digital%20Marketing&lesson=1"
 },
 
 {
 title:"Lesson 2 — Social Media Marketing",
-description:"Facebook fi Instagram marketing.",
-link:"./lesson.html?course=Digital%20Marketing&lesson=2"
+description:
+"Facebook fi Instagram marketing.",
+link:
+"./lesson.html?course=Digital%20Marketing&lesson=2"
 },
 
 {
 title:"Lesson 3 — Content Marketing",
-description:"Content nama hawwatu qopheessuu.",
-link:"./lesson.html?course=Digital%20Marketing&lesson=3"
+description:
+"Content nama hawwatu qopheessuu.",
+link:
+"./lesson.html?course=Digital%20Marketing&lesson=3"
 }
 
 ],
+
 
 
 "Photography":[
 
 {
 title:"Lesson 1 — Photography Basics",
-description:"Photography bu'uuraa baradhu.",
-link:"./lesson.html?course=Photography&lesson=1"
+description:
+"Photography bu'uuraa baradhu.",
+link:
+"./lesson.html?course=Photography&lesson=1"
 },
 
 {
 title:"Lesson 2 — Camera Settings",
-description:"Camera settings sirriitti fayyadamu.",
-link:"./lesson.html?course=Photography&lesson=2"
+description:
+"Camera settings sirriitti fayyadamu.",
+link:
+"./lesson.html?course=Photography&lesson=2"
 },
 
 {
 title:"Lesson 3 — Photo Composition",
-description:"Suuraa bareedaa qopheessuu.",
-link:"./lesson.html?course=Photography&lesson=3"
+description:
+"Suuraa bareedaa qopheessuu.",
+link:
+"./lesson.html?course=Photography&lesson=3"
 }
 
 ],
+
 
 
 "Flayer Package":[
 
 {
 title:"Lesson 1 — Flyer Design Basics",
-description:"Flyer Design bu'uuraa.",
-link:"./lesson.html?course=Flayer%20Package&lesson=1"
+description:
+"Flyer Design bu'uuraa.",
+link:
+"./lesson.html?course=Flayer%20Package&lesson=1"
 },
 
 {
 title:"Lesson 2 — Flyer Layout",
-description:"Layout fi arrangement.",
-link:"./lesson.html?course=Flayer%20Package&lesson=2"
+description:
+"Layout fi arrangement.",
+link:
+"./lesson.html?course=Flayer%20Package&lesson=2"
 }
 
 ],
+
 
 
 "YouTube Thumbnail":[
 
 {
 title:"Lesson 1 — YouTube Thumbnail Basics",
-description:"Thumbnail nama hawwatu qopheessuu.",
-link:"./lesson.html?course=YouTube%20Thumbnail&lesson=1"
+description:
+"Thumbnail nama hawwatu qopheessuu.",
+link:
+"./lesson.html?course=YouTube%20Thumbnail&lesson=1"
 },
 
 {
 title:"Lesson 2 — Thumbnail Design Tools",
-description:"Canva fi Photoshop fayyadamu.",
-link:"./lesson.html?course=YouTube%20Thumbnail&lesson=2"
+description:
+"Canva fi Photoshop fayyadamu.",
+link:
+"./lesson.html?course=YouTube%20Thumbnail&lesson=2"
 },
 
 {
 title:"Lesson 3 — Thumbnail Advanced",
-description:"Professional thumbnail hojjechuu.",
-link:"./lesson.html?course=YouTube%20Thumbnail&lesson=3"
+description:
+"Professional thumbnail hojjechuu.",
+link:
+"./lesson.html?course=YouTube%20Thumbnail&lesson=3"
 }
 
 ],
+
 
 
 "Poster Design":[
 
 {
 title:"Lesson 1 — Poster Design Basics",
-description:"Poster Design maal akka ta'e.",
-link:"./lesson.html?course=Poster%20Design&lesson=1"
+description:
+"Poster Design maal akka ta'e.",
+link:
+"./lesson.html?course=Poster%20Design&lesson=1"
 },
 
 {
 title:"Lesson 2 — Poster Layout",
-description:"Poster keessatti wantoota qindeessuu.",
-link:"./lesson.html?course=Poster%20Design&lesson=2"
+description:
+"Poster keessatti wantoota qindeessuu.",
+link:
+"./lesson.html?course=Poster%20Design&lesson=2"
 },
 
 {
 title:"Lesson 3 — Poster Branding",
-description:"Branding fi professional poster.",
-link:"./lesson.html?course=Poster%20Design&lesson=3"
+description:
+"Branding fi professional poster.",
+link:
+"./lesson.html?course=Poster%20Design&lesson=3"
 }
 
 ]
 
 };
+
 
 
 /* =========================
@@ -545,10 +679,17 @@ link:"./lesson.html?course=Poster%20Design&lesson=3"
 async function studentLogin(){
 
   const phone =
-    document.getElementById("phone").value.trim();
+    document
+      .getElementById("phone")
+      .value
+      .trim();
+
 
   const pin =
-    document.getElementById("pin").value.trim();
+    document
+      .getElementById("pin")
+      .value
+      .trim();
 
 
   if(!phone){
@@ -558,25 +699,31 @@ async function studentLogin(){
     );
 
     return;
+
   }
 
 
   if(!pin){
 
     showLoginMessage(
-      "PIN galchi."
+      "Course PIN galchi."
     );
 
     return;
+
   }
 
 
   const button =
-    document.getElementById("loginBtn");
+    document.getElementById(
+      "loginBtn"
+    );
 
 
   button.disabled = true;
-  button.textContent = "Logging in...";
+
+  button.textContent =
+    "Logging in...";
 
 
   try{
@@ -592,10 +739,11 @@ async function studentLogin(){
               "application/json"
           },
 
-          body:JSON.stringify({
-            phone:phone,
-            pin:pin
-          })
+          body:
+            JSON.stringify({
+              phone:phone,
+              pin:pin
+            })
         }
       );
 
@@ -621,7 +769,9 @@ async function studentLogin(){
       result.student;
 
 
-    /* Save student session */
+    /*
+      Student session
+    */
 
     sessionStorage.setItem(
       "kena_student",
@@ -629,7 +779,9 @@ async function studentLogin(){
     );
 
 
-    showDashboard(student);
+    showDashboard(
+      student
+    );
 
 
   }catch(error){
@@ -644,27 +796,34 @@ async function studentLogin(){
   }finally{
 
     button.disabled = false;
-    button.textContent = "Login";
+
+    button.textContent =
+      "Login";
 
   }
 
 }
 
 
+
 /* =========================
    DASHBOARD
 ========================= */
 
-function showDashboard(student){
+function showDashboard(
+  student
+){
 
   document.getElementById(
     "loginBox"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "dashboard"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   document.getElementById(
@@ -691,11 +850,14 @@ function showDashboard(student){
 }
 
 
+
 /* =========================
    LESSONS
 ========================= */
 
-function renderLessons(course){
+function renderLessons(
+  course
+){
 
   const box =
     document.getElementById(
@@ -710,7 +872,9 @@ function renderLessons(course){
   box.innerHTML = "";
 
 
-  if(lessons.length === 0){
+  if(
+    lessons.length === 0
+  ){
 
     box.innerHTML = `
       <div class="noLessons">
@@ -720,65 +884,91 @@ function renderLessons(course){
     `;
 
     return;
+
   }
 
 
   lessons.forEach(
-    (lesson,index)=>{
+    (lesson)=>{
 
       const div =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
-      div.className = "lesson";
+
+      div.className =
+        "lesson";
 
 
       const title =
-        document.createElement("h3");
+        document.createElement(
+          "h3"
+        );
+
 
       title.textContent =
         lesson.title;
 
 
       const description =
-        document.createElement("p");
+        document.createElement(
+          "p"
+        );
+
 
       description.textContent =
         lesson.description;
 
 
       /*
-        BUTTON MOBILE FRIENDLY
-        fi lesson.html banu
+        REAL LINK
+        Button akka linkitti
+        hojjeta.
       */
 
-      const button =
-        document.createElement("button");
+      const link =
+        document.createElement(
+          "a"
+        );
 
-      button.type = "button";
 
-      button.className =
+      link.className =
         "lessonBtn";
 
-      button.textContent =
+
+      link.href =
+        lesson.link;
+
+
+      link.target =
+        "_self";
+
+
+      link.rel =
+        "noopener";
+
+
+      link.textContent =
         "📖 Open Lesson";
 
 
-      button.addEventListener(
-        "click",
-        function(){
+      div.appendChild(
+        title
+      );
 
-          window.location.href =
-            lesson.link;
+      div.appendChild(
+        description
+      );
 
-        }
+      div.appendChild(
+        link
       );
 
 
-      div.appendChild(title);
-      div.appendChild(description);
-      div.appendChild(button);
-
-      box.appendChild(div);
+      box.appendChild(
+        div
+      );
 
     }
   );
@@ -786,11 +976,14 @@ function renderLessons(course){
 }
 
 
+
 /* =========================
-   LOGIN MESSAGE
+   MESSAGE
 ========================= */
 
-function showLoginMessage(text){
+function showLoginMessage(
+  text
+){
 
   const box =
     document.getElementById(
@@ -798,15 +991,19 @@ function showLoginMessage(text){
     );
 
 
-  box.textContent = text;
+  box.textContent =
+    text;
+
 
   box.className =
     "message error";
+
 
   box.style.display =
     "block";
 
 }
+
 
 
 /* =========================
@@ -822,12 +1019,14 @@ function studentLogout(){
 
   document.getElementById(
     "dashboard"
-  ).style.display = "none";
+  ).style.display =
+    "none";
 
 
   document.getElementById(
     "loginBox"
-  ).style.display = "block";
+  ).style.display =
+    "block";
 
 
   document.getElementById(
@@ -837,14 +1036,15 @@ function studentLogout(){
 }
 
 
+
 /* =========================
-   EXISTING LOGIN
+   EXISTING SESSION
 ========================= */
 
 window.addEventListener(
   "load",
-  ()=>{
-    
+  function(){
+
     try{
 
       const saved =
@@ -854,7 +1054,9 @@ window.addEventListener(
 
 
       if(!saved){
+
         return;
+
       }
 
 
@@ -876,6 +1078,7 @@ window.addEventListener(
 
       }
 
+
     }catch(error){
 
       console.error(error);
@@ -892,4 +1095,5 @@ window.addEventListener(
 </script>
 
 </body>
-</html>
+
+  </html>

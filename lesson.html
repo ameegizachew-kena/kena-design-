@@ -48,11 +48,7 @@
     }
 
     .course-card {
-      background: linear-gradient(
-        135deg,
-        #08785f,
-        #159b88
-      );
+      background: linear-gradient(135deg, #08785f, #159b88);
       padding: 35px 20px;
       border-radius: 22px;
       margin-bottom: 30px;
@@ -112,14 +108,6 @@
       font-weight: bold;
       text-align: center;
       color: #69d9ff;
-    }
-
-    .example-box {
-      background: #07111f;
-      padding: 18px;
-      border-radius: 12px;
-      color: #dce8f5;
-      font-size: 17px;
     }
 
     .video-box {
@@ -207,7 +195,7 @@
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
     @media (max-width: 600px) {
@@ -247,7 +235,6 @@
 
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
 
     <h1>🎓 Kena Design Learning</h1>
@@ -265,14 +252,12 @@
   </div>
 
 
-  <!-- ERROR -->
   <div
     id="errorBox"
     class="error-box hidden">
   </div>
 
 
-  <!-- COURSE -->
   <div class="course-card">
 
     <div style="font-size:20px;">
@@ -280,7 +265,7 @@
     </div>
 
     <h2 id="courseName">
-      YouTube Thumbnail
+      Loading...
     </h2>
 
     <div class="paid">
@@ -291,18 +276,14 @@
 
 
   <!-- LESSON 1 -->
+
   <section class="lesson-card">
 
-    <h2>
-      📖 Lesson 1 — Thumbnail Basics
+    <h2 id="lesson1Title">
+      📖 Lesson 1
     </h2>
 
-    <p>
-      YouTube Thumbnail jechuun maal akka ta'e,
-      maaliif barbaachisaa akka ta'e fi thumbnail
-      nama hawwatu akkamitti hojjechuu akka dandeessu
-      baratta.
-    </p>
+    <p id="lesson1Intro"></p>
 
 
     <div class="video-box">
@@ -311,7 +292,7 @@
         Video lesson yeroo ammaa qophaa'aa jira.
       </strong>
 
-      <br>
+      <br><br>
 
       Notes fi assignment as irraa jalqabi.
 
@@ -324,26 +305,7 @@
         📚 Notes
       </h3>
 
-      <p>
-        Thumbnail jechuun suuraa video tokko bakka
-        YouTube irratti mul'atuudha.
-      </p>
-
-      <p>
-        Thumbnail gaariin:
-      </p>
-
-      <ul>
-        <li>Suuraa qulqulluu qaba.</li>
-        <li>Text gabaabaa fi dubbifamuu danda'u qaba.</li>
-        <li>Color walitti madaalu qaba.</li>
-        <li>Nama video sana akka ilaalu hawwata.</li>
-      </ul>
-
-      <p>
-        Thumbnail nama hawwatu taanaan namoonni video
-        kee caalaatti cuqaasuu danda'u.
-      </p>
+      <div id="lesson1Notes"></div>
 
     </div>
 
@@ -354,27 +316,7 @@
         📝 Assignment
       </h3>
 
-      <p>
-        YouTube video tokko filadhu.
-        Thumbnail isaa ilaali.
-      </p>
-
-      <p>
-        Sana booda thumbnail nama hawwatu tokko
-        fakkeenya godhi.
-      </p>
-
-      <p>
-        Thumbnail kee keessatti:
-      </p>
-
-      <ul>
-        <li>🖼️ Image</li>
-        <li>✍️ Text</li>
-        <li>🎨 Background</li>
-      </ul>
-
-      fayyadami.
+      <div id="lesson1Assignment"></div>
 
     </div>
 
@@ -383,7 +325,7 @@
       id="complete1Btn"
       class="complete-btn"
       onclick="completeLesson(1)">
-      ✅ Mark Lesson as Completed
+      ✅ Mark Lesson 1 as Completed
     </button>
 
 
@@ -398,149 +340,23 @@
 
 
   <!-- LESSON 2 -->
+
   <section class="lesson-card">
 
-    <h2>
-      🛠️ Lesson 2 — Thumbnail Design Tools
+    <h2 id="lesson2Title">
+      🛠️ Lesson 2
     </h2>
 
-    <p>
-      Lesson kana keessatti meeshaalee thumbnail
-      hojjechuuf barbaachisan fi akka sirriitti
-      itti fayyadamtu baratta.
-    </p>
+    <p id="lesson2Intro"></p>
 
 
     <div class="info-box">
 
       <h3>
-        🎯 Kaayyoo Lesson kanaa
+        📚 Notes
       </h3>
 
-      <p>
-        Lesson kana booda:
-      </p>
-
-      <ul>
-        <li>YouTube Thumbnail size sirrii beekta.</li>
-        <li>Background filachuu dandeessa.</li>
-        <li>Text fi font sirriitti fayyadamuu dandeessa.</li>
-        <li>Images fi elements itti dabalu dandeessa.</li>
-        <li>Thumbnail qulqulluu qopheessuu dandeessa.</li>
-      </ul>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <h3>
-        📐 1. Thumbnail Size
-      </h3>
-
-      <p>
-        YouTube thumbnail'f size:
-      </p>
-
-      <div class="code-box">
-        1280 × 720 pixels
-      </div>
-
-      <p>
-        Ratio isaa <strong>16:9</strong> dha.
-      </p>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <h3>
-        🎨 2. Background
-      </h3>
-
-      <p>
-        Background qulqulluu fi ifa ta'e filadhu.
-        Background fi text gidduutti contrast gaarii
-        qabaachuun thumbnail akka salphaatti
-        dubbifamu taasisa.
-      </p>
-
-      <ul>
-        <li>Background baay'ee walxaxaa hin godhin.</li>
-        <li>Color walitti madaalu fayyadami.</li>
-        <li>Subject kee ifatti mul'isi.</li>
-      </ul>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <h3>
-        ✍️ 3. Text fi Font
-      </h3>
-
-      <p>
-        Thumbnail irratti text gabaabaa fi jabaa
-        fayyadami.
-      </p>
-
-      <div class="example-box">
-
-        ❌ Akkaataa YouTube Thumbnail bareedaa
-        itti hojjetan
-
-        <br><br>
-
-        ✅ THUMBNAIL PRO!
-
-      </div>
-
-      <p>
-        Font salphaa, guddaa fi dubbifamuu danda'u
-        filadhu.
-      </p>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <h3>
-        🖼️ 4. Image fi Elements
-      </h3>
-
-      <p>
-        Suuraa ijoo thumbnail kee ifatti mul'atu
-        filadhu.
-      </p>
-
-      <ul>
-        <li>Suuraa qulqulluu fayyadami.</li>
-        <li>Subject ijoo gara fuulduraatti kaa'i.</li>
-        <li>Elements baay'ee hin guutin.</li>
-        <li>Arrow ykn shape yoo barbaachise itti dabali.</li>
-      </ul>
-
-    </div>
-
-
-    <div class="info-box">
-
-      <h3>
-        💡 Yaadannoo
-      </h3>
-
-      <p>
-        Thumbnail gaariin nama yeroo jalqaba ilaaluun
-        video sana akka cuqaasu hawwata.
-      </p>
-
-      <p>
-        Kanaaf design kee salphaa, ifaa fi nama
-        hawwatu godhi.
-      </p>
+      <div id="lesson2Notes"></div>
 
     </div>
 
@@ -551,32 +367,7 @@
         📝 Assignment
       </h3>
 
-      <p>
-        YouTube thumbnail tokko qopheessi.
-      </p>
-
-      <p>
-        Size isaa:
-      </p>
-
-      <div class="code-box">
-        1280 × 720
-      </div>
-
-      <p>
-        Thumbnail kee keessatti:
-      </p>
-
-      <ul>
-        <li>🖼️ Image tokko</li>
-        <li>✍️ Text gabaabaa</li>
-        <li>🎨 Background</li>
-        <li>🔷 Element tokko ykn lama</li>
-      </ul>
-
-      <p>
-        fayyadami.
-      </p>
+      <div id="lesson2Assignment"></div>
 
     </div>
 
@@ -598,12 +389,15 @@
   </section>
 
 
+
+  <!-- FINISH -->
+
   <div
     id="nextLesson"
     class="lesson-card hidden">
 
     <h2>
-      🎉 Gaarii hojjetta!
+      🎉 Baga Gammadde!
     </h2>
 
     <p>
@@ -625,47 +419,35 @@
 <script>
 
   /*
-   * COURSE
+   * URL COURSE
    */
+
   const params =
     new URLSearchParams(window.location.search);
 
   const courseFromURL =
     params.get("course");
 
-  if (courseFromURL) {
-
-    document.getElementById("courseName")
-      .textContent = courseFromURL;
-
-  }
-
 
   /*
-   * STUDENT NAME
+   * STUDENT
    */
+
   const savedStudent =
     localStorage.getItem("kena_student");
+
+  let student = null;
 
   if (savedStudent) {
 
     try {
 
-      const student =
+      student =
         JSON.parse(savedStudent);
-
-      if (student.fullname) {
-
-        document.getElementById("welcomeText")
-          .textContent =
-          "Welcome " + student.fullname +
-          " — Barnoota kee as irraa itti fufi.";
-
-      }
 
     } catch (e) {
 
-      console.log("Student data parse error");
+      console.log("Student data error");
 
     }
 
@@ -673,137 +455,566 @@
 
 
   /*
-   * LESSON COMPLETION
+   * COURSE DATA
    */
-  function loadCompletedLessons() {
 
-    const lesson1 =
-      localStorage.getItem("kena_lesson_1");
+  const courses = {
 
-    const lesson2 =
-      localStorage.getItem("kena_lesson_2");
+    "Video Editing": {
+
+      lesson1Title:
+        "🎬 Lesson 1 — Video Editing Basics",
+
+      lesson1Intro:
+        "Video Editing jechuun video waraabame qindeessuu, kutuu fi bareechuu dha.",
+
+      lesson1Notes: `
+        <p>
+          Video editing keessatti video clip adda addaa walitti
+          qabdee video tokko qopheessita.
+        </p>
+
+        <ul>
+          <li>✂️ Clip barbaachisaa qofa fayyadami.</li>
+          <li>🎵 Music sirrii filadhu.</li>
+          <li>📝 Text yeroo barbaachisaa ta'etti itti dabali.</li>
+          <li>🎨 Color fi brightness sirreessi.</li>
+          <li>🔊 Sagalee qulqulluu godhi.</li>
+        </ul>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          Video clip 3 filadhu.
+        </p>
+
+        <ul>
+          <li>Clip 3 walitti qabi.</li>
+          <li>Text tokko itti dabali.</li>
+          <li>Music ykn sound effect tokko fayyadami.</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "🎬 Lesson 2 — Cutting & Transitions",
+
+      lesson2Intro:
+        "Lesson kana keessatti video kutuu fi transitions sirriitti fayyadamuu baratta.",
+
+      lesson2Notes: `
+        <p>
+          Transition jechuun clip tokko irraa gara clip biraatti
+          ce'uudha.
+        </p>
+
+        <ul>
+          <li>✂️ Clip dheeraa bakka barbaachisaa irratti kuti.</li>
+          <li>➡️ Transition baay'ee hin fayyadamin.</li>
+          <li>🎵 Music yeroo transition wajjin walsimsiisi.</li>
+          <li>🎥 Video flow isaa salphaa godhi.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          Video daqiiqaa 1 qopheessi.
+        </p>
+
+        <ul>
+          <li>Clip 4 fayyadami.</li>
+          <li>Transition 2 qofa fayyadami.</li>
+          <li>Title tokko itti dabali.</li>
+        </ul>
+      `
+
+    },
 
 
-    if (lesson1 === "completed") {
+    "Graphic Design": {
 
-      document.getElementById(
-        "lesson1Completed"
-      ).style.display = "block";
+      lesson1Title:
+        "🎨 Lesson 1 — Graphic Design Basics",
 
-      document.getElementById(
-        "complete1Btn"
-      ).textContent = "✅ Lesson 1 Completed";
+      lesson1Intro:
+        "Graphic Design jechuun yaada tokko suuraa, color fi text fayyadamuun namaaf dabarsuu dha.",
+
+      lesson1Notes: `
+        <p>
+          Graphic design keessatti elements ijoo:
+        </p>
+
+        <ul>
+          <li>🎨 Color</li>
+          <li>✍️ Typography</li>
+          <li>🖼️ Images</li>
+          <li>📐 Layout</li>
+          <li>⚖️ Balance</li>
+        </ul>
+
+        <p>
+          Design gaariin salphaa, qulqulluu fi dubbifamuu danda'u qaba.
+        </p>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          Design tokko qopheessi.
+        </p>
+
+        <ul>
+          <li>Color 2 ykn 3 qofa fayyadami.</li>
+          <li>Font 2 ol hin caalin.</li>
+          <li>Text fi image sirriitti qindeessi.</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "🎨 Lesson 2 — Color & Typography",
+
+      lesson2Intro:
+        "Color fi font sirrii filachuun design kee akkamitti bareechu akka danda'u baratta.",
+
+      lesson2Notes: `
+        <ul>
+          <li>🔵 Color walitti madaalan filadhu.</li>
+          <li>⚫ Text background irraa adda baasi.</li>
+          <li>🔤 Font dubbifamuu danda'u fayyadami.</li>
+          <li>📏 Heading fi paragraph adda baasi.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          Poster ykn social media design tokko hojjedhu.
+        </p>
+
+        <ul>
+          <li>Color 3 ol hin caalin.</li>
+          <li>Font lama fayyadami.</li>
+          <li>Heading guddaa qabaatu.</li>
+        </ul>
+      `
+
+    },
+
+
+    "Web Design": {
+
+      lesson1Title:
+        "🌐 Lesson 1 — HTML Basics",
+
+      lesson1Intro:
+        "HTML fayyadamuun website tokko bu'uura irraa ijaaruu baratta.",
+
+      lesson1Notes: `
+        <p>
+          HTML tags fayyadamuun website structure ijaarra.
+        </p>
+
+        <div class="code-box">
+          &lt;h1&gt;Kena Design&lt;/h1&gt;
+        </div>
+
+        <br>
+
+        <div class="code-box">
+          &lt;p&gt;Welcome&lt;/p&gt;
+        </div>
+
+        <ul>
+          <li>HTML = Structure</li>
+          <li>CSS = Design</li>
+          <li>JavaScript = Interaction</li>
+        </ul>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          HTML page tokko hojjedhu.
+        </p>
+
+        <ul>
+          <li>Heading tokko.</li>
+          <li>Paragraph tokko.</li>
+          <li>Button tokko.</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "🌐 Lesson 2 — CSS Basics",
+
+      lesson2Intro:
+        "CSS fayyadamuun website kee bareechuu baratta.",
+
+      lesson2Notes: `
+        <p>
+          CSS keessatti:
+        </p>
+
+        <div class="code-box">
+          color: white;<br>
+          background: #07111f;<br>
+          padding: 20px;
+        </div>
+
+        <ul>
+          <li>🎨 Color</li>
+          <li>📦 Padding</li>
+          <li>📐 Width</li>
+          <li>🔲 Border</li>
+          <li>🖥️ Responsive Design</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          HTML page kee CSS fayyadamuun bareechi.
+        </p>
+
+        <ul>
+          <li>Background color jijjiiri.</li>
+          <li>Button style godhi.</li>
+          <li>Mobile irratti akka sirriitti mul'atu godhi.</li>
+        </ul>
+      `
+
+    },
+
+
+    "Digital Marketing": {
+
+      lesson1Title:
+        "📱 Lesson 1 — Digital Marketing Basics",
+
+      lesson1Intro:
+        "Digital Marketing jechuun internet fi social media fayyadamuun product ykn service beeksisuu dha.",
+
+      lesson1Notes: `
+        <ul>
+          <li>📱 Social Media Marketing</li>
+          <li>🎥 Video Marketing</li>
+          <li>📧 Email Marketing</li>
+          <li>🔎 Search Marketing</li>
+          <li>📊 Analytics</li>
+        </ul>
+
+        <p>
+          Kaayyoon marketing nama sirrii bira ga'uu fi
+          customer argachuudha.
+        </p>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          Business tokko filadhu.
+        </p>
+
+        <p>
+          Social media irratti beeksisa isaa
+          akkamitti gootu barreessi.
+        </p>
+      `,
+
+      lesson2Title:
+        "📱 Lesson 2 — Social Media Content",
+
+      lesson2Intro:
+        "Content social media nama hawwatu qopheessuu baratta.",
+
+      lesson2Notes: `
+        <ul>
+          <li>🎯 Audience kee beekuu.</li>
+          <li>✍️ Caption gabaabaa barreessuu.</li>
+          <li>🖼️ Image qulqulluu fayyadamuu.</li>
+          <li>🎥 Video gabaabaa fayyadamuu.</li>
+          <li>📅 Content yeroo sirrii irratti maxxansuu.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          Business tokkoof social media post 3 qopheessi.
+        </p>
+
+        <ul>
+          <li>Post tokko image.</li>
+          <li>Post tokko video idea.</li>
+          <li>Post tokko promotional.</li>
+        </ul>
+      `
+
+    },
+
+
+    "Photography": {
+
+      lesson1Title:
+        "📷 Lesson 1 — Photography Basics",
+
+      lesson1Intro:
+        "Photography keessatti camera fi ifa sirriitti fayyadamuun suuraa qulqulluu kaasu baratta.",
+
+      lesson1Notes: `
+        <ul>
+          <li>📷 Camera position sirreessi.</li>
+          <li>💡 Light gaarii filadhu.</li>
+          <li>🎯 Subject kee ifatti kaa'i.</li>
+          <li>📐 Composition yaadi.</li>
+          <li>🔍 Focus sirreessi.</li>
+        </ul>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          Suuraa 3 kaasi:
+        </p>
+
+        <ul>
+          <li>Suuraa namaa tokko.</li>
+          <li>Suuraa wantaa tokko.</li>
+          <li>Suuraa bakka tokko.</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "📷 Lesson 2 — Lighting & Composition",
+
+      lesson2Intro:
+        "Lighting fi composition fayyadamuun suuraa kee bareechuu baratta.",
+
+      lesson2Notes: `
+        <p>
+          Suuraa gaarii keessatti ifni murteessaa dha.
+        </p>
+
+        <ul>
+          <li>☀️ Natural light fayyadami.</li>
+          <li>💡 Subject kee ifa keessa kaa'i.</li>
+          <li>📐 Background qulqulluu filadhu.</li>
+          <li>🎯 Subject ijoo adda baasi.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          Suuraa tokko natural light fayyadamuun kaasi.
+          Background isaa qulqulluu godhi.
+        </p>
+      `
+
+    },
+
+
+    "Flayer Package": {
+
+      lesson1Title:
+        "🖼️ Lesson 1 — Flayer Design Basics",
+
+      lesson1Intro:
+        "Flayer nama hawwatu qopheessuu fi information sirriitti qindeessuu baratta.",
+
+      lesson1Notes: `
+        <ul>
+          <li>📌 Title guddaa godhi.</li>
+          <li>✍️ Information barbaachisaa qofa kaa'i.</li>
+          <li>🎨 Color walitti madaalu fayyadami.</li>
+          <li>📞 Contact information ifatti mul'isi.</li>
+          <li>🖼️ Image qulqulluu fayyadami.</li>
+        </ul>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          Event ykn business tokkoof flayer tokko hojjedhu.
+        </p>
+
+        <ul>
+          <li>Title</li>
+          <li>Date</li>
+          <li>Location</li>
+          <li>Phone</li>
+          <li>Image</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "🖼️ Lesson 2 — Professional Flayer",
+
+      lesson2Intro:
+        "Flayer professional fi print-ready qopheessuu baratta.",
+
+      lesson2Notes: `
+        <ul>
+          <li>📐 Layout sirrii fayyadami.</li>
+          <li>🎨 Color consistency qabaadhu.</li>
+          <li>🔤 Font walitti madaalu fayyadami.</li>
+          <li>📱 Contact information sirriitti ilaali.</li>
+          <li>🖨️ Quality ol'aanaa fayyadami.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          Flayer business tokkoof professional ta'e
+          qopheessi.
+        </p>
+      `
+
+    },
+
+
+    "YouTube Thumbnail": {
+
+      lesson1Title:
+        "📖 Lesson 1 — Thumbnail Basics",
+
+      lesson1Intro:
+        "YouTube Thumbnail jechuun maal akka ta'e, maaliif barbaachisaa akka ta'e fi thumbnail nama hawwatu akkamitti hojjechuu akka dandeessu baratta.",
+
+      lesson1Notes: `
+        <p>
+          Thumbnail jechuun suuraa video tokko bakka
+          YouTube irratti mul'atuudha.
+        </p>
+
+        <ul>
+          <li>🖼️ Suuraa qulqulluu qaba.</li>
+          <li>✍️ Text gabaabaa fi dubbifamuu danda'u qaba.</li>
+          <li>🎨 Color walitti madaalu qaba.</li>
+          <li>🎯 Nama video sana akka ilaalu hawwata.</li>
+        </ul>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          YouTube video tokko filadhu.
+          Thumbnail isaa ilaali.
+        </p>
+
+        <p>
+          Sana booda thumbnail nama hawwatu tokko
+          fakkeenya godhi.
+        </p>
+
+        <ul>
+          <li>🖼️ Image</li>
+          <li>✍️ Text</li>
+          <li>🎨 Background</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "🛠️ Lesson 2 — Thumbnail Design Tools",
+
+      lesson2Intro:
+        "Meeshaalee thumbnail hojjechuuf barbaachisan fi akka sirriitti itti fayyadamtu baratta.",
+
+      lesson2Notes: `
+        <p>
+          YouTube thumbnail'f size:
+        </p>
+
+        <div class="code-box">
+          1280 × 720 pixels
+        </div>
+
+        <p>
+          Ratio isaa <strong>16:9</strong> dha.
+        </p>
+
+        <ul>
+          <li>🎨 Background qulqulluu filadhu.</li>
+          <li>✍️ Font guddaa fi dubbifamuu danda'u fayyadami.</li>
+          <li>🖼️ Image qulqulluu fayyadami.</li>
+          <li>🎯 Subject ijoo ifatti mul'isi.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          YouTube thumbnail tokko qopheessi.
+        </p>
+
+        <div class="code-box">
+          1280 × 720
+        </div>
+
+        <ul>
+          <li>🖼️ Image tokko</li>
+          <li>✍️ Text gabaabaa</li>
+          <li>🎨 Background</li>
+          <li>🔷 Element tokko ykn lama</li>
+        </ul>
+      `
+
+    },
+
+
+    "Poster Design": {
+
+      lesson1Title:
+        "🖌️ Lesson 1 — Poster Design Basics",
+
+      lesson1Intro:
+        "Poster information tokko karaa salphaa fi nama hawwatuun dabarsuuf akkamitti hojjetamu baratta.",
+
+      lesson1Notes: `
+        <ul>
+          <li>📌 Main title ifa godhi.</li>
+          <li>🖼️ Image barbaachisaa fayyadami.</li>
+          <li>🎨 Color sirrii filadhu.</li>
+          <li>✍️ Text dubbifamuu danda'u fayyadami.</li>
+          <li>📞 Contact information dabali.</li>
+        </ul>
+      `,
+
+      lesson1Assignment: `
+        <p>
+          Event tokkoof poster tokko qopheessi.
+        </p>
+
+        <ul>
+          <li>Event title</li>
+          <li>Date</li>
+          <li>Location</li>
+          <li>Contact</li>
+          <li>Image</li>
+        </ul>
+      `,
+
+      lesson2Title:
+        "🖌️ Lesson 2 — Professional Poster",
+
+      lesson2Intro:
+        "Poster professional, qulqulluu fi nama hawwatu qopheessuu baratta.",
+
+      lesson2Notes: `
+        <ul>
+          <li>📐 Layout sirrii qabaadhu.</li>
+          <li>🎨 Color muraasa fayyadami.</li>
+          <li>🔤 Font wal-simu filadhu.</li>
+          <li>🖼️ Image quality gaarii fayyadami.</li>
+          <li>📌 Information barbaachisaa qofa kaa'i.</li>
+        </ul>
+      `,
+
+      lesson2Assignment: `
+        <p>
+          Business ykn event tokkoof poster
+          professional tokko qopheessi.
+        </p>
+      `
 
     }
 
-
-    if (lesson2 === "completed") {
-
-      document.getElementById(
-        "lesson2Completed"
-      ).style.display = "block";
-
-      document.getElementById(
-        "complete2Btn"
-      ).textContent = "✅ Lesson 2 Completed";
-
-    }
-
-
-    if (
-      lesson1 === "completed" &&
-      lesson2 === "completed"
-    ) {
-
-      document.getElementById(
-        "nextLesson"
-      ).style.display = "block";
-
-    }
-
-  }
+  };
 
 
   /*
-   * COMPLETE LESSON
+   * COURSE NORMALIZATION
    */
-  function completeLesson(number) {
 
-    localStorage.setItem(
-      "kena_lesson_" + number,
-      "completed"
-    );
+  function normalizeCourse(name) {
 
-
-    const message =
-      document.getElementById(
-        "lesson" + number + "Completed"
-      );
-
-    const button =
-      document.getElementById(
-        "complete" + number + "Btn"
-      );
-
-
-    if (message) {
-
-      message.style.display = "block";
-
-    }
-
-
-    if (button) {
-
-      button.textContent =
-        "✅ Lesson " +
-        number +
-        " Completed";
-
-    }
-
-
-    if (
-      localStorage.getItem("kena_lesson_1")
-      === "completed"
-      &&
-      localStorage.getItem("kena_lesson_2")
-      === "completed"
-    ) {
-
-      document.getElementById(
-        "nextLesson"
-      ).style.display = "block";
-
-    }
-
-  }
-
-
-  /*
-   * LOGOUT
-   */
-  function logoutStudent() {
-
-    localStorage.removeItem("kena_student");
-
-    localStorage.removeItem(
-      "kena_lesson_1"
-    );
-
-    localStorage.removeItem(
-      "kena_lesson_2"
-    );
-
-    window.location.href =
-      "student.html";
-
-  }
-
-
-  loadCompletedLessons();
-
-</script>
-
-</body>
-</html>
+    if (!name) {
+      return 

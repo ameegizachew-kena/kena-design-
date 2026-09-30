@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="om">
+
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Kena Design Learning</title>
 
@@ -21,1000 +18,1026 @@
       background: #07111f;
       color: white;
       font-family: Arial, sans-serif;
-      line-height: 1.7;
     }
 
     .container {
+      width: 100%;
       max-width: 900px;
       margin: auto;
     }
 
-    .header {
+    .card {
       background: #101c2c;
-      padding: 30px 20px;
-      border-radius: 20px;
-      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 15px;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 38px;
+    #loginBox {
+      max-width: 430px;
+      margin: 70px auto 0;
     }
 
-    .header p {
-      color: #aebbd0;
-      font-size: 20px;
-      margin-bottom: 0;
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .course-card {
-      background: linear-gradient(135deg, #08785f, #159b88);
-      padding: 35px 20px;
-      border-radius: 22px;
-      margin-bottom: 30px;
+    .title h1 {
+      margin-bottom: 8px;
     }
 
-    .course-card h2 {
-      font-size: 32px;
-      margin: 5px 0 15px;
+    .title p {
+      color: #9fb0c5;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+      color: #cbd5e1;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-bottom: 14px;
+      border-radius: 9px;
+      border: 1px solid #334155;
+      background: #07111f;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #32d583;
+    }
+
+    .loginBtn {
+      width: 100%;
+      padding: 13px;
+      border: 0;
+      border-radius: 9px;
+      background: #32d583;
+      color: #07111f;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .loginBtn:disabled {
+      opacity: .6;
+    }
+
+    .message {
+      display: none;
+      padding: 13px;
+      border-radius: 9px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .error {
+      background: #7f1d1d;
+      color: #fecaca;
+    }
+
+    .success {
+      background: #064e3b;
+      color: #6ee7b7;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .logout {
+      background: #dc2626;
+      color: white;
+      padding: 10px 15px;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .welcome {
+      color: #9fb0c5;
+    }
+
+    .course {
+      background: linear-gradient(
+        135deg,
+        #064e3b,
+        #0f766e
+      );
+      padding: 22px;
+      border-radius: 15px;
+    }
+
+    .courseName {
+      font-size: 25px;
+      font-weight: bold;
+      margin-top: 8px;
     }
 
     .paid {
       display: inline-block;
-      background: #18c65b;
-      padding: 8px 18px;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-
-    .lesson-card {
-      background: #101c2c;
-      padding: 25px 20px;
+      margin-top: 10px;
+      background: #16a34a;
+      color: white;
+      padding: 6px 12px;
       border-radius: 20px;
-      margin-bottom: 30px;
-    }
-
-    .lesson-card h2 {
-      font-size: 30px;
-      line-height: 1.3;
-      margin-top: 0;
-    }
-
-    .lesson-card p,
-    .lesson-card li {
-      color: #c8d2df;
-      font-size: 18px;
-    }
-
-    .info-box {
-      background: #192c40;
-      padding: 25px;
-      border-radius: 18px;
-      margin-top: 22px;
-    }
-
-    .info-box h3 {
-      font-size: 24px;
-      margin-top: 0;
-    }
-
-    .code-box {
-      background: #07111f;
-      border: 1px solid #344b63;
-      padding: 18px;
-      border-radius: 12px;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-      color: #69d9ff;
-    }
-
-    .video-box {
-      background: #192c40;
-      padding: 25px;
-      border-radius: 18px;
-      margin-top: 22px;
-      font-size: 19px;
-    }
-
-    .assignment-box {
-      background: #192c40;
-      border-left: 5px solid #ffd43b;
-      padding: 25px;
-      border-radius: 15px;
-      margin-top: 25px;
-    }
-
-    .assignment-box h3 {
-      margin-top: 0;
-      font-size: 25px;
-    }
-
-    .complete-btn {
-      width: 100%;
-      border: none;
-      background: #19bf68;
-      color: white;
-      padding: 17px;
-      border-radius: 14px;
-      font-size: 19px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 25px;
-    }
-
-    .complete-btn:hover {
-      background: #13a957;
-    }
-
-    .completed-message {
-      background: #08785f;
-      color: white;
-      padding: 17px;
-      border-radius: 14px;
-      text-align: center;
-      margin-top: 15px;
-      font-size: 18px;
+      font-size: 13px;
       font-weight: bold;
     }
 
-    .next-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      background: #286bea;
-      color: white;
+    .lesson {
+      background: #18283b;
       padding: 16px;
-      border-radius: 14px;
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 18px;
+      border-radius: 12px;
+      margin-bottom: 10px;
     }
 
-    .logout-btn {
-      background: #e52d2d;
+    .lesson h3 {
+      margin: 0 0 7px;
+    }
+
+    .lesson p {
+      color: #aebdce;
+      margin: 0 0 10px;
+    }
+
+    .lessonBtn {
+      background: #2563eb;
       color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 10px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 15px;
-    }
-
-    .error-box {
-      background: #941f1f;
-      color: white;
-      padding: 18px;
-      border-radius: 14px;
-      margin-bottom: 20px;
+      padding: 9px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
       font-weight: bold;
     }
 
-    .hidden {
-      display: none !important;
+    .lessonBtn:hover {
+      background: #1d4ed8;
     }
 
-    @media (max-width: 600px) {
+    .noLessons {
+      text-align: center;
+      color: #9fb0c5;
+      padding: 30px;
+    }
+
+    @media(max-width:600px) {
+
       body {
-        padding: 10px;
+        padding: 8px;
       }
 
-      .header h1 {
-        font-size: 31px;
+      .card {
+        padding: 14px;
       }
 
-      .header p {
-        font-size: 18px;
+      #loginBox {
+        margin-top: 35px;
       }
 
-      .course-card h2 {
-        font-size: 29px;
+      .courseName {
+        font-size: 21px;
       }
 
-      .lesson-card h2 {
-        font-size: 27px;
-      }
-
-      .lesson-card p,
-      .lesson-card li {
-        font-size: 17px;
-      }
-
-      .info-box {
-        padding: 20px;
-      }
     }
   </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-  <div class="header">
-
-    <h1>🎓 Kena Design Learning</h1>
-
-    <p id="welcomeText">
-      Barnoota kee as irraa itti fufi.
-    </p>
-
-    <button
-      class="logout-btn"
-      onclick="logoutStudent()">
-      Logout
-    </button>
-
-  </div>
-
+  <!-- LOGIN -->
 
   <div
-    id="errorBox"
-    class="error-box hidden">
-  </div>
+    id="loginBox"
+    class="card"
+  >
 
+    <div class="title">
 
-  <div class="course-card">
+      <h1>
+        🎓 Kena Design
+      </h1>
 
-    <div style="font-size:20px;">
-      Your Course
-    </div>
-
-    <h2 id="courseName">
-      Loading...
-    </h2>
-
-    <div class="paid">
-      ✓ PAYMENT PAID
-    </div>
-
-  </div>
-
-
-  <!-- LESSON 1 -->
-
-  <section class="lesson-card">
-
-    <h2 id="lesson1Title">
-      📖 Lesson 1
-    </h2>
-
-    <p id="lesson1Intro"></p>
-
-
-    <div class="video-box">
-
-      🎥 <strong>
-        Video lesson yeroo ammaa qophaa'aa jira.
-      </strong>
-
-      <br><br>
-
-      Notes fi assignment as irraa jalqabi.
+      <p>
+        Student Learning Portal
+      </p>
 
     </div>
-
-
-    <div class="info-box">
-
-      <h3>
-        📚 Notes
-      </h3>
-
-      <div id="lesson1Notes"></div>
-
-    </div>
-
-
-    <div class="assignment-box">
-
-      <h3>
-        📝 Assignment
-      </h3>
-
-      <div id="lesson1Assignment"></div>
-
-    </div>
-
-
-    <button
-      id="complete1Btn"
-      class="complete-btn"
-      onclick="completeLesson(1)">
-      ✅ Mark Lesson 1 as Completed
-    </button>
 
 
     <div
-      id="lesson1Completed"
-      class="completed-message hidden">
-      ✅ Lesson 1 completed!
-    </div>
-
-  </section>
+      id="loginMessage"
+      class="message"
+    ></div>
 
 
+    <label>
+      Phone
+    </label>
 
-  <!-- LESSON 2 -->
-
-  <section class="lesson-card">
-
-    <h2 id="lesson2Title">
-      🛠️ Lesson 2
-    </h2>
-
-    <p id="lesson2Intro"></p>
-
-
-    <div class="info-box">
-
-      <h3>
-        📚 Notes
-      </h3>
-
-      <div id="lesson2Notes"></div>
-
-    </div>
+    <input
+      id="phone"
+      type="tel"
+      inputmode="numeric"
+      maxlength="10"
+      placeholder="09xxxxxxxx"
+    >
 
 
-    <div class="assignment-box">
+    <label>
+      PIN
+    </label>
 
-      <h3>
-        📝 Assignment
-      </h3>
-
-      <div id="lesson2Assignment"></div>
-
-    </div>
+    <input
+      id="pin"
+      type="password"
+      inputmode="numeric"
+      maxlength="6"
+      placeholder="PIN kee galchi"
+    >
 
 
     <button
-      id="complete2Btn"
-      class="complete-btn"
-      onclick="completeLesson(2)">
-      ✅ Mark Lesson 2 as Completed
+      id="loginBtn"
+      class="loginBtn"
+      onclick="studentLogin()"
+    >
+      Login
     </button>
-
-
-    <div
-      id="lesson2Completed"
-      class="completed-message hidden">
-      ✅ Lesson 2 completed!
-    </div>
-
-  </section>
-
-
-
-  <!-- FINISH -->
-
-  <div
-    id="nextLesson"
-    class="lesson-card hidden">
-
-    <h2>
-      🎉 Baga Gammadde!
-    </h2>
-
-    <p>
-      Lesson 1 fi Lesson 2 xumurteetta.
-      Barnoota itti aanuuf qophoofteetta.
-    </p>
-
-    <a
-      href="student.html"
-      class="next-btn">
-      ← Gara Student Portal Deebi'i
-    </a>
 
   </div>
 
-</div>
+
+  <!-- DASHBOARD -->
+
+  <div
+    id="dashboard"
+    class="container"
+    style="display:none;"
+  >
 
 
-<script>
+    <div class="card">
 
-  /*
-   * URL COURSE
-   */
+      <div class="header">
 
-  const params =
-    new URLSearchParams(window.location.search);
+        <div>
 
-  const courseFromURL =
-    params.get("course");
+          <h1>
+            🎓 Kena Design Learning
+          </h1>
+
+          <div
+            id="welcome"
+            class="welcome"
+          ></div>
+
+        </div>
 
 
-  /*
-   * STUDENT
-   */
+        <button
+          class="logout"
+          onclick="studentLogout()"
+        >
+          Logout
+        </button>
 
-  const savedStudent =
-    localStorage.getItem("kena_student");
+      </div>
 
-  let student = null;
+    </div>
 
-  if (savedStudent) {
 
-    try {
+    <!-- COURSE -->
 
-      student =
-        JSON.parse(savedStudent);
+    <div class="card">
 
-    } catch (e) {
+      <div class="course">
 
-      console.log("Student data error");
+        <div>
+          Your Course
+        </div>
+
+        <div
+          id="courseName"
+          class="courseName"
+        ></div>
+
+        <span class="paid">
+          ✓ PAYMENT PAID
+        </span>
+
+      </div>
+
+    </div>
+
+
+    <!-- LESSONS -->
+
+    <div class="card">
+
+      <h2>
+        📚 Lessons
+      </h2>
+
+      <div id="lessons"></div>
+
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+
+    /* =========================
+       SETTINGS
+    ========================= */
+
+    const FUNCTION_URL =
+      "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
+
+
+    /* =========================
+       COURSES
+    ========================= */
+
+    const COURSES = {
+
+      "Video Editing": [
+
+        {
+          title:
+            "Lesson 1 — Introduction",
+
+          description:
+            "Video Editing maal akka ta'e baradhu.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 2 — Editing Basics",
+
+          description:
+            "Cut, trim fi timeline bu'uuraa.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 3 — Audio Editing",
+
+          description:
+            "Sagalee fi music sirreessuu.",
+
+          link:
+            "#"
+        }
+
+      ],
+
+
+      "Graphic Design": [
+
+        {
+          title:
+            "Lesson 1 — Introduction",
+
+          description:
+            "Graphic Design maal akka ta'e baradhu.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 2 — Design Basics",
+
+          description:
+            "Layout, shape fi typography.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 3 — Color",
+
+          description:
+            "Color theory fi color combination.",
+
+          link:
+            "#"
+        }
+
+      ],
+
+
+      "Web Design": [
+
+        {
+          title:
+            "Lesson 1 — Introduction",
+
+          description:
+            "Web Design bu'uuraa.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 2 — HTML",
+
+          description:
+            "HTML irraa website ijaaruu.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 3 — CSS",
+
+          description:
+            "CSS fi website styling.",
+
+          link:
+            "#"
+        }
+
+      ],
+
+
+      "Digital Marketing": [
+
+        {
+          title:
+            "Lesson 1 — Introduction",
+
+          description:
+            "Digital Marketing bu'uuraa.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 2 — Social Media",
+
+          description:
+            "Social media marketing.",
+
+          link:
+            "#"
+        }
+
+      ],
+
+
+      "Photography": [
+
+        {
+          title:
+            "Lesson 1 — Introduction",
+
+          description:
+            "Photography bu'uuraa.",
+
+          link:
+            "#"
+        },
+
+        {
+          title:
+            "Lesson 2 — Camera Basics",
+
+          description:
+            "Camera settings fi shooting.",
+
+          link:
+            "#"
+        }
+
+      ],
+
+
+      "Flayer Package": [
+
+        {
+          title:
+            "Lesson 1 — Flyer Design",
+
+          description:
+            "Flyer design bu'uuraa.",
+
+          link:
+            "#"
+        }
+
+      ],
+
+
+      /* =========================
+         YOUTUBE THUMBNAIL
+         SIRREEFFAME
+      ========================= */
+
+      "YouTube Thumbnail": [
+
+        {
+          title:
+            "Lesson 1 — Thumbnail Basics",
+
+          description:
+            "YouTube thumbnail ijaaruu.",
+
+          link:
+            "lesson.html?course=YouTube%20Thumbnail"
+        }
+
+      ],
+
+
+      "Poster Design": [
+
+        {
+          title:
+            "Lesson 1 — Poster Design",
+
+          description:
+            "Poster design bu'uuraa.",
+
+          link:
+            "#"
+        }
+
+      ]
+
+    };
+
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    async function studentLogin() {
+
+      const phone =
+        document
+          .getElementById("phone")
+          .value
+          .trim();
+
+
+      const pin =
+        document
+          .getElementById("pin")
+          .value
+          .trim();
+
+
+      if (!phone) {
+
+        showLoginMessage(
+          "Phone galchi."
+        );
+
+        return;
+      }
+
+
+      if (!pin) {
+
+        showLoginMessage(
+          "PIN galchi."
+        );
+
+        return;
+      }
+
+
+      const button =
+        document.getElementById(
+          "loginBtn"
+        );
+
+
+      button.disabled =
+        true;
+
+      button.textContent =
+        "Logging in...";
+
+
+      try {
+
+        const response =
+          await fetch(
+            FUNCTION_URL,
+            {
+              method:
+                "POST",
+
+              headers: {
+                "Content-Type":
+                  "application/json"
+              },
+
+              body:
+                JSON.stringify({
+
+                  phone:
+                    phone,
+
+                  pin:
+                    pin
+
+                })
+
+            }
+          );
+
+
+        const result =
+          await response.json();
+
+
+        if (
+          !response.ok ||
+          !result.success
+        ) {
+
+          throw new Error(
+            result.message ||
+            "Login hin milkoofne."
+          );
+
+        }
+
+
+        const student =
+          result.student;
+
+
+        sessionStorage.setItem(
+          "kena_student",
+          JSON.stringify(
+            student
+          )
+        );
+
+
+        showDashboard(
+          student
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        showLoginMessage(
+          error.message
+        );
+
+
+      } finally {
+
+        button.disabled =
+          false;
+
+        button.textContent =
+          "Login";
+
+      }
 
     }
 
-  }
 
+    /* =========================
+       DASHBOARD
+    ========================= */
 
-  /*
-   * COURSE DATA
-   */
+    function showDashboard(
+      student
+    ) {
 
-  const courses = {
+      document.getElementById(
+        "loginBox"
+      ).style.display =
+        "none";
 
-    "Video Editing": {
 
-      lesson1Title:
-        "🎬 Lesson 1 — Video Editing Basics",
+      document.getElementById(
+        "dashboard"
+      ).style.display =
+        "block";
 
-      lesson1Intro:
-        "Video Editing jechuun video waraabame qindeessuu, kutuu fi bareechuu dha.",
 
-      lesson1Notes: `
-        <p>
-          Video editing keessatti video clip adda addaa walitti
-          qabdee video tokko qopheessita.
-        </p>
+      document.getElementById(
+        "welcome"
+      ).textContent =
+        "Welcome " +
+        (
+          student.fullname ||
+          "Student"
+        );
 
-        <ul>
-          <li>✂️ Clip barbaachisaa qofa fayyadami.</li>
-          <li>🎵 Music sirrii filadhu.</li>
-          <li>📝 Text yeroo barbaachisaa ta'etti itti dabali.</li>
-          <li>🎨 Color fi brightness sirreessi.</li>
-          <li>🔊 Sagalee qulqulluu godhi.</li>
-        </ul>
-      `,
 
-      lesson1Assignment: `
-        <p>
-          Video clip 3 filadhu.
-        </p>
+      document.getElementById(
+        "courseName"
+      ).textContent =
+        student.course ||
+        "Course hin argamne";
 
-        <ul>
-          <li>Clip 3 walitti qabi.</li>
-          <li>Text tokko itti dabali.</li>
-          <li>Music ykn sound effect tokko fayyadami.</li>
-        </ul>
-      `,
 
-      lesson2Title:
-        "🎬 Lesson 2 — Cutting & Transitions",
-
-      lesson2Intro:
-        "Lesson kana keessatti video kutuu fi transitions sirriitti fayyadamuu baratta.",
-
-      lesson2Notes: `
-        <p>
-          Transition jechuun clip tokko irraa gara clip biraatti
-          ce'uudha.
-        </p>
-
-        <ul>
-          <li>✂️ Clip dheeraa bakka barbaachisaa irratti kuti.</li>
-          <li>➡️ Transition baay'ee hin fayyadamin.</li>
-          <li>🎵 Music yeroo transition wajjin walsimsiisi.</li>
-          <li>🎥 Video flow isaa salphaa godhi.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          Video daqiiqaa 1 qopheessi.
-        </p>
-
-        <ul>
-          <li>Clip 4 fayyadami.</li>
-          <li>Transition 2 qofa fayyadami.</li>
-          <li>Title tokko itti dabali.</li>
-        </ul>
-      `
-
-    },
-
-
-    "Graphic Design": {
-
-      lesson1Title:
-        "🎨 Lesson 1 — Graphic Design Basics",
-
-      lesson1Intro:
-        "Graphic Design jechuun yaada tokko suuraa, color fi text fayyadamuun namaaf dabarsuu dha.",
-
-      lesson1Notes: `
-        <p>
-          Graphic design keessatti elements ijoo:
-        </p>
-
-        <ul>
-          <li>🎨 Color</li>
-          <li>✍️ Typography</li>
-          <li>🖼️ Images</li>
-          <li>📐 Layout</li>
-          <li>⚖️ Balance</li>
-        </ul>
-
-        <p>
-          Design gaariin salphaa, qulqulluu fi dubbifamuu danda'u qaba.
-        </p>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          Design tokko qopheessi.
-        </p>
-
-        <ul>
-          <li>Color 2 ykn 3 qofa fayyadami.</li>
-          <li>Font 2 ol hin caalin.</li>
-          <li>Text fi image sirriitti qindeessi.</li>
-        </ul>
-      `,
-
-      lesson2Title:
-        "🎨 Lesson 2 — Color & Typography",
-
-      lesson2Intro:
-        "Color fi font sirrii filachuun design kee akkamitti bareechu akka danda'u baratta.",
-
-      lesson2Notes: `
-        <ul>
-          <li>🔵 Color walitti madaalan filadhu.</li>
-          <li>⚫ Text background irraa adda baasi.</li>
-          <li>🔤 Font dubbifamuu danda'u fayyadami.</li>
-          <li>📏 Heading fi paragraph adda baasi.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          Poster ykn social media design tokko hojjedhu.
-        </p>
-
-        <ul>
-          <li>Color 3 ol hin caalin.</li>
-          <li>Font lama fayyadami.</li>
-          <li>Heading guddaa qabaatu.</li>
-        </ul>
-      `
-
-    },
-
-
-    "Web Design": {
-
-      lesson1Title:
-        "🌐 Lesson 1 — HTML Basics",
-
-      lesson1Intro:
-        "HTML fayyadamuun website tokko bu'uura irraa ijaaruu baratta.",
-
-      lesson1Notes: `
-        <p>
-          HTML tags fayyadamuun website structure ijaarra.
-        </p>
-
-        <div class="code-box">
-          &lt;h1&gt;Kena Design&lt;/h1&gt;
-        </div>
-
-        <br>
-
-        <div class="code-box">
-          &lt;p&gt;Welcome&lt;/p&gt;
-        </div>
-
-        <ul>
-          <li>HTML = Structure</li>
-          <li>CSS = Design</li>
-          <li>JavaScript = Interaction</li>
-        </ul>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          HTML page tokko hojjedhu.
-        </p>
-
-        <ul>
-          <li>Heading tokko.</li>
-          <li>Paragraph tokko.</li>
-          <li>Button tokko.</li>
-        </ul>
-      `,
-
-      lesson2Title:
-        "🌐 Lesson 2 — CSS Basics",
-
-      lesson2Intro:
-        "CSS fayyadamuun website kee bareechuu baratta.",
-
-      lesson2Notes: `
-        <p>
-          CSS keessatti:
-        </p>
-
-        <div class="code-box">
-          color: white;<br>
-          background: #07111f;<br>
-          padding: 20px;
-        </div>
-
-        <ul>
-          <li>🎨 Color</li>
-          <li>📦 Padding</li>
-          <li>📐 Width</li>
-          <li>🔲 Border</li>
-          <li>🖥️ Responsive Design</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          HTML page kee CSS fayyadamuun bareechi.
-        </p>
-
-        <ul>
-          <li>Background color jijjiiri.</li>
-          <li>Button style godhi.</li>
-          <li>Mobile irratti akka sirriitti mul'atu godhi.</li>
-        </ul>
-      `
-
-    },
-
-
-    "Digital Marketing": {
-
-      lesson1Title:
-        "📱 Lesson 1 — Digital Marketing Basics",
-
-      lesson1Intro:
-        "Digital Marketing jechuun internet fi social media fayyadamuun product ykn service beeksisuu dha.",
-
-      lesson1Notes: `
-        <ul>
-          <li>📱 Social Media Marketing</li>
-          <li>🎥 Video Marketing</li>
-          <li>📧 Email Marketing</li>
-          <li>🔎 Search Marketing</li>
-          <li>📊 Analytics</li>
-        </ul>
-
-        <p>
-          Kaayyoon marketing nama sirrii bira ga'uu fi
-          customer argachuudha.
-        </p>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          Business tokko filadhu.
-        </p>
-
-        <p>
-          Social media irratti beeksisa isaa
-          akkamitti gootu barreessi.
-        </p>
-      `,
-
-      lesson2Title:
-        "📱 Lesson 2 — Social Media Content",
-
-      lesson2Intro:
-        "Content social media nama hawwatu qopheessuu baratta.",
-
-      lesson2Notes: `
-        <ul>
-          <li>🎯 Audience kee beekuu.</li>
-          <li>✍️ Caption gabaabaa barreessuu.</li>
-          <li>🖼️ Image qulqulluu fayyadamuu.</li>
-          <li>🎥 Video gabaabaa fayyadamuu.</li>
-          <li>📅 Content yeroo sirrii irratti maxxansuu.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          Business tokkoof social media post 3 qopheessi.
-        </p>
-
-        <ul>
-          <li>Post tokko image.</li>
-          <li>Post tokko video idea.</li>
-          <li>Post tokko promotional.</li>
-        </ul>
-      `
-
-    },
-
-
-    "Photography": {
-
-      lesson1Title:
-        "📷 Lesson 1 — Photography Basics",
-
-      lesson1Intro:
-        "Photography keessatti camera fi ifa sirriitti fayyadamuun suuraa qulqulluu kaasu baratta.",
-
-      lesson1Notes: `
-        <ul>
-          <li>📷 Camera position sirreessi.</li>
-          <li>💡 Light gaarii filadhu.</li>
-          <li>🎯 Subject kee ifatti kaa'i.</li>
-          <li>📐 Composition yaadi.</li>
-          <li>🔍 Focus sirreessi.</li>
-        </ul>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          Suuraa 3 kaasi:
-        </p>
-
-        <ul>
-          <li>Suuraa namaa tokko.</li>
-          <li>Suuraa wantaa tokko.</li>
-          <li>Suuraa bakka tokko.</li>
-        </ul>
-      `,
-
-      lesson2Title:
-        "📷 Lesson 2 — Lighting & Composition",
-
-      lesson2Intro:
-        "Lighting fi composition fayyadamuun suuraa kee bareechuu baratta.",
-
-      lesson2Notes: `
-        <p>
-          Suuraa gaarii keessatti ifni murteessaa dha.
-        </p>
-
-        <ul>
-          <li>☀️ Natural light fayyadami.</li>
-          <li>💡 Subject kee ifa keessa kaa'i.</li>
-          <li>📐 Background qulqulluu filadhu.</li>
-          <li>🎯 Subject ijoo adda baasi.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          Suuraa tokko natural light fayyadamuun kaasi.
-          Background isaa qulqulluu godhi.
-        </p>
-      `
-
-    },
-
-
-    "Flayer Package": {
-
-      lesson1Title:
-        "🖼️ Lesson 1 — Flayer Design Basics",
-
-      lesson1Intro:
-        "Flayer nama hawwatu qopheessuu fi information sirriitti qindeessuu baratta.",
-
-      lesson1Notes: `
-        <ul>
-          <li>📌 Title guddaa godhi.</li>
-          <li>✍️ Information barbaachisaa qofa kaa'i.</li>
-          <li>🎨 Color walitti madaalu fayyadami.</li>
-          <li>📞 Contact information ifatti mul'isi.</li>
-          <li>🖼️ Image qulqulluu fayyadami.</li>
-        </ul>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          Event ykn business tokkoof flayer tokko hojjedhu.
-        </p>
-
-        <ul>
-          <li>Title</li>
-          <li>Date</li>
-          <li>Location</li>
-          <li>Phone</li>
-          <li>Image</li>
-        </ul>
-      `,
-
-      lesson2Title:
-        "🖼️ Lesson 2 — Professional Flayer",
-
-      lesson2Intro:
-        "Flayer professional fi print-ready qopheessuu baratta.",
-
-      lesson2Notes: `
-        <ul>
-          <li>📐 Layout sirrii fayyadami.</li>
-          <li>🎨 Color consistency qabaadhu.</li>
-          <li>🔤 Font walitti madaalu fayyadami.</li>
-          <li>📱 Contact information sirriitti ilaali.</li>
-          <li>🖨️ Quality ol'aanaa fayyadami.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          Flayer business tokkoof professional ta'e
-          qopheessi.
-        </p>
-      `
-
-    },
-
-
-    "YouTube Thumbnail": {
-
-      lesson1Title:
-        "📖 Lesson 1 — Thumbnail Basics",
-
-      lesson1Intro:
-        "YouTube Thumbnail jechuun maal akka ta'e, maaliif barbaachisaa akka ta'e fi thumbnail nama hawwatu akkamitti hojjechuu akka dandeessu baratta.",
-
-      lesson1Notes: `
-        <p>
-          Thumbnail jechuun suuraa video tokko bakka
-          YouTube irratti mul'atuudha.
-        </p>
-
-        <ul>
-          <li>🖼️ Suuraa qulqulluu qaba.</li>
-          <li>✍️ Text gabaabaa fi dubbifamuu danda'u qaba.</li>
-          <li>🎨 Color walitti madaalu qaba.</li>
-          <li>🎯 Nama video sana akka ilaalu hawwata.</li>
-        </ul>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          YouTube video tokko filadhu.
-          Thumbnail isaa ilaali.
-        </p>
-
-        <p>
-          Sana booda thumbnail nama hawwatu tokko
-          fakkeenya godhi.
-        </p>
-
-        <ul>
-          <li>🖼️ Image</li>
-          <li>✍️ Text</li>
-          <li>🎨 Background</li>
-        </ul>
-      `,
-
-      lesson2Title:
-        "🛠️ Lesson 2 — Thumbnail Design Tools",
-
-      lesson2Intro:
-        "Meeshaalee thumbnail hojjechuuf barbaachisan fi akka sirriitti itti fayyadamtu baratta.",
-
-      lesson2Notes: `
-        <p>
-          YouTube thumbnail'f size:
-        </p>
-
-        <div class="code-box">
-          1280 × 720 pixels
-        </div>
-
-        <p>
-          Ratio isaa <strong>16:9</strong> dha.
-        </p>
-
-        <ul>
-          <li>🎨 Background qulqulluu filadhu.</li>
-          <li>✍️ Font guddaa fi dubbifamuu danda'u fayyadami.</li>
-          <li>🖼️ Image qulqulluu fayyadami.</li>
-          <li>🎯 Subject ijoo ifatti mul'isi.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          YouTube thumbnail tokko qopheessi.
-        </p>
-
-        <div class="code-box">
-          1280 × 720
-        </div>
-
-        <ul>
-          <li>🖼️ Image tokko</li>
-          <li>✍️ Text gabaabaa</li>
-          <li>🎨 Background</li>
-          <li>🔷 Element tokko ykn lama</li>
-        </ul>
-      `
-
-    },
-
-
-    "Poster Design": {
-
-      lesson1Title:
-        "🖌️ Lesson 1 — Poster Design Basics",
-
-      lesson1Intro:
-        "Poster information tokko karaa salphaa fi nama hawwatuun dabarsuuf akkamitti hojjetamu baratta.",
-
-      lesson1Notes: `
-        <ul>
-          <li>📌 Main title ifa godhi.</li>
-          <li>🖼️ Image barbaachisaa fayyadami.</li>
-          <li>🎨 Color sirrii filadhu.</li>
-          <li>✍️ Text dubbifamuu danda'u fayyadami.</li>
-          <li>📞 Contact information dabali.</li>
-        </ul>
-      `,
-
-      lesson1Assignment: `
-        <p>
-          Event tokkoof poster tokko qopheessi.
-        </p>
-
-        <ul>
-          <li>Event title</li>
-          <li>Date</li>
-          <li>Location</li>
-          <li>Contact</li>
-          <li>Image</li>
-        </ul>
-      `,
-
-      lesson2Title:
-        "🖌️ Lesson 2 — Professional Poster",
-
-      lesson2Intro:
-        "Poster professional, qulqulluu fi nama hawwatu qopheessuu baratta.",
-
-      lesson2Notes: `
-        <ul>
-          <li>📐 Layout sirrii qabaadhu.</li>
-          <li>🎨 Color muraasa fayyadami.</li>
-          <li>🔤 Font wal-simu filadhu.</li>
-          <li>🖼️ Image quality gaarii fayyadami.</li>
-          <li>📌 Information barbaachisaa qofa kaa'i.</li>
-        </ul>
-      `,
-
-      lesson2Assignment: `
-        <p>
-          Business ykn event tokkoof poster
-          professional tokko qopheessi.
-        </p>
-      `
+      renderLessons(
+        student.course
+      );
 
     }
 
-  };
+
+    /* =========================
+       LESSONS
+    ========================= */
+
+    function renderLessons(
+      course
+    ) {
+
+      const box =
+        document.getElementById(
+          "lessons"
+        );
 
 
-  /*
-   * COURSE NORMALIZATION
-   */
+      const lessons =
+        COURSES[course] || [];
 
-  function normalizeCourse(name) {
 
-    if (!name) {
-      return 
+      box.innerHTML =
+        "";
+
+
+      if (
+        lessons.length ===
+        0
+      ) {
+
+        box.innerHTML = `
+          <div class="noLessons">
+            Lessons course kanaaf
+            ammallee hin qophoofne.
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      lessons.forEach(
+        (lesson) => {
+
+          box.insertAdjacentHTML(
+            "beforeend",
+            `
+
+            <div class="lesson">
+
+              <h3>
+                ${escapeHTML(
+                  lesson.title
+                )}
+              </h3>
+
+              <p>
+                ${escapeHTML(
+                  lesson.description
+                )}
+              </p>
+
+              <a
+                class="lessonBtn"
+                href="${escapeAttribute(
+                  lesson.link
+                )}"
+              >
+                📖 Open Lesson
+              </a>
+
+            </div>
+
+            `
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================
+       LOGIN MESSAGE
+    ========================= */
+
+    function showLoginMessage(
+      text
+    ) {
+
+      const box =
+        document.getElementById(
+          "loginMessage"
+        );
+
+
+      box.textContent =
+        text;
+
+
+      box.className =
+        "message error";
+
+
+      box.style.display =
+        "block";
+
+    }
+
+
+    /* =========================
+       LOGOUT
+    ========================= */
+
+    function studentLogout() {
+
+      sessionStorage.removeItem(
+        "kena_student"
+      );
+
+
+      document.getElementById(
+        "dashboard"
+      ).style.display =
+        "none";
+
+
+      document.getElementById(
+        "loginBox"
+      ).style.display =
+        "block";
+
+
+      document.getElementById(
+        "pin"
+      ).value =
+        "";
+
+    }
+
+
+    /* =========================
+       SECURITY
+    ========================= */
+
+    function escapeHTML(
+      value
+    ) {
+
+      return String(
+        value ?? ""
+      )
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    function escapeAttribute(
+      value
+    ) {
+
+      return String(
+        value ?? ""
+      )
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+        .replace(
+          /</g,
+          "&lt;"
+        )
+        .replace(
+          />/g,
+          "&gt;"
+        );
+
+    }
+
+
+    /* =========================
+       EXISTING LOGIN
+    ========================= */
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        try {
+
+          const saved =
+            sessionStorage.getItem(
+              "kena_student"
+            );
+
+
+          if (!saved) {
+            return;
+          }
+
+
+          const student =
+            JSON.parse(
+              saved
+            );
+
+
+          if (
+            student &&
+            student.payment_status ===
+              "PAID" &&
+            student.learning_access ===
+              true
+          ) {
+
+            showDashboard(
+              student
+            );
+
+          }
+
+
+        } catch (error) {
+
+          sessionStorage.removeItem(
+            "kena_student"
+          );
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>

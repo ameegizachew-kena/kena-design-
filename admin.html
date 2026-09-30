@@ -15,156 +15,186 @@
 
     body {
       margin: 0;
-      padding: 15px;
+      font-family: Arial, sans-serif;
       background: #07111f;
       color: white;
-      font-family: Arial, sans-serif;
     }
 
     .container {
+      width: 96%;
       max-width: 1200px;
-      margin: auto;
+      margin: 15px auto;
     }
 
-    header {
+    .card {
       background: #101c2c;
+      border-radius: 18px;
       padding: 18px;
-      border-radius: 15px;
       margin-bottom: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,.18);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 25px;
+      margin: 0;
+      font-size: 28px;
     }
 
-    .top-info {
+    .subtitle {
+      margin-top: 8px;
       color: #9fb0c5;
-      font-size: 14px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 10px;
-      margin-top: 15px;
-      flex-wrap: wrap;
+      font-weight: bold;
     }
 
     button {
       border: 0;
-      border-radius: 8px;
-      padding: 10px 15px;
       cursor: pointer;
+      border-radius: 9px;
       font-weight: bold;
     }
 
     .refresh {
-      background: #32d583;
-      color: #07111f;
+      background: #2563eb;
+      color: white;
+      padding: 10px 15px;
     }
 
     .logout {
-      background: #ef4444;
+      background: #dc2626;
       color: white;
+      padding: 10px 15px;
+      margin-left: 5px;
     }
 
-    .search-box {
-      background: #101c2c;
-      padding: 15px;
-      border-radius: 15px;
-      margin-bottom: 15px;
-    }
-
-    input {
+    .search {
       width: 100%;
-      padding: 12px;
+      padding: 13px;
       border: 1px solid #334155;
-      border-radius: 8px;
+      border-radius: 10px;
       background: #07111f;
       color: white;
       outline: none;
+      font-size: 15px;
+    }
+
+    .search:focus {
+      border-color: #32d583;
+    }
+
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .filterBtn {
+      padding: 9px 13px;
+      background: #334155;
+      color: white;
+    }
+
+    .filterBtn.active {
+      background: #059669;
     }
 
     .stats {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 15px;
+      gap: 10px;
     }
 
     .stat {
-      background: #101c2c;
-      padding: 18px;
-      border-radius: 15px;
+      padding: 15px;
+      border-radius: 13px;
       text-align: center;
-    }
-
-    .stat-number {
-      font-size: 28px;
       font-weight: bold;
-      margin-bottom: 5px;
     }
 
-    .stat-label {
-      color: #9fb0c5;
-      font-size: 14px;
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      margin-top: 6px;
     }
 
     .total {
-      color: #60a5fa;
+      background: #082f49;
+      color: #7dd3fc;
     }
 
-    .paid {
-      color: #32d583;
+    .paidStat {
+      background: #064e3b;
+      color: #6ee7b7;
     }
 
-    .pending {
-      color: #facc15;
+    .pendingStat {
+      background: #713f12;
+      color: #fde68a;
     }
 
-    .unpaid {
-      color: #f87171;
+    .unpaidStat {
+      background: #7f1d1d;
+      color: #fecaca;
     }
 
     .message {
       display: none;
       padding: 13px;
-      border-radius: 8px;
+      border-radius: 10px;
       margin-bottom: 15px;
-      background: #7f1d1d;
-      color: white;
+      font-weight: bold;
+      word-break: break-word;
     }
 
-    .table-box {
-      background: #101c2c;
-      padding: 15px;
-      border-radius: 15px;
-      overflow-x: auto;
+    .error {
+      background: #7f1d1d;
+      color: #fecaca;
+    }
+
+    .success {
+      background: #064e3b;
+      color: #6ee7b7;
     }
 
     .loading {
       text-align: center;
-      padding: 30px;
+      padding: 35px 10px;
       color: #9fb0c5;
+      font-weight: bold;
+    }
+
+    .tableWrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 12px;
     }
 
     table {
       width: 100%;
+      min-width: 1100px;
       border-collapse: collapse;
-      min-width: 900px;
-    }
-
-    th,
-    td {
-      padding: 11px 8px;
-      border-bottom: 1px solid #26364a;
-      text-align: left;
-      font-size: 14px;
     }
 
     th {
+      background: #07111f;
       color: #9fb0c5;
-      background: #0b1727;
+      padding: 12px;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #26364a;
+      white-space: nowrap;
+      vertical-align: middle;
     }
 
     tr:hover {
@@ -173,7 +203,7 @@
 
     .status {
       display: inline-block;
-      padding: 5px 9px;
+      padding: 6px 10px;
       border-radius: 20px;
       font-size: 12px;
       font-weight: bold;
@@ -194,66 +224,71 @@
       color: #fecaca;
     }
 
-    .paid-btn {
-      background: #32d583;
-      color: #07111f;
-      padding: 8px 11px;
+    .paidBtn {
+      background: #059669;
+      color: white;
+      padding: 8px 12px;
       font-size: 12px;
     }
 
-    .paid-btn:disabled {
-      opacity: 0.5;
+    .paidBtn:disabled {
+      background: #166534;
+      opacity: .7;
       cursor: not-allowed;
     }
 
-    .view-btn {
-      background: #3b82f6;
+    .viewBtn {
+      background: #2563eb;
       color: white;
-      padding: 8px 11px;
+      padding: 8px 12px;
       font-size: 12px;
     }
 
-    .no-data {
+    .empty {
+      display: none;
       text-align: center;
-      padding: 30px;
+      padding: 35px;
       color: #9fb0c5;
     }
+
+    /* MODAL */
 
     .modal {
       display: none;
       position: fixed;
-      z-index: 9999;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      background: rgba(0,0,0,.88);
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
     }
 
-    .modal-box {
+    .modalBox {
+      width: 100%;
+      max-width: 700px;
+      max-height: 90vh;
+      overflow: auto;
       background: #101c2c;
       border-radius: 15px;
       padding: 15px;
-      max-width: 700px;
-      width: 100%;
-      max-height: 90vh;
-      overflow: auto;
     }
 
-    .modal-header {
+    .modalTop {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 12px;
     }
 
-    .modal-header h3 {
+    .modalTop h3 {
       margin: 0;
     }
 
-    .close-btn {
-      background: #ef4444;
+    .closeBtn {
+      background: #dc2626;
       color: white;
+      padding: 8px 12px;
     }
 
     #screenshotImage {
@@ -264,103 +299,91 @@
       background: #07111f;
     }
 
-    .mobile-card {
-      display: none;
-    }
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
-      body {
-        padding: 8px;
+      .container {
+        width: 94%;
+      }
+
+      .card {
+        padding: 13px;
+        border-radius: 14px;
       }
 
       h1 {
-        font-size: 21px;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-      }
-
-      .stat {
-        padding: 13px 8px;
-      }
-
-      .stat-number {
         font-size: 23px;
       }
 
-      .table-box {
-        padding: 8px;
-        overflow: visible;
+      .stats {
+        grid-template-columns: 1fr 1fr;
       }
+
+      .stat {
+        padding: 12px 6px;
+      }
+
+      .stat strong {
+        font-size: 23px;
+      }
+
+      .top {
+        align-items: flex-start;
+      }
+
+      .refresh,
+      .logout {
+        padding: 9px 12px;
+        font-size: 12px;
+      }
+
+      /*
+        Mobile irratti:
+        Full Name
+        Course
+        Amount
+        Method
+        Status
+        Screenshot
+        Action
+        qofa mul'ata.
+      */
 
       table {
-        min-width: 0;
-        width: 100%;
+        min-width: 760px;
       }
 
-      table thead {
+      th:nth-child(1),
+      td:nth-child(1),
+
+      th:nth-child(3),
+      td:nth-child(3),
+
+      th:nth-child(4),
+      td:nth-child(4),
+
+      th:nth-child(5),
+      td:nth-child(5),
+
+      th:nth-child(6),
+      td:nth-child(6),
+
+      th:nth-child(7),
+      td:nth-child(7),
+
+      th:nth-child(9),
+      td:nth-child(9),
+
+      th:nth-child(14),
+      td:nth-child(14) {
         display: none;
       }
 
-      table,
-      tbody,
-      tr,
+      th,
       td {
-        display: block;
-        width: 100%;
-      }
-
-      tr {
-        background: #0b1727;
-        margin-bottom: 12px;
-        border-radius: 12px;
-        padding: 10px;
-        border: 1px solid #26364a;
-      }
-
-      td {
-        border: 0;
-        padding: 6px 4px;
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-      }
-
-      td::before {
-        content: attr(data-label);
-        color: #94a3b8;
-        font-weight: bold;
-        min-width: 90px;
-      }
-
-      td[data-label="Full Name"],
-      td[data-label="Course"],
-      td[data-label="Amount"],
-      td[data-label="Method"],
-      td[data-label="Status"],
-      td[data-label="Screenshot"],
-      td[data-label="Action"] {
-        display: flex;
-      }
-
-      td[data-label="Father Name"],
-      td[data-label="Gender"],
-      td[data-label="Age"],
-      td[data-label="Phone"],
-      td[data-label="Email"],
-      td[data-label="Address"],
-      td[data-label="Paid Time"] {
-        display: none;
-      }
-
-      .mobile-card {
-        display: block;
-        color: #9fb0c5;
-        font-size: 12px;
-        margin-bottom: 8px;
+        padding: 10px 8px;
+        font-size: 13px;
       }
     }
   </style>
@@ -370,111 +393,225 @@
 
 <div class="container">
 
-  <header>
-    <h1>Kena Design Admin</h1>
+  <!-- HEADER -->
 
-    <div class="top-info">
-      Barattoota: <strong id="studentCount">0</strong>
+  <div class="card">
+
+    <div class="top">
+
+      <div>
+
+        <h1>Kena Design Admin</h1>
+
+        <div class="subtitle">
+          Barattoota:
+          <span id="totalTop">0</span>
+        </div>
+
+      </div>
+
+      <div>
+
+        <button
+          class="refresh"
+          onclick="loadStudents()">
+          ↻ Refresh
+        </button>
+
+        <button
+          class="logout"
+          onclick="logout()">
+          Logout
+        </button>
+
+      </div>
+
     </div>
 
-    <div class="buttons">
-      <button class="refresh" onclick="loadStudents()">
-        🔄 Refresh
-      </button>
+  </div>
 
-      <button class="logout" onclick="logout()">
-        Logout
-      </button>
-    </div>
-  </header>
 
-  <div id="message" class="message"></div>
+  <!-- MESSAGE -->
 
-  <div class="search-box">
+  <div
+    id="message"
+    class="message">
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <div class="card">
+
     <input
+      id="search"
+      class="search"
       type="text"
-      id="searchInput"
-      placeholder="Maqaa, phone, course ykn address barbaadi..."
+      placeholder="Maqaa, phone, course, status, address barbaadi..."
       oninput="renderStudents()"
     >
+
+    <div class="filters">
+
+      <button
+        class="filterBtn active"
+        id="allBtn"
+        onclick="setFilter('ALL')">
+        Hunda
+      </button>
+
+      <button
+        class="filterBtn"
+        id="paidBtnFilter"
+        onclick="setFilter('PAID')">
+        🟢 PAID
+      </button>
+
+      <button
+        class="filterBtn"
+        id="pendingBtnFilter"
+        onclick="setFilter('PENDING')">
+        🟡 PENDING
+      </button>
+
+      <button
+        class="filterBtn"
+        id="unpaidBtnFilter"
+        onclick="setFilter('UNPAID')">
+        🔴 UNPAID
+      </button>
+
+    </div>
+
   </div>
 
-  <div class="stats">
 
-    <div class="stat">
-      <div class="stat-number total" id="totalCount">0</div>
-      <div class="stat-label">Total</div>
-    </div>
+  <!-- STATS -->
 
-    <div class="stat">
-      <div class="stat-number paid" id="paidCount">0</div>
-      <div class="stat-label">Paid</div>
-    </div>
+  <div class="card">
 
-    <div class="stat">
-      <div class="stat-number pending" id="pendingCount">0</div>
-      <div class="stat-label">Pending</div>
-    </div>
+    <div class="stats">
 
-    <div class="stat">
-      <div class="stat-number unpaid" id="unpaidCount">0</div>
-      <div class="stat-label">Unpaid</div>
+      <div class="stat total">
+        Total
+        <strong id="totalCount">0</strong>
+      </div>
+
+      <div class="stat paidStat">
+        Paid
+        <strong id="paidCount">0</strong>
+      </div>
+
+      <div class="stat pendingStat">
+        Pending
+        <strong id="pendingCount">0</strong>
+      </div>
+
+      <div class="stat unpaidStat">
+        Unpaid
+        <strong id="unpaidCount">0</strong>
+      </div>
+
     </div>
 
   </div>
 
-  <div class="table-box">
 
-    <div id="loading" class="loading">
+  <!-- STUDENTS -->
+
+  <div class="card">
+
+    <div
+      id="loading"
+      class="loading">
       Loading...
     </div>
 
-    <table id="studentsTable" style="display:none;">
+    <div class="tableWrap">
 
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Full Name</th>
-          <th>Father Name</th>
-          <th>Gender</th>
-          <th>Age</th>
-          <th>Phone</th>
-          <th>Email</th>
-          <th>Course</th>
-          <th>Address</th>
-          <th>Amount</th>
-          <th>Method</th>
-          <th>Status</th>
-          <th>Screenshot</th>
-          <th>Action</th>
-          <th>Paid Time</th>
-        </tr>
-      </thead>
+      <table
+        id="studentsTable"
+        style="display:none;">
 
-      <tbody id="studentsBody"></tbody>
+        <thead>
 
-    </table>
+          <tr>
+
+            <th>#</th>
+
+            <th>Full Name</th>
+
+            <th>Father Name</th>
+
+            <th>Gender</th>
+
+            <th>Age</th>
+
+            <th>Phone</th>
+
+            <th>Email</th>
+
+            <th>Course</th>
+
+            <th>Address</th>
+
+            <th>Amount</th>
+
+            <th>Method</th>
+
+            <th>Status</th>
+
+            <th>Screenshot</th>
+
+            <th>Paid Time</th>
+
+            <th>Action</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="studentsBody"></tbody>
+
+      </table>
+
+    </div>
+
+    <div
+      id="empty"
+      class="empty">
+      Barataa hin argamne.
+    </div>
 
   </div>
 
 </div>
 
-<!-- Screenshot Modal -->
-<div id="imageModal" class="modal">
 
-  <div class="modal-box">
+<!-- SCREENSHOT MODAL -->
 
-    <div class="modal-header">
+<div
+  id="imageModal"
+  class="modal">
+
+  <div class="modalBox">
+
+    <div class="modalTop">
 
       <h3>Payment Screenshot</h3>
 
-      <button class="close-btn" onclick="closeModal()">
+      <button
+        class="closeBtn"
+        onclick="closeModal()">
         Close
       </button>
 
     </div>
 
-    <img id="screenshotImage" src="" alt="Payment Screenshot">
+    <img
+      id="screenshotImage"
+      src=""
+      alt="Payment Screenshot">
 
   </div>
 
@@ -483,260 +620,549 @@
 
 <script>
 
-  const SUPABASE_URL =
-    "https://baoczizarrnzxwguyili.supabase.co";
+const SUPABASE_URL =
+  "https://baoczizarrnzxwguyili.supabase.co";
 
-  const SUPABASE_KEY =
-    "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
+const SUPABASE_KEY =
+  "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
-  const supabaseClient =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
+const ADMIN_EMAIL =
+  "ameegizachew@gmail.com";
+
+
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+let students = [];
+
+let currentFilter = "ALL";
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(
+  text,
+  type = "error"
+) {
+
+  const box =
+    document.getElementById(
+      "message"
     );
 
+  box.textContent = text;
 
-  let students = [];
+  box.className =
+    "message " + type;
+
+  box.style.display =
+    "block";
+
+}
 
 
-  // =========================
-  // ADMIN CHECK
-  // =========================
+/* =========================
+   ADMIN CHECK
+========================= */
 
-  async function checkAdmin() {
+async function checkAdmin() {
 
-    try {
+  try {
 
-      const {
-        data: {
-          user
-        },
-        error
-      } = await supabaseClient.auth.getUser();
+    const timeout =
+      new Promise((_, reject) => {
 
-      if (error || !user) {
+        setTimeout(() => {
 
-        window.location.href = "admin.html";
+          reject(
+            new Error(
+              "Supabase login verification timeout."
+            )
+          );
 
-        return false;
-      }
+        }, 10000);
 
-      if (
-        user.email !==
-        "ameegizachew@gmail.com"
-      ) {
+      });
 
-        await supabaseClient.auth.signOut();
 
-        alert(
-          "Ati admin miti."
-        );
+    const sessionRequest =
+      supabaseClient.auth.getSession();
 
-        window.location.href = "admin.html";
 
-        return false;
-      }
+    const {
+      data,
+      error
+    } =
+      await Promise.race([
+        sessionRequest,
+        timeout
+      ]);
 
-      return true;
 
-    } catch (error) {
+    if (error) {
+      throw error;
+    }
 
-      console.error(error);
+
+    const session =
+      data &&
+      data.session;
+
+
+    if (!session) {
+
+      showMessage(
+        "Admin login hin jiru. Mee login godhi.",
+        "error"
+      );
+
+      document.getElementById(
+        "loading"
+      ).style.display =
+        "none";
 
       return false;
     }
+
+
+    const email =
+      session.user &&
+      session.user.email
+        ? session.user.email.toLowerCase()
+        : "";
+
+
+    if (
+      email !==
+      ADMIN_EMAIL.toLowerCase()
+    ) {
+
+      await supabaseClient.auth.signOut();
+
+      showMessage(
+        "Ati admin miti.",
+        "error"
+      );
+
+      document.getElementById(
+        "loading"
+      ).style.display =
+        "none";
+
+      return false;
+    }
+
+
+    return true;
+
+
+  } catch (error) {
+
+    console.error(
+      "ADMIN CHECK ERROR:",
+      error
+    );
+
+
+    document.getElementById(
+      "loading"
+    ).style.display =
+      "none";
+
+
+    document.getElementById(
+      "studentsTable"
+    ).style.display =
+      "table";
+
+
+    showMessage(
+      "Supabase/Admin connection rakkoo qaba: " +
+      error.message,
+      "error"
+    );
+
+
+    return false;
   }
 
-
-  // =========================
-  // LOAD STUDENTS
-  // =========================
-
-  async function loadStudents() {
-
-    const loading =
-      document.getElementById("loading");
-
-    const table =
-      document.getElementById("studentsTable");
-
-    loading.style.display = "block";
-    table.style.display = "none";
-
-    hideMessage();
-
-    try {
-
-      const controller =
-        new AbortController();
-
-      const timeout =
-        setTimeout(() => {
-          controller.abort();
-        }, 15000);
+}
 
 
-      const {
-        data,
-        error
-      } = await supabaseClient
+/* =========================
+   LOAD STUDENTS
+========================= */
+
+async function loadStudents() {
+
+  const loading =
+    document.getElementById(
+      "loading"
+    );
+
+  const table =
+    document.getElementById(
+      "studentsTable"
+    );
+
+
+  loading.style.display =
+    "block";
+
+  table.style.display =
+    "none";
+
+
+  try {
+
+    const controller =
+      new AbortController();
+
+
+    const timeout =
+      setTimeout(() => {
+
+        controller.abort();
+
+      }, 15000);
+
+
+    const request =
+      supabaseClient
         .from("Students")
         .select("*")
-        .order("created_at", {
-          ascending: false
-        })
+        .order(
+          "created_at",
+          {
+            ascending: false
+          }
+        )
         .abortSignal(
           controller.signal
         );
 
 
-      clearTimeout(timeout);
+    const result =
+      await request;
 
 
-      if (error) {
-        throw error;
-      }
+    clearTimeout(timeout);
 
 
-      students =
-        data || [];
+    const {
+      data,
+      error
+    } = result;
 
 
-      updateStats();
-
-      renderStudents();
-
-
-      loading.style.display =
-        "none";
-
-      table.style.display =
-        "table";
+    if (error) {
+      throw error;
+    }
 
 
-    } catch (error) {
+    students =
+      data || [];
 
-      console.error(
-        "Students error:",
-        error
+
+    updateStats();
+
+    renderStudents();
+
+
+    loading.style.display =
+      "none";
+
+    table.style.display =
+      "table";
+
+
+  } catch (error) {
+
+    console.error(
+      "STUDENTS ERROR:",
+      error
+    );
+
+
+    loading.style.display =
+      "none";
+
+    table.style.display =
+      "table";
+
+
+    if (
+      error.name ===
+      "AbortError"
+    ) {
+
+      showMessage(
+        "Supabase irraa deebiin yeroo dheeraa fudhate. Internet ykn Supabase connection ilaali.",
+        "error"
       );
 
+    } else {
 
-      loading.style.display =
-        "none";
-
-      table.style.display =
-        "table";
-
-
-      if (
-        error.name ===
-        "AbortError"
-      ) {
-
-        showMessage(
-          "Supabase irraa deebiin yeroo dheeraa fudhate. Refresh godhi.",
-          "error"
-        );
-
-      } else {
-
-        showMessage(
-          "Barattoota fiduu hin dandeenye: " +
-          error.message,
-          "error"
-        );
-      }
+      showMessage(
+        "Barattoota fiduu hin dandeenye: " +
+        error.message,
+        "error"
+      );
 
     }
+
+  }
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+function getStatus(student) {
+
+  const status =
+    String(
+      student.payment_status || ""
+    ).toUpperCase();
+
+
+  if (
+    status === "PAID"
+  ) {
+
+    return "PAID";
+
   }
 
 
-  // =========================
-  // STATS
-  // =========================
+  if (
+    status === "PENDING"
+  ) {
 
-  function updateStats() {
+    return "PENDING";
 
-    const total =
-      students.length;
-
-
-    const paid =
-      students.filter(
-        student =>
-          String(
-            student.payment_status || ""
-          ).toUpperCase() === "PAID"
-      ).length;
-
-
-    const pending =
-      students.filter(
-        student =>
-          String(
-            student.payment_status || ""
-          ).toUpperCase() === "PENDING"
-      ).length;
-
-
-    const unpaid =
-      students.filter(
-        student =>
-          String(
-            student.payment_status || ""
-          ).toUpperCase() === "UNPAID"
-      ).length;
-
-
-    document.getElementById(
-      "totalCount"
-    ).textContent = total;
-
-
-    document.getElementById(
-      "paidCount"
-    ).textContent = paid;
-
-
-    document.getElementById(
-      "pendingCount"
-    ).textContent = pending;
-
-
-    document.getElementById(
-      "unpaidCount"
-    ).textContent = unpaid;
-
-
-    document.getElementById(
-      "studentCount"
-    ).textContent = total;
   }
 
 
-  // =========================
-  // RENDER STUDENTS
-  // =========================
+  return "UNPAID";
 
-  function renderStudents() {
+}
 
-    const body =
-      document.getElementById(
-        "studentsBody"
+
+/* =========================
+   STATS
+========================= */
+
+function updateStats() {
+
+  const total =
+    students.length;
+
+
+  const paid =
+    students.filter(
+      s =>
+        getStatus(s) ===
+        "PAID"
+    ).length;
+
+
+  const pending =
+    students.filter(
+      s =>
+        getStatus(s) ===
+        "PENDING"
+    ).length;
+
+
+  const unpaid =
+    students.filter(
+      s =>
+        getStatus(s) ===
+        "UNPAID"
+    ).length;
+
+
+  document.getElementById(
+    "totalTop"
+  ).textContent =
+    total;
+
+
+  document.getElementById(
+    "totalCount"
+  ).textContent =
+    total;
+
+
+  document.getElementById(
+    "paidCount"
+  ).textContent =
+    paid;
+
+
+  document.getElementById(
+    "pendingCount"
+  ).textContent =
+    pending;
+
+
+  document.getElementById(
+    "unpaidCount"
+  ).textContent =
+    unpaid;
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+function setFilter(filter) {
+
+  currentFilter =
+    filter;
+
+
+  document
+    .querySelectorAll(
+      ".filterBtn"
+    )
+    .forEach(btn => {
+
+      btn.classList.remove(
+        "active"
       );
 
-
-    const search =
-      document.getElementById(
-        "searchInput"
-      ).value
-      .toLowerCase()
-      .trim();
+    });
 
 
-    let filtered =
-      students.filter(student => {
+  if (
+    filter === "ALL"
+  ) {
+
+    document
+      .getElementById(
+        "allBtn"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if (
+    filter === "PAID"
+  ) {
+
+    document
+      .getElementById(
+        "paidBtnFilter"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if (
+    filter === "PENDING"
+  ) {
+
+    document
+      .getElementById(
+        "pendingBtnFilter"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  if (
+    filter === "UNPAID"
+  ) {
+
+    document
+      .getElementById(
+        "unpaidBtnFilter"
+      )
+      .classList.add(
+        "active"
+      );
+
+  }
+
+
+  renderStudents();
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderStudents() {
+
+  const body =
+    document.getElementById(
+      "studentsBody"
+    );
+
+
+  const empty =
+    document.getElementById(
+      "empty"
+    );
+
+
+  const search =
+    document
+      .getElementById(
+        "search"
+      )
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const filtered =
+    students.filter(
+      student => {
+
+        const status =
+          getStatus(student);
+
+
+        if (
+          currentFilter !==
+          "ALL" &&
+          status !==
+          currentFilter
+        ) {
+
+          return false;
+
+        }
+
+
+        if (!search) {
+          return true;
+        }
+
 
         const text = [
 
@@ -745,6 +1171,10 @@
           student["Full name"],
 
           student.fathername,
+
+          student.gender,
+
+          student.age,
 
           student.phone,
 
@@ -766,525 +1196,535 @@
         .toLowerCase();
 
 
-        return text.includes(search);
-      });
-
-
-    if (
-      filtered.length === 0
-    ) {
-
-      body.innerHTML = `
-        <tr>
-          <td
-            colspan="15"
-            class="no-data"
-          >
-            Barataan hin argamne.
-          </td>
-        </tr>
-      `;
-
-      return;
-    }
-
-
-    body.innerHTML =
-      filtered.map(
-        (student, index) =>
-          studentRow(
-            student,
-            index + 1
-          )
-      ).join("");
-  }
-
-
-  // =========================
-  // STUDENT ROW
-  // =========================
-
-  function studentRow(
-    student,
-    number
-  ) {
-
-    const status =
-      String(
-        student.payment_status ||
-        "UNPAID"
-      ).toUpperCase();
-
-
-    let statusClass =
-      "status-unpaid";
-
-
-    if (status === "PAID") {
-
-      statusClass =
-        "status-paid";
-
-    } else if (
-      status === "PENDING"
-    ) {
-
-      statusClass =
-        "status-pending";
-    }
-
-
-    const fullname =
-      student.fullname ||
-      student["Full name"] ||
-      "-";
-
-
-    const fathername =
-      student.fathername ||
-      "-";
-
-
-    const gender =
-      student.gender ||
-      "-";
-
-
-    const age =
-      student.age ||
-      "-";
-
-
-    const phone =
-      student.phone ||
-      "-";
-
-
-    const email =
-      student.email ||
-      "-";
-
-
-    const course =
-      student.course ||
-      "-";
-
-
-    const address =
-      student.other_address ||
-      student.address ||
-      "-";
-
-
-    const amount =
-      student.payment_amount
-      ? Number(
-          student.payment_amount
-        ).toLocaleString()
-        + " ETB"
-      : "-";
-
-
-    const method =
-      student.payment_method ||
-      "-";
-
-
-    const paidTime =
-      student.paid_at
-      ? new Date(
-          student.paid_at
-        ).toLocaleString()
-      : "-";
-
-
-    const screenshot =
-      student.payment_screenshot_url
-      ? `
-        <button
-          class="view-btn"
-          onclick="viewScreenshot('${escapeJS(student.payment_screenshot_url)}')"
-        >
-          View
-        </button>
-      `
-      : "-";
-
-
-    const action =
-      status === "PAID"
-      ? `
-        <button
-          class="paid-btn"
-          disabled
-        >
-          ✓ Paid
-        </button>
-      `
-      : `
-        <button
-          class="paid-btn"
-          onclick="markPaid('${escapeJS(student.id)}')"
-        >
-          PAID
-        </button>
-      `;
-
-
-    return `
-      <tr>
-
-        <td data-label="#">
-          ${number}
-        </td>
-
-        <td data-label="Full Name">
-          ${escapeHTML(fullname)}
-        </td>
-
-        <td data-label="Father Name">
-          ${escapeHTML(fathername)}
-        </td>
-
-        <td data-label="Gender">
-          ${escapeHTML(gender)}
-        </td>
-
-        <td data-label="Age">
-          ${escapeHTML(age)}
-        </td>
-
-        <td data-label="Phone">
-          ${escapeHTML(phone)}
-        </td>
-
-        <td data-label="Email">
-          ${escapeHTML(email)}
-        </td>
-
-        <td data-label="Course">
-          ${escapeHTML(course)}
-        </td>
-
-        <td data-label="Address">
-          ${escapeHTML(address)}
-        </td>
-
-        <td data-label="Amount">
-          ${escapeHTML(amount)}
-        </td>
-
-        <td data-label="Method">
-          ${escapeHTML(method)}
-        </td>
-
-        <td data-label="Status">
-          <span class="status ${statusClass}">
-            ${escapeHTML(status)}
-          </span>
-        </td>
-
-        <td data-label="Screenshot">
-          ${screenshot}
-        </td>
-
-        <td data-label="Action">
-          ${action}
-        </td>
-
-        <td data-label="Paid Time">
-          ${escapeHTML(paidTime)}
-        </td>
-
-      </tr>
-    `;
-  }
-
-
-  // =========================
-  // MARK PAID
-  // =========================
-
-  async function markPaid(id) {
-
-    const confirmPaid =
-      confirm(
-        "Payment kana mirkaneessitee PAID gochuu barbaaddaa?"
-      );
-
-
-    if (!confirmPaid) {
-      return;
-    }
-
-
-    try {
-
-      const {
-        error
-      } = await supabaseClient
-        .from("Students")
-        .update({
-          payment_status: "PAID",
-          paid_at:
-            new Date().toISOString()
-        })
-        .eq("id", id);
-
-
-      if (error) {
-        throw error;
-      }
-
-
-      showMessage(
-        "Payment PAID godhameera.",
-        "success"
-      );
-
-
-      await loadStudents();
-
-
-    } catch (error) {
-
-      console.error(error);
-
-      showMessage(
-        "PAID gochuu hin dandeenye: " +
-        error.message,
-        "error"
-      );
-    }
-  }
-
-
-  // =========================
-  // VIEW SCREENSHOT
-  // =========================
-
-  async function viewScreenshot(
-    path
-  ) {
-
-    try {
-
-      if (!path) {
-
-        alert(
-          "Screenshot hin jiru."
+        return text.includes(
+          search
         );
 
-        return;
       }
+    );
 
 
-      const {
-        data,
-        error
-      } = await supabaseClient
-        .storage
-        .from("payment-proofs")
-        .createSignedUrl(
-          path,
-          60 * 10
-        );
+  body.innerHTML = "";
 
 
-      if (error) {
-        throw error;
+  if (
+    filtered.length === 0
+  ) {
+
+    empty.style.display =
+      "block";
+
+    return;
+
+  }
+
+
+  empty.style.display =
+    "none";
+
+
+  filtered.forEach(
+    (student, index) => {
+
+      const status =
+        getStatus(student);
+
+
+      let statusClass =
+        "status-unpaid";
+
+
+      if (
+        status === "PAID"
+      ) {
+
+        statusClass =
+          "status-paid";
+
       }
 
 
       if (
-        !data ||
-        !data.signedUrl
+        status === "PENDING"
       ) {
 
-        throw new Error(
-          "Screenshot URL hin argamne."
-        );
+        statusClass =
+          "status-pending";
+
       }
 
 
-      document.getElementById(
-        "screenshotImage"
-      ).src =
-        data.signedUrl;
+      const fullname =
+        student.fullname ||
+        student["Full name"] ||
+        "-";
 
 
-      document.getElementById(
-        "imageModal"
-      ).style.display =
-        "flex";
+      const fathername =
+        student.fathername ||
+        "-";
 
 
-    } catch (error) {
+      const gender =
+        student.gender ||
+        "-";
 
-      console.error(error);
 
-      showMessage(
-        "Screenshot banuu hin dandeenye: " +
-        error.message,
-        "error"
-      );
+      const age =
+        student.age ||
+        "-";
+
+
+      const phone =
+        student.phone ||
+        "-";
+
+
+      const email =
+        student.email ||
+        "-";
+
+
+      const course =
+        student.course ||
+        "-";
+
+
+      const address =
+        student.other_address ||
+        student.address ||
+        "-";
+
+
+      const amount =
+        student.payment_amount != null
+          ? Number(
+              student.payment_amount
+            ).toLocaleString() +
+            " ETB"
+          : "-";
+
+
+      const method =
+        student.payment_method ||
+        "-";
+
+
+      const paidTime =
+        student.paid_at
+          ? new Date(
+              student.paid_at
+            ).toLocaleString()
+          : "-";
+
+
+      const screenshot =
+        student.payment_screenshot_url
+          ? `
+              <button
+                class="viewBtn"
+                onclick="viewScreenshot('${escapeJS(student.payment_screenshot_url)}')">
+                View
+              </button>
+            `
+          : "-";
+
+
+      const action =
+        status === "PAID"
+          ? `
+              <button
+                class="paidBtn"
+                disabled>
+                ✓ PAID
+              </button>
+            `
+          : `
+              <button
+                class="paidBtn"
+                onclick="markPaid('${escapeJS(student.id)}')">
+                PAID
+              </button>
+            `;
+
+
+      const tr =
+        document.createElement(
+          "tr"
+        );
+
+
+      tr.innerHTML = `
+
+        <td>
+          ${index + 1}
+        </td>
+
+        <td>
+          ${escapeHTML(fullname)}
+        </td>
+
+        <td>
+          ${escapeHTML(fathername)}
+        </td>
+
+        <td>
+          ${escapeHTML(gender)}
+        </td>
+
+        <td>
+          ${escapeHTML(age)}
+        </td>
+
+        <td>
+          ${escapeHTML(phone)}
+        </td>
+
+        <td>
+          ${escapeHTML(email)}
+        </td>
+
+        <td>
+          ${escapeHTML(course)}
+        </td>
+
+        <td>
+          ${escapeHTML(address)}
+        </td>
+
+        <td>
+          ${escapeHTML(amount)}
+        </td>
+
+        <td>
+          ${escapeHTML(method)}
+        </td>
+
+        <td>
+
+          <span
+            class="status ${statusClass}">
+            ${escapeHTML(status)}
+          </span>
+
+        </td>
+
+        <td>
+          ${screenshot}
+        </td>
+
+        <td>
+          ${escapeHTML(paidTime)}
+        </td>
+
+        <td>
+          ${action}
+        </td>
+
+      `;
+
+
+      body.appendChild(tr);
+
     }
+  );
+
+}
+
+
+/* =========================
+   MARK PAID
+========================= */
+
+async function markPaid(id) {
+
+  const ok =
+    confirm(
+      "Payment kana mirkaneessitee PAID gochuu barbaaddaa?"
+    );
+
+
+  if (!ok) {
+    return;
   }
 
 
-  // =========================
-  // CLOSE MODAL
-  // =========================
+  try {
 
-  function closeModal() {
+    const {
+      error
+    } =
+      await supabaseClient
+        .from("Students")
+        .update({
+          payment_status:
+            "PAID",
 
-    document.getElementById(
-      "imageModal"
-    ).style.display =
-      "none";
+          paid_at:
+            new Date()
+              .toISOString()
+        })
+        .eq(
+          "id",
+          id
+        );
+
+
+    if (error) {
+      throw error;
+    }
+
+
+    showMessage(
+      "Payment PAID godhameera.",
+      "success"
+    );
+
+
+    await loadStudents();
+
+
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+
+    showMessage(
+      "PAID gochuu hin dandeenye: " +
+      error.message,
+      "error"
+    );
+
+  }
+
+}
+
+
+/* =========================
+   SCREENSHOT
+========================= */
+
+async function viewScreenshot(
+  path
+) {
+
+  try {
+
+    if (!path) {
+
+      throw new Error(
+        "Screenshot hin jiru."
+      );
+
+    }
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient
+        .storage
+        .from(
+          "payment-proofs"
+        )
+        .createSignedUrl(
+          path,
+          600
+        );
+
+
+    if (error) {
+      throw error;
+    }
+
+
+    if (
+      !data ||
+      !data.signedUrl
+    ) {
+
+      throw new Error(
+        "Screenshot URL hin argamne."
+      );
+
+    }
 
 
     document.getElementById(
       "screenshotImage"
-    ).src = "";
+    ).src =
+      data.signedUrl;
+
+
+    document.getElementById(
+      "imageModal"
+    ).style.display =
+      "flex";
+
+
+  } catch (error) {
+
+    console.error(
+      "SCREENSHOT ERROR:",
+      error
+    );
+
+
+    showMessage(
+      "Screenshot banuu hin dandeenye: " +
+      error.message,
+      "error"
+    );
+
   }
 
+}
 
-  // =========================
-  // LOGOUT
-  // =========================
 
-  async function logout() {
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal() {
+
+  document.getElementById(
+    "imageModal"
+  ).style.display =
+    "none";
+
+
+  document.getElementById(
+    "screenshotImage"
+  ).src =
+    "";
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+async function logout() {
+
+  try {
 
     await supabaseClient.auth.signOut();
 
+  } finally {
+
     window.location.href =
-      "admin.html";
+      "index.html";
+
   }
 
-
-  // =========================
-  // MESSAGE
-  // =========================
-
-  function showMessage(
-    text,
-    type
-  ) {
-
-    const message =
-      document.getElementById(
-        "message"
-      );
+}
 
 
-    message.textContent =
-      text;
+/* =========================
+   SECURITY
+========================= */
+
+function escapeHTML(value) {
+
+  return String(
+    value ?? ""
+  )
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
 
 
-    message.style.display =
-      "block";
+function escapeJS(value) {
+
+  return String(
+    value ?? ""
+  )
+    .replace(
+      /\\/g,
+      "\\\\"
+    )
+    .replace(
+      /'/g,
+      "\\'"
+    );
+
+}
 
 
-    if (type === "success") {
+/* =========================
+   START
+========================= */
 
-      message.style.background =
-        "#065f46";
+async function startAdmin() {
 
-    } else {
-
-      message.style.background =
-        "#7f1d1d";
-    }
-  }
-
-
-  function hideMessage() {
-
+  const loading =
     document.getElementById(
-      "message"
-    ).style.display =
-      "none";
+      "loading"
+    );
+
+
+  loading.style.display =
+    "block";
+
+
+  const isAdmin =
+    await checkAdmin();
+
+
+  if (!isAdmin) {
+    return;
   }
 
 
-  // =========================
-  // SECURITY HELPERS
-  // =========================
+  await loadStudents();
 
-  function escapeHTML(value) {
-
-    return String(value ?? "")
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-      .replace(
-        /</g,
-        "&lt;"
-      )
-      .replace(
-        />/g,
-        "&gt;"
-      )
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-      .replace(
-        /'/g,
-        "&#039;"
-      );
-  }
+}
 
 
-  function escapeJS(value) {
-
-    return String(value ?? "")
-      .replace(
-        /\\/g,
-        "\\\\"
-      )
-      .replace(
-        /'/g,
-        "\\'"
-      );
-  }
+startAdmin();
 
 
-  // =========================
-  // START
-  // =========================
+/* =========================
+   MODAL CLICK
+========================= */
 
-  async function startAdmin() {
-
-    const isAdmin =
-      await checkAdmin();
-
-
-    if (!isAdmin) {
-      return;
-    }
-
-
-    await loadStudents();
-  }
-
-
-  startAdmin();
-
-
-  // Modal keessaa ala tuqnaan cufi
-  document.getElementById(
+document
+  .getElementById(
     "imageModal"
-  ).addEventListener(
+  )
+  .addEventListener(
     "click",
     function(event) {
 
       if (
         event.target === this
       ) {
+
         closeModal();
+
       }
 
     }

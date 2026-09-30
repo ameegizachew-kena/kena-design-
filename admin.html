@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="om">
-
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Kena Design Admin</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -23,289 +16,427 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #222;
+      background: #f1f5f9;
+      color: #111827;
     }
 
     .container {
+      width: 96%;
       max-width: 1500px;
-      margin: auto;
-      padding: 20px;
+      margin: 20px auto;
     }
 
     .card {
       background: white;
-      padding: 20px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.07);
+      border-radius: 24px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     h1 {
-      margin-top: 0;
+      margin: 0;
+      font-size: 38px;
     }
 
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 10px;
-      background: #087f3f;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 5px;
-    }
-
-    button:hover {
-      opacity: .9;
-    }
-
-    button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .logout {
-      background: #b00020;
-      float: right;
-    }
-
-    .count {
+    .subtitle {
+      margin-top: 12px;
       font-size: 24px;
       font-weight: bold;
     }
 
-    .table-wrap {
+    button {
+      border: 0;
+      cursor: pointer;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    .logout {
+      background: #c4002f;
+      color: white;
+      padding: 15px 25px;
+      font-size: 18px;
+    }
+
+    .refresh {
+      background: #2563eb;
+      color: white;
+      padding: 12px 18px;
+      font-size: 16px;
+    }
+
+    .search {
+      width: 100%;
+      padding: 17px;
+      border: 1px solid #d1d5db;
+      border-radius: 15px;
+      font-size: 17px;
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: #059669;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 32px;
+      margin-top: 8px;
+    }
+
+    .total {
+      background: #e0f2fe;
+      color: #075985;
+    }
+
+    .paidStat {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .pendingStat {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .unpaidStat {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .filterBtn {
+      padding: 12px 18px;
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .filterBtn.active {
+      background: #047857;
+      color: white;
+    }
+
+    .tableWrap {
+      width: 100%;
       overflow-x: auto;
+      border-radius: 15px;
     }
 
     table {
       width: 100%;
+      min-width: 1500px;
       border-collapse: collapse;
-      min-width: 1700px;
+      background: white;
     }
 
-    th,
-    td {
-      padding: 12px;
-      border-bottom: 1px solid #eee;
+    th {
+      background: #f1f5f9;
+      padding: 15px;
       text-align: left;
+      white-space: nowrap;
+      font-size: 15px;
+    }
+
+    td {
+      padding: 14px;
+      border-bottom: 1px solid #e5e7eb;
       white-space: nowrap;
       vertical-align: middle;
     }
 
-    th {
-      background: #f1f4f6;
+    tr:hover {
+      background: #f8fafc;
     }
 
-    .paid {
+    .status {
       display: inline-block;
-      padding: 5px 9px;
+      padding: 8px 13px;
       border-radius: 20px;
-      background: #dff7e5;
-      color: #087f3f;
       font-weight: bold;
+      font-size: 13px;
     }
 
-    .pending {
-      display: inline-block;
-      padding: 5px 9px;
-      border-radius: 20px;
-      background: #fff3cd;
-      color: #856404;
-      font-weight: bold;
+    .status-paid {
+      background: #dcfce7;
+      color: #166534;
     }
 
-    .unpaid {
-      display: inline-block;
-      padding: 5px 9px;
-      border-radius: 20px;
-      background: #ffe6e6;
-      color: #b00020;
-      font-weight: bold;
+    .status-pending {
+      background: #fef3c7;
+      color: #92400e;
     }
 
-    .view-btn {
-      background: #1769aa;
+    .status-unpaid {
+      background: #fee2e2;
+      color: #991b1b;
     }
 
-    .paid-btn {
-      background: #087f3f;
+    .paidBtn {
+      background: #059669;
+      color: white;
+      padding: 11px 18px;
+      font-size: 14px;
     }
 
-    .already-paid {
-      color: #087f3f;
+    .paidBtn:disabled {
+      background: #86efac;
+      color: #166534;
+      cursor: default;
+    }
+
+    .viewBtn {
+      background: #2563eb;
+      color: white;
+      padding: 10px 17px;
+      font-size: 14px;
+    }
+
+    .message {
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      display: none;
       font-weight: bold;
     }
 
     .error {
-      color: #b00020;
-      margin-top: 10px;
+      background: #fee2e2;
+      color: #991b1b;
     }
 
-    #adminArea {
-      display: none;
+    .success {
+      background: #dcfce7;
+      color: #166534;
     }
 
+    .loading {
+      text-align: center;
+      padding: 30px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+      font-weight: bold;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        width: 94%;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .subtitle {
+        font-size: 21px;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stat strong {
+        font-size: 26px;
+      }
+
+      .logout {
+        padding: 12px 18px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .stat {
+        padding: 14px 8px;
+      }
+
+      .stat strong {
+        font-size: 23px;
+      }
+    }
   </style>
-
 </head>
-
 
 <body>
 
 <div class="container">
 
+  <div class="card">
+    <div class="top">
+      <div>
+        <h1>Kena Design Admin</h1>
+        <div class="subtitle">
+          Barattoota: <span id="totalTop">0</span>
+        </div>
+      </div>
 
-  <!-- LOGIN -->
+      <div>
+        <button class="refresh" onclick="loadStudents()">
+          ↻ Refresh
+        </button>
 
-  <div
-    id="loginArea"
-    class="card"
-  >
+        <button class="logout" onclick="logout()">
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
 
-    <h1>Kena Design Admin</h1>
+  <div id="message" class="message"></div>
 
-    <p>
-      Admin account kee seeni.
-    </p>
+  <div class="card">
 
     <input
-      id="email"
-      type="email"
-      placeholder="Admin Email"
+      id="search"
+      class="search"
+      type="text"
+      placeholder="Maqaa, phone, course, status, address barbaadi..."
+      oninput="renderStudents()"
     >
 
-    <input
-      id="password"
-      type="password"
-      placeholder="Password"
-    >
+    <div class="filters">
 
-    <button onclick="login()">
-      Login
-    </button>
+      <button
+        class="filterBtn active"
+        id="allBtn"
+        onclick="setFilter('ALL')">
+        Hunda
+      </button>
 
-    <div
-      id="loginError"
-      class="error"
-    ></div>
+      <button
+        class="filterBtn"
+        id="paidBtnFilter"
+        onclick="setFilter('PAID')">
+        🟢 PAID
+      </button>
+
+      <button
+        class="filterBtn"
+        id="pendingBtnFilter"
+        onclick="setFilter('PENDING')">
+        🟡 PENDING
+      </button>
+
+      <button
+        class="filterBtn"
+        id="unpaidBtnFilter"
+        onclick="setFilter('UNPAID')">
+        🔴 UNPAID
+      </button>
+
+    </div>
 
   </div>
 
+  <div class="card">
 
+    <div class="stats">
 
-  <!-- ADMIN AREA -->
+      <div class="stat total">
+        Total
+        <strong id="totalCount">0</strong>
+      </div>
 
-  <div id="adminArea">
+      <div class="stat paidStat">
+        Paid
+        <strong id="paidCount">0</strong>
+      </div>
 
+      <div class="stat pendingStat">
+        Pending
+        <strong id="pendingCount">0</strong>
+      </div>
 
-    <div class="card">
-
-      <button
-        class="logout"
-        onclick="logout()"
-      >
-        Logout
-      </button>
-
-      <h1>
-        Kena Design Admin
-      </h1>
-
-      <div class="count">
-
-        Barattoota:
-        <span id="studentCount">
-          0
-        </span>
-
+      <div class="stat unpaidStat">
+        Unpaid
+        <strong id="unpaidCount">0</strong>
       </div>
 
     </div>
 
+  </div>
 
+  <div class="card">
 
-    <!-- SEARCH -->
+    <div id="loading" class="loading">
+      Loading...
+    </div>
 
-    <div class="card">
+    <div class="tableWrap">
 
-      <input
-        id="search"
-        type="text"
-        placeholder="Maqaa, phone, course, reference, status barbaadi..."
-        oninput="filterStudents()"
-      >
+      <table id="studentsTable" style="display:none;">
+
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Full Name</th>
+            <th>Father Name</th>
+            <th>Gender</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Address</th>
+            <th>Amount</th>
+            <th>Method</th>
+            <th>Reference</th>
+            <th>Status</th>
+            <th>Screenshot</th>
+            <th>Paid Time</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody id="studentsBody"></tbody>
+
+      </table>
 
     </div>
 
-
-
-    <!-- TABLE -->
-
-    <div class="card">
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-
-              <th>#</th>
-
-              <th>Full Name</th>
-
-              <th>Father Name</th>
-
-              <th>Gender</th>
-
-              <th>Age</th>
-
-              <th>Phone</th>
-
-              <th>Email</th>
-
-              <th>Course</th>
-
-              <th>Address</th>
-
-              <th>Payment Status</th>
-
-              <th>Amount</th>
-
-              <th>Method</th>
-
-              <th>Reference</th>
-
-              <th>Screenshot</th>
-
-              <th>Paid Time</th>
-
-              <th>Action</th>
-
-            </tr>
-
-          </thead>
-
-
-          <tbody
-            id="studentTable"
-          ></tbody>
-
-        </table>
-
-      </div>
-
+    <div id="empty" class="empty" style="display:none;">
+      Barataa hin argamne.
     </div>
 
   </div>
@@ -313,851 +444,627 @@
 </div>
 
 
-
 <script>
 
+const SUPABASE_URL =
+  "https://baoczizarrnzxwguyili.supabase.co";
 
-  // =====================================================
-  // SUPABASE
-  // =====================================================
+const SUPABASE_KEY =
+  "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
 
-  const SUPABASE_URL =
-    "https://baoczizarrnzxwguyili.supabase.co";
+const ADMIN_EMAIL =
+  "ameegizachew@gmail.com";
 
-  const SUPABASE_KEY =
-    "sb_publishable_IxQVHwajIHpNgK642UzfYw_2S-WHkui";
-
-
-  const supabaseClient =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
-    );
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
-  let students = [];
+let students = [];
+let currentFilter = "ALL";
 
 
+function showMessage(text, type = "error") {
 
-  // =====================================================
-  // LOGIN
-  // =====================================================
+  const box = document.getElementById("message");
 
-  async function login() {
+  box.textContent = text;
 
-    const email =
-      document
-        .getElementById("email")
-        .value
-        .trim();
+  box.className =
+    "message " + type;
+
+  box.style.display = "block";
+
+  setTimeout(() => {
+    box.style.display = "none";
+  }, 5000);
+}
 
 
-    const password =
-      document
-        .getElementById("password")
-        .value;
+async function checkAdmin() {
 
+  const {
+    data,
+    error
+  } = await supabaseClient.auth.getUser();
+
+  if (
+    error ||
+    !data ||
+    !data.user
+  ) {
+    window.location.href = "index.html";
+    return false;
+  }
+
+  if (
+    data.user.email.toLowerCase() !==
+    ADMIN_EMAIL.toLowerCase()
+  ) {
+    await supabaseClient.auth.signOut();
+    window.location.href = "index.html";
+    return false;
+  }
+
+  return true;
+}
+
+
+async function loadStudents() {
+
+  document.getElementById("loading").style.display =
+    "block";
+
+  document.getElementById("studentsTable").style.display =
+    "none";
+
+  try {
 
     const {
+      data,
       error
-    } =
-      await supabaseClient.auth
-        .signInWithPassword({
-
-          email,
-          password
-
-        });
-
+    } = await supabaseClient
+      .from("Students")
+      .select("*")
+      .order("created_at", {
+        ascending: false
+      });
 
     if (error) {
-
-      document
-        .getElementById("loginError")
-        .textContent =
-          error.message;
-
-      return;
-
+      throw error;
     }
 
+    students = data || [];
 
-    showAdmin();
+    updateStats();
+
+    renderStudents();
+
+  } catch (error) {
+
+    console.error(error);
+
+    showMessage(
+      "Barattoota fiduu hin dandeenye: " +
+      error.message,
+      "error"
+    );
+
+  } finally {
+
+    document.getElementById("loading").style.display =
+      "none";
+
+    document.getElementById("studentsTable").style.display =
+      "table";
+  }
+}
+
+
+function getStatus(student) {
+
+  const status =
+    String(
+      student.payment_status || ""
+    ).toUpperCase();
+
+  if (status === "PAID") {
+    return "PAID";
+  }
+
+  if (status === "PENDING") {
+    return "PENDING";
+  }
+
+  return "UNPAID";
+}
+
+
+function updateStats() {
+
+  const total = students.length;
+
+  const paid =
+    students.filter(
+      s => getStatus(s) === "PAID"
+    ).length;
+
+  const pending =
+    students.filter(
+      s => getStatus(s) === "PENDING"
+    ).length;
+
+  const unpaid =
+    students.filter(
+      s => getStatus(s) === "UNPAID"
+    ).length;
+
+
+  document.getElementById("totalTop").textContent =
+    total;
+
+  document.getElementById("totalCount").textContent =
+    total;
+
+  document.getElementById("paidCount").textContent =
+    paid;
+
+  document.getElementById("pendingCount").textContent =
+    pending;
+
+  document.getElementById("unpaidCount").textContent =
+    unpaid;
+}
+
+
+function setFilter(filter) {
+
+  currentFilter = filter;
+
+  document
+    .querySelectorAll(".filterBtn")
+    .forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+
+  if (filter === "ALL") {
+    document
+      .getElementById("allBtn")
+      .classList.add("active");
+  }
+
+  if (filter === "PAID") {
+    document
+      .getElementById("paidBtnFilter")
+      .classList.add("active");
+  }
+
+  if (filter === "PENDING") {
+    document
+      .getElementById("pendingBtnFilter")
+      .classList.add("active");
+  }
+
+  if (filter === "UNPAID") {
+    document
+      .getElementById("unpaidBtnFilter")
+      .classList.add("active");
+  }
+
+  renderStudents();
+}
+
+
+function renderStudents() {
+
+  const body =
+    document.getElementById("studentsBody");
+
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  let filtered =
+    students.filter(student => {
+
+      const status =
+        getStatus(student);
+
+      if (
+        currentFilter !== "ALL" &&
+        status !== currentFilter
+      ) {
+        return false;
+      }
+
+
+      if (!search) {
+        return true;
+      }
+
+
+      const text = [
+
+        student.fullname,
+        student["Full name"],
+        student.fathername,
+        student.gender,
+        student.age,
+        student.phone,
+        student.email,
+        student.course,
+        student.address,
+        student.other_address,
+        student.payment_method,
+        student.payment_reference,
+        student.payment_tx_ref,
+        student.payment_status
+
+      ]
+      .join(" ")
+      .toLowerCase();
+
+
+      return text.includes(search);
+
+    });
+
+
+  body.innerHTML = "";
+
+
+  if (filtered.length === 0) {
+
+    document.getElementById("empty").style.display =
+      "block";
+
+    return;
 
   }
 
 
-
-  // =====================================================
-  // SHOW ADMIN
-  // =====================================================
-
-  async function showAdmin() {
-
-    document
-      .getElementById("loginArea")
-      .style.display =
-        "none";
+  document.getElementById("empty").style.display =
+    "none";
 
 
-    document
-      .getElementById("adminArea")
-      .style.display =
-        "block";
+  filtered.forEach((student, index) => {
+
+    const status =
+      getStatus(student);
+
+    const tr =
+      document.createElement("tr");
+
+
+    const amount =
+      student.payment_amount != null
+        ? Number(student.payment_amount).toLocaleString() +
+          " ETB"
+        : "-";
+
+
+    const method =
+      student.payment_method ||
+      "-";
+
+
+    const reference =
+      student.payment_reference ||
+      student.payment_tx_ref ||
+      "-";
+
+
+    const paidTime =
+      student.paid_at
+        ? new Date(
+            student.paid_at
+          ).toLocaleString()
+        : "-";
+
+
+    let screenshotHTML = "-";
+
+
+    if (
+      student.payment_screenshot_url
+    ) {
+
+      screenshotHTML = `
+        <button
+          class="viewBtn"
+          onclick="viewScreenshot('${escapeAttr(
+            student.payment_screenshot_url
+          )}')">
+          View
+        </button>
+      `;
+
+    }
+
+
+    let actionHTML = "-";
+
+
+    if (status === "PAID") {
+
+      actionHTML = `
+        <span
+          style="
+            color:#059669;
+            font-weight:bold;
+            font-size:16px;
+          ">
+          ✓ Paid
+        </span>
+      `;
+
+    } else {
+
+      actionHTML = `
+        <button
+          class="paidBtn"
+          onclick="markPaid('${student.id}')">
+          PAID
+        </button>
+      `;
+
+    }
+
+
+    tr.innerHTML = `
+
+      <td>${index + 1}</td>
+
+      <td>
+        ${escapeHTML(
+          student.fullname ||
+          student["Full name"] ||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.fathername || "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.gender || "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.age ?? "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.phone || "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.email || "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.course || "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(
+          student.address ||
+          student.other_address ||
+          "-"
+        )}
+      </td>
+
+      <td>
+        ${escapeHTML(amount)}
+      </td>
+
+      <td>
+        ${escapeHTML(method)}
+      </td>
+
+      <td>
+        ${escapeHTML(reference)}
+      </td>
+
+      <td>
+        <span class="status status-${status.toLowerCase()}">
+          ${status}
+        </span>
+      </td>
+
+      <td>
+        ${screenshotHTML}
+      </td>
+
+      <td>
+        ${escapeHTML(paidTime)}
+      </td>
+
+      <td>
+        ${actionHTML}
+      </td>
+
+    `;
+
+
+    body.appendChild(tr);
+
+  });
+
+}
+
+
+async function markPaid(id) {
+
+  const ok =
+    confirm(
+      "Kaffaltii barataa kana mirkaneessitee PAID gochuu barbaaddaa?"
+    );
+
+  if (!ok) {
+    return;
+  }
+
+
+  try {
+
+    const {
+      error
+    } = await supabaseClient
+      .from("Students")
+      .update({
+        payment_status: "PAID",
+        paid_at: new Date().toISOString()
+      })
+      .eq("id", id);
+
+
+    if (error) {
+      throw error;
+    }
+
+
+    showMessage(
+      "Payment PAID godhameera.",
+      "success"
+    );
 
 
     await loadStudents();
 
-  }
+  } catch (error) {
 
+    console.error(error);
 
-
-  // =====================================================
-  // LOAD STUDENTS
-  // =====================================================
-
-  async function loadStudents() {
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient
-        .from("Students")
-        .select("*")
-        .order(
-          "created_at",
-          {
-            ascending: false
-          }
-        );
-
-
-    if (error) {
-
-      alert(
-        "Dogoggora: " +
-        error.message
-      );
-
-      return;
-
-    }
-
-
-    students =
-      data || [];
-
-
-    document
-      .getElementById("studentCount")
-      .textContent =
-        students.length;
-
-
-    renderStudents(
-      students
+    showMessage(
+      "PAID gochuu hin dandeenye: " +
+      error.message,
+      "error"
     );
 
   }
 
+}
 
 
-  // =====================================================
-  // GET STORAGE PATH
-  // =====================================================
+async function viewScreenshot(path) {
 
-  function getStoragePath(url) {
-
-    if (!url) {
-      return null;
-    }
-
-
-    try {
-
-      const marker =
-        "/storage/v1/object/public/payment-proofs/";
-
-
-      if (
-        url.includes(marker)
-      ) {
-
-        return decodeURIComponent(
-          url.split(marker)[1]
-        );
-
-      }
-
-
-      /*
-        Yoo gara fuulduraatti
-        payment_screenshot_url
-        keessatti object path qofa
-        yoo kuufame:
-        fakkeenya:
-        abc123/screenshot.jpg
-      */
-
-      if (
-        !url.startsWith("http")
-      ) {
-
-        return url;
-
-      }
-
-
-    } catch (e) {
-
-      console.error(e);
-
-    }
-
-
-    return null;
-
-  }
-
-
-
-  // =====================================================
-  // CREATE PRIVATE SIGNED URL
-  // =====================================================
-
-  async function createScreenshotUrl(
-    student
-  ) {
-
-    const original =
-      student.payment_screenshot_url;
-
-
-    const path =
-      getStoragePath(
-        original
-      );
-
-
-    if (!path) {
-
-      return null;
-
-    }
-
+  try {
 
     const {
       data,
       error
-    } =
-      await supabaseClient
-        .storage
-        .from("payment-proofs")
-        .createSignedUrl(
-          path,
-          300
-        );
+    } = await supabaseClient
+      .storage
+      .from("payment-proofs")
+      .createSignedUrl(
+        path,
+        60 * 10
+      );
 
 
     if (error) {
-
-      console.error(
-        "Signed URL error:",
-        error.message
-      );
-
-      return null;
-
-    }
-
-
-    return data?.signedUrl || null;
-
-  }
-
-
-
-  // =====================================================
-  // VIEW SCREENSHOT
-  // =====================================================
-
-  async function viewScreenshot(
-    studentId
-  ) {
-
-    const student =
-      students.find(
-        s =>
-          String(s.id) ===
-          String(studentId)
-      );
-
-
-    if (!student) {
-
-      alert(
-        "Student hin argamne."
-      );
-
-      return;
-
+      throw error;
     }
 
 
     if (
-      !student.payment_screenshot_url
+      !data ||
+      !data.signedUrl
     ) {
-
-      alert(
-        "Screenshot hin jiru."
+      throw new Error(
+        "Screenshot URL hin uumamne."
       );
-
-      return;
-
-    }
-
-
-    const button =
-      document.getElementById(
-        "view-" + studentId
-      );
-
-
-    if (button) {
-
-      button.disabled = true;
-
-      button.textContent =
-        "Opening...";
-
-    }
-
-
-    const signedUrl =
-      await createScreenshotUrl(
-        student
-      );
-
-
-    if (button) {
-
-      button.disabled = false;
-
-      button.textContent =
-        "View";
-
-    }
-
-
-    if (!signedUrl) {
-
-      alert(
-        "Screenshot banamee jira ykn URL isaa sirrii miti."
-      );
-
-      return;
-
     }
 
 
     window.open(
-      signedUrl,
-      "_blank",
-      "noopener,noreferrer"
+      data.signedUrl,
+      "_blank"
+    );
+
+  } catch (error) {
+
+    console.error(error);
+
+    showMessage(
+      "Screenshot banuu hin dandeenye: " +
+      error.message,
+      "error"
     );
 
   }
 
+}
 
 
-  // =====================================================
-  // RENDER STUDENTS
-  // =====================================================
+async function logout() {
 
-  function renderStudents(
-    list
-  ) {
+  await supabaseClient.auth.signOut();
 
-    const table =
-      document
-        .getElementById(
-          "studentTable"
-        );
+  window.location.href =
+    "index.html";
+}
 
 
-    table.innerHTML = "";
+function escapeHTML(value) {
 
-
-    list.forEach(
-      (student, index) => {
-
-        const tr =
-          document.createElement(
-            "tr"
-          );
-
-
-        const status =
-          String(
-            student.payment_status ||
-            "PENDING"
-          ).toUpperCase();
-
-
-        let statusClass =
-          "pending";
-
-
-        if (
-          status === "PAID"
-        ) {
-
-          statusClass =
-            "paid";
-
-        }
-
-
-        if (
-          status === "UNPAID"
-        ) {
-
-          statusClass =
-            "unpaid";
-
-        }
-
-
-        const amount =
-          student.payment_amount
-            ? Number(
-                student.payment_amount
-              ).toLocaleString()
-            : "-";
-
-
-        const paidTime =
-          student.paid_at
-            ? new Date(
-                student.paid_at
-              ).toLocaleString()
-            : "-";
-
-
-        let screenshotHtml =
-          "-";
-
-
-        if (
-          student.payment_screenshot_url
-        ) {
-
-          screenshotHtml = `
-
-            <button
-              id="view-${student.id}"
-              class="view-btn"
-              type="button"
-              onclick="viewScreenshot('${student.id}')"
-            >
-              View
-            </button>
-
-          `;
-
-        }
-
-
-        let actionHtml =
-          "-";
-
-
-        if (
-          status === "PENDING"
-        ) {
-
-          actionHtml = `
-
-            <button
-              class="paid-btn"
-              type="button"
-              onclick="markAsPaid('${student.id}')"
-            >
-              PAID
-            </button>
-
-          `;
-
-        }
-
-
-        if (
-          status === "PAID"
-        ) {
-
-          actionHtml = `
-
-            <span
-              class="already-paid"
-            >
-              ✓ Paid
-            </span>
-
-          `;
-
-        }
-
-
-        tr.innerHTML = `
-
-          <td>
-            ${index + 1}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.fullname
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.fathername
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.gender
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.age
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.phone
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.email || "-"
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.course
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.address
-            )}
-          </td>
-
-          <td>
-
-            <span
-              class="${statusClass}"
-            >
-              ${escapeHtml(status)}
-            </span>
-
-          </td>
-
-          <td>
-            ${amount} ETB
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.payment_method ||
-              "-"
-            )}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              student.payment_reference ||
-              "-"
-            )}
-          </td>
-
-          <td>
-            ${screenshotHtml}
-          </td>
-
-          <td>
-            ${escapeHtml(
-              paidTime
-            )}
-          </td>
-
-          <td>
-            ${actionHtml}
-          </td>
-
-        `;
-
-
-        table.appendChild(tr);
-
-      }
-    );
-
+  if (value === null ||
+      value === undefined) {
+    return "";
   }
 
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 
-  // =====================================================
-  // MARK AS PAID
-  // =====================================================
+function escapeAttr(value) {
 
-  async function markAsPaid(
-    studentId
-  ) {
-
-    const student =
-      students.find(
-        s =>
-          String(s.id) ===
-          String(studentId)
-      );
+  return String(value)
+    .replace(/\\/g, "\\\\")
+    .replace(/'/g, "\\'");
+}
 
 
-    if (!student) {
+(async function() {
 
-      alert(
-        "Student hin argamne."
-      );
+  const isAdmin =
+    await checkAdmin();
 
-      return;
-
-    }
-
-
-    const confirmation =
-      confirm(
-        "Payment kana mirkaneessitee PAID gochuu barbaaddaa?"
-      );
-
-
-    if (!confirmation) {
-
-      return;
-
-    }
-
-
-    const {
-      error
-    } =
-      await supabaseClient
-        .from("Students")
-        .update({
-
-          payment_status:
-            "PAID",
-
-          paid_at:
-            new Date().toISOString()
-
-        })
-        .eq(
-          "id",
-          studentId
-        );
-
-
-    if (error) {
-
-      alert(
-        "Payment update hin milkoofne:\n" +
-        error.message
-      );
-
-      return;
-
-    }
-
-
-    alert(
-      "Payment PAID godhameera."
-    );
-
-
-    await loadStudents();
-
+  if (!isAdmin) {
+    return;
   }
 
+  await loadStudents();
 
-
-  // =====================================================
-  // SEARCH
-  // =====================================================
-
-  function filterStudents() {
-
-    const q =
-      document
-        .getElementById("search")
-        .value
-        .toLowerCase()
-        .trim();
-
-
-    if (!q) {
-
-      renderStudents(
-        students
-      );
-
-      return;
-
-    }
-
-
-    const filtered =
-      students.filter(
-        student => {
-
-          const text = [
-
-            student.fullname,
-
-            student.fathername,
-
-            student.phone,
-
-            student.email,
-
-            student.course,
-
-            student.address,
-
-            student.payment_status,
-
-            student.payment_method,
-
-            student.payment_reference,
-
-            student.payment_amount
-
-          ]
-            .filter(Boolean)
-            .join(" ")
-            .toLowerCase();
-
-
-          return text.includes(q);
-
-        }
-      );
-
-
-    renderStudents(
-      filtered
-    );
-
-  }
-
-
-
-  // =====================================================
-  // HTML ESCAPE
-  // =====================================================
-
-  function escapeHtml(
-    value
-  ) {
-
-    return String(
-      value ?? ""
-    )
-
-      .replace(
-        /&/g,
-        "&amp;"
-      )
-
-      .replace(
-        /</g,
-        "&lt;"
-      )
-
-      .replace(
-        />/g,
-        "&gt;"
-      )
-
-      .replace(
-        /"/g,
-        "&quot;"
-      )
-
-      .replace(
-        /'/g,
-        "&#039;"
-      );
-
-  }
-
-
-
-  // =====================================================
-  // LOGOUT
-  // =====================================================
-
-  async function logout() {
-
-    await supabaseClient.auth
-      .signOut();
-
-
-    location.reload();
-
-  }
-
-
-
-  // =====================================================
-  // EXISTING SESSION
-  // =====================================================
-
-  async function checkSession() {
-
-    const {
-      data
-    } =
-      await supabaseClient.auth
-        .getSession();
-
-
-    if (
-      data &&
-      data.session
-    ) {
-
-      showAdmin();
-
-    }
-
-  }
-
-
-  checkSession();
-
+})();
 
 </script>
 
 </body>
-
-  </html>
+</html>

@@ -1,117 +1,1176 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kena Design Learning — Graphic Design</title>
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background:#07111f;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  line-height:1.7;
-}
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:20px;
-}
-.header{
-  text-align:center;
-  padding:25px 15px;
-  border-bottom:1px solid #26384d;
-}
-.header h1{color:#32d583;margin:0;font-size:30px}
-.header p{color:#b9c4d2;font-size:18px}
-.card{
-  background:#101c2c;
-  border:1px solid #32d583;
-  border-radius:20px;
-  padding:22px;
-  margin:22px 0;
-}
-.card h2{color:#32d583;margin-top:0}
-.assignment-preview{
-  margin-top:18px;
-  position:relative;
-  cursor:pointer;
-  border:2px solid #32d583;
-  border-radius:18px;
-  overflow:hidden;
-  background:#07111f;
-}
-.assignment-preview img{
-  width:100%;
-  display:block;
-  max-height:650px;
-  object-fit:contain;
-}
-.click-hint{
-  position:absolute;
-  bottom:12px;
-  left:50%;
-  transform:translateX(-50%);
-  background:rgba(0,0,0,.78);
-  color:#fff;
-  padding:8px 16px;
-  border-radius:22px;
-  font-size:14px;
-  white-space:nowrap;
-}
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  background:rgba(0,0,0,.94);
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-.modal.show{display:flex}
-.modal img{
-  max-width:96vw;
-  max-height:90vh;
-  object-fit:contain;
-  border-radius:15px;
-}
-.close{
-  position:absolute;
-  top:8px;
-  right:20px;
-  color:#fff;
-  font-size:48px;
-  cursor:pointer;
-  line-height:1;
-}
-@media(max-width:600px){
-  .container{padding:12px}
-  .header h1{font-size:25px}
-  .card{padding:16px}
-  .click-hint{font-size:12px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Graphic Design Lesson 1 - PixelLab | Kena Design</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: white;
+      line-height: 1.75;
+    }
+
+    header {
+      background: #101c2c;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 1px solid #26384d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #32d583;
+      font-size: 22px;
+    }
+
+    header p {
+      margin: 4px 0 0;
+      color: #b9c7d6;
+      font-size: 14px;
+    }
+
+    .container {
+      width: 94%;
+      max-width: 900px;
+      margin: 25px auto 50px;
+    }
+
+    .back {
+      display: inline-block;
+      background: #26384d;
+      color: white;
+      text-decoration: none;
+      padding: 9px 15px;
+      border-radius: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero,
+    .card,
+    .task,
+    .completion {
+      background: #101c2c;
+      border: 1px solid #26384d;
+      border-radius: 16px;
+      padding: 21px;
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #102d27, #101c2c);
+    }
+
+    .lesson-number {
+      color: #32d583;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin: 7px 0;
+    }
+
+    h3 {
+      color: #32d583;
+      margin-top: 0;
+      font-size: 21px;
+    }
+
+    h4 {
+      color: white;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    p,
+    li {
+      color: #d5dee8;
+    }
+
+    ul,
+    ol {
+      padding-left: 23px;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 13px;
+      background: black;
+      margin-top: 15px;
+    }
+
+    .video-box iframe {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      left: 0;
+      top: 0;
+    }
+
+    .note {
+      background: #07111f;
+      border-left: 4px solid #32d583;
+      padding: 17px;
+      border-radius: 8px;
+      margin-top: 12px;
+    }
+
+    .tool {
+      background: #07111f;
+      border: 1px solid #26384d;
+      border-radius: 12px;
+      padding: 17px;
+      margin: 14px 0;
+    }
+
+    .tool strong {
+      color: #32d583;
+      font-size: 19px;
+    }
+
+    .tool-title {
+      color: #32d583;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .how {
+      background: #13263a;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+
+    .how strong {
+      color: white;
+    }
+
+    .important {
+      background: #123426;
+      border: 1px solid #32d583;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .warning {
+      background: #351b1b;
+      border: 1px solid #733838;
+      padding: 16px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .task {
+      background: linear-gradient(135deg, #103b29, #10251e);
+      border-color: #32d583;
+    }
+
+    .check {
+      background: #07111f;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #26384d;
+      margin-top: 10px;
+    }
+
+    /* ASSIGNMENT EXAMPLE */
+
+    .assignment-example {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .poster-example {
+      width: 100%;
+      max-width: 430px;
+      min-height: 520px;
+      margin: auto;
+      padding: 35px 25px;
+      border-radius: 18px;
+      background:
+        radial-gradient(
+          circle at 85% 15%,
+          #32d583 0 12%,
+          transparent 13%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          #1c8f65 0 18%,
+          transparent 19%
+        ),
+        linear-gradient(145deg, #07111f, #13263a);
+      border: 2px solid #32d583;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .poster-top {
+      color: #32d583;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .poster-title {
+      margin-top: 85px;
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .poster-subtitle {
+      margin-top: 18px;
+      color: #c9d5df;
+      font-size: 16px;
+    }
+
+    .poster-shape {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #32d583;
+      margin: 35px auto;
+      opacity: 0.9;
+    }
+
+    .poster-info {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid #32d583;
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .poster-bottom {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      right: 0;
+      color: #32d583;
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .example-caption {
+      color: #b9c7d6;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .completion {
+      text-align: center;
+    }
+
+    .completion button {
+      background: #32d583;
+      color: #07111f;
+      border: none;
+      padding: 13px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #done {
+      display: none;
+      color: #32d583;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: 92%;
+      }
+
+      .hero,
+      .card,
+      .task,
+      .completion {
+        padding: 16px;
+      }
+
+      h2 {
+        font-size: 23px;
+      }
+
+      h3 {
+        font-size: 19px;
+      }
+
+      .tool {
+        padding: 14px;
+      }
+
+      .poster-example {
+        min-height: 470px;
+      }
+
+      .poster-title {
+        font-size: 40px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="header">
+<header>
   <h1>🎓 Kena Design Learning</h1>
   <p>Graphic Design — PixelLab</p>
-</div>
+</header>
 
 <div class="container">
 
-  <div class="card">
-    <h2>📚 Assignment — PixelLab Poster</h2>
+  <a href="./student.html" class="back">
+    ← Student Portal
+  </a>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="lesson-number">
+      GRAPHIC DESIGN — LESSON 1
+    </div>
+
+    <h2>📱 PixelLab: Tools and Features</h2>
 
     <p>
-      Fakkeenya armaan gadii ilaali. Sana booda PixelLab irratti
-      design fakkaatu tokko ofii keetiin hojjedhu.
+      Lesson kana keessatti PixelLab maal akka ta'e,
+      Interface isaa, Tools fi Features isaa,
+      akkasumas tool tokkoon tokkoon isaa maal akka
+      hojjetu fi akkamitti akka itti fayyadamnu
+      bal'inaan baranna.
     </p>
 
-    <div class="assignment-preview" onclick="openAssignment()">
-      <img
-        src="data:image/png;base64,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
+  </section>
+
+
+  <!-- VIDEO -->
+
+  <section class="card">
+
+    <h3>🎥 Tutorial Video — Lesson 1</h3>
+
+    <p>
+      Jalqaba video kana guutuu ilaali.
+      Sana booda note fi practical hordofi.
+    </p>
+
+    <div class="video-box">
+
+      <iframe
+        src="https://www.youtube.com/embed/OuPJGRQSt3k"
+        title="PixelLab Graphic Design Free Course Lesson 1"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <div class="important">
+
+      🎯 <strong>Mala barachuu:</strong><br><br>
+
+      Video ilaali → Pause godhi → Tool sana
+      PixelLab kee keessatti barbaadi → Ofii keetiin
+      irra deebi'i → Sana booda itti fufi.
+
+    </div>
+
+  </section>
+
+
+  <!-- OBJECTIVES -->
+
+  <section class="card">
+
+    <h3>🎯 Kaayyoo Lesson 1</h3>
+
+    <p>
+      Lesson kana booda barataan:
+    </p>
+
+    <ul>
+
+      <li>PixelLab maal akka ta'e ni beeka.</li>
+
+      <li>PixelLab Interface hubata.</li>
+
+      <li>Tools fi Features adda baasa.</li>
+
+      <li>Text dabaluun ni danda'a.</li>
+
+      <li>Font jijjiiruu ni danda'a.</li>
+
+      <li>Text size fi color sirreessuu ni danda'a.</li>
+
+      <li>Shape fayyadamuu ni danda'a.</li>
+
+      <li>Image galchuu ni danda'a.</li>
+
+      <li>Object sochoosuu fi qindeessuu ni danda'a.</li>
+
+      <li>Design save/export gochuu ni danda'a.</li>
+
+    </ul>
+
+  </section>
+
+
+  <!-- PIXELLAB DEFINITION -->
+
+  <section class="card">
+
+    <h3>1. 📱 PixelLab jechuun maal?</h3>
+
+    <div class="note">
+
+      <strong>PixelLab</strong> jechuun application
+      Android irratti text, suuraa, shape, color,
+      background fi effects fayyadamuun Graphic Design
+      hojjechuuf gargaarudha.
+
+    </div>
+
+    <p>
+      PixelLab keessaan design garaagaraa hojjechuu
+      dandeessa. Fakkeenyaaf:
+    </p>
+
+    <ul>
+
+      <li>Poster</li>
+
+      <li>Flyer</li>
+
+      <li>Social Media Post</li>
+
+      <li>YouTube Thumbnail</li>
+
+      <li>Text Design</li>
+
+      <li>Advertisement</li>
+
+      <li>Business Promotion</li>
+
+      <li>Quote Design</li>
+
+      <li>Simple Logo / Text Logo</li>
+
+    </ul>
+
+    <h4>PixelLab maaliif barbaachisa?</h4>
+
+    <p>
+      Namni Graphic Design barachuu jalqabu tokko
+      yeroo hunda Laptop ykn Computer qabaachuu
+      dhiisuu danda'a. PixelLab mobile irratti
+      design hojjechuu akka jalqabu isa gargaara.
+    </p>
+
+    <p>
+      PixelLab beekuun button cuqaasuu qofa miti.
+      Designer gaariin sababaa ittiin font,
+      color, size, image fi layout filatu hubachuu qaba.
+    </p>
+
+    <div class="important">
+
+      💡 <strong>Yaadadhu:</strong><br><br>
+
+      PixelLab meeshaa dha; design gaarii kan
+      uumu immoo beekumsa fi creativity designer ti.
+
+    </div>
+
+  </section>
+
+
+  <!-- INTERFACE -->
+
+  <section class="card">
+
+    <h3>2. 🖥️ PixelLab Interface jechuun maal?</h3>
+
+    <p>
+      <strong>Interface</strong> jechuun bakka fi
+      qindaa'ina wantoota ati application keessatti
+      argituudha.
+    </p>
+
+    <p>
+      Yeroo PixelLab bante, screen irratti bakka
+      adda addaa, menu, tools, canvas fi options
+      garaagaraa argita.
+    </p>
+
+    <h4>Canvas</h4>
+
+    <p>
+      Canvas jechuun bakka ati design kee irratti
+      hojjetuudha. Text, image fi shape hundi
+      canvas irratti mul'atu.
+    </p>
+
+    <h4>Menu Area</h4>
+
+    <p>
+      Gubbaa application keessatti menu fi command
+      adda addaa argachuu dandeessa. Isaan keessaa
+      save, share fi settings fakkaatan jiraachuu
+      danda'u.
+    </p>
+
+    <h4>Tools Area</h4>
+
+    <p>
+      Tools area keessatti hojii adda addaa
+      hojjechuuf buttons fi tools argamu.
+      Tool tokko filachuun options isaa agarsiisa.
+    </p>
+
+    <h4>Object</h4>
+
+    <p>
+      Object jechuun wanta ati canvas irratti
+      galchite. Fakkeenyaaf Text, Shape ykn Image.
+    </p>
+
+    <div class="how">
+
+      <strong>👉 Akka itti barattu:</strong>
+
+      <ol>
+
+        <li>PixelLab bani.</li>
+
+        <li>Screen guutuu ilaali.</li>
+
+        <li>Button tokko cuqaasi.</li>
+
+        <li>Maaliif akka hojjetu ilaali.</li>
+
+        <li>Irra deebi'ii ofii keetiin hojjedhu.</li>
+
+      </ol>
+
+    </div>
+
+  </section>
+
+
+  <!-- TOOLS INTRO -->
+
+  <section class="card">
+
+    <h3>3. 🛠️ Tools fi Features jechuun maal?</h3>
+
+    <p>
+      <strong>Tool</strong> jechuun meeshaa hojii
+      tokko raawwachuuf itti fayyadamnuudha.
+    </p>
+
+    <p>
+      <strong>Feature</strong> jechuun capability
+      ykn hojii application sun nuuf kennuudha.
+    </p>
+
+    <p>
+      PixelLab keessatti tools garaagaraa jiru.
+      Isaan keessaa Text, Font, Color, Size,
+      Shape, Image, Background, Position,
+      Rotation, Shadow, Stroke fi Effects
+      beekamoodha.
+    </p>
+
+  </section>
+
+
+  <!-- TEXT -->
+
+  <section class="card">
+
+    <h3>4. 🔤 Text Tool</h3>
+
+    <div class="tool">
+
+      <div class="tool-title">
+        Text Tool — Maalif fayyada?
+      </div>
+
+      <p>
+        Text Tool fayyadamuun jecha ykn barruu
+        design kee keessa galchita.
+      </p>
+
+      <p>
+        Fakkeenyaaf:
+        <strong>KENA DESIGN</strong>,
+        <strong>GRAPHIC DESIGN COURSE</strong>
+        ykn ergaa beeksisaa barreessuu dandeessa.
+      </p>
+
+      <div class="how">
+
+        <strong>Akka itti fayyadamtu:</strong>
+
+        <ol>
+
+          <li>Text option filadhu.</li>
+
+          <li>Text haaraa dabali.</li>
+
+          <li>Jechoota barbaadde barreessi.</li>
+
+          <li>Text kee canvas irratti qindeessi.</li>
+
+        </ol>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FONT -->
+
+  <section class="card">
+
+    <h3>5. 🔠 Font</h3>
+
+    <div class="tool">
+
+      <div class="tool-title">
+        Font — Maal jechuudha?
+      </div>
+
+      <p>
+        Font jechuun akkaataa qubee fi barruun
+        itti fakkaatuudha.
+      </p>
+
+      <p>
+        Font garaagaraa fayyadamuun design kee
+        style garaagaraa qabaachuu danda'a.
+      </p>
+
+      <div class="how">
+
+        <strong>Akka itti fayyadamtu:</strong>
+
+        <ol>
+
+          <li>Text kee filadhu.</li>
+
+          <li>Font option bani.</li>
+
+          <li>Font barbaadde filadhu.</li>
+
+          <li>Text dubbifamuu salphaa ta'uu mirkaneessi.</li>
+
+        </ol>
+
+      </div>
+
+      <div class="warning">
+
+        ⚠️ Font baay'ee walitti makuun design
+        kee jeequu danda'a.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TEXT SIZE -->
+
+  <section class="card">
+
+    <h3>6. 📏 Text Size</h3>
+
+    <div class="tool">
+
+      <div class="tool-title">
+        Text Size — Maalif fayyada?
+      </div>
+
+      <p>
+        Text Size jechuun barruu kee guddaa ykn
+        xiqqaa gochuudha.
+      </p>
+
+      <p>
+        Title yeroo baay'ee body text caalaa
+        guddaa ta'a. Kun hierarchy uuma.
+      </p>
+
+      <div class="how">
+
+        <strong>Fakkeenya:</strong>
+
+        <p>Title → guddaa</p>
+
+        <p>Subtitle → giddu-galeessa</p>
+
+        <p>Description → xiqqaa</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COLOR -->
+
+  <section class="card">
+
+    <h3>7. 🎨 Text Color</h3>
+
+    <div class="tool">
+
+      <div class="tool-title">
+        Color — Maalif fayyada?
+      </div>
+
+      <p>
+        Color fayyadamuun text kee background
+        irraa adda akka ba'u fi design kee
+        hawwataa akka ta'u godha.
+      </p>
+
+      <div class="how">
+
+        <strong>Akka itti fayyadamtu:</strong>
+
+        <ol>
+
+          <li>Text filadhu.</li>
+
+          <li>Color option bani.</li>
+
+          <li>Halluu filadhu.</li>
+
+          <li>Background waliin contrast ilaali.</li>
+
+        </ol>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STYLE -->
+
+  <section class="card">
+
+    <h3>8. ✨ Text Style</h3>
+
+    <p>
+      Text Style jechuun text kee akkaataa
+      adda addaatiin bareechuu fi ibsuu dha.
+    </p>
+
+    <ul>
+
+      <li>Bold</li>
+
+      <li>Italic</li>
+
+      <li>Underline</li>
+
+      <li>Text Alignment</li>
+
+    </ul>
+
+    <p>
+      Style hundumaa yeroo tokko irratti
+      fayyadamuun dirqama miti.
+    </p>
+
+  </section>
+
+
+  <!-- STROKE -->
+
+  <section class="card">
+
+    <h3>9. 🖊️ Stroke</h3>
+
+    <p>
+      Stroke jechuun daangaa ykn sarara text
+      ykn object naannoo isaa jiruudha.
+    </p>
+
+    <p>
+      Fakkeenyaaf text adii background gurraacha
+      irratti yoo qabaatte, stroke itti dabaluun
+      text akka ifatti mul'atu gochuu dandeessa.
+    </p>
+
+  </section>
+
+
+  <!-- SHADOW -->
+
+  <section class="card">
+
+    <h3>10. 🌑 Shadow</h3>
+
+    <p>
+      Shadow jechuun gaaddisa object ykn text
+      duuba jiruudha.
+    </p>
+
+    <p>
+      Shadow sirriitti fayyadamuun text ykn object
+      background irraa adda baasuu danda'a.
+    </p>
+
+    <div class="warning">
+
+      ⚠️ Shadow baay'ee jabaa fayyadamuun
+      design kee qulqullina dhabsiisuu danda'a.
+
+    </div>
+
+  </section>
+
+
+  <!-- ALIGNMENT -->
+
+  <section class="card">
+
+    <h3>11. ↔️ Alignment</h3>
+
+    <p>
+      Alignment jechuun text ykn object gara
+      bitaa, mirgaa ykn giddu galeessaatti
+      sirnaan qindeessuudha.
+    </p>
+
+    <ul>
+
+      <li>Left Alignment</li>
+
+      <li>Center Alignment</li>
+
+      <li>Right Alignment</li>
+
+    </ul>
+
+  </section>
+
+
+  <!-- POSITION -->
+
+  <section class="card">
+
+    <h3>12. 📍 Position / Move</h3>
+
+    <p>
+      Position ykn Move fayyadamuun object
+      tokko canvas irratti bakka barbaaddeetti
+      sochoosuu dandeessa.
+    </p>
+
+    <div class="how">
+
+      <strong>Fakkeenya:</strong>
+
+      <p>
+        Logo gara gubbaa mirgaatti,
+        title gara gidduutti,
+        image gara jalaatti qindeessuu.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ROTATE -->
+
+  <section class="card">
+
+    <h3>13. 🔄 Rotate</h3>
+
+    <p>
+      Rotate jechuun object ykn text gara
+      kallattii biraatti naquudha.
+    </p>
+
+    <p>
+      Fakkeenyaaf text gara 45° naquun
+      design creative gochuu dandeessa.
+    </p>
+
+  </section>
+
+
+  <!-- OPACITY -->
+
+  <section class="card">
+
+    <h3>14. 👻 Opacity</h3>
+
+    <p>
+      Opacity jechuun object tokko hammam ifa
+      ykn hammam transparent akka ta'u murteessuudha.
+    </p>
+
+    <p>
+      Opacity gadi buusuun background xiqqoo
+      object keessa akka mul'atu gochuu danda'a.
+    </p>
+
+  </section>
+
+
+  <!-- SHAPE -->
+
+  <section class="card">
+
+    <h3>15. 🔷 Shape Tool</h3>
+
+    <p>
+      Shape Tool fayyadamuun boca garaagaraa
+      design keessa galchuu dandeessa.
+    </p>
+
+    <ul>
+
+      <li>Square</li>
+
+      <li>Rectangle</li>
+
+      <li>Circle</li>
+
+      <li>Line</li>
+
+      <li>Shapes biroo</li>
+
+    </ul>
+
+    <p>
+      Shape background, decoration, frame,
+      button ykn text highlight gochuuf fayyada.
+    </p>
+
+  </section>
+
+
+  <!-- IMAGE -->
+
+  <section class="card">
+
+    <h3>16. 🖼️ Image Tool</h3>
+
+    <p>
+      Image Tool fayyadamuun suuraa phone kee
+      keessaa gara PixelLab projectitti galchuu dandeessa.
+    </p>
+
+    <div class="how">
+
+      <strong>Akka itti fayyadamtu:</strong>
+
+      <ol>
+
+        <li>Image option filadhu.</li>
+
+        <li>Gallery irraa suuraa filadhu.</li>
+
+        <li>Suuraa project keessa galchi.</li>
+
+        <li>Size isaa sirreessi.</li>
+
+        <li>Position isaa qindeessi.</li>
+
+      </ol>
+
+    </div>
+
+  </section>
+
+
+  <!-- BACKGROUND -->
+
+  <section class="card">
+
+    <h3>17. 🌈 Background</h3>
+
+    <p>
+      Background jechuun duuba design kee jiruudha.
+    </p>
+
+    <p>
+      Background color ykn image fayyadamuun
+      design kee bu'uura isaa qopheessita.
+    </p>
+
+    <p>
+      Background fi text gidduutti contrast
+      gaarii qabaachuun dubbifamuu irratti
+      baay'ee barbaachisaa dha.
+    </p>
+
+  </section>
+
+
+  <!-- LAYERS -->
+
+  <section class="card">
+
+    <h3>18. 📚 Layers / Objects</h3>
+
+    <p>
+      Design keessatti text, image fi shape
+      tokkoon tokkoon isaanii object/layer
+      ta'uu danda'u.
+    </p>
+
+    <p>
+      Layer tokko filachuun isa qofa irratti
+      hojii hojjechuu dandeessa.
+    </p>
+
+    <div class="important">
+
+      💡 Layer sirriitti hubachuun yeroo project
+      guddaa hojjetu baay'ee si gargaara.
+
+    </div>
+
+  </section>
+
+
+  <!-- SAVE -->
+
+  <section class="card">
+
+    <h3>19. 💾 Save / Export</h3>
+
+    <p>
+      Design kee erga xumurte booda save ykn
+      export gochuu qabda.
+    </p>
+
+    <p>
+      JPG ykn PNG akka image tokkootti
+      export gochuu dandeessa.
+    </p>
+
+    <div class="how">
+
+      <strong>Yaadadhu:</strong>
+
+      <p>
+        Hojii kee export gochuu dura design
+        kee sirriitti ilaali.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRACTICAL -->
+
+  <section class="task">
+
+    <h3>🎯 Practical 1 — PixelLab</h3>
+
+    <p>
+      Amma waan video fi note keessatti baratte
+      fayyadamuun poster tokko hojjedhu.
+    </p>
+
+    <ol>
+
+      <li>PixelLab bani.</li>
+
+      <li>Project haaraa jalqabi.</li>
+
+      <li>Background filadhu.</li>
+
+      <li>Text dabali.</li>
+
+      <li>Font jijjiiri.</li>
+
+      <li>Text Size sirreessi.</li>
+
+      <li>Text Color jijjiiri.</li>
+
+      <li>Stroke ykn Shadow yaali.</li>
+
+      <li>Shape tokko dabali.</li>
+
+      <li>Image tokko galchi.</li>
+
+      <li>Object hunda sirriitti qindeessi.</li>
+
+      <li>JPG ykn PNG godhiitii save godhi.</li>
+
+    </ol>
+
+  </section>
+
+
+  <!-- ASSIGNMENT -->
+
+  <section class="task">
+
+    <h3>📚 Assignment — PixelLab Poster</h3>
+
+    <p>
+      Fakkeenya armaan gadii ilaali. Sana booda
+      PixelLab irratti design fakkaatu tokko
+      ofii keetiin hojjedhu.
+    </p>
+
+
+    <!-- EXAMPLE POSTER -->
+
+    <div class="assignment-example">
+
+      <div class="poster-example">
+
+        <div class=

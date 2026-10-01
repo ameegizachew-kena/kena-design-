@@ -163,7 +163,7 @@
     }
 
     .how strong {
-      color: #ffffff;
+      color: white;
     }
 
     .important {
@@ -195,6 +195,95 @@
       margin-top: 10px;
     }
 
+    /* ASSIGNMENT EXAMPLE */
+
+    .assignment-example {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .poster-example {
+      width: 100%;
+      max-width: 430px;
+      min-height: 520px;
+      margin: auto;
+      padding: 35px 25px;
+      border-radius: 18px;
+      background:
+        radial-gradient(
+          circle at 85% 15%,
+          #32d583 0 12%,
+          transparent 13%
+        ),
+        radial-gradient(
+          circle at 10% 80%,
+          #1c8f65 0 18%,
+          transparent 19%
+        ),
+        linear-gradient(145deg, #07111f, #13263a);
+      border: 2px solid #32d583;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    .poster-top {
+      color: #32d583;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .poster-title {
+      margin-top: 85px;
+      font-size: 48px;
+      line-height: 1;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 2px;
+    }
+
+    .poster-subtitle {
+      margin-top: 18px;
+      color: #c9d5df;
+      font-size: 16px;
+    }
+
+    .poster-shape {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: #32d583;
+      margin: 35px auto;
+      opacity: 0.9;
+    }
+
+    .poster-info {
+      display: inline-block;
+      padding: 10px 16px;
+      border: 1px solid #32d583;
+      border-radius: 20px;
+      color: white;
+      font-size: 14px;
+    }
+
+    .poster-bottom {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      right: 0;
+      color: #32d583;
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    .example-caption {
+      color: #b9c7d6;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
     .completion {
       text-align: center;
     }
@@ -218,6 +307,7 @@
     }
 
     @media (max-width: 600px) {
+
       .container {
         width: 92%;
       }
@@ -240,6 +330,14 @@
       .tool {
         padding: 14px;
       }
+
+      .poster-example {
+        min-height: 470px;
+      }
+
+      .poster-title {
+        font-size: 40px;
+      }
     }
   </style>
 </head>
@@ -256,6 +354,7 @@
   <a href="./student.html" class="back">
     ← Student Portal
   </a>
+
 
   <!-- HERO -->
 
@@ -285,9 +384,8 @@
     <h3>🎥 Tutorial Video — Lesson 1</h3>
 
     <p>
-      Jalqaba video kana ilaali. Video keessatti
-      barsiifamu hunda yeroo tokkoon ilaaluun irra
-      deebi'ii PixelLab kee irratti hojiirra oolchi.
+      Jalqaba video kana guutuu ilaali.
+      Sana booda note fi practical hordofi.
     </p>
 
     <div class="video-box">
@@ -320,19 +418,32 @@
 
     <h3>🎯 Kaayyoo Lesson 1</h3>
 
-    <p>Lesson kana booda barataan:</p>
+    <p>
+      Lesson kana booda barataan:
+    </p>
 
     <ul>
+
       <li>PixelLab maal akka ta'e ni beeka.</li>
+
       <li>PixelLab Interface hubata.</li>
+
       <li>Tools fi Features adda baasa.</li>
+
       <li>Text dabaluun ni danda'a.</li>
+
       <li>Font jijjiiruu ni danda'a.</li>
+
       <li>Text size fi color sirreessuu ni danda'a.</li>
+
       <li>Shape fayyadamuu ni danda'a.</li>
+
       <li>Image galchuu ni danda'a.</li>
+
       <li>Object sochoosuu fi qindeessuu ni danda'a.</li>
+
       <li>Design save/export gochuu ni danda'a.</li>
+
     </ul>
 
   </section>
@@ -359,18 +470,28 @@
     </p>
 
     <ul>
+
       <li>Poster</li>
+
       <li>Flyer</li>
+
       <li>Social Media Post</li>
+
       <li>YouTube Thumbnail</li>
+
       <li>Text Design</li>
+
       <li>Advertisement</li>
+
       <li>Business Promotion</li>
+
       <li>Quote Design</li>
+
       <li>Simple Logo / Text Logo</li>
+
     </ul>
 
-    <h4>PixelLab maaliif namaaf barbaachisa?</h4>
+    <h4>PixelLab maaliif barbaachisa?</h4>
 
     <p>
       Namni Graphic Design barachuu jalqabu tokko
@@ -380,8 +501,8 @@
     </p>
 
     <p>
-      Garuu PixelLab beekuun button cuqaasuu qofa
-      miti. Designer gaariin sababaa ittiin font,
+      PixelLab beekuun button cuqaasuu qofa miti.
+      Designer gaariin sababaa ittiin font,
       color, size, image fi layout filatu hubachuu qaba.
     </p>
 
@@ -423,12 +544,12 @@
       canvas irratti mul'atu.
     </p>
 
-    <h4>Top / Menu Area</h4>
+    <h4>Menu Area</h4>
 
     <p>
       Gubbaa application keessatti menu fi command
       adda addaa argachuu dandeessa. Isaan keessaa
-      save, share ykn settings fakkaatan jiraachuu
+      save, share fi settings fakkaatan jiraachuu
       danda'u.
     </p>
 
@@ -452,11 +573,17 @@
       <strong>👉 Akka itti barattu:</strong>
 
       <ol>
+
         <li>PixelLab bani.</li>
+
         <li>Screen guutuu ilaali.</li>
+
         <li>Button tokko cuqaasi.</li>
-        <li>Maaliif akka tajaajilu ilaali.</li>
-        <li>Irra deebi'ii hojii isaa ofii keetiin hojjedhu.</li>
+
+        <li>Maaliif akka hojjetu ilaali.</li>
+
+        <li>Irra deebi'ii ofii keetiin hojjedhu.</li>
+
       </ol>
 
     </div>
@@ -476,15 +603,16 @@
     </p>
 
     <p>
-      <strong>Feature</strong> jechuun ammoo capability
+      <strong>Feature</strong> jechuun capability
       ykn hojii application sun nuuf kennuudha.
     </p>
 
     <p>
       PixelLab keessatti tools garaagaraa jiru.
-      Isaan keessaa muraasni text, font, color,
-      size, shape, image, background, position,
-      rotation, shadow, stroke fi effects dha.
+      Isaan keessaa Text, Font, Color, Size,
+      Shape, Image, Background, Position,
+      Rotation, Shadow, Stroke fi Effects
+      beekamoodha.
     </p>
 
   </section>
@@ -519,10 +647,15 @@
         <strong>Akka itti fayyadamtu:</strong>
 
         <ol>
+
           <li>Text option filadhu.</li>
+
           <li>Text haaraa dabali.</li>
+
           <li>Jechoota barbaadde barreessi.</li>
+
           <li>Text kee canvas irratti qindeessi.</li>
+
         </ol>
 
       </div>
@@ -559,10 +692,15 @@
         <strong>Akka itti fayyadamtu:</strong>
 
         <ol>
+
           <li>Text kee filadhu.</li>
+
           <li>Font option bani.</li>
+
           <li>Font barbaadde filadhu.</li>
-          <li>Text kee dubbifamuu salphaa ta'uu mirkaneessi.</li>
+
+          <li>Text dubbifamuu salphaa ta'uu mirkaneessi.</li>
+
         </ol>
 
       </div>
@@ -570,8 +708,7 @@
       <div class="warning">
 
         ⚠️ Font baay'ee walitti makuun design
-        kee jeequu danda'a. Design tokko keessatti
-        font muraasa sirriitti filadhu.
+        kee jeequu danda'a.
 
       </div>
 
@@ -593,7 +730,7 @@
       </div>
 
       <p>
-        Text size jechuun barruu kee guddaa ykn
+        Text Size jechuun barruu kee guddaa ykn
         xiqqaa gochuudha.
       </p>
 
@@ -606,17 +743,11 @@
 
         <strong>Fakkeenya:</strong>
 
-        <p>
-          TITLE → guddaa
-        </p>
+        <p>Title → guddaa</p>
 
-        <p>
-          Subtitle → giddu-galeessa
-        </p>
+        <p>Subtitle → giddu-galeessa</p>
 
-        <p>
-          Description → xiqqaa
-        </p>
+        <p>Description → xiqqaa</p>
 
       </div>
 
@@ -643,20 +774,20 @@
         hawwataa akka ta'u godha.
       </p>
 
-      <p>
-        Halluu filachuun kaayyoo design wajjin
-        wal simuu qaba.
-      </p>
-
       <div class="how">
 
         <strong>Akka itti fayyadamtu:</strong>
 
         <ol>
+
           <li>Text filadhu.</li>
+
           <li>Color option bani.</li>
+
           <li>Halluu filadhu.</li>
-          <li>Background waliin contrast isaa ilaali.</li>
+
+          <li>Background waliin contrast ilaali.</li>
+
         </ol>
 
       </div>
@@ -673,21 +804,25 @@
     <h3>8. ✨ Text Style</h3>
 
     <p>
-      Text style jechuun text kee akkaataa
+      Text Style jechuun text kee akkaataa
       adda addaatiin bareechuu fi ibsuu dha.
     </p>
 
     <ul>
+
       <li>Bold</li>
+
       <li>Italic</li>
+
       <li>Underline</li>
-      <li>Text alignment</li>
+
+      <li>Text Alignment</li>
+
     </ul>
 
     <p>
-      Garuu style hundumaa yeroo tokko irratti
-      fayyadamuun dirqama miti. Kaayyoo design
-      irratti hundaa'i.
+      Style hundumaa yeroo tokko irratti
+      fayyadamuun dirqama miti.
     </p>
 
   </section>
@@ -706,21 +841,9 @@
 
     <p>
       Fakkeenyaaf text adii background gurraacha
-      irratti yoo qabaatte, stroke gurraacha
-      ykn halluu biraa itti dabaluun text akka
-      ifatti mul'atu gochuu dandeessa.
+      irratti yoo qabaatte, stroke itti dabaluun
+      text akka ifatti mul'atu gochuu dandeessa.
     </p>
-
-    <div class="how">
-
-      <strong>Yoom fayyada?</strong>
-
-      <p>
-        Yeroo text background keessa badu ykn
-        contrast gahaa hin qabne.
-      </p>
-
-    </div>
 
   </section>
 
@@ -738,8 +861,7 @@
 
     <p>
       Shadow sirriitti fayyadamuun text ykn object
-      background irraa adda baasuu fi depth
-      fakkeessuu danda'a.
+      background irraa adda baasuu danda'a.
     </p>
 
     <div class="warning">
@@ -765,15 +887,14 @@
     </p>
 
     <ul>
-      <li>Left alignment</li>
-      <li>Center alignment</li>
-      <li>Right alignment</li>
-    </ul>
 
-    <p>
-      Alignment sirrii ta'uun design kee
-      professional akka fakkaatu gargaara.
-    </p>
+      <li>Left Alignment</li>
+
+      <li>Center Alignment</li>
+
+      <li>Right Alignment</li>
+
+    </ul>
 
   </section>
 
@@ -817,7 +938,7 @@
     </p>
 
     <p>
-      Fakkeenyaaf text xiqqoo gara 45° naquun
+      Fakkeenyaaf text gara 45° naquun
       design creative gochuu dandeessa.
     </p>
 
@@ -855,16 +976,22 @@
     </p>
 
     <ul>
+
       <li>Square</li>
+
       <li>Rectangle</li>
+
       <li>Circle</li>
+
       <li>Line</li>
+
       <li>Shapes biroo</li>
+
     </ul>
 
     <p>
-      Shape background, decoration, button,
-      frame ykn text highlight gochuuf fayyada.
+      Shape background, decoration, frame,
+      button ykn text highlight gochuuf fayyada.
     </p>
 
   </section>
@@ -886,11 +1013,17 @@
       <strong>Akka itti fayyadamtu:</strong>
 
       <ol>
+
         <li>Image option filadhu.</li>
+
         <li>Gallery irraa suuraa filadhu.</li>
+
         <li>Suuraa project keessa galchi.</li>
+
         <li>Size isaa sirreessi.</li>
+
         <li>Position isaa qindeessi.</li>
+
       </ol>
 
     </div>
@@ -949,7 +1082,7 @@
   </section>
 
 
-  <!-- SAVE EXPORT -->
+  <!-- SAVE -->
 
   <section class="card">
 
@@ -961,8 +1094,8 @@
     </p>
 
     <p>
-      Yeroo baay'ee JPG ykn PNG akka image
-      tokkootti export gochuun ni danda'ama.
+      JPG ykn PNG akka image tokkootti
+      export gochuu dandeessa.
     </p>
 
     <div class="how">
@@ -983,11 +1116,11 @@
 
   <section class="task">
 
-    <h3>🎯 Practical 1 — Ofii keetiin hojjedhu</h3>
+    <h3>🎯 Practical 1 — PixelLab</h3>
 
     <p>
-      Amma video irraa waan baratte hundaa
-      fayyadamuun poster salphaa tokko hojjedhu.
+      Amma waan video fi note keessatti baratte
+      fayyadamuun poster tokko hojjedhu.
     </p>
 
     <ol>
@@ -1002,9 +1135,9 @@
 
       <li>Font jijjiiri.</li>
 
-      <li>Text size sirreessi.</li>
+      <li>Text Size sirreessi.</li>
 
-      <li>Text color jijjiiri.</li>
+      <li>Text Color jijjiiri.</li>
 
       <li>Stroke ykn Shadow yaali.</li>
 
@@ -1021,97 +1154,23 @@
   </section>
 
 
-  <!-- NOTE -->
-
-  <section class="card">
-
-    <h3>📝 Note — Lesson 1</h3>
-
-    <div class="note">
-
-      <p>
-        <strong>PixelLab</strong> application Android
-        irratti Graphic Design hojjechuuf fayyaduudha.
-      </p>
-
-      <p>
-        Interface jechuun qindaa'ina application
-        keessatti argamuudha.
-      </p>
-
-      <p>
-        Tools fi Features beekamoo:
-      </p>
-
-      <ul>
-
-        <li>Text</li>
-        <li>Font</li>
-        <li>Text Size</li>
-        <li>Color</li>
-        <li>Style</li>
-        <li>Stroke</li>
-        <li>Shadow</li>
-        <li>Alignment</li>
-        <li>Position</li>
-        <li>Rotate</li>
-        <li>Opacity</li>
-        <li>Shape</li>
-        <li>Image</li>
-        <li>Background</li>
-        <li>Layers / Objects</li>
-        <li>Save / Export</li>
-
-      </ul>
-
-    </div>
-
-  </section>
-
-
   <!-- ASSIGNMENT -->
 
   <section class="task">
 
-    <h3>📚 Assignment</h3>
+    <h3>📚 Assignment — PixelLab Poster</h3>
 
     <p>
-      PixelLab irratti poster tokko hojjedhu.
+      Fakkeenya armaan gadii ilaali. Sana booda
+      PixelLab irratti design fakkaatu tokko
+      ofii keetiin hojjedhu.
     </p>
 
-    <ol>
 
-      <li>Title tokko dabali.</li>
+    <!-- EXAMPLE POSTER -->
 
-      <li>Font jijjiiri.</li>
+    <div class="assignment-example">
 
-      <li>Text size sirreessi.</li>
+      <div class="poster-example">
 
-      <li>Text color jijjiiri.</li>
-
-      <li>Stroke ykn Shadow keessaa tokko yaali.</li>
-
-      <li>Shape tokko fayyadami.</li>
-
-      <li>Image tokko galchi.</li>
-
-      <li>Background sirreessi.</li>
-
-      <li>Objects sirriitti qindeessi.</li>
-
-      <li>JPG ykn PNG godhiitii save godhi.</li>
-
-    </ol>
-
-  </section>
-
-
-  <!-- FINAL CHECK -->
-
-  <section class="card">
-
-    <h3>✅ Final Check</h3>
-
-    <div class="check">
-
-      <p>☐
+        <div class=

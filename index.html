@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -11,7 +12,10 @@
 <meta name="description"
       content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Logo Maker, Thumbnail, Business Card fi Flyer.">
 
-<!-- PWA -->
+<!-- =========================
+     PWA
+========================= -->
+
 <link rel="manifest" href="./manifest.json">
 
 <meta name="theme-color" content="#32d583">
@@ -23,34 +27,39 @@
 <meta name="apple-mobile-web-app-status-bar-style"
       content="black-translucent">
 
+<!-- =========================
+     CSS
+========================= -->
+
 <link rel="stylesheet" href="style.css">
 
 <style>
 
 /* =========================
-   PWA INSTALL BUTTON
+   PWA INSTALL BOX
 ========================= */
 
 .install-app-box {
   display: none;
   margin: 20px auto;
   max-width: 500px;
-  padding: 15px;
+  padding: 18px;
   background: #101c2c;
-  border: 1px solid rgba(50,213,131,.35);
+  border: 1px solid rgba(50,213,131,0.35);
   border-radius: 15px;
   text-align: center;
 }
 
 .install-app-box p {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: #dce7f5;
+  line-height: 1.6;
 }
 
 .install-app-btn {
   border: none;
   background: #32d583;
-  color: #06120c;
+  color: #07111f;
   padding: 12px 20px;
   border-radius: 10px;
   font-weight: 700;
@@ -59,21 +68,19 @@
 }
 
 .install-app-btn:hover {
-  opacity: .9;
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .install-app-box {
-    margin: 15px;
-  }
+  opacity: 0.9;
 }
 
 </style>
 
 </head>
 
+
 <body>
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -87,20 +94,32 @@
       class="menu"
       onclick="toggleMenu()"
       aria-label="Menu">
+
       ☰
+
     </button>
 
     <nav id="navLinks">
 
-      <a href="#home">Home</a>
+      <a href="#home">
+        Home
+      </a>
 
-      <a href="#courses">Barnoota</a>
+      <a href="#courses">
+        Barnoota
+      </a>
 
-      <a href="#quiz">Quiz</a>
+      <a href="#quiz">
+        Quiz
+      </a>
 
-      <a href="#about">Waa'ee Keenya</a>
+      <a href="#about">
+        Waa'ee Keenya
+      </a>
 
-      <a href="#contact">Contact</a>
+      <a href="#contact">
+        Contact
+      </a>
 
     </nav>
 
@@ -109,7 +128,12 @@
 </header>
 
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main>
+
 
 <!-- =========================
      HOME
@@ -141,25 +165,35 @@
       <a
         class="btn primary"
         href="#courses">
+
         Barnoota Jalqabi
+
       </a>
+
 
       <a
         class="btn ghost"
         href="#quiz">
+
         Quiz Ilaali
+
       </a>
+
 
       <a
         class="btn ghost"
         href="register.html">
+
         Galmaa'i
+
       </a>
 
     </div>
 
   </div>
 
+
+  <!-- HERO CARD -->
 
   <div class="hero-card">
 
@@ -190,8 +224,9 @@
 </section>
 
 
+
 <!-- =========================
-     PWA INSTALL
+     INSTALL APP
 ========================= -->
 
 <div
@@ -212,6 +247,7 @@
   </button>
 
 </div>
+
 
 
 <!-- =========================
@@ -239,12 +275,15 @@
 
   </div>
 
+
   <div
     class="course-grid"
     id="courseGrid">
+
   </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -275,18 +314,26 @@
 
 
     <div class="feature">
+
       <span>✓</span>
       Barnoota tartiiba qabu
+
     </div>
 
+
     <div class="feature">
+
       <span>✓</span>
       Shaakala hojii dhugaa
+
     </div>
 
+
     <div class="feature">
+
       <span>✓</span>
       Quiz fi of-qorannoo
+
     </div>
 
   </div>
@@ -307,6 +354,7 @@
   </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -334,12 +382,15 @@
 
   </div>
 
+
   <div
     id="quizBox"
     class="quiz-box">
+
   </div>
 
 </section>
+
 
 
 <!-- =========================
@@ -381,6 +432,7 @@
         +251 923 502 464
       </p>
 
+
       <a
         class="btn primary"
         href="https://wa.me/251923502464"
@@ -392,6 +444,7 @@
       </a>
 
     </div>
+
 
 
     <div class="contact-card">
@@ -414,6 +467,7 @@
     </div>
 
 
+
     <div class="contact-card">
 
       <b>
@@ -432,6 +486,7 @@
 </section>
 
 </main>
+
 
 
 <!-- =========================
@@ -460,11 +515,13 @@
 </footer>
 
 
+
 <!-- =========================
      EXISTING SCRIPT
 ========================= -->
 
 <script src="script.js"></script>
+
 
 
 <!-- =========================
@@ -475,21 +532,22 @@
 
 if ("serviceWorker" in navigator) {
 
-  window.addEventListener("load", () => {
+  window.addEventListener("load", function () {
 
     navigator.serviceWorker
       .register("./service-worker.js")
-      .then(() => {
+      .then(function (registration) {
 
         console.log(
-          "KENA DESIGN PWA ready"
+          "KENA DESIGN PWA ready:",
+          registration.scope
         );
 
       })
-      .catch(error => {
+      .catch(function (error) {
 
         console.error(
-          "PWA error:",
+          "PWA registration failed:",
           error
         );
 
@@ -500,86 +558,97 @@ if ("serviceWorker" in navigator) {
 }
 
 
+
 /* =========================
-   INSTALL APP
+   PWA INSTALL
 ========================= */
 
 let deferredPrompt = null;
 
 const installBox =
-  document.getElementById(
-    "installAppBox"
-  );
+  document.getElementById("installAppBox");
 
 const installButton =
-  document.getElementById(
-    "installAppBtn"
-  );
+  document.getElementById("installAppBtn");
 
 
 window.addEventListener(
   "beforeinstallprompt",
-  (event) => {
+  function (event) {
 
     event.preventDefault();
 
     deferredPrompt = event;
 
-    installBox.style.display =
-      "block";
-
-  }
-);
-
-
-installButton.addEventListener(
-  "click",
-  async () => {
-
-    if (!deferredPrompt) {
-
-      alert(
-        "App Install option amma browser kee keessatti hin qophoofne."
-      );
-
-      return;
-
+    if (installBox) {
+      installBox.style.display = "block";
     }
 
-    deferredPrompt.prompt();
-
-    const result =
-      await deferredPrompt.userChoice;
-
-    console.log(
-      "Install result:",
-      result.outcome
-    );
-
-    deferredPrompt = null;
-
-    installBox.style.display =
-      "none";
-
   }
 );
+
+
+if (installButton) {
+
+  installButton.addEventListener(
+    "click",
+    async function () {
+
+      if (!deferredPrompt) {
+
+        alert(
+          "App Install option amma browser kee keessatti hin qophoofne."
+        );
+
+        return;
+
+      }
+
+
+      deferredPrompt.prompt();
+
+
+      const result =
+        await deferredPrompt.userChoice;
+
+
+      console.log(
+        "Install result:",
+        result.outcome
+      );
+
+
+      deferredPrompt = null;
+
+
+      if (installBox) {
+        installBox.style.display = "none";
+      }
+
+    }
+  );
+
+}
 
 
 window.addEventListener(
   "appinstalled",
-  () => {
+  function () {
 
     console.log(
       "KENA DESIGN installed."
     );
 
-    installBox.style.display =
-      "none";
+
+    if (installBox) {
+      installBox.style.display = "none";
+    }
 
   }
 );
 
 </script>
+
 
 </body>
 </html>

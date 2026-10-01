@@ -12,75 +12,11 @@
 <meta name="description"
       content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Logo Maker, Thumbnail, Business Card fi Flyer.">
 
-<!-- =========================
-     PWA
-========================= -->
-
-<link rel="manifest" href="./manifest.json">
-
-<meta name="theme-color" content="#32d583">
-
-<meta name="mobile-web-app-capable" content="yes">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-
-<meta name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent">
-
-<!-- =========================
-     CSS
-========================= -->
-
 <link rel="stylesheet" href="style.css">
-
-<style>
-
-/* =========================
-   PWA INSTALL BOX
-========================= */
-
-.install-app-box {
-  display: none;
-  margin: 20px auto;
-  max-width: 500px;
-  padding: 18px;
-  background: #101c2c;
-  border: 1px solid rgba(50,213,131,0.35);
-  border-radius: 15px;
-  text-align: center;
-}
-
-.install-app-box p {
-  margin: 0 0 12px;
-  color: #dce7f5;
-  line-height: 1.6;
-}
-
-.install-app-btn {
-  border: none;
-  background: #32d583;
-  color: #07111f;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-.install-app-btn:hover {
-  opacity: 0.9;
-}
-
-</style>
 
 </head>
 
-
 <body>
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -128,16 +64,8 @@
 </header>
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <main>
 
-
-<!-- =========================
-     HOME
-========================= -->
 
 <section id="home" class="hero">
 
@@ -193,8 +121,6 @@
   </div>
 
 
-  <!-- HERO CARD -->
-
   <div class="hero-card">
 
     <div class="mini-logo">
@@ -224,35 +150,6 @@
 </section>
 
 
-
-<!-- =========================
-     INSTALL APP
-========================= -->
-
-<div
-  id="installAppBox"
-  class="install-app-box">
-
-  <p>
-    📱 KENA DESIGN App akka appitti
-    mobile kee irratti fe'i.
-  </p>
-
-  <button
-    id="installAppBtn"
-    class="install-app-btn">
-
-    📲 App Install Godhi
-
-  </button>
-
-</div>
-
-
-
-<!-- =========================
-     COURSES
-========================= -->
 
 <section
   id="courses"
@@ -285,10 +182,6 @@
 </section>
 
 
-
-<!-- =========================
-     ABOUT
-========================= -->
 
 <section
   id="about"
@@ -357,10 +250,6 @@
 
 
 
-<!-- =========================
-     QUIZ
-========================= -->
-
 <section
   id="quiz"
   class="section quiz-section">
@@ -392,10 +281,6 @@
 </section>
 
 
-
-<!-- =========================
-     CONTACT
-========================= -->
 
 <section
   id="contact"
@@ -489,10 +374,6 @@
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
   <div class="footer-content">
@@ -516,139 +397,7 @@
 
 
 
-<!-- =========================
-     EXISTING SCRIPT
-========================= -->
-
 <script src="script.js"></script>
-
-
-
-<!-- =========================
-     PWA SERVICE WORKER
-========================= -->
-
-<script>
-
-if ("serviceWorker" in navigator) {
-
-  window.addEventListener("load", function () {
-
-    navigator.serviceWorker
-      .register("./service-worker.js")
-      .then(function (registration) {
-
-        console.log(
-          "KENA DESIGN PWA ready:",
-          registration.scope
-        );
-
-      })
-      .catch(function (error) {
-
-        console.error(
-          "PWA registration failed:",
-          error
-        );
-
-      });
-
-  });
-
-}
-
-
-
-/* =========================
-   PWA INSTALL
-========================= */
-
-let deferredPrompt = null;
-
-const installBox =
-  document.getElementById("installAppBox");
-
-const installButton =
-  document.getElementById("installAppBtn");
-
-
-window.addEventListener(
-  "beforeinstallprompt",
-  function (event) {
-
-    event.preventDefault();
-
-    deferredPrompt = event;
-
-    if (installBox) {
-      installBox.style.display = "block";
-    }
-
-  }
-);
-
-
-if (installButton) {
-
-  installButton.addEventListener(
-    "click",
-    async function () {
-
-      if (!deferredPrompt) {
-
-        alert(
-          "App Install option amma browser kee keessatti hin qophoofne."
-        );
-
-        return;
-
-      }
-
-
-      deferredPrompt.prompt();
-
-
-      const result =
-        await deferredPrompt.userChoice;
-
-
-      console.log(
-        "Install result:",
-        result.outcome
-      );
-
-
-      deferredPrompt = null;
-
-
-      if (installBox) {
-        installBox.style.display = "none";
-      }
-
-    }
-  );
-
-}
-
-
-window.addEventListener(
-  "appinstalled",
-  function () {
-
-    console.log(
-      "KENA DESIGN installed."
-    );
-
-
-    if (installBox) {
-      installBox.style.display = "none";
-    }
-
-  }
-);
-
-</script>
-
 
 </body>
 </html>

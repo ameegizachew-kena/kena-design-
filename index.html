@@ -2,105 +2,584 @@
 <html lang="om">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
 <title>KENA DESIGN | Barnoota Design</title>
-<meta name="description" content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Logo Maker, Thumbnail, Business Card fi Flyer.">
+
+<meta name="description"
+      content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Logo Maker, Thumbnail, Business Card fi Flyer.">
+
+<!-- PWA -->
+<link rel="manifest" href="./manifest.json">
+
+<meta name="theme-color" content="#32d583">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
 <link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================
+   PWA INSTALL BUTTON
+========================= */
+
+.install-app-box {
+  display: none;
+  margin: 20px auto;
+  max-width: 500px;
+  padding: 15px;
+  background: #101c2c;
+  border: 1px solid rgba(50,213,131,.35);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.install-app-box p {
+  margin: 0 0 10px;
+  color: #dce7f5;
+}
+
+.install-app-btn {
+  border: none;
+  background: #32d583;
+  color: #06120c;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.install-app-btn:hover {
+  opacity: .9;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .install-app-box {
+    margin: 15px;
+  }
+}
+
+</style>
+
 </head>
+
 <body>
+
 <header>
+
   <div class="nav">
-    <div class="brand"><span>K</span> KENA DESIGN</div>
-    <button class="menu" onclick="toggleMenu()">☰</button>
+
+    <div class="brand">
+      <span>K</span> KENA DESIGN
+    </div>
+
+    <button
+      class="menu"
+      onclick="toggleMenu()"
+      aria-label="Menu">
+      ☰
+    </button>
+
     <nav id="navLinks">
+
       <a href="#home">Home</a>
+
       <a href="#courses">Barnoota</a>
+
       <a href="#quiz">Quiz</a>
+
       <a href="#about">Waa'ee Keenya</a>
+
       <a href="#contact">Contact</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
 <main>
+
+<!-- =========================
+     HOME
+========================= -->
+
 <section id="home" class="hero">
+
   <div class="hero-content">
-    <p class="tag">🎨 BARNOOTA DESIGN SALPHAA FI HOJII IRRA OOLU</p>
-    <h1>Design Baradhu.<br><span>Ogummaa Kee Ijaari.</span></h1>
-    <p>KENA DESIGN keessatti Video Editing, Logo Maker, YouTube Thumbnail, Business Card fi Flyer Design tartiiba salphaan baradhu.</p>
+
+    <p class="tag">
+      🎨 BARNOOTA DESIGN SALPHAA FI HOJII IRRA OOLU
+    </p>
+
+    <h1>
+      Design Baradhu.<br>
+      <span>Ogummaa Kee Ijaari.</span>
+    </h1>
+
+    <p>
+      KENA DESIGN keessatti Video Editing,
+      Logo Maker, YouTube Thumbnail,
+      Business Card fi Flyer Design
+      tartiiba salphaan baradhu.
+    </p>
+
 
     <div class="actions">
-      <a class="btn primary" href="#courses">Barnoota Jalqabi</a>
-      <a class="btn ghost" href="#quiz">Quiz Ilaali</a>
-      <a class="btn primary" href="#courses">Barnoota Ilaali</a>
-      <a class="btn ghost" href="#quiz">Quiz Ilaali</a>
-      <a class="btn ghost" href="register.html">Galmaa'i</a>
+
+      <a
+        class="btn primary"
+        href="#courses">
+        Barnoota Jalqabi
+      </a>
+
+      <a
+        class="btn ghost"
+        href="#quiz">
+        Quiz Ilaali
+      </a>
+
+      <a
+        class="btn ghost"
+        href="register.html">
+        Galmaa'i
+      </a>
+
     </div>
+
   </div>
+
 
   <div class="hero-card">
-    <div class="mini-logo">K</div>
-    <h3>KENA DESIGN</h3>
-    <p>Learn • Create • Grow</p>
-    <div class="stats">
-      <b>5+</b><small>Courses</small>
-      <b>100%</b><small>Practice</small>
+
+    <div class="mini-logo">
+      K
     </div>
+
+    <h3>
+      KENA DESIGN
+    </h3>
+
+    <p>
+      Learn • Create • Grow
+    </p>
+
+    <div class="stats">
+
+      <b>5+</b>
+      <small>Courses</small>
+
+      <b>100%</b>
+      <small>Practice</small>
+
+    </div>
+
   </div>
+
 </section>
-<section id="courses" class="section">
+
+
+<!-- =========================
+     PWA INSTALL
+========================= -->
+
+<div
+  id="installAppBox"
+  class="install-app-box">
+
+  <p>
+    📱 KENA DESIGN App akka appitti
+    mobile kee irratti fe'i.
+  </p>
+
+  <button
+    id="installAppBtn"
+    class="install-app-btn">
+
+    📲 App Install Godhi
+
+  </button>
+
+</div>
+
+
+<!-- =========================
+     COURSES
+========================= -->
+
+<section
+  id="courses"
+  class="section">
+
   <div class="section-head">
-    <p class="tag">BARNOOTA</p>
-    <h2>Koorsiiwwan Keenya</h2>
-    <p>Koorsii tokko filadhu; kutaa barnootaa banuun jalqabi.</p>
+
+    <p class="tag">
+      BARNOOTA
+    </p>
+
+    <h2>
+      Koorsiiwwan Keenya
+    </h2>
+
+    <p>
+      Koorsii tokko filadhu;
+      kutaa barnootaa banuun jalqabi.
+    </p>
+
   </div>
 
-  <div class="course-grid" id="courseGrid"></div>
+  <div
+    class="course-grid"
+    id="courseGrid">
+  </div>
+
 </section>
 
-<section id="about" class="section about">
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+  id="about"
+  class="section about">
+
   <div>
-    <p class="tag">WAA'EE KENA DESIGN</p>
-    <h2>Ogummaa kee gara hojiiitti jijjiiri.</h2>
-    <p>KENA DESIGN bakka barattoonni fi namoonni design jaalatan ogummaa isaanii itti guddisanidha. Barnoonni keenya hojii irra oolmaa irratti xiyyeeffata.</p>
-    <div class="feature"><span>✓</span> Barnoota tartiiba qabu</div>
-    <div class="feature"><span>✓</span> Shaakala hojii dhugaa</div>
-    <div class="feature"><span>✓</span> Quiz fi of-qorannoo</div>
+
+    <p class="tag">
+      WAA'EE KENA DESIGN
+    </p>
+
+    <h2>
+      Ogummaa kee gara hojiiitti jijjiiri.
+    </h2>
+
+    <p>
+      KENA DESIGN bakka barattoonni fi
+      namoonni design jaalatan ogummaa
+      isaanii itti guddisanidha.
+      Barnoonni keenya hojii irra oolmaa
+      irratti xiyyeeffata.
+    </p>
+
+
+    <div class="feature">
+      <span>✓</span>
+      Barnoota tartiiba qabu
+    </div>
+
+    <div class="feature">
+      <span>✓</span>
+      Shaakala hojii dhugaa
+    </div>
+
+    <div class="feature">
+      <span>✓</span>
+      Quiz fi of-qorannoo
+    </div>
+
   </div>
-  <div class="about-box"><strong>🎯 Kaayyoo</strong><p>Nama jalqaba irraa kaasee design bu'uuraa hanga hojii professionalitti geessu.</p></div>
+
+
+  <div class="about-box">
+
+    <strong>
+      🎯 Kaayyoo
+    </strong>
+
+    <p>
+      Nama jalqaba irraa kaasee design
+      bu'uuraa hanga hojii professionalitti
+      geessu.
+    </p>
+
+  </div>
+
 </section>
 
-<section id="quiz" class="section quiz-section">
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section
+  id="quiz"
+  class="section quiz-section">
+
   <div class="section-head">
-    <p class="tag">OF QORI</p>
-    <h2>KENA DESIGN Quiz</h2>
-    <p>Gaaffilee armaan gadii deebisi; dhuma irratti qabxii kee argatta.</p>
+
+    <p class="tag">
+      OF QORI
+    </p>
+
+    <h2>
+      KENA DESIGN Quiz
+    </h2>
+
+    <p>
+      Gaaffilee armaan gadii deebisi;
+      dhuma irratti qabxii kee argatta.
+    </p>
+
   </div>
-  <div id="quizBox" class="quiz-box"></div>
+
+  <div
+    id="quizBox"
+    class="quiz-box">
+  </div>
+
 </section>
 
-<section id="contact" class="section contact">
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+  id="contact"
+  class="section contact">
+
   <div class="section-head">
-    <p class="tag">CONTACT</p>
-    <h2>Nu Qunnami</h2>
-    <p>Odeeffannoo dabalataa ykn barnoota irratti gaaffii yoo qabaatte nu qunnami.</p>
+
+    <p class="tag">
+      CONTACT
+    </p>
+
+    <h2>
+      Nu Qunnami
+    </h2>
+
+    <p>
+      Odeeffannoo dabalataa ykn barnoota
+      irratti gaaffii yoo qabaatte nu qunnami.
+    </p>
+
   </div>
+
+
   <div class="contact-grid">
-    <div class="contact-card"><b>📱 WhatsApp</b><p>+251 923 502 464</p><a class="btn primary" href="https://wa.me/251923502464" target="_blank">WhatsApp Bani</a></div>
-    <div class="contact-card"><b>✉️ Email</b><p><a href="mailto:ameegizachew@gmail.com">ameegizachew@gmail.com</a></p></div>
-    <div class="contact-card"><b>📍 Teessoo</b><p>Oromia, Shambu, Horro Buluk</p></div>
+
+
+    <div class="contact-card">
+
+      <b>
+        📱 WhatsApp
+      </b>
+
+      <p>
+        +251 923 502 464
+      </p>
+
+      <a
+        class="btn primary"
+        href="https://wa.me/251923502464"
+        target="_blank"
+        rel="noopener">
+
+        WhatsApp Bani
+
+      </a>
+
+    </div>
+
+
+    <div class="contact-card">
+
+      <b>
+        ✉️ Email
+      </b>
+
+      <p>
+
+        <a
+          href="mailto:ameegizachew@gmail.com">
+
+          ameegizachew@gmail.com
+
+        </a>
+
+      </p>
+
+    </div>
+
+
+    <div class="contact-card">
+
+      <b>
+        📍 Teessoo
+      </b>
+
+      <p>
+        Oromia, Shambu, Horro Buluk
+      </p>
+
+    </div>
+
+
   </div>
+
 </section>
+
 </main>
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
   <div class="footer-content">
-    <h3>KENA DESIGN</h3>
-    <p>Learn • Create • Grow</p>
-    <p>© 2026 KENA DESIGN. Mirgi hundi seeraan eegama.</p>
+
+    <h3>
+      KENA DESIGN
+    </h3>
+
+    <p>
+      Learn • Create • Grow
+    </p>
+
+    <p>
+      © 2026 KENA DESIGN.
+      Mirgi hundi seeraan eegama.
+    </p>
+
   </div>
+
 </footer>
 
+
+<!-- =========================
+     EXISTING SCRIPT
+========================= -->
+
 <script src="script.js"></script>
+
+
+<!-- =========================
+     PWA SERVICE WORKER
+========================= -->
+
+<script>
+
+if ("serviceWorker" in navigator) {
+
+  window.addEventListener("load", () => {
+
+    navigator.serviceWorker
+      .register("./service-worker.js")
+      .then(() => {
+
+        console.log(
+          "KENA DESIGN PWA ready"
+        );
+
+      })
+      .catch(error => {
+
+        console.error(
+          "PWA error:",
+          error
+        );
+
+      });
+
+  });
+
+}
+
+
+/* =========================
+   INSTALL APP
+========================= */
+
+let deferredPrompt = null;
+
+const installBox =
+  document.getElementById(
+    "installAppBox"
+  );
+
+const installButton =
+  document.getElementById(
+    "installAppBtn"
+  );
+
+
+window.addEventListener(
+  "beforeinstallprompt",
+  (event) => {
+
+    event.preventDefault();
+
+    deferredPrompt = event;
+
+    installBox.style.display =
+      "block";
+
+  }
+);
+
+
+installButton.addEventListener(
+  "click",
+  async () => {
+
+    if (!deferredPrompt) {
+
+      alert(
+        "App Install option amma browser kee keessatti hin qophoofne."
+      );
+
+      return;
+
+    }
+
+    deferredPrompt.prompt();
+
+    const result =
+      await deferredPrompt.userChoice;
+
+    console.log(
+      "Install result:",
+      result.outcome
+    );
+
+    deferredPrompt = null;
+
+    installBox.style.display =
+      "none";
+
+  }
+);
+
+
+window.addEventListener(
+  "appinstalled",
+  () => {
+
+    console.log(
+      "KENA DESIGN installed."
+    );
+
+    installBox.style.display =
+      "none";
+
+  }
+);
+
+</script>
+
 </body>
 </html>

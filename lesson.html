@@ -1155,22 +1155,100 @@
 
 
   <!-- ASSIGNMENT -->
+<div class="card">
+  <h2>📚 Assignment — PixelLab Poster</h2>
 
-  <section class="task">
+  <p>
+    Fakkeenya armaan gadii ilaali. Sana booda PixelLab irratti
+    design fakkaatu tokko ofii keetiin hojjedhu.
+  </p>
 
-    <h3>📚 Assignment — PixelLab Poster</h3>
+  <!-- Suuraa Assignment -->
+  <div class="assignment-image" onclick="openAssignmentImage()">
+    <img
+      src="assignment-poster.png"
+      alt="PixelLab Assignment Poster"
+    >
+    <div class="click-text">👆 Suuraa guddaa ilaaluuf cuqaasi</div>
+  </div>
+</div>
 
-    <p>
-      Fakkeenya armaan gadii ilaali. Sana booda
-      PixelLab irratti design fakkaatu tokko
-      ofii keetiin hojjedhu.
-    </p>
+<!-- IMAGE POPUP -->
+<div id="imageModal" class="image-modal" onclick="closeAssignmentImage()">
+  <span class="close-btn">&times;</span>
 
+  <img
+    id="largeAssignmentImage"
+    src="assignment-poster.png"
+    alt="Assignment Poster"
+  >
+</div>
 
-    <!-- EXAMPLE POSTER -->
+<style>
+.assignment-image {
+  position: relative;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 18px;
+  overflow: hidden;
+}
 
-    <div class="assignment-example">
+.assignment-image img {
+  width: 100%;
+  display: block;
+  transition: transform .3s;
+}
 
-      <div class="poster-example">
+.assignment-image:hover img {
+  transform: scale(1.03);
+}
 
-        <div class=
+.click-text {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.75);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+/* POPUP */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0,0,0,.92);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image-modal img {
+  max-width: 95%;
+  max-height: 90vh;
+  border-radius: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+function openAssignmentImage() {
+  document.getElementById("imageModal").style.display = "flex";
+}
+
+function closeAssignmentImage() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>

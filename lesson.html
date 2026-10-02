@@ -1,1408 +1,1685 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-  <title>Kena Design - Graphic Design Lesson 1</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Lesson 1 | KENA DESIGN</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #07111f;
-      color: #ffffff;
-      line-height: 1.7;
-    }
+<meta name="description"
+      content="KENA DESIGN - Graphic Design Lesson 1: PixelLab Tools fi Features">
 
-    .container {
-      width: 92%;
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px 0 50px;
-    }
+<link rel="stylesheet" href="style.css">
 
-    header {
-      background: linear-gradient(135deg, #0d1d33, #102a46);
-      padding: 30px 20px;
-      border-radius: 18px;
-      margin-bottom: 20px;
-      text-align: center;
-      border: 1px solid #24415f;
-    }
+<style>
+/* =====================================================
+   KENA DESIGN - LESSON 1
+   PIXELLAB COMPLETE BEGINNER GUIDE
+===================================================== */
 
-    header h1 {
-      margin: 0 0 10px;
-      color: #32d583;
-      font-size: 30px;
-    }
+.lesson-page {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 18px 70px;
+}
 
-    header p {
-      margin: 5px 0;
-      color: #d8e5f2;
-    }
+.lesson-hero {
+  background: linear-gradient(135deg, #101c2c, #0b1626);
+  border: 1px solid rgba(50,213,131,.25);
+  border-radius: 22px;
+  padding: 30px 22px;
+  margin-bottom: 28px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.22);
+}
 
-    .badge {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 7px 15px;
-      background: #32d583;
-      color: #06111d;
-      border-radius: 30px;
-      font-weight: bold;
-    }
+.lesson-hero .tag {
+  color: #32d583;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
 
-    section {
-      background: #101c2c;
-      margin: 18px 0;
-      padding: 22px;
-      border-radius: 17px;
-      border: 1px solid #203852;
-    }
+.lesson-hero h1 {
+  margin: 10px 0;
+  font-size: clamp(28px, 6vw, 48px);
+}
 
-    h2 {
-      color: #32d583;
-      margin-top: 0;
-      font-size: 24px;
-    }
+.lesson-hero h1 span {
+  color: #32d583;
+}
 
-    h3 {
-      color: #65e6a5;
-    }
+.lesson-hero p {
+  color: #cbd8e8;
+  line-height: 1.8;
+}
 
-    h4 {
-      color: #9ed8ff;
-    }
+.lesson-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0 30px;
+}
 
-    p {
-      color: #e3edf7;
-    }
+.lesson-nav a {
+  text-decoration: none;
+  color: white;
+  background: #101c2c;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+}
 
-    ul,
-    ol {
-      padding-left: 25px;
-    }
+.lesson-nav a:hover {
+  border-color: #32d583;
+  color: #32d583;
+}
 
-    li {
-      margin: 7px 0;
-    }
+.lesson-section {
+  background: #101c2c;
+  border-radius: 20px;
+  padding: 24px 20px;
+  margin: 22px 0;
+  border: 1px solid rgba(255,255,255,.06);
+}
 
-    .important {
-      background: #172d44;
-      border-left: 5px solid #32d583;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
+.lesson-section h2 {
+  color: #32d583;
+  margin-top: 0;
+}
 
-    .note {
-      background: #18283b;
-      border-left: 5px solid #ffd166;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
+.lesson-section h3 {
+  color: #fff;
+  margin-bottom: 8px;
+}
 
-    .warning {
-      background: #39251b;
-      border-left: 5px solid #ff9f43;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
+.lesson-section p,
+.lesson-section li {
+  color: #d3ddeb;
+  line-height: 1.8;
+}
 
-    .video-box {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 15px;
-      margin-top: 15px;
-      background: #000;
-    }
+.lesson-section ul,
+.lesson-section ol {
+  padding-left: 22px;
+}
 
-    .video-box iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+.tool-card {
+  background: #0b1626;
+  border: 1px solid rgba(50,213,131,.15);
+  border-radius: 16px;
+  padding: 18px;
+  margin: 18px 0;
+}
 
-    /* VISUAL DIAGRAM */
-    .visual {
-      margin: 20px auto;
-      max-width: 700px;
-      background: #07111f;
-      border: 1px solid #28435f;
-      border-radius: 15px;
-      padding: 12px;
-      overflow: hidden;
-    }
+.tool-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
 
-    .visual svg {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+.tool-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(50,213,131,.12);
+  font-size: 22px;
+}
 
-    /* TOOL CARDS */
-    .tool {
-      background: #0b1727;
-      border: 1px solid #28445f;
-      padding: 18px;
-      margin: 14px 0;
-      border-radius: 14px;
-    }
+.tool-card strong {
+  color: #32d583;
+}
 
-    .tool h3 {
-      margin-top: 0;
-      color: #32d583;
-    }
+.tool-card .location {
+  display: inline-block;
+  margin: 8px 0;
+  padding: 6px 10px;
+  background: rgba(50,213,131,.1);
+  border-radius: 8px;
+  color: #7df0b0;
+  font-size: 13px;
+}
 
-    .tool p {
-      margin-bottom: 8px;
-    }
+.example-box {
+  background: #07111f;
+  border-left: 4px solid #32d583;
+  padding: 15px;
+  margin: 14px 0;
+  border-radius: 0 12px 12px 0;
+}
 
-    /* PRACTICAL */
-    .practice {
-      background: linear-gradient(135deg, #102f2b, #102a3d);
-      border: 1px solid #2e6c5a;
-    }
+.example-box b {
+  color: #32d583;
+}
 
-    /* ASSIGNMENT */
-    .assignment {
-      background: linear-gradient(135deg, #182c44, #14263b);
-      border: 2px solid #32d583;
-    }
+.warning-box {
+  background: rgba(255,193,7,.08);
+  border: 1px solid rgba(255,193,7,.25);
+  border-radius: 14px;
+  padding: 15px;
+  margin: 18px 0;
+  color: #f6df9a;
+}
 
-    .assignment h2 {
-      color: #32d583;
-    }
+.practice-box {
+  background: linear-gradient(135deg, rgba(50,213,131,.12), rgba(50,213,131,.03));
+  border: 1px solid rgba(50,213,131,.3);
+  border-radius: 18px;
+  padding: 20px;
+  margin: 22px 0;
+}
 
-    .assignment-example {
-      text-align: center;
-      margin: 25px 0;
-    }
+.download-box {
+  background: #07111f;
+  border: 1px solid rgba(50,213,131,.3);
+  border-radius: 18px;
+  padding: 22px;
+  text-align: center;
+  margin: 20px 0;
+}
 
-    .poster-click {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 16px;
-      cursor: pointer;
-      box-shadow: 0 8px 30px rgba(0,0,0,.45);
-      transition: transform .2s ease;
-      border: 2px solid #32d583;
-      display: block;
-      margin: auto;
-    }
+.download-btn {
+  display: inline-block;
+  background: #32d583;
+  color: #07111f;
+  padding: 13px 20px;
+  border-radius: 11px;
+  text-decoration: none;
+  font-weight: 800;
+  margin-top: 10px;
+}
 
-    .poster-click:hover {
-      transform: scale(1.02);
-    }
+.download-btn:hover {
+  opacity: .9;
+}
 
-    .click-text {
-      text-align: center;
-      color: #9ed8ff;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+.ui-image {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  margin: 16px auto;
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,.12);
+}
 
-    /* POSTER MODAL */
-    .poster-modal {
-      display: none;
-      position: fixed;
-      z-index: 99999;
-      inset: 0;
-      background: rgba(0,0,0,.94);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
+.caption {
+  text-align: center;
+  color: #9eb0c5;
+  font-size: 13px;
+  margin-top: -7px;
+}
 
-    .poster-modal.show {
-      display: flex;
-    }
+.step {
+  display: flex;
+  gap: 12px;
+  margin: 14px 0;
+  align-items: flex-start;
+}
 
-    .poster-full {
-      max-width: 95%;
-      max-height: 90vh;
-      width: auto;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 10px 50px rgba(0,0,0,.7);
-    }
+.step-number {
+  flex: 0 0 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #32d583;
+  color: #07111f;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
 
-    .close-poster {
-      position: fixed;
-      top: 10px;
-      right: 22px;
-      font-size: 45px;
-      color: white;
-      cursor: pointer;
-      z-index: 100000;
-      line-height: 1;
-    }
+.code-mini {
+  background: #02070d;
+  color: #9ff4c4;
+  padding: 12px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 13px;
+  margin-top: 10px;
+}
 
-    /* BUTTON */
-    .btn {
-      border: none;
-      padding: 13px 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+.quiz-question {
+  background: #07111f;
+  border-radius: 14px;
+  padding: 17px;
+  margin: 14px 0;
+}
 
-    .btn-green {
-      background: #32d583;
-      color: #06111d;
-    }
+.quiz-question b {
+  color: #32d583;
+}
 
-    .btn-blue {
-      background: #2387d9;
-      color: white;
-    }
+.complete-btn {
+  border: none;
+  background: #32d583;
+  color: #07111f;
+  padding: 14px 22px;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 15px;
+}
 
-    .completed {
-      display: none;
-      margin-top: 15px;
-      background: #123c2b;
-      color: #7ff0b7;
-      padding: 15px;
-      border-radius: 10px;
-      border: 1px solid #32d583;
-    }
+#lessonCompleteMsg {
+  margin-top: 12px;
+  color: #32d583;
+  font-weight: 700;
+  display: none;
+}
 
-    footer {
-      text-align: center;
-      color: #8da5bb;
-      margin-top: 35px;
-      padding: 20px;
-    }
+.poster-example {
+  max-width: 430px;
+  margin: 20px auto;
+  min-height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, #101c2c, #07111f);
+  border: 1px solid rgba(50,213,131,.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+}
 
-    @media (max-width: 600px) {
-      .container {
-        width: 94%;
-      }
+.poster-example h3 {
+  font-size: 34px;
+  margin: 0;
+  color: white;
+}
 
-      header h1 {
-        font-size: 24px;
-      }
+.poster-example span {
+  color: #32d583;
+}
 
-      section {
-        padding: 17px;
-      }
+.poster-example p {
+  color: #d5e2ef;
+}
 
-      h2 {
-        font-size: 21px;
-      }
+.tool-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
 
-      .poster-full {
-        max-width: 100%;
-        max-height: 85vh;
-      }
+.tool-table th,
+.tool-table td {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  text-align: left;
+  vertical-align: top;
+  color: #d5e2ef;
+}
 
-      .close-poster {
-        right: 15px;
-        top: 5px;
-      }
-    }
-  </style>
+.tool-table th {
+  color: #32d583;
+}
+
+@media(max-width:700px) {
+  .lesson-page {
+    padding: 20px 12px 50px;
+  }
+
+  .lesson-section {
+    padding: 19px 15px;
+  }
+
+  .tool-table {
+    font-size: 13px;
+  }
+
+  .tool-table th,
+  .tool-table td {
+    padding: 9px 7px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-  <!-- HEADER -->
-  <header>
-    <h1>🎨 Kena Design</h1>
-    <p>Graphic Design — Lesson 1</p>
-    <p>PixelLab Tools & Features</p>
-    <span class="badge">Lesson 1</span>
-  </header>
+<header>
+  <div class="nav">
 
-
-  <!-- VIDEO -->
-  <section>
-    <h2>🎬 Video Lesson</h2>
-
-    <p>
-      Video kana keessatti PixelLab, tools fi features isaa
-      akkasumas akkamitti itti fayyadamnu baratta.
-    </p>
-
-    <div class="video-box">
-      <iframe
-        src="https://www.youtube.com/embed/OuPJGRQSt3k"
-        title="PixelLab Graphic Design Lesson 1"
-        allowfullscreen>
-      </iframe>
+    <div class="brand">
+      <span>K</span> KENA DESIGN
     </div>
-  </section>
-
-
-  <!-- GRAPHIC DESIGN -->
-  <section>
-    <h2>🎨 Graphic Design jechuun maal?</h2>
-
-    <p>
-      <strong>Graphic Design</strong> jechuun yaada, ergaa ykn odeeffannoo
-      tokko karaa suuraa, halluu, barruu, shape fi qindaa'ina gara
-      nama ilaaluuf salphaa fi bareedaatti jijjiiruu dha.
-    </p>
-
-    <p>
-      Graphic Designer tokko poster, logo, flyer, social media design,
-      YouTube thumbnail, advertisement, banner fi hojiiwwan biroo
-      uuma.
-    </p>
-
-    <div class="important">
-      💡 <strong>Yaadadhu:</strong>
-      Design gaariin bareedina qofa miti.
-      Ergaa sirriitti dabarsuu fi nama ilaaluuf salphaa ta'uu qaba.
-    </div>
-  </section>
-
-
-  <!-- PIXELLAB -->
-  <section>
-    <h2>📱 PixelLab jechuun maal?</h2>
-
-    <p>
-      <strong>PixelLab</strong> application Android irratti graphic design
-      fi text design hojjechuuf gargaaru dha.
-    </p>
-
-    <p>
-      PixelLab keessatti barruu, font, color, image, shape, shadow,
-      stroke, background fi effects adda addaa fayyadamuun design
-      garaagaraa uumuu dandeessa.
-    </p>
-
-    <p>
-      Fakkeenyaaf, PixelLab fayyadamuun:
-    </p>
-
-    <ul>
-      <li>Poster</li>
-      <li>Flyer</li>
-      <li>YouTube Thumbnail</li>
-      <li>Social Media Post</li>
-      <li>Advertisement</li>
-      <li>Quote Design</li>
-      <li>Text Logo</li>
-      <li>Banner</li>
-    </ul>
-
-    <div class="visual">
-      <svg viewBox="0 0 700 390">
-        <rect x="0" y="0" width="700" height="390" rx="20" fill="#0b1727"/>
-        <rect x="190" y="25" width="320" height="340" rx="25" fill="#1d2d42"/>
-        <rect x="210" y="65" width="280" height="230" rx="8" fill="#07111f"/>
-        <text x="350" y="145" text-anchor="middle"
-              fill="#32d583" font-size="32" font-weight="bold">
-          KENA
-        </text>
-        <text x="350" y="185" text-anchor="middle"
-              fill="white" font-size="25">
-          DESIGN
-        </text>
-        <rect x="230" y="315" width="240" height="25" rx="10"
-              fill="#32d583"/>
-        <text x="350" y="382" text-anchor="middle"
-              fill="#9ed8ff" font-size="20">
-          PixelLab Design
-        </text>
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- INTERFACE -->
-  <section>
-    <h2>📱 PixelLab Interface</h2>
-
-    <p>
-      <strong>Interface</strong> jechuun fuula application keessatti
-      wantoota ittiin hojii hojjetu argitu jechuudha.
-    </p>
-
-    <p>
-      PixelLab yeroo banu wantoota ijoo armaan gadii arguu dandeessa:
-    </p>
-
-    <ol>
-      <li>Top Bar</li>
-      <li>Canvas</li>
-      <li>Text/Object</li>
-      <li>Tools Menu</li>
-      <li>Layers / Objects</li>
-      <li>Background</li>
-      <li>Export / Save</li>
-    </ol>
-
-    <div class="visual">
-      <svg viewBox="0 0 700 470">
-        <rect x="0" y="0" width="700" height="470" rx="20" fill="#0b1727"/>
-
-        <rect x="35" y="20" width="630" height="420" rx="20"
-              fill="#16263a" stroke="#32d583" stroke-width="3"/>
-
-        <rect x="55" y="40" width="590" height="55" rx="10"
-              fill="#243b55"/>
-        <text x="75" y="75" fill="white" font-size="20">PixelLab</text>
-        <text x="610" y="75" text-anchor="end"
-              fill="#32d583" font-size="20">Save</text>
-
-        <rect x="100" y="120" width="500" height="220"
-              fill="#ffffff"/>
-
-        <text x="350" y="220" text-anchor="middle"
-              fill="#111827" font-size="38" font-weight="bold">
-          DESIGN
-        </text>
-
-        <rect x="55" y="360" width="590" height="60"
-              rx="10" fill="#243b55"/>
-
-        <circle cx="100" cy="390" r="18" fill="#32d583"/>
-        <circle cx="160" cy="390" r="18" fill="#2387d9"/>
-        <circle cx="220" cy="390" r="18" fill="#ffd166"/>
-        <circle cx="280" cy="390" r="18" fill="#ef476f"/>
-
-        <text x="350" y="455" text-anchor="middle"
-              fill="#9ed8ff" font-size="18">
-          PixelLab Interface
-        </text>
-      </svg>
-    </div>
-  </section>
-
-
-  <!-- TOOLS -->
-  <section>
-    <h2>🛠️ Tools fi Features</h2>
-
-    <p>
-      Amma PixelLab keessatti tools fi features ijoo tokko tokkoon
-      haa ilaallu.
-    </p>
-
-
-    <!-- TEXT -->
-    <div class="tool">
-      <h3>1️⃣ Text Tool</h3>
-
-      <p>
-        Text Tool fayyadamuun barruu gara canvas irratti dabaluu dandeessa.
-      </p>
-
-      <p>
-        Fakkeenyaaf maqaa, mata-duree, ergaa, quote ykn advertisement
-        barreessuu dandeessa.
-      </p>
-
-      <div class="visual">
-        <svg viewBox="0 0 700 260">
-          <rect width="700" height="260" rx="20" fill="#07111f"/>
-          <text x="350" y="125" text-anchor="middle"
-                fill="#32d583" font-size="70" font-weight="bold">
-            TEXT
-          </text>
-          <text x="350" y="180" text-anchor="middle"
-                fill="white" font-size="22">
-            Text Tool
-          </text>
-        </svg>
-      </div>
-    </div>
-
-
-    <!-- FONT -->
-    <div class="tool">
-      <h3>2️⃣ Font</h3>
-
-      <p>
-        Font jechuun bifa barruu ti.
-        Font adda addaa fayyadamuun design kee garaagaraa gochuu dandeessa.
-      </p>
-
-      <p>
-        Mata-duree irratti font cimaa fi dubbifamuu salphaa fayyadamuun
-        barbaachisaa dha.
-      </p>
-    </div>
-
-
-    <!-- TEXT SIZE -->
-    <div class="tool">
-      <h3>3️⃣ Text Size</h3>
-
-      <p>
-        Text Size fayyadamuun guddina barruu sirreessita.
-      </p>
-
-      <p>
-        Mata-dureen guddaa, barruun ibsaa immoo xiqqaa ta'uu danda'a.
-      </p>
-    </div>
-
-
-    <!-- TEXT COLOR -->
-    <div class="tool">
-      <h3>4️⃣ Text Color</h3>
-
-      <p>
-        Text Color fayyadamuun halluu barruu jijjiiruu dandeessa.
-      </p>
-
-      <p>
-        Halluu background waliin wal faallaa ta'e filadhu,
-        barruun akka ifatti dubbifamu godhi.
-      </p>
-
-      <div class="visual">
-        <svg viewBox="0 0 700 230">
-          <rect width="700" height="230" rx="20" fill="#07111f"/>
-          <text x="350" y="130" text-anchor="middle"
-                fill="#32d583" font-size="60" font-weight="bold">
-            COLOR
-          </text>
-        </svg>
-      </div>
-    </div>
-
-
-    <!-- TEXT STYLE -->
-    <div class="tool">
-      <h3>5️⃣ Text Style</h3>
-
-      <p>
-        Text Style keessatti barruu garaagarummaa qabu uumuuf
-        style adda addaa fayyadamta.
-      </p>
-
-      <ul>
-        <li>Bold</li>
-        <li>Italic</li>
-        <li>Underline</li>
-        <li>Spacing</li>
-        <li>Alignment</li>
-      </ul>
-    </div>
-
-
-    <!-- STROKE -->
-    <div class="tool">
-      <h3>6️⃣ Stroke</h3>
-
-      <p>
-        Stroke jechuun daangaa ykn sarara barruu naannoo isaa jiruudha.
-      </p>
-
-      <p>
-        Barruu background irratti akka ifatti mul'atuuf Stroke
-        fayyadamuun ni danda'ama.
-      </p>
-
-      <div class="visual">
-        <svg viewBox="0 0 700 250">
-          <rect width="700" height="250" rx="20" fill="#07111f"/>
-          <text x="350" y="145" text-anchor="middle"
-                fill="#32d583"
-                stroke="white"
-                stroke-width="4"
-                paint-order="stroke"
-                font-size="65"
-                font-weight="bold">
-            STROKE
-          </text>
-        </svg>
-      </div>
-    </div>
-
-
-    <!-- SHADOW -->
-    <div class="tool">
-      <h3>7️⃣ Shadow</h3>
-
-      <p>
-        Shadow jechuun gaaddisa barruu ykn object duuba jiruudha.
-      </p>
-
-      <p>
-        Shadow sirriitti fayyadamuun design kee keessatti depth
-        fi separation uuma.
-      </p>
-    </div>
-
-
-    <!-- ALIGNMENT -->
-    <div class="tool">
-      <h3>8️⃣ Alignment</h3>
-
-      <p>
-        Alignment jechuun wantoota design keessa jiran sirnaan
-        qindeessuu dha.
-      </p>
-
-      <ul>
-        <li>Left</li>
-        <li>Center</li>
-        <li>Right</li>
-      </ul>
-    </div>
-
-
-    <!-- POSITION -->
-    <div class="tool">
-      <h3>9️⃣ Position / Move</h3>
-
-      <p>
-        Object tokko bakka tokko irraa gara bakka biraatti sochoosuuf
-        Position ykn Move fayyadamta.
-      </p>
-    </div>
-
-
-    <!-- ROTATE -->
-    <div class="tool">
-      <h3>🔟 Rotate</h3>
-
-      <p>
-        Rotate fayyadamuun text, image ykn shape gara bita ykn mirga
-        naannessuu dandeessa.
-      </p>
-    </div>
-
-
-    <!-- OPACITY -->
-    <div class="tool">
-      <h3>1️⃣1️⃣ Opacity</h3>
-
-      <p>
-        Opacity jechuun ifa ykn mul'ata object tokkoo sirreessuu dha.
-      </p>
-
-      <p>
-        Opacity 100% jechuun guutumaan guutuutti mul'ata.
-        Yoo gadi buuste object sun translucent ta'a.
-      </p>
-    </div>
-
-
-    <!-- SHAPE -->
-    <div class="tool">
-      <h3>1️⃣2️⃣ Shape</h3>
-
-      <p>
-        Shape fayyadamuun rectangle, circle fi shapes biroo
-        design kee keessatti galchuu dandeessa.
-      </p>
-
-      <p>
-        Shape:
-      </p>
-
-      <ul>
-        <li>Decoration</li>
-        <li>Background element</li>
-        <li>Frame</li>
-        <li>Text background</li>
-        <li>Button design</li>
-      </ul>
-
-      <div class="visual">
-        <svg viewBox="0 0 700 250">
-          <rect width="700" height="250" rx="20" fill="#07111f"/>
-
-          <rect x="120" y="70" width="150" height="100"
-                rx="15" fill="#32d583"/>
-
-          <circle cx="400" cy="120" r="60"
-                  fill="#2387d9"/>
-
-          <polygon points="550,170 610,70 670,170"
-                   fill="#ffd166"/>
-
-          <text x="350" y="225"
-                text-anchor="middle"
-                fill="white"
-                font-size="20">
-            Shapes
-          </text>
-        </svg>
-      </div>
-    </div>
-
-
-    <!-- IMAGE -->
-    <div class="tool">
-      <h3>1️⃣3️⃣ Image</h3>
-
-      <p>
-        Image tool fayyadamuun suuraa gallery keessaa gara PixelLab
-        galchuu dandeessa.
-      </p>
-
-      <p>
-        Suuraa erga galchitee booda:
-      </p>
-
-      <ul>
-        <li>Resize</li>
-        <li>Move</li>
-        <li>Rotate</li>
-        <li>Crop</li>
-        <li>Opacity</li>
-        <li>Position</li>
-      </ul>
-    </div>
-
-
-    <!-- BACKGROUND -->
-    <div class="tool">
-      <h3>1️⃣4️⃣ Background</h3>
-
-      <p>
-        Background jechuun duuba design kee jiruudha.
-      </p>
-
-      <p>
-        Background:
-      </p>
-
-      <ul>
-        <li>Color</li>
-        <li>Gradient</li>
-        <li>Image</li>
-        <li>Texture</li>
-      </ul>
-    </div>
-
-
-    <!-- LAYERS -->
-    <div class="tool">
-      <h3>1️⃣5️⃣ Layers / Objects</h3>
-
-      <p>
-        Layers ykn Objects jechuun wantoota design kee keessa jiran
-        tokko tokkoon to'achuudha.
-      </p>
-
-      <p>
-        Fakkeenyaaf Text, Image fi Shape addaan addaan filachuu,
-        sochoosuu ykn haquu dandeessa.
-      </p>
-
-      <div class="visual">
-        <svg viewBox="0 0 700 330">
-          <rect width="700" height="330" rx="20" fill="#07111f"/>
-
-          <rect x="120" y="50" width="460" height="55"
-                rx="10" fill="#32d583"/>
-          <text x="350" y="85" text-anchor="middle"
-                fill="#06111d" font-size="22">
-            TEXT
-          </text>
-
-          <rect x="120" y="125" width="460" height="55"
-                rx="10" fill="#2387d9"/>
-          <text x="350" y="160" text-anchor="middle"
-                fill="white" font-size="22">
-            IMAGE
-          </text>
-
-          <rect x="120" y="200" width="460" height="55"
-                rx="10" fill="#ffd166"/>
-          <text x="350" y="235" text-anchor="middle"
-                fill="#06111d" font-size="22">
-            SHAPE
-          </text>
-
-          <text x="350" y="300"
-                text-anchor="middle"
-                fill="#9ed8ff"
-                font-size="20">
-            Layers / Objects
-          </text>
-        </svg>
-      </div>
-    </div>
-
-
-    <!-- EFFECTS -->
-    <div class="tool">
-      <h3>1️⃣6️⃣ Effects</h3>
-
-      <p>
-        Effects fayyadamuun design kee irratti miidhagina dabalataa
-        uumuu dandeessa.
-      </p>
-
-      <ul>
-        <li>Shadow</li>
-        <li>Stroke</li>
-        <li>Emboss</li>
-        <li>Reflection</li>
-        <li>Gradient</li>
-      </ul>
-    </div>
-
-
-    <!-- DRAW -->
-    <div class="tool">
-      <h3>1️⃣7️⃣ Draw</h3>
-
-      <p>
-        Draw tool fayyadamuun harkaan sarara ykn mallattoo
-        gara canvas irratti kaasuu dandeessa.
-      </p>
-    </div>
-
-
-    <!-- SAVE PROJECT -->
-    <div class="tool">
-      <h3>1️⃣8️⃣ Save Project</h3>
-
-      <p>
-        Hojii kee gara fuulduraatti itti deebitee fooyyeessuuf
-        project isaa save gochuun barbaachisaa dha.
-      </p>
-    </div>
-
-
-    <!-- EXPORT -->
-    <div class="tool">
-      <h3>1️⃣9️⃣ Export</h3>
-
-      <p>
-        Design kee xumurte booda image godhuuf Export fayyadamta.
-      </p>
-
-      <p>
-        Fakkeenyaaf:
-      </p>
-
-      <ul>
-        <li>JPG</li>
-        <li>PNG</li>
-      </ul>
-
-      <div class="visual">
-        <svg viewBox="0 0 700 240">
-          <rect width="700" height="240" rx="20" fill="#07111f"/>
-          <rect x="150" y="60" width="400" height="110"
-                rx="18" fill="#182f45"
-                stroke="#32d583" stroke-width="3"/>
-
-          <text x="350" y="105"
-                text-anchor="middle"
-                fill="white"
-                font-size="28"
-                font-weight="bold">
-            EXPORT
-          </text>
-
-          <text x="350" y="145"
-                text-anchor="middle"
-                fill="#32d583"
-                font-size="22">
-            JPG / PNG
-          </text>
-        </svg>
-      </div>
-    </div>
-
-  </section>
-
-
-  <!-- PRACTICAL -->
-  <section class="practice">
-    <h2>🧪 Practical — Hojii Irra Yaali</h2>
-
-    <p>
-      Amma PixelLab baniitii wantoota armaan gadii yaali:
-    </p>
-
-    <ol>
-      <li>Text tokko uumi.</li>
-      <li>Font jijjiiri.</li>
-      <li>Text Size jijjiiri.</li>
-      <li>Text Color jijjiiri.</li>
-      <li>Stroke itti dabali.</li>
-      <li>Shadow itti dabali.</li>
-      <li>Shape tokko galchi.</li>
-      <li>Image tokko galchi.</li>
-      <li>Object bakka isaa sirreessi.</li>
-      <li>Design kee JPG ykn PNG godhi.</li>
-    </ol>
-
-    <div class="important">
-      💡 Kaayyoon Practical kanaa tools hunda yaaluudha.
-    </div>
-  </section>
-
-
-  <!-- ASSIGNMENT -->
-  <section class="assignment">
-
-    <h2>📚 Assignment — PixelLab Poster</h2>
-
-    <p>
-      Amma waan Lesson 1 keessatti baratte fayyadamuun
-      <strong>PixelLab irratti poster kee hojjedhu.</strong>
-    </p>
-
-    <h3>🎯 Hojii kee</h3>
-
-    <ol>
-      <li>PixelLab bani.</li>
-      <li>Project haaraa jalqabi.</li>
-      <li>Background bareedaa filadhu.</li>
-      <li>Title tokko barreessi.</li>
-      <li>Font sirrii filadhu.</li>
-      <li>Text Size sirreessi.</li>
-      <li>Text Color jijjiiri.</li>
-      <li>Shape tokko ykn lama fayyadami.</li>
-      <li>Suuraa tokko galchi.</li>
-      <li>Position fi Alignment sirreessi.</li>
-      <li>Stroke ykn Shadow yaali.</li>
-      <li>Design kee qulqullinaan qindeessi.</li>
-      <li>JPG ykn PNG godhiitii save/export godhi.</li>
-    </ol>
-
-
-    <!-- POSTER EXAMPLE -->
-    <div class="assignment-example">
-
-      <h3>🎨 Poster Fakkeenyaa</h3>
-
-      <p>
-        Fakkeenya kana ilaali. Sana booda design kee
-        ofii keetiin hojjedhu.
-      </p>
-
-      <!-- CLICKABLE POSTER -->
-      <div
-        class="poster-click"
-        onclick="openPoster()"
-        role="button"
-        tabindex="0"
-        aria-label="Poster fakkeenyaa guddaan bani"
-      >
-
-        <svg
-          id="posterSVG"
-          viewBox="0 0 600 760"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-
-          <defs>
-            <linearGradient
-              id="posterBg"
-              x1="0"
-              y1="0"
-              x2="1"
-              y2="1"
-            >
-              <stop offset="0%" stop-color="#07111f"/>
-              <stop offset="55%" stop-color="#123d55"/>
-              <stop offset="100%" stop-color="#0c1c30"/>
-            </linearGradient>
-
-            <linearGradient
-              id="greenGrad"
-              x1="0"
-              y1="0"
-              x2="1"
-              y2="0"
-            >
-              <stop offset="0%" stop-color="#32d583"/>
-              <stop offset="100%" stop-color="#8df5bd"/>
-            </linearGradient>
-          </defs>
-
-          <rect
-            width="600"
-            height="760"
-            rx="25"
-            fill="url(#posterBg)"
-          />
-
-          <circle
-            cx="510"
-            cy="100"
-            r="90"
-            fill="#32d583"
-            opacity=".12"
-          />
-
-          <circle
-            cx="80"
-            cy="650"
-            r="120"
-            fill="#2387d9"
-            opacity=".12"
-          />
-
-          <rect
-            x="55"
-            y="55"
-            width="490"
-            height="7"
-            rx="4"
-            fill="url(#greenGrad)"
-          />
-
-          <text
-            x="300"
-            y="155"
-            text-anchor="middle"
-            fill="#32d583"
-            font-size="60"
-            font-family="Arial"
-            font-weight="bold"
-          >
-            KENA
-          </text>
-
-          <text
-            x="300"
-            y="215"
-            text-anchor="middle"
-            fill="white"
-            font-size="43"
-            font-family="Arial"
-            font-weight="bold"
-          >
-            DESIGN
-          </text>
-
-          <text
-            x="300"
-            y="270"
-            text-anchor="middle"
-            fill="#cde5f5"
-            font-size="22"
-            font-family="Arial"
-          >
-            GRAPHIC DESIGN
-          </text>
-
-          <rect
-            x="100"
-            y="325"
-            width="400"
-            height="180"
-            rx="20"
-            fill="#ffffff"
-            opacity=".08"
-          />
-
-          <text
-            x="300"
-            y="385"
-            text-anchor="middle"
-            fill="white"
-            font-size="28"
-            font-family="Arial"
-            font-weight="bold"
-          >
-            LEARN
-          </text>
-
-          <text
-            x="300"
-            y="425"
-            text-anchor="middle"
-            fill="#32d583"
-            font-size="28"
-            font-family="Arial"
-            font-weight="bold"
-          >
-            CREATE
-          </text>
-
-          <text
-            x="300"
-            y="465"
-            text-anchor="middle"
-            fill="white"
-            font-size="28"
-            font-family="Arial"
-            font-weight="bold"
-          >
-            DESIGN
-          </text>
-
-          <rect
-            x="125"
-            y="565"
-            width="350"
-            height="65"
-            rx="32"
-            fill="#32d583"
-          />
-
-          <text
-            x="300"
-            y="608"
-            text-anchor="middle"
-            fill="#06111d"
-            font-size="23"
-            font-family="Arial"
-            font-weight="bold"
-          >
-            KENA DESIGN
-          </text>
-
-          <text
-            x="300"
-            y="690"
-            text-anchor="middle"
-            fill="#9ed8ff"
-            font-size="20"
-            font-family="Arial"
-          >
-            Graphic Design Lesson 1
-          </text>
-
-        </svg>
-
-      </div>
-
-      <p class="click-text">
-        👆 Postericha tuqi — guddaan bana
-      </p>
-
-    </div>
-
-
-    <div class="note">
-      📝 <strong>Note:</strong><br><br>
-
-      Poster fakkeenyaa kana akkuma jirutti
-      copy gochuu hin qabdu.
-
-      <br><br>
-
-      Yaada isaa irraa baradhu; garuu
-      <strong>design kee ofii keetiin</strong> hojjedhu.
-    </div>
-
-  </section>
-
-
-  <!-- FINAL CHECK -->
-  <section>
-    <h2>✅ Lesson 1 Final Check</h2>
-
-    <p>
-      Assignment kee erga xumurtee booda:
-    </p>
-
-    <ul>
-      <li>Text sirrii ta'uu ilaali.</li>
-      <li>Font dubbifamuu danda'u filadhu.</li>
-      <li>Color wal simsiisi.</li>
-      <li>Image sirriitti qindeessi.</li>
-      <li>Shape sirriitti fayyadami.</li>
-      <li>Stroke fi Shadow baay'ee hin godhin.</li>
-      <li>Design qulqulluu godhi.</li>
-      <li>JPG ykn PNG godhii save godhi.</li>
-    </ul>
-  </section>
-
-
-  <!-- COMPLETION -->
-  <section>
-    <h2>🎓 Lesson Completed</h2>
-
-    <p>
-      Lesson 1 xumurteetta yoo ta'e button armaan gadii cuqaasi.
-    </p>
 
     <button
-      class="btn btn-green"
-      onclick="completeLesson()"
-    >
-      ✓ Mark Lesson 1 Completed
+      class="menu"
+      onclick="toggleMenu()"
+      aria-label="Menu">
+      ☰
     </button>
 
-    <div
-      id="completedMessage"
-      class="completed"
-    >
-      🎉 Baga gammaddan! Lesson 1 xumurameera.
-      Lesson itti aanuuf qophaa'aa.
-    </div>
-  </section>
+    <nav id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="register.html">Galmaa'i</a>
+      <a href="student.html">Barataa</a>
+    </nav>
+
+  </div>
+</header>
 
 
-  <footer>
-    © 2026 Kena Design — Graphic Design Course
-  </footer>
+<main class="lesson-page">
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="lesson-hero">
+
+  <p class="tag">KENA DESIGN • LESSON 1</p>
+
+  <h1>
+    PixelLab
+    <span>Tools fi Features</span>
+  </h1>
+
+  <p>
+    Lesson kana keessatti PixelLab maal akka ta'e,
+    tool tokkoon tokkoon isaa eessa akka argamu,
+    maalif akka fayyadu fi akkamitti akka itti
+    fayyadamtu tartiiba salphaan baratta.
+  </p>
+
+  <p>
+    🎯 Kaayyoon Lesson 1: dhuma irratti poster,
+    thumbnail ykn design salphaa tokko ofii keetiin
+    PixelLab keessatti uumuu.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<div class="lesson-nav">
+
+  <a href="#intro">1. Seensa</a>
+  <a href="#install">2. Install</a>
+  <a href="#interface">3. Interface</a>
+  <a href="#text">4. Text</a>
+  <a href="#effects">5. Effects</a>
+  <a href="#images">6. Images</a>
+  <a href="#layers">7. Layers</a>
+  <a href="#background">8. Background</a>
+  <a href="#save">9. Save</a>
+  <a href="#export">10. Export</a>
+  <a href="#practice">Practice</a>
 
 </div>
 
 
-<!-- POSTER FULLSCREEN MODAL -->
-<div
-  id="posterModal"
-  class="poster-modal"
-  onclick="closePoster(event)"
->
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-  <span
-    class="close-poster"
-    onclick="closePoster(event)"
-  >
-    &times;
-  </span>
+<section id="intro" class="lesson-section">
+
+  <h2>🎨 1. PixelLab jechuun maal?</h2>
+
+  <p>
+    PixelLab app mobile irratti graphic design,
+    text design, poster, thumbnail, logo,
+    social-media design fi hojiiwwan biroo
+    hojjechuuf gargaarudha.
+  </p>
+
+  <p>
+    Appichi text, 3D text, fonts, colors,
+    stickers, images, drawing, backgrounds,
+    layers/project saving, background removal,
+    perspective editing, image effects fi export
+    qaba. 3
+  </p>
+
+  <div class="example-box">
+    <b>💡 Yaadadhu:</b>
+    PixelLab button qofa miti. Toolwwan isaa walitti
+    fiduun design tokko ijaartu.
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     INSTALL
+===================================================== -->
+
+<section id="install" class="lesson-section">
+
+  <h2>📱 2. PixelLab Buufachuu fi Install Godhuu</h2>
+
+  <p>
+    Android yoo fayyadamtu, PixelLab Google Play irraa
+    buufachuu dandeessa.
+  </p>
+
+  <div class="download-box">
+
+    <div style="font-size:55px;">Ⓟ</div>
+
+    <h3>PixelLab - Text on pictures</h3>
+
+    <p>
+      Appii PixelLab isa Google Play irratti argamu
+      banuuf button armaan gadii cuqaasi.
+    </p>
+
+    <a
+      class="download-btn"
+      href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
+      target="_blank"
+      rel="noopener">
+
+      📲 Google Play irraa Buufadhu
+    </a>
+
+  </div>
+
+  <div class="step">
+    <div class="step-number">1</div>
+    <div>
+      <b>Google Play bani.</b>
+      <p>Link armaan olii cuqaasi.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">2</div>
+    <div>
+      <b>Install cuqaasi.</b>
+      <p>Appichi mobile kee irratti fe'ama.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-number">3</div>
+    <div>
+      <b>Open cuqaasi.</b>
+      <p>PixelLab jalqabi.</p>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    ⚠️ PixelLab maqaa wal-fakkaataa qaban app biraas jiraachuu
+    danda'u. Lesson kana keessatti kan fayyadamnu
+    Google Play irratti <b>App Holdings</b> tiin maxxanfame
+    “PixelLab - Text on pictures” dha. 4
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     INTERFACE
+===================================================== -->
+
+<section id="interface" class="lesson-section">
+
+  <h2>🖥️ 3. Interface — Fuula jalqabaa</h2>
+
+  <p>
+    PixelLab bannee yeroo jalqabaaf ilaallu,
+    canvas, toolbar fi object text argina.
+    Version appii irratti hundaa'uun mallattooleen
+    bakka xiqqoo garaagarummaa qabaachuu danda'u.
+  </p>
 
   <img
-    id="posterFull"
-    class="poster-full"
-    alt="Kena Design Poster"
-  >
+    class="ui-image"
+    src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
+    alt="PixelLab interface screenshot">
 
-</div>
+  <p class="caption">
+    Fakkeenya PixelLab interface fi text editing.
+  </p>
 
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">➕</div>
+      <h3>Plus (+) — Wantoota haaraa dabali</h3>
+    </div>
+
+    <span class="location">
+      📍 Toolbar gubbaa → +
+    </span>
+
+    <p>
+      Plus yeroo cuqaastu, Text, Stickers,
+      Shapes, Image fi wantoota biroo itti dabaluuf
+      menu siif bana.
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Design kee keessatti elementii haaraa uumuuf.
+    </p>
+
+    <p>
+      <strong>Akkamitti?</strong><br>
+      + → Text filadhu → text kee barreessi.
+    </p>
+
+  </div>
+
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">✏️</div>
+      <h3>Edit / Pencil — Object jijjiiri</h3>
+    </div>
+
+    <span class="location">
+      📍 Object filadhu → Edit/Pencil
+    </span>
+
+    <p>
+      Text ykn object filattee content, size,
+      color, font fi style isaa jijjiiruu dandeessa.
+    </p>
+
+  </div>
+
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">▱</div>
+      <h3>Layers — Objectwwan tartiibaan qindeessi</h3>
+    </div>
+
+    <span class="location">
+      📍 Toolbar → Layers icon
+    </span>
+
+    <p>
+      Object tokko kan biraa duuba ykn fuuldura
+      kaa'uu, dhoksuu, lock gochuu fi delete gochuuf
+      layers fayyadami.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     TEXT
+===================================================== -->
+
+<section id="text" class="lesson-section">
+
+  <h2>🔤 4. Text Tool</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">T</div>
+      <h3>Text — Barreeffama</h3>
+    </div>
+
+    <span class="location">
+      📍 + → Text
+    </span>
+
+    <p>
+      Text tool’n maqaa, mata-duree, slogan,
+      caption fi odeeffannoo design keessatti
+      barreessuuf fayyada.
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Ergaa design kee namaaf dabarsuuf.
+    </p>
+
+    <p>
+      <strong>Akkamitti?</strong>
+    </p>
+
+    <ol>
+      <li>+ cuqaasi.</li>
+      <li>Text filadhu.</li>
+      <li>“New Text” irratti cuqaasi.</li>
+      <li>Barreeffama kee galchi.</li>
+      <li>✓/OK cuqaasi.</li>
+      <li>Text sana bakka barbaadde kaa'i.</li>
+    </ol>
+
+    <div class="example-box">
+      <b>Fakkeenya:</b><br>
+      “KENA DESIGN” mata-duree poster ta'uu danda'a.
+    </div>
+
+  </div>
+
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">3D</div>
+      <h3>3D Text</h3>
+    </div>
+
+    <span class="location">
+      📍 Text/Object → 3D ykn Text Effects
+    </span>
+
+    <p>
+      Text kee gara fakkii sadii-dimensionaatti fakkeessuuf
+      3D Text fayyadami.
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Mata-duree poster ykn thumbnail akka
+      cimaa fi hawwataa fakkaatu gochuuf.
+    </p>
+
+    <p>
+      <strong>Akkamitti?</strong><br>
+      Text filadhu → 3D option barbaadi →
+      depth/lighting/shadow sirreessi.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FONT
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>🔠 5. Font Tool</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">F</div>
+      <h3>Font — Boca qubee</h3>
+    </div>
+
+    <span class="location">
+      📍 Text filadhu → Font
+    </span>
+
+    <p>
+      Font jechuun bifa qubee barreeffamaati.
+      PixelLab keessatti fontwwan hedduu keessaa
+      filachuu ykn font mataa keetii fayyadamuu dandeessa.
+      5
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Design kee professional fi dubbifamuu
+      salphaa akka ta'uuf.
+    </p>
+
+    <div class="example-box">
+      <b>📌 Seera jalqabaa:</b><br>
+      Poster tokko keessatti font baay'ee walitti hin makiin.
+      Mata-duree tokko fi body text tokkoon jalqabi.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     COLOR
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>🎨 6. Color Tool</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">●</div>
+      <h3>Text Color</h3>
+    </div>
+
+    <span class="location">
+      📍 Text filadhu → Color
+    </span>
+
+    <p>
+      Text irratti color salphaa, gradient fi
+      texture fakkaatan fayyadamuuf ni dandeessa.
+      6
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Text background irraa adda akka ba'uuf.
+    </p>
+
+    <p>
+      <strong>Akkamitti?</strong><br>
+      Text filadhu → Color → color filadhu →
+      ✓.
+    </p>
+
+    <div class="poster-example">
+
+      <div>
+        <h3>
+          KENA <span>DESIGN</span>
+        </h3>
+
+        <p>
+          Learn • Create • Grow
+        </p>
+      </div>
+
+    </div>
+
+    <p class="caption">
+      Fakkeenya color contrast.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     EFFECTS
+===================================================== -->
+
+<section id="effects" class="lesson-section">
+
+  <h2>✨ 7. Text Effects</h2>
+
+  <p>
+    Effects text kee ifa, gadi-fageenya fi
+    adda-bahinsa akka qabaatu godhu.
+  </p>
+
+  <div class="tool-card">
+
+    <h3>🌑 Shadow</h3>
+
+    <p>
+      Text duuba shadow kaa'a. Text background
+      irraa adda baasuuf baay'ee fayyada.
+    </p>
+
+    <span class="location">
+      📍 Text → Shadow
+    </span>
+
+  </div>
+
+
+  <div class="tool-card">
+
+    <h3>⭕ Stroke</h3>
+
+    <p>
+      Text marsaan isaa outline argata.
+      Background halluu hedduu qabu irratti
+      dubbifamuu fooyyeessa.
+    </p>
+
+    <span class="location">
+      📍 Text → Stroke
+    </span>
+
+  </div>
+
+
+  <div class="tool-card">
+
+    <h3>💡 Background / BG</h3>
+
+    <p>
+      Text duuba box ykn background kaa'a.
+      Caption fi announcement irratti gaarii dha.
+    </p>
+
+  </div>
+
+
+  <div class="tool-card">
+
+    <h3>🪞 Reflection / Emboss / Mask</h3>
+
+    <p>
+      Reflection text akka calaqqisu godha.
+      Emboss text akka ol-ka'e fakkeessa.
+      Mask ammoo text effect addaa uumuuf fayyada.
+    </p>
+
+  </div>
+
+  <div class="example-box">
+    <b>⚠️ Hubadhu:</b>
+    Effect baay'ee yeroo tokko irratti hin fe'in.
+    Design qulqulluu ta'uu qaba.
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     STICKERS
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>😀 8. Stickers & Shapes</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">⭐</div>
+      <h3>Stickers</h3>
+    </div>
+
+    <span class="location">
+      📍 + → Stickers
+    </span>
+
+    <p>
+      Emoji, sticker fi shapes design irratti
+      dabaluuf fayyadami.
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Design kee message isaa cimsuuf.
+    </p>
+
+    <p>
+      <strong>Akkamitti?</strong><br>
+      + → Stickers → sticker filadhu →
+      size fi position sirreessi.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     IMAGE IMPORT
+===================================================== -->
+
+<section id="images" class="lesson-section">
+
+  <h2>🖼️ 9. Image Import</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">🖼️</div>
+      <h3>Import Image — Suuraa galchi</h3>
+    </div>
+
+    <span class="location">
+      📍 + → Image / Gallery
+    </span>
+
+    <p>
+      Gallery mobile kee keessaa suuraa gara
+      project PixelLab keessa galchuuf fayyada.
+      7
+    </p>
+
+    <p>
+      Fakkeenyaaf:
+    </p>
+
+    <ul>
+      <li>Suuraa namaa</li>
+      <li>Logo</li>
+      <li>Product photo</li>
+      <li>Sticker mataa keetii</li>
+      <li>Background image</li>
+    </ul>
+
+    <p>
+      Suuraa erga galchitee booda size, position,
+      rotation fi effects isaa sirreessuu dandeessa.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     DRAW
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>✏️ 10. Draw Tool</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">✏️</div>
+      <h3>Draw — Harkaan sarara hojjedhu</h3>
+    </div>
+
+    <span class="location">
+      📍 + → Draw
+    </span>
+
+    <p>
+      Pen size fi color filattee canvas irratti
+      harkaan drawing gochuu dandeessa.
+      8
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Arrow, underline, signature ykn mallattoo
+      mataa keetii uumuuf.
+    </p>
+
+    <p>
+      Drawing erga hojjettee booda akka objectitti
+      resize, rotate fi shadow gochuu dandeessa.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
+
+<section id="background" class="lesson-section">
+
+  <h2>🌄 11. Background Tool</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">🌈</div>
+      <h3>Change Background</h3>
+    </div>
+
+    <span class="location">
+      📍 Background option
+    </span>
+
+    <p>
+      Background gara color, gradient ykn
+      image tti jijjiiruu dandeessa. 9
+    </p>
+
+    <p>
+      <strong>Fakkeenya:</strong>
+    </p>
+
+    <ul>
+      <li>Poster → dark background</li>
+      <li>Thumbnail → colorful gradient</li>
+      <li>Business post → brand color</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     BACKGROUND REMOVAL
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>✂️ 12. Background Removal</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">✂️</div>
+      <h3>Remove Background</h3>
+    </div>
+
+    <span class="location">
+      📍 Image filadhu → Remove Background
+    </span>
+
+    <p>
+      Background suuraa keessaa haquun object
+      qofa transparent gochuuf fayyada.
+      Fakkeenyaaf nama tokko background irraa
+      adda baasuu dandeessa. 10
+    </p>
+
+    <div class="example-box">
+      <b>Fakkeenya:</b><br>
+      Suuraa namaa → Remove Background →
+      nama qofa → background haaraa irratti kaa'i.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PERSPECTIVE
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>📐 13. Perspective Editing</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">📐</div>
+      <h3>Perspective / Warp</h3>
+    </div>
+
+    <span class="location">
+      📍 Image/Text → Perspective/Warp
+    </span>
+
+    <p>
+      Object ykn text tokko akka kallattii
+      addaa keessa jiru fakkeessuuf fayyada.
+      11
+    </p>
+
+    <p>
+      <strong>Fakkeenya:</strong>
+    </p>
+
+    <ul>
+      <li>Logo gara box irratti kaa'u</li>
+      <li>Text gara road sign irratti kaa'u</li>
+      <li>Screen/monitor irratti design kaa'u</li>
+    </ul>
+
+  </div>
+
+  <img
+    class="ui-image"
+    src="https://mwm.ai/apps/pixellab-text-photo-editor/6757263162"
+    alt="PixelLab perspective editing example">
+
+</section>
+
+
+<!-- =====================================================
+     IMAGE EFFECTS
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>🌟 14. Image Effects</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">✨</div>
+      <h3>Effects</h3>
+    </div>
+
+    <span class="location">
+      📍 Image filadhu → Effects
+    </span>
+
+    <p>
+      Suuraa kee look isaa fooyyeessuuf
+      effects akka vignette, hue, saturation
+      fi effects biroo fayyadamuu dandeessa.
+      12
+    </p>
+
+    <p>
+      <strong>Yaada:</strong>
+      Effect xiqqoo fayyadami; suuraa akka
+      artificial hin fakkaanne eegi.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     LAYERS
+===================================================== -->
+
+<section id="layers" class="lesson-section">
+
+  <h2>📚 15. Layers</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">▱</div>
+      <h3>Layers — Tartiiba Object</h3>
+    </div>
+
+    <span class="location">
+      📍 Toolbar → Layers
+    </span>
+
+    <p>
+      Layers jechuun objectwwan design kee keessa jiran
+      tartiiba isaanii to'achuudha.
+    </p>
+
+    <p>
+      Fakkeenyaaf:
+    </p>
+
+    <ol>
+      <li>Background</li>
+      <li>Image</li>
+      <li>Shape</li>
+      <li>Main Text</li>
+      <li>Small Text</li>
+    </ol>
+
+    <p>
+      Object tokko fuuldura ykn duuba kaa'uu,
+      hide, lock fi delete gochuu keessatti layers
+      baay'ee barbaachisaa dha.
+    </p>
+
+  </div>
+
+  <img
+    class="ui-image"
+    src="https://st.downzen.com/dzni/screenshot/pixellab-text-on-pictures-android.jpg"
+    alt="PixelLab layers interface">
+
+  <p class="caption">
+    Fakkeenya layers panel fi object controls.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECT SAVE
+===================================================== -->
+
+<section id="save" class="lesson-section">
+
+  <h2>💾 16. Save as Project</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">💾</div>
+      <h3>Project Save</h3>
+    </div>
+
+    <span class="location">
+      📍 Toolbar → Save / Project
+    </span>
+
+    <p>
+      Hojii kee project godhanii save gochuun,
+      yeroo biraa deebi'anii itti fufuuf si gargaara.
+      13
+    </p>
+
+    <p>
+      <strong>Maaliif?</strong><br>
+      Design kee yeroo hunda image qofa osoo hin taane
+      project editable ta'ee akka siif hafuuf.
+    </p>
+
+    <p>
+      Fakkeenyaaf:
+      har'a poster jalqabde → project save godhi →
+      boru deebi'ii text fi image jijjiiri.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPORT
+===================================================== -->
+
+<section id="export" class="lesson-section">
+
+  <h2>📤 17. Export Image</h2>
+
+  <div class="tool-card">
+
+    <div class="tool-title">
+      <div class="tool-icon">📤</div>
+      <h3>Export — Design kee baasi</h3>
+    </div>
+
+    <span class="location">
+      📍 Toolbar → Save/Export
+    </span>
+
+    <p>
+      Design xumurte booda image akka filetti
+      save ykn share gochuuf Export fayyadami.
+      Resolution fi format filachuu dandeessa.
+      14
+    </p>
+
+    <p>
+      <strong>Fakkeenya:</strong>
+    </p>
+
+    <ul>
+      <li>WhatsApp irratti erguuf</li>
+      <li>Facebook irratti maxxansuuf</li>
+      <li>YouTube Thumbnail gochuuf</li>
+      <li>Poster print gochuuf</li>
+    </ul>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     TOOL SUMMARY
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>🧰 18. Toolwwan Gabaabinaan</h2>
+
+  <table class="tool-table">
+
+    <thead>
+      <tr>
+        <th>Tool</th>
+        <th>Maaliif?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>🔤 Text</td>
+        <td>Barreeffama uumuuf</td>
+      </tr>
+
+      <tr>
+        <td>3️⃣ 3D Text</td>
+        <td>Text depth/3D fakkeessuuf</td>
+      </tr>
+
+      <tr>
+        <td>✨ Text Effects</td>
+        <td>Shadow, stroke, reflection fi kkf</td>
+      </tr>
+
+      <tr>
+        <td>🔠 Font</td>
+        <td>Bifa qubee jijjiiruuf</td>
+      </tr>
+
+      <tr>
+        <td>🎨 Color</td>
+        <td>Halluu text/background jijjiiruuf</td>
+      </tr>
+
+      <tr>
+        <td>⭐ Stickers</td>
+        <td>Emoji, sticker fi shapes dabaluuf</td>
+      </tr>
+
+      <tr>
+        <td>🖼️ Image Import</td>
+        <td>Gallery irraa image galchuuf</td>
+      </tr>
+
+      <tr>
+        <td>✏️ Draw</td>
+        <td>Harkaan drawing gochuuf</td>
+      </tr>
+
+      <tr>
+        <td>🌄 Background</td>
+        <td>Background jijjiiruuf</td>
+      </tr>
+
+      <tr>
+        <td>✂️ Remove Background</td>
+        <td>Object background irraa adda baasuuf</td>
+      </tr>
+
+      <tr>
+        <td>📐 Perspective</td>
+        <td>Object kallattii/perspective jijjiiruuf</td>
+      </tr>
+
+      <tr>
+        <td>🌟 Effects</td>
+        <td>Image look fooyyeessuuf</td>
+      </tr>
+
+      <tr>
+        <td>📚 Layers</td>
+        <td>Objectwwan tartiibaan to'achuuf</td>
+      </tr>
+
+      <tr>
+        <td>💾 Project Save</td>
+        <td>Hojii editable ta'ee kuusuuf</td>
+      </tr>
+
+      <tr>
+        <td>📤 Export</td>
+        <td>Design image godhanii baasuuf</td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</section>
+
+
+<!-- =====================================================
+     PRACTICAL
+===================================================== -->
+
+<section id="practice" class="lesson-section">
+
+  <h2>🛠️ 19. Practical — Hojii Keessan</h2>
+
+  <div class="practice-box">
+
+    <h3>🎯 “KENA DESIGN” Poster Hojjedhu</h3>
+
+    <p>
+      Amma waan baratte hunda hojii tokko keessatti
+      walitti qabi.
+    </p>
+
+    <ol>
+
+      <li>PixelLab bani.</li>
+
+      <li>Background halluu tokko filadhu.</li>
+
+      <li>Text “KENA DESIGN” jedhu dabali.</li>
+
+      <li>Font bareedaa filadhu.</li>
+
+      <li>Text color sirreessi.</li>
+
+      <li>Shadow ykn Stroke xiqqoo dabali.</li>
+
+      <li>Logo ykn image tokko import godhi.</li>
+
+      <li>Sticker tokko yoo barbaadde dabali.</li>
+
+      <li>Layers keessatti objectwwan qindeessi.</li>
+
+      <li>Project kee save godhi.</li>
+
+      <li>Dhumas irratti Export godhi.</li>
+
+    </ol>
+
+  </div>
+
+
+  <div class="poster-example">
+
+    <div>
+
+      <h3>
+        KENA <span>DESIGN</span>
+      </h3>
+
+      <p>
+        LEARN • CREATE • GROW
+      </p>
+
+      <p>
+        GRAPHIC DESIGN
+      </p>
+
+    </div>
+
+  </div>
+
+  <p class="caption">
+    Fakkeenya salphaa assignment kee.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     ASSIGNMENT
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>📝 20. Assignment</h2>
+
+  <div class="practice-box">
+
+    <h3>Assignment 1</h3>
+
+    <p>
+      PixelLab fayyadamuun poster tokko hojjedhu.
+    </p>
+
+    <ol>
+
+      <li>
+        Mata-duree tokko barreessi.
+      </li>
+
+      <li>
+        Font lama caalaa hin fayyadamin.
+      </li>
+
+      <li>
+        Color 2–4 qofa fayyadami.
+      </li>
+
+      <li>
+        Image tokko import godhi.
+      </li>
+
+      <li>
+        Shadow ykn Stroke fayyadami.
+      </li>
+
+      <li>
+        Layers sirriitti qindeessi.
+      </li>
+
+      <li>
+        Project save godhi.
+      </li>
+
+      <li>
+        Image export godhi.
+      </li>
+
+    </ol>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FINAL CHECK
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>✅ 21. Final Check</h2>
+
+  <div class="quiz-question">
+    <b>1.</b>
+    Text tool maalif fayyada?
+    <p>Barreeffama uumuuf.</p>
+  </div>
+
+  <div class="quiz-question">
+    <b>2.</b>
+    Font maal jijjiira?
+    <p>Bifa qubee jijjiira.</p>
+  </div>
+
+  <div class="quiz-question">
+    <b>3.</b>
+    Layers maalif barbaachisa?
+    <p>Objectwwan tartiiba fi position isaanii to'achuuf.</p>
+  </div>
+
+  <div class="quiz-question">
+    <b>4.</b>
+    Remove Background maal hojjeta?
+    <p>Object background irraa adda baasa.</p>
+  </div>
+
+  <div class="quiz-question">
+    <b>5.</b>
+    Project Save maalif?
+    <p>Hojii editable ta'ee yeroo biraa itti fufuuf.</p>
+  </div>
+
+  <div class="quiz-question">
+    <b>6.</b>
+    Export maalif?
+    <p>Design xumurame image/file godhanii baasuuf.</p>
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     NOTE
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>💡 Note</h2>
+
+  <p>
+    PixelLab keessatti button ykn menu tokko version
+    appii irratti hundaa'uun bakka xiqqoo garaagarummaa
+    qabaachuu danda'a. Garuu hojiiwwan ijoo akka Text,
+    3D Text, Fonts, Stickers, Images, Drawing,
+    Background, Layers, Project Save, Background Removal,
+    Perspective, Effects fi Export ni argamu. 15
+  </p>
+
+  <div class="warning-box">
+    🎯 Barnoota kana keessatti button qofa yaadachuu hin yaalin.
+    <br><br>
+    <b>Tool → Maalif? → Akkamitti? → Practical</b>
+    jechuun baradhu.
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     COMPLETE
+===================================================== -->
+
+<section class="lesson-section">
+
+  <h2>🏁 Lesson 1 Xumuri</h2>
+
+  <p>
+    Yoo Lesson 1 sirriitti baratte,
+    button armaan gadii cuqaasi.
+  </p>
+
+  <button
+    class="complete-btn"
+    onclick="completeLesson()">
+
+    ✅ Mark Lesson 1 Completed
+
+  </button>
+
+  <div id="lessonCompleteMsg">
+    🎉 Lesson 1 milkaa'inaan xumurameera!
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-content">
+
+    <h3>KENA DESIGN</h3>
+
+    <p>Learn • Create • Grow</p>
+
+    <p>
+      © 2026 KENA DESIGN.
+      Mirgi hundi seeraan eegama.
+    </p>
+
+  </div>
+
+</footer>
+
+
+<script src="script.js"></script>
 
 <script>
 
-  /* =========================
-     POSTER CLICK
-  ========================= */
+function completeLesson() {
 
-  function openPoster() {
+  const msg =
+    document.getElementById("lessonCompleteMsg");
 
-    const svg =
-      document.getElementById("posterSVG");
-
-    const svgData =
-      new XMLSerializer()
-        .serializeToString(svg);
-
-    const svgBlob =
-      new Blob(
-        [svgData],
-        {
-          type: "image/svg+xml;charset=utf-8"
-        }
-      );
-
-    const url =
-      URL.createObjectURL(svgBlob);
-
-    const posterFull =
-      document.getElementById("posterFull");
-
-    const modal =
-      document.getElementById("posterModal");
-
-    posterFull.src = url;
-
-    modal.classList.add("show");
+  if (msg) {
+    msg.style.display = "block";
   }
 
-
-  /* =========================
-     CLOSE POSTER
-  ========================= */
-
-  function closePoster(event) {
-
-    if (event) {
-      event.stopPropagation();
-    }
-
-    const modal =
-      document.getElementById("posterModal");
-
-    modal.classList.remove("show");
-
-    const poster =
-      document.getElementById("posterFull");
-
-    poster.src = "";
-  }
-
-
-  /* =========================
-     ESC KEY
-  ========================= */
-
-  document.addEventListener(
-    "keydown",
-    function(event) {
-
-      if (event.key === "Escape") {
-        closePoster();
-      }
-
-    }
+  localStorage.setItem(
+    "kena_lesson_1_completed",
+    "true"
   );
-
-
-  /* =========================
-     MARK LESSON COMPLETED
-  ========================= */
-
-  function completeLesson() {
-
-    const message =
-      document.getElementById(
-        "completedMessage"
-      );
-
-    message.style.display = "block";
-
-    localStorage.setItem(
-      "graphic_design_lesson_1_completed",
-      "true"
-    );
-
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth"
-    });
-  }
-
-
-  /* =========================
-     LOAD COMPLETION
-  ========================= */
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-      const completed =
-        localStorage.getItem(
-          "graphic_design_lesson_1_completed"
-        );
-
-      if (completed === "true") {
-
-        document.getElementById(
-          "completedMessage"
-        ).style.display = "block";
-
-      }
-
-    }
-  );
+}
 
 </script>
 

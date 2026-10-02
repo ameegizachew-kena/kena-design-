@@ -7,7 +7,7 @@
 <title>Lesson 1 - PixelLab | KENA DESIGN</title>
 
 <meta name="description"
-content="KENA DESIGN Lesson 1 - PixelLab barnoota bal'aa Afaan Oromoo. Text, Font, Color, 3D Text, Effects, Image, Layers fi Export.">
+content="KENA DESIGN Lesson 1 - PixelLab barnoota bal'aa Afaan Oromoo.">
 
 <style>
 *{
@@ -23,13 +23,13 @@ body{
   background:#07111f;
   color:#f5f7fb;
   font-family:Arial,Helvetica,sans-serif;
-  line-height:1.7;
+  line-height:1.75;
 }
 
 header{
   position:sticky;
   top:0;
-  z-index:100;
+  z-index:1000;
   background:#101c2c;
   border-bottom:1px solid #263b55;
 }
@@ -52,14 +52,14 @@ header{
 
 .nav-links{
   display:flex;
-  gap:16px;
   flex-wrap:wrap;
+  gap:15px;
 }
 
 .nav-links a{
   color:white;
   text-decoration:none;
-  font-weight:600;
+  font-weight:700;
 }
 
 .nav-links a:hover{
@@ -69,12 +69,12 @@ header{
 .container{
   max-width:1100px;
   margin:auto;
-  padding:25px 16px 50px;
+  padding:25px 16px 60px;
 }
 
 .hero{
-  background:linear-gradient(135deg,#101c2c,#0d2135);
-  border:1px solid #263b55;
+  background:linear-gradient(135deg,#101c2c,#0d2238);
+  border:1px solid #29435f;
   border-radius:22px;
   padding:30px 22px;
   margin-bottom:25px;
@@ -87,14 +87,14 @@ header{
 }
 
 h1{
-  font-size:38px;
+  font-size:39px;
   line-height:1.2;
-  margin:10px 0;
+  margin:8px 0 15px;
 }
 
 h2{
   color:#32d583;
-  margin-top:0;
+  line-height:1.3;
 }
 
 h3{
@@ -107,8 +107,8 @@ h3{
   background:#101c2c;
   border:1px solid #263b55;
   border-radius:18px;
-  padding:22px;
-  margin-bottom:22px;
+  padding:23px;
+  margin-bottom:23px;
 }
 
 .tool{
@@ -117,7 +117,7 @@ h3{
 
 .btn{
   display:inline-block;
-  padding:12px 17px;
+  padding:12px 18px;
   border-radius:10px;
   text-decoration:none;
   font-weight:800;
@@ -129,29 +129,33 @@ h3{
   color:#061019;
 }
 
-.primary:hover{
-  background:#4ee69a;
+.secondary{
+  color:white;
+  border:1px solid #405b78;
 }
 
-.secondary{
-  border:1px solid #3c5775;
-  color:white;
+.install-box{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin-top:18px;
 }
 
 .step{
   background:#07111f;
   border-left:4px solid #32d583;
   border-radius:9px;
-  padding:12px 14px;
+  padding:12px 15px;
   margin:9px 0;
 }
 
 .location{
-  background:#13263a;
+  background:#17283b;
   border-left:5px solid #ffcc33;
   border-radius:10px;
   padding:13px 15px;
-  margin:13px 0;
+  margin:14px 0;
 }
 
 .arrow{
@@ -161,59 +165,112 @@ h3{
 }
 
 .tip{
-  background:#102c27;
+  background:#102d27;
   border-left:5px solid #32d583;
-  padding:13px 15px;
   border-radius:10px;
+  padding:13px 15px;
   margin:14px 0;
 }
 
 .warning{
-  background:#302519;
+  background:#332719;
   border-left:5px solid #ffad33;
-  padding:13px 15px;
   border-radius:10px;
+  padding:13px 15px;
+  margin:14px 0;
 }
 
-.install-box{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  margin-top:15px;
+.example{
+  background:#182338;
+  border-left:5px solid #8b7cff;
+  border-radius:10px;
+  padding:13px 15px;
+  margin:14px 0;
 }
 
 ul{
-  padding-left:23px;
+  padding-left:24px;
 }
 
 li{
   margin:6px 0;
 }
 
-.tool-list{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:12px;
+
+/* =========================
+   SCREENSHOT
+========================= */
+
+.screenshot{
+  margin:18px auto;
+  max-width:850px;
+  text-align:center;
 }
 
-.tool-mini{
+.screenshot img{
+  width:100%;
+  max-height:650px;
+  object-fit:contain;
+  display:block;
+  background:#020811;
+  border:1px solid #38516d;
+  border-radius:15px;
+  cursor:zoom-in;
+  transition:.2s;
+}
+
+.screenshot img:hover{
+  transform:scale(1.01);
+}
+
+.zoom-text{
+  color:#aebed0;
+  font-size:14px;
+  margin-top:7px;
+}
+
+
+/* =========================
+   TOOL GRID
+========================= */
+
+.tool-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(auto-fit,minmax(230px,1fr));
+  gap:13px;
+}
+
+.tool-box{
   background:#07111f;
-  border:1px solid #263b55;
-  padding:15px;
+  border:1px solid #2a415c;
   border-radius:12px;
+  padding:15px;
+}
+
+.tool-box strong{
+  color:#32d583;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.table-wrap{
+  overflow-x:auto;
 }
 
 table{
   width:100%;
   border-collapse:collapse;
-  overflow:hidden;
+  min-width:650px;
 }
 
 th,
 td{
   border:1px solid #304963;
-  padding:10px;
+  padding:11px;
   text-align:left;
 }
 
@@ -226,42 +283,17 @@ td{
   background:#0b1726;
 }
 
-/* IMAGE */
-.screenshot-box{
-  max-width:900px;
-  margin:18px auto;
-  text-align:center;
-}
 
-.screenshot-box img{
-  width:100%;
-  max-height:620px;
-  object-fit:contain;
-  display:block;
-  border:1px solid #38516d;
-  border-radius:15px;
-  cursor:zoom-in;
-  background:#020811;
-  transition:.2s;
-}
+/* =========================
+   IMAGE ZOOM MODAL
+========================= */
 
-.screenshot-box img:hover{
-  transform:scale(1.01);
-}
-
-.zoom-help{
-  color:#aebed0;
-  font-size:14px;
-  margin-top:7px;
-}
-
-/* ZOOM MODAL */
 .zoom-modal{
+  display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.94);
-  z-index:9999;
-  display:none;
+  z-index:99999;
+  background:rgba(0,0,0,.95);
   align-items:center;
   justify-content:center;
   padding:20px;
@@ -276,82 +308,40 @@ td{
   max-height:90vh;
   object-fit:contain;
   border-radius:12px;
+  box-shadow:0 0 35px rgba(255,255,255,.15);
 }
 
 .zoom-close{
   position:absolute;
-  top:15px;
+  top:14px;
   right:18px;
-  width:46px;
-  height:46px;
-  border:0;
+  width:47px;
+  height:47px;
+  border:none;
   border-radius:50%;
   background:#ff4d5f;
   color:white;
   font-size:30px;
   cursor:pointer;
+  z-index:2;
 }
 
 .zoom-title{
   position:absolute;
-  bottom:14px;
+  bottom:15px;
   left:50%;
   transform:translateX(-50%);
   background:#101c2c;
-  border:1px solid #38516d;
-  padding:7px 14px;
+  border:1px solid #3b5571;
+  color:white;
+  padding:7px 15px;
   border-radius:9px;
 }
 
-/* TOOL ARROW MAP */
-.tool-map{
-  position:relative;
-  overflow:hidden;
-  border-radius:14px;
-}
 
-.tool-map img{
-  width:100%;
-  display:block;
-  border-radius:14px;
-}
-
-.tool-label{
-  position:absolute;
-  background:#ffcc33;
-  color:#07111f;
-  padding:5px 9px;
-  border-radius:7px;
-  font-weight:900;
-  font-size:13px;
-  box-shadow:0 3px 12px rgba(0,0,0,.4);
-}
-
-.tool-label::after{
-  content:"➜";
-  margin-left:5px;
-}
-
-/* SIMPLE RESPONSIVE POSITIONS */
-.label-top{
-  top:8%;
-  right:5%;
-}
-
-.label-bottom{
-  bottom:8%;
-  left:5%;
-}
-
-.label-left{
-  top:45%;
-  left:3%;
-}
-
-.label-right{
-  top:45%;
-  right:3%;
-}
+/* =========================
+   FOOTER
+========================= */
 
 footer{
   text-align:center;
@@ -359,6 +349,7 @@ footer{
   color:#9eafc3;
   border-top:1px solid #263b55;
 }
+
 
 @media(max-width:700px){
 
@@ -371,11 +362,7 @@ footer{
   }
 
   h1{
-    font-size:29px;
-  }
-
-  h2{
-    font-size:24px;
+    font-size:30px;
   }
 
   .card,
@@ -383,15 +370,16 @@ footer{
     padding:17px;
   }
 
-  th,
-  td{
+  table{
     font-size:13px;
   }
 }
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -418,7 +406,9 @@ KENA DESIGN
 <main class="container">
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -431,9 +421,12 @@ PixelLab Sirriitti Baradhu
 </h1>
 
 <p>
-Lesson kana keessatti <b>PixelLab Google Play irraa buufatamu</b>
-fayyadamuun graphic design bu'uuraa irraa kaasee hanga
-design export gochuutti tartiiba tartiibaan baranna.
+Lesson kana keessatti PixelLab fayyadamuun
+<strong>Text, Font, Color, 3D Text, Text Effects,
+Stickers, Image, Draw, Background, Layers,
+Background Removal, Perspective, Image Effects,
+Save Project fi Export</strong>
+tartiiba tartiibaan baranna.
 </p>
 
 <div class="install-box">
@@ -447,7 +440,7 @@ rel="noopener">
 </a>
 
 <span>
-➡️ Link cuqaasi → Install → Open
+➡️ Google Play → Install → Open
 </span>
 
 </div>
@@ -455,7 +448,10 @@ rel="noopener">
 </section>
 
 
-<!-- PIXELLAB -->
+
+<!-- =========================
+     APP INFO
+========================= -->
 
 <section class="card">
 
@@ -464,25 +460,37 @@ rel="noopener">
 </h2>
 
 <p>
-PixelLab app Android irratti text fi graphic design hojjechuuf
-fayyadamuudha. Poster, thumbnail, flyer, social media design,
-logo-style design fi hojiiwwan text irratti hundaa'an hojjechuuf
-si gargaara.
+PixelLab jechuun app Android irratti suuraa fi graphic design
+hojjechuuf gargaarudha. App kana keessatti text stylish,
+3D text, shapes, stickers, drawing, background fi image editing
+hojjechuu dandeessa.
+</p>
+
+<p>
+Google Play listing PixelLab keessatti Text, 3D Text,
+text effects, fonts, stickers, image import, drawing,
+background, project saving, background removal,
+perspective editing, image effects fi export tarreeffamaniiru.
 </p>
 
 <div class="location">
 
 <span class="arrow">➡️</span>
 
-<b>Bakka:</b>
-App erga bantee booda fuula hojii PixelLab fi toolbar isaa argita.
+<strong>Bakka itti argamu:</strong>
+
+App erga bantee booda
+fuula hojii guddaa fi toolbar PixelLab argita.
 
 </div>
 
 </section>
 
 
-<!-- INSTALL -->
+
+<!-- =========================
+     INSTALL
+========================= -->
 
 <section class="card">
 
@@ -495,19 +503,19 @@ App erga bantee booda fuula hojii PixelLab fi toolbar isaa argita.
 </div>
 
 <div class="step">
-2️⃣ Search keessatti <b>PixelLab</b> barreessi.
+2️⃣ Search keessatti <strong>PixelLab</strong> barreessi.
 </div>
 
 <div class="step">
-3️⃣ PixelLab kan <b>Imaginstudio</b> jedhu filadhu.
+3️⃣ PixelLab kan <strong>App Holdings</strong> jedhu filadhu.
 </div>
 
 <div class="step">
-4️⃣ <b>Install</b> cuqaasi.
+4️⃣ <strong>Install</strong> cuqaasi.
 </div>
 
 <div class="step">
-5️⃣ Erga install ta'ee booda <b>Open</b> cuqaasi.
+5️⃣ Erga install ta'ee booda <strong>Open</strong> cuqaasi.
 </div>
 
 <a
@@ -515,82 +523,126 @@ class="btn primary"
 href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
 target="_blank"
 rel="noopener">
+
 ➡️ PixelLab Google Play Bani
+
 </a>
 
 <div class="tip">
-💡 <b>Hubachiisa:</b>
-Lesson kun PixelLab kan Google Play irratti argamu irratti
-hundaa'a.
+
+💡 <strong>Hubachiisa:</strong>
+Lesson kun PixelLab kan Google Play irratti argamu
+(<code>com.imaginstudio.imagetools.pixellab</code>)
+irratti hundaa'a. Google Play irratti appichi
+19 January 2026 irratti update godhameera. 1
+
 </div>
 
 </section>
 
 
-<!-- INTERFACE -->
 
-<section class="tool">
+<!-- =========================
+     SCREENSHOT 1
+========================= -->
 
-<h3>
-3. 🖥️ PixelLab Interface
-</h3>
+<section class="card">
+
+<h2>
+3. 🖥️ PixelLab Interface Ilaali
+</h2>
 
 <p>
-PixelLab yeroo bante, bakka hojii guddaa fi tools gara garaa
-argita.
+Kun fakkeenya interface PixelLab ti. Suuraa kana
+<strong>cuqaasi</strong> — guddatee screen guutuu irratti ni mul'ata.
 </p>
 
-<div class="location">
-<span class="arrow">➡️</span>
-<b>Canvas:</b>
-bakka design kee itti ijaartu.
+<div class="screenshot">
+
+<img
+src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
+alt="PixelLab text editing interface"
+onclick="openZoom(this,'PixelLab Text Editing Interface')">
+
+<div class="zoom-text">
+🔍 Suuraa cuqaasi → guddisi → × tuqi → cufi
+</div>
+
 </div>
 
 <div class="location">
-<span class="arrow">➡️</span>
-<b>Toolbar:</b>
-bakka tools gara garaa itti argattu.
-</div>
 
-<div class="location">
 <span class="arrow">➡️</span>
-<b>Object controls:</b>
-text ykn image filattee booda options isaa ittiin jijjiirtu.
-</div>
 
-<div class="location">
+<strong>Toolbar:</strong>
+tools gara garaa itti argattu.
+
+<br>
+
 <span class="arrow">➡️</span>
-<b>Layers/Object order:</b>
-objects hedduu yeroo qabaattu tartiiba isaanii to'achuuf.
-</div>
 
-<div class="warning">
-⚠️ Maqaan ykn mallattoon tokko tokko version Android/app irratti
-xiqqoo garaagaruu danda'a. Garuu hojii isaanii wal fakkaata.
+<strong>Canvas:</strong>
+bakka design itti hojjetu.
+
+<br>
+
+<span class="arrow">➡️</span>
+
+<strong>Text controls:</strong>
+Text filattee booda options isaa ittiin jijjiirtu.
+
 </div>
 
 </section>
 
 
-<!-- TEXT -->
+
+<!-- =========================
+     TEXT
+========================= -->
 
 <section class="tool">
 
 <h3>
-4. ✏️ Text — Barreessuu
+4. ✏️ TEXT — Barreessuu
 </h3>
 
 <p>
-<b>Text</b> PixelLab keessatti tool isa ijoodha.
-Maqaa, title, slogan, caption fi barruu biroo ittiin barreessita.
+<strong>Text</strong> jechuun barruu gara design keessa galchuudha.
+Kun tool PixelLab keessatti yeroo baay'ee itti fayyadamtu keessaa tokko.
 </p>
 
+<h4>🎯 Maalif fayyada?</h4>
+
+<ul>
+
+<li>Maqaa barreessuuf.</li>
+
+<li>Title barreessuuf.</li>
+
+<li>Poster hojjechuuf.</li>
+
+<li>YouTube thumbnail irratti barruu galchuuf.</li>
+
+<li>Logo-style text hojjechuuf.</li>
+
+<li>Quote fi slogan barreessuuf.</li>
+
+</ul>
+
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Toolbar keessatti mallattoo <b>T / Text</b> barbaadi.
+<strong>Bakka itti argamu:</strong>
+
+Toolbar keessatti mallattoo
+<strong>T / Text</strong>
+barbaadi.
+
 </div>
+
+<h4>🛠️ Akkamitti itti fayyadamta?</h4>
 
 <div class="step">
 1️⃣ Text/T cuqaasi.
@@ -601,93 +653,126 @@ Toolbar keessatti mallattoo <b>T / Text</b> barbaadi.
 </div>
 
 <div class="step">
-3️⃣ OK/✓ cuqaasi.
+3️⃣ OK ykn ✓ cuqaasi.
 </div>
 
 <div class="step">
-4️⃣ Text filadhu.
+4️⃣ Text kee filadhu.
 </div>
 
 <div class="step">
-5️⃣ Size fi position isaa sirreessi.
+5️⃣ Guddina, bakka fi angle isaa sirreessi.
 </div>
 
-<div class="tip">
-🎯 <b>Shaakala:</b>
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
 “KENA DESIGN” barreessi.
+
+Ergasii font, color, shadow fi stroke itti dabali.
+
 </div>
 
 </section>
 
 
-<!-- FONT -->
+
+<!-- =========================
+     FONT
+========================= -->
 
 <section class="tool">
 
 <h3>
-5. 🔤 Font — Boca Qubee
+5. 🔤 FONT — Boca Qubee
 </h3>
 
 <p>
-Font jechuun bifa qubee barruu keetii jijjiiruudha.
+Font jechuun bifa qubee text kee jijjiiruudha.
+PixelLab keessatti fonts hedduu keessaa filachuu dandeessa.
+Akkasumas font ofii kee fayyadamuun ni danda'ama. 2
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Text filadhu → menu text → <b>Font</b>.
+<strong>Bakka itti argamu:</strong>
+
+Text filadhu →
+<strong>Font</strong> filadhu.
+
 </div>
+
+<h4>🛠️ Tarkaanfii</h4>
 
 <div class="step">
 1️⃣ Text filadhu.
 </div>
 
 <div class="step">
-2️⃣ Font cuqaasi.
+2️⃣ Font banu.
 </div>
 
 <div class="step">
-3️⃣ Font barbaadde filadhu.
+3️⃣ Font tokko filadhu.
 </div>
 
 <div class="step">
 4️⃣ ✓/Apply godhi.
 </div>
 
-<p>
-Font tokko tokko title, logo, poster ykn thumbnail irratti
-caalaatti bareeda.
-</p>
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Title poster tokkoof font jabaa fayyadami.
+
+Text xiqqaaf font dubbifamuu salphaa filadhu.
+
+</div>
 
 </section>
 
 
-<!-- COLOR -->
+
+<!-- =========================
+     COLOR
+========================= -->
 
 <section class="tool">
 
 <h3>
-6. 🎨 Color — Halluu
+6. 🎨 COLOR — Halluu
 </h3>
 
 <p>
-Color fayyadamuun text ykn object kee halluu barbaaddeen goota.
+Color tool'n text ykn object kee halluu barbaaddeen gochuuf fayyada.
+PixelLab keessatti simple color qofa osoo hin taane
+linear gradient, radial gradient fi image texture illee
+text irratti fayyadamuun ni danda'ama. 3
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Text ykn shape filadhu → <b>Color</b>.
+<strong>Bakka itti argamu:</strong>
+
+Text filadhu →
+<strong>Color</strong> filadhu.
+
+</div>
+
+<h4>🛠️ Akkamitti?</h4>
+
+<div class="step">
+1️⃣ Text filadhu.
 </div>
 
 <div class="step">
-1️⃣ Object filadhu.
-</div>
-
-<div class="step">
-2️⃣ Color filadhu.
+2️⃣ Color bani.
 </div>
 
 <div class="step">
@@ -695,143 +780,242 @@ Text ykn shape filadhu → <b>Color</b>.
 </div>
 
 <div class="step">
-4️⃣ ✓ cuqaasi.
+4️⃣ Gradient barbaadde yoo ta'e gradient filadhu.
 </div>
 
-<div class="tip">
-🎯 Background dukkanaa irratti text adii ykn magariisaa
-yaali.
+<div class="step">
+5️⃣ ✓ cuqaasi.
+</div>
+
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Background dukkanaa irratti
+<strong>white + green</strong> text yaali.
+
 </div>
 
 </section>
 
 
-<!-- 3D -->
+
+<!-- =========================
+     3D TEXT
+========================= -->
 
 <section class="tool">
 
 <h3>
-7. 🧊 3D Text
+7. 🧊 3D TEXT
 </h3>
 
 <p>
-3D Text text kee akka depth qabu fakkeessa.
+3D Text jechuun text kee akka dheerina ykn depth qabu
+fakkeessuudha.
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Text filadhu → <b>3D Text / 3D</b> settings barbaadi.
+<strong>Bakka itti argamu:</strong>
+
+Text filadhu →
+<strong>3D Text</strong>
+option barbaadi.
+
 </div>
+
+<h4>🎯 Maalif?</h4>
+
+<ul>
+
+<li>Poster irratti title guddaa gochuuf.</li>
+
+<li>Logo-style design gochuuf.</li>
+
+<li>Text adda baasuu fi nama hawwatuuf.</li>
+
+</ul>
+
+<h4>🛠️ Tarkaanfii</h4>
 
 <div class="step">
 1️⃣ Text filadhu.
 </div>
 
 <div class="step">
-2️⃣ 3D option banu.
+2️⃣ 3D Text bani.
 </div>
 
 <div class="step">
-3️⃣ Depth ykn angle sirreessi.
+3️⃣ Depth/angle sirreessi.
 </div>
 
 <div class="step">
 4️⃣ Preview ilaali.
 </div>
 
+<div class="step">
+5️⃣ ✓ Apply godhi.
+</div>
+
 </section>
 
 
-<!-- EFFECTS -->
+
+<!-- =========================
+     TEXT EFFECTS
+========================= -->
 
 <section class="tool">
 
 <h3>
-8. ✨ Text Effects
+8. ✨ TEXT EFFECTS
 </h3>
 
 <p>
-Effects text kee caalaatti bareedaa fi ifa godhu.
+Text Effects text kee akka ifa, jabaa fi professional fakkaatu
+gochuuf gargaaru.
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Text filadhu → <b>Effects / Style</b>.
+<strong>Bakka itti argamu:</strong>
+
+Text filadhu →
+<strong>Effects / Style</strong>.
+
 </div>
 
 <ul>
 
-<li>🌑 Shadow — gaaddisa</li>
+<li>
+🌑 <strong>Shadow</strong> —
+text duuba gaaddisa kaa'a.
+</li>
 
-<li>🔲 Stroke — daangaa text</li>
+<li>
+🔲 <strong>Stroke</strong> —
+text marsaa daangaa kaa'a.
+</li>
 
-<li>🎨 Background — text duuba halluu</li>
+<li>
+🎨 <strong>Background</strong> —
+text duuba background kaa'a.
+</li>
 
-<li>✨ Reflection — calaqqee</li>
+<li>
+✨ <strong>Reflection</strong> —
+calaqqee text fakkeessa.
+</li>
 
-<li>🪨 Emboss — bifa ol-ka'aa fakkeessu</li>
+<li>
+🪨 <strong>Emboss</strong> —
+text akka ol-ka'e fakkeessa.
+</li>
+
+<li>
+🎭 <strong>Mask</strong> —
+text effect addaa uumuuf.
+</li>
 
 </ul>
 
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Text adii + Stroke gurraacha + Shadow xiqqoo.
+
+Kun thumbnail irratti text akka ifatti mul'atu godha.
+
+</div>
+
 </section>
 
 
-<!-- STICKERS -->
+
+<!-- =========================
+     STICKERS
+========================= -->
 
 <section class="tool">
 
 <h3>
-9. 🏷️ Stickers & Shapes
+9. 🏷️ STICKERS & SHAPES
 </h3>
 
 <p>
-Stickers fi Shapes design kee decoration gochuuf gargaaru.
+Stickers, emojis fi shapes design keessatti decoration
+fi mallattoo dabaluuf gargaaru. 4
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Toolbar/menu keessaa <b>Shapes / Stickers</b>.
+<strong>Bakka itti argamu:</strong>
+
+Toolbar/menu keessaa
+<strong>Stickers / Shapes</strong>
+barbaadi.
+
+</div>
+
+<h4>🛠️ Tarkaanfii</h4>
+
+<div class="step">
+1️⃣ Sticker ykn Shape filadhu.
 </div>
 
 <div class="step">
-Shape ykn sticker filadhu.
+2️⃣ Canvas irratti kaa'i.
 </div>
 
 <div class="step">
-Canvas irratti kaa'i.
+3️⃣ Guddina isaa jijjiiri.
 </div>
 
 <div class="step">
-Size fi position jijjiiri.
+4️⃣ Color fi position isaa sirreessi.
 </div>
 
 </section>
 
 
-<!-- IMAGE -->
+
+<!-- =========================
+     IMPORT IMAGE
+========================= -->
 
 <section class="tool">
 
 <h3>
-10. 🖼️ Import Image
+10. 🖼️ IMPORT IMAGE
 </h3>
 
 <p>
 Gallery irraa suuraa gara PixelLab keessa galchuuf fayyada.
+Suuraa lama ykn isaa ol walitti makuunis ni danda'ama. 5
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Toolbar → <b>Image / Import</b> → Gallery.
+<strong>Bakka itti argamu:</strong>
+
+Toolbar →
+<strong>Image / Import</strong> →
+Gallery.
+
 </div>
+
+<h4>🛠️ Tarkaanfii</h4>
 
 <div class="step">
 1️⃣ Image/Import filadhu.
@@ -853,241 +1037,358 @@ Toolbar → <b>Image / Import</b> → Gallery.
 5️⃣ Size fi position sirreessi.
 </div>
 
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Suuraa nama tokko galchi →
+background kee kaa'i →
+text itti dabali →
+poster godhi.
+
+</div>
+
 </section>
 
 
-<!-- DRAW -->
+
+<!-- =========================
+     DRAW
+========================= -->
 
 <section class="tool">
 
 <h3>
-11. ✍️ Draw
+11. ✍️ DRAW
 </h3>
 
 <p>
-Draw tool'n harka kee fayyadamuun line fi mallattoo kaasuuf
-si gargaara.
+Draw tool'n pen size fi color filachuun waan barbaadde
+canvas irratti kaasuu dandeessa. Drawing erga hojjettee booda
+shape fakkaatee resize, rotate fi shadow itti dabaluun ni danda'ama. 6
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Toolbar keessaa <b>Draw</b> barbaadi.
+<strong>Bakka itti argamu:</strong>
+
+Toolbar keessaa
+<strong>Draw</strong>
+barbaadi.
+
+</div>
+
+<h4>🛠️ Tarkaanfii</h4>
+
+<div class="step">
+1️⃣ Draw filadhu.
 </div>
 
 <div class="step">
-Brush filadhu.
+2️⃣ Brush/pen filadhu.
 </div>
 
 <div class="step">
-Thickness sirreessi.
+3️⃣ Size filadhu.
 </div>
 
 <div class="step">
-Color filadhu.
+4️⃣ Color filadhu.
 </div>
 
 <div class="step">
-Canvas irratti kaasi.
+5️⃣ Canvas irratti kaasi.
 </div>
 
 </section>
 
 
-<!-- BACKGROUND -->
+
+<!-- =========================
+     BACKGROUND
+========================= -->
 
 <section class="tool">
 
 <h3>
-12. 🌄 Background
+12. 🌄 BACKGROUND
 </h3>
 
 <p>
 Background jechuun duubbee design keetii.
+PixelLab keessatti background akka color,
+gradient ykn image ta'u gochuu dandeessa. 7
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Menu keessatti <b>Background</b> barbaadi.
+<strong>Bakka itti argamu:</strong>
+
+Menu keessaa
+<strong>Background</strong>
+barbaadi.
+
+</div>
+
+<h4>🛠️ Fakkeenya</h4>
+
+<div class="step">
+1️⃣ Background bani.
 </div>
 
 <div class="step">
-Color ykn Image filadhu.
+2️⃣ Color filadhu.
 </div>
 
 <div class="step">
-Duubbee design kee waliin madaali.
+3️⃣ Ykn Gradient filadhu.
+</div>
+
+<div class="step">
+4️⃣ Ykn Image akka background filadhu.
 </div>
 
 </section>
 
 
-<!-- BACKGROUND REMOVAL -->
+
+<!-- =========================
+     BACKGROUND REMOVAL
+========================= -->
 
 <section class="tool">
 
 <h3>
-13. ✂️ Background Removal
+13. ✂️ REMOVE BACKGROUND
 </h3>
 
 <p>
-Suuraa keessaa background balleessuun subject qofa hambisuuf
-fayyada.
+Tool kun suuraa keessaa background balleessuun object ykn nama
+qofa hambisuuf fayyada.
+Green screen, blue screen ykn background adii irraa
+subject adda baasuu keessatti fayyada. 8
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Image filadhu → editing/options keessaa
-background removal ykn erase-related option barbaadi.
+<strong>Bakka itti argamu:</strong>
+
+Image filadhu →
+editing options keessaa
+<strong>Remove Background</strong>
+ykn background removal option barbaadi.
+
 </div>
+
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Suuraa nama tokko background isaa balleessi →
+background haaraa kaa'i →
+text fi logo itti dabali.
+
+</div>
+
+<div class="warning">
+
+⚠️ Maqaan menu version/app/device irratti xiqqoo garaagaruu danda'a.
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PERSPECTIVE
+========================= -->
+
+<section class="tool">
+
+<h3>
+14. 🔄 PERSPECTIVE / WARP
+</h3>
+
+<p>
+Perspective editing (warp) jechuun suuraa tokko angle
+addaatiin qindeessuu ykn boca isaa perspective irratti
+jijjiiruudha. 9
+</p>
+
+<div class="location">
+
+<span class="arrow">➡️</span>
+
+<strong>Bakka itti argamu:</strong>
+
+Image filadhu →
+<strong>Perspective / Warp</strong>
+option barbaadi.
+
+</div>
+
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Monitor screen tokko irratti logo ykn image
+akka dhugumaan screen keessa jiru fakkeessuuf
+perspective fayyadami.
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     IMAGE EFFECTS
+========================= -->
+
+<section class="tool">
+
+<h3>
+15. 🌈 IMAGE EFFECTS
+</h3>
+
+<p>
+Image Effects suuraa kee fooyyeessuuf fayyadu.
+Google Play listing keessatti vignette, stripes,
+hue fi saturation fakkaatan tarreeffamaniiru. 10
+</p>
+
+<div class="location">
+
+<span class="arrow">➡️</span>
+
+<strong>Bakka itti argamu:</strong>
+
+Image filadhu →
+<strong>Effects / Adjustments</strong>.
+
+</div>
+
+<ul>
+
+<li>☀️ Brightness</li>
+
+<li>◐ Contrast</li>
+
+<li>🌈 Saturation</li>
+
+<li>🎨 Hue</li>
+
+<li>⭕ Vignette</li>
+
+<li>〰️ Stripes</li>
+
+<li>🌫️ Blur ykn effects biroo yoo version kee keessatti jiraate</li>
+
+</ul>
 
 <div class="tip">
-💡 Version app irratti maqaan option xiqqoo garaagaruu danda'a.
+
+💡 Effect baay'ee cimaa hin godhin.
+Design professional keessatti effect xiqqoo fi madaalaa fayyadamuun
+caalaatti bareeda.
+
 </div>
 
 </section>
 
 
-<!-- PERSPECTIVE -->
+
+<!-- =========================
+     LAYERS
+========================= -->
 
 <section class="tool">
 
 <h3>
-14. 🔄 Perspective Editing
+16. 🧱 LAYERS / OBJECTS
 </h3>
 
 <p>
-Perspective tool'n image ykn object kee angle addaatiin qindeessuuf
-fayyada.
+Yeroo Text, Image, Shape fi Sticker hedduu qabdu,
+layers/object order isaan qindeessuuf barbaachisa.
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Image/object filadhu → <b>Perspective / Transform</b>.
+<strong>Bakka itti argamu:</strong>
+
+Toolbar/menu keessaa
+<strong>Layers</strong>
+ykn mallattoo layers barbaadi.
+
 </div>
 
-<div class="step">
-Corner ykn point qabsiisi.
-</div>
-
-<div class="step">
-Harkisi.
-</div>
-
-<div class="step">
-Angle barbaadde argadhu.
-</div>
-
-<div class="step">
-✓ Apply godhi.
-</div>
-
-</section>
-
-
-<!-- IMAGE EFFECTS -->
-
-<section class="tool">
-
-<h3>
-15. 🌈 Image Effects
-</h3>
-
-<p>
-Image Effect suuraa kee fooyyeessuuf gargaaru.
-</p>
-
-<div class="location">
-<span class="arrow">➡️</span>
-
-<b>Bakka itti argamu:</b>
-Image filadhu → <b>Effects / Adjustments</b>.
-</div>
+<h4>Layers maalif?</h4>
 
 <ul>
 
-<li>Brightness</li>
+<li>⬆️ Object tokko ol siqsiisuuf.</li>
 
-<li>Contrast</li>
+<li>⬇️ Object tokko gadi siqsiisuuf.</li>
 
-<li>Saturation</li>
+<li>👁️ Object dhoksuuf/show gochuuf.</li>
 
-<li>Blur</li>
+<li>📋 Duplicate gochuuf.</li>
 
-<li>Color effects</li>
+<li>🗑️ Delete gochuuf.</li>
+
+<li>🔒 Object lock gochuuf yoo option jiraate.</li>
 
 </ul>
 
-<div class="step">
-Effect filadhu → intensity sirreessi → preview ilaali → Apply.
+<div class="example">
+
+<strong>🎯 Fakkeenya:</strong>
+
+Background → Image → Shape → Text → Logo
+
+Tartiiba kanaan objects kee qindeessi.
+
 </div>
 
 </section>
 
 
-<!-- LAYERS -->
+
+<!-- =========================
+     SAVE PROJECT
+========================= -->
 
 <section class="tool">
 
 <h3>
-16. 🧱 Layers / Objects
+17. 💾 SAVE AS PROJECT
 </h3>
 
 <p>
-Design keessatti object hedduu yeroo qabaattu layers isaan qindeessuuf
-si gargaara.
+Project akka projectitti save gochuun yeroo biraa deebi'anii
+gulaaluuf si gargaara. Google Play listing illee
+“Save as a project” jedhu ni ibsa. 11
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Toolbar/menu keessatti <b>Layers / Objects</b> control barbaadi.
-</div>
+<strong>Bakka itti argamu:</strong>
 
-<ul>
+Menu →
+<strong>Save Project</strong>.
 
-<li>⬆️ Object ol siqsiisuu</li>
-
-<li>⬇️ Object gadi siqsiisuu</li>
-
-<li>👁️ Hide/Show</li>
-
-<li>📋 Duplicate</li>
-
-<li>🗑️ Delete</li>
-
-<li>🔄 Object order jijjiiruu</li>
-
-</ul>
-
-</section>
-
-
-<!-- SAVE -->
-
-<section class="tool">
-
-<h3>
-17. 💾 Save Project
-</h3>
-
-<p>
-Project save yoo goote yeroo biraa deebi'ee gulaaluu dandeessa.
-</p>
-
-<div class="location">
-<span class="arrow">➡️</span>
-
-<b>Bakka itti argamu:</b>
-Menu → <b>Save Project</b>.
 </div>
 
 <div class="step">
@@ -1102,26 +1403,43 @@ Menu → <b>Save Project</b>.
 3️⃣ Save godhi.
 </div>
 
+<div class="tip">
+
+💡 Design xumuraa qofa osoo hin taane
+project file illee save godhuun gaarii dha.
+
+</div>
+
 </section>
 
 
-<!-- EXPORT -->
+
+<!-- =========================
+     EXPORT
+========================= -->
 
 <section class="tool">
 
 <h3>
-18. 📤 Export / Save as Image
+18. 📤 EXPORT IMAGE
 </h3>
 
 <p>
-Design xumurte booda gara PNG ykn JPG tti baasuuf fayyada.
+Export jechuun design kee gara image taasisuun
+gallery keessatti save ykn share gochuudha.
+PixelLab format ykn resolution adda addaatiin export
+gochuu danda'a. 12
 </p>
 
 <div class="location">
+
 <span class="arrow">➡️</span>
 
-<b>Bakka itti argamu:</b>
-Menu → <b>Export / Save as Image</b>.
+<strong>Bakka itti argamu:</strong>
+
+Menu →
+<strong>Export / Save as Image</strong>.
+
 </div>
 
 <div class="step">
@@ -1133,152 +1451,298 @@ Menu → <b>Export / Save as Image</b>.
 </div>
 
 <div class="step">
-3️⃣ Quality filadhu.
+3️⃣ Resolution/quality sirreessi.
 </div>
 
 <div class="step">
 4️⃣ Save/Export cuqaasi.
 </div>
 
-</section>
+<div class="example">
 
+<strong>🎯 Fakkeenya:</strong>
 
-<!-- TOOL MAP -->
-
-<section class="card">
-
-<h2>
-19. 📌 Tool Summary
-</h2>
-
-<div class="tool-list">
-
-<div class="tool-mini">
-<b>✏️ Text</b>
-<p>Barreeffama galchuuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>🔤 Font</b>
-<p>Boca qubee jijjiiruuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>🎨 Color</b>
-<p>Halluu jijjiiruuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>🧊 3D</b>
-<p>Text depth qabuuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>✨ Effects</b>
-<p>Shadow, stroke fi effects.</p>
-</div>
-
-<div class="tool-mini">
-<b>🏷️ Stickers</b>
-<p>Decoration.</p>
-</div>
-
-<div class="tool-mini">
-<b>🖼️ Image</b>
-<p>Suuraa galchuuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>✍️ Draw</b>
-<p>Drawing.</p>
-</div>
-
-<div class="tool-mini">
-<b>🌄 Background</b>
-<p>Duubbee jijjiiruuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>🔄 Perspective</b>
-<p>Angle jijjiiruuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>🧱 Layers</b>
-<p>Objects qindeessuuf.</p>
-</div>
-
-<div class="tool-mini">
-<b>📤 Export</b>
-<p>Design image gochuuf.</p>
-</div>
+YouTube Thumbnail → PNG/JPG → Save →
+Gallery keessatti ilaali.
 
 </div>
 
 </section>
 
 
-<!-- PRACTICAL -->
+
+<!-- =========================
+     SECOND SCREENSHOT
+========================= -->
 
 <section class="card">
 
 <h2>
-20. 🧪 Practical
+19. 🔍 PixelLab Toolbar Fakkeenya
 </h2>
 
 <p>
-Amma hojii kana PixelLab keessatti hojjedhu:
+Suuraa kana cuqaasi. Toolbar fi layer controls
+guddifamanii ilaalu dandeessa.
+</p>
+
+<div class="screenshot">
+
+<img
+src="https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg"
+alt="PixelLab editing interface and layers"
+onclick="openZoom(this,'PixelLab Toolbar and Layers')">
+
+<div class="zoom-text">
+🔍 Suuraa cuqaasi → guddisi → × tuqi
+</div>
+
+</div>
+
+<div class="location">
+
+<span class="arrow">➡️</span>
+
+<strong>Gubbaa:</strong>
+Add, Save, Share, Undo, Zoom, Grid fi Layers fakkaatan arguu dandeessa.
+
+<br><br>
+
+<span class="arrow">➡️</span>
+
+<strong>Jala:</strong>
+Text editing fi object options gara garaa arguu dandeessa.
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FONT SCREENSHOT
+========================= -->
+
+<section class="card">
+
+<h2>
+20. 🔤 Font fi Text Options Fakkeenya
+</h2>
+
+<p>
+Fakkeenya kana keessatti font, 3D text, shadow, stroke,
+reflection fi line spacing fakkaatan mul'atu.
+</p>
+
+<div class="screenshot">
+
+<img
+src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
+alt="PixelLab font and text effects"
+onclick="openZoom(this,'PixelLab Font and Text Effects')">
+
+<div class="zoom-text">
+🔍 Cuqaasi → screenshot guddisi
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     SUMMARY
+========================= -->
+
+<section class="card">
+
+<h2>
+21. 📌 Tool Summary
+</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Tool</th>
+<th>Faayidaa</th>
+<th>Bakka barbaadu</th>
+</tr>
+
+<tr>
+<td>✏️ Text</td>
+<td>Barreeffama galchuuf</td>
+<td>Toolbar → Text/T</td>
+</tr>
+
+<tr>
+<td>🔤 Font</td>
+<td>Boca qubee jijjiiruuf</td>
+<td>Text → Font</td>
+</tr>
+
+<tr>
+<td>🎨 Color</td>
+<td>Halluu jijjiiruuf</td>
+<td>Text → Color</td>
+</tr>
+
+<tr>
+<td>🧊 3D Text</td>
+<td>Text 3D gochuuf</td>
+<td>Text → 3D</td>
+</tr>
+
+<tr>
+<td>✨ Effects</td>
+<td>Shadow, Stroke, Reflection...</td>
+<td>Text → Effects/Style</td>
+</tr>
+
+<tr>
+<td>🏷️ Stickers</td>
+<td>Decoration</td>
+<td>Stickers/Shapes</td>
+</tr>
+
+<tr>
+<td>🖼️ Image</td>
+<td>Gallery irraa suuraa galchuuf</td>
+<td>Image/Import</td>
+</tr>
+
+<tr>
+<td>✍️ Draw</td>
+<td>Drawing</td>
+<td>Draw</td>
+</tr>
+
+<tr>
+<td>🌄 Background</td>
+<td>Duubbee jijjiiruuf</td>
+<td>Background</td>
+</tr>
+
+<tr>
+<td>✂️ Remove Background</td>
+<td>Background balleessuuf</td>
+<td>Image → Removal</td>
+</tr>
+
+<tr>
+<td>🔄 Perspective</td>
+<td>Warp/angle jijjiiruuf</td>
+<td>Image → Perspective</td>
+</tr>
+
+<tr>
+<td>🌈 Image Effects</td>
+<td>Suuraa fooyyeessuuf</td>
+<td>Image → Effects</td>
+</tr>
+
+<tr>
+<td>🧱 Layers</td>
+<td>Objects qindeessuuf</td>
+<td>Layers</td>
+</tr>
+
+<tr>
+<td>💾 Save Project</td>
+<td>Project deebi'anii gulaaluuf</td>
+<td>Menu → Save Project</td>
+</tr>
+
+<tr>
+<td>📤 Export</td>
+<td>Design gara image tti baasuuf</td>
+<td>Menu → Export</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PRACTICAL
+========================= -->
+
+<section class="card">
+
+<h2>
+22. 🧪 Practical Project
+</h2>
+
+<p>
+Amma waan baratte hunda fayyadamuun project tokko hojjedhu.
 </p>
 
 <div class="step">
-1️⃣ Background dukkanaa kaa'i.
+1️⃣ PixelLab bani.
 </div>
 
 <div class="step">
-2️⃣ “KENA DESIGN” Text godhi.
+2️⃣ Background dukkanaa ykn gradient kaa'i.
 </div>
 
 <div class="step">
-3️⃣ Font bareedaa filadhu.
+3️⃣ “KENA DESIGN” Text godhi.
 </div>
 
 <div class="step">
-4️⃣ Color magariisaa ykn adii kenni.
+4️⃣ Font bareedaa filadhu.
 </div>
 
 <div class="step">
-5️⃣ Shadow ykn Stroke itti dabali.
+5️⃣ Color magariisaa ykn adii kenni.
 </div>
 
 <div class="step">
-6️⃣ Shape ykn Sticker dabali.
+6️⃣ Shadow fi Stroke itti dabali.
 </div>
 
 <div class="step">
-7️⃣ Layers sirreessi.
+7️⃣ Shape ykn Sticker tokko dabali.
 </div>
 
 <div class="step">
-8️⃣ Project save godhi.
+8️⃣ Suuraa tokko import godhi.
 </div>
 
 <div class="step">
-9️⃣ PNG/JPG export godhi.
+9️⃣ Layers sirreessi.
+</div>
+
+<div class="step">
+🔟 Project save godhi.
+</div>
+
+<div class="step">
+1️⃣1️⃣ PNG/JPG export godhi.
 </div>
 
 </section>
 
 
-<!-- ASSIGNMENT -->
+
+<!-- =========================
+     ASSIGNMENT
+========================= -->
 
 <section class="card">
 
 <h2>
-21. 📝 Assignment
+23. 📝 Assignment
 </h2>
 
 <p>
-PixelLab fayyadamuun poster xiqqaa <b>KENA DESIGN</b> jedhu hojjedhu.
+Poster tokko maqaa <strong>KENA DESIGN</strong> jedhuun hojjedhu.
 </p>
 
 <ul>
@@ -1289,58 +1753,53 @@ PixelLab fayyadamuun poster xiqqaa <b>KENA DESIGN</b> jedhu hojjedhu.
 
 <li>Color jijjiiri.</li>
 
-<li>Shadow ykn Stroke dabali.</li>
+<li>Shadow ykn Stroke fayyadami.</li>
 
-<li>Shape ykn Sticker dabali.</li>
+<li>Shape/Sticker dabali.</li>
+
+<li>Image import godhi.</li>
 
 <li>Background sirreessi.</li>
 
 <li>Project save godhi.</li>
 
-<li>JPG ykn PNG export godhi.</li>
+<li>Final image export godhi.</li>
 
 </ul>
 
-</section>
-
-
-<!-- ZOOM -->
-
-<section class="card">
-
-<h2>
-22. 🔍 Suuraa Guddisuu
-</h2>
-
-<p>
-Lesson keessatti suuraa yoo itti daballe, suuraa sana
-<b>cuqaasuun guddisuu</b> dandeessa.
-</p>
-
 <div class="tip">
-📌 Suuraa → cuqaasi → guddisii ilaali → <b>×</b> cuqaasi → deebi'i.
+
+🎯 Kaayyoon assignment kanaa tool tokko tokko qofa beekuu osoo
+hin taane, tools hedduu walitti fiduun design tokko hojjechuu dha.
+
 </div>
 
 </section>
 
 
-<!-- COMPLETE -->
+
+<!-- =========================
+     COMPLETE
+========================= -->
 
 <section class="card">
 
 <h2>
-23. ✅ Lesson 1 Xumuri
+24. ✅ Lesson 1 Xumuri
 </h2>
 
 <p>
-Yoo Text, Font, Color, 3D, Effects, Image, Layers fi Export
+Yoo Text, Font, Color, 3D Text, Effects, Stickers,
+Image, Draw, Background, Layers, Perspective fi Export
 hubatte, Lesson 1 xumurameera.
 </p>
 
 <button
 class="btn primary"
 onclick="completeLesson()">
+
 ✓ Lesson 1 Completed
+
 </button>
 
 <p id="doneMsg"></p>
@@ -1349,6 +1808,7 @@ onclick="completeLesson()">
 
 
 </main>
+
 
 
 <footer>
@@ -1360,7 +1820,10 @@ Learn • Create • Grow<br>
 </footer>
 
 
-<!-- ZOOM MODAL -->
+
+<!-- =========================
+     ZOOM MODAL
+========================= -->
 
 <div
 id="zoomModal"
@@ -1371,7 +1834,9 @@ onclick="closeZoom(event)"
 <button
 class="zoom-close"
 onclick="closeZoom()">
+
 ×
+
 </button>
 
 <img
@@ -1386,6 +1851,7 @@ PixelLab
 </div>
 
 </div>
+
 
 
 <script>
@@ -1439,9 +1905,10 @@ function(event){
 
 if(event.key === "Escape"){
 
-document
-.getElementById("zoomModal")
-.classList.remove("active");
+const modal =
+document.getElementById("zoomModal");
+
+modal.classList.remove("active");
 
 document.body.style.overflow="";
 

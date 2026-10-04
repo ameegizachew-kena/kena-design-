@@ -3,431 +3,334 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KENA DESIGN | Graphic Design Lesson 2 - PixelLab Fonts</title>
+
+<title>Kena Design - Lesson 2</title>
 
 <style>
-:root{
-  --bg:#07111f;
-  --card:#101c2c;
-  --card2:#0b1727;
-  --green:#16e0a5;
-  --blue:#42a5ff;
-  --orange:#ffb84d;
-  --red:#ff6262;
-  --line:#24445d;
-  --text:#f4f8fb;
-  --muted:#b7c7d5;
-}
-
 *{
   box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
   margin:0;
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
-  line-height:1.75;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(7,17,31,.95);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav{
-  max-width:1150px;
-  margin:auto;
-  padding:13px 18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.brand{
-  font-weight:900;
-  letter-spacing:.7px;
-}
-
-.brand span{
-  color:var(--green);
-}
-
-nav{
-  display:flex;
-  gap:5px;
-  flex-wrap:wrap;
-}
-
-nav a{
-  color:var(--muted);
-  text-decoration:none;
-  padding:6px 9px;
-  border-radius:8px;
-  font-size:14px;
-}
-
-nav a:hover{
-  background:var(--card);
-  color:var(--green);
-}
-
-.container{
-  max-width:1150px;
-  margin:auto;
-  padding:0 18px;
-}
-
-.hero{
-  padding:55px 0 35px;
-}
-
-.tag{
-  color:var(--green);
-  font-weight:900;
-  font-size:13px;
-  letter-spacing:1px;
-}
-
-h1{
-  font-size:clamp(31px,6vw,58px);
-  line-height:1.08;
-  margin:8px 0 16px;
-}
-
-h2{
-  font-size:clamp(25px,4vw,39px);
-  line-height:1.15;
-}
-
-h3{
-  margin-top:0;
-}
-
-.hero p,
-.card p,
-.card li{
-  color:var(--muted);
-}
-
-.btn{
-  display:inline-block;
-  border:0;
-  border-radius:11px;
-  padding:12px 18px;
-  font-weight:900;
-  text-decoration:none;
-  cursor:pointer;
-}
-
-.primary{
-  background:var(--green);
-  color:#03121d;
-}
-
-.secondary{
-  background:#203b52;
-  color:#fff;
-}
-
-.video{
-  background:#000;
-  border:1px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 15px 35px #0005;
-}
-
-.video iframe{
-  width:100%;
-  aspect-ratio:16/9;
-  border:0;
-  display:block;
-}
-
-.section{
-  padding:38px 0;
-}
-
-.section-head{
-  margin-bottom:22px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:21px;
-}
-
-.card strong{
-  color:var(--green);
-}
-
-.num{
-  display:inline-flex;
-  width:39px;
-  height:39px;
-  border-radius:11px;
-  background:var(--green);
-  color:#03121d;
-  align-items:center;
-  justify-content:center;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-.note{
-  background:#0d2634;
-  border-left:4px solid var(--blue);
-  padding:15px 17px;
-  border-radius:10px;
-  margin:15px 0;
-  color:#d7e7f0;
-}
-
-.warning{
-  background:#3d2b12;
-  border-left:4px solid var(--orange);
-  padding:15px;
-  border-radius:10px;
-  color:#ffe4ad;
-}
-
-.steps{
-  counter-reset:step;
-  list-style:none;
   padding:0;
 }
 
-.steps li{
-  counter-increment:step;
-  background:var(--card2);
-  border:1px solid var(--line);
-  padding:14px 15px 14px 54px;
-  border-radius:12px;
-  margin:10px 0;
+body{
+  font-family:Arial,sans-serif;
+  background:#07111f;
+  color:#fff;
+  line-height:1.7;
+}
+
+.container{
+  width:min(1100px,94%);
+  margin:auto;
+}
+
+header{
+  background:linear-gradient(135deg,#07111f,#10253d);
+  padding:30px 15px;
+  text-align:center;
+  border-bottom:1px solid #26384d;
+}
+
+header h1{
+  color:#32d583;
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+header p{
+  color:#c8d2df;
+}
+
+.card{
+  background:#101c2c;
+  margin:20px 0;
+  padding:22px;
+  border-radius:18px;
+  border:1px solid #20334a;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+
+.card h2{
+  color:#32d583;
+  margin-bottom:12px;
+}
+
+.card h3{
+  color:#58a6ff;
+  margin:15px 0 8px;
+}
+
+ul,ol{
+  padding-left:25px;
+}
+
+li{
+  margin:7px 0;
+}
+
+.highlight{
+  background:#0c2537;
+  border-left:4px solid #32d583;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+button,
+.btn{
+  border:none;
+  cursor:pointer;
+  background:#32d583;
+  color:#03150d;
+  font-weight:bold;
+  padding:12px 18px;
+  border-radius:10px;
+  display:inline-block;
+  text-decoration:none;
+  margin:6px 3px;
+  transition:.2s;
+}
+
+button:hover,
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+
+.blue{
+  background:#2388ff;
+  color:#fff;
+}
+
+.orange{
+  background:#ff9f1c;
+  color:#111;
+}
+
+.red{
+  background:#ff4d5e;
+  color:#fff;
+}
+
+.gray{
+  background:#27384c;
+  color:#fff;
+}
+
+.video-box{
   position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  overflow:hidden;
+  border-radius:15px;
+  margin-top:15px;
 }
 
-.steps li:before{
-  content:counter(step);
+.video-box iframe{
   position:absolute;
-  left:14px;
-  top:11px;
-  width:29px;
-  height:29px;
-  border-radius:50%;
-  background:var(--green);
-  color:#03121d;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:100%;
+  height:100%;
+  border:0;
+  left:0;
+  top:0;
 }
 
-.screens{
+.screenshot-grid{
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
+  margin-top:15px;
 }
 
 .shot{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:15px;
-  overflow:hidden;
+  background:#07111f;
+  padding:10px;
+  border-radius:12px;
+  cursor:pointer;
+  border:1px solid #26384d;
 }
 
 .shot img{
   width:100%;
-  height:230px;
+  height:170px;
   object-fit:cover;
+  border-radius:9px;
   display:block;
-  background:#111;
 }
 
-.shot figcaption{
-  padding:11px 12px;
-  color:var(--muted);
+.shot p{
   font-size:14px;
-}
-
-.shot button{
-  border:0;
-  background:none;
-  color:var(--green);
-  font-weight:800;
-  cursor:pointer;
-  padding:0 12px 12px;
-}
-
-.font-demo{
-  background:#fff;
-  color:#111;
-  border-radius:14px;
-  padding:20px;
-  margin-top:13px;
-}
-
-.font-demo .bold{
-  font-size:30px;
-  font-weight:900;
-}
-
-.font-demo .script{
-  font-family:cursive;
-  font-size:28px;
-}
-
-.font-demo .clean{
-  font-size:16px;
-  color:#555;
-}
-
-.assignment{
-  background:#0c1f2d;
-  border:2px solid var(--green);
-  border-radius:20px;
-  padding:24px;
-}
-
-.poster{
-  max-width:430px;
-  margin:20px auto;
-  padding:35px 20px;
-  text-align:center;
-  border-radius:18px;
-  background:linear-gradient(135deg,#101c2c,#164c45);
-}
-
-.poster .k{
-  color:var(--green);
-  font-weight:900;
-  letter-spacing:3px;
-}
-
-.poster h3{
-  font-size:42px;
-  line-height:1;
-  margin:18px 0;
-}
-
-.poster .line{
-  height:4px;
-  background:var(--orange);
-  width:80px;
-  margin:15px auto;
-}
-
-.quiz-q{
-  background:var(--card2);
-  padding:15px;
-  border-radius:12px;
-  margin:12px 0;
-}
-
-.quiz-q label{
-  display:block;
-  color:var(--muted);
-  margin:7px 0;
-}
-
-.result{
-  display:none;
-  background:#103d31;
-  color:#baffea;
-  border:1px solid var(--green);
-  padding:13px;
-  border-radius:10px;
-  margin-top:14px;
-}
-
-footer{
-  border-top:1px solid var(--line);
-  padding:30px 0;
-  margin-top:30px;
-  color:var(--muted);
+  color:#cbd5e1;
+  margin-top:8px;
 }
 
 .modal{
   display:none;
   position:fixed;
+  z-index:9999;
   inset:0;
-  background:#000d;
-  z-index:100;
-  padding:20px;
-  align-items:center;
+  background:rgba(0,0,0,.9);
   justify-content:center;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-  max-width:1000px;
-  max-height:94vh;
-  background:var(--card);
-  padding:15px;
-  border:2px solid var(--green);
-  border-radius:18px;
-  position:relative;
+  align-items:center;
+  padding:20px;
 }
 
 .modal img{
-  max-width:100%;
-  max-height:82vh;
-  object-fit:contain;
+  max-width:95%;
+  max-height:90vh;
+  border-radius:12px;
 }
 
-.close{
+.modal .close{
   position:absolute;
-  right:8px;
-  top:7px;
-  border:0;
-  background:var(--red);
+  right:20px;
+  top:10px;
+  font-size:38px;
   color:#fff;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  font-size:25px;
+  cursor:pointer;
 }
 
-@media(max-width:850px){
-  .screens{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
+.assignment-box{
+  background:linear-gradient(135deg,#102f27,#10253d);
+  border:2px solid #32d583;
+  padding:25px;
+  border-radius:20px;
 }
 
-@media(max-width:650px){
-  nav{
-    display:none;
+.assignment-box h2{
+  color:#32d583;
+}
+
+.assignment-preview{
+  background:#fff;
+  color:#111;
+  border-radius:15px;
+  padding:25px;
+  margin:20px 0;
+  text-align:center;
+  cursor:pointer;
+}
+
+.assignment-preview h1{
+  color:#111;
+  font-size:32px;
+}
+
+.assignment-preview p{
+  color:#333;
+}
+
+.assignment-preview span{
+  display:inline-block;
+  margin-top:15px;
+  background:#111;
+  color:#fff;
+  padding:8px 15px;
+  border-radius:7px;
+}
+
+.assignment-area{
+  display:none;
+  margin-top:20px;
+  background:#07111f;
+  padding:20px;
+  border-radius:15px;
+  border:1px solid #29415b;
+}
+
+.assignment-area.show{
+  display:block;
+}
+
+input[type=file]{
+  width:100%;
+  background:#101c2c;
+  color:#fff;
+  border:1px solid #38506b;
+  padding:12px;
+  border-radius:10px;
+  margin:12px 0;
+}
+
+.progress{
+  display:none;
+  margin-top:15px;
+}
+
+.progress-bar{
+  width:0%;
+  height:10px;
+  background:#32d583;
+  border-radius:20px;
+  transition:.3s;
+}
+
+.status{
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  display:none;
+}
+
+.success{
+  background:#103a28;
+  color:#6ff0a9;
+}
+
+.error{
+  background:#451c23;
+  color:#ff9da8;
+}
+
+.quiz-option{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:#17283b;
+  color:#fff;
+  margin:8px 0;
+}
+
+.quiz-option.correct{
+  background:#146c43;
+}
+
+.quiz-option.wrong{
+  background:#8b2635;
+}
+
+.completed{
+  background:#103a28;
+  color:#6ff0a9;
+  padding:12px;
+  border-radius:10px;
+  display:none;
+  margin-top:15px;
+}
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#94a3b8;
+}
+
+@media(max-width:600px){
+  header h1{
+    font-size:24px;
   }
 
-  .grid,
-  .screens{
-    grid-template-columns:1fr;
+  .card{
+    padding:16px;
   }
 
-  .shot img{
-    height:270px;
+  .assignment-preview h1{
+    font-size:24px;
+  }
+
+  button,.btn{
+    width:100%;
+    margin:5px 0;
   }
 }
 </style>
@@ -436,1109 +339,779 @@ footer{
 <body>
 
 <header>
-<div class="nav">
-
-<div class="brand">
-<span>K</span> KENA DESIGN
-</div>
-
-<nav>
-<a href="#video">Video</a>
-<a href="#font">Font</a>
-<a href="#steps">Steps</a>
-<a href="#screens">Screenshots</a>
-<a href="#practice">Practice</a>
-<a href="#assignment">Assignment</a>
-</nav>
-
-</div>
+  <div class="container">
+    <h1>🎨 KENA DESIGN</h1>
+    <p>Lesson 2 — PixelLab keessatti Font Haaraa Galchuu</p>
+  </div>
 </header>
 
-
-<main>
-
-<!-- HERO -->
-<section class="hero">
-
-<div class="container">
-
-<p class="tag">
-GRAPHIC DESIGN • LESSON 2
-</p>
-
-<h1>
-PixelLab keessatti
-<span style="color:#16e0a5">
-Font Haaraa Dabaluu
-</span>
-</h1>
-
-<p>
-Lesson 2 keessatti font jechuun maal akka ta'e,
-font akkamitti filachuu, font TTF/OTF akkamitti buufachuu,
-ZIP yoo ta'e akkamitti Extract gochuu,
-fi PixelLab keessatti <b>My Fonts</b> irraa import gochuu
-bal'inaan baratta.
-</p>
-
-<a class="btn primary" href="#video">
-▶️ Video Jalqabi
-</a>
-
-</div>
-
-</section>
-
+<main class="container">
 
 <!-- VIDEO -->
-<section id="video" class="section">
+<section class="card">
+  <h2>🎬 Video Lesson</h2>
 
-<div class="container">
+  <p>
+    Video kana ilaaliitii tarkaanfiiwwan Lesson kana keessatti
+    ibsaman hordofi.
+  </p>
 
-<div class="section-head">
-
-<p class="tag">
-01 • VIDEO LESSON
-</p>
-
-<h2>
-🎥 Video kana guutuu ilaali
-</h2>
-
-<p>
-Video kun <b>How to add more fonts to PixelLab</b>
-irratti xiyyeeffata.
-</p>
-
-</div>
-
-<div class="video">
-
-<iframe
-src="https://www.youtube.com/embed/frWZmcJMijI"
-title="PixelLab Lesson 2 - How to add more fonts to PixelLab"
-allowfullscreen>
-</iframe>
-
-</div>
-
-<div class="note">
-
-<b>💡 Hubachiisa:</b>
-
-Video ilaalaa fi note armaan gadii waliin hordofi.
-Yoo bakka tokko siif hin galle,
-screenshot isaa ilaaliitii tarkaanfii isaa hordofi.
-
-</div>
-
-</div>
-
+  <div class="video-box">
+    <iframe
+      src="https://www.youtube.com/embed/frWZmcJMijI"
+      allowfullscreen>
+    </iframe>
+  </div>
 </section>
 
 
-<!-- FONT -->
-<section id="font" class="section">
+<!-- LESSON -->
+<section class="card">
+  <h2>📚 Lesson 2: Font Haaraa PixelLab Keessatti Galchuu</h2>
 
-<div class="container">
+  <p>
+    Font jechuun bifa qubee ittiin barruun mul'atuudha.
+    Graphic Design keessatti font sirrii filachuun design kee
+    bareedaa fi professional akka fakkaatu gargaara.
+  </p>
 
-<div class="section-head">
-
-<p class="tag">
-02 • FONT
-</p>
-
-<h2>
-🔤 Font jechuun maal?
-</h2>
-
-</div>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-Font maalif barbaachisa?
-</h3>
-
-<p>
-Font jechuun qubeen ittiin mul'atuu fi
-style barreeffamaa ti.
-
-Font sirrii filachuun title,
-logo, poster fi thumbnail akka
-professional fakkaatu gargaara.
-</p>
-
-<div class="font-demo">
-
-<div class="bold">
-KENA DESIGN
-</div>
-
-<div class="script">
-Learn • Create • Grow
-</div>
-
-<div class="clean">
-Graphic Design Course
-</div>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Font gosa adda addaa
-</h3>
-
-<ul>
-
-<li>
-<b>Bold/Display:</b>
-title fi headline.
-</li>
-
-<li>
-<b>Clean/Sans:</b>
-information fi body text.
-</li>
-
-<li>
-<b>Serif:</b>
-style classical/professional.
-</li>
-
-<li>
-<b>Script:</b>
-signature, invitation fi accent text.
-</li>
-
-</ul>
-
-<div class="warning">
-
-⚠️ Design tokko keessatti font hedduu hin makiin.
-
-Font 2–3 wal siman yeroo baay'ee gahaa dha.
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  <div class="highlight">
+    💡 <b>Yaadadhu:</b>
+    Font baay'ee qabaachuun qofa gahaa miti.
+    Font bakka sirrii fi design wajjin wal simu fayyadamuun barbaachisaadha.
+  </div>
 </section>
 
 
-<!-- FILE TYPES -->
-<section class="section">
+<!-- FONT TYPES -->
+<section class="card">
+  <h2>🔤 Gosoota Font</h2>
 
-<div class="container">
+  <h3>1️⃣ Serif</h3>
+  <p>
+    Qubee xixiqqoo miila ykn mallattoo xumuraa qabu.
+    Kitaaba, barruu dheeraa fi hojii professional keessatti
+    fayyada.
+  </p>
 
-<p class="tag">
-03 • FILE TYPES
-</p>
+  <h3>2️⃣ Sans Serif</h3>
+  <p>
+    Qubee qulqulluu fi salphaa. Logo, social media fi web design
+    keessatti baay'ee fayyada.
+  </p>
 
-<h2>
-📁 TTF fi OTF maal?
-</h2>
+  <h3>3️⃣ Script</h3>
+  <p>
+    Qubee harkaan barreeffame fakkaatu. Invitation fi design
+    artistic keessatti fayyada.
+  </p>
 
-<div class="grid">
+  <h3>4️⃣ Display</h3>
+  <p>
+    Mata-duree guddaa fi poster irratti nama hawwatuuf fayyada.
+  </p>
+</section>
 
-<div class="card">
 
-<h3>
-.TTF
-</h3>
+<!-- TTF OTF -->
+<section class="card">
+  <h2>📁 TTF fi OTF Maali?</h2>
 
-<p>
-TrueType Font.
+  <p>
+    Font download gootu yeroo baay'ee extension:
+  </p>
 
-Mobile design keessatti baay'ee beekamaa
-fi salphaatti import ta'uudha.
-</p>
+  <ul>
+    <li><b>.TTF</b> — TrueType Font</li>
+    <li><b>.OTF</b> — OpenType Font</li>
+  </ul>
 
-</div>
-
-<div class="card">
-
-<h3>
-.OTF
-</h3>
-
-<p>
-OpenType Font.
-
-Innis font file beekamaa dha;
-PixelLab versions heddu keessatti fayyadamuun ni danda'ama.
-</p>
-
-</div>
-
-</div>
-
-<div class="note">
-
-<b>ZIP/RAR:</b>
-
-Yoo font <b>.zip</b> ykn <b>.rar</b> ta'e,
-kallattiin PixelLab keessa hin filatin.
-
-Dura <b>Extract</b> godhi;
-keessaa TTF/OTF baasi.
-
-</div>
-
-</div>
-
+  <div class="highlight">
+    📌 PixelLab keessatti font haaraa fayyadamuuf font file
+    buufattee booda import gochuu dandeessa.
+  </div>
 </section>
 
 
 <!-- STEPS -->
-<section id="steps" class="section">
+<section class="card">
+  <h2>📱 Font Haaraa PixelLab Keessatti Galchuuf Tarkaanfii</h2>
 
-<div class="container">
-
-<div class="section-head">
-
-<p class="tag">
-04 • STEP BY STEP
-</p>
-
-<h2>
-📲 Font haaraa PixelLab keessa galchuu
-</h2>
-
-</div>
-
-<ol class="steps">
-
-<li>
-<b>Font barbaadi:</b>
-
-Font ati barbaaddu buufadhu.
-File isaa TTF ykn OTF ta'uu mirkaneessi.
-</li>
-
-<li>
-<b>Download:</b>
-
-Browser kee irraa font file buufadhu.
-Yeroo baay'ee Downloads keessa seena.
-</li>
-
-<li>
-<b>ZIP yoo ta'e:</b>
-
-File ZIP baniitii <b>Extract</b> godhi.
-</li>
-
-<li>
-<b>TTF/OTF barbaadi:</b>
-
-Folder extract godhame keessa seeni;
-file font dhugaa filadhu.
-</li>
-
-<li>
-<b>PixelLab bani:</b>
-
-Project haaraa bani ykn project duraan jiru bani.
-</li>
-
-<li>
-<b>Text filadhu:</b>
-
-Text layer tokko tuqi;
-sana booda menu <b>A</b> irraa text tools bani.
-</li>
-
-<li>
-<b>Font bani:</b>
-
-Toolbar keessa gara <b>Font</b> deemi.
-</li>
-
-<li>
-<b>My Fonts filadhu:</b>
-
-Tab/menu <b>MY FONTS</b> bani.
-</li>
-
-<li>
-<b>+</b> tuqi:
-
-Mallattoo folder/plus ykn add font jiru tuqi.
-</li>
-
-<li>
-<b>Folder barbaadi:</b>
-
-Downloads, Fonts ykn folder ati font itti kaa'etti deemi.
-</li>
-
-<li>
-<b>Font filadhu:</b>
-
-TTF/OTF file filadhu.
-Version tokko tokko keessatti
-Add Selected/Add Directory/OK jedhu mul'ata.
-</li>
-
-<li>
-<b>Font itti fayyadami:</b>
-
-Font haaraa My Fonts keessatti mul'ata.
-Isa tuqi; text kee irratti hojiirra oola.
-</li>
-
-<li>
-<b>Test godhi:</b>
-
-Qubee guddaa, qubee xiqqaa,
-lakkoofsa fi jechoota Afaan Oromoo barreessuun ilaali.
-</li>
-
-</ol>
-
-<div class="note">
-
-<b>🧭 Bakka ijoo yaadadhu:</b>
-
-Text → Font → MY FONTS → +/Folder
-→ Download/Fonts → Font file
-→ Add/OK → Font filadhu.
-
-</div>
-
-</div>
-
+  <ol>
+    <li>Font barbaadde internet irraa download godhi.</li>
+    <li>File manager bani.</li>
+    <li>Font file `.ttf` ykn `.otf` barbaadi.</li>
+    <li>PixelLab bani.</li>
+    <li>Text irratti cuqaasi.</li>
+    <li>Font option bani.</li>
+    <li>My Fonts ykn Add Font filadhu.</li>
+    <li>Font file kee filadhu.</li>
+    <li>Font sana import godhi.</li>
+    <li>Barreeffama kee irratti font haaraa hojiirra oolchi.</li>
+  </ol>
 </section>
 
 
 <!-- SCREENSHOTS -->
-<section id="screens" class="section">
-
-<div class="container">
-
-<div class="section-head">
-
-<p class="tag">
-05 • SCREENSHOTS
-</p>
-
-<h2>
-📸 Screenshots fi visual guides — 10 ol
-</h2>
-
-<p>
-Screenshot tokko tokko PixelLab interface dhugaa agarsiisu;
-kanneen biroo immoo practice fi workflow hubachuuf visual guide dha.
-</p>
-
-</div>
-
-<div class="screens">
-
-
-<figure class="shot">
-
-<img
-src="https://i.ytimg.com/vi/frWZmcJMijI/maxresdefault.jpg"
-alt="Lesson 2 YouTube thumbnail">
-
-<figcaption>
-1. Video Lesson 2 — Font dabaluu.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
-alt="PixelLab My Fonts">
-
-<figcaption>
-2. MY FONTS fi imported fonts.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
-alt="PixelLab text editing">
-
-<figcaption>
-3. PixelLab text editing interface.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg"
-alt="PixelLab workspace">
-
-<figcaption>
-4. PixelLab design workspace.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
-alt="PixelLab interface">
-
-<figcaption>
-5. PixelLab editing interface.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://techylist.com/wp-content/uploads/2023/04/PixelLab1.jpeg"
-alt="PixelLab screenshot">
-
-<figcaption>
-6. PixelLab design workspace.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://assets.jabarekspres.com/sumedang/2023/03/pixellab.png"
-alt="PixelLab tools">
-
-<figcaption>
-7. PixelLab tools/interface.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg"
-alt="PixelLab design">
-
-<figcaption>
-8. PixelLab design workflow.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPsMzXlGEHIWSys7-maLNYs3La9Gc8OXgCLcBGAsYHQ/s568/crop%2Bgambar.png"
-alt="PixelLab crop">
-
-<figcaption>
-9. Crop/editing example.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://pbs.twimg.com/media/G40FhlLXkAAaY7p.jpg"
-alt="PixelLab editing">
-
-<figcaption>
-10. PixelLab visual editing example.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://make.supercell.com/images/creation/79419302-3ac7-45cd-b873-b3186ff3c2c9/gallery/3_9b8b9d49-dd31-40b0-82a4-501a6897cb6e_resized.jpg"
-alt="Graphic design example">
-
-<figcaption>
-11. Graphic design inspiration.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-<figure class="shot">
-
-<img
-src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg"
-alt="PixelLab design">
-
-<figcaption>
-12. PixelLab design example.
-</figcaption>
-
-<button onclick="zoom(this.previousElementSibling.src)">
-🔍 Guddisi
-</button>
-
-</figure>
-
-
-</div>
-</div>
-</section>
-
-
-<!-- PRACTICE -->
-<section id="practice" class="section">
-
-<div class="container">
-
-<p class="tag">
-06 • PRACTICE
-</p>
-
-<h2>
-🧪 Shaakala
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>
-Shaakala 1
-</h3>
-
-<p>
-Jechoota <b>KENA DESIGN</b> barreessi.
-Font 3 adda addaa ittiin yaali.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Shaakala 2
-</h3>
-
-<p>
-Font tokko titlef,
-font tokko subtitlef filadhu.
-Isaan wal simsiisi.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Shaakala 3
-</h3>
-
-<p>
-TTF tokko download godhi
-→ extract godhi
-→ PixelLab
-→ Font
-→ My Fonts
-→ import godhi.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Shaakala 4
-</h3>
-
-<p>
-Font haaraa fayyadamuun
-poster xiqqaa hojjedhu.
-Color fi spacing sirreessi.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- WARNINGS -->
-<section class="section">
-
-<div class="container">
-
-<p class="tag">
-07 • DOGOGGORA IRRAA OF EEGI
-</p>
-
-<h2>
-⚠️ Wantoota hin goone
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>❌ Font baay'ee</h3>
-<p>
-Design tokko keessatti font 5–6 fayyadamuun
-design dhiphisa.
-</p>
-</div>
-
-<div class="card">
-<h3>❌ Font hin dubbifamne</h3>
-<p>
-Font bareedaa ta'us,
-yoo dubbifamuu hin dandeenye
-odeeffannoo ijoo irratti hin fayyadamin.
-</p>
-</div>
-
-<div class="card">
-<h3>❌ ZIP kallattiin import</h3>
-<p>
-Dura Extract godhi;
-TTF/OTF keessaa filadhu.
-</p>
-</div>
-
-<div class="card">
-<h3>❌ License dagachuu</h3>
-<p>
-Font tokko commercial usef hayyamame moo
-personal use qofa akka ta'e ilaali.
-</p>
-</div>
-
-</div>
-
-</div>
-
+<section class="card">
+  <h2>🖼️ Fakkiiwwan / Screenshot</h2>
+
+  <p>
+    Fakkii tokko tuqi — guddaan siif bana.
+  </p>
+
+  <div class="screenshot-grid">
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://i.ytimg.com/vi/frWZmcJMijI/maxresdefault.jpg">
+      <p>📌 Video Lesson</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png">
+      <p>📌 PixelLab Interface</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png">
+      <p>📌 Text Tool</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg">
+      <p>📌 Text Editing</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp">
+      <p>📌 Font / Design Area</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://techylist.com/wp-content/uploads/2023/04/PixelLab1.jpeg">
+      <p>📌 PixelLab Example</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://assets.jabarekspres.com/sumedang/2023/03/pixellab.png">
+      <p>📌 Design Example</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg">
+      <p>📌 Font Example</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://pbs.twimg.com/media/G40FhlLXkAAaY7p.jpg">
+      <p>📌 Typography Example</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://make.supercell.com/images/creation/79419302-3ac7-45cd-b873-b3186ff3c2c9/gallery/3_9b8b9d49-dd31-40b0-82a4-501a6897cb6e_resized.jpg">
+      <p>📌 Creative Design</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg">
+      <p>📌 PixelLab Project</p>
+    </div>
+
+    <div class="shot" onclick="openImage(this.querySelector('img').src)">
+      <img src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPs3l3XQ5QW5J7mP2XkqG4nX9Gm1Y3rQCLcBGAsYHQ/s1600/crop%2Bgambar.png">
+      <p>📌 Editing Example</p>
+    </div>
+
+  </div>
 </section>
 
 
 <!-- ASSIGNMENT -->
-<section id="assignment" class="section">
+<section class="card assignment-box" id="assignment">
 
-<div class="container">
+  <h2>📝 Assignment — Lesson 2</h2>
 
-<p class="tag">
-08 • ASSIGNMENT
-</p>
+  <p>
+    Amma hojii kee hojjedhu. Button armaan gadii tuqiitii
+    assignment bani.
+  </p>
 
-<h2>
-🎯 Assignment Lesson 2
-</h2>
+  <button
+    class="orange"
+    id="startAssignmentBtn"
+    onclick="startAssignment()">
+    🚀 Assignment Jalqabi
+  </button>
 
-<div class="assignment">
+  <div class="assignment-area" id="assignmentArea">
 
-<h3>
-“KENA DESIGN — Graphic Design Course” poster hojjedhu.
-</h3>
+    <h3>🎯 Hojii Ati Hojjettu</h3>
 
-<ol>
+    <p>
+      PixelLab keessatti font haaraa tokko galchi.
+      Sana booda poster xiqqoo qopheessi.
+    </p>
 
-<li>
-Font haaraa tokko download godhi.
-</li>
+    <ol>
+      <li>Font haaraa tokko download godhi.</li>
+      <li>PixelLab keessatti import godhi.</li>
+      <li>Text haaraa galchi.</li>
+      <li>Font haaraa kee hojiirra oolchi.</li>
+      <li>Color fi size sirreessi.</li>
+      <li>Poster kee save godhi.</li>
+      <li>Screenshot fudhadhu.</li>
+      <li>Screenshot as irratti upload godhi.</li>
+    </ol>
 
-<li>
-Yoo ZIP ta'e Extract godhi.
-</li>
+    <!-- ASSIGNMENT EXAMPLE -->
+    <div
+      class="assignment-preview"
+      onclick="openImage(this.querySelector('img').src)">
 
-<li>
-PixelLab keessatti My Fonts irraa import godhi.
-</li>
+      <img
+        src="https://i.ytimg.com/vi/frWZmcJMijI/maxresdefault.jpg"
+        alt="Assignment Example"
+        style="width:100%;max-height:300px;object-fit:cover;border-radius:10px;">
 
-<li>
-KENA DESIGN title godhi.
-</li>
+      <h1>KENa DESIGN</h1>
+      <p>Font Haaraa + Text Design</p>
 
-<li>
-Font 2 qofa walitti maki.
-</li>
-
-<li>
-Color fi spacing sirreessi.
-</li>
-
-<li>
-Subtitle:
-“Learn • Create • Grow”
-dabali.
-</li>
-
-<li>
-PNG/JPG godhiitii save godhi.
-</li>
-
-</ol>
+      <span>👆 Fakkeenya ilaali</span>
+    </div>
 
 
-<div class="poster">
+    <!-- FILE UPLOAD -->
+    <h3>📤 Assignment Upload Godhi</h3>
 
-<div class="k">
-KENA DESIGN
-</div>
+    <p>
+      Screenshot hojii kee filadhu.
+      JPG, PNG ykn WEBP fayyadamuu dandeessa.
+    </p>
 
-<h3>
-LEARN<br>
-DESIGN<br>
-CREATE
-</h3>
+    <input
+      type="file"
+      id="assignmentFile"
+      accept="image/jpeg,image/png,image/webp,application/pdf">
 
-<div class="line"></div>
+    <button
+      class="blue"
+      id="uploadBtn"
+      onclick="uploadAssignment()">
+      📤 Assignment Upload Godhi
+    </button>
 
-<p>
-Graphic Design Course
-</p>
+    <button
+      class="gray"
+      onclick="document.getElementById('assignmentFile').click()">
+      📁 Faayila Filadhu
+    </button>
 
-<p>
-Learn • Create • Grow
-</p>
+    <div class="progress" id="progress">
+      <p>Upload adeemaa jira...</p>
+      <div style="background:#26384d;border-radius:20px;">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
 
-</div>
+    <div class="status success" id="successMessage"></div>
+    <div class="status error" id="errorMessage"></div>
 
+    <div class="completed" id="completedMessage">
+      ✅ Assignment kee xumurameera.
+    </div>
 
-<button
-class="btn primary"
-onclick="completeAssignment()">
+    <br>
 
-✅ Assignment Xumure
+    <button
+      class="green"
+      id="finishBtn"
+      onclick="finishAssignment()">
+      ✅ Assignment Xumure
+    </button>
 
-</button>
-
-
-<div id="done" class="result">
-🎉 Assignment Lesson 2 xumurameera!
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </section>
 
 
 <!-- QUIZ -->
-<section class="section">
+<section class="card">
+  <h2>🧠 Quiz</h2>
 
-<div class="container">
+  <p>
+    Font file PixelLab keessatti galchuuf extension kam fayyada?
+  </p>
 
-<p class="tag">
-09 • QUIZ
-</p>
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,false)">
+    A. MP4
+  </button>
 
-<h2>
-🧠 Of Qori
-</h2>
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,true)">
+    B. TTF / OTF
+  </button>
 
-<div class="card">
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,false)">
+    C. JPG
+  </button>
 
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,false)">
+    D. PNG
+  </button>
 
-<div class="quiz-q">
-
-<b>
-1. Font file PixelLab keessatti import gochuuf gosa beekamoo kam?
-</b>
-
-<label>
-<input type="radio" name="q1" value="a">
-JPG fi PNG
-</label>
-
-<label>
-<input type="radio" name="q1" value="b">
-TTF fi OTF
-</label>
-
-</div>
-
-
-<div class="quiz-q">
-
-<b>
-2. Font haaraa eessa irraa galchita?
-</b>
-
-<label>
-<input type="radio" name="q2" value="a">
-MY FONTS
-</label>
-
-<label>
-<input type="radio" name="q2" value="b">
-Gallery qofa
-</label>
-
-</div>
+  <div id="quizResult" style="margin-top:15px;"></div>
+</section>
 
 
-<div class="quiz-q">
+<!-- INSTALL -->
+<section class="card">
+  <h2>📱 PixelLab Install Godhi</h2>
 
-<b>
-3. ZIP font yoo qabaatte maal goota?
-</b>
+  <p>
+    Lesson kana hojiirra oolchuuf PixelLab Android kee irratti
+    install godhi.
+  </p>
 
-<label>
-<input type="radio" name="q3" value="a">
-Kallattiin PixelLab keessa bani
-</label>
-
-<label>
-<input type="radio" name="q3" value="b">
-Dura Extract godhi
-</label>
-
-</div>
-
-
-<button
-class="btn primary"
-onclick="quiz()">
-
-Qabxii Ilaali
-
-</button>
-
-
-<div
-id="quizResult"
-class="result">
-</div>
-
-
-</div>
-
-</div>
-
+  <a
+    class="btn"
+    href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
+    target="_blank"
+    rel="noopener noreferrer">
+    📲 PixelLab Install Godhi
+  </a>
 </section>
 
 </main>
 
 
-<footer>
-
-<div class="container">
-
-<h3>
-KENA DESIGN
-</h3>
-
-<p>
-Learn • Create • Grow
-</p>
-
-<p>
-© 2026 KENA DESIGN
-</p>
-
-</div>
-
-</footer>
-
-
 <!-- IMAGE MODAL -->
+<div class="modal" id="imageModal" onclick="closeImage()">
 
-<div
-id="modal"
-class="modal"
-onclick="closeZoom()">
+  <span class="close" onclick="closeImage()">×</span>
 
-<div
-class="modal-box"
-onclick="event.stopPropagation()">
-
-<button
-class="close"
-onclick="closeZoom()">
-×
-</button>
-
-<img
-id="zoomImg"
-src=""
-alt="Screenshot guddaa">
+  <img id="modalImage" src="" onclick="event.stopPropagation()">
 
 </div>
 
-</div>
+
+<footer>
+  <p>© 2026 Kena Design</p>
+  <p>🎨 Learn • Practice • Create</p>
+</footer>
 
 
 <script>
 
-function zoom(src){
+/* =========================
+   IMAGE MODAL
+========================= */
 
-  document
-  .getElementById("zoomImg")
-  .src = src;
+function openImage(src){
+  const modal = document.getElementById("imageModal");
+  const image = document.getElementById("modalImage");
 
-  document
-  .getElementById("modal")
-  .classList.add("show");
+  image.src = src;
+  modal.style.display = "flex";
+}
+
+function closeImage(){
+  document.getElementById("imageModal").style.display = "none";
+}
+
+
+/* =========================
+   ASSIGNMENT OPEN
+========================= */
+
+function startAssignment(){
+
+  const area = document.getElementById("assignmentArea");
+
+  area.classList.add("show");
+
+  document.getElementById("assignment").scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+  localStorage.setItem(
+    "kena_lesson2_assignment_started",
+    "true"
+  );
+}
+
+
+/* =========================
+   ASSIGNMENT STATUS
+========================= */
+
+function showSuccess(message){
+
+  const box = document.getElementById("successMessage");
+
+  box.textContent = message;
+  box.style.display = "block";
+
+  document.getElementById("errorMessage").style.display = "none";
+}
+
+function showError(message){
+
+  const box = document.getElementById("errorMessage");
+
+  box.textContent = message;
+  box.style.display = "block";
+
+  document.getElementById("successMessage").style.display = "none";
+}
+
+
+/* =========================
+   UPLOAD ASSIGNMENT
+========================= */
+
+async function uploadAssignment(){
+
+  const input = document.getElementById("assignmentFile");
+  const button = document.getElementById("uploadBtn");
+
+  if(!input.files || input.files.length === 0){
+
+    showError("❌ Mee dursee screenshot kee filadhu.");
+
+    return;
+  }
+
+  const file = input.files[0];
+
+  const allowed = [
+    "image/jpeg",
+    "image/png",
+    "image/webp",
+    "application/pdf"
+  ];
+
+  if(!allowed.includes(file.type)){
+
+    showError(
+      "❌ JPG, PNG, WEBP ykn PDF qofa upload godhi."
+    );
+
+    return;
+  }
+
+  if(file.size > 10 * 1024 * 1024){
+
+    showError(
+      "❌ Faayilichi 10MB ol ta'uu hin qabu."
+    );
+
+    return;
+  }
+
+
+  /* Student login data */
+
+  const savedStudent =
+    localStorage.getItem("kena_student");
+
+  if(!savedStudent){
+
+    showError(
+      "❌ Dura Student Login godhi."
+    );
+
+    return;
+  }
+
+
+  let student;
+
+  try{
+
+    student = JSON.parse(savedStudent);
+
+  }catch(error){
+
+    showError(
+      "❌ Odeeffannoon student sirrii miti. Login irra deebi'i."
+    );
+
+    return;
+  }
+
+
+  if(!student.id || !student.phone || !student.course){
+
+    showError(
+      "❌ Odeeffannoo student guutuu hin argamne."
+    );
+
+    return;
+  }
+
+
+  if(
+    String(student.payment_status || "").toUpperCase()
+    !== "PAID"
+  ){
+
+    showError(
+      "❌ Kaffaltiin kee hanga ammaatti hin mirkanoofne."
+    );
+
+    return;
+  }
+
+
+  if(student.learning_access !== true){
+
+    showError(
+      "❌ Learning access kee hin banamne."
+    );
+
+    return;
+  }
+
+
+  const formData = new FormData();
+
+  formData.append("student_id", student.id);
+  formData.append("phone", student.phone);
+  formData.append("course", student.course);
+  formData.append("file", file);
+
+
+  button.disabled = true;
+  button.textContent = "⏳ Uploading...";
+
+
+  document.getElementById("progress").style.display = "block";
+
+
+  let progress = 10;
+
+  const progressBar =
+    document.getElementById("progressBar");
+
+  const progressTimer = setInterval(() => {
+
+    if(progress < 90){
+
+      progress += 10;
+      progressBar.style.width = progress + "%";
+
+    }
+
+  },300);
+
+
+  try{
+
+    const response = await fetch(
+      "https://baoczizarrnzxwguyili.supabase.co/functions/v1/submit-assignment",
+      {
+        method:"POST",
+        body:formData
+      }
+    );
+
+
+    const data = await response.json();
+
+
+    clearInterval(progressTimer);
+
+    progressBar.style.width = "100%";
+
+
+    if(!response.ok || !data.success){
+
+      throw new Error(
+        data.message ||
+        "Assignment upload hin milkoofne."
+      );
+
+    }
+
+
+    showSuccess(
+      "✅ Assignment kee sirriitti upload ta'eera."
+    );
+
+
+    localStorage.setItem(
+      "kena_lesson2_assignment_uploaded",
+      "true"
+    );
+
+
+  }catch(error){
+
+    clearInterval(progressTimer);
+
+    showError(
+      "❌ " + error.message
+    );
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "📤 Assignment Upload Godhi";
+
+  }
 
 }
 
 
-function closeZoom(){
+/* =========================
+   FINISH ASSIGNMENT
+========================= */
 
-  document
-  .getElementById("modal")
-  .classList.remove("show");
+function finishAssignment(){
 
-  document
-  .getElementById("zoomImg")
-  .src = "";
+  const uploaded =
+    localStorage.getItem(
+      "kena_lesson2_assignment_uploaded"
+    );
 
-}
+  if(uploaded !== "true"){
 
+    showError(
+      "❌ Dura assignment screenshot upload godhi."
+    );
 
-function completeAssignment(){
+    return;
+  }
 
-  document
-  .getElementById("done")
-  .style.display = "block";
 
   localStorage.setItem(
     "kena_lesson2_assignment",
     "completed"
   );
 
+
+  document.getElementById(
+    "completedMessage"
+  ).style.display = "block";
+
+
+  showSuccess(
+    "🎉 Lesson 2 Assignment xumurameera!"
+  );
+
+
+  document.getElementById(
+    "finishBtn"
+  ).textContent = "✅ Xumurameera";
+
+
+  document.getElementById(
+    "finishBtn"
+  ).disabled = true;
 }
 
 
-if(
-  localStorage.getItem(
-    "kena_lesson2_assignment"
-  ) === "completed"
-){
+/* =========================
+   RESTORE ASSIGNMENT
+========================= */
 
-  document
-  .getElementById("done")
-  .style.display = "block";
+window.addEventListener("DOMContentLoaded", () => {
 
-}
-
-
-function quiz(){
-
-  let score = 0;
-
-  if(
-    document.querySelector(
-      'input[name="q1"]:checked'
-    )?.value === "b"
-  ){
-    score++;
-  }
-
-  if(
-    document.querySelector(
-      'input[name="q2"]:checked'
-    )?.value === "a"
-  ){
-    score++;
-  }
-
-  if(
-    document.querySelector(
-      'input[name="q3"]:checked'
-    )?.value === "b"
-  ){
-    score++;
-  }
-
-  const result =
-    document.getElementById(
-      "quizResult"
+  const started =
+    localStorage.getItem(
+      "kena_lesson2_assignment_started"
     );
 
-  result.style.display = "block";
+  if(started === "true"){
 
-  result.textContent =
-    "🎉 Qabxii kee: " +
-    score +
-    "/3";
+    document
+      .getElementById("assignmentArea")
+      .classList.add("show");
+
+  }
+
+
+  const completed =
+    localStorage.getItem(
+      "kena_lesson2_assignment"
+    );
+
+  if(completed === "completed"){
+
+    document.getElementById(
+      "completedMessage"
+    ).style.display = "block";
+
+    document.getElementById(
+      "finishBtn"
+    ).textContent = "✅ Xumurameera";
+
+    document.getElementById(
+      "finishBtn"
+    ).disabled = true;
+
+  }
+
+});
+
+
+/* =========================
+   QUIZ
+========================= */
+
+function answerQuiz(button,correct){
+
+  const options =
+    document.querySelectorAll(".quiz-option");
+
+  options.forEach(option => {
+    option.disabled = true;
+  });
+
+
+  if(correct){
+
+    button.classList.add("correct");
+
+    document.getElementById(
+      "quizResult"
+    ).innerHTML =
+      "🎉 Sirrii dha! TTF fi OTF font files dha.";
+
+  }else{
+
+    button.classList.add("wrong");
+
+    document.getElementById(
+      "quizResult"
+    ).innerHTML =
+      "❌ Dogoggora. Deebiin sirrii TTF / OTF dha.";
+
+  }
 
 }
+
+
+/* =========================
+   ESC KEY FOR MODAL
+========================= */
+
+document.addEventListener("keydown",(event)=>{
+
+  if(event.key === "Escape"){
+
+    closeImage();
+
+  }
+
+});
 
 </script>
 

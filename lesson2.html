@@ -1,1 +1,2232 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Kena Design — Lesson 2</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#050b14;
+  color:#fff;
+  line-height:1.7;
+}
+
+.container{
+  width:min(1100px,94%);
+  margin:auto;
+}
+
+header{
+  background:linear-gradient(135deg,#07111f,#102d42);
+  padding:28px 15px;
+  text-align:center;
+  border-bottom:1px solid #243b53;
+}
+
+.logo{
+  font-size:27px;
+  font-weight:900;
+  color:#32d583;
+}
+
+header h1{
+  margin-top:8px;
+  font-size:28px;
+}
+
+header p{
+  color:#b8c5d4;
+  margin-top:7px;
+}
+
+.card{
+  background:#0e1928;
+  border:1px solid #21364d;
+  border-radius:18px;
+  padding:22px;
+  margin:20px 0;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+
+.card h2{
+  color:#32d583;
+  margin-bottom:14px;
+}
+
+.card h3{
+  color:#55aaff;
+  margin-top:18px;
+  margin-bottom:7px;
+}
+
+p{
+  color:#d5dde7;
+}
+
+ul,
+ol{
+  padding-left:25px;
+}
+
+li{
+  margin:8px 0;
+  color:#d5dde7;
+}
+
+.highlight{
+  background:#0b2930;
+  border-left:4px solid #32d583;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+.tip{
+  background:#10263e;
+  border-left:4px solid #55aaff;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+.warning{
+  background:#332719;
+  border-left:4px solid #ffb020;
+  padding:15px;
+  border-radius:10px;
+  margin:15px 0;
+}
+
+/* BUTTON */
+
+button,
+.btn{
+  border:none;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  text-decoration:none;
+  display:inline-block;
+  margin:5px 3px;
+  transition:.2s;
+}
+
+button:hover,
+.btn:hover{
+  transform:translateY(-2px);
+  opacity:.92;
+}
+
+.green{
+  background:#32d583;
+  color:#03150d;
+}
+
+.blue{
+  background:#2688ff;
+  color:#fff;
+}
+
+.orange{
+  background:#ffad21;
+  color:#111;
+}
+
+.red{
+  background:#ff5364;
+  color:#fff;
+}
+
+.dark{
+  background:#26384d;
+  color:#fff;
+}
+
+/* VIDEO */
+
+.video-box{
+  width:100%;
+  position:relative;
+  padding-bottom:56.25%;
+  margin-top:15px;
+  border-radius:15px;
+  overflow:hidden;
+  background:#000;
+}
+
+.video-box iframe{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:0;
+  inset:0;
+}
+
+/* SCREENSHOTS */
+
+.screenshot-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:17px;
+  margin-top:20px;
+}
+
+.screenshot-card{
+  background:#07111f;
+  border:1px solid #263b52;
+  border-radius:15px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.screenshot-card:hover{
+  transform:translateY(-4px);
+  border-color:#32d583;
+}
+
+.image-wrap{
+  width:100%;
+  height:190px;
+  background:#111e2e;
+  position:relative;
+  overflow:hidden;
+}
+
+.image-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.image-fallback{
+  display:none;
+  width:100%;
+  height:100%;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  text-align:center;
+  padding:20px;
+  background:linear-gradient(135deg,#10283b,#07111f);
+  color:#9fb0c4;
+}
+
+.image-fallback strong{
+  color:#32d583;
+  font-size:18px;
+  margin-bottom:5px;
+}
+
+.screenshot-info{
+  padding:14px;
+}
+
+.screenshot-info h3{
+  color:#fff;
+  margin:0 0 5px;
+  font-size:17px;
+}
+
+.screenshot-info p{
+  font-size:14px;
+  color:#aebccc;
+}
+
+/* MODAL */
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:99999;
+  inset:0;
+  background:rgba(0,0,0,.94);
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.modal-content{
+  width:min(950px,96%);
+  max-height:94vh;
+  background:#0e1928;
+  border:1px solid #32d583;
+  border-radius:18px;
+  padding:15px;
+  position:relative;
+}
+
+.modal-image-box{
+  width:100%;
+  max-height:75vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#050b14;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+.modal-image-box img{
+  max-width:100%;
+  max-height:72vh;
+  object-fit:contain;
+}
+
+.modal-fallback{
+  display:none;
+  padding:60px 20px;
+  text-align:center;
+  color:#aebccc;
+}
+
+.modal-title{
+  padding:12px 5px 4px;
+  color:#32d583;
+  font-weight:bold;
+}
+
+.close{
+  position:absolute;
+  top:-15px;
+  right:-10px;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  background:#ff5665;
+  color:#fff;
+  font-size:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:5;
+}
+
+.modal-nav{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+/* ASSIGNMENT */
+
+.assignment{
+  border:2px solid #32d583;
+  background:linear-gradient(135deg,#0c2b25,#0d2034);
+}
+
+.assignment h2{
+  color:#32d583;
+}
+
+.assignment-area{
+  display:none;
+  margin-top:20px;
+  padding:20px;
+  background:#07111f;
+  border-radius:15px;
+  border:1px solid #2b435d;
+}
+
+.assignment-area.show{
+  display:block;
+}
+
+.assignment-preview{
+  margin:20px 0;
+  background:#fff;
+  color:#111;
+  border-radius:15px;
+  padding:22px;
+  text-align:center;
+}
+
+.assignment-preview h1{
+  color:#111;
+  font-size:30px;
+}
+
+.assignment-preview p{
+  color:#333;
+}
+
+.assignment-preview .fake-button{
+  display:inline-block;
+  margin-top:15px;
+  background:#111;
+  color:#fff;
+  padding:8px 15px;
+  border-radius:7px;
+}
+
+input[type=file]{
+  width:100%;
+  background:#101c2c;
+  color:#fff;
+  border:1px solid #38506b;
+  padding:12px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.status{
+  display:none;
+  margin-top:14px;
+  padding:13px;
+  border-radius:10px;
+}
+
+.success{
+  background:#103a28;
+  color:#6ff0a9;
+}
+
+.error{
+  background:#431d25;
+  color:#ff9ea8;
+}
+
+.completed{
+  display:none;
+  margin-top:15px;
+  padding:13px;
+  background:#103a28;
+  color:#6ff0a9;
+  border-radius:10px;
+}
+
+.progress{
+  display:none;
+  margin-top:15px;
+}
+
+.progress-bg{
+  background:#25384d;
+  height:10px;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  width:0%;
+  height:100%;
+  background:#32d583;
+  transition:.3s;
+}
+
+/* QUIZ */
+
+.quiz-option{
+  display:block;
+  width:100%;
+  text-align:left;
+  background:#17283b;
+  color:#fff;
+  margin:8px 0;
+}
+
+.quiz-option.correct{
+  background:#116b42;
+}
+
+.quiz-option.wrong{
+  background:#8c2637;
+}
+
+/* INSTALL */
+
+.install-card{
+  background:linear-gradient(135deg,#142b44,#0c2b25);
+  border:1px solid #32d583;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  header h1{
+    font-size:23px;
+  }
+
+  .logo{
+    font-size:22px;
+  }
+
+  .card{
+    padding:16px;
+    margin:14px 0;
+  }
+
+  .screenshot-grid{
+    grid-template-columns:1fr;
+  }
+
+  .image-wrap{
+    height:220px;
+  }
+
+  button,
+  .btn{
+    width:100%;
+    margin:5px 0;
+  }
+
+  .assignment-preview h1{
+    font-size:23px;
+  }
+
+  .modal{
+    padding:10px;
+  }
+
+  .modal-content{
+    width:100%;
+  }
+}
+
+footer{
+  text-align:center;
+  padding:30px 15px;
+  color:#8293a7;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+
+    <div class="logo">
+      KENA DESIGN
+    </div>
+
+    <h1>
+      🎨 Lesson 2 — PixelLab Font & Text Design
+    </h1>
+
+    <p>
+      Font haaraa galchuu, Text qopheessuu fi design irratti hojiirra oolchuu
+    </p>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+
+<!-- VIDEO -->
+
+<section class="card">
+
+  <h2>🎬 1. Video Lesson</h2>
+
+  <p>
+    Video kana dura ilaali. Sana booda ibsa armaan gadii
+    tartiiba isaa hordofi.
+  </p>
+
+  <div class="video-box">
+
+    <iframe
+      src="https://www.youtube.com/embed/frWZmcJMijI"
+      title="Kena Design PixelLab Lesson 2"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+
+<section class="card">
+
+  <h2>📚 2. Lesson Kana Keessatti Maal Baratta?</h2>
+
+  <p>
+    Lesson kana keessatti PixelLab fayyadamuun font haaraa
+    akkamitti galchuu, font filachuu, text barreessuu,
+    halluu jijjiiruu, size sirreessuu fi text kee poster
+    keessatti sirnaan qindeessuu baratta.
+  </p>
+
+  <div class="highlight">
+
+    💡 <b>Kaayyoo:</b>
+    Dhumarratti ati font tokko ofii keetii galchitee,
+    PixelLab keessatti text professional ta'e qopheessuu
+    dandeessa.
+
+  </div>
+
+</section>
+
+
+<!-- FONT -->
+
+<section class="card">
+
+  <h2>🔤 3. Font Maali?</h2>
+
+  <p>
+    Font jechuun bifa qubee ittiin barruun mul'atuudha.
+    Fakkeenyaaf qubeen tokko font adda addaatiin yeroo
+    barreeffamu bifa adda addaa qaba.
+  </p>
+
+  <h3>🎯 Maaliif Font barbaachisa?</h3>
+
+  <ul>
+    <li>Design kee bareedaa taasisa.</li>
+    <li>Ergaa kee dubbistootaaf salphisa.</li>
+    <li>Poster professional fakkeessa.</li>
+    <li>Brand kee adda baasuu danda'a.</li>
+    <li>Social media design keessatti nama hawwata.</li>
+  </ul>
+
+</section>
+
+
+<!-- FONT TYPES -->
+
+<section class="card">
+
+  <h2>🔠 4. Gosoota Font</h2>
+
+  <h3>1️⃣ Serif</h3>
+
+  <p>
+    Qubee xumura isaa irratti mallattoo xiqqoo qabu.
+    Kitaaba fi hojii formal keessatti baay'ee fayyada.
+  </p>
+
+  <h3>2️⃣ Sans Serif</h3>
+
+  <p>
+    Qubee qulqulluu fi salphaa. Logo, website,
+    social media fi poster keessatti gaarii dha.
+  </p>
+
+  <h3>3️⃣ Script</h3>
+
+  <p>
+    Qubee harkaan barreeffame fakkaatu.
+    Invitation fi design artistic keessatti fayyada.
+  </p>
+
+  <h3>4️⃣ Display</h3>
+
+  <p>
+    Mata-duree guddaa fi poster irratti nama hawwatuuf
+    qophaa'e.
+  </p>
+
+</section>
+
+
+<!-- TTF OTF -->
+
+<section class="card">
+
+  <h2>📁 5. TTF fi OTF</h2>
+
+  <p>
+    Font download gootu yeroo baay'ee faayila TTF ykn OTF
+    argatta.
+  </p>
+
+  <div class="highlight">
+
+    <b>.TTF</b> = TrueType Font<br>
+    <b>.OTF</b> = OpenType Font
+
+  </div>
+
+  <p>
+    PixelLab keessatti lamaan isaanii keessaa font
+    supported ta'e fayyadamuun ni danda'ama.
+  </p>
+
+</section>
+
+
+<!-- STEP BY STEP -->
+
+<section class="card">
+
+  <h2>📱 6. Font Haaraa PixelLab Keessatti Galchuu</h2>
+
+  <ol>
+
+    <li>
+      Font barbaadde internet irraa download godhi.
+    </li>
+
+    <li>
+      File Manager bani.
+    </li>
+
+    <li>
+      Faayila <b>.ttf</b> ykn <b>.otf</b> barbaadi.
+    </li>
+
+    <li>
+      PixelLab bani.
+    </li>
+
+    <li>
+      Text irratti cuqaasi.
+    </li>
+
+    <li>
+      Font option barbaadi.
+    </li>
+
+    <li>
+      My Fonts ykn Add Font filadhu.
+    </li>
+
+    <li>
+      Faayila font kee filadhu.
+    </li>
+
+    <li>
+      Import godhi.
+    </li>
+
+    <li>
+      Font haaraa text kee irratti hojiirra oolchi.
+    </li>
+
+  </ol>
+
+</section>
+
+
+<!-- SCREENSHOTS -->
+
+<section class="card">
+
+  <h2>🖼️ 7. Screenshots — Fakkeenya Bal'aa</h2>
+
+  <p>
+    Screenshot tokko irratti <b>tuqi</b>. Suurri guddaan ni bana.
+    Yoo suura tokko hin banamne, mallattoo broken-image osoo
+    hin agarsiisin bakka isaa ibsi isaa ni mul'ata.
+  </p>
+
+
+  <div class="screenshot-grid">
+
+
+    <!-- 1 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(0)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://i.ytimg.com/vi/frWZmcJMijI/maxresdefault.jpg"
+          alt="Video screenshot"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🎬 Screenshot 1</strong>
+          <span>Video Lesson</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>1. Video Lesson</h3>
+
+        <p>
+          Video lesson kana ilaaluun tarkaanfiiwwan
+          PixelLab keessatti hojjetaman hubadhu.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(1)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
+          alt="PixelLab interface"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🛠️ Screenshot 2</strong>
+          <span>PixelLab Interface</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>2. PixelLab Interface</h3>
+
+        <p>
+          Fuula hojii PixelLab fi bakka toolwwan
+          adda addaa itti argaman ilaali.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(2)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
+          alt="PixelLab text"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🔤 Screenshot 3</strong>
+          <span>Text Tool</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>3. Text Tool</h3>
+
+        <p>
+          Text dabaluuf Text Tool fayyadami.
+          Ergaa design kee asitti galchita.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(3)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg"
+          alt="Text editing"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>✏️ Screenshot 4</strong>
+          <span>Text Editing</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>4. Text Editing</h3>
+
+        <p>
+          Text filattee booda font, size, alignment fi
+          style isaa jijjiiri.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(4)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
+          alt="PixelLab font"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🔤 Screenshot 5</strong>
+          <span>Font Area</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>5. Font Area</h3>
+
+        <p>
+          Font filachuu fi text kee bifa barbaaddeen
+          qopheessuu irratti xiyyeeffadhu.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(5)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://techylist.com/wp-content/uploads/2023/04/PixelLab1.jpeg"
+          alt="PixelLab design"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🎨 Screenshot 6</strong>
+          <span>Design Example</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>6. Design Example</h3>
+
+        <p>
+          Font fi text akkamitti design keessatti
+          walitti makaman ilaali.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(6)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://assets.jabarekspres.com/sumedang/2023/03/pixellab.png"
+          alt="PixelLab example"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🖌️ Screenshot 7</strong>
+          <span>Creative Design</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>7. Creative Design</h3>
+
+        <p>
+          Color, text fi image walitti fiduun
+          composition gaarii uumuun baradhu.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(7)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg"
+          alt="Font example"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🔠 Screenshot 8</strong>
+          <span>Font Example</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>8. Font Example</h3>
+
+        <p>
+          Font adda addaa yaaliitii kan design kee
+          wajjin caalaatti wal simu filadhu.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(8)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://pbs.twimg.com/media/G40FhlLXkAAaY7p.jpg"
+          alt="Typography"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🔍 Screenshot 9</strong>
+          <span>Typography Example</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>9. Typography</h3>
+
+        <p>
+          Qubee baay'ee walitti makuu irra font muraasa
+          sirriitti filachuun caala.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(9)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://make.supercell.com/images/creation/79419302-3ac7-45cd-b873-b3186ff3c2c9/gallery/3_9b8b9d49-dd31-40b0-82a4-501a6897cb6e_resized.jpg"
+          alt="Creative project"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>🎯 Screenshot 10</strong>
+          <span>Creative Project</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>10. Creative Project</h3>
+
+        <p>
+          Assignment kee keessatti yaada mataa keetii
+          fayyadamuun design qopheessi.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(10)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg"
+          alt="PixelLab project"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>💻 Screenshot 11</strong>
+          <span>PixelLab Project</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>11. PixelLab Project</h3>
+
+        <p>
+          Project kee yeroo hojjettu layer fi object
+          sirnaan qindeessi.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="screenshot-card"
+         onclick="openImage(11)">
+
+      <div class="image-wrap">
+
+        <img
+          src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPs3l3XQ5QW5J7mP2XkqG4nX9Gm1Y3rQCLcBGAsYHQ/s1600/crop%2Bgambar.png"
+          alt="Crop editing"
+          onerror="imageError(this)">
+
+        <div class="image-fallback">
+          <strong>✂️ Screenshot 12</strong>
+          <span>Crop / Editing</span>
+        </div>
+
+      </div>
+
+      <div class="screenshot-info">
+
+        <h3>12. Crop / Editing</h3>
+
+        <p>
+          Suuraa kee crop, resize fi qindeessuun
+          design qulqulluu uumi.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DETAILED PRACTICE -->
+
+<section class="card">
+
+  <h2>🧪 8. Akkaataa Hojii Irra Oolchuu</h2>
+
+  <h3>Step 1 — Font Filadhu</h3>
+
+  <p>
+    Font tokko qofa filadhu. Design kee irratti font
+    baay'ee fayyadamuun dubbisa nama rakkisuu danda'a.
+  </p>
+
+  <h3>Step 2 — Text Galchi</h3>
+
+  <p>
+    PixelLab bani → Text → Add Text.
+    Ergaa poster kee barreessi.
+  </p>
+
+  <h3>Step 3 — Font Jijjiiri</h3>
+
+  <p>
+    Text kee filadhu → Font → My Fonts.
+    Sana booda font ati galchite filadhu.
+  </p>
+
+  <h3>Step 4 — Color</h3>
+
+  <p>
+    Background dukkanaa yoo ta'e text ifaa fayyadami.
+    Background ifaa yoo ta'e text dukkanaa fayyadami.
+  </p>
+
+  <h3>Step 5 — Size</h3>
+
+  <p>
+    Mata-duree guddaa godhi. Barruu ibsaa ammoo
+    xiqqoo godhi.
+  </p>
+
+  <div class="tip">
+    💡 <b>Seera design:</b>
+    Mata-duree, subtitle fi body text gidduutti
+    garaagarummaa ifa ta'e qabaachuun design kee
+    dubbifamuu salphisa.
+  </div>
+
+</section>
+
+
+<!-- ASSIGNMENT -->
+
+<section class="card assignment" id="assignment">
+
+  <h2>📝 9. ASSIGNMENT — LESSON 2</h2>
+
+  <p>
+    Amma waan baratte hojiitti jijjiiri.
+    Button <b>Assignment Jalqabi</b> jedhu tuqi.
+  </p>
+
+  <button
+    class="orange"
+    onclick="startAssignment()">
+    🚀 Assignment Jalqabi
+  </button>
+
+
+  <div
+    class="assignment-area"
+    id="assignmentArea">
+
+    <h3>🎯 Hojii Ati Hojjettu</h3>
+
+    <ol>
+
+      <li>
+        Font haaraa tokko download godhi.
+      </li>
+
+      <li>
+        PixelLab keessatti import godhi.
+      </li>
+
+      <li>
+        Text “KENA DESIGN” jedhu barreessi.
+      </li>
+
+      <li>
+        Font haaraa kee itti fayyadami.
+      </li>
+
+      <li>
+        Color fi size sirreessi.
+      </li>
+
+      <li>
+        Text effect xiqqoo itti dabali.
+      </li>
+
+      <li>
+        Poster kee sirnaan qindeessi.
+      </li>
+
+      <li>
+        Screenshot fudhadhu.
+      </li>
+
+      <li>
+        Screenshot asitti upload godhi.
+      </li>
+
+    </ol>
+
+
+    <div class="assignment-preview">
+
+      <h1>KENA DESIGN</h1>
+
+      <p>
+        GRAPHIC DESIGN TRAINING
+      </p>
+
+      <p>
+        Font Haaraa • Creative Design
+      </p>
+
+      <span class="fake-button">
+        FAKKEENYA
+      </span>
+
+    </div>
+
+
+    <h3>📤 Screenshot Assignment Upload</h3>
+
+    <p>
+      Hojii kee screenshot godhiitii faayila armaan gadii
+      irraa filadhu.
+    </p>
+
+    <input
+      type="file"
+      id="assignmentFile"
+      accept="image/jpeg,image/png,image/webp,application/pdf">
+
+
+    <button
+      class="blue"
+      id="uploadBtn"
+      onclick="uploadAssignment()">
+
+      📤 Upload Godhi
+
+    </button>
+
+
+    <button
+      class="dark"
+      onclick="document.getElementById('assignmentFile').click()">
+
+      📁 Faayila Filadhu
+
+    </button>
+
+
+    <div
+      class="progress"
+      id="progress">
+
+      <p>⏳ Uploading...</p>
+
+      <div class="progress-bg">
+
+        <div
+          class="progress-bar"
+          id="progressBar">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="status success"
+      id="successMessage">
+    </div>
+
+
+    <div
+      class="status error"
+      id="errorMessage">
+    </div>
+
+
+    <div
+      class="completed"
+      id="completedMessage">
+
+      🎉 Assignment kee xumurameera!
+
+    </div>
+
+
+    <button
+      class="green"
+      id="finishBtn"
+      onclick="finishAssignment()">
+
+      ✅ Assignment Xumure
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- QUIZ -->
+
+<section class="card">
+
+  <h2>🧠 10. Quiz</h2>
+
+  <p>
+    Font PixelLab keessatti galchuuf file extension
+    kam fayyadamna?
+  </p>
+
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,false)">
+
+    A. JPG
+
+  </button>
+
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,true)">
+
+    B. TTF / OTF
+
+  </button>
+
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,false)">
+
+    C. MP4
+
+  </button>
+
+  <button
+    class="quiz-option"
+    onclick="answerQuiz(this,false)">
+
+    D. PNG
+
+  </button>
+
+  <div id="quizResult"></div>
+
+</section>
+
+
+<!-- INSTALL -->
+
+<section class="card install-card">
+
+  <h2>📱 11. PixelLab Install Godhi</h2>
+
+  <p>
+    PixelLab hin qabdu taanaan button kana tuqiitii
+    Google Play irraa install godhi.
+  </p>
+
+  <a
+    class="btn green"
+    href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
+    target="_blank"
+    rel="noopener noreferrer">
+
+    📲 PixelLab Install Godhi
+
+  </a>
+
+</section>
+
+
+</main>
+
+
+<!-- IMAGE MODAL -->
+
+<div
+  class="modal"
+  id="imageModal"
+  onclick="closeImage()">
+
+  <div
+    class="modal-content"
+    onclick="event.stopPropagation()">
+
+    <span
+      class="close"
+      onclick="closeImage()">
+
+      ×
+
+    </span>
+
+
+    <div class="modal-image-box">
+
+      <img
+        id="modalImage"
+        src=""
+        alt="Screenshot">
+
+      <div
+        class="modal-fallback"
+        id="modalFallback">
+
+        <h2>🖼️ Screenshot hin banamne</h2>
+
+        <p>
+          Suura external source irraa hin argamne.
+          Garuu ibsi screenshot kanaa page irratti jira.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="modal-title"
+      id="modalTitle">
+
+      Screenshot
+
+    </div>
+
+
+    <div class="modal-nav">
+
+      <button
+        class="dark"
+        onclick="previousImage()">
+
+        ◀ Durii
+
+      </button>
+
+      <button
+        class="dark"
+        onclick="nextImage()">
+
+        Itti Aanu ▶
+
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  <p>
+    © 2026 Kena Design
+  </p>
+
+  <p>
+    🎨 Learn • Practice • Create
+  </p>
+
+</footer>
+
+
+<script>
+
+/* ===================================
+   SCREENSHOT DATA
+=================================== */
+
+const screenshots = [
+
+  {
+    url:"https://i.ytimg.com/vi/frWZmcJMijI/maxresdefault.jpg",
+    title:"1. Video Lesson"
+  },
+
+  {
+    url:"https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png",
+    title:"2. PixelLab Interface"
+  },
+
+  {
+    url:"https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png",
+    title:"3. Text Tool"
+  },
+
+  {
+    url:"https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg",
+    title:"4. Text Editing"
+  },
+
+  {
+    url:"https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp",
+    title:"5. Font Area"
+  },
+
+  {
+    url:"https://techylist.com/wp-content/uploads/2023/04/PixelLab1.jpeg",
+    title:"6. Design Example"
+  },
+
+  {
+    url:"https://assets.jabarekspres.com/sumedang/2023/03/pixellab.png",
+    title:"7. Creative Design"
+  },
+
+  {
+    url:"https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg",
+    title:"8. Font Example"
+  },
+
+  {
+    url:"https://pbs.twimg.com/media/G40FhlLXkAAaY7p.jpg",
+    title:"9. Typography"
+  },
+
+  {
+    url:"https://make.supercell.com/images/creation/79419302-3ac7-45cd-b873-b3186ff3c2c9/gallery/3_9b8b9d49-dd31-40b0-82a4-501a6897cb6e_resized.jpg",
+    title:"10. Creative Project"
+  },
+
+  {
+    url:"https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg",
+    title:"11. PixelLab Project"
+  },
+
+  {
+    url:"https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPs3l3XQ5QW5J7mP2XkqG4nX9Gm1Y3rQCLcBGAsYHQ/s1600/crop%2Bgambar.png",
+    title:"12. Crop / Editing"
+  }
+
+];
+
+
+let currentImage = 0;
+
+
+/* ===================================
+   IMAGE ERROR
+=================================== */
+
+function imageError(img){
+
+  img.style.display = "none";
+
+  const fallback =
+    img.parentElement.querySelector(".image-fallback");
+
+  if(fallback){
+
+    fallback.style.display = "flex";
+
+  }
+
+}
+
+
+/* ===================================
+   OPEN IMAGE
+=================================== */
+
+function openImage(index){
+
+  currentImage = index;
+
+  const modal =
+    document.getElementById("imageModal");
+
+  const image =
+    document.getElementById("modalImage");
+
+  const fallback =
+    document.getElementById("modalFallback");
+
+  const title =
+    document.getElementById("modalTitle");
+
+  image.style.display = "block";
+
+  fallback.style.display = "none";
+
+  image.src = screenshots[index].url;
+
+  title.textContent =
+    screenshots[index].title;
+
+  image.onerror = function(){
+
+    image.style.display = "none";
+
+    fallback.style.display = "block";
+
+  };
+
+  modal.style.display = "flex";
+
+}
+
+
+function closeImage(){
+
+  document.getElementById(
+    "imageModal"
+  ).style.display = "none";
+
+}
+
+
+function nextImage(){
+
+  currentImage++;
+
+  if(currentImage >= screenshots.length){
+
+    currentImage = 0;
+
+  }
+
+  openImage(currentImage);
+
+}
+
+
+function previousImage(){
+
+  currentImage--;
+
+  if(currentImage < 0){
+
+    currentImage = screenshots.length - 1;
+
+  }
+
+  openImage(currentImage);
+
+}
+
+
+/* ESC */
+
+document.addEventListener(
+  "keydown",
+  function(e){
+
+    if(e.key === "Escape"){
+
+      closeImage();
+
+    }
+
+    if(e.key === "ArrowRight"){
+
+      nextImage();
+
+    }
+
+    if(e.key === "ArrowLeft"){
+
+      previousImage();
+
+    }
+
+  }
+);
+
+
+/* ===================================
+   ASSIGNMENT OPEN
+=================================== */
+
+function startAssignment(){
+
+  const area =
+    document.getElementById(
+      "assignmentArea"
+    );
+
+  area.classList.add("show");
+
+  localStorage.setItem(
+    "kena_lesson2_assignment_started",
+    "true"
+  );
+
+  document.getElementById(
+    "assignment"
+  ).scrollIntoView({
+
+    behavior:"smooth",
+
+    block:"start"
+
+  });
+
+}
+
+
+/* ===================================
+   MESSAGE
+=================================== */
+
+function showSuccess(message){
+
+  const success =
+    document.getElementById(
+      "successMessage"
+    );
+
+  const error =
+    document.getElementById(
+      "errorMessage"
+    );
+
+  success.textContent = message;
+
+  success.style.display = "block";
+
+  error.style.display = "none";
+
+}
+
+
+function showError(message){
+
+  const success =
+    document.getElementById(
+      "successMessage"
+    );
+
+  const error =
+    document.getElementById(
+      "errorMessage"
+    );
+
+  error.textContent = message;
+
+  error.style.display = "block";
+
+  success.style.display = "none";
+
+}
+
+
+/* ===================================
+   UPLOAD
+=================================== */
+
+async function uploadAssignment(){
+
+  const input =
+    document.getElementById(
+      "assignmentFile"
+    );
+
+  const button =
+    document.getElementById(
+      "uploadBtn"
+    );
+
+  if(!input.files.length){
+
+    showError(
+      "❌ Mee dursee screenshot kee filadhu."
+    );
+
+    return;
+
+  }
+
+
+  const file =
+    input.files[0];
+
+
+  const allowed = [
+
+    "image/jpeg",
+
+    "image/png",
+
+    "image/webp",
+
+    "application/pdf"
+
+  ];
+
+
+  if(!allowed.includes(file.type)){
+
+    showError(
+      "❌ JPG, PNG, WEBP ykn PDF qofa."
+    );
+
+    return;
+
+  }
+
+
+  if(file.size > 10 * 1024 * 1024){
+
+    showError(
+      "❌ Faayilichi 10MB ol ta'uu hin qabu."
+    );
+
+    return;
+
+  }
+
+
+  const saved =
+    localStorage.getItem(
+      "kena_student"
+    );
+
+
+  if(!saved){
+
+    showError(
+      "❌ Dura Student Login godhi."
+    );
+
+    return;
+
+  }
+
+
+  let student;
+
+
+  try{
+
+    student = JSON.parse(saved);
+
+  }catch(e){
+
+    showError(
+      "❌ Student information sirrii miti."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    !student.id ||
+    !student.phone ||
+    !student.course
+  ){
+
+    showError(
+      "❌ Student information guutuu hin jiru."
+    );
+
+    return;
+
+  }
+
+
+  if(
+    String(student.payment_status)
+    .toUpperCase() !== "PAID"
+  ){
+
+    showError(
+      "❌ Kaffaltiin kee hin mirkanoofne."
+    );
+
+    return;
+
+  }
+
+
+  if(student.learning_access !== true){
+
+    showError(
+      "❌ Learning access kee hin banamne."
+    );
+
+    return;
+
+  }
+
+
+  const formData =
+    new FormData();
+
+
+  formData.append(
+    "student_id",
+    student.id
+  );
+
+  formData.append(
+    "phone",
+    student.phone
+  );
+
+  formData.append(
+    "course",
+    student.course
+  );
+
+  formData.append(
+    "file",
+    file
+  );
+
+
+  button.disabled = true;
+
+  button.textContent =
+    "⏳ Uploading...";
+
+
+  document.getElementById(
+    "progress"
+  ).style.display = "block";
+
+
+  let percent = 5;
+
+
+  const bar =
+    document.getElementById(
+      "progressBar"
+    );
+
+
+  const timer =
+    setInterval(function(){
+
+      if(percent < 90){
+
+        percent += 5;
+
+        bar.style.width =
+          percent + "%";
+
+      }
+
+    },300);
+
+
+  try{
+
+    const response =
+      await fetch(
+
+        "https://baoczizarrnzxwguyili.supabase.co/functions/v1/submit-assignment",
+
+        {
+          method:"POST",
+          body:formData
+        }
+
+      );
+
+
+    const data =
+      await response.json();
+
+
+    clearInterval(timer);
+
+    bar.style.width = "100%";
+
+
+    if(
+      !response.ok ||
+      !data.success
+    ){
+
+      throw new Error(
+        data.message ||
+        "Upload failed."
+      );
+
+    }
+
+
+    localStorage.setItem(
+      "kena_lesson2_assignment_uploaded",
+      "true"
+    );
+
+
+    showSuccess(
+      "✅ Assignment kee sirriitti upload ta'eera!"
+    );
+
+
+  }catch(error){
+
+    clearInterval(timer);
+
+    showError(
+      "❌ " + error.message
+    );
+
+
+  }finally{
+
+    button.disabled = false;
+
+    button.textContent =
+      "📤 Upload Godhi";
+
+  }
+
+}
+
+
+/* ===================================
+   FINISH
+=================================== */
+
+function finishAssignment(){
+
+  const uploaded =
+    localStorage.getItem(
+      "kena_lesson2_assignment_uploaded"
+    );
+
+
+  if(uploaded !== "true"){
+
+    showError(
+      "❌ Dura screenshot assignment upload godhi."
+    );
+
+    return;
+
+  }
+
+
+  localStorage.setItem(
+    "kena_lesson2_assignment",
+    "completed"
+  );
+
+
+  document.getElementById(
+    "completedMessage"
+  ).style.display = "block";
+
+
+  document.getElementById(
+    "finishBtn"
+  ).textContent =
+    "✅ Xumurameera";
+
+
+  document.getElementById(
+    "finishBtn"
+  ).disabled = true;
+
+
+  showSuccess(
+    "🎉 Lesson 2 assignment xumurameera!"
+  );
+
+}
+
+
+/* ===================================
+   QUIZ
+=================================== */
+
+function answerQuiz(button,correct){
+
+  const options =
+    document.querySelectorAll(
+      ".quiz-option"
+    );
+
+
+  options.forEach(function(option){
+
+    option.disabled = true;
+
+  });
+
+
+  if(correct){
+
+    button.classList.add(
+      "correct"
+    );
+
+
+    document.getElementById(
+      "quizResult"
+    ).innerHTML =
+      "<p style='color:#6ff0a9;margin-top:12px;'>🎉 Sirrii dha! TTF fi OTF font file dha.</p>";
+
+  }else{
+
+    button.classList.add(
+      "wrong"
+    );
+
+
+    document.getElementById(
+      "quizResult"
+    ).innerHTML =
+      "<p style='color:#ff9da8;margin-top:12px;'>❌ Dogoggora. Deebiin sirrii TTF / OTF dha.</p>";
+
+  }
+
+}
+
+
+/* ===================================
+   RESTORE
+=================================== */
+
+window.addEventListener(
+  "DOMContentLoaded",
+  function(){
+
+    const started =
+      localStorage.getItem(
+        "kena_lesson2_assignment_started"
+      );
+
+
+    if(started === "true"){
+
+      document
+        .getElementById(
+          "assignmentArea"
+        )
+        .classList.add("show");
+
+    }
+
+
+    const completed =
+      localStorage.getItem(
+        "kena_lesson2_assignment"
+      );
+
+
+    if(completed === "completed"){
+
+      document.getElementById(
+        "completedMessage"
+      ).style.display = "block";
+
+
+      document.getElementById(
+        "finishBtn"
+      ).textContent =
+        "✅ Xumurameera";
+
+
+      document.getElementById(
+        "finishBtn"
+      ).disabled = true;
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>

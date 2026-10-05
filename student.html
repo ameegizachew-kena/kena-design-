@@ -33,12 +33,6 @@
       box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
-    h1,
-    h2,
-    h3 {
-      margin-top: 0;
-    }
-
     .logo {
       text-align: center;
       margin-bottom: 25px;
@@ -51,6 +45,12 @@
 
     .logo p {
       color: #b8c4d4;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
     }
 
     label {
@@ -96,7 +96,6 @@
     .logout {
       background: #ef4444;
       color: white;
-      margin-top: 15px;
     }
 
     .message {
@@ -121,6 +120,24 @@
       display: none;
     }
 
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .topbar h2 {
+      margin: 0;
+    }
+
+    .small-btn {
+      width: auto;
+      margin: 0;
+      padding: 10px 18px;
+    }
+
     .student-info {
       background: #0b1727;
       padding: 18px;
@@ -129,7 +146,7 @@
     }
 
     .student-info p {
-      margin: 8px 0;
+      margin: 9px 0;
       color: #d7e0ec;
     }
 
@@ -151,24 +168,26 @@
     }
 
     .lesson h3 {
-      color: #32d583;
+      color: white;
       margin-bottom: 8px;
     }
 
     .lesson p {
       color: #c5d0dd;
       line-height: 1.6;
+      margin-bottom: 15px;
     }
 
     .lesson a {
-      display: inline-block;
+      display: block;
+      text-align: center;
       text-decoration: none;
       background: #32d583;
       color: #06101d;
-      padding: 11px 17px;
-      border-radius: 9px;
+      padding: 13px 17px;
+      border-radius: 10px;
       font-weight: bold;
-      margin-top: 8px;
+      font-size: 16px;
     }
 
     .lesson a:hover {
@@ -181,25 +200,8 @@
       color: #aebdcd;
     }
 
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .topbar h2 {
-      margin: 0;
-    }
-
-    .small-btn {
-      width: auto;
-      margin: 0;
-      padding: 10px 16px;
-    }
-
     @media (max-width: 600px) {
+
       .container {
         width: 94%;
         padding: 20px 0;
@@ -318,6 +320,7 @@
 
       <div>
         <h2>🎓 Kena Design</h2>
+
         <p id="welcome">
           Baga nagaan dhuftan!
         </p>
@@ -333,7 +336,7 @@
     </div>
 
 
-    <!-- STUDENT INFO -->
+    <!-- STUDENT INFORMATION -->
     <div class="student-info">
 
       <p>
@@ -352,7 +355,7 @@
       </p>
 
       <p>
-        <strong>Bilbila:</strong>
+        <strong>Phone:</strong>
         <span id="studentPhone">-</span>
       </p>
 
@@ -377,17 +380,17 @@
 
 <script>
 
-  /*
-    SUPABASE STUDENT LOGIN EDGE FUNCTION
-  */
+  /* =====================================================
+     SUPABASE STUDENT LOGIN EDGE FUNCTION
+     ===================================================== */
 
   const FUNCTION_URL =
     "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
 
 
-  /*
-    COURSE LESSONS
-  */
+  /* =====================================================
+     COURSE LESSONS
+     ===================================================== */
 
   const COURSES = {
 
@@ -395,30 +398,30 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Introduction to Graphic Design",
+        title: "Lesson 1 — Graphic Design Basics",
         description:
-          "Graphic Design maal akka ta'e, bu'uura isaa fi hojii isaa baradhu."
+          "Introduction to graphic design and design principles."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Fonts fi PixelLab",
+        title: "Lesson 2 — Canva & Design Tools",
         description:
-          "Font haaraa buufachuu, install gochuu fi PixelLab keessatti fayyadamu baradhu."
+          "Learn the basic tools used for graphic design."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - Graphic Design Practice",
+        title: "Lesson 3 — Color & Typography",
         description:
-          "Barnoota kee irratti hojii practical hojjedhu."
+          "Learn colors, fonts and typography."
       },
 
       {
         lesson: 4,
-        title: "Lesson 4 - Final Graphic Design Practice",
+        title: "Lesson 4 — Final Graphic Project",
         description:
-          "Project xumuraa hojjechuun dandeettii kee mirkaneessi."
+          "Create a complete graphic design project."
       }
 
     ],
@@ -428,28 +431,28 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Introduction to Video Editing",
+        title: "Lesson 1 — Introduction to Video Editing",
         description:
-          "Bu'uura video editing baradhu."
+          "Barnoota bu'uuraa Video Editing."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Video Editing Practice",
+        title: "Lesson 2 — Video Editing Practice",
         description:
-          "Hojii practical video editing hojjedhu."
+          "Hojii practical Video Editing hojjedhu."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - Advanced Video Editing",
+        title: "Lesson 3 — Advanced Video Editing",
         description:
-          "Teknika video editing dabalataa baradhu."
+          "Teknika Video Editing dabalataa baradhu."
       },
 
       {
         lesson: 4,
-        title: "Lesson 4 - Final Video Project",
+        title: "Lesson 4 — Final Video Project",
         description:
           "Project video xumuraa hojjedhu."
       }
@@ -461,28 +464,28 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Introduction to Web Design",
+        title: "Lesson 1 — Introduction to Web Design",
         description:
-          "Bu'uura website fi web design baradhu."
+          "Bu'uura Web Design baradhu."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - HTML Basics",
+        title: "Lesson 2 — HTML Basics",
         description:
           "HTML bu'uuraa baradhu."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - CSS Basics",
+        title: "Lesson 3 — CSS Basics",
         description:
           "CSS fi styling website baradhu."
       },
 
       {
         lesson: 4,
-        title: "Lesson 4 - Website Project",
+        title: "Lesson 4 — Website Project",
         description:
           "Website project hojjedhu."
       }
@@ -494,23 +497,23 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Introduction to Digital Marketing",
+        title: "Lesson 1 — Digital Marketing Basics",
         description:
-          "Digital marketing maal akka ta'e baradhu."
+          "Digital Marketing bu'uuraa baradhu."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Social Media Marketing",
+        title: "Lesson 2 — Social Media Marketing",
         description:
-          "Social media marketing baradhu."
+          "Social Media Marketing baradhu."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - Digital Marketing Practice",
+        title: "Lesson 3 — Marketing Practice",
         description:
-          "Practical hojii digital marketing hojjedhu."
+          "Hojii practical Digital Marketing hojjedhu."
       }
 
     ],
@@ -520,23 +523,23 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Introduction to Photography",
+        title: "Lesson 1 — Photography Basics",
         description:
-          "Bu'uura photography baradhu."
+          "Bu'uura Photography baradhu."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Photography Practice",
+        title: "Lesson 2 — Photography Practice",
         description:
-          "Hojii practical photography hojjedhu."
+          "Hojii practical Photography hojjedhu."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - Advanced Photography",
+        title: "Lesson 3 — Advanced Photography",
         description:
-          "Teknika photography dabalataa baradhu."
+          "Teknika Photography dabalataa baradhu."
       }
 
     ],
@@ -546,16 +549,16 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Flayer Design",
+        title: "Lesson 1 — Flayer Design",
         description:
-          "Bu'uura flayer design baradhu."
+          "Bu'uura Flayer Design baradhu."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Flayer Practice",
+        title: "Lesson 2 — Flayer Practice",
         description:
-          "Flayer practical hojjedhu."
+          "Hojii practical Flayer hojjedhu."
       }
 
     ],
@@ -565,23 +568,23 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - YouTube Thumbnail",
+        title: "Lesson 1 — YouTube Thumbnail",
         description:
-          "Bu'uura YouTube Thumbnail design baradhu."
+          "Bu'uura YouTube Thumbnail Design baradhu."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Thumbnail Practice",
+        title: "Lesson 2 — Thumbnail Practice",
         description:
-          "YouTube Thumbnail practical hojjedhu."
+          "Hojii practical Thumbnail hojjedhu."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - Advanced Thumbnail",
+        title: "Lesson 3 — Advanced Thumbnail",
         description:
-          "Thumbnail design dabalataa baradhu."
+          "Thumbnail Design dabalataa baradhu."
       }
 
     ],
@@ -591,23 +594,23 @@
 
       {
         lesson: 1,
-        title: "Lesson 1 - Poster Design",
+        title: "Lesson 1 — Poster Design",
         description:
-          "Bu'uura poster design baradhu."
+          "Bu'uura Poster Design baradhu."
       },
 
       {
         lesson: 2,
-        title: "Lesson 2 - Poster Practice",
+        title: "Lesson 2 — Poster Practice",
         description:
-          "Poster practical hojjedhu."
+          "Hojii practical Poster hojjedhu."
       },
 
       {
         lesson: 3,
-        title: "Lesson 3 - Advanced Poster Design",
+        title: "Lesson 3 — Advanced Poster Design",
         description:
-          "Poster design dabalataa baradhu."
+          "Poster Design dabalataa baradhu."
       }
 
     ]
@@ -615,51 +618,42 @@
   };
 
 
-  /*
-    SHOW MESSAGE
-  */
+  /* =====================================================
+     MESSAGE
+     ===================================================== */
 
-  function showMessage(
-    text,
-    type = "error"
-  ) {
+  function showMessage(text, type = "error") {
 
     const box =
-      document.getElementById(
-        "loginMessage"
-      );
+      document.getElementById("loginMessage");
 
     box.textContent = text;
 
     box.className =
       "message " + type;
 
-    box.style.display =
-      "block";
+    box.style.display = "block";
   }
 
 
-  /*
-    STUDENT LOGIN
-  */
+  /* =====================================================
+     STUDENT LOGIN
+     ===================================================== */
 
   async function studentLogin() {
 
     const phone =
-      document
-        .getElementById("phone")
+      document.getElementById("phone")
         .value
         .trim();
 
     const course =
-      document
-        .getElementById("course")
+      document.getElementById("course")
         .value
         .trim();
 
     const pin =
-      document
-        .getElementById("pin")
+      document.getElementById("pin")
         .value
         .trim();
 
@@ -752,15 +746,9 @@
       }
 
 
-      /*
-        SAVE STUDENT SESSION
-      */
-
       sessionStorage.setItem(
         "kena_student",
-        JSON.stringify(
-          data.student
-        )
+        JSON.stringify(data.student)
       );
 
 
@@ -776,14 +764,15 @@
         error.message ||
         "Login irratti rakkoon uumame."
       );
+
     }
 
   }
 
 
-  /*
-    OPEN DASHBOARD
-  */
+  /* =====================================================
+     OPEN DASHBOARD
+     ===================================================== */
 
   function openDashboard(student) {
 
@@ -861,34 +850,25 @@
       "!";
 
 
-    renderLessons(
-      course
-    );
+    renderLessons(course);
+
   }
 
 
-  /*
-    RENDER LESSONS
+  /* =====================================================
+     LESSON LINKS
 
-    IMPORTANT:
-    Lesson 1 → lesson.html
-    Lesson 2 → lesson2.html
-
-    Kana jechuun course kamiyyuu keessatti
-    Lesson 1 fi Lesson 2 button sirriitti
-    file isaanii bana.
-  */
+     LESSON 1  → lesson.html
+     LESSON 2  → lesson2.html
+     ===================================================== */
 
   function renderLessons(course) {
 
     const lessonsContainer =
-      document.getElementById(
-        "lessons"
-      );
+      document.getElementById("lessons");
 
 
-    lessonsContainer.innerHTML =
-      "";
+    lessonsContainer.innerHTML = "";
 
 
     const lessons =
@@ -909,104 +889,83 @@
     }
 
 
-    lessons.forEach(
-      (item) => {
+    lessons.forEach((item) => {
 
-        const div =
-          document.createElement(
-            "div"
-          );
+      const div =
+        document.createElement("div");
 
-        div.className =
-          "lesson";
+      div.className =
+        "lesson";
 
 
-        const title =
-          document.createElement(
-            "h3"
-          );
+      const title =
+        document.createElement("h3");
 
-        title.textContent =
-          item.title;
+      title.textContent =
+        item.title;
 
 
-        const description =
-          document.createElement(
-            "p"
-          );
+      const description =
+        document.createElement("p");
 
-        description.textContent =
-          item.description;
+      description.textContent =
+        item.description;
 
 
-        const link =
-          document.createElement(
-            "a"
-          );
+      const link =
+        document.createElement("a");
 
 
-        /*
-          LESSON ROUTING
-        */
+      /* ==========================================
+         HERE IS THE IMPORTANT FIX
+         ========================================== */
 
-        if (
-          item.lesson === 1
-        ) {
+      if (Number(item.lesson) === 1) {
 
-          link.href =
-            "./lesson.html?course=" +
-            encodeURIComponent(course) +
-            "&lesson=1";
-
-        } else if (
-          item.lesson === 2
-        ) {
-
-          link.href =
-            "./lesson2.html?course=" +
-            encodeURIComponent(course) +
-            "&lesson=2";
-
-        } else {
-
-          link.href =
-            "./lesson.html?course=" +
-            encodeURIComponent(course) +
-            "&lesson=" +
-            item.lesson;
-        }
-
-
-        link.textContent =
-          "📖 Open Lesson";
-
-
-        div.appendChild(
-          title
-        );
-
-        div.appendChild(
-          description
-        );
-
-        div.appendChild(
-          link
-        );
-
-
-        lessonsContainer.appendChild(
-          div
-        );
+        link.href =
+          "./lesson.html";
 
       }
-    );
+
+      else if (Number(item.lesson) === 2) {
+
+        link.href =
+          "./lesson2.html";
+
+      }
+
+      else {
+
+        link.href =
+          "./lesson.html?course=" +
+          encodeURIComponent(course) +
+          "&lesson=" +
+          encodeURIComponent(item.lesson);
+
+      }
+
+
+      link.textContent =
+        "📖 Open Lesson";
+
+
+      div.appendChild(title);
+
+      div.appendChild(description);
+
+      div.appendChild(link);
+
+
+      lessonsContainer.appendChild(div);
+
+    });
 
   }
 
 
-  /*
-    LOGOUT
-  */
+  /* =====================================================
+     LOGOUT
+     ===================================================== */
 
   function logout() {
 
@@ -1047,12 +1006,9 @@
   }
 
 
-  /*
-    AUTO LOGIN
-
-    Yoo student duraan login godhe
-    dashboard isaa deebisee bana.
-  */
+  /* =====================================================
+     AUTO LOGIN
+     ===================================================== */
 
   window.addEventListener(
     "DOMContentLoaded",
@@ -1083,22 +1039,25 @@
 
         }
 
-      } catch (error) {
+      }
+
+      catch (error) {
 
         console.error(error);
 
         sessionStorage.removeItem(
           "kena_student"
         );
+
       }
 
     }
   );
 
 
-  /*
-    ENTER KEY LOGIN
-  */
+  /* =====================================================
+     ENTER KEY
+     ===================================================== */
 
   document
     .getElementById("pin")

@@ -1,288 +1,290 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Kena Design - Lesson 2</title>
+<title>Kena Design - Lesson 2</title>
 
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body{
-      font-family:Arial, sans-serif;
-      background:#07111f;
-      color:#fff;
-      line-height:1.7;
-    }
+body{
+  font-family:Arial, sans-serif;
+  background:#07110d;
+  color:#fff;
+  line-height:1.7;
+}
 
-    header{
-      background:linear-gradient(135deg,#0d1b2e,#102a43);
-      padding:30px 20px;
-      text-align:center;
-      border-bottom:2px solid #32d583;
-    }
+header{
+  background:linear-gradient(135deg,#063d28,#0b8f5b);
+  padding:35px 20px;
+  text-align:center;
+}
 
-    header h1{
-      color:#32d583;
-      font-size:30px;
-      margin-bottom:8px;
-    }
+header h1{
+  font-size:32px;
+  margin-bottom:8px;
+}
 
-    header p{
-      color:#cbd5e1;
-      font-size:16px;
-    }
+header p{
+  font-size:17px;
+  color:#eafff5;
+}
 
-    .container{
-      max-width:1000px;
-      margin:auto;
-      padding:20px;
-    }
+.container{
+  width:92%;
+  max-width:1050px;
+  margin:25px auto;
+}
 
-    .card{
-      background:#101c2c;
-      border-radius:16px;
-      padding:22px;
-      margin:20px 0;
-      box-shadow:0 5px 20px rgba(0,0,0,.25);
-      border:1px solid #1d334d;
-    }
+.card{
+  background:#0d1d17;
+  border:1px solid #1c5e43;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:25px;
+  box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
 
-    .card h2{
-      color:#32d583;
-      margin-bottom:12px;
-      font-size:23px;
-    }
+h2{
+  color:#35e89b;
+  margin-bottom:15px;
+}
 
-    .card h3{
-      color:#60a5fa;
-      margin:18px 0 8px;
-    }
+h3{
+  color:#63f2b0;
+  margin:15px 0 8px;
+}
 
-    .card p{
-      color:#e5e7eb;
-      margin-bottom:10px;
-    }
+p{
+  margin-bottom:12px;
+}
 
-    .video{
-      position:relative;
-      width:100%;
-      padding-bottom:56.25%;
-      height:0;
-      overflow:hidden;
-      border-radius:14px;
-      margin-top:15px;
-    }
+ul,ol{
+  padding-left:25px;
+}
 
-    .video iframe{
-      position:absolute;
-      top:0;
-      left:0;
-      width:100%;
-      height:100%;
-      border:0;
-    }
+li{
+  margin:7px 0;
+}
 
-    .step{
-      background:#0b1727;
-      border-left:4px solid #32d583;
-      border-radius:10px;
-      padding:16px;
-      margin:14px 0;
-    }
+.video-box{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  height:0;
+  overflow:hidden;
+  border-radius:15px;
+  margin-top:15px;
+}
 
-    .step strong{
-      color:#32d583;
-      font-size:18px;
-    }
+.video-box iframe{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border:0;
+  left:0;
+  top:0;
+}
 
-    .visual{
-      background:#17263a;
-      border-radius:12px;
-      padding:22px;
-      margin:15px 0;
-      text-align:center;
-      border:1px solid #29435e;
-    }
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
 
-    .visual .icon{
-      font-size:45px;
-      margin-bottom:8px;
-    }
+.step{
+  background:#102820;
+  border-radius:15px;
+  overflow:hidden;
+  border:1px solid #215d46;
+}
 
-    .visual h3{
-      color:#32d583;
-      margin:5px 0;
-    }
+.step img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+  transition:.3s;
+}
 
-    .visual p{
-      color:#cbd5e1;
-    }
+.step img:hover{
+  transform:scale(1.03);
+}
 
-    .tip{
-      background:#102c28;
-      border-left:4px solid #32d583;
-      padding:15px;
-      border-radius:10px;
-      margin:15px 0;
-    }
+.step-content{
+  padding:15px;
+}
 
-    .warning{
-      background:#351d1d;
-      border-left:4px solid #ef4444;
-      padding:15px;
-      border-radius:10px;
-      margin:15px 0;
-    }
+.step-number{
+  display:inline-block;
+  background:#19b979;
+  color:#001c11;
+  font-weight:bold;
+  padding:4px 10px;
+  border-radius:20px;
+  margin-bottom:8px;
+}
 
-    ul,ol{
-      padding-left:25px;
-      margin:10px 0;
-    }
+.note{
+  background:#092419;
+  border-left:4px solid #35e89b;
+  padding:12px;
+  margin-top:10px;
+  border-radius:8px;
+}
 
-    li{
-      margin:7px 0;
-      color:#e5e7eb;
-    }
+.assignment{
+  background:linear-gradient(135deg,#102f22,#0b1b15);
+  border:2px solid #20c987;
+}
 
-    .download{
-      display:inline-block;
-      background:#32d583;
-      color:#04110b;
-      text-decoration:none;
-      padding:12px 18px;
-      border-radius:10px;
-      font-weight:bold;
-      margin-top:10px;
-    }
+.assignment-example{
+  text-align:center;
+  margin:20px 0;
+}
 
-    .download:hover{
-      background:#24b86f;
-    }
+.assignment-example img{
+  width:100%;
+  max-width:600px;
+  border-radius:15px;
+  cursor:pointer;
+  border:2px solid #35e89b;
+}
 
-    .assignment{
-      background:linear-gradient(135deg,#122c22,#0d211b);
-      border:2px solid #32d583;
-      border-radius:16px;
-      padding:25px;
-      margin-top:20px;
-    }
+.checklist{
+  margin-top:15px;
+}
 
-    .assignment h2{
-      color:#32d583;
-    }
+.check-item{
+  background:#132c22;
+  padding:12px;
+  margin:8px 0;
+  border-radius:10px;
+}
 
-    .poster{
-      max-width:420px;
-      margin:20px auto;
-      padding:30px 20px;
-      border-radius:15px;
-      background:linear-gradient(135deg,#111827,#1e3a5f);
-      text-align:center;
-      border:2px solid #32d583;
-    }
+.check-item input{
+  width:20px;
+  height:20px;
+  margin-right:10px;
+  vertical-align:middle;
+}
 
-    .poster .logo{
-      color:#32d583;
-      font-size:32px;
-      font-weight:bold;
-      letter-spacing:2px;
-    }
+button{
+  border:none;
+  padding:13px 20px;
+  border-radius:10px;
+  background:#20c987;
+  color:#001b10;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:12px;
+}
 
-    .poster .title{
-      font-size:27px;
-      font-weight:bold;
-      margin:15px 0;
-    }
+button:hover{
+  background:#35e89b;
+}
 
-    .poster .sub{
-      color:#cbd5e1;
-    }
+.success{
+  display:none;
+  background:#0c633f;
+  padding:13px;
+  border-radius:10px;
+  margin-top:12px;
+  color:#fff;
+}
 
-    .check{
-      color:#32d583;
-      font-weight:bold;
-    }
+.quiz-question{
+  background:#102820;
+  padding:18px;
+  border-radius:12px;
+  margin:15px 0;
+}
 
-    button{
-      border:0;
-      cursor:pointer;
-      border-radius:10px;
-      padding:13px 20px;
-      font-size:16px;
-      font-weight:bold;
-    }
+.quiz-question label{
+  display:block;
+  background:#17352a;
+  padding:10px;
+  margin:7px 0;
+  border-radius:8px;
+  cursor:pointer;
+}
 
-    .completeBtn{
-      background:#32d583;
-      color:#04110b;
-      width:100%;
-      margin-top:15px;
-    }
+.quiz-question label:hover{
+  background:#20533f;
+}
 
-    .completeBtn:hover{
-      background:#25bd73;
-    }
+.download-btn{
+  display:inline-block;
+  text-decoration:none;
+  background:#20c987;
+  color:#001b10;
+  padding:12px 18px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-top:10px;
+}
 
-    .done{
-      display:none;
-      background:#0c3527;
-      color:#32d583;
-      padding:15px;
-      border-radius:10px;
-      margin-top:15px;
-      text-align:center;
-      font-weight:bold;
-    }
+footer{
+  text-align:center;
+  padding:30px 15px;
+  background:#040b08;
+  color:#8ab9a5;
+  margin-top:40px;
+}
 
-    .quiz-option{
-      display:block;
-      background:#17263a;
-      padding:12px;
-      border-radius:8px;
-      margin:8px 0;
-      cursor:pointer;
-    }
+/* Image popup */
+.modal{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.92);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
 
-    .quiz-option:hover{
-      background:#203650;
-    }
+.modal img{
+  max-width:95%;
+  max-height:90%;
+  border-radius:12px;
+}
 
-    footer{
-      text-align:center;
-      padding:30px 15px;
-      color:#94a3b8;
-      border-top:1px solid #1d334d;
-      margin-top:30px;
-    }
+.close{
+  position:absolute;
+  top:15px;
+  right:25px;
+  color:#fff;
+  font-size:40px;
+  cursor:pointer;
+}
 
-    @media(max-width:600px){
-      header h1{
-        font-size:24px;
-      }
+@media(max-width:600px){
+  header h1{
+    font-size:25px;
+  }
 
-      .container{
-        padding:12px;
-      }
+  .card{
+    padding:17px;
+  }
 
-      .card{
-        padding:17px;
-      }
-
-      .card h2{
-        font-size:20px;
-      }
-
-      .poster .title{
-        font-size:23px;
-      }
-    }
-  </style>
+  .step img{
+    height:200px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -294,719 +296,740 @@
 
 <div class="container">
 
-  <!-- INTRO -->
-  <section class="card">
-    <h2>📘 Lesson 2: PixelLab keessatti Font Haaraa Dabaluu</h2>
+<!-- INTRO -->
+<section class="card">
+  <h2>📚 Seensa Lesson 2</h2>
 
-    <p>
-      Barnoota kana keessatti PixelLab irratti <strong>font haaraa</strong>
-      akkamitti dabaluu akka dandeessu tartiiba sirriin baratta.
-    </p>
+  <p>
+    Lesson kana keessatti PixelLab keessatti <strong>font haaraa</strong>
+    akkamitti download, extract fi install goonu baranna.
+  </p>
 
-    <p>
-      Font adda addaa fayyadamuun poster, logo, YouTube thumbnail,
-      social media design fi hojii graphics kee akka bareedu si gargaara.
-    </p>
+  <p>
+    Akkasumas font haaraa fayyadamuun poster xiqqoo
+    <strong>KENA DESIGN</strong> hojjechuu ni shaakalla.
+  </p>
+</section>
 
-    <div class="tip">
-      <strong>💡 Yaadannoo:</strong>
-      Font gaarii filachuun design kee qulqullina fi professional
-      akka fakkaatu godha.
-    </div>
-  </section>
+<!-- VIDEO -->
+<section class="card">
+  <h2>🎥 Video Lesson 2</h2>
 
+  <p>
+    Jalqaba video kana guutuu ilaali. Sana booda suuraa fi
+    tarkaanfiiwwan armaan gadii hordofi.
+  </p>
 
-  <!-- VIDEO -->
-  <section class="card">
-    <h2>🎥 Video Lesson</h2>
+  <div class="video-box">
+    <iframe
+      src="https://www.youtube.com/embed/frWZmcJMijI"
+      title="Kena Design Lesson 2 - PixelLab Fonts"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
 
-    <p>
-      Video kana dura ilaali. Sana booda tarkaanfiiwwan barreeffaman
-      armaan gadi hordofi.
-    </p>
+<!-- FONT EXPLANATION -->
+<section class="card">
+  <h2>🔤 Font jechuun maal?</h2>
 
-    <div class="video">
-      <iframe
-        src="https://www.youtube.com/embed/frWZmcJMijI"
-        title="Kena Design Lesson 2 - PixelLab Fonts"
-        allowfullscreen>
-      </iframe>
-    </div>
-  </section>
+  <p>
+    <strong>Font</strong> jechuun bifa barruun ittiin barreeffamuudha.
+    Fakkeenyaaf, font tokko barruu nama hawwatu, kan biraa ammoo
+    barruu professional fakkaatu qaba.
+  </p>
 
+  <h3>📌 TTF</h3>
+  <p>
+    TTF jechuun TrueType Font. Font baay'ee application keessatti
+    fayyadamuuf mijataadha.
+  </p>
 
-  <!-- FONT WHAT -->
-  <section class="card">
-    <h2>1️⃣ Font jechuun maal?</h2>
+  <h3>📌 OTF</h3>
+  <p>
+    OTF jechuun OpenType Font. Innis font qulqullina gaarii qabuudha.
+  </p>
 
-    <p>
-      <strong>Font</strong> jechuun bifa barreeffamaa ykn style qubee
-      ati design kee keessatti fayyadamtuudha.
-    </p>
+  <div class="note">
+    💡 <strong>Note:</strong> PixelLab keessatti TTF fi OTF font
+    hedduu fayyadamuun ni danda'ama.
+  </div>
+</section>
 
-    <p>
-      Fakkeenyaaf:
-    </p>
+<!-- 14 VISUAL STEPS -->
+<section class="card">
+  <h2>🖼️ Visual Guide — Tarkaanfiiwwan 14</h2>
 
-    <ul>
-      <li>Arial</li>
-      <li>Roboto</li>
-      <li>Montserrat</li>
-      <li>Poppins</li>
-      <li>Open Sans</li>
-      <li>Fonts artistic adda addaa</li>
-    </ul>
+  <p>
+    Suuraa tokko tokko irratti <strong>cuqaasi</strong> — suuraan
+    guddatee siif mul'ata.
+  </p>
 
-    <div class="visual">
-      <div class="icon">🔤</div>
-      <h3>FONT</h3>
-      <p>
-        Font jijjiiruun bifa barreeffamaa design kee jijjiira.
-      </p>
-    </div>
-  </section>
+  <div class="steps">
 
-
-  <!-- FILE TYPES -->
-  <section class="card">
-    <h2>2️⃣ Akaakuu Font</h2>
-
-    <h3>📄 TTF</h3>
-    <p>
-      TTF jechuun <strong>TrueType Font</strong> dha.
-      Android irratti baay'ee beekamaa fi fayyadamuuf salphaa dha.
-    </p>
-
-    <h3>📄 OTF</h3>
-    <p>
-      OTF jechuun <strong>OpenType Font</strong> dha.
-      Font qulqullina gaarii qabu fi hojii design adda addaaf mijataa dha.
-    </p>
-
-    <div class="tip">
-      <strong>💡 Gorsa:</strong>
-      Font haaraa buufattu yeroo baayyee TTF ykn OTF ta'uu isaa ilaali.
-    </div>
-  </section>
-
-
-  <!-- STEP 1 -->
-  <section class="card">
-    <h2>3️⃣ Tarkaanfii 1 — Font barbaadi</h2>
-
+    <!-- 1 -->
     <div class="step">
-      <strong>Step 1:</strong>
-      Browser kee bani.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Font barbaaddu barbaadi.
-    </div>
-
-    <div class="step">
-      <strong>Step 3:</strong>
-      Font amanamaa irraa download godhi.
-    </div>
-
-    <div class="visual">
-      <div class="icon">🌐</div>
-      <h3>FONT DOWNLOAD</h3>
-      <p>
-        Font kee buufadhu; yeroo baay'ee faayiliin ZIP ykn TTF/OTF ta'a.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- STEP 2 -->
-  <section class="card">
-    <h2>4️⃣ Tarkaanfii 2 — Download folder bani</h2>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      File Manager ykn Files app bani.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Gara <strong>Downloads</strong> seeni.
-    </div>
-
-    <div class="step">
-      <strong>Step 3:</strong>
-      Font ati buufatte barbaadi.
-    </div>
-
-    <div class="visual">
-      <div class="icon">📁</div>
-      <h3>DOWNLOADS</h3>
-      <p>Font kee Downloads keessatti argachuu dandeessa.</p>
-    </div>
-  </section>
-
-
-  <!-- STEP 3 -->
-  <section class="card">
-    <h2>5️⃣ Tarkaanfii 3 — ZIP yoo ta'e baasuu</h2>
-
-    <p>
-      Font kee yoo <strong>.zip</strong> ta'e, dura Extract/Unzip godhi.
-    </p>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      ZIP file tuqi.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Extract ykn Unzip filadhu.
-    </div>
-
-    <div class="step">
-      <strong>Step 3:</strong>
-      Keessa isaa TTF ykn OTF barbaadi.
-    </div>
-
-    <div class="visual">
-      <div class="icon">🗜️</div>
-      <h3>EXTRACT</h3>
-      <p>ZIP → TTF / OTF</p>
-    </div>
-  </section>
-
-
-  <!-- STEP 4 -->
-  <section class="card">
-    <h2>6️⃣ Tarkaanfii 4 — PixelLab bani</h2>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      PixelLab app bani.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Project haaraa bani ykn project duraanii bani.
-    </div>
-
-    <div class="visual">
-      <div class="icon">🎨</div>
-      <h3>PIXELLAB</h3>
-      <p>Amma font haaraa galchuuf qophiidha.</p>
-    </div>
-  </section>
-
-
-  <!-- STEP 5 -->
-  <section class="card">
-    <h2>7️⃣ Tarkaanfii 5 — Text filadhu</h2>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      Text ati design irratti qabdu tuqi.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Menu text keessaa gara <strong>Font</strong> seeni.
-    </div>
-
-    <div class="visual">
-      <div class="icon">🔤</div>
-      <h3>TEXT → FONT</h3>
-      <p>Font menu bani.</p>
-    </div>
-  </section>
-
-
-  <!-- STEP 6 -->
-  <section class="card">
-    <h2>8️⃣ Tarkaanfii 6 — My Fonts / Custom Fonts</h2>
-
-    <p>
-      PixelLab version tokko tokko keessatti maqaan menu
-      xiqqoo garaagarummaa qabaachuu danda'a.
-    </p>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      Font menu keessatti <strong>My Fonts</strong> ykn
-      <strong>Custom Font</strong> barbaadi.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Add (+) ykn import option tuqi.
-    </div>
-
-    <div class="visual">
-      <div class="icon">➕</div>
-      <h3>ADD FONT</h3>
-      <p>Font haaraa galchuuf Add/Import filadhu.</p>
-    </div>
-  </section>
-
-
-  <!-- STEP 7 -->
-  <section class="card">
-    <h2>9️⃣ Tarkaanfii 7 — Font file filadhu</h2>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      File Manager bana.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Bakka TTF ykn OTF itti kaa'ame seeni.
-    </div>
-
-    <div class="step">
-      <strong>Step 3:</strong>
-      Font file tuqi.
-    </div>
-
-    <div class="visual">
-      <div class="icon">📄</div>
-      <h3>FONT.TTF</h3>
-      <p>TTF ykn OTF filadhu.</p>
-    </div>
-  </section>
-
-
-  <!-- STEP 8 -->
-  <section class="card">
-    <h2>🔟 Tarkaanfii 8 — Font hojii irra oolchi</h2>
-
-    <div class="step">
-      <strong>Step 1:</strong>
-      Font erga import gootee booda gara My Fonts deebi'i.
-    </div>
-
-    <div class="step">
-      <strong>Step 2:</strong>
-      Maqaa font kee barbaadi.
-    </div>
-
-    <div class="step">
-      <strong>Step 3:</strong>
-      Font sana tuqi.
-    </div>
-
-    <div class="visual">
-      <div class="icon">✅</div>
-      <h3>FONT APPLIED</h3>
-      <p>Barreeffamni kee font haaraa fayyadama.</p>
-    </div>
-  </section>
-
-
-  <!-- SCREENSHOT 10 -->
-  <section class="card">
-    <h2>1️⃣1️⃣ Visual Guide — Text</h2>
-
-    <div class="visual">
-      <div class="icon">📝</div>
-      <h3>TEXT</h3>
-      <p>
-        Text filadhu → Font filadhu → Custom Font/My Fonts seeni.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- SCREENSHOT 11 -->
-  <section class="card">
-    <h2>1️⃣2️⃣ Visual Guide — Download</h2>
-
-    <div class="visual">
-      <div class="icon">⬇️</div>
-      <h3>DOWNLOAD</h3>
-      <p>
-        Font kee buufadhu; TTF ykn OTF akka ta'e mirkaneessi.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- SCREENSHOT 12 -->
-  <section class="card">
-    <h2>1️⃣3️⃣ Visual Guide — Files</h2>
-
-    <div class="visual">
-      <div class="icon">📂</div>
-      <h3>FILES</h3>
-      <p>
-        Downloads → Font file → TTF/OTF.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- SCREENSHOT 13 -->
-  <section class="card">
-    <h2>1️⃣4️⃣ Visual Guide — Import</h2>
-
-    <div class="visual">
-      <div class="icon">📥</div>
-      <h3>IMPORT FONT</h3>
-      <p>
-        PixelLab → Text → Font → My Fonts → Add.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- SCREENSHOT 14 -->
-  <section class="card">
-    <h2>1️⃣5️⃣ Visual Guide — Apply</h2>
-
-    <div class="visual">
-      <div class="icon">✨</div>
-      <h3>APPLY</h3>
-      <p>
-        Font kee filadhu; design kee irratti hojii irra oola.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- SCREENSHOT 15 -->
-  <section class="card">
-    <h2>1️⃣6️⃣ Visual Guide — Font Style</h2>
-
-    <div class="visual">
-      <div class="icon">🎯</div>
-      <h3>FONT STYLE</h3>
-      <p>
-        Font filannoo kee design wajjin walsimu filadhu.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- WHY FONT -->
-  <section class="card">
-    <h2>🎯 Font Maaliif Barbaachisa?</h2>
-
-    <ul>
-      <li>Design kee professional taasisa.</li>
-      <li>Brand identity ijaaruuf gargaara.</li>
-      <li>Poster kee nama hawwata.</li>
-      <li>YouTube thumbnail kee bareecha.</li>
-      <li>Social media design kee fooyyeessa.</li>
-      <li>Logo design keessatti filannoo bal'aa siif kenna.</li>
-    </ul>
-  </section>
-
-
-  <!-- COMMON MISTAKES -->
-  <section class="card">
-    <h2>⚠️ Dogoggora Yeroo Baay'ee Mul'atu</h2>
-
-    <div class="warning">
-      <strong>1. Font hin mul'atu</strong>
-      <p>
-        Font sirriitti extract ta'uu fi TTF/OTF ta'uu isaa ilaali.
-      </p>
-    </div>
-
-    <div class="warning">
-      <strong>2. ZIP file qofa filachuu</strong>
-      <p>
-        ZIP osoo hin taane keessaa TTF ykn OTF filadhu.
-      </p>
-    </div>
-
-    <div class="warning">
-      <strong>3. Font baay'ee fayyadamu</strong>
-      <p>
-        Design tokko keessatti font baay'ee walitti makuun qulqullina
-        design hir'isuu danda'a.
-      </p>
-    </div>
-
-    <div class="warning">
-      <strong>4. Font dubbifamuu hin dandeenye</strong>
-      <p>
-        Font artistic baay'ee ta'e yeroo tokko tokko readability hir'isa.
-      </p>
-    </div>
-  </section>
-
-
-  <!-- PRACTICE -->
-  <section class="card">
-    <h2>🧪 Shaakala</h2>
-
-    <p>
-      Amma ofii keetiin hojii kana hojjedhu:
-    </p>
-
-    <ol>
-      <li>Font tokko buufadhu.</li>
-      <li>Yoo ZIP ta'e extract godhi.</li>
-      <li>TTF ykn OTF file argadhu.</li>
-      <li>PixelLab bani.</li>
-      <li>Text tokko uumi.</li>
-      <li>My Fonts/Custom Font bani.</li>
-      <li>Font kee import godhi.</li>
-      <li>Font haaraa text kee irratti hojii irra oolchi.</li>
-    </ol>
-
-    <div class="tip">
-      <strong>🎯 Kaayyoo:</strong>
-      Ati ofii keetiin font haaraa PixelLab keessatti galchuu
-      dandeessuu qabda.
-    </div>
-  </section>
-
-
-  <!-- ASSIGNMENT -->
-  <section class="assignment">
-    <h2>📝 Assignment — Lesson 2</h2>
-
-    <p>
-      Font haaraa tokko PixelLab keessatti galchi.
-      Sana booda poster xiqqoo <strong>KENA DESIGN</strong> jedhu uumi.
-    </p>
-
-    <div class="poster">
-      <div class="logo">KENA DESIGN</div>
-
-      <div class="title">
-        GRAPHIC DESIGN
-      </div>
-
-      <div class="sub">
-        Learn • Practice • Create
+      <img onclick="openImage(this.src)"
+      src="https://1.bp.blogspot.com/-jy0e8H_bcx4/Xvx4Rqr5VBI/AAAAAAAAAEY/9WK0gtNWleQYlTK5RMtWAJYyjH5FeFtBGwCK4BGAsYHg/w1200-h630-p-k-no-nu/Screenshot_2020-07-01-17-14-25-841_com.imaginstudio.imagetools.pixellab.jpg"
+      alt="Open PixelLab">
+
+      <div class="step-content">
+        <span class="step-number">1</span>
+        <h3>PixelLab bani</h3>
+        <p>
+          Application PixelLab bilbili. Fuula hojii isaa irraa
+          jalqabi.
+        </p>
+        <div class="note">💡 Note: PixelLab sirriitti install ta'uu mirkaneessi.</div>
       </div>
     </div>
 
-    <h3>Hojii kee keessatti:</h3>
+    <!-- 2 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://1.bp.blogspot.com/-Rl1JADz9sXo/YA0uahfuUEI/AAAAAAAAAAU/zKsSQXShEmU_kmEXPUI-DHEVqfOmWVXiwCNcBGAsYHQ/s1480/Screenshot_20210124-141945_PixelLab.jpg"
+      alt="New Text">
 
-    <ul>
-      <li class="check">✓ Font haaraa fayyadami</li>
-      <li class="check">✓ KENA DESIGN barreessi</li>
-      <li class="check">✓ Graphic Design barreessi</li>
-      <li class="check">✓ Color gaarii filadhu</li>
-      <li class="check">✓ Poster kee save godhi</li>
-    </ul>
-
-    <button
-      class="completeBtn"
-      onclick="completeAssignment()">
-      ✅ Assignment Xumureera
-    </button>
-
-    <div id="doneMessage" class="done">
-      🎉 Gaarii! Assignment Lesson 2 xumurameera.
+      <div class="step-content">
+        <span class="step-number">2</span>
+        <h3>New Text filadhu</h3>
+        <p>
+          Mallattoo <strong>A</strong> ykn Text cuqaasi.
+          Sana booda New Text filadhu.
+        </p>
+        <div class="note">💡 Note: Barruu haaraa ittiin galchitu.</div>
+      </div>
     </div>
-  </section>
 
+    <!-- 3 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://down-id.img.susercontent.com/file/dd68c2e056db331b90a367ac09c6da5c"
+      alt="PixelLab text menu">
 
-  <!-- QUIZ -->
-  <section class="card">
-    <h2>🧠 Quiz — Lesson 2</h2>
+      <div class="step-content">
+        <span class="step-number">3</span>
+        <h3>Text menu bani</h3>
+        <p>
+          Barruu filadhu. Sana booda menu barruu keessaa
+          <strong>Font</strong> barbaadi.
+        </p>
+        <div class="note">💡 Note: Font jijjiiruuf menu kana fayyadamna.</div>
+      </div>
+    </div>
 
-    <h3>1. TTF jechuun maal?</h3>
+    <!-- 4 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20170930-130838_orig.jpg"
+      alt="Text editing">
 
-    <label class="quiz-option">
-      <input type="radio" name="q1" value="wrong">
-      Image file
-    </label>
+      <div class="step-content">
+        <span class="step-number">4</span>
+        <h3>Font bani</h3>
+        <p>
+          Menu Font keessa seeni.
+        </p>
+        <div class="note">💡 Note: As keessatti font PixelLab keessa jiran ni argita.</div>
+      </div>
+    </div>
 
-    <label class="quiz-option">
-      <input type="radio" name="q1" value="correct">
-      TrueType Font
-    </label>
+    <!-- 5 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
+      alt="My Fonts">
 
-    <label class="quiz-option">
-      <input type="radio" name="q1" value="wrong">
-      Video file
-    </label>
+      <div class="step-content">
+        <span class="step-number">5</span>
+        <h3>My Fonts filadhu</h3>
+        <p>
+          Font menu keessatti <strong>My Fonts</strong> jedhu
+          filadhu.
+        </p>
+        <div class="note">💡 Note: Font ofii keetii itti galchitu.</div>
+      </div>
+    </div>
 
+    <!-- 6 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23yTYwrDohvqVVZj4rTSKSM14Jg91JBPVqg74Va7Mr6fXkciWQXzEkNj5hvYYfiUyWk5P.jpg"
+      alt="Add font">
 
-    <h3>2. Font haaraa PixelLab keessatti galchuuf maal barbaachisa?</h3>
+      <div class="step-content">
+        <span class="step-number">6</span>
+        <h3>+ / Add Font</h3>
+        <p>
+          Mallattoo <strong>+</strong> cuqaasi.
+          Kun font haaraa galchuuf si gargaara.
+        </p>
+        <div class="note">💡 Note: File font barbaaduuf + fayyadami.</div>
+      </div>
+    </div>
 
-    <label class="quiz-option">
-      <input type="radio" name="q2" value="correct">
-      TTF ykn OTF font
-    </label>
+    <!-- 7 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://p16-lemon8-sg-sign.tiktokcdn-us.com/tos-alisg-v-a3e477-sg/oAyUJmeAgneuSGSThAfh0ojA2XBZYGAk24WAfA~tplv-sdweummd6v-text-logo-v1%3AQHJ1YW5nY2FudGlpaWs%3D%3Aq75.jpeg?lk3s=c7f08e79&source=lemon8_seo&x-expires=1774094400&x-signature=FPaCOM5KAWqu4wosUPJz3frVTmM%3D"
+      alt="Extract font ZIP">
 
-    <label class="quiz-option">
-      <input type="radio" name="q2" value="wrong">
-      MP4
-    </label>
+      <div class="step-content">
+        <span class="step-number">7</span>
+        <h3>Downloads bani</h3>
+        <p>
+          Font download goote keessaa folder
+          <strong>Downloads</strong> bani.
+        </p>
+        <div class="note">💡 Note: Font yeroo baay'ee Downloads keessa gala.</div>
+      </div>
+    </div>
 
-    <label class="quiz-option">
-      <input type="radio" name="q2" value="wrong">
-      JPG qofa
-    </label>
+    <!-- 8 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://p16-lemon8-sg-sign.tiktokcdn-us.com/tos-alisg-v-a3e477-sg/oAyUJmeAgneuSGSThAfh0ojA2XBZYGAk24WAfA~tplv-sdweummd6v-text-logo-v1%3AQHJ1YW5nY2FudGlpaWs%3D%3Aq75.jpeg?lk3s=c7f08e79&source=lemon8_seo&x-expires=1774094400&x-signature=FPaCOM5KAWqu4wosUPJz3frVTmM%3D"
+      alt="ZIP font">
 
+      <div class="step-content">
+        <span class="step-number">8</span>
+        <h3>ZIP extract godhi</h3>
+        <p>
+          Yoo font kee ZIP ta'e, <strong>Extract</strong> godhi.
+        </p>
+        <div class="note">💡 Note: PixelLab keessatti ZIP osoo hin taane TTF/OTF filadhu.</div>
+      </div>
+    </div>
 
-    <h3>3. ZIP font yoo ta'e maal gochuu qabda?</h3>
+    <!-- 9 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://p16-lemon8-sg-sign.tiktokcdn-us.com/tos-alisg-v-a3e477-sg/oAyUJmeAgneuSGSThAfh0ojA2XBZYGAk24WAfA~tplv-sdweummd6v-text-logo-v1%3AQHJ1YW5nY2FudGlpaWs%3D%3Aq75.jpeg?lk3s=c7f08e79&source=lemon8_seo&x-expires=1774094400&x-signature=FPaCOM5KAWqu4wosUPJz3frVTmM%3D"
+      alt="TTF OTF">
 
-    <label class="quiz-option">
-      <input type="radio" name="q3" value="correct">
-      Extract/Unzip gochuu
-    </label>
+      <div class="step-content">
+        <span class="step-number">9</span>
+        <h3>TTF ykn OTF barbaadi</h3>
+        <p>
+          Folder extract godhame keessaa
+          <strong>.ttf</strong> ykn <strong>.otf</strong> file barbaadi.
+        </p>
+        <div class="note">💡 Note: Isaan lamaan font files dha.</div>
+      </div>
+    </div>
 
-    <label class="quiz-option">
-      <input type="radio" name="q3" value="wrong">
-      Delete gochuu
-    </label>
+    <!-- 10 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23yTYwrDohvqVVZj4rTSKSM14Jg91JBPVqg74Va7Mr6fXkciWQXzEkNj5hvYYfiUyWk5P.jpg"
+      alt="Select font">
 
-    <label class="quiz-option">
-      <input type="radio" name="q3" value="wrong">
-      Video godhuu
-    </label>
+      <div class="step-content">
+        <span class="step-number">10</span>
+        <h3>Font file filadhu</h3>
+        <p>
+          TTF ykn OTF file irratti cuqaasi.
+        </p>
+        <div class="note">💡 Note: Font sirrii filachuu kee mirkaneessi.</div>
+      </div>
+    </div>
 
-    <button
-      class="completeBtn"
-      onclick="checkQuiz()">
-      🧠 Quiz Ilaali
-    </button>
+    <!-- 11 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
+      alt="Add Selected">
 
-    <div id="quizResult" class="done"></div>
-  </section>
+      <div class="step-content">
+        <span class="step-number">11</span>
+        <h3>Add Selected</h3>
+        <p>
+          Font filattee booda <strong>Add Selected</strong>
+          cuqaasi.
+        </p>
+        <div class="note">💡 Note: Font gara My Fonts keessatti galcha.</div>
+      </div>
+    </div>
 
+    <!-- 12 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
+      alt="New font">
 
-  <!-- PIXELLAB -->
-  <section class="card">
-    <h2>📱 PixelLab Download</h2>
+      <div class="step-content">
+        <span class="step-number">12</span>
+        <h3>Font haaraa filadhu</h3>
+        <p>
+          Amma font ati galchite My Fonts keessatti mul'ata.
+          Isa filadhu.
+        </p>
+        <div class="note">💡 Note: Font haaraan barruu kee irratti hojjeta.</div>
+      </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPsMzXlGEHIWSys7-maLNYs3La9Gc8OXgCLcBGAsYHQ/s568/crop%2Bgambar.png"
+      alt="Save PixelLab">
+
+      <div class="step-content">
+        <span class="step-number">13</span>
+        <h3>Save / Export</h3>
+        <p>
+          Hojii kee erga xumurte booda
+          <strong>Save as Image</strong> filadhu.
+        </p>
+        <div class="note">💡 Note: Assignment kee image ta'ee phone kee irratti kuufama.</div>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="step">
+      <img onclick="openImage(this.src)"
+      src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23t7939RkGghGQNoEa1bJXcZ7nUKa7iaNTgW9bSEq7Vqg2GqHwBc3zAJPQjuDkNRwmSWV.jpg"
+      alt="Export settings">
+
+      <div class="step-content">
+        <span class="step-number">14</span>
+        <h3>Quality filadhu</h3>
+        <p>
+          Export yeroo gootu quality gaarii filadhu.
+        </p>
+        <div class="note">💡 Note: Poster qulqullina gaarii qabaachuuf resolution gaarii fayyadami.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FULL LESSON STEPS -->
+<section class="card">
+  <h2>📝 Tarkaanfii Gabaabaa</h2>
+
+  <ol>
+    <li>Font barbaadi.</li>
+    <li>Font download godhi.</li>
+    <li>ZIP yoo ta'e Extract godhi.</li>
+    <li>TTF ykn OTF file barbaadi.</li>
+    <li>PixelLab bani.</li>
+    <li>Text filadhu.</li>
+    <li>Font bani.</li>
+    <li>My Fonts filadhu.</li>
+    <li>+ cuqaasi.</li>
+    <li>Font kee filadhu.</li>
+    <li>Add Selected cuqaasi.</li>
+    <li>Font haaraa filadhu.</li>
+    <li>Poster kee qopheessi.</li>
+    <li>Save as Image godhi.</li>
+  </ol>
+</section>
+
+<!-- ASSIGNMENT -->
+<section class="card assignment">
+  <h2>🎯 ASSIGNMENT — KENA DESIGN POSTER</h2>
+
+  <p>
+    Amma waan baratte hundaan <strong>poster xiqqoo KENA DESIGN</strong>
+    hojjedhu.
+  </p>
+
+  <h3>📌 Wanti assignment keessatti jiraachuu qabu:</h3>
+
+  <ul>
+    <li>Font haaraa ati install goote</li>
+    <li><strong>KENA DESIGN</strong></li>
+    <li><strong>GRAPHIC DESIGN</strong></li>
+    <li>Maqaa kee</li>
+    <li>Background bareedaa</li>
+    <li>Halluu walitti madaalu</li>
+    <li>Text style gaarii</li>
+    <li>Poster qulqulluu</li>
+  </ul>
+
+  <!-- ASSIGNMENT EXAMPLE -->
+  <div class="assignment-example">
+
+    <h3>🖼️ Fakkeenya Assignment</h3>
 
     <p>
-      PixelLab yoo hin qabne, Google Play Store irraa buufadhu.
+      Suuraa kana ilaaliitii poster kee akkuma yaada kanaatti
+      PixelLab keessatti hojjedhu.
     </p>
 
-    <a
-      class="download"
-      href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
-      target="_blank">
-      📲 PixelLab Download
-    </a>
-  </section>
+    <img
+      onclick="openImage(this.src)"
+      src="https://1.bp.blogspot.com/-Rl1JADz9sXo/YA0uahfuUEI/AAAAAAAAAAU/zKsSQXShEmU_kmEXPUI-DHEVqfOmWVXiwCNcBGAsYHQ/s1480/Screenshot_20210124-141945_PixelLab.jpg"
+      alt="Assignment example">
+  </div>
 
+  <div class="note">
+    💡 <strong>Note:</strong>
+    Suuraa fakkeenyaa qofa ilaali. Assignment kee keessatti
+    design mataa keetii hojjedhu. Font haaraa ati install goote
+    fayyadami.
+  </div>
 
-  <!-- NEXT -->
-  <section class="card">
-    <h2>🚀 Xumura Lesson 2</h2>
+  <h3>☑️ Assignment Checklist</h3>
 
-    <p>
-      Amma ati PixelLab keessatti font haaraa barbaaduu,
-      download gochuu, extract gochuu fi import gochuu baratteetta.
-    </p>
+  <div class="checklist">
 
-    <div class="tip">
-      <strong>🎨 KENA DESIGN:</strong>
-      Barnoota itti aanu keessatti waan barattu hojii irratti
-      hojiirra oolchi. Barachuu qofa osoo hin taane shaakali.
+    <div class="check-item">
+      <label>
+        <input type="checkbox" class="assignment-check">
+        Font haaraa install godheera
+      </label>
     </div>
-  </section>
+
+    <div class="check-item">
+      <label>
+        <input type="checkbox" class="assignment-check">
+        KENA DESIGN barreesseera
+      </label>
+    </div>
+
+    <div class="check-item">
+      <label>
+        <input type="checkbox" class="assignment-check">
+        GRAPHIC DESIGN barreesseera
+      </label>
+    </div>
+
+    <div class="check-item">
+      <label>
+        <input type="checkbox" class="assignment-check">
+        Maqaa koo dabaleera
+      </label>
+    </div>
+
+    <div class="check-item">
+      <label>
+        <input type="checkbox" class="assignment-check">
+        Background fi halluu sirriitti qindeesseera
+      </label>
+    </div>
+
+    <div class="check-item">
+      <label>
+        <input type="checkbox" class="assignment-check">
+        Poster koo save godheera
+      </label>
+    </div>
+
+  </div>
+
+  <button onclick="completeAssignment()">
+    ✅ Assignment Xumureera
+  </button>
+
+  <div id="assignmentSuccess" class="success">
+    🎉 Baga gammaddde! Assignment kee akka xumurametti
+    mallatteeffameera.
+  </div>
+
+</section>
+
+<!-- PRACTICE -->
+<section class="card">
+  <h2>🧪 Practice</h2>
+
+  <p>
+    Amma font lama filadhu:
+  </p>
+
+  <ol>
+    <li>Font tokko title'f fayyadami.</li>
+    <li>Font tokko body text'f fayyadami.</li>
+    <li>Halluu lama ykn sadii qofa fayyadami.</li>
+    <li>Poster kee qulqulluu fi salphaa godhi.</li>
+  </ol>
+
+  <div class="note">
+    💡 Note: Graphic Design keessatti wanti baay'ee barbaachisaa ta'e
+    qulqullina, readability fi color combination dha.
+  </div>
+</section>
+
+<!-- COMMON MISTAKES -->
+<section class="card">
+  <h2>⚠️ Dogoggora Yeroo Baay'ee Mul'atu</h2>
+
+  <ul>
+    <li>ZIP file kallattiin PixelLab keessatti filachuu.</li>
+    <li>TTF/OTF osoo hin taane file biraa filachuu.</li>
+    <li>Font baay'ee tokko keessatti fayyadamu.</li>
+    <li>Halluu baay'ee walitti makuu.</li>
+    <li>Text xiqqoo taasisuu.</li>
+    <li>Poster irratti wantoota baay'ee guutuu.</li>
+  </ul>
+</section>
+
+<!-- PIXELLAB DOWNLOAD -->
+<section class="card">
+  <h2>📱 PixelLab Download</h2>
+
+  <p>
+    Yoo PixelLab phone kee irratti hin jirre,
+    Google Play Store irraa buufachuu dandeessa.
+  </p>
+
+  <a
+    class="download-btn"
+    href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
+    target="_blank">
+    📲 PixelLab Download
+  </a>
+</section>
+
+<!-- QUIZ -->
+<section class="card">
+  <h2>🧠 Lesson 2 Quiz</h2>
+
+  <form id="quizForm">
+
+    <div class="quiz-question">
+      <h3>1. Font file keessaa kamtu PixelLab keessatti fayyadamuuf mijata?</h3>
+
+      <label>
+        <input type="radio" name="q1" value="a">
+        JPG
+      </label>
+
+      <label>
+        <input type="radio" name="q1" value="b">
+        TTF / OTF
+      </label>
+
+      <label>
+        <input type="radio" name="q1" value="c">
+        MP4
+      </label>
+    </div>
+
+    <div class="quiz-question">
+      <h3>2. Font haaraa eessa irraa galchina?</h3>
+
+      <label>
+        <input type="radio" name="q2" value="a">
+        My Fonts
+      </label>
+
+      <label>
+        <input type="radio" name="q2" value="b">
+        Gallery qofa
+      </label>
+
+      <label>
+        <input type="radio" name="q2" value="c">
+        Camera
+      </label>
+    </div>
+
+    <div class="quiz-question">
+      <h3>3. ZIP font maal gochuu qabna?</h3>
+
+      <label>
+        <input type="radio" name="q3" value="a">
+        Play godhu
+      </label>
+
+      <label>
+        <input type="radio" name="q3" value="b">
+        Extract godhu
+      </label>
+
+      <label>
+        <input type="radio" name="q3" value="c">
+        Delete godhu
+      </label>
+    </div>
+
+    <button type="button" onclick="checkQuiz()">
+      🚀 Submit Quiz
+    </button>
+
+  </form>
+
+  <div id="quizResult" class="success"></div>
+
+</section>
+
+<!-- FINAL -->
+<section class="card">
+  <h2>🏆 Lesson 2 Xumurteetta!</h2>
+
+  <p>
+    Amma ati:
+  </p>
+
+  <ul>
+    <li>Font download gochuu</li>
+    <li>ZIP extract gochuu</li>
+    <li>TTF/OTF adda baasuu</li>
+    <li>PixelLab keessatti font galchuu</li>
+    <li>Font haaraa fayyadamuu</li>
+    <li>Poster hojjechuu</li>
+    <li>Poster save gochuu</li>
+  </ul>
+
+  <div class="note">
+    🎯 <strong>Next Step:</strong>
+    Assignment kee xumuri; booda Lesson itti aanu itti fufi.
+  </div>
+</section>
 
 </div>
 
-
 <footer>
-  <p>© 2026 Kena Design</p>
-  <p>Graphic Design • Video Editing • Web Design • Digital Marketing</p>
+  © 2026 Kena Design — Graphic Design Learning
 </footer>
 
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="modal" onclick="closeImage()">
+
+  <span class="close">&times;</span>
+
+  <img id="modalImage" src="" alt="Zoomed image">
+
+</div>
 
 <script>
 
-  function completeAssignment(){
+/* IMAGE ZOOM */
+function openImage(src){
+
+  document.getElementById("imageModal").style.display = "flex";
+
+  document.getElementById("modalImage").src = src;
+
+}
+
+function closeImage(){
+
+  document.getElementById("imageModal").style.display = "none";
+
+}
+
+
+/* ASSIGNMENT */
+function completeAssignment(){
+
+  localStorage.setItem(
+    "kenaLesson2Assignment",
+    "completed"
+  );
+
+  document.getElementById(
+    "assignmentSuccess"
+  ).style.display = "block";
+
+}
+
+
+/* RESTORE ASSIGNMENT */
+window.addEventListener("load", function(){
+
+  if(
+    localStorage.getItem(
+      "kenaLesson2Assignment"
+    ) === "completed"
+  ){
+
+    document.getElementById(
+      "assignmentSuccess"
+    ).style.display = "block";
+
+  }
+
+});
+
+
+/* CHECKLIST SAVE */
+const checks =
+document.querySelectorAll(".assignment-check");
+
+checks.forEach(function(check, index){
+
+  const saved =
+  localStorage.getItem(
+    "lesson2check" + index
+  );
+
+  if(saved === "true"){
+    check.checked = true;
+  }
+
+  check.addEventListener("change", function(){
 
     localStorage.setItem(
-      "kena_lesson2_assignment",
+      "lesson2check" + index,
+      check.checked
+    );
+
+  });
+
+});
+
+
+/* QUIZ */
+function checkQuiz(){
+
+  let score = 0;
+
+  const q1 =
+  document.querySelector(
+    'input[name="q1"]:checked'
+  );
+
+  const q2 =
+  document.querySelector(
+    'input[name="q2"]:checked'
+  );
+
+  const q3 =
+  document.querySelector(
+    'input[name="q3"]:checked'
+  );
+
+  if(!q1 || !q2 || !q3){
+
+    alert("Meeqa gaaffii hundaaf deebii kenni.");
+
+    return;
+  }
+
+  if(q1.value === "b") score++;
+
+  if(q2.value === "a") score++;
+
+  if(q3.value === "b") score++;
+
+  const result =
+  document.getElementById("quizResult");
+
+  result.style.display = "block";
+
+  if(score === 3){
+
+    result.innerHTML =
+    "🎉 Baay'ee gaarii! 3/3 — Quiz sirriitti xumurteetta!";
+
+    localStorage.setItem(
+      "kenaLesson2Quiz",
       "completed"
     );
 
-    document.getElementById("doneMessage").style.display = "block";
+  }else{
+
+    result.innerHTML =
+    "📚 Qabxii kee: " +
+    score +
+    "/3. Lesson irra deebi'ii ilaali, achiis irra deebi'ii yaali.";
 
   }
 
-
-  function checkQuiz(){
-
-    const q1 = document.querySelector(
-      'input[name="q1"]:checked'
-    );
-
-    const q2 = document.querySelector(
-      'input[name="q2"]:checked'
-    );
-
-    const q3 = document.querySelector(
-      'input[name="q3"]:checked'
-    );
-
-    const result = document.getElementById(
-      "quizResult"
-    );
-
-    if(!q1 || !q2 || !q3){
-
-      result.style.display = "block";
-
-      result.textContent =
-        "⚠️ Mee gaaffilee hunda deebisi.";
-
-      return;
-    }
-
-    let score = 0;
-
-    if(q1.value === "correct") score++;
-    if(q2.value === "correct") score++;
-    if(q3.value === "correct") score++;
-
-    result.style.display = "block";
-
-    if(score === 3){
-
-      result.textContent =
-        "🎉 Baay'ee gaarii! 3/3 sirrii deebifte.";
-
-      localStorage.setItem(
-        "kena_lesson2_quiz",
-        "completed"
-      );
-
-    }else{
-
-      result.textContent =
-        "📚 Deebii sirrii: " +
-        score +
-        "/3. Barnoota irra deebi'ii yaali.";
-
-    }
-
-  }
-
-
-  window.addEventListener(
-    "load",
-    function(){
-
-      const completed =
-        localStorage.getItem(
-          "kena_lesson2_assignment"
-        );
-
-      if(completed === "completed"){
-
-        document.getElementById(
-          "doneMessage"
-        ).style.display = "block";
-
-      }
-
-    }
-  );
+}
 
 </script>
 

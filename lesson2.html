@@ -2,321 +2,402 @@
 <html lang="om">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Kena Design - Lesson 2</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
-margin:0;
-background:#07111f;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif;
-line-height:1.75;
+  margin:0;
+  background:#07111f;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.75;
 }
 
 .container{
-width:min(1000px,92%);
-margin:auto;
-padding:25px 0 60px;
+  width:min(1000px,92%);
+  margin:auto;
+  padding:25px 0 60px;
 }
 
-.hero,.card{
-background:#101c2c;
-border:1px solid #263d53;
-border-radius:18px;
-padding:22px;
-margin:18px 0;
+.hero,
+.card{
+  background:#101c2c;
+  border:1px solid #263d53;
+  border-radius:18px;
+  padding:22px;
+  margin:18px 0;
 }
 
 .hero{
-background:linear-gradient(135deg,#101c2c,#13283b);
+  background:linear-gradient(135deg,#101c2c,#13283b);
 }
 
 h1{
-color:#32d583;
-font-size:clamp(28px,6vw,45px);
-margin:0 0 10px;
+  color:#32d583;
+  font-size:clamp(28px,6vw,45px);
+  margin:0 0 10px;
 }
 
 h2{
-color:#32d583;
-border-bottom:1px solid #294257;
-padding-bottom:8px;
-margin-top:30px;
+  color:#32d583;
+  border-bottom:1px solid #294257;
+  padding-bottom:8px;
+  margin-top:30px;
 }
 
-h3{color:#8ee6bd}
+h3{
+  color:#8ee6bd;
+}
 
-p{margin:10px 0}
+p{
+  margin:10px 0;
+}
 
 .note{
-background:#0d2631;
-border-left:5px solid #32d583;
-padding:15px;
-border-radius:12px;
-margin:15px 0;
+  background:#0d2631;
+  border-left:5px solid #32d583;
+  padding:15px;
+  border-radius:12px;
+  margin:15px 0;
 }
 
 .warning{
-background:#2a2110;
-border-left:5px solid #f6c453;
-padding:15px;
-border-radius:12px;
-margin:15px 0;
+  background:#2a2110;
+  border-left:5px solid #f6c453;
+  padding:15px;
+  border-radius:12px;
+  margin:15px 0;
 }
 
 .steps{
-padding:0;
-list-style:none;
-counter-reset:num;
+  padding:0;
+  list-style:none;
+  counter-reset:num;
 }
 
 .steps li{
-counter-increment:num;
-position:relative;
-background:#0b1724;
-border:1px solid #263d53;
-border-radius:13px;
-padding:14px 14px 14px 55px;
-margin:12px 0;
+  counter-increment:num;
+  position:relative;
+  background:#0b1724;
+  border:1px solid #263d53;
+  border-radius:13px;
+  padding:14px 14px 14px 55px;
+  margin:12px 0;
 }
 
 .steps li:before{
-content:counter(num);
-position:absolute;
-left:14px;
-top:12px;
-width:30px;
-height:30px;
-border-radius:50%;
-background:#32d583;
-color:#06131e;
-font-weight:bold;
-display:flex;
-align-items:center;
-justify-content:center;
+  content:counter(num);
+  position:absolute;
+  left:14px;
+  top:12px;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:#32d583;
+  color:#06131e;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .video{
-width:100%;
-aspect-ratio:16/9;
-background:#000;
-border-radius:16px;
-overflow:hidden;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:16px;
+  overflow:hidden;
 }
 
 .video iframe{
-width:100%;
-height:100%;
-border:0;
+  width:100%;
+  height:100%;
+  border:0;
 }
+
+/* =========================
+   VISUAL CARD
+   ========================= */
 
 .visual{
-background:#0b1724;
-border:1px solid #294257;
-border-radius:16px;
-overflow:hidden;
-margin:22px 0;
+  background:#0b1724;
+  border:1px solid #294257;
+  border-radius:16px;
+  overflow:hidden;
+  margin:22px 0;
 }
 
-.visual-image{
-position:relative;
-cursor:zoom-in;
-background:#000;
+.image-button{
+  position:relative;
+  display:block;
+  width:100%;
+  padding:0;
+  margin:0;
+  border:0;
+  background:#000;
+  cursor:zoom-in;
+  overflow:hidden;
 }
 
-.visual-image img{
-display:block;
-width:100%;
-max-height:650px;
-object-fit:contain;
+.image-button img{
+  display:block;
+  width:100%;
+  max-height:650px;
+  object-fit:contain;
+  background:#000;
+  cursor:zoom-in;
+}
+
+.image-button:hover img{
+  opacity:.92;
 }
 
 .visual-body{
-padding:18px;
+  padding:18px;
 }
 
 .visual-title{
-font-size:20px;
-font-weight:bold;
-color:#32d583;
+  font-size:21px;
+  font-weight:bold;
+  color:#32d583;
 }
 
 .location{
-display:inline-block;
-background:#18384a;
-color:#8ee6bd;
-padding:5px 11px;
-border-radius:20px;
-font-size:13px;
-font-weight:bold;
-margin-top:8px;
+  display:inline-block;
+  margin-top:8px;
+  background:#18384a;
+  color:#8ee6bd;
+  padding:5px 11px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
 }
 
+.zoom-hint{
+  color:#b9c8d5;
+  font-size:13px;
+  margin-top:8px;
+}
+
+/* =========================
+   ANIMATED MARKER
+   ========================= */
+
 .marker{
-position:absolute;
-left:var(--x);
-top:var(--y);
-transform:translate(-50%,-50%);
-pointer-events:none;
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  transform:translate(-50%,-50%);
+  z-index:10;
+  pointer-events:none;
 }
 
 .ring{
-width:48px;
-height:48px;
-border:4px solid #ff3030;
-border-radius:50%;
-animation:pulse 1.1s infinite;
+  width:48px;
+  height:48px;
+  border:4px solid #ff3030;
+  border-radius:50%;
+  animation:pulse 1.1s infinite;
 }
 
 .arrow{
-position:absolute;
-left:14px;
-top:26px;
-font-size:34px;
-color:#ff3030;
-animation:bounce .7s infinite alternate;
-filter:drop-shadow(0 2px 2px #000);
+  position:absolute;
+  left:14px;
+  top:25px;
+  font-size:34px;
+  color:#ff3030;
+  animation:bounce .7s infinite alternate;
+  filter:drop-shadow(0 2px 2px #000);
 }
 
-.label{
-position:absolute;
-left:25px;
-top:-14px;
-background:#ff3030;
-padding:4px 9px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-white-space:nowrap;
+.marker-label{
+  position:absolute;
+  left:25px;
+  top:-14px;
+  white-space:nowrap;
+  background:#ff3030;
+  color:#fff;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
 }
 
 @keyframes pulse{
-0%{box-shadow:0 0 0 0 rgba(255,48,48,.7)}
-70%{box-shadow:0 0 0 18px rgba(255,48,48,0)}
-100%{box-shadow:0 0 0 0 rgba(255,48,48,0)}
+  0%{
+    transform:scale(.75);
+    box-shadow:0 0 0 0 rgba(255,48,48,.7);
+  }
+  70%{
+    transform:scale(1);
+    box-shadow:0 0 0 18px rgba(255,48,48,0);
+  }
+  100%{
+    transform:scale(.9);
+    box-shadow:0 0 0 0 rgba(255,48,48,0);
+  }
 }
 
 @keyframes bounce{
-from{transform:translateY(0)}
-to{transform:translateY(8px)}
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(8px);
+  }
 }
 
-.zoom{
-color:#b9c8d5;
-font-size:13px;
-}
-
-.assignment{
-border:2px solid #32d583;
-background:linear-gradient(135deg,#0d241e,#101c2c);
-}
-
-.example-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-gap:15px;
-}
-
-.example{
-background:#0b1724;
-border:1px solid #294257;
-border-radius:13px;
-overflow:hidden;
-}
-
-.example img{
-width:100%;
-height:220px;
-object-fit:cover;
-cursor:zoom-in;
-}
-
-.example p{
-padding:0 12px 12px;
-font-size:14px;
-}
-
-.finish{
-text-align:center;
-background:#0d2631;
-border:2px solid #32d583;
-border-radius:18px;
-padding:28px 18px;
-margin-top:30px;
-}
-
-.finish h2{
-border:0;
-margin:0;
-}
-
-.complete-btn{
-border:0;
-border-radius:30px;
-padding:14px 25px;
-background:#32d583;
-color:#06131e;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-}
-
-.complete-btn.done{
-background:#1f9d68;
-color:white;
-}
+/* =========================
+   IMAGE MODAL
+   ========================= */
 
 .modal{
-display:none;
-position:fixed;
-inset:0;
-z-index:9999;
-background:rgba(0,0,0,.92);
-align-items:center;
-justify-content:center;
-padding:20px;
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:rgba(0,0,0,.94);
+  padding:20px;
+  align-items:center;
+  justify-content:center;
 }
 
 .modal.show{
-display:flex;
+  display:flex;
 }
 
-.modal-content{
-position:relative;
-max-width:1100px;
-max-height:94vh;
+.modal-box{
+  position:relative;
+  width:min(1150px,96vw);
+  max-height:94vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.modal img{
-max-width:100%;
-max-height:90vh;
-object-fit:contain;
-border-radius:12px;
+.modal-box img{
+  display:block;
+  max-width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:12px;
+  background:#000;
 }
 
-.close{
-position:absolute;
-right:-5px;
-top:-15px;
-width:44px;
-height:44px;
-border:0;
-border-radius:50%;
-background:#ff3030;
-color:white;
-font-size:25px;
-cursor:pointer;
+.close-btn{
+  position:absolute;
+  right:-8px;
+  top:-18px;
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:50%;
+  background:#ff3030;
+  color:white;
+  font-size:28px;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:5;
+}
+
+.close-btn:hover{
+  background:#d51f1f;
+}
+
+/* =========================
+   ASSIGNMENT
+   ========================= */
+
+.assignment{
+  border:2px solid #32d583;
+  background:linear-gradient(135deg,#0d241e,#101c2c);
+}
+
+.example-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+}
+
+.example{
+  background:#0b1724;
+  border:1px solid #294257;
+  border-radius:13px;
+  overflow:hidden;
+}
+
+.example button{
+  width:100%;
+  border:0;
+  padding:0;
+  margin:0;
+  background:#000;
+  cursor:zoom-in;
+}
+
+.example img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+}
+
+.example p{
+  padding:0 12px 12px;
+  font-size:14px;
+}
+
+.finish{
+  text-align:center;
+  background:#0d2631;
+  border:2px solid #32d583;
+  border-radius:18px;
+  padding:28px 18px;
+  margin-top:30px;
+}
+
+.finish h2{
+  border:0;
+  margin:0;
+}
+
+.complete-btn{
+  border:0;
+  border-radius:30px;
+  padding:14px 25px;
+  background:#32d583;
+  color:#06131e;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.complete-btn:hover{
+  opacity:.9;
+}
+
+.complete-btn.done{
+  background:#1f9d68;
+  color:#fff;
+}
+
+.small{
+  color:#b9c8d5;
+  font-size:14px;
 }
 
 code{
-background:#07111f;
-border:1px solid #263d53;
-border-radius:5px;
-padding:2px 6px;
-color:#8ee6bd;
+  background:#07111f;
+  border:1px solid #263d53;
+  border-radius:5px;
+  padding:2px 6px;
+  color:#8ee6bd;
 }
 </style>
 </head>
@@ -324,6 +405,10 @@ color:#8ee6bd;
 <body>
 
 <div class="container">
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <section class="hero">
 
@@ -342,36 +427,54 @@ irratti sirriitti fayyadamuu baratta.
 </p>
 
 <div class="note">
+
 <strong>🎯 Kaayyoo Lesson 2:</strong><br>
-Lesson kana booda barataan font haaraa tokko
-bilbila isaa keessatti qopheessuu, PixelLab keessatti
-galchuu, fonticha filachuu fi design irratti hojii irra
-oolchuu danda'uu qaba.
+
+Lesson kana booda barataan:
+
+<ul>
+<li>Font haaraa buufachuu ni danda'a.</li>
+<li>ZIP keessaa font baasuu ni danda'a.</li>
+<li>TTF fi OTF adda baasuu ni danda'a.</li>
+<li>PixelLab keessatti My Fonts argachuu ni danda'a.</li>
+<li>Font haaraa import gochuu ni danda'a.</li>
+<li>Fonticha barruu irratti Apply gochuu ni danda'a.</li>
+<li>Font haaraa fayyadamuun design qopheessuu ni danda'a.</li>
+</ul>
+
 </div>
 
 </section>
 
 
+<!-- =========================
+     NOTE
+========================= -->
+
 <section class="card">
 
-<h2>📝 NOTE BAL'AA — FONT HAARAA PIXELLAB KEESSATTI GALCHUU</h2>
+<h2>📝 NOTE GUUTUU — FONT HAARAA PIXELLAB KEESSATTI GALCHUU</h2>
 
-<h3>Font jechuun maal?</h3>
+<h3>1️⃣ Font jechuun maal?</h3>
 
 <p>
-Font jechuun akkaataa barruun itti bocamu fi itti mul'atuudha.
-Fakkeenyaaf font tokko handwriting fakkaachuu danda'a,
-kan biraa bold ta'uu danda'a, kan biraa ammoo modern ykn
-professional fakkaachuu danda'a.
+Font jechuun boca fi akkaataa barruun itti mul'atuudha.
+Barruun tokko font adda addaatiin style adda addaa qabaachuu danda'a.
+</p>
+
+<p>
+Fakkeenyaaf font tokko handwriting fakkaachuu danda'a.
+Kan biraa modern, bold, professional ykn decorative fakkaachuu danda'a.
 </p>
 
 <p>
 Design keessatti font filannoon baay'ee barbaachisaa dha.
-Font sirrii yoo filatte, poster, flyer, thumbnail, logo fi
-social media design kee bareedaa fi professional fakkaata.
+Font sirrii yoo filatte poster, flyer, thumbnail, logo fi social media
+design kee bareedaa fi professional fakkaata.
 </p>
 
-<h3>🎯 Font maaliif barbaachisa?</h3>
+
+<h3>2️⃣ Font maaliif barbaachisa?</h3>
 
 <ul>
 <li>Design kee bareechisa.</li>
@@ -380,20 +483,26 @@ social media design kee bareedaa fi professional fakkaata.
 <li>Poster fi Flyer irratti style kenna.</li>
 <li>Thumbnail nama hawwatu uumuuf gargaara.</li>
 <li>Barruun akka salphaatti dubbifamu taasisa.</li>
+<li>Design kee professional fakkeessa.</li>
 </ul>
 
+
 <div class="warning">
+
 <strong>⚠️ Hubachiisa:</strong><br>
+
 Font baay'ee walitti makuun design kee burjaajessuu danda'a.
-Yeroo baay'ee font 2 ykn 3 caalaa fayyadamuun hin barbaachisu.
+Yeroo baay'ee design tokko keessatti font 2 ykn 3 caalaa
+fayyadamuun hin barbaachisu.
+
 </div>
 
-<h3>TTF fi OTF jechuun maal?</h3>
+
+<h3>3️⃣ TTF fi OTF jechuun maal?</h3>
 
 <p>
 <strong>TTF — TrueType Font:</strong>
-format font beekamaa kan app fi computer hedduu irratti
-hojjetudha.
+format font beekamaa kan app fi computer hedduu irratti hojjetudha.
 </p>
 
 <p>
@@ -403,59 +512,192 @@ dabalataa qabaachuu danda'uudha.
 </p>
 
 <p>
-PixelLab keessatti yeroo baay'ee font
+PixelLab keessatti font haaraa galchuuf yeroo baay'ee
 <code>.ttf</code> ykn <code>.otf</code> fayyadamna.
 </p>
 
+
+<h3>4️⃣ Font eessaa arganna?</h3>
+
+<p>
+Font seera qabeessa ta'een argachuuf websites amanamoo fayyadamuun gaarii dha.
+Font buufachuu dura license isaa ilaali.
+Font tokko tokko personal use qofaaf ta'uu danda'a;
+kan biraa commercial use eeyyamu danda'a.
+</p>
+
+
+<h3>5️⃣ Font buufannee booda maal goona?</h3>
+
+<ol class="steps">
+
+<li>
+Font kee buufadhu.
+</li>
+
+<li>
+Yoo ZIP keessatti dhufe,
+<strong>Extract / Unzip</strong> godhi.
+</li>
+
+<li>
+Keessa isaa file font kan akka
+<code>MyFont.ttf</code>
+ykn
+<code>MyFont.otf</code>
+barbaadi.
+</li>
+
+<li>
+Font file sana PixelLab keessatti galchuuf qopheessi.
+</li>
+
+</ol>
+
+
 <div class="note">
+
 <strong>📌 Tartiiba guddaa yaadadhu:</strong><br>
-Download → Extract → TTF/OTF → PixelLab →
-Font → My Fonts → Add → Select → Apply → Design
+
+Download →
+Extract →
+TTF/OTF →
+PixelLab →
+Font →
+My Fonts →
+Add →
+Select →
+Apply →
+Design
+
 </div>
+
+
+<h3>6️⃣ PixelLab keessatti font galchuu</h3>
+
+<ol class="steps">
+
+<li>PixelLab bani.</li>
+
+<li>Text tokko filadhu ykn Text haaraa dabali.</li>
+
+<li>Mallattoo <strong>A</strong> ykn Text settings seeni.</li>
+
+<li><strong>Font</strong> filadhu.</li>
+
+<li><strong>My Fonts</strong> seeni.</li>
+
+<li>Mallattoo <strong>+</strong> ykn Add yoo jiru tuqi.</li>
+
+<li>File Manager irraa font kee barbaadi.</li>
+
+<li>File <code>.ttf</code> ykn <code>.otf</code> filadhu.</li>
+
+<li>Add / Select / Open / OK kan mul'atu tuqi.</li>
+
+<li>My Fonts keessatti font haaraa filadhu.</li>
+
+<li>Barruu kee irratti Apply godhi.</li>
+
+</ol>
+
+
+<h3>7️⃣ Font haaraan design irratti akkamitti fayyada?</h3>
+
+<p>
+Font galchuun qofa gahaa miti.
+Fonticha design keessatti sirriitti fayyadamuun barbaachisaa dha.
+</p>
+
+<p>
+Title, subtitle fi body text irratti font garaagaraa fayyadamuun ni danda'ama.
+Garuu readability fi hierarchy eegi.
+</p>
+
+
+<h3>⚠️ Rakkoolee uumamuu danda'an</h3>
+
+<ul>
+
+<li>Fontiin ZIP keessaa hin baafamne ta'uu danda'a.</li>
+
+<li>File sun font dhugaa ta'uu dhiisuu danda'a.</li>
+
+<li>Extension isaa <code>.ttf</code> ykn <code>.otf</code> ta'uu isaa ilaali.</li>
+
+<li>Font file bakka sirrii keessa jiraachuu isaa mirkaneessi.</li>
+
+<li>PixelLab cufii irra deebiin bani.</li>
+
+<li>Fontiin tokko Android ykn PixelLab version waliin wal hin simne ta'uu danda'a.</li>
+
+<li>Font baay'ee fayyadamuun design kee ulfaataa fi burjaajaa gochuu danda'a.</li>
+
+</ul>
 
 </section>
 
+
+<!-- =========================
+     VIDEO
+========================= -->
 
 <section class="card">
 
 <h2>🎥 VIDEO BARNOOTAA</h2>
 
 <p>
-Video kana ilaali. Yeroo ilaaltu app PixelLab keessatti
-font itti dabalan sirriitti hordofi.
+Video kana ilaali. Yeroo ilaaltu tartiiba font buufachuu fi
+PixelLab keessatti font galchuu irratti xiyyeeffadhu.
 </p>
 
 <div class="video">
+
 <iframe
 src="https://www.youtube.com/embed/frWZmcJMijI"
+title="Kena Design Lesson 2 - PixelLab Fonts"
 allowfullscreen>
 </iframe>
+
 </div>
 
 </section>
 
 
+<!-- =========================
+     VISUAL GUIDE
+========================= -->
+
 <section class="card">
 
-<h2>👀 VISUAL GUIDE — TARKAANFII 12</h2>
+<h2>🖼️ VISUAL GUIDE — TARKAANFII 12</h2>
 
-<p>
-Suuraa tokko tokko irratti mallattoo diimaa
-<code>👆</code> argita. Mallattoon sun bakka
-barataan xiyyeeffannoo itti godhu agarsiisa.
-</p>
+<div class="note">
 
-<p>
-🔍 Suuraa kamiyyuu tuquun guddisii ilaalu dandeessa.
-</p>
+<strong>📌 Akkaataa barnootaa:</strong><br>
+
+Suuraa 12 hundi PixelLab workflow agarsiisu.
+Mallattoon diimaa <strong>👆</strong> bakka xiyyeeffannoo
+barataa agarsiisa.
+
+<br><br>
+
+<strong>🔍 Suuraa kamiyyuu tuqi.</strong>
+Suuraan guddatee screen guutuu irratti siif banama.
+Mallattoo <strong>×</strong> tuqi ykn bakka gurraacha tuqi;
+suuraan ni cufa.
+
+</div>
 
 
-<!-- 1 -->
+<!-- VISUAL 1 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/dxb45N-XXYRzDcV2pltfeFD7_nLdW7toExOZgOWXJrTW3YFms78V50jCTQe8CA0ZPE">
 
 <img
 src="https://play-lh.googleusercontent.com/dxb45N-XXYRzDcV2pltfeFD7_nLdW7toExOZgOWXJrTW3YFms78V50jCTQe8CA0ZPE"
@@ -464,10 +706,10 @@ alt="PixelLab">
 <div class="marker" style="--x:50%;--y:50%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">PIXELLAB</div>
+<div class="marker-label">OPEN</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -477,23 +719,28 @@ alt="PixelLab">
 
 <p>
 <strong>🎯 Kaayyoo:</strong>
-App PixelLab keessatti hojii jalqabuuf.
+PixelLab keessatti hojii jalqabuu.
 </p>
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-Jalqaba PixelLab bilbila kee irratti bani.
-App erga banamee booda canvas hojii ittiin hojjetu argita.
+Jalqaba application PixelLab bilbila kee irratti bani.
+App erga banamee booda canvas ykn bakka hojii argita.
 Canvas jechuun bakka design kee itti ijaartuudha.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+Lesson kana keessatti font haaraa galchuuf jalqaba
+PixelLab keessa seenuu qabda.
+</p>
+
+<p>
+<strong>👆 Maal tuqna?</strong><br>
 PixelLab icon tuqiitii app bani.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Font haaraa galchuuf jalqaba app keessa seenuu qabda.
 </p>
 
@@ -502,30 +749,27 @@ Font haaraa galchuuf jalqaba app keessa seenuu qabda.
 </span>
 
 <p>
-<strong>⚠️ Yoo app hin banamne:</strong>
-Internet yeroo baay'ee hin barbaachisu; garuu app sirriitti
-install ta'uu isaa fi bilbila kee irratti storage jiraachuu ilaali.
+<strong>⚠️ Yoo app hin banamne:</strong><br>
+App install sirrii ta'uu fi storage bilbila kee ilaali.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 PixelLab canvas fuuldura kee irratti banamuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 2 -->
+<!-- VISUAL 2 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/SbRnnUB4qH-9Du6CARTGrCtFqgdZNP0dcGedaPgubl62PjvnbuoZ48AkBXXO--yWk8Y">
 
 <img
 src="https://play-lh.googleusercontent.com/SbRnnUB4qH-9Du6CARTGrCtFqgdZNP0dcGedaPgubl62PjvnbuoZ48AkBXXO--yWk8Y"
@@ -534,10 +778,10 @@ alt="Text tool">
 <div class="marker" style="--x:78%;--y:82%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">TEXT</div>
+<div class="marker-label">TEXT</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -547,26 +791,24 @@ alt="Text tool">
 
 <p>
 <strong>🎯 Kaayyoo:</strong>
-Barruu irratti font filannoo gochuuf Text layer qabaachuu.
+Text layer qabaachuu.
 </p>
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-PixelLab keessatti barruu tokko qabaachuun barbaachisaa dha.
-Text layer irratti font haaraa yaaluu dandeessa.
-Maqaa kee ykn jecha gabaabaa tokko barreessuun
-barnoota kanaaf gaarii dha.
+Font haaraa yaaluuf barruu tokko qabaachuun barbaachisaa dha.
+Text layer irratti maqaa kee ykn jecha gabaabaa barreessi.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+<strong>👆 Maal tuqna?</strong><br>
 Mallattoo <strong>A</strong> ykn Text jedhu barbaadiitii tuqi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
-Font haaraa erga galchitee booda barruu irratti
-hojii irra oolchuuf text layer barbaachisa.
+<strong>❓ Maaliif?</strong><br>
+Font haaraa galchinee booda barruu irratti
+hojii irra oolchuu qabna.
 </p>
 
 <span class="location">
@@ -574,42 +816,39 @@ hojii irra oolchuuf text layer barbaachisa.
 </span>
 
 <p>
-<strong>⚠️ Yoo Text hin mul'anne:</strong>
-Menu ykn toolbar gara jalaa fi gara olii ilaali.
-Version PixelLab garaagaraa ta'uu danda'a.
+<strong>⚠️ Yoo Text hin mul'anne:</strong><br>
+Menu ykn toolbar keessa ilaali; version app garaagaraa ta'uu danda'a.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 Canvas irratti barruun tokko mul'achuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 3 -->
+<!-- VISUAL 3 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/W0BmBNnbaZ1CuuTt2eXdrUrjq5mX4YX0JWbItvoaM0DMlQuTQixA5X1n0hB251egfg">
 
 <img
 src="https://play-lh.googleusercontent.com/W0BmBNnbaZ1CuuTt2eXdrUrjq5mX4YX0JWbItvoaM0DMlQuTQixA5X1n0hB251egfg"
 alt="Text settings">
 
-<div class="marker" style="--x:55%;--y:75%">
+<div class="marker" style="--x:50%;--y:75%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">SETTINGS</div>
+<div class="marker-label">SETTINGS</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -619,24 +858,24 @@ alt="Text settings">
 
 <p>
 <strong>🎯 Kaayyoo:</strong>
-Bakka font itti argamu bira ga'uuf.
+Bakka font itti argamu bira ga'uu.
 </p>
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-Text layer filattee yeroo tuqxu settings adda addaa
-argatta. Isaan keessaa Font jedhu barbaadi.
+Text layer erga filattee booda settings adda addaa argatta.
+Isaan keessaa Font jedhu barbaadi.
 Font menu keessatti fontwwan PixelLab duraan qabuu fi
 My Fonts arguu dandeessa.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+<strong>👆 Maal tuqna?</strong><br>
 Text filadhu → Text settings → Font.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Font haaraa galchuuf gara Font menu seenuu qabda.
 </p>
 
@@ -645,29 +884,27 @@ Font haaraa galchuuf gara Font menu seenuu qabda.
 </span>
 
 <p>
-<strong>⚠️ Hubachiisa:</strong>
-Menu maqaan isaa version app irratti xiqqoo garaagaruu danda'a.
+<strong>⚠️ Yoo hin argamne:</strong><br>
+Toolbar gara bitaa ykn mirgaatti harkisi.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 Font menu siif banamuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 4 -->
+<!-- VISUAL 4 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/O5s7BWnM_3bvI3KEtQwEqGIku0G2FCjAsFzQv4vWmxTv23wmv_zDx0DWHxJCKjVb3fg">
 
 <img
 src="https://play-lh.googleusercontent.com/O5s7BWnM_3bvI3KEtQwEqGIku0G2FCjAsFzQv4vWmxTv23wmv_zDx0DWHxJCKjVb3fg"
@@ -676,10 +913,10 @@ alt="Font menu">
 <div class="marker" style="--x:50%;--y:70%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">FONT</div>
+<div class="marker-label">FONT</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -694,19 +931,18 @@ My Fonts bakka jedhu argachuu.
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-Font menu keessatti PixelLab fontwwan duraan
-qabdu agarsiisa. As keessatti bakka My Fonts,
-My Fonts ykn Custom Fonts fakkaatu barbaadi.
+Font menu keessatti PixelLab fontwwan duraan qabdu agarsiisa.
+As keessatti bakka My Fonts ykn Custom Fonts fakkaatu barbaadi.
 Kun bakka font mataa keetii itti galchituudha.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+<strong>👆 Maal tuqna?</strong><br>
 Font menu keessatti My Fonts ykn Custom Fonts tuqi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Font haaraa bilbila irraa galchuuf bakka addaa kana fayyadamna.
 </p>
 
@@ -715,42 +951,40 @@ Font haaraa bilbila irraa galchuuf bakka addaa kana fayyadamna.
 </span>
 
 <p>
-<strong>⚠️ Yoo hin argamne:</strong>
-Font menu gadi fi oli sochoosi; version PixelLab tokko tokko
-maqaa menu garaagaraa qabaachuu danda'a.
+<strong>⚠️ Yoo hin argamne:</strong><br>
+Font menu gadi fi oli sochoosi.
+Version PixelLab tokko tokko maqaa menu garaagaraa qaba.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 My Fonts page ykn font import page siif banamuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 5 -->
+<!-- VISUAL 5 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png">
 
 <img
 src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
 alt="My Fonts">
 
-<div class="marker" style="--x:77%;--y:62%">
+<div class="marker" style="--x:88%;--y:20%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">MY FONTS</div>
+<div class="marker-label">MY FONTS</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -765,23 +999,21 @@ Font dhuunfaa galchuuf bakka sirrii argachuu.
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-My Fonts jechuun bakka PixelLab keessatti font
-ati mataa keetiin galchite itti kuufamuudha.
-As keessatti font duraan galfame yoo jiraate tarree isaa argita.
-Yoo font haaraa galchuu barbaadde, mallattoo Add ykn
-+ barbaadi.
+My Fonts jechuun bakka font ati mataa keetiin galchite
+itti kuufamuudha.
+As keessatti font haaraa galchuuf mallattoo Add ykn +
+barbaadi.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+<strong>👆 Maal tuqna?</strong><br>
 My Fonts keessatti <strong>+</strong>, Add ykn button
 font dabaluuf jiru barbaadi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
-PixelLabiin font haaraa akka barbaaduuf import process
-jalqabuuf.
+<strong>❓ Maaliif?</strong><br>
+PixelLabiin font haaraa akka barbaaduuf import process jalqaba.
 </p>
 
 <span class="location">
@@ -789,42 +1021,40 @@ jalqabuuf.
 </span>
 
 <p>
-<strong>⚠️ Hubachiisa:</strong>
-Button Add bakka adda addaatti argamuu danda'a.
-Suuraa irratti mallattoo diimaa ilaali.
+<strong>⚠️ Yoo hin argamne:</strong><br>
+Version PixelLab garaagaraa ta'uu danda'a.
+Folder ykn plus icon barbaadi.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 File Manager ykn font selection page banamuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 6 -->
+<!-- VISUAL 6 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/OhbRV7Dzr1cqtYhbVKqjW-uZRqnIqrz9wT5DzoOlp-OGkwU0oEblbg6TDl0X2hiyAQ">
 
 <img
-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg4KWsAi2U9qYgBsp01ZuFz29A0Q8BVAuprRAyY43ne11kgtP_ROMnI5p379C2lLxsdE4wl7fCH6V1lAch6o-3CY35uFB2jSX47V_zkE6ir4cye5ENgzeb8WsTaNLagckOwR7xVf9wZx00J/w175-h400/add%2Bcustom%2Bfonts%2Bin%2Bpixellab.png"
-alt="Add custom font">
+src="https://play-lh.googleusercontent.com/OhbRV7Dzr1cqtYhbVKqjW-uZRqnIqrz9wT5DzoOlp-OGkwU0oEblbg6TDl0X2hiyAQ"
+alt="Add font">
 
-<div class="marker" style="--x:48%;--y:55%">
+<div class="marker" style="--x:88%;--y:20%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">ADD FONT</div>
+<div class="marker-label">ADD</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -839,162 +1069,228 @@ Font file gara PixelLabitti dabaluuf.
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-Amma File Manager ykn font picker siif banama.
-Bilbila kee keessatti font itti buufatte barbaadi.
-Yeroo baay'ee font Download folder keessa jira.
+My Fonts keessaa Add ykn folder-plus tuqxu.
+Sana booda PixelLab bilbila kee keessaa font barbaada.
+Font kee yeroo baay'ee Downloads folder keessa jira.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
-Download folder ykn bakka font itti kuufame seeni.
+<strong>👆 Maal tuqna?</strong><br>
+Add ykn folder-plus button tuqi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
-PixelLabiin font file sirrii akka argatuuf.
+<strong>❓ Maaliif?</strong><br>
+Font file bilbila keessa jiru filachuuf.
 </p>
 
 <span class="location">
-📍 Bakka: File Manager → Download / Fonts
+📍 Bakka: My Fonts → Add / Folder
 </span>
 
 <p>
-<strong>⚠️ Yoo font hin argamne:</strong>
-Download folder, Documents, Fonts fi ZIP extract gootee
-folder ilaali.
+<strong>⚠️ Yoo font hin argamne:</strong><br>
+Downloads, Documents ykn folder ati font itti kuufte ilaali.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
-Font file kee tarree keessa mul'achuu qaba.
-</p>
-
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
+<strong>✅ Bu'aa:</strong><br>
+File Manager ykn File Picker banamuu qaba.
 </p>
 
 </div>
 </div>
 
 
-<!-- 7 -->
+<!-- VISUAL 7 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20170930-122945_orig.png">
 
 <img
-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYuYeCg8VnqnabeWdmWKcaVRVi6sYre87kL1zk-2PTNNE3mJD70b_LXkTxsS04fmpV_-rK0pJdMeafNrZ6TMP9Ve4tgP0nUTJFW0pqUg7t3Pe8jgtyNX2GNf9sCcT_VX_2qXsKZ6J8YRza/w175-h400/how%2Bto%2Badd%2Bcustom%2Bfonts%2Bin%2Bpixellab%2Bapp.png"
-alt="Choose font">
+src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20170930-122945_orig.png"
+alt="File Manager">
 
-<div class="marker" style="--x:50%;--y:60%">
+<div class="marker" style="--x:30%;--y:30%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">FONT FILE</div>
+<div class="marker-label">FOLDER</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
 <div class="visual-title">
-7️⃣ Font File Barbaadi
+7️⃣ File Manager Keessa Seeni
 </div>
 
 <p>
 <strong>🎯 Kaayyoo:</strong>
-File font sirrii filachuu.
+Font file kee bilbila keessaa argachuu.
 </p>
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-Tarree file keessaa maqaa font kee barbaadi.
-Font file yeroo baay'ee dhuma irratti
-<code>.ttf</code> ykn <code>.otf</code> qaba.
-Fakkeenyaaf:
-<code>MyFont.ttf</code>
-ykn
-<code>MyFont.otf</code>.
+File Manager banamee booda folder font kee itti buufatte barbaadi.
+Yeroo baay'ee Downloads folder keessa jira.
+Yoo ZIP irraa baafatte, folder ati itti Extract goote keessa ilaali.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
-File font kee tuqi.
+<strong>👆 Maal tuqna?</strong><br>
+Downloads ykn folder font kee itti kuufame tuqi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
-File sirrii filachuun import akka milkaa'uuf barbaachisaa dha.
+<strong>❓ Maaliif?</strong><br>
+PixelLabiin font file mataa isaa argachuu qaba.
 </p>
 
 <span class="location">
-📍 Bakka: File Picker → .TTF / .OTF
+📍 Bakka: File Manager → Downloads / Fonts
 </span>
 
 <p>
-<strong>⚠️ Hin filatin:</strong>
-ZIP, JPG, PNG ykn file design. Font file qofa filadhu.
+<strong>⚠️ Hubadhu:</strong><br>
+ZIP/RAR file mataa isaa hin filatin.
+Jalqaba Extract/Unzip godhi.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
-PixelLab fonticha fudhachuuf qophaa'a.
-</p>
-
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
+<strong>✅ Bu'aa:</strong><br>
+Tarree font files kee arguu qabda.
 </p>
 
 </div>
 </div>
 
 
-<!-- 8 -->
+<!-- VISUAL 8 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/cZH93EQ4QwntzCLdnjL8Fi5njwsaFI45KzA2Vkn_cUPBs78TQDm8aFDYaGHMmRTJyQ">
 
 <img
-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0YthznBxT4Xn6IQQ4nyBw5JFGQUAdgUTjr49dT9YDBwN5Gq_rdkx9ohSRGBTGDkeChm5KEkJbrhS4pL445fBv7eemLB6G7N3ZcrVtvastWKdsFKvYOkjFv9CW8prfzShGksijIQDWgrXP/w175-h400/add%2Bcustom%2Bfonts%2Bin%2Bpixellab%2B2021.png"
-alt="Import font">
+src="https://play-lh.googleusercontent.com/cZH93EQ4QwntzCLdnjL8Fi5njwsaFI45KzA2Vkn_cUPBs78TQDm8aFDYaGHMmRTJyQ"
+alt="Font file">
 
-<div class="marker" style="--x:55%;--y:70%">
+<div class="marker" style="--x:50%;--y:70%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">IMPORT</div>
+<div class="marker-label">TTF/OTF</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
 <div class="visual-title">
-8️⃣ Import / Add Godhi
+8️⃣ Font File Sirrii Filadhu
 </div>
 
 <p>
 <strong>🎯 Kaayyoo:</strong>
-Font file filatame PixelLab keessatti galchuu.
+Font file sirrii filachuu.
+</p>
+
+<p>
+<strong>📖 Ibsa bal'aa:</strong>
+Font file dhuma isaa irratti <code>.ttf</code> ykn
+<code>.otf</code> qabaachuu danda'a.
+Fakkeenya:
+<code>MyFont.ttf</code> ykn
+<code>MyFont.otf</code>.
+</p>
+
+<p>
+<strong>👆 Maal tuqna?</strong><br>
+File <code>.ttf</code> ykn <code>.otf</code> tuqi.
+</p>
+
+<p>
+<strong>❓ Maaliif?</strong><br>
+PixelLabiin font file sirrii akka argatuuf.
+</p>
+
+<span class="location">
+📍 Bakka: File Manager → .TTF / .OTF
+</span>
+
+<p>
+<strong>⚠️ Hin filatin:</strong><br>
+JPG, PNG, ZIP ykn file design.
+Font file qofa filadhu.
+</p>
+
+<p>
+<strong>✅ Bu'aa:</strong><br>
+Font file filatamee import process itti fufa.
+</p>
+
+</div>
+</div>
+
+
+<!-- VISUAL 9 -->
+
+<div class="visual">
+
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/up16KC1Pg5V9YeuQ5B76WhyMYjhzuxv_Ajyyf67L5GanulbpXK9vgq0OPp7XlKlLBXjv">
+
+<img
+src="https://play-lh.googleusercontent.com/up16KC1Pg5V9YeuQ5B76WhyMYjhzuxv_Ajyyf67L5GanulbpXK9vgq0OPp7XlKlLBXjv"
+alt="Import font">
+
+<div class="marker" style="--x:50%;--y:70%">
+<div class="ring"></div>
+<div class="arrow">👆</div>
+<div class="marker-label">IMPORT</div>
+</div>
+
+</button>
+
+<div class="visual-body">
+
+<div class="visual-title">
+9️⃣ Import / Add Godhi
+</div>
+
+<p>
+<strong>🎯 Kaayyoo:</strong>
+Font file gara PixelLabitti galchuu.
 </p>
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
 Font file erga filattee booda PixelLab version kee irratti
-button Add, Select, Open ykn OK fakkaatu argachuu dandeessa.
-Maqaan button garaagaruu danda'a, garuu hojii isaa tokko:
+Add, Select, Open, OK ykn Add Directory fakkaatu
+arguu dandeessa.
+</p>
+
+<p>
+Maqaan button garaagaruu danda'a; garuu hojii isaa tokko:
 fonticha gara PixelLabitti galchuu.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
-Add / Select / Open / OK keessaa kan mul'atu tuqi.
+<strong>👆 Maal tuqna?</strong><br>
+Add / Select / Open / OK kan mul'atu tuqi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Font file akka PixelLab keessatti galmaa'uuf.
 </p>
 
@@ -1003,112 +1299,39 @@ Font file akka PixelLab keessatti galmaa'uuf.
 </span>
 
 <p>
-<strong>⚠️ Yoo hin milkoofne:</strong>
-Font file sirrii ta'uu isaa, extension isaa fi
-extract gochuu kee mirkaneessi.
+<strong>⚠️ Yoo hin milkoofne:</strong><br>
+Font file sirrii ta'uu isaa fi Extract gochuu kee mirkaneessi.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 Fontiin My Fonts keessatti mul'achuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 9 -->
+<!-- VISUAL 10 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/LX9Z30vYKp5sJdtBwBDGLbM7Kpj6-3RpR2YMdCZ40zGpdKlqUA-T-j2II6Y_R2wwYw">
 
 <img
-src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0achDuSrnU3CszQ9_IGO0PPi2BmLKQ0T0Yp2Phyj31x1xFV4Nr5c4OAXKs3SLqsRPAp2m-_NwDfCqDnguVWLzPep_t98UPMMV0VwWJEdk3vidtrAtAi00CdHlZo7yb2W1_ZEKQSSqzbR-/w175-h400/how%2Bto%2Binstall%2Bcustom%2Bfonts%2Bin%2Bpixellab.png"
-alt="Install font">
+src="https://play-lh.googleusercontent.com/LX9Z30vYKp5sJdtBwBDGLbM7Kpj6-3RpR2YMdCZ40zGpdKlqUA-T-j2II6Y_R2wwYw"
+alt="Select font">
 
-<div class="marker" style="--x:50%;--y:55%">
+<div class="marker" style="--x:50%;--y:50%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">INSTALL</div>
+<div class="marker-label">SELECT</div>
 </div>
 
-</div>
-
-<div class="visual-body">
-
-<div class="visual-title">
-9️⃣ Font Install / Galmee
-</div>
-
-<p>
-<strong>🎯 Kaayyoo:</strong>
-Font import xumuruu fi PixelLab keessatti galmeessuu.
-</p>
-
-<p>
-<strong>📖 Ibsa bal'aa:</strong>
-Version PixelLab tokko tokko keessatti Add Directory,
-Add Selected, OK ykn button maqaa biraa arguu dandeessa.
-Kaayyoon isaa fonticha akka My Fonts keessatti
-galmaa'u gochuu dha.
-</p>
-
-<p>
-<strong>👆 Maal tuquu qabda?</strong>
-Button Add / OK / Select kan mul'atu tuqi.
-</p>
-
-<p>
-<strong>❓ Maaliif?</strong>
-Fonticha gara tarree My Fontsitti dabaluuf.
-</p>
-
-<span class="location">
-📍 Bakka: Import Dialog → Add / OK
-</span>
-
-<p>
-<strong>⚠️ Hubachiisa:</strong>
-Maqaan button version app irratti garaagaruu danda'a.
-</p>
-
-<p>
-<strong>✅ Bu'aa:</strong>
-Fontiin haaraan My Fonts keessatti mul'achuu qaba.
-</p>
-
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
-</div>
-</div>
-
-
-<!-- 10 -->
-
-<div class="visual">
-
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
-
-<img
-src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155059_orig.png"
-alt="Select new font">
-
-<div class="marker" style="--x:50%;--y:60%">
-<div class="ring"></div>
-<div class="arrow">👆</div>
-<div class="label">SELECT</div>
-</div>
-
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -1118,25 +1341,25 @@ alt="Select new font">
 
 <p>
 <strong>🎯 Kaayyoo:</strong>
-Font galfame hojii irra oolchuu.
+Font import godhame hojii irra oolchuu.
 </p>
 
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
-My Fonts keessatti maqaa font haaraa barbaadi.
-Fonticha tuqi. Yeroo tuqxu barruun kee
-fonticha fayyadamuun jijjiiramuu qaba.
+Font galfamee booda My Fonts keessatti maqaa font haaraa barbaadi.
+Fonticha tuqi. Yeroo tuqxu barruun kee fonticha fayyadamuun
+jijjiiramuu qaba.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+<strong>👆 Maal tuqna?</strong><br>
 Maqaa font haaraa tarree My Fonts keessaa tuqi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Import gochuun qofti gahaa miti.
-Fonticha barruu irratti apply gochuu qabda.
+Fonticha barruu irratti Apply gochuu qabda.
 </p>
 
 <span class="location">
@@ -1144,41 +1367,39 @@ Fonticha barruu irratti apply gochuu qabda.
 </span>
 
 <p>
-<strong>⚠️ Yoo hin mul'anne:</strong>
+<strong>⚠️ Yoo hin mul'anne:</strong><br>
 PixelLab cufii irra deebiin bani ykn fonticha import irra deebi'i.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 Barruun kee font haaraan mul'achuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 11 -->
+<!-- VISUAL 11 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/xsWriTvxtoSJe-seJGN46JlNV7Eff0UxL1XR3If1FyMzkWX8tnGg444y_dx_wVs3GkY">
 
 <img
-src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155114_orig.png"
+src="https://play-lh.googleusercontent.com/xsWriTvxtoSJe-seJGN46JlNV7Eff0UxL1XR3If1FyMzkWX8tnGg444y_dx_wVs3GkY"
 alt="Apply font">
 
 <div class="marker" style="--x:50%;--y:82%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">APPLY</div>
+<div class="marker-label">APPLY</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -1194,17 +1415,18 @@ Font haaraa design irratti sirriitti fayyadamuu.
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
 Font tokko design irratti bareedaa fakkaachuu qofa osoo hin taane
-dubbifamuu qaba. Maqaa kee ykn sentence gabaabaa itti barreessi.
+dubbifamuu qaba.
+Maqaa kee ykn sentence gabaabaa itti barreessi.
 Size, color, spacing fi effects isaa sirreessi.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
-Text filadhu → Font → font haaraa filadhu → Apply.
+<strong>👆 Maal tuqna?</strong><br>
+Text filadhu → Font → Font haaraa filadhu → Apply.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Font tokko title irratti gaarii ta'uu danda'a,
 subtitle ykn body text irratti garuu dubbifamuu dhiisuu danda'a.
 </p>
@@ -1214,29 +1436,27 @@ subtitle ykn body text irratti garuu dubbifamuu dhiisuu danda'a.
 </span>
 
 <p>
-<strong>⚠️ Hubadhu:</strong>
+<strong>⚠️ Hubachiisa:</strong><br>
 Font decorative baay'ee ta'e barruu dheeraa irratti hin fayyadamin.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 Barruun kee font haaraan ifatti mul'achuu qaba.
 </p>
 
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
-</p>
-
 </div>
 </div>
 
 
-<!-- 12 -->
+<!-- VISUAL 12 -->
 
 <div class="visual">
 
-<div class="visual-image"
-onclick="openModal(this.querySelector('img').src)">
+<button
+class="image-button"
+type="button"
+data-image="https://play-lh.googleusercontent.com/QFZGaEhzd-kHYhqpzNZBdFfynisI0SAayFBQQAvkPI8I-EpxEBMbs0PvB1RRvYeANKQ">
 
 <img
 src="https://play-lh.googleusercontent.com/QFZGaEhzd-kHYhqpzNZBdFfynisI0SAayFBQQAvkPI8I-EpxEBMbs0PvB1RRvYeANKQ"
@@ -1245,10 +1465,10 @@ alt="Final design">
 <div class="marker" style="--x:50%;--y:50%">
 <div class="ring"></div>
 <div class="arrow">👆</div>
-<div class="label">FINAL DESIGN</div>
+<div class="marker-label">DESIGN</div>
 </div>
 
-</div>
+</button>
 
 <div class="visual-body">
 
@@ -1264,9 +1484,9 @@ Barnoota guutuu hojii design tokkoon mirkaneessuu.
 <p>
 <strong>📖 Ibsa bal'aa:</strong>
 Amma font haaraa galchitee, filattee fi barruu irratti
-hojii irra oolchiteetta. Tarkaanfii dhumaa keessatti
-poster, thumbnail, quote design ykn title design gabaabaa
-qopheessi.
+hojii irra oolchiteetta.
+Tarkaanfii dhumaa keessatti poster, thumbnail,
+quote design ykn title design gabaabaa qopheessi.
 </p>
 
 <p>
@@ -1276,13 +1496,13 @@ color fi background waliin akka walsimu mirkaneessi.
 </p>
 
 <p>
-<strong>👆 Maal tuquu qabda?</strong>
+<strong>👆 Maal tuqna?</strong><br>
 Text settings irraa size, color, shadow, stroke fi
 effects barbaachisan sirreessi.
 </p>
 
 <p>
-<strong>❓ Maaliif?</strong>
+<strong>❓ Maaliif?</strong><br>
 Kaayyoon Lesson 2 font galchuu qofa osoo hin taane,
 font sana design keessatti sirriitti fayyadamuudha.
 </p>
@@ -1292,18 +1512,14 @@ font sana design keessatti sirriitti fayyadamuudha.
 </span>
 
 <p>
-<strong>⚠️ Hubachiisa:</strong>
-Font baay'ee hin makiin. Design qulqulluu fi dubbifamuu
-danda'u qopheessi.
+<strong>⚠️ Hubachiisa:</strong><br>
+Font baay'ee hin makiin.
+Design qulqulluu fi dubbifamuu danda'u qopheessi.
 </p>
 
 <p>
-<strong>✅ Bu'aa:</strong>
+<strong>✅ Bu'aa:</strong><br>
 Design xumurame fi screenshot assignmentif qophaa'e argachuu qabda.
-</p>
-
-<p class="zoom">
-🔍 Suuraa tuqi — guddisii ilaali.
 </p>
 
 </div>
@@ -1312,12 +1528,17 @@ Design xumurame fi screenshot assignmentif qophaa'e argachuu qabda.
 </section>
 
 
+<!-- =========================
+     ASSIGNMENT
+========================= -->
+
 <section class="card assignment">
 
 <h2>📝 ASSIGNMENT — LESSON 2</h2>
 
 <h3>
-🎯 Mata-duree: Font Haaraa Galchuu fi Ittiin Design Hojjechuu
+🎯 Mata-duree:
+Font Haaraa Galchuu fi Ittiin Design Hojjechuu
 </h3>
 
 <p>
@@ -1332,7 +1553,8 @@ Font haaraa tokko ykn isaa ol buufadhu.
 </li>
 
 <li>
-Yoo ZIP keessatti dhufe, <strong>Extract / Unzip</strong> godhi.
+Yoo ZIP keessatti dhufe,
+<strong>Extract / Unzip</strong> godhi.
 </li>
 
 <li>
@@ -1358,6 +1580,7 @@ Design xumuraa screenshot godhi.
 
 </ol>
 
+
 <div class="note">
 
 <strong>📤 Waan submit gootu:</strong><br>
@@ -1365,9 +1588,19 @@ Design xumuraa screenshot godhi.
 Screenshot kan agarsiisu:
 
 <ul>
-<li>Font haaraan PixelLab keessatti galfamee jiraachuu.</li>
-<li>Fontiin barruu irratti hojii irra ooluu.</li>
-<li>Design xumuramuu.</li>
+
+<li>
+Font haaraan PixelLab keessatti galfamee jiraachuu.
+</li>
+
+<li>
+Fontiin barruu irratti hojii irra ooluu.
+</li>
+
+<li>
+Design xumuramuu.
+</li>
+
 </ul>
 
 </div>
@@ -1377,55 +1610,97 @@ Screenshot kan agarsiisu:
 
 <p>
 Fakkeenyonni armaan gadii barataan hojii isaa akkamitti
-qopheessuu akka danda'u agarsiisu. Fakkeenya qofa ilaali;
-design nama biraa copy hin godhin.
+qopheessuu akka danda'u agarsiisu.
+Fakkeenya qofa ilaali; design nama biraa copy hin godhin.
 </p>
+
 
 <div class="example-grid">
 
+
 <div class="example">
+
+<button
+type="button"
+class="example-button"
+data-image="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png">
+
 <img
-onclick="openModal(this.src)"
 src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155040_orig.png"
 alt="Assignment example 1">
+
+</button>
+
 <p>
-<strong>Fakkeenya 1:</strong>
+<strong>Fakkeenya 1:</strong><br>
 My Fonts keessatti font haaraa argamuu.
 </p>
+
 </div>
 
+
 <div class="example">
+
+<button
+type="button"
+class="example-button"
+data-image="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155059_orig.png">
+
 <img
-onclick="openModal(this.src)"
 src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155059_orig.png"
 alt="Assignment example 2">
+
+</button>
+
 <p>
-<strong>Fakkeenya 2:</strong>
+<strong>Fakkeenya 2:</strong><br>
 Font haaraa barruu irratti hojii irra ooluu.
 </p>
+
 </div>
 
+
 <div class="example">
+
+<button
+type="button"
+class="example-button"
+data-image="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155114_orig.png">
+
 <img
-onclick="openModal(this.src)"
 src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/screenshot-20170929-155114_orig.png"
 alt="Assignment example 3">
+
+</button>
+
 <p>
-<strong>Fakkeenya 3:</strong>
+<strong>Fakkeenya 3:</strong><br>
 Font booda design customization.
 </p>
+
 </div>
 
+
 <div class="example">
+
+<button
+type="button"
+class="example-button"
+data-image="https://play-lh.googleusercontent.com/dxb45N-XXYRzDcV2pltfeFD7_nLdW7toExOZgOWXJrTW3YFms78V50jCTQe8CA0ZPE">
+
 <img
-onclick="openModal(this.src)"
 src="https://play-lh.googleusercontent.com/dxb45N-XXYRzDcV2pltfeFD7_nLdW7toExOZgOWXJrTW3YFms78V50jCTQe8CA0ZPE"
 alt="Assignment example 4">
+
+</button>
+
 <p>
-<strong>Fakkeenya 4:</strong>
+<strong>Fakkeenya 4:</strong><br>
 Canvas irratti text design qopheessuu.
 </p>
+
 </div>
+
 
 </div>
 
@@ -1433,18 +1708,31 @@ Canvas irratti text design qopheessuu.
 <h3>✅ Barataan of gaafatu</h3>
 
 <ul>
+
 <li>Font buufachuu nan danda'aa?</li>
+
 <li>ZIP keessaa Extract gochuu nan danda'aa?</li>
+
 <li>TTF fi OTF adda baasuu nan danda'aa?</li>
+
 <li>My Fonts bakka jedhu argachuu nan danda'aa?</li>
+
 <li>Font haaraa import gochuu nan danda'aa?</li>
+
 <li>Fonticha barruu irratti Apply gochuu nan danda'aa?</li>
+
 <li>Font sirrii design kootiif filachuu nan danda'aa?</li>
+
 <li>Design koo dubbifamuu fi bareedaa ta'uu isaa ilaaleeraa?</li>
+
 </ul>
 
 </section>
 
+
+<!-- =========================
+     SUMMARY
+========================= -->
 
 <section class="card">
 
@@ -1452,8 +1740,16 @@ Canvas irratti text design qopheessuu.
 
 <p>
 <strong>
-Download → Extract → TTF/OTF → PixelLab →
-Font → My Fonts → Add → Select → Apply → Design
+Download →
+Extract →
+TTF/OTF →
+PixelLab →
+Font →
+My Fonts →
+Add →
+Select →
+Apply →
+Design
 </strong>
 </p>
 
@@ -1469,12 +1765,19 @@ fi design kee keessatti bakka sirriitti fayyadamuutu barbaachisa.
 
 <p>
 Font gaarii jechuun font bareedaa qofa miti;
-<strong>dubbifamuu danda'u, design waliin walsimu,
-fi ergaa design sanaa cimsu</strong> dha.
+<strong>
+dubbifamuu danda'u, design waliin walsimu,
+fi ergaa design sanaa cimsu
+</strong>
+dha.
 </p>
 
 </section>
 
+
+<!-- =========================
+     FINISH
+========================= -->
 
 <section class="finish">
 
@@ -1494,13 +1797,16 @@ achiis button armaan gadii tuqi.
 
 <button
 id="completeBtn"
-class="complete-btn">
+class="complete-btn"
+type="button">
+
 ✅ Lesson 2 Completed
+
 </button>
 
 <p
 id="completeMessage"
-class="zoom">
+class="small">
 </p>
 
 </section>
@@ -1508,120 +1814,248 @@ class="zoom">
 </div>
 
 
-<!-- IMAGE MODAL -->
+<!-- =========================
+     IMAGE MODAL
+========================= -->
 
 <div
 id="imageModal"
 class="modal"
-onclick="closeModal(event)">
+aria-hidden="true">
 
 <div
-class="modal-content"
-onclick="event.stopPropagation()">
+class="modal-box">
 
 <button
-class="close"
-onclick="closeModal(event)">
+id="closeBtn"
+class="close-btn"
+type="button"
+aria-label="Close">
+
 ×
 </button>
 
 <img
 id="modalImage"
 src=""
-alt="Large PixelLab screenshot">
+alt="Large PixelLab image">
 
 </div>
+
 </div>
 
 
 <script>
 
-function openModal(src){
+/* =========================================
+   IMAGE ZOOM SYSTEM
+   Suuraa hunda tuqnaan ni guddata
+========================================= */
 
-const modal=document.getElementById("imageModal");
-const image=document.getElementById("modalImage");
+const modal =
+document.getElementById("imageModal");
 
-image.src=src;
+const modalImage =
+document.getElementById("modalImage");
 
-modal.classList.add("show");
+const closeBtn =
+document.getElementById("closeBtn");
 
-document.body.style.overflow="hidden";
+
+function openImage(imageURL){
+
+  if(!imageURL){
+    return;
+  }
+
+  modalImage.src = imageURL;
+
+  modal.classList.add("show");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.style.overflow =
+    "hidden";
 }
 
 
-function closeModal(event){
+function closeImage(){
 
-if(event){
-event.stopPropagation();
+  modal.classList.remove("show");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  modalImage.src = "";
+
+  document.body.style.overflow =
+    "";
 }
 
-const modal=document.getElementById("imageModal");
 
-modal.classList.remove("show");
+/* Visual images */
+document.querySelectorAll(
+  ".image-button"
+).forEach(function(button){
 
-document.getElementById("modalImage").src="";
+  button.addEventListener(
+    "click",
+    function(){
 
-document.body.style.overflow="";
-}
+      const imageURL =
+        button.getAttribute(
+          "data-image"
+        );
 
+      openImage(imageURL);
 
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-closeModal();
-}
+    }
+  );
 
 });
 
 
-const LESSON_KEY="kena_lesson2_completed";
+/* Assignment images */
+document.querySelectorAll(
+  ".example-button"
+).forEach(function(button){
 
-const completeBtn=
-document.getElementById("completeBtn");
+  button.addEventListener(
+    "click",
+    function(){
 
-const completeMessage=
-document.getElementById("completeMessage");
+      const imageURL =
+        button.getAttribute(
+          "data-image"
+        );
 
+      openImage(imageURL);
 
-function loadLessonStatus(){
+    }
+  );
 
-if(localStorage.getItem(LESSON_KEY)==="true"){
-
-completeBtn.textContent=
-"✅ Lesson 2 Completed";
-
-completeBtn.classList.add("done");
-
-completeMessage.textContent=
-"🎉 Lesson 2 completed jechuun galmaa'eera.";
-
-}
-
-}
+});
 
 
-if(completeBtn){
+/* Close button */
+closeBtn.addEventListener(
+  "click",
+  function(event){
 
-completeBtn.addEventListener("click",function(){
+    event.stopPropagation();
 
-localStorage.setItem(
-LESSON_KEY,
-"true"
+    closeImage();
+
+  }
 );
 
-completeBtn.textContent=
-"✅ Lesson 2 Completed";
 
-completeBtn.classList.add("done");
+/* Dark background click */
+modal.addEventListener(
+  "click",
+  function(event){
 
-completeMessage.textContent=
-"🎉 Milkaa'e! Lesson 2 completed jechuun galmaa'eera.";
+    if(
+      event.target === modal
+    ){
 
-});
+      closeImage();
+
+    }
+
+  }
+);
+
+
+/* ESC key */
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Escape"
+    ){
+
+      closeImage();
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   LESSON COMPLETION
+========================================= */
+
+const LESSON_KEY =
+"kena_lesson2_completed";
+
+const completeBtn =
+document.getElementById(
+  "completeBtn"
+);
+
+const completeMessage =
+document.getElementById(
+  "completeMessage"
+);
+
+
+/* Yoo duraan xumurame */
+function loadLessonStatus(){
+
+  if(
+    localStorage.getItem(
+      LESSON_KEY
+    ) === "true"
+  ){
+
+    completeBtn.textContent =
+      "✅ Lesson 2 Completed";
+
+    completeBtn.classList.add(
+      "done"
+    );
+
+    completeMessage.textContent =
+      "🎉 Lesson 2 completed jechuun galmaa'eera.";
+
+  }
 
 }
 
 
+/* Finish button */
+completeBtn.addEventListener(
+  "click",
+  function(){
+
+    localStorage.setItem(
+      LESSON_KEY,
+      "true"
+    );
+
+    completeBtn.textContent =
+      "✅ Lesson 2 Completed";
+
+    completeBtn.classList.add(
+      "done"
+    );
+
+    completeMessage.textContent =
+      "🎉 Milkaa'e! Lesson 2 completed jechuun galmaa'eera.";
+
+  }
+);
+
+
+/* Status load */
 loadLessonStatus();
 
 </script>

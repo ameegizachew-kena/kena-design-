@@ -98,6 +98,16 @@
       opacity:.9;
     }
 
+    button:disabled{
+      opacity:.55;
+      cursor:not-allowed;
+    }
+
+    .secondary-btn{
+      background:#24364d;
+      color:white;
+    }
+
     .logout{
       background:#ef4444;
       color:white;
@@ -124,6 +134,39 @@
       background:#10382a;
       color:#9ff0c7;
       border:1px solid #216c4c;
+    }
+
+    .otp-box{
+      margin-top:20px;
+      padding:18px;
+      background:#0b1727;
+      border:1px solid #29415c;
+      border-radius:14px;
+    }
+
+    .otp-box h3{
+      color:#32d583;
+      margin-bottom:8px;
+    }
+
+    .otp-box p{
+      color:#b9c5d3;
+      line-height:1.6;
+      font-size:14px;
+    }
+
+    #otp{
+      text-align:center;
+      font-size:24px;
+      font-weight:bold;
+      letter-spacing:8px;
+    }
+
+    .timer{
+      text-align:center;
+      margin-top:12px;
+      color:#9fb0c2;
+      font-size:14px;
     }
 
     .student-info{
@@ -212,6 +255,7 @@
     }
 
     @media(max-width:650px){
+
       .container{
         padding:14px;
       }
@@ -226,6 +270,11 @@
 
       .student-info{
         grid-template-columns:1fr;
+      }
+
+      #otp{
+        font-size:21px;
+        letter-spacing:6px;
       }
     }
   </style>
@@ -256,6 +305,7 @@
       id="phone"
       placeholder="09xxxxxxxx ykn 07xxxxxxxx"
       maxlength="10"
+      inputmode="numeric"
       autocomplete="tel"
     >
 
@@ -270,24 +320,94 @@
       autocomplete="off"
     >
 
-    <button onclick="loginStudent()">
-      🔓 Login
+    <button
+      id="sendOtpBtn"
+      onclick="sendOTP()"
+    >
+      📩 OTP Ergi
     </button>
 
     <div id="loginError" class="message error"></div>
+
+
+    <!-- ================= OTP ================= -->
+
+    <div
+      id="otpSection"
+      class="otp-box hidden"
+    >
+
+      <h3>🔐 OTP Mirkaneessi</h3>
+
+      <p>
+        OTP lakkoofsa bilbila galmeessite irratti
+        ergameera. OTP digitii 6 qabu galchi.
+      </p>
+
+      <label for="otp">
+        🔢 OTP
+      </label>
+
+      <input
+        type="text"
+        id="otp"
+        placeholder="000000"
+        maxlength="6"
+        inputmode="numeric"
+        autocomplete="one-time-code"
+      >
+
+      <button
+        id="verifyOtpBtn"
+        onclick="verifyOTP()"
+      >
+        ✅ OTP Mirkaneessi
+      </button>
+
+      <button
+        id="resendOtpBtn"
+        class="secondary-btn"
+        onclick="sendOTP(true)"
+        disabled
+      >
+        🔄 OTP Irra Deebi'i
+      </button>
+
+      <div
+        id="otpTimer"
+        class="timer"
+      ></div>
+
+      <div
+        id="otpMessage"
+        class="message success"
+      ></div>
+
+      <div
+        id="otpError"
+        class="message error"
+      ></div>
+
+    </div>
 
   </section>
 
 
   <!-- ================= DASHBOARD ================= -->
 
-  <section id="dashboardSection" class="hidden">
+  <section
+    id="dashboardSection"
+    class="hidden"
+  >
 
     <div class="box">
 
       <h2>👋 Baga Nagaan Dhuftan</h2>
 
-      <div id="studentInfo" class="student-info"></div>
+      <div
+        id="studentInfo"
+        class="student-info"
+      ></div>
 
       <button
         class="logout"
@@ -305,7 +425,10 @@
 
       <h2>📚 Barnoota Keessan</h2>
 
-      <div id="lessonsContainer" class="lessons"></div>
+      <div
+        id="lessonsContainer"
+        class="lessons"
+      ></div>
 
     </div>
 
@@ -316,737 +439,1158 @@
 
 <script>
 
-  /* =====================================================
-     SUPABASE STUDENT LOGIN EDGE FUNCTION
-     ===================================================== */
+/* =====================================================
+   EDGE FUNCTIONS
+   ===================================================== */
 
-  const LOGIN_URL =
-    "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
+const SEND_OTP_URL =
+  "https://baoczizarrnzxwguyili.supabase.co/functions/v1/send-otp";
 
+const VERIFY_OTP_URL =
+  "https://baoczizarrnzxwguyili.supabase.co/functions/v1/verify-otp";
 
-  /* =====================================================
-     COURSE DATA
-     ===================================================== */
 
-  const COURSES = {
+/* =====================================================
+   OTP TIMER
+   ===================================================== */
 
-    "Graphic Design": [
+let otpTimerInterval = null;
 
-      {
-        lesson: 1,
-        title: "Lesson 1 — Graphic Design Basics",
-        description:
-          "Bu'uura Graphic Design fi PixelLab irratti hojii design jalqabaa baradhu."
-      },
+let otpSeconds = 0;
 
-      {
-        lesson: 2,
-        title: "Lesson 2 — PixelLab Font Haaraa Dabaluu",
-        description:
-          "PixelLab keessatti font haaraa akkamitti dabaluu fi fayyadamuu baradhu."
-      },
 
-      {
-        lesson: 3,
-        title: "Lesson 3 — Color & Typography",
-        description:
-          "Halluu, font fi typography sirriitti fayyadamuun design bareedaa hojjedhu."
-      },
+/* =====================================================
+   COURSE DATA
+   ===================================================== */
 
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Graphic Project",
-        description:
-          "Barnoota kee fayyadamuun project Graphic Design xumuraa hojjedhu."
-      }
+const COURSES = {
 
-    ],
+  "Graphic Design": [
 
+    {
+      lesson: 1,
+      title: "Lesson 1 — Graphic Design Basics",
+      description:
+        "Bu'uura Graphic Design fi PixelLab irratti hojii design jalqabaa baradhu."
+    },
 
-    "Video Editing": [
+    {
+      lesson: 2,
+      title: "Lesson 2 — PixelLab Font Haaraa Dabaluu",
+      description:
+        "PixelLab keessatti font haaraa akkamitti dabaluu fi fayyadamuu baradhu."
+    },
 
-      {
-        lesson: 1,
-        title: "Lesson 1 — Video Editing Basics",
-        description:
-          "Bu'uura video editing fi hojii jalqabaa baradhu."
-      },
+    {
+      lesson: 3,
+      title: "Lesson 3 — Color & Typography",
+      description:
+        "Halluu, font fi typography sirriitti fayyadamuun design bareedaa hojjedhu."
+    },
 
-      {
-        lesson: 2,
-        title: "Lesson 2 — Editing Tools",
-        description:
-          "Meeshaalee video editing barbaachisoo ta'an baradhu."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Effects & Transitions",
-        description:
-          "Effects fi transitions sirriitti fayyadamuun video kee fooyyeessi."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Video Project",
-        description:
-          "Video project kee xumuraa hojjedhu."
-      }
-
-    ],
-
-
-    "Web Design": [
-
-      {
-        lesson: 1,
-        title: "Lesson 1 — Web Design Basics",
-        description:
-          "Bu'uura website fi HTML baradhu."
-      },
-
-      {
-        lesson: 2,
-        title: "Lesson 2 — HTML & CSS",
-        description:
-          "HTML fi CSS fayyadamuun website ijaari."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Responsive Design",
-        description:
-          "Website mobile fi computer irratti sirriitti hojjetu ijaari."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Web Project",
-        description:
-          "Website project kee xumuraa hojjedhu."
-      }
-
-    ],
-
-
-    "Digital Marketing": [
-
-      {
-        lesson: 1,
-        title: "Lesson 1 — Digital Marketing Basics",
-        description:
-          "Bu'uura Digital Marketing baradhu."
-      },
-
-      {
-        lesson: 2,
-        title: "Lesson 2 — Social Media Marketing",
-        description:
-          "Social media fayyadamuun marketing hojjedhu."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Content Marketing",
-        description:
-          "Content gaarii qopheessuun audience kee guddifadhu."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Marketing Project",
-        description:
-          "Digital Marketing project kee xumuri."
-      }
-
-    ],
-
-
-    "Photography": [
-
-      {
-        lesson: 1,
-        title: "Lesson 1 — Photography Basics",
-        description:
-          "Bu'uura photography fi camera settings baradhu."
-      },
-
-      {
-        lesson: 2,
-        title: "Lesson 2 — Composition",
-        description:
-          "Composition fi framing sirriitti fayyadami."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Lighting",
-        description:
-          "Lighting sirriitti fayyadamuun suuraa kee fooyyeessi."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Photography Project",
-        description:
-          "Photography project kee xumuri."
-      }
-
-    ],
-
-
-    "Flayer Package": [
-
-      {
-        lesson: 1,
-        title: "Lesson 1 — Flayer Design Basics",
-        description:
-          "Bu'uura flayer design baradhu."
-      },
-
-      {
-        lesson: 2,
-        title: "Lesson 2 — Flayer Design Practice",
-        description:
-          "Flayer bareedaa hojjechuu shaakali."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Professional Flayer",
-        description:
-          "Flayer professional qopheessi."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Flayer Project",
-        description:
-          "Flayer project kee xumuri."
-      }
-
-    ],
-
-
-    "YouTube Thumbnail": [
-
-      {
-        lesson: 1,
-        title: "Lesson 1 — YouTube Thumbnail Basics",
-        description:
-          "Bu'uura YouTube thumbnail design baradhu."
-      },
-
-      {
-        lesson: 2,
-        title: "Lesson 2 — Thumbnail Design",
-        description:
-          "Thumbnail nama hawatu hojjechuu baradhu."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Text & Color",
-        description:
-          "Text fi color sirriitti fayyadami."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Thumbnail Project",
-        description:
-          "Thumbnail project kee xumuri."
-      }
-
-    ],
-
-
-    "Poster Design": [
-
-      {
-        lesson: 1,
-        title: "Lesson 1 — Poster Design Basics",
-        description:
-          "Bu'uura poster design baradhu."
-      },
-
-      {
-        lesson: 2,
-        title: "Lesson 2 — Poster Layout",
-        description:
-          "Poster layout sirriitti qopheessi."
-      },
-
-      {
-        lesson: 3,
-        title: "Lesson 3 — Typography & Color",
-        description:
-          "Typography fi color fayyadamuun poster kee fooyyeessi."
-      },
-
-      {
-        lesson: 4,
-        title: "Lesson 4 — Final Poster Project",
-        description:
-          "Poster project kee xumuri."
-      }
-
-    ]
-
-  };
-
-
-  /* =====================================================
-     LOGIN
-     ===================================================== */
-
-  async function loginStudent(){
-
-    const phone =
-      document.getElementById("phone").value.trim();
-
-    const pin =
-      document.getElementById("pin").value.trim();
-
-    const error =
-      document.getElementById("loginError");
-
-
-    error.style.display = "none";
-    error.textContent = "";
-
-
-    if(!phone || !pin){
-
-      showLoginError(
-        "⚠️ Phone number fi Course PIN guuti."
-      );
-
-      return;
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Graphic Project",
+      description:
+        "Barnoota kee fayyadamuun project Graphic Design xumuraa hojjedhu."
     }
 
+  ],
 
-    if(!/^(09|07)[0-9]{8}$/.test(phone)){
 
-      showLoginError(
-        "⚠️ Phone number sirrii galchi. Fakkeenya: 0912345678"
-      );
+  "Video Editing": [
 
-      return;
+    {
+      lesson: 1,
+      title: "Lesson 1 — Video Editing Basics",
+      description:
+        "Bu'uura video editing fi hojii jalqabaa baradhu."
+    },
+
+    {
+      lesson: 2,
+      title: "Lesson 2 — Editing Tools",
+      description:
+        "Meeshaalee video editing barbaachisoo ta'an baradhu."
+    },
+
+    {
+      lesson: 3,
+      title: "Lesson 3 — Effects & Transitions",
+      description:
+        "Effects fi transitions sirriitti fayyadamuun video kee fooyyeessi."
+    },
+
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Video Project",
+      description:
+        "Video project kee xumuraa hojjedhu."
     }
 
-
-    const button =
-      document.querySelector("#loginSection button");
-
-    button.disabled = true;
-    button.textContent = "⏳ Login...";
+  ],
 
 
-    try{
+  "Web Design": [
 
-      const response =
-        await fetch(LOGIN_URL, {
+    {
+      lesson: 1,
+      title: "Lesson 1 — Web Design Basics",
+      description:
+        "Bu'uura website fi HTML baradhu."
+    },
 
-          method:"POST",
+    {
+      lesson: 2,
+      title: "Lesson 2 — HTML & CSS",
+      description:
+        "HTML fi CSS fayyadamuun website ijaari."
+    },
 
-          headers:{
-            "Content-Type":"application/json"
-          },
+    {
+      lesson: 3,
+      title: "Lesson 3 — Responsive Design",
+      description:
+        "Website mobile fi computer irratti sirriitti hojjetu ijaari."
+    },
 
-          body:JSON.stringify({
-            phone:phone,
-            pin:pin
-          })
-
-        });
-
-
-      const data =
-        await response.json();
-
-
-      if(!response.ok){
-
-        throw new Error(
-          data.error ||
-          data.message ||
-          "Login hin milkoofne."
-        );
-
-      }
-
-
-      /*
-        Edge Function irraa student
-        karaa adda addaatiin yoo dhufe
-        sirriitti qabachuuf:
-      */
-
-      const student =
-        data.student || data.data || data;
-
-
-      if(!student || !student.course){
-
-        throw new Error(
-          "Odeeffannoon student sirrii hin argamne."
-        );
-
-      }
-
-
-      /*
-        Session keessatti kuusi
-      */
-
-      sessionStorage.setItem(
-        "kena_student",
-        JSON.stringify(student)
-      );
-
-
-      showDashboard(student);
-
-
-    }catch(err){
-
-      console.error(err);
-
-      showLoginError(
-        "❌ " + (
-          err.message ||
-          "Login irratti rakkoon uumame."
-        )
-      );
-
-    }finally{
-
-      button.disabled = false;
-      button.textContent = "🔓 Login";
-
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Web Project",
+      description:
+        "Website project kee xumuraa hojjedhu."
     }
 
+  ],
+
+
+  "Digital Marketing": [
+
+    {
+      lesson: 1,
+      title: "Lesson 1 — Digital Marketing Basics",
+      description:
+        "Bu'uura Digital Marketing baradhu."
+    },
+
+    {
+      lesson: 2,
+      title: "Lesson 2 — Social Media Marketing",
+      description:
+        "Social media fayyadamuun marketing hojjedhu."
+    },
+
+    {
+      lesson: 3,
+      title: "Lesson 3 — Content Marketing",
+      description:
+        "Content gaarii qopheessuun audience kee guddifadhu."
+    },
+
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Marketing Project",
+      description:
+        "Digital Marketing project kee xumuri."
+    }
+
+  ],
+
+
+  "Photography": [
+
+    {
+      lesson: 1,
+      title: "Lesson 1 — Photography Basics",
+      description:
+        "Bu'uura photography fi camera settings baradhu."
+    },
+
+    {
+      lesson: 2,
+      title: "Lesson 2 — Composition",
+      description:
+        "Composition fi framing sirriitti fayyadami."
+    },
+
+    {
+      lesson: 3,
+      title: "Lesson 3 — Lighting",
+      description:
+        "Lighting sirriitti fayyadamuun suuraa kee fooyyeessi."
+    },
+
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Photography Project",
+      description:
+        "Photography project kee xumuri."
+    }
+
+  ],
+
+
+  "Flayer Package": [
+
+    {
+      lesson: 1,
+      title: "Lesson 1 — Flayer Design Basics",
+      description:
+        "Bu'uura flayer design baradhu."
+    },
+
+    {
+      lesson: 2,
+      title: "Lesson 2 — Flayer Design Practice",
+      description:
+        "Flayer bareedaa hojjechuu shaakali."
+    },
+
+    {
+      lesson: 3,
+      title: "Lesson 3 — Professional Flayer",
+      description:
+        "Flayer professional qopheessi."
+    },
+
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Flayer Project",
+      description:
+        "Flayer project kee xumuri."
+    }
+
+  ],
+
+
+  "YouTube Thumbnail": [
+
+    {
+      lesson: 1,
+      title: "Lesson 1 — YouTube Thumbnail Basics",
+      description:
+        "Bu'uura YouTube thumbnail design baradhu."
+    },
+
+    {
+      lesson: 2,
+      title: "Lesson 2 — Thumbnail Design",
+      description:
+        "Thumbnail nama hawatu hojjechuu baradhu."
+    },
+
+    {
+      lesson: 3,
+      title: "Lesson 3 — Text & Color",
+      description:
+        "Text fi color sirriitti fayyadami."
+    },
+
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Thumbnail Project",
+      description:
+        "Thumbnail project kee xumuri."
+    }
+
+  ],
+
+
+  "Poster Design": [
+
+    {
+      lesson: 1,
+      title: "Lesson 1 — Poster Design Basics",
+      description:
+        "Bu'uura poster design baradhu."
+    },
+
+    {
+      lesson: 2,
+      title: "Lesson 2 — Poster Layout",
+      description:
+        "Poster layout sirriitti qopheessi."
+    },
+
+    {
+      lesson: 3,
+      title: "Lesson 3 — Typography & Color",
+      description:
+        "Typography fi color fayyadamuun poster kee fooyyeessi."
+    },
+
+    {
+      lesson: 4,
+      title: "Lesson 4 — Final Poster Project",
+      description:
+        "Poster project kee xumuri."
+    }
+
+  ]
+
+};
+
+
+/* =====================================================
+   SEND OTP
+   ===================================================== */
+
+async function sendOTP(isResend = false){
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const pin =
+    document.getElementById("pin").value.trim();
+
+  clearMessages();
+
+
+  if(!phone || !pin){
+
+    showLoginError(
+      "⚠️ Phone number fi Course PIN guuti."
+    );
+
+    return;
   }
 
 
-  /* =====================================================
-     SHOW LOGIN ERROR
-     ===================================================== */
+  if(!/^(09|07)[0-9]{8}$/.test(phone)){
 
-  function showLoginError(message){
+    showLoginError(
+      "⚠️ Phone number sirrii galchi. Fakkeenya: 0912345678"
+    );
 
-    const error =
-      document.getElementById("loginError");
-
-    error.textContent = message;
-    error.style.display = "block";
-
+    return;
   }
 
 
-  /* =====================================================
-     SHOW DASHBOARD
-     ===================================================== */
+  const sendButton =
+    document.getElementById("sendOtpBtn");
 
-  function showDashboard(student){
+  const resendButton =
+    document.getElementById("resendOtpBtn");
+
+
+  sendButton.disabled = true;
+
+  if(isResend){
+    resendButton.disabled = true;
+    resendButton.textContent = "⏳ Ergaa jira...";
+  }else{
+    sendButton.textContent = "⏳ OTP Ergaa jira...";
+  }
+
+
+  try{
+
+    const response =
+      await fetch(SEND_OTP_URL, {
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+          phone:phone,
+          pin:pin
+        })
+
+      });
+
+
+    const data =
+      await readJSON(response);
+
+
+    if(!response.ok){
+
+      throw new Error(
+        data.error ||
+        data.message ||
+        "OTP erguun hin milkoofne."
+      );
+
+    }
+
+
+    /*
+      OTP section agarsiisi
+    */
 
     document
-      .getElementById("loginSection")
-      .classList.add("hidden");
-
-
-    document
-      .getElementById("dashboardSection")
+      .getElementById("otpSection")
       .classList.remove("hidden");
 
 
-    renderStudentInfo(student);
+    showOTPMessage(
+      "✅ " +
+      (
+        data.message ||
+        "OTP gara bilbila keessaniitti ergameera."
+      )
+    );
 
-    renderLessons(student.course);
+
+    startOtpTimer(
+      Number(data.expires_in || 300)
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showLoginError(
+      "❌ " +
+      (
+        error.message ||
+        "OTP erguu irratti rakkoon uumame."
+      )
+    );
+
+  }finally{
+
+    if(isResend){
+
+      resendButton.textContent =
+        "🔄 OTP Irra Deebi'i";
+
+    }else{
+
+      sendButton.textContent =
+        "📩 OTP Ergi";
+
+    }
+
+    /*
+      Resend timer keessatti
+      button deebisee enable godhama.
+    */
+
+    if(!isResend){
+
+      sendButton.disabled = false;
+
+    }
 
   }
 
-
-  /* =====================================================
-     STUDENT INFORMATION
-     ===================================================== */
-
-  function renderStudentInfo(student){
-
-    const box =
-      document.getElementById("studentInfo");
+}
 
 
-    const fullname =
-      student.fullname ||
-      student["Full name"] ||
-      "Student";
+/* =====================================================
+   VERIFY OTP
+   ===================================================== */
+
+async function verifyOTP(){
+
+  const phone =
+    document.getElementById("phone").value.trim();
+
+  const pin =
+    document.getElementById("pin").value.trim();
+
+  const otp =
+    document.getElementById("otp").value.trim();
 
 
-    const fathername =
-      student.fathername ||
-      "-";
+  clearOtpMessages();
 
 
-    const course =
-      student.course ||
-      "-";
+  if(!otp){
+
+    showOTPError(
+      "⚠️ OTP galchi."
+    );
+
+    return;
+  }
 
 
-    const phone =
-      student.phone ||
-      "-";
+  if(!/^\d{6}$/.test(otp)){
+
+    showOTPError(
+      "⚠️ OTP digitii 6 qabaachuu qaba."
+    );
+
+    return;
+  }
 
 
-    const payment =
-      student.payment_status ||
-      "PENDING";
+  const button =
+    document.getElementById("verifyOtpBtn");
+
+  button.disabled = true;
+  button.textContent = "⏳ Mirkaneessaa...";
 
 
-    box.innerHTML = `
+  try{
 
-      <div class="info">
-        <span>Maqaa Guutuu</span>
-        <strong>${escapeHTML(fullname)}</strong>
-      </div>
+    const response =
+      await fetch(VERIFY_OTP_URL, {
 
-      <div class="info">
-        <span>Maqaa Abbaa</span>
-        <strong>${escapeHTML(fathername)}</strong>
-      </div>
+        method:"POST",
 
-      <div class="info">
-        <span>Course</span>
-        <strong>${escapeHTML(course)}</strong>
-      </div>
+        headers:{
+          "Content-Type":"application/json"
+        },
 
-      <div class="info">
-        <span>Phone</span>
-        <strong>${escapeHTML(phone)}</strong>
-      </div>
+        body:JSON.stringify({
+          phone:phone,
+          pin:pin,
+          otp:otp
+        })
 
-      <div class="info">
-        <span>Payment</span>
-        <strong>
-          <span class="status">
-            ${escapeHTML(String(payment).toUpperCase())}
-          </span>
-        </strong>
+      });
+
+
+    const data =
+      await readJSON(response);
+
+
+    if(!response.ok){
+
+      throw new Error(
+        data.error ||
+        data.message ||
+        "OTP mirkaneessuun hin milkoofne."
+      );
+
+    }
+
+
+    const student =
+      data.student ||
+      data.data ||
+      data;
+
+
+    if(!student || !student.course){
+
+      throw new Error(
+        "Odeeffannoon student sirrii hin argamne."
+      );
+
+    }
+
+
+    /*
+      Login success
+    */
+
+    sessionStorage.setItem(
+      "kena_student",
+      JSON.stringify(student)
+    );
+
+
+    sessionStorage.setItem(
+      "kena_student_login_time",
+      String(Date.now())
+    );
+
+
+    showDashboard(student);
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showOTPError(
+      "❌ " +
+      (
+        error.message ||
+        "OTP mirkaneessuu irratti rakkoon uumame."
+      )
+    );
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent =
+      "✅ OTP Mirkaneessi";
+
+  }
+
+}
+
+
+/* =====================================================
+   READ JSON SAFELY
+   ===================================================== */
+
+async function readJSON(response){
+
+  const text =
+    await response.text();
+
+  try{
+
+    return text
+      ? JSON.parse(text)
+      : {};
+
+  }catch(error){
+
+    return {
+      error:
+        "Server irraa deebiin sirrii hin dhufne."
+    };
+
+  }
+
+}
+
+
+/* =====================================================
+   OTP TIMER
+   ===================================================== */
+
+function startOtpTimer(seconds){
+
+  clearInterval(otpTimerInterval);
+
+  otpSeconds = seconds;
+
+  const timer =
+    document.getElementById("otpTimer");
+
+  const resend =
+    document.getElementById("resendOtpBtn");
+
+
+  resend.disabled = true;
+
+
+  updateOtpTimer();
+
+
+  otpTimerInterval =
+    setInterval(() => {
+
+      otpSeconds--;
+
+      updateOtpTimer();
+
+
+      if(otpSeconds <= 0){
+
+        clearInterval(
+          otpTimerInterval
+        );
+
+        timer.textContent =
+          "⏰ OTP yeroo isaa xumureera. OTP haaraa gaafadhu.";
+
+        resend.disabled = false;
+
+      }
+
+    },1000);
+
+}
+
+
+function updateOtpTimer(){
+
+  const timer =
+    document.getElementById("otpTimer");
+
+
+  const minutes =
+    Math.floor(otpSeconds / 60);
+
+  const seconds =
+    otpSeconds % 60;
+
+
+  timer.textContent =
+    `⏱️ OTP'n ${minutes}:${String(seconds).padStart(2,"0")} keessatti dhuma.`;
+
+}
+
+
+/* =====================================================
+   LOGIN ERROR
+   ===================================================== */
+
+function showLoginError(message){
+
+  const error =
+    document.getElementById("loginError");
+
+  error.textContent =
+    message;
+
+  error.style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   OTP SUCCESS
+   ===================================================== */
+
+function showOTPMessage(message){
+
+  const box =
+    document.getElementById("otpMessage");
+
+  box.textContent =
+    message;
+
+  box.style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   OTP ERROR
+   ===================================================== */
+
+function showOTPError(message){
+
+  const box =
+    document.getElementById("otpError");
+
+  box.textContent =
+    message;
+
+  box.style.display =
+    "block";
+
+}
+
+
+/* =====================================================
+   CLEAR MESSAGES
+   ===================================================== */
+
+function clearMessages(){
+
+  const loginError =
+    document.getElementById("loginError");
+
+  loginError.style.display =
+    "none";
+
+  loginError.textContent =
+    "";
+
+}
+
+
+function clearOtpMessages(){
+
+  const success =
+    document.getElementById("otpMessage");
+
+  const error =
+    document.getElementById("otpError");
+
+  success.style.display =
+    "none";
+
+  success.textContent =
+    "";
+
+  error.style.display =
+    "none";
+
+  error.textContent =
+    "";
+
+}
+
+
+/* =====================================================
+   SHOW DASHBOARD
+   ===================================================== */
+
+function showDashboard(student){
+
+  document
+    .getElementById("loginSection")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("dashboardSection")
+    .classList.remove("hidden");
+
+
+  renderStudentInfo(student);
+
+  renderLessons(student.course);
+
+}
+
+
+/* =====================================================
+   STUDENT INFORMATION
+   ===================================================== */
+
+function renderStudentInfo(student){
+
+  const box =
+    document.getElementById("studentInfo");
+
+
+  const fullname =
+    student.fullname ||
+    student["Full name"] ||
+    "Student";
+
+
+  const fathername =
+    student.fathername ||
+    "-";
+
+
+  const course =
+    student.course ||
+    "-";
+
+
+  const phone =
+    student.phone ||
+    "-";
+
+
+  const payment =
+    student.payment_status ||
+    "PENDING";
+
+
+  box.innerHTML = `
+
+    <div class="info">
+      <span>Maqaa Guutuu</span>
+      <strong>${escapeHTML(fullname)}</strong>
+    </div>
+
+    <div class="info">
+      <span>Maqaa Abbaa</span>
+      <strong>${escapeHTML(fathername)}</strong>
+    </div>
+
+    <div class="info">
+      <span>Course</span>
+      <strong>${escapeHTML(course)}</strong>
+    </div>
+
+    <div class="info">
+      <span>Phone</span>
+      <strong>${escapeHTML(phone)}</strong>
+    </div>
+
+    <div class="info">
+      <span>Payment</span>
+      <strong>
+        <span class="status">
+          ${escapeHTML(String(payment).toUpperCase())}
+        </span>
+      </strong>
+    </div>
+
+  `;
+
+}
+
+
+/* =====================================================
+   LESSONS
+   ===================================================== */
+
+function renderLessons(course){
+
+  const container =
+    document.getElementById("lessonsContainer");
+
+
+  container.innerHTML = "";
+
+
+  const lessons =
+    COURSES[course];
+
+
+  if(!lessons){
+
+    container.innerHTML = `
+
+      <div
+        class="message error"
+        style="display:block;"
+      >
+        Course kanaaf lesson hin qophoofne.
       </div>
 
     `;
 
+    return;
   }
 
 
-  /* =====================================================
-     LESSONS
-     ===================================================== */
+  lessons.forEach(item => {
 
-  function renderLessons(course){
+    const div =
+      document.createElement("div");
 
-    const container =
-      document.getElementById("lessonsContainer");
-
-
-    container.innerHTML = "";
+    div.className =
+      "lesson";
 
 
-    const lessons =
-      COURSES[course];
+    const title =
+      document.createElement("h3");
+
+    title.textContent =
+      item.title;
 
 
-    if(!lessons){
+    const description =
+      document.createElement("p");
 
-      container.innerHTML = `
+    description.textContent =
+      item.description;
 
-        <div class="message error" style="display:block;">
-          Course kanaaf lesson hin qophoofne.
-        </div>
 
-      `;
+    const link =
+      document.createElement("a");
 
-      return;
+
+    /*
+      Lesson routing
+
+      Lesson 1 → lesson.html
+      Lesson 2 → lesson2.html
+    */
+
+
+    if(Number(item.lesson) === 1){
+
+      link.href =
+        "/kena-design-/lesson.html";
+
+    }
+
+    else if(Number(item.lesson) === 2){
+
+      link.href =
+        "/kena-design-/lesson2.html";
+
+    }
+
+    else{
+
+      link.href =
+        "/kena-design-/lesson.html?course=" +
+        encodeURIComponent(course) +
+        "&lesson=" +
+        encodeURIComponent(item.lesson);
+
     }
 
 
-    lessons.forEach(item => {
-
-      const div =
-        document.createElement("div");
-
-      div.className = "lesson";
+    link.textContent =
+      "📖 Open Lesson";
 
 
-      const title =
-        document.createElement("h3");
+    div.appendChild(title);
 
-      title.textContent =
-        item.title;
+    div.appendChild(description);
 
-
-      const description =
-        document.createElement("p");
-
-      description.textContent =
-        item.description;
+    div.appendChild(link);
 
 
-      const link =
-        document.createElement("a");
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* =====================================================
+   LOGOUT
+   ===================================================== */
+
+function logoutStudent(){
+
+  sessionStorage.removeItem(
+    "kena_student"
+  );
+
+  sessionStorage.removeItem(
+    "kena_student_login_time"
+  );
+
+
+  clearInterval(
+    otpTimerInterval
+  );
+
+
+  document
+    .getElementById("dashboardSection")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("loginSection")
+    .classList.remove("hidden");
+
+
+  document.getElementById("phone").value =
+    "";
+
+  document.getElementById("pin").value =
+    "";
+
+  document.getElementById("otp").value =
+    "";
+
+
+  document
+    .getElementById("otpSection")
+    .classList.add("hidden");
+
+
+  document
+    .getElementById("otpTimer")
+    .textContent =
+    "";
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+   ===================================================== */
+
+function escapeHTML(value){
+
+  return String(value)
+
+    .replace(/&/g,"&amp;")
+
+    .replace(/</g,"&lt;")
+
+    .replace(/>/g,"&gt;")
+
+    .replace(/"/g,"&quot;")
+
+    .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   AUTO LOGIN FROM SESSION
+   ===================================================== */
+
+window.addEventListener(
+  "load",
+  function(){
+
+    try{
+
+      const saved =
+        sessionStorage.getItem(
+          "kena_student"
+        );
+
+
+      const loginTime =
+        Number(
+          sessionStorage.getItem(
+            "kena_student_login_time"
+          ) || 0
+        );
 
 
       /*
-        ==============================================
-        IMPORTANT LESSON ROUTING
-        ==============================================
-
-        Lesson 1 → lesson.html
-
-        Lesson 2 → lesson2.html
-
-        GitHub Pages project path:
-        /kena-design-/lesson2.html
-
-        Kun waan kanaan Lesson 2
-        gara Lesson 1 hin deebi'u.
-        ==============================================
+        Session 2 hours booda
+        ofumaan haqama.
       */
 
-
-      if(Number(item.lesson) === 1){
-
-        link.href =
-          "/kena-design-/lesson.html";
-
-      }
-
-      else if(Number(item.lesson) === 2){
-
-        link.href =
-          "/kena-design-/lesson2.html";
-
-      }
-
-      else{
-
-        link.href =
-          "/kena-design-/lesson.html?course=" +
-          encodeURIComponent(course) +
-          "&lesson=" +
-          encodeURIComponent(item.lesson);
-
-      }
+      const TWO_HOURS =
+        2 * 60 * 60 * 1000;
 
 
-      link.textContent =
-        "📖 Open Lesson";
+      if(
+        saved &&
+        loginTime &&
+        Date.now() - loginTime < TWO_HOURS
+      ){
+
+        const student =
+          JSON.parse(saved);
 
 
-      div.appendChild(title);
+        if(
+          student &&
+          student.course
+        ){
 
-      div.appendChild(description);
-
-      div.appendChild(link);
-
-
-      container.appendChild(div);
-
-    });
-
-  }
-
-
-  /* =====================================================
-     LOGOUT
-     ===================================================== */
-
-  function logoutStudent(){
-
-    sessionStorage.removeItem(
-      "kena_student"
-    );
-
-
-    document
-      .getElementById("dashboardSection")
-      .classList.add("hidden");
-
-
-    document
-      .getElementById("loginSection")
-      .classList.remove("hidden");
-
-
-    document.getElementById("phone").value = "";
-
-    document.getElementById("pin").value = "";
-
-  }
-
-
-  /* =====================================================
-     ESCAPE HTML
-     ===================================================== */
-
-  function escapeHTML(value){
-
-    return String(value)
-
-      .replace(/&/g,"&amp;")
-
-      .replace(/</g,"&lt;")
-
-      .replace(/>/g,"&gt;")
-
-      .replace(/"/g,"&quot;")
-
-      .replace(/'/g,"&#039;");
-
-  }
-
-
-  /* =====================================================
-     AUTO LOGIN FROM SESSION
-     ===================================================== */
-
-  window.addEventListener(
-    "load",
-    function(){
-
-      try{
-
-        const saved =
-          sessionStorage.getItem(
-            "kena_student"
+          showDashboard(
+            student
           );
-
-
-        if(saved){
-
-          const student =
-            JSON.parse(saved);
-
-
-          if(student && student.course){
-
-            showDashboard(student);
-
-          }
 
         }
 
-      }catch(error){
-
-        console.error(
-          "Session error:",
-          error
-        );
+      }else{
 
         sessionStorage.removeItem(
           "kena_student"
         );
+
+        sessionStorage.removeItem(
+          "kena_student_login_time"
+        );
+
+      }
+
+    }catch(error){
+
+      console.error(
+        "Session error:",
+        error
+      );
+
+      sessionStorage.removeItem(
+        "kena_student"
+      );
+
+      sessionStorage.removeItem(
+        "kena_student_login_time"
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   ENTER KEY
+   ===================================================== */
+
+document
+  .getElementById("pin")
+  .addEventListener(
+    "keydown",
+    function(event){
+
+      if(event.key === "Enter"){
+
+        sendOTP();
 
       }
 
@@ -1054,24 +1598,20 @@
   );
 
 
-  /* =====================================================
-     ENTER KEY LOGIN
-     ===================================================== */
+document
+  .getElementById("otp")
+  .addEventListener(
+    "keydown",
+    function(event){
 
-  document
-    .getElementById("pin")
-    .addEventListener(
-      "keydown",
-      function(event){
+      if(event.key === "Enter"){
 
-        if(event.key === "Enter"){
-
-          loginStudent();
-
-        }
+        verifyOTP();
 
       }
-    );
+
+    }
+  );
 
 </script>
 

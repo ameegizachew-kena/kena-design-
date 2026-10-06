@@ -4,32 +4,315 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kena Design - Graphic Design Lesson 2</title>
+
 <style>
-:root{--bg:#07111f;--card:#101c2c;--card2:#142338;--green:#32d583;--text:#f5f7fb;--muted:#b8c4d4}
+:root{
+  --bg:#06101d;
+  --card:#0e1b2b;
+  --card2:#14263b;
+  --line:#25405d;
+  --green:#32d583;
+  --cyan:#21d4fd;
+  --yellow:#ffd43b;
+  --red:#ff6b6b;
+  --white:#f5f7fb;
+  --muted:#b8c5d6;
+}
+
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif;line-height:1.65}
-.wrap{width:min(1050px,94%);margin:auto;padding:24px 0 60px}
-header{text-align:center;padding:25px 10px;border-bottom:1px solid #22344d;margin-bottom:22px}
-h1{color:var(--green);font-size:clamp(30px,7vw,48px);margin:0}
-h2{color:var(--green)}
-h3{margin-bottom:8px}
-.muted{color:var(--muted)}
-.card{background:var(--card);border:1px solid #22344d;border-radius:18px;padding:20px;margin:18px 0}
-.note{border-left:5px solid var(--green);background:#0d1b2c;padding:14px;border-radius:10px}
-.video{position:relative;padding-top:56.25%;overflow:hidden;border-radius:16px;background:#000}
-.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:14px}
-.step{background:var(--card2);padding:13px;border-radius:15px;border:1px solid #22344d}
-.pic{width:100%;aspect-ratio:16/10;background:#081322;border-radius:11px;overflow:hidden;cursor:zoom-in;border:1px solid #2a405d}
-.pic svg{width:100%;height:100%;display:block}
-.num{display:inline-flex;width:32px;height:32px;border-radius:50%;align-items:center;justify-content:center;background:var(--green);color:#06131f;font-weight:800}
-.assignment{border:2px solid var(--green);background:#0d1d2c}
-.req{background:#0b1726;border:1px solid #22344d;padding:13px;border-radius:12px}
-.modal{display:none;position:fixed;inset:0;background:#000e;z-index:20;align-items:center;justify-content:center;padding:12px}
-.modal.show{display:flex}
-.modalbox{width:min(1100px,96%);position:relative}
-.modalbox svg{width:100%;max-height:88vh;background:#07111f;border-radius:14px}
-.close{position:absolute;right:8px;top:8px;border:0;border-radius:50%;width:42px;height:42px;font-size:25px;z-index:2}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.65;
+}
+
+.wrap{
+  width:min(1120px,94%);
+  margin:auto;
+  padding:20px 0 70px;
+}
+
+header{
+  text-align:center;
+  padding:28px 12px 22px;
+  border-bottom:1px solid var(--line);
+}
+
+.logo{
+  font-size:52px;
+}
+
+h1{
+  color:var(--green);
+  font-size:clamp(30px,7vw,52px);
+  margin:0;
+}
+
+h2{
+  color:var(--green);
+  font-size:clamp(24px,5vw,34px);
+}
+
+h3{
+  margin:8px 0;
+  color:#fff;
+}
+
+p{
+  margin:9px 0;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+  margin:20px 0;
+  box-shadow:0 12px 35px #0005;
+}
+
+.note{
+  border-left:5px solid var(--green);
+  background:#0b1c2d;
+  padding:15px;
+  border-radius:12px;
+  margin:14px 0;
+}
+
+.video{
+  position:relative;
+  padding-top:56.25%;
+  overflow:hidden;
+  border-radius:18px;
+  background:#000;
+}
+
+.video iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:16px;
+}
+
+.step{
+  background:var(--card2);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
+  overflow:hidden;
+}
+
+.num{
+  display:inline-flex;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  background:var(--green);
+  color:#06131f;
+  font-weight:900;
+  font-size:18px;
+}
+
+.visual{
+  position:relative;
+  margin-top:12px;
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid #31516f;
+  background:#07111f;
+  cursor:zoom-in;
+}
+
+.visual svg{
+  display:block;
+  width:100%;
+  height:auto;
+}
+
+.visual .gif{
+  position:absolute;
+  right:8px;
+  top:8px;
+  background:#1769e0;
+  color:white;
+  padding:3px 8px;
+  border-radius:7px;
+  font-size:12px;
+  font-weight:800;
+  animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+  50%{
+    transform:scale(1.08);
+    opacity:.72;
+  }
+}
+
+@keyframes tap{
+  0%,100%{
+    transform:translate(0,0);
+  }
+  50%{
+    transform:translate(5px,5px);
+  }
+}
+
+@keyframes glow{
+  0%,100%{
+    filter:drop-shadow(0 0 0 #32d583);
+  }
+  50%{
+    filter:drop-shadow(0 0 12px #32d583);
+  }
+}
+
+.tap{
+  animation:tap 1.2s infinite;
+}
+
+.glow{
+  animation:glow 1.5s infinite;
+}
+
+.location{
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:11px;
+  background:#1d2a18;
+  border:1px solid #607b34;
+  color:#f5f7fb;
+  font-size:14px;
+}
+
+.location b{
+  color:var(--yellow);
+}
+
+.explain{
+  background:#0a1726;
+  border-radius:12px;
+  padding:12px;
+  margin-top:10px;
+  border:1px solid #223b55;
+}
+
+.assignment{
+  border:2px solid var(--green);
+  background:linear-gradient(145deg,#0b1d2b,#0d2533);
+}
+
+.req{
+  background:#0a1726;
+  border:1px solid #29445f;
+  padding:12px;
+  border-radius:12px;
+}
+
+.finish{
+  text-align:center;
+  border:2px solid var(--green);
+  background:linear-gradient(145deg,#0b251c,#102f27);
+  padding:28px;
+  border-radius:22px;
+  margin-top:22px;
+}
+
+.finish button{
+  border:0;
+  background:var(--green);
+  color:#06131f;
+  font-size:18px;
+  font-weight:900;
+  padding:13px 22px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.finish button:hover{
+  transform:translateY(-2px);
+}
+
+.progress{
+  height:12px;
+  background:#18283b;
+  border-radius:20px;
+  overflow:hidden;
+  margin:12px 0;
+}
+
+.progress span{
+  display:block;
+  height:100%;
+  width:100%;
+  background:linear-gradient(90deg,var(--green),var(--cyan));
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000d;
+  z-index:50;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modalbox{
+  width:min(1050px,96%);
+  position:relative;
+}
+
+.modalbox svg{
+  width:100%;
+  max-height:88vh;
+  background:#07111f;
+  border-radius:15px;
+}
+
+.close{
+  position:absolute;
+  right:8px;
+  top:8px;
+  border:0;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  font-size:26px;
+  z-index:2;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:25px 0;
+}
 </style>
 </head>
 
@@ -38,28 +321,40 @@ h3{margin-bottom:8px}
 <div class="wrap">
 
 <header>
-<div style="font-size:42px">🎨</div>
-<h1>KENA DESIGN</h1>
-<div class="muted">Graphic Design — Lesson 2</div>
-<div class="muted">
-PixelLab keessatti Font Haaraa Galchuu fi Itti Fayyadamuu
-</div>
+  <div class="logo">🎨</div>
+
+  <h1>KENA DESIGN</h1>
+
+  <div class="muted">
+    Graphic Design — Lesson 2
+  </div>
+
+  <p>
+    📱 PixelLab keessatti Font Haaraa Galchuu fi Itti Fayyadamuu
+  </p>
 </header>
+
 
 <section class="card">
 
-<h2>📚 Kaayyoo Lesson 2</h2>
+<h2>🎯 Kaayyoo Lesson 2</h2>
 
 <p>
-Barnoota kana keessatti font haaraa barbaaduu, TTF/OTF download gochuu,
-PixelLab keessatti import gochuu fi font sana fayyadamuun design qulqulluu
-qopheessuu baratta.
+Barnoota kana booda font haaraa maal akka ta'e, eessa irraa akka argattu,
+TTF/OTF maal akka ta'e, PixelLab keessatti eessa akka galchitu,
+akkamitti font sana design kee irratti akka fayyadamtu fi hojii xumuraa
+akkamitti screenshot gootu sirriitti hubatta.
 </p>
 
 <div class="note">
+
 <b>Hubachiisa:</b>
-Video armaan gadii <b>akkuma jirutti</b> dhiifameera;
-URL fi video hin tuqamne.
+
+Video barnootaa duraanii
+<b>hin tuqamne</b>.
+
+Akkuma jirutti as keessa jira.
+
 </div>
 
 </section>
@@ -88,27 +383,61 @@ allowfullscreen>
 <h2>🔤 Font jechuun maal?</h2>
 
 <p>
-Font jechuun bifa barruun itti mul'atuudha.
-Graphic Designer tokko font filachuun isaa dubbifamuu,
-style fi professional appearance design irratti dhiibbaa qaba.
+<b>Font</b> jechuun bifa qubee fi barruun ittiin mul'atuudha.
+Fakkeenyaaf, qubee tokko font adda addaatiin yoo barreeffame,
+bifni isaa ni jijjiirama.
 </p>
 
 <ul>
-<li><b>TTF</b> = TrueType Font</li>
-<li><b>OTF</b> = OpenType Font</li>
-<li>Font amanamaa irraa download godhi.</li>
-<li>Font tokko design tokkoof mijachuu qaba.</li>
+
+<li>
+<b>TTF</b> = TrueType Font
+</li>
+
+<li>
+<b>OTF</b> = OpenType Font
+</li>
+
+<li>
+Font sirrii filachuun design kee professional akka fakkaatu gargaara.
+</li>
+
+<li>
+Font baay'ee walitti makuun design akka jeequ danda'a;
+kanaaf font muraasa sirriitti filadhu.
+</li>
+
 </ul>
+
+<div class="note">
+
+💡 <b>Gorsa:</b>
+
+Font tokko download gootee booda maqaa faayilaa isaa ilaali.
+
+Yoo dhuma irratti <b>.ttf</b> ykn <b>.otf</b> qabaate,
+font ta'uu isaa beekuu dandeessa.
+
+</div>
 
 </section>
 
 
 <section class="card">
 
-<h2>🪜 Tarkaanfii 12</h2>
+<h2>🪜 Tarkaanfii 12 — Ibsa Bal'aa + Bakka Isaanii</h2>
+
+<p class="muted">
+Visual hunda tuqi. Isaanis animation xiqqoo qabu;
+kanaaf bakka cuqaasuu, maal akka argamu fi maalif akka fayyadu
+salphaatti hubatta.
+</p>
+
 
 <div class="grid">
 
+
+<!-- 1 -->
 
 <div class="step">
 
@@ -116,65 +445,180 @@ style fi professional appearance design irratti dhiibbaa qaba.
 
 <h3>📱 PixelLab Bani</h3>
 
-<div class="pic" onclick="zoomPic('p1')">
+<div class="visual" onclick="zoomPic('p1')">
+
+<span class="gif">GIF</span>
 
 <svg id="p1" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="230" y="35" width="340" height="430" rx="30" fill="#18283d"/>
+<rect x="230" y="35" width="340" height="430"
+rx="30" fill="#18283d"/>
 
-<circle cx="400" cy="160" r="70" fill="#32d583"/>
+<circle
+cx="400"
+cy="160"
+r="70"
+fill="#32d583"
+class="glow"/>
 
-<text x="400" y="180" text-anchor="middle" font-size="52">P</text>
+<text
+x="400"
+y="180"
+text-anchor="middle"
+font-size="52"
+fill="#06131f">
+P
+</text>
 
-<text x="400" y="285" text-anchor="middle" fill="white" font-size="34">
+<text
+x="400"
+y="285"
+text-anchor="middle"
+fill="white"
+font-size="34">
 PixelLab
 </text>
+
+<circle
+cx="400"
+cy="160"
+r="92"
+fill="none"
+stroke="#32d583"
+stroke-width="7"
+opacity=".4"/>
+
+<path
+d="M560 130 L505 150"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M505 150 L520 137 M505 150 L520 158"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">App kee bani.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Jalqaba appii PixelLab bilbila kee irratti bani.
+Appiin kun bakka text, font, color fi design itti qopheessitudha.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Home screen/app drawer → mallattoo PixelLab.
+
+</div>
 
 </div>
 
 
+<!-- 2 -->
 
 <div class="step">
 
 <span class="num">2</span>
 
-<h3>➕ Project Bani</h3>
+<h3>➕ Project Haaraa Bani</h3>
 
-<div class="pic" onclick="zoomPic('p2')">
+<div class="visual" onclick="zoomPic('p2')">
+
+<span class="gif">GIF</span>
 
 <svg id="p2" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="180" y="55" width="440" height="350" rx="18" fill="#111d2e"/>
+<rect
+x="180"
+y="55"
+width="440"
+height="350"
+rx="18"
+fill="#111d2e"/>
 
-<rect x="220" y="95" width="360" height="220" fill="#25364d"/>
+<text
+x="400"
+y="110"
+text-anchor="middle"
+fill="#b8c5d6"
+font-size="28">
+PixelLab
+</text>
 
-<circle cx="550" cy="350" r="34" fill="#32d583"/>
+<circle
+cx="400"
+cy="225"
+r="72"
+fill="#32d583"/>
 
-<text x="550" y="361" text-anchor="middle" font-size="38">+</text>
+<text
+x="400"
+y="250"
+text-anchor="middle"
+font-size="70"
+fill="#06131f"
+class="glow">
++
+</text>
 
-<text x="400" y="370" text-anchor="middle" fill="white" font-size="25">
+<text
+x="400"
+y="350"
+text-anchor="middle"
+fill="white"
+font-size="27">
 New Project
 </text>
+
+<path
+d="M610 210 L495 225"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M495 225 L515 211 M495 225 L515 239"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">Project haaraa qopheessi.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Project haaraa banachuun canvas haaraa argamsiisa.
+As irratti poster, social media design ykn assignment kee hojjetta.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+PixelLab → mallattoo <b>+</b> → New Project.
+
+</div>
 
 </div>
 
 
+<!-- 3 -->
 
 <div class="step">
 
@@ -182,173 +626,507 @@ New Project
 
 <h3>📝 Text Filadhu</h3>
 
-<div class="pic" onclick="zoomPic('p3')">
+<div class="visual" onclick="zoomPic('p3')">
+
+<span class="gif">GIF</span>
 
 <svg id="p3" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="110" y="70" width="580" height="300" rx="18" fill="#15263b"/>
+<rect
+x="105"
+y="65"
+width="590"
+height="350"
+rx="18"
+fill="#15263b"/>
 
-<text x="400" y="235" text-anchor="middle" fill="white" font-size="58">
+<rect
+x="135"
+y="95"
+width="530"
+height="55"
+rx="12"
+fill="#203852"/>
+
+<text
+x="400"
+y="132"
+text-anchor="middle"
+fill="white"
+font-size="26">
+Toolbar
+</text>
+
+<rect
+x="300"
+y="175"
+width="200"
+height="70"
+rx="14"
+fill="#32d583"/>
+
+<text
+x="400"
+y="222"
+text-anchor="middle"
+fill="#06131f"
+font-size="32">
+Tt
+</text>
+
+<text
+x="400"
+y="310"
+text-anchor="middle"
+fill="white"
+font-size="44">
 KENA DESIGN
 </text>
 
-<rect x="250" y="395" width="300" height="55" rx="12" fill="#32d583"/>
+<path
+d="M225 120 L340 190"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
 
-<text x="400" y="432" text-anchor="middle" fill="#06131f" font-size="25">
-TEXT
-</text>
+<path
+d="M340 190 L318 183 M340 190 L332 168"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">Text filadhu.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Font jijjiiruuf dura text qabaachuu qabda.
+Text irratti cuqaasuun text tool fi editing options argatta.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Toolbar gubbaa → mallattoo <b>Tt/Text</b>.
+
+</div>
 
 </div>
 
 
+<!-- 4 -->
 
 <div class="step">
 
 <span class="num">4</span>
 
-<h3>🔤 Font Menu</h3>
+<h3>🔤 Font Menu Bani</h3>
 
-<div class="pic" onclick="zoomPic('p4')">
+<div class="visual" onclick="zoomPic('p4')">
+
+<span class="gif">GIF</span>
 
 <svg id="p4" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="140" y="65" width="520" height="360" rx="18" fill="#142338"/>
+<rect
+x="120"
+y="55"
+width="560"
+height="390"
+rx="18"
+fill="#142338"/>
 
-<text x="400" y="170" text-anchor="middle" fill="white" font-size="60">
-Aa
+<rect
+x="150"
+y="85"
+width="500"
+height="65"
+rx="12"
+fill="#213952"/>
+
+<text
+x="400"
+y="128"
+text-anchor="middle"
+fill="white"
+font-size="29">
+Aa | Font
 </text>
 
-<rect x="240" y="245" width="320" height="70" rx="14" fill="#32d583"/>
+<rect
+x="200"
+y="180"
+width="400"
+height="220"
+rx="14"
+fill="#f4f7fb"/>
 
-<text x="400" y="291" text-anchor="middle" fill="#06131f" font-size="28">
-FONT
+<text
+x="250"
+y="235"
+fill="#172338"
+font-size="23">
+My Fonts
 </text>
+
+<text
+x="250"
+y="285"
+fill="#172338"
+font-size="23">
+Recent
+</text>
+
+<text
+x="250"
+y="335"
+fill="#172338"
+font-size="23">
+Default
+</text>
+
+<path
+d="M650 120 L515 115"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M515 115 L535 101 M515 115 L535 129"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">Font setting bani.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Font menu keessatti fontota PixelLab keessa jiran argita.
+Asuma irraa gara My Fonts deemtee font ati ofii keetiin galchite argatta.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Text filadhu → Toolbar gubbaa → <b>Aa/Font</b>.
+
+</div>
 
 </div>
 
 
+<!-- 5 -->
 
 <div class="step">
 
 <span class="num">5</span>
 
-<h3>📂 My Fonts</h3>
+<h3>📚 My Fonts Filadhu</h3>
 
-<div class="pic" onclick="zoomPic('p5')">
+<div class="visual" onclick="zoomPic('p5')">
+
+<span class="gif">GIF</span>
 
 <svg id="p5" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="150" y="60" width="500" height="370" rx="18" fill="#15263b"/>
+<rect
+x="110"
+y="60"
+width="580"
+height="380"
+rx="18"
+fill="#15263b"/>
 
-<text x="400" y="140" text-anchor="middle" fill="white" font-size="38">
-Font
+<rect
+x="160"
+y="95"
+width="480"
+height="62"
+rx="12"
+fill="#203852"/>
+
+<text
+x="400"
+y="137"
+text-anchor="middle"
+fill="white"
+font-size="27">
+FONTS
 </text>
 
-<rect x="210" y="190" width="380" height="70" rx="12" fill="#263b55"/>
+<rect
+x="160"
+y="180"
+width="480"
+height="68"
+rx="12"
+fill="#32d583"/>
 
-<text x="400" y="236" text-anchor="middle" fill="white" font-size="27">
+<text
+x="400"
+y="225"
+text-anchor="middle"
+fill="#06131f"
+font-size="27">
+MY FONTS
+</text>
+
+<text
+x="220"
+y="295"
+fill="white"
+font-size="27">
 Default Fonts
 </text>
 
-<rect x="210" y="290" width="380" height="70" rx="12" fill="#32d583"/>
-
-<text x="400" y="336" text-anchor="middle" fill="#06131f" font-size="27">
-My Fonts
+<text
+x="220"
+y="350"
+fill="#b8c5d6"
+font-size="23">
+Recent Fonts
 </text>
+
+<path
+d="M640 215 L510 215"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M510 215 L530 201 M510 215 L530 229"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">My Fonts filadhu.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+My Fonts jechuun bakka font ati alaa irraa fiddee PixelLab keessa galchite itti kuufamuudha.
+Font haaraa kee yeroo booda as irraa deebitee filachuu dandeessa.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Font menu → tab/button <b>MY FONTS</b>.
+
+</div>
 
 </div>
 
 
+<!-- 6 -->
 
 <div class="step">
 
 <span class="num">6</span>
 
-<h3>➕ Add Font</h3>
+<h3>➕ Add Font Cuqaasi</h3>
 
-<div class="pic" onclick="zoomPic('p6')">
+<div class="visual" onclick="zoomPic('p6')">
+
+<span class="gif">GIF</span>
 
 <svg id="p6" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="160" y="65" width="480" height="350" rx="18" fill="#142338"/>
+<rect
+x="150"
+y="55"
+width="500"
+height="390"
+rx="18"
+fill="#142338"/>
 
-<circle cx="400" cy="270" r="75" fill="#32d583"/>
+<circle
+cx="400"
+cy="175"
+r="62"
+fill="#f5f7fb"
+class="glow"/>
 
-<text x="400" y="292" text-anchor="middle" fill="#06131f" font-size="82">
+<text
+x="400"
+y="202"
+text-anchor="middle"
+fill="#142338"
+font-size="65">
 +
 </text>
 
-<text x="400" y="380" text-anchor="middle" fill="#b8c4d4" font-size="24">
+<rect
+x="235"
+y="270"
+width="330"
+height="75"
+rx="14"
+fill="#21a9f5"/>
+
+<text
+x="400"
+y="318"
+text-anchor="middle"
+fill="white"
+font-size="28">
 Add Font
 </text>
+
+<path
+d="M610 305 L550 307"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M550 307 L570 293 M550 307 L570 321"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">Add Font cuqaasi.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Add Font jechuun faayila font bilbila keessaa filachuuf button dha.
+Isa cuqaasuun file manager banama.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+<b>My Fonts</b> → mallattoo <b>+</b> ykn <b>Add Font</b>.
+
+</div>
 
 </div>
 
 
+<!-- 7 -->
 
 <div class="step">
 
 <span class="num">7</span>
 
-<h3>📁 File Manager</h3>
+<h3>📁 File Manager Bani</h3>
 
-<div class="pic" onclick="zoomPic('p7')">
+<div class="visual" onclick="zoomPic('p7')">
+
+<span class="gif">GIF</span>
 
 <svg id="p7" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="140" y="60" width="520" height="370" rx="18" fill="#15263b"/>
+<rect
+x="120"
+y="55"
+width="560"
+height="390"
+rx="18"
+fill="#15263b"/>
 
-<path d="M220 180h130l35 35h195v145H220z" fill="#f5c542"/>
+<rect
+x="160"
+y="85"
+width="480"
+height="58"
+rx="12"
+fill="#203852"/>
 
-<text x="400" y="405" text-anchor="middle" fill="white" font-size="28">
-Files / Downloads
+<text
+x="400"
+y="123"
+text-anchor="middle"
+fill="white"
+font-size="26">
+Downloads
 </text>
+
+<path
+d="M190 190 H315 L345 220 H610 V350 H190 Z"
+fill="#f5c542"/>
+
+<rect
+x="225"
+y="250"
+width="320"
+height="58"
+rx="10"
+fill="#32d583"/>
+
+<text
+x="385"
+y="288"
+text-anchor="middle"
+fill="#06131f"
+font-size="25">
+YourFont.ttf
+</text>
+
+<path
+d="M620 280 L550 280"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M550 280 L570 266 M550 280 L570 294"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">
-Downloads/faayila font itti kuufame bani.
-</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+File manager keessatti Downloads, Documents ykn folder ati font itti kuufte barbaadi.
+Font download goote yoo Downloads keessa jiraate, yeroo baay'ee achitti argatta.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Add Font → File Manager → <b>Downloads</b> ykn folder font itti kuufame.
+
+</div>
 
 </div>
 
 
+<!-- 8 -->
 
 <div class="step">
 
@@ -356,105 +1134,329 @@ Downloads/faayila font itti kuufame bani.
 
 <h3>🔎 Font Barbaadi</h3>
 
-<div class="pic" onclick="zoomPic('p8')">
+<div class="visual" onclick="zoomPic('p8')">
+
+<span class="gif">GIF</span>
 
 <svg id="p8" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="150" y="70" width="500" height="330" rx="18" fill="#142338"/>
+<rect
+x="120"
+y="55"
+width="560"
+height="390"
+rx="18"
+fill="#142338"/>
 
-<rect x="220" y="130" width="360" height="65" rx="32" fill="#eef3fb"/>
+<rect
+x="175"
+y="105"
+width="450"
+height="65"
+rx="32"
+fill="#eef3fb"/>
 
-<text x="400" y="275" text-anchor="middle" fill="#32d583" font-size="34">
+<circle
+cx="555"
+cy="137"
+r="18"
+fill="none"
+stroke="#172338"
+stroke-width="6"/>
+
+<path
+d="M568 150 L586 168"
+stroke="#172338"
+stroke-width="6"/>
+
+<text
+x="210"
+y="145"
+fill="#667085"
+font-size="23">
+Search fonts
+</text>
+
+<rect
+x="180"
+y="210"
+width="440"
+height="70"
+rx="12"
+fill="#32d583"/>
+
+<text
+x="400"
+y="255"
+text-anchor="middle"
+fill="#06131f"
+font-size="28">
 YourFont.ttf
 </text>
 
-<text x="400" y="330" text-anchor="middle" fill="#b8c4d4" font-size="22">
-TTF / OTF
+<text
+x="400"
+y="335"
+text-anchor="middle"
+fill="#b8c5d6"
+font-size="24">
+YourFont.otf
 </text>
+
+<path
+d="M630 245 L555 245"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M555 245 L575 231 M555 245 L575 259"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">.ttf ykn .otf barbaadi.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Faayila font kee barbaadi.
+Maqaan isaa yeroo baay'ee .ttf ykn .otf tiin xumurama.
+Faayila sirrii filachuu kee mirkaneessi.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Downloads/folder font → faayila <b>.ttf</b> ykn <b>.otf</b>.
+
+</div>
 
 </div>
 
 
+<!-- 9 -->
 
 <div class="step">
 
 <span class="num">9</span>
 
-<h3>📥 Import</h3>
+<h3>📥 Import Godhi</h3>
 
-<div class="pic" onclick="zoomPic('p9')">
+<div class="visual" onclick="zoomPic('p9')">
+
+<span class="gif">GIF</span>
 
 <svg id="p9" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="170" y="70" width="460" height="350" rx="18" fill="#15263b"/>
+<rect
+x="135"
+y="55"
+width="530"
+height="390"
+rx="18"
+fill="#15263b"/>
 
-<rect x="235" y="145" width="330" height="75" rx="14" fill="#263b55"/>
+<text
+x="400"
+y="125"
+text-anchor="middle"
+fill="white"
+font-size="30">
+Import Font
+</text>
 
-<text x="400" y="195" text-anchor="middle" fill="white" font-size="27">
+<rect
+x="200"
+y="175"
+width="400"
+height="65"
+rx="12"
+fill="#203852"/>
+
+<text
+x="400"
+y="217"
+text-anchor="middle"
+fill="white"
+font-size="25">
 YourFont.ttf
 </text>
 
-<rect x="235" y="270" width="330" height="70" rx="14" fill="#32d583"/>
+<rect
+x="220"
+y="285"
+width="360"
+height="78"
+rx="14"
+fill="#21a9f5"
+class="glow"/>
 
-<text x="400" y="315" text-anchor="middle" fill="#06131f" font-size="26">
+<text
+x="400"
+y="335"
+text-anchor="middle"
+fill="white"
+font-size="30">
 IMPORT
 </text>
+
+<path
+d="M620 320 L575 320"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M575 320 L595 306 M575 320 L595 334"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">Font import godhi.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Faayila font sirrii erga filattee booda IMPORT cuqaasi.
+PixelLab font sana gara My Fonts keessa galcha.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Import screen → button <b>IMPORT</b> gadii.
+
+</div>
 
 </div>
 
 
+<!-- 10 -->
 
 <div class="step">
 
 <span class="num">10</span>
 
-<h3>🔤 Font Filadhu</h3>
+<h3>🔤 Font Haaraa Filadhu</h3>
 
-<div class="pic" onclick="zoomPic('p10')">
+<div class="visual" onclick="zoomPic('p10')">
+
+<span class="gif">GIF</span>
 
 <svg id="p10" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="120" y="65" width="560" height="360" rx="18" fill="#142338"/>
+<rect
+x="115"
+y="55"
+width="570"
+height="390"
+rx="18"
+fill="#142338"/>
 
-<text x="400" y="160" text-anchor="middle" fill="#b8c4d4" font-size="28">
-Installed Fonts
+<rect
+x="150"
+y="85"
+width="500"
+height="60"
+rx="12"
+fill="#203852"/>
+
+<text
+x="400"
+y="123"
+text-anchor="middle"
+fill="white"
+font-size="27">
+MY FONTS
 </text>
 
-<text x="400" y="250" text-anchor="middle" fill="#32d583" font-size="62" font-family="Georgia">
-KENA DESIGN
+<rect
+x="180"
+y="175"
+width="440"
+height="64"
+rx="10"
+fill="#32d583"/>
+
+<text
+x="400"
+y="217"
+text-anchor="middle"
+fill="#06131f"
+font-size="27">
+KENA DESIGN →
 </text>
 
-<text x="400" y="320" text-anchor="middle" fill="white" font-size="24">
-New Font ✓
+<text
+x="400"
+y="295"
+text-anchor="middle"
+fill="white"
+font-size="32"
+font-family="Georgia">
+Your New Font
 </text>
+
+<text
+x="400"
+y="355"
+text-anchor="middle"
+fill="#b8c5d6"
+font-size="23">
+Font haaraa ✓
+</text>
+
+<path
+d="M630 205 L555 205"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M555 205 L575 191 M555 205 L575 219"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">Font haaraa filadhu.</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Amma font haaraan My Fonts keessatti mul'ata.
+Isa filachuun text kee font haaraan akka barreeffamu taasisa.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Font menu → <b>My Fonts</b> → maqaa font haaraa.
+
+</div>
 
 </div>
 
 
+<!-- 11 -->
 
 <div class="step">
 
@@ -462,162 +1464,317 @@ New Font ✓
 
 <h3>🎨 Design Irratti Fayyadami</h3>
 
-<div class="pic" onclick="zoomPic('p11')">
+<div class="visual" onclick="zoomPic('p11')">
+
+<span class="gif">GIF</span>
 
 <svg id="p11" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="180" y="45" width="440" height="410" fill="white"/>
+<rect
+x="130"
+y="45"
+width="540"
+height="410"
+rx="18"
+fill="#f5f7fb"/>
 
-<rect x="180" y="45" width="440" height="130" fill="#102a43"/>
+<rect
+x="130"
+y="45"
+width="540"
+height="120"
+fill="#102a43"/>
 
-<text x="400" y="125" text-anchor="middle" fill="#32d583" font-size="42" font-family="Georgia">
+<text
+x="400"
+y="115"
+text-anchor="middle"
+fill="#32d583"
+font-size="42"
+font-family="Georgia">
 GRAPHIC DESIGN
 </text>
 
-<text x="400" y="235" text-anchor="middle" fill="#111" font-size="28">
+<text
+x="400"
+y="220"
+text-anchor="middle"
+fill="#111"
+font-size="27">
 Learn • Practice • Create
 </text>
 
-<rect x="275" y="295" width="250" height="55" rx="12" fill="#32d583"/>
+<rect
+x="275"
+y="285"
+width="250"
+height="58"
+rx="12"
+fill="#32d583"/>
 
-<text x="400" y="332" text-anchor="middle" fill="#06131f" font-size="24">
+<text
+x="400"
+y="323"
+text-anchor="middle"
+fill="#06131f"
+font-size="24">
 KENA DESIGN
 </text>
+
+<path
+d="M690 250 L535 310"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M535 310 L555 290 M535 310 L562 315"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">
-Font haaraa poster irratti hojiirra oolchi.
-</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Font qofa galchuun hin ga'u.
+Font sana design keessatti bakka sirrii irratti fayyadami.
+Title, subtitle fi barruu gargaaraa irratti hierarchy uumi.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Text tool → text kee filadhu → Font → font haaraa filadhu.
+
+</div>
 
 </div>
 
 
+<!-- 12 -->
 
 <div class="step">
 
 <span class="num">12</span>
 
-<h3>📸 Screenshot</h3>
+<h3>📸 Screenshot Godhi</h3>
 
-<div class="pic" onclick="zoomPic('p12')">
+<div class="visual" onclick="zoomPic('p12')">
+
+<span class="gif">GIF</span>
 
 <svg id="p12" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="220" y="35" width="360" height="430" rx="28" fill="#17283d"/>
+<rect
+x="180"
+y="30"
+width="440"
+height="440"
+rx="25"
+fill="#17283d"/>
 
-<rect x="245" y="80" width="310" height="300" fill="white"/>
+<rect
+x="210"
+y="70"
+width="380"
+height="330"
+fill="#f5f7fb"/>
 
-<text x="400" y="155" text-anchor="middle" fill="#102a43" font-size="31">
+<rect
+x="210"
+y="70"
+width="380"
+height="105"
+fill="#102a43"/>
+
+<text
+x="400"
+y="135"
+text-anchor="middle"
+fill="#32d583"
+font-size="34"
+font-family="Georgia">
 GRAPHIC DESIGN
 </text>
 
-<text x="400" y="210" text-anchor="middle" fill="#111" font-size="22">
+<text
+x="400"
+y="235"
+text-anchor="middle"
+fill="#102a43"
+font-size="30">
 NEW FONT
 </text>
 
-<rect x="290" y="260" width="220" height="50" rx="10" fill="#32d583"/>
+<rect
+x="280"
+y="280"
+width="240"
+height="58"
+rx="10"
+fill="#32d583"/>
 
-<text x="400" y="293" text-anchor="middle" fill="#06131f" font-size="21">
+<text
+x="400"
+y="318"
+text-anchor="middle"
+fill="#06131f"
+font-size="22">
 SUBMITTED ✓
 </text>
+
+<path
+d="M620 350 L530 315"
+stroke="#ff5b5b"
+stroke-width="8"
+class="tap"/>
+
+<path
+d="M530 315 L552 309 M530 315 L539 336"
+stroke="#ff5b5b"
+stroke-width="8"/>
 
 </svg>
 
 </div>
 
-<p class="muted">
-Hojii xumuraa screenshot godhi.
-</p>
+<div class="explain">
+
+<b>Hiika:</b>
+
+Hojii kee xumursi.
+Erga design qulqulluu ta'e booda screenshot godhi.
+Screenshot kun assignment kee akka ragaa ta'uuf barbaachisa.
+
+</div>
+
+<div class="location">
+
+📍 <b>Bakka argama:</b>
+
+Gallery/Photos keessatti screenshot kee argatta;
+achii assignment irratti submit godhi.
 
 </div>
 
 </div>
 
-<p class="muted">
-🖼️ Suuraa kamiyyuu tuqi → guddisi/ilaali.
-</p>
+
+</div>
 
 </section>
 
 
 <section class="card assignment">
 
-<h2>📝 ASSIGNMENT — Graphic Design Lesson 2</h2>
+<h2>📝 ASSIGNMENT — Lesson 2</h2>
 
 <p>
-Assignment kana keessatti <b>font haaraa tokko</b>
-PixelLab keessatti galchi; sana booda font sana fayyadamuun
-poster/design tokko qopheessi.
+Amma waan baratte hojiitti jijjiiri.
+<b>Fakkeenya suuraa armaan gadii copy qofa hin godhin.</b>
+Yaada mataa keetiin design haaraa uumi.
 </p>
 
 <div class="grid">
 
 <div class="req">
-✓ TTF ykn OTF font tokko filadhu.
+✅ Font TTF ykn OTF tokko barbaadi.
 </div>
 
 <div class="req">
-✓ PixelLab keessatti import godhi.
+✅ PixelLab keessatti import godhi.
 </div>
 
 <div class="req">
-✓ Font haaraa sana mata-duree irratti fayyadami.
+✅ Font haaraa title irratti fayyadami.
 </div>
 
 <div class="req">
-✓ Subtitle ykn barruu gabaabaa dabali.
+✅ Subtitle/barruu gabaabaa dabali.
 </div>
 
 <div class="req">
-✓ Color fi spacing sirreessi.
+✅ Color fi spacing sirreessi.
 </div>
 
 <div class="req">
-✓ Hojii xumuraa screenshot godhi.
+✅ Design xumuraa screenshot godhi.
 </div>
 
 </div>
 
 
-<h3>
-🖼️ Akkamitti hojjechuu akka qabdu — Fakkeenya suuraa
-</h3>
+<h3>🖼️ Fakkeenya hojii — akkamitti akka fakkaatu</h3>
+
 
 <div class="grid">
 
 
 <div class="step">
 
-<h3>1. Font kee</h3>
+<h3>1️⃣ Font haaraa</h3>
 
-<div class="pic" onclick="zoomPic('a1')">
+<div class="visual" onclick="zoomPic('a1')">
+
+<span class="gif">GIF</span>
 
 <svg id="a1" viewBox="0 0 800 500">
 
 <rect width="800" height="500" fill="#07111f"/>
 
-<rect x="110" y="55" width="580" height="390" rx="20" fill="#142338"/>
+<rect
+x="100"
+y="55"
+width="600"
+height="390"
+rx="20"
+fill="#142338"/>
 
-<text x="400" y="125" text-anchor="middle" fill="white" font-size="32">
+<text
+x="400"
+y="125"
+text-anchor="middle"
+fill="white"
+font-size="31">
 MY NEW FONT
 </text>
 
-<text x="400" y="220" text-anchor="middle" fill="#32d583" font-size="70" font-family="Georgia">
+<text
+x="400"
+y="235"
+text-anchor="middle"
+fill="#32d583"
+font-size="70"
+font-family="Georgia">
 KENA
 </text>
 
-<text x="400" y="300" text-anchor="middle" fill="white" font-size="42" font-family="Georgia">
+<text
+x="400"
+y="315"
+text-anchor="middle"
+fill="white"
+font-size="44"
+font-family="Georgia">
 DESIGN
 </text>
 
-<text x="400" y="370" text-anchor="middle" fill="#b8c4d4" font-size="22">
+<text
+x="400"
+y="390"
+text-anchor="middle"
+fill="#b8c5d6"
+font-size="21">
 Font imported ✓
 </text>
 
@@ -625,37 +1782,75 @@ Font imported ✓
 
 </div>
 
-</div>
+<p class="muted">
+Fakkeenya kana irratti font haaraa mul'ata.
+</p>
 
+</div>
 
 
 <div class="step">
 
-<h3>2. Poster kee</h3>
+<h3>2️⃣ Poster design</h3>
 
-<div class="pic" onclick="zoomPic('a2')">
+<div class="visual" onclick="zoomPic('a2')">
+
+<span class="gif">GIF</span>
 
 <svg id="a2" viewBox="0 0 800 500">
 
-<rect width="800" height="500" fill="#102a43"/>
+<rect
+width="800"
+height="500"
+fill="#102a43"/>
 
-<circle cx="650" cy="90" r="100" fill="#32d583" opacity=".25"/>
+<circle
+cx="650"
+cy="90"
+r="105"
+fill="#32d583"
+opacity=".25"/>
 
-<text x="70" y="145" fill="white" font-size="50" font-family="Georgia">
+<text
+x="70"
+y="150"
+fill="white"
+font-size="51"
+font-family="Georgia">
 GRAPHIC
 </text>
 
-<text x="70" y="205" fill="white" font-size="65" font-family="Georgia">
+<text
+x="70"
+y="215"
+fill="white"
+font-size="66"
+font-family="Georgia">
 DESIGN
 </text>
 
-<text x="72" y="260" fill="#32d583" font-size="25">
+<text
+x="72"
+y="270"
+fill="#32d583"
+font-size="25">
 LEARN • PRACTICE • CREATE
 </text>
 
-<rect x="70" y="325" width="260" height="60" rx="12" fill="#32d583"/>
+<rect
+x="70"
+y="330"
+width="260"
+height="58"
+rx="12"
+fill="#32d583"/>
 
-<text x="200" y="365" text-anchor="middle" fill="#06131f" font-size="26">
+<text
+x="200"
+y="368"
+text-anchor="middle"
+fill="#06131f"
+font-size="24">
 KENA DESIGN
 </text>
 
@@ -663,49 +1858,94 @@ KENA DESIGN
 
 </div>
 
-</div>
+<p class="muted">
+Font haaraa fayyadamuun poster kee qopheessi.
+</p>
 
+</div>
 
 
 <div class="step">
 
-<h3>3. Final hojii</h3>
+<h3>3️⃣ Final hojii</h3>
 
-<div class="pic" onclick="zoomPic('a3')">
+<div class="visual" onclick="zoomPic('a3')">
+
+<span class="gif">GIF</span>
 
 <svg id="a3" viewBox="0 0 800 500">
 
-<rect width="800" height="500" fill="#07111f"/>
+<rect
+width="800"
+height="500"
+fill="#07111f"/>
 
-<rect x="180" y="30" width="440" height="440" rx="18" fill="#f5f7fb"/>
+<rect
+x="180"
+y="30"
+width="440"
+height="440"
+rx="18"
+fill="#f5f7fb"/>
 
-<rect x="180" y="30" width="440" height="120" fill="#102a43"/>
+<rect
+x="180"
+y="30"
+width="440"
+height="120"
+fill="#102a43"/>
 
-<text x="400" y="100" text-anchor="middle" fill="#32d583" font-size="38">
+<text
+x="400"
+y="100"
+text-anchor="middle"
+fill="#32d583"
+font-size="38">
 KENA DESIGN
 </text>
 
-<text x="400" y="205" text-anchor="middle" fill="#102a43" font-size="32">
+<text
+x="400"
+y="205"
+text-anchor="middle"
+fill="#102a43"
+font-size="31">
 NEW FONT
 </text>
 
-<text x="400" y="250" text-anchor="middle" fill="#333" font-size="22">
+<text
+x="400"
+y="255"
+text-anchor="middle"
+fill="#333"
+font-size="21">
 Graphic Design Assignment
 </text>
 
-<rect x="275" y="300" width="250" height="55" rx="10" fill="#32d583"/>
+<rect
+x="275"
+y="310"
+width="250"
+height="55"
+rx="10"
+fill="#32d583"/>
 
-<text x="400" y="337" text-anchor="middle" fill="#06131f" font-size="23">
+<text
+x="400"
+y="346"
+text-anchor="middle"
+fill="#06131f"
+font-size="22">
 SUBMITTED ✓
-</text>
-
-<text x="400" y="410" text-anchor="middle" fill="#667085" font-size="19">
-Student: Your Name
 </text>
 
 </svg>
 
 </div>
+
+<p class="muted">
+Kun fakkeenya final submission ti.
+</p>
 
 </div>
 
@@ -716,9 +1956,10 @@ Student: Your Name
 
 <b>📌 Hubachiisa:</b>
 
-Suuraawwan kun <b>fakkeenya</b> qofa.
-Student design isaa mataa isaa haa uumu;
-fakkeenya kana guutumaan guutuutti copy gochuun hin barbaachisu.
+Suuraawwan kun fakkeenya qofa.
+
+Design mataa keetiin hojjedhu.
+Color, font, title fi layout jijjiiruu dandeessa.
 
 </div>
 
@@ -728,11 +1969,11 @@ fakkeenya kana guutumaan guutuutti copy gochuun hin barbaachisu.
 <ol>
 
 <li>
-Font haaraa ati import goote.
+Font haaraa ati galchite.
 </li>
 
 <li>
-Poster/design ati qopheessite.
+Design/poster ati hojjetite.
 </li>
 
 <li>
@@ -746,9 +1987,79 @@ Screenshot hojii xumuraa.
 
 <section class="card">
 
+<h2>⚠️ Dogoggora Irraa Of Eegi</h2>
+
+<ul>
+
+<li>
+❌ Font sirrii hin galchin.
+</li>
+
+<li>
+❌ Faayila font hin beekamne download hin godhin.
+</li>
+
+<li>
+❌ Font baay'ee walitti hin makiin.
+</li>
+
+<li>
+❌ Text fi background wal fakkaataa color hin godhin.
+</li>
+
+<li>
+❌ Spacing fi alignment dagattee hin dhiisin.
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="card">
+
+<h2>💡 Gorsa Ijoo</h2>
+
+<ul>
+
+<li>
+✅ Font amanamaa irraa download godhi.
+</li>
+
+<li>
+✅ Font 1–2 qofa design tokko keessatti jalqabaaf fayyadami.
+</li>
+
+<li>
+✅ Title guddaa, subtitle xiqqaa godhi.
+</li>
+
+<li>
+✅ Color wal siman fayyadami.
+</li>
+
+<li>
+✅ Hojii kee yeroo hunda save godhi.
+</li>
+
+<li>
+✅ Screenshot qulqulluu godhi.
+</li>
+
+</ul>
+
+</section>
+
+
+<section class="card">
+
 <h2>🧠 Of-Madaallii</h2>
 
 <ol>
+
+<li>
+Font jechuun maal?
+</li>
 
 <li>
 TTF fi OTF maal fa'i?
@@ -759,15 +2070,15 @@ My Fonts maalif fayyada?
 </li>
 
 <li>
-Font haaraa PixelLab keessatti akkamitti galchita?
+Add Font eessa jira?
 </li>
 
 <li>
-Font filachuuf maal ilaalta?
+Font haaraa eessa irraa filatta?
 </li>
 
 <li>
-Assignment Lesson 2 keessatti maal submit goota?
+Hojii xumuraa akkamitti screenshot goota?
 </li>
 
 </ol>
@@ -775,18 +2086,69 @@ Assignment Lesson 2 keessatti maal submit goota?
 </section>
 
 
-<footer class="muted">
-🎨 KENA DESIGN — Graphic Design Lesson 2
+<section class="finish">
+
+<h2>🎉 Lesson 2 XUMURTEETTA!</h2>
+
+<p>
+Baga gammadde! 🎊
+
+Amma font haaraa PixelLab keessatti galchuu fi
+design kee irratti itti fayyadamuu dandeessa.
+</p>
+
+<div class="progress">
+<span></span>
+</div>
+
+<p>
+
+✅ Video ilaali
+
+<br>
+
+✅ Tarkaanfii 12 shaakali
+
+<br>
+
+✅ Assignment hojjedhu
+
+<br>
+
+✅ Screenshot qopheessi
+
+</p>
+
+<button onclick="finishLesson()">
+
+🎉 Lesson 2 Xumureera
+
+</button>
+
+<p id="done" class="muted"></p>
+
+</section>
+
+
+<footer>
+
+🎨 KENA DESIGN | Graphic Design Lesson 2
+
 </footer>
 
 </div>
 
 
-<div class="modal" id="modal" onclick="closeZoom(event)">
+<div
+class="modal"
+id="modal"
+onclick="closeZoom(event)">
 
 <div class="modalbox">
 
-<button class="close" onclick="closeZoom(event)">
+<button
+class="close"
+onclick="closeZoom(event)">
 ×
 </button>
 
@@ -801,56 +2163,79 @@ Assignment Lesson 2 keessatti maal submit goota?
 
 function zoomPic(id){
 
-const el=document.getElementById(id);
+  const el=document.getElementById(id);
 
-if(!el)return;
+  if(!el)return;
 
-const copy=el.cloneNode(true);
+  const copy=el.cloneNode(true);
 
-copy.removeAttribute("id");
+  copy.removeAttribute("id");
 
-document.getElementById("big").innerHTML="";
+  document.getElementById("big").innerHTML="";
 
-document.getElementById("big").appendChild(copy);
+  document.getElementById("big").appendChild(copy);
 
-document.getElementById("modal").classList.add("show");
+  document.getElementById("modal").classList.add("show");
 
-document.body.style.overflow="hidden";
-
+  document.body.style.overflow="hidden";
 }
 
 
 function closeZoom(e){
 
-if(
-e.target.id==="modal" ||
-e.target.classList.contains("close")
-){
+  if(
+    e.target.id==="modal" ||
+    e.target.classList.contains("close")
+  ){
 
-document.getElementById("modal").classList.remove("show");
+    document
+      .getElementById("modal")
+      .classList.remove("show");
 
-document.getElementById("big").innerHTML="";
+    document.getElementById("big").innerHTML="";
 
-document.body.style.overflow="";
-
-}
+    document.body.style.overflow="";
+  }
 
 }
 
 
 document.addEventListener("keydown",e=>{
 
-if(e.key==="Escape"){
+  if(e.key==="Escape"){
 
-document.getElementById("modal").classList.remove("show");
+    document
+      .getElementById("modal")
+      .classList.remove("show");
 
-document.getElementById("big").innerHTML="";
+    document.getElementById("big").innerHTML="";
 
-document.body.style.overflow="";
-
-}
+    document.body.style.overflow="";
+  }
 
 });
+
+
+function finishLesson(){
+
+  localStorage.setItem(
+    "kena_lesson2_completed",
+    "true"
+  );
+
+  document.getElementById("done").innerHTML=
+    "✅ Lesson 2 xumurteetta. Assignment kee qopheessitee submit godhi.";
+}
+
+
+if(
+  localStorage.getItem("kena_lesson2_completed")
+  ==="true"
+){
+
+  document.getElementById("done").innerHTML=
+    "✅ Lesson 2 duraan xumurameera.";
+}
 
 </script>
 

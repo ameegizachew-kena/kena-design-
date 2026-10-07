@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Login | KENA DESIGN</title>
+
+  <meta
+    name="description"
+    content="KENA DESIGN Student Login"
+  >
+
+  <meta
+    name="theme-color"
+    content="#08111f"
+  >
+
+  <style>
+
+    :root{
+      --bg:#08111f;
+      --panel:#101d30;
+      --panel2:#14243b;
+      --text:#f5f7fb;
+      --muted:#aebbd0;
+      --accent:#35d07f;
+      --accent2:#16a8ff;
+      --danger:#ff5d6c;
+      --warning:#ffbf47;
+      --border:rgba(255,255,255,.09);
+      --shadow:0 20px 50px rgba(0,0,0,.35);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      min-height:100vh;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      color:var(--text);
+
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(22,168,255,.14),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(53,208,127,.10),
+          transparent 35%
+        ),
+        var(--bg);
+
+      display:flex;
+      flex-direction:column;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,
+    input{
+      font:inherit;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header{
+      width:100%;
+      border-bottom:1px solid var(--border);
+      background:rgba(8,17,31,.88);
+      backdrop-filter:blur(12px);
+    }
+
+    .header-inner{
+      width:min(1100px,92%);
+      min-height:70px;
+      margin:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+      font-size:20px;
+      font-weight:900;
+    }
+
+    .logo-mark{
+      width:42px;
+      height:42px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent),
+          var(--accent2)
+        );
+
+      color:#06101b;
+      font-weight:900;
+    }
+
+    .home-link{
+      color:var(--muted);
+      padding:9px 13px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      transition:.2s;
+    }
+
+    .home-link:hover{
+      color:#fff;
+      background:rgba(255,255,255,.06);
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main{
+      flex:1;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      padding:50px 20px;
+    }
+
+    .login-container{
+      width:min(460px,100%);
+    }
+
+    .login-card{
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20,36,59,.98),
+          rgba(16,29,48,.98)
+        );
+
+      border:1px solid var(--border);
+      border-radius:24px;
+
+      padding:32px;
+
+      box-shadow:var(--shadow);
+    }
+
+    .login-top{
+      text-align:center;
+      margin-bottom:27px;
+    }
+
+    .login-icon{
+      width:70px;
+      height:70px;
+
+      margin:0 auto 16px;
+
+      display:grid;
+      place-items:center;
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53,208,127,.16),
+          rgba(22,168,255,.16)
+        );
+
+      border:1px solid var(--border);
+
+      font-size:34px;
+    }
+
+    .login-top h1{
+      font-size:30px;
+      margin-bottom:7px;
+    }
+
+    .login-top p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .field{
+      margin-bottom:17px;
+    }
+
+    .field label{
+      display:block;
+
+      margin-bottom:7px;
+
+      font-size:14px;
+      font-weight:700;
+
+      color:#dce6f5;
+    }
+
+    .input-wrap{
+      position:relative;
+    }
+
+    .input-wrap input{
+      width:100%;
+
+      padding:14px 45px 14px 14px;
+
+      border-radius:12px;
+
+      border:1px solid var(--border);
+
+      background:#091625;
+
+      color:#fff;
+
+      outline:none;
+
+      transition:.2s;
+    }
+
+    .input-wrap input::placeholder{
+      color:#718097;
+    }
+
+    .input-wrap input:focus{
+      border-color:var(--accent2);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(22,168,255,.10);
+    }
+
+    .input-icon{
+      position:absolute;
+
+      right:14px;
+      top:50%;
+
+      transform:translateY(-50%);
+
+      color:#7f8da4;
+
+      pointer-events:none;
+    }
+
+    .pin-toggle{
+      position:absolute;
+
+      right:12px;
+      top:50%;
+
+      transform:translateY(-50%);
+
+      border:0;
+      background:transparent;
+
+      color:#8e9db4;
+
+      cursor:pointer;
+
+      padding:5px;
+    }
+
+    .pin-toggle:hover{
+      color:#fff;
+    }
+
+    /* =========================
+       OTP
+    ========================= */
+
+    .otp-row{
+      display:flex;
+      gap:8px;
+    }
+
+    .otp-row input{
+      flex:1;
+      min-width:0;
+    }
+
+    .otp-help{
+      margin-top:7px;
+
+      color:#8291a8;
+
+      font-size:12px;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .login-btn{
+      width:100%;
+
+      border:0;
+
+      padding:14px;
+
+      border-radius:12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent),
+          #25bdff
+        );
+
+      color:#04101a;
+
+      font-weight:900;
+
+      cursor:pointer;
+
+      transition:.2s;
+    }
+
+    .login-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .login-btn:disabled{
+      opacity:.6;
+      cursor:not-allowed;
+      transform:none;
+    }
+
+    .register-btn{
+      width:100%;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      margin-top:10px;
+
+      padding:13px;
+
+      border-radius:12px;
+
+      background:var(--panel2);
+
+      border:1px solid var(--border);
+
+      color:#fff;
+
+      font-weight:800;
+    }
+
+    .register-btn:hover{
+      background:#1a2c47;
+    }
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    .status{
+      display:none;
+
+      margin-top:17px;
+
+      padding:13px 14px;
+
+      border-radius:11px;
+
+      font-size:13px;
+
+      line-height:1.5;
+    }
+
+    .status.show{
+      display:block;
+    }
+
+    .status.success{
+      color:#74e8a7;
+
+      background:
+        rgba(53,208,127,.09);
+
+      border:
+        1px solid
+        rgba(53,208,127,.20);
+    }
+
+    .status.error{
+      color:#ff919b;
+
+      background:
+        rgba(255,93,108,.09);
+
+      border:
+        1px solid
+        rgba(255,93,108,.20);
+    }
+
+    .status.info{
+      color:#8ed6ff;
+
+      background:
+        rgba(22,168,255,.09);
+
+      border:
+        1px solid
+        rgba(22,168,255,.20);
+    }
+
+    /* =========================
+       INFORMATION
+    ========================= */
+
+    .security-box{
+      margin-top:22px;
+
+      padding:14px;
+
+      border-radius:12px;
+
+      background:
+        rgba(255,191,71,.06);
+
+      border:
+        1px solid
+        rgba(255,191,71,.15);
+    }
+
+    .security-box strong{
+      display:block;
+
+      color:#ffd98b;
+
+      margin-bottom:5px;
+    }
+
+    .security-box p{
+      color:#c4cfdf;
+
+      font-size:12px;
+
+      line-height:1.6;
+    }
+
+    .back-register{
+      text-align:center;
+
+      margin-top:18px;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    .back-register a{
+      color:var(--accent);
+      font-weight:800;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      border-top:1px solid var(--border);
+
+      padding:25px 15px;
+
+      text-align:center;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    footer strong{
+      color:#fff;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:500px){
+
+      main{
+        padding:30px 14px;
+      }
+
+      .login-card{
+        padding:23px 18px;
+        border-radius:20px;
+      }
+
+      .login-top h1{
+        font-size:26px;
+      }
+
+      .home-link{
+        font-size:13px;
+      }
+
+      .logo{
+        font-size:17px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a
+        href="index.html"
+        class="logo"
+      >
+
+        <span class="logo-mark">
+          KD
+        </span>
+
+        <span>
+          KENA DESIGN
+        </span>
+
+      </a>
+
+
+      <a
+        href="index.html"
+        class="home-link"
+      >
+        ← Home
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN LOGIN
+  ========================= -->
+
+  <main>
+
+    <div class="login-container">
+
+      <div class="login-card">
+
+
+        <div class="login-top">
+
+          <div class="login-icon">
+            🔐
+          </div>
+
+          <h1>
+            Barataa Seeni
+          </h1>
+
+          <p>
+            KENA DESIGN barnoota kee jalqabuuf
+            odeeffannoo seensaa kee galchi.
+          </p>
+
+        </div>
+
+
+        <!-- =========================
+             LOGIN FORM
+        ========================= -->
+
+        <form id="loginForm">
+
+
+          <!-- PHONE -->
+
+          <div class="field">
+
+            <label for="phone">
+              📱 Lakkoofsa Bilbilaa
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="0923502464"
+                maxlength="10"
+                inputmode="numeric"
+                autocomplete="tel"
+                required
+              >
+
+              <span class="input-icon">
+                📱
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- PIN -->
+
+          <div class="field">
+
+            <label for="pin">
+              🔑 PIN
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                type="password"
+                id="pin"
+                name="pin"
+                placeholder="PIN kee galchi"
+                maxlength="20"
+                autocomplete="current-password"
+                required
+              >
+
+              <button
+                type="button"
+                class="pin-toggle"
+                id="pinToggle"
+                aria-label="PIN agarsiisi"
+              >
+                👁️
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- OTP -->
+
+          <div class="field">
+
+            <label for="otp">
+              🔢 OTP
+            </label>
+
+            <div class="otp-row">
+
+              <div class="input-wrap" style="flex:1;">
+
+                <input
+                  type="text"
+                  id="otp"
+                  name="otp"
+                  placeholder="OTP galchi"
+                  maxlength="8"
+                  inputmode="numeric"
+                  autocomplete="one-time-code"
+                  required
+                >
+
+              </div>
+
+            </div>
+
+            <div class="otp-help">
+              OTP yoo siif ergame, lakkoofsa sana asitti galchi.
+            </div>
+
+          </div>
+
+
+          <!-- LOGIN BUTTON -->
+
+          <button
+            type="submit"
+            class="login-btn"
+            id="loginButton"
+          >
+            🚀 Seeni
+          </button>
+
+
+          <!-- REGISTER -->
+
+          <a
+            href="register.html"
+            class="register-btn"
+          >
+            📝 Barataa Haaraa — Galmaa'i
+          </a>
+
+
+        </form>
+
+
+        <!-- STATUS -->
+
+        <div
+          id="status"
+          class="status"
+        ></div>
+
+
+        <!-- SECURITY -->
+
+        <div class="security-box">
+
+          <strong>
+            🔒 Odeeffannoo barbaachisaa
+          </strong>
+
+          <p>
+            Login dhugaa, OTP, PIN fi mirga
+            barnootaa mirkaneessuuf backend
+            authentication barbaachisa.
+            Koodiin kun frontend login interface
+            fi bakka API itti hidhamu qopheessa.
+          </p>
+
+        </div>
+
+
+        <div class="back-register">
+
+          Barataa hin galmoofne?
+
+          <a href="register.html">
+            Amma Galmaa'i
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    <p>
+      © 2026
+      <strong>KENA DESIGN</strong>.
+      All Rights Reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
+  <script>
+
+    /*
+      ==========================================
+      KENA DESIGN LOGIN
+      ==========================================
+
+      Yeroo backend kee qopheessitu:
+
+      const LOGIN_API_URL =
+      "https://YOUR-PROJECT.supabase.co/functions/v1/student-login";
+
+      Backend irraa fakkeenya response:
+
+      {
+        "success": true,
+        "token": "....",
+        "redirect": "dashboard.html"
+      }
+
+      Yeroo ammaa URL duwwaa dha,
+      kanaaf login sobaa hin uumu.
+    */
+
+
+    const LOGIN_API_URL = "";
+
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+
+    const loginButton =
+      document.getElementById("loginButton");
+
+
+    const statusBox =
+      document.getElementById("status");
+
+
+    const pinInput =
+      document.getElementById("pin");
+
+
+    const pinToggle =
+      document.getElementById("pinToggle");
+
+
+    /* =========================
+       SHOW STATUS
+    ========================= */
+
+    function showStatus(
+      message,
+      type
+    ){
+
+      statusBox.textContent =
+        message;
+
+      statusBox.className =
+        "status show " + type;
+
+    }
+
+
+    /* =========================
+       HIDE STATUS
+    ========================= */
+
+    function hideStatus(){
+
+      statusBox.textContent = "";
+
+      statusBox.className =
+        "status";
+
+    }
+
+
+    /* =========================
+       PIN SHOW / HIDE
+    ========================= */
+
+    pinToggle.addEventListener(
+      "click",
+      function(){
+
+        if(
+          pinInput.type === "password"
+        ){
+
+          pinInput.type = "text";
+
+          pinToggle.textContent =
+            "🙈";
+
+        }else{
+
+          pinInput.type = "password";
+
+          pinToggle.textContent =
+            "👁️";
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       PHONE VALIDATION
+    ========================= */
+
+    function validPhone(phone){
+
+      return /^0[79][0-9]{8}$/.test(
+        phone
+      );
+
+    }
+
+
+    /* =========================
+       LOGIN
+    ========================= */
+
+    loginForm.addEventListener(
+      "submit",
+      async function(event){
+
+        event.preventDefault();
+
+
+        hideStatus();
+
+
+        const phone =
+          document
+          .getElementById("phone")
+          .value
+          .trim();
+
+
+        const pin =
+          document
+          .getElementById("pin")
+          .value
+          .trim();
+
+
+        const otp =
+          document
+          .getElementById("otp")
+          .value
+          .trim();
+
+
+        /* PHONE */
+
+        if(!validPhone(phone)){
+
+          showStatus(
+            "Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        /* PIN */
+
+        if(pin.length < 4){
+
+          showStatus(
+            "PIN kee sirrii galchi. PIN yoo xiqqaate lakkoofsa 4 qabaachuu qaba.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        /* OTP */
+
+        if(
+          !/^[0-9]{4,8}$/.test(otp)
+        ){
+
+          showStatus(
+            "OTP sirrii galchi. OTP lakkoofsa qofa ta'uu qaba.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        /*
+          BACKEND HIN HIDHAMNE
+        */
+
+        if(!LOGIN_API_URL){
+
+          showStatus(
+            "Login interface qophaa'eera. Garuu OTP/PIN mirkaneessuuf backend authentication ammallee hin hidhamne.",
+            "info"
+          );
+
+          return;
+
+        }
+
+
+        /* BUTTON LOADING */
+
+        loginButton.disabled = true;
+
+        loginButton.textContent =
+          "⏳ Mirkaneessaa...";
+
+
+        try{
+
+          const controller =
+            new AbortController();
+
+
+          const timeout =
+            setTimeout(
+              function(){
+                controller.abort();
+              },
+              30000
+            );
+
+
+          const response =
+            await fetch(
+              LOGIN_API_URL,
+              {
+                method:"POST",
+
+                headers:{
+                  "Content-Type":
+                    "application/json"
+                },
+
+                body:JSON.stringify({
+
+                  phone:phone,
+                  pin:pin,
+                  otp:otp
+
+                }),
+
+                signal:
+                  controller.signal
+              }
+            );
+
+
+          clearTimeout(timeout);
+
+
+          let data = {};
+
+          try{
+
+            data =
+              await response.json();
+
+          }catch(e){
+
+            data = {};
+
+          }
+
+
+          if(
+            response.ok &&
+            data.success === true
+          ){
+
+            /*
+              Token yoo backend irraa dhufe
+              session keessatti kaa'a.
+            */
+
+            if(data.token){
+
+              sessionStorage.setItem(
+                "KENA_STUDENT_TOKEN",
+                data.token
+              );
+
+            }
+
+
+            sessionStorage.setItem(
+              "KENA_STUDENT_PHONE",
+              phone
+            );
+
+
+            showStatus(
+              "Login milkaa'eera. Dashboard banaa jira... 🚀",
+              "success"
+            );
+
+
+            setTimeout(
+              function(){
+
+                window.location.href =
+                  data.redirect ||
+                  "dashboard.html";
+
+              },
+              700
+            );
+
+
+            return;
+
+          }
+
+
+          showStatus(
+            data.message ||
+            "Phone, PIN ykn OTP sirrii miti; ykn barnootaaf access hin kennamne.",
+            "error"
+          );
+
+
+        }catch(error){
+
+          if(
+            error.name ===
+            "AbortError"
+          ){
+
+            showStatus(
+              "Server irraa deebiin yeroo isaa darbe. Mee irra deebi'i.",
+              "error"
+            );
+
+          }else{
+
+            showStatus(
+              "Rakkoo server waliin uumame. Mee connection kee ilaaliitii irra deebi'i.",
+              "error"
+            );
+
+          }
+
+        }finally{
+
+          loginButton.disabled =
+            false;
+
+          loginButton.textContent =
+            "🚀 Seeni";
+
+        }
+
+      }
+    );
+
+
+    /* =========================
+       ONLY NUMBERS FOR OTP
+    ========================= */
+
+    document
+      .getElementById("otp")
+      .addEventListener(
+        "input",
+        function(){
+
+          this.value =
+            this.value
+            .replace(
+              /[^0-9]/g,
+              ""
+            );
+
+        }
+      );
+
+
+    /* =========================
+       PHONE CLEANUP
+    ========================= */
+
+    document
+      .getElementById("phone")
+      .addEventListener(
+        "input",
+        function(){
+
+          this.value =
+            this.value
+            .replace(
+              /[^0-9]/g,
+              ""
+            );
+
+        }
+      );
+
+  </script>
+
+</body>
+</html>

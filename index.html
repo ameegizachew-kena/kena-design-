@@ -6,7 +6,7 @@
 
   <title>KENA DESIGN | Barnoota Design</title>
 
-  <meta name="description" content="KENA DESIGN - Barnoota Video Editing, Logo Design, Thumbnail, Business Card fi Flyer.">
+  <meta name="description" content="KENA DESIGN - Barnoota Design, Video Editing, Logo, Thumbnail, Business Card fi Flyer.">
   <meta name="theme-color" content="#08111f">
 
   <style>
@@ -18,8 +18,6 @@
       --muted:#aebbd0;
       --accent:#35d07f;
       --accent2:#16a8ff;
-      --danger:#ff5d6c;
-      --warning:#ffbf47;
       --border:rgba(255,255,255,.09);
       --shadow:0 20px 50px rgba(0,0,0,.28);
     }
@@ -37,8 +35,16 @@
     body{
       font-family:Arial,Helvetica,sans-serif;
       background:
-        radial-gradient(circle at top right,rgba(22,168,255,.12),transparent 35%),
-        radial-gradient(circle at top left,rgba(53,208,127,.08),transparent 30%),
+        radial-gradient(
+          circle at top right,
+          rgba(22,168,255,.12),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at top left,
+          rgba(53,208,127,.08),
+          transparent 30%
+        ),
         var(--bg);
       color:var(--text);
       line-height:1.6;
@@ -60,7 +66,10 @@
       margin:auto;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
+
     nav{
       position:sticky;
       top:0;
@@ -93,10 +102,15 @@
       display:grid;
       place-items:center;
       border-radius:12px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+      );
       color:#06101b;
       font-weight:900;
-      box-shadow:0 10px 30px rgba(22,168,255,.2);
+      box-shadow:
+        0 10px 30px rgba(22,168,255,.2);
     }
 
     .nav-links{
@@ -127,7 +141,10 @@
       cursor:pointer;
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
+
     .hero{
       padding:90px 0 75px;
       text-align:center;
@@ -155,7 +172,12 @@
     }
 
     .hero h1 span{
-      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      background:
+        linear-gradient(
+          90deg,
+          var(--accent),
+          var(--accent2)
+        );
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
@@ -193,9 +215,15 @@
     }
 
     .primary{
-      background:linear-gradient(135deg,var(--accent),#25bdff);
+      background:
+        linear-gradient(
+          135deg,
+          var(--accent),
+          #25bdff
+        );
       color:#04101a;
-      box-shadow:0 12px 30px rgba(53,208,127,.18);
+      box-shadow:
+        0 12px 30px rgba(53,208,127,.18);
     }
 
     .secondary{
@@ -204,13 +232,10 @@
       border:1px solid var(--border);
     }
 
-    .danger{
-      background:rgba(255,93,108,.12);
-      color:#ff8b96;
-      border:1px solid rgba(255,93,108,.2);
-    }
+    /* =========================
+       SECTION
+    ========================= */
 
-    /* SECTION */
     section{
       padding:70px 0;
     }
@@ -229,16 +254,23 @@
       color:var(--muted);
     }
 
-    /* ACCESS */
+    /* =========================
+       LEARNING ACCESS
+    ========================= */
+
     .access-wrap{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:25px;
-      align-items:stretch;
     }
 
     .card{
-      background:linear-gradient(145deg,rgba(20,36,59,.96),rgba(16,29,48,.96));
+      background:
+        linear-gradient(
+          145deg,
+          rgba(20,36,59,.96),
+          rgba(16,29,48,.96)
+        );
       border:1px solid var(--border);
       border-radius:22px;
       padding:28px;
@@ -273,50 +305,9 @@
       font-weight:bold;
     }
 
-    .form-title{
-      font-size:22px;
-      margin-bottom:18px;
-    }
-
-    .field{
-      margin-bottom:15px;
-    }
-
-    .field label{
-      display:block;
-      margin-bottom:7px;
-      color:#dbe5f4;
-      font-size:14px;
-      font-weight:700;
-    }
-
-    .field input,
-    .field select{
-      width:100%;
-      padding:13px 14px;
-      border-radius:11px;
-      border:1px solid var(--border);
-      background:#0a1626;
-      color:#fff;
-      outline:none;
-    }
-
-    .field input:focus,
-    .field select:focus{
-      border-color:var(--accent2);
-      box-shadow:0 0 0 3px rgba(22,168,255,.1);
-    }
-
-    .access-buttons{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin-top:18px;
-    }
-
     .notice{
-      margin-top:16px;
-      padding:12px 14px;
+      margin-top:20px;
+      padding:13px 14px;
       border-radius:11px;
       background:rgba(255,191,71,.08);
       border:1px solid rgba(255,191,71,.18);
@@ -324,31 +315,10 @@
       font-size:13px;
     }
 
-    .status{
-      display:none;
-      margin-top:15px;
-      padding:12px 14px;
-      border-radius:11px;
-      font-weight:700;
-    }
+    /* =========================
+       COURSES
+    ========================= */
 
-    .status.show{
-      display:block;
-    }
-
-    .status.success{
-      background:rgba(53,208,127,.1);
-      color:var(--accent);
-      border:1px solid rgba(53,208,127,.2);
-    }
-
-    .status.error{
-      background:rgba(255,93,108,.1);
-      color:#ff929c;
-      border:1px solid rgba(255,93,108,.2);
-    }
-
-    /* COURSES */
     .course-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -433,7 +403,10 @@
       cursor:pointer;
     }
 
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
+
     .about-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -456,7 +429,10 @@
       color:var(--muted);
     }
 
-    /* QUIZ */
+    /* =========================
+       QUIZ
+    ========================= */
+
     .quiz-box{
       max-width:850px;
       margin:auto;
@@ -502,7 +478,10 @@
       color:var(--accent);
     }
 
-    /* CONTACT */
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
@@ -531,7 +510,10 @@
       word-break:break-word;
     }
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer{
       margin-top:30px;
       padding:35px 0;
@@ -544,8 +526,12 @@
       color:#fff;
     }
 
-    /* RESPONSIVE */
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
     @media(max-width:900px){
+
       .course-grid{
         grid-template-columns:repeat(2,1fr);
       }
@@ -561,6 +547,7 @@
     }
 
     @media(max-width:680px){
+
       .nav-links{
         display:none;
         position:absolute;
@@ -604,10 +591,6 @@
         grid-template-columns:1fr;
       }
 
-      .access-buttons{
-        grid-template-columns:1fr;
-      }
-
       .card,
       .quiz-box,
       .about-box{
@@ -619,121 +602,239 @@
 
 <body>
 
-  <!-- NAVBAR -->
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
   <nav>
+
     <div class="container nav-inner">
 
       <a href="#home" class="logo">
-        <span class="logo-mark">KD</span>
-        <span>KENA DESIGN</span>
+
+        <span class="logo-mark">
+          KD
+        </span>
+
+        <span>
+          KENA DESIGN
+        </span>
+
       </a>
 
-      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Menu"
+      >
         ☰
       </button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#home" onclick="closeMenu()">Home</a>
-        <a href="#access" onclick="closeMenu()">Barnoota Jalqabi</a>
-        <a href="#courses" onclick="closeMenu()">Barnoota</a>
-        <a href="#quiz" onclick="closeMenu()">Quiz</a>
-        <a href="#about" onclick="closeMenu()">Waa'ee Keenya</a>
-        <a href="#contact" onclick="closeMenu()">Contact</a>
+
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a
+          href="#home"
+          onclick="closeMenu()"
+        >
+          Home
+        </a>
+
+        <a
+          href="login.html"
+          onclick="closeMenu()"
+        >
+          Barnoota Jalqabi
+        </a>
+
+        <a
+          href="#courses"
+          onclick="closeMenu()"
+        >
+          Barnoota
+        </a>
+
+        <a
+          href="#quiz"
+          onclick="closeMenu()"
+        >
+          Quiz
+        </a>
+
+        <a
+          href="#about"
+          onclick="closeMenu()"
+        >
+          Waa'ee Keenya
+        </a>
+
+        <a
+          href="#contact"
+          onclick="closeMenu()"
+        >
+          Contact
+        </a>
+
       </div>
 
     </div>
+
   </nav>
 
 
-  <!-- HERO -->
-  <header class="hero" id="home">
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <header
+    class="hero"
+    id="home"
+  >
+
     <div class="container">
 
       <div class="badge">
         ✨ KENA DESIGN ONLINE LEARNING
       </div>
 
+
       <h1>
-        Barnoota <span>KENA DESIGN</span>
+        Barnoota
+        <span>
+          KENA DESIGN
+        </span>
       </h1>
 
+
       <p>
-        Design, Video Editing, Logo, Thumbnail, Business Card fi
-        Flyer professional ta'een hojjechuu baradhu.
+        Design, Video Editing, Logo, Thumbnail,
+        Business Card fi Flyer professional
+        ta'een hojjechuu baradhu.
       </p>
 
+
       <div class="hero-actions">
-        <a href="#access" class="btn primary">
+
+        <!--
+          IMPORTANT:
+          Barnoota Jalqabi -> login.html
+        -->
+
+        <a
+          href="login.html"
+          class="btn primary"
+        >
           🚀 Barnoota Jalqabi
         </a>
 
-        <a href="#courses" class="btn secondary">
+
+        <a
+          href="#courses"
+          class="btn secondary"
+        >
           📚 Koorsii Ilaali
         </a>
 
-        <a href="register.html" class="btn secondary">
+
+        <a
+          href="register.html"
+          class="btn secondary"
+        >
           📝 Galmaa'i
         </a>
+
       </div>
 
     </div>
+
   </header>
 
 
-  <!-- LEARNING ACCESS -->
+  <!-- =========================
+       QUICK ACCESS
+  ========================= -->
+
   <section id="access">
 
     <div class="container">
 
       <div class="section-head">
-        <h2>🎓 Barnoota Jalqabi</h2>
+
+        <h2>
+          🎓 Barnoota Jalqabi
+        </h2>
+
         <p>
-          Barataan galmaa'ee fi access argate as irraa barnoota isaa jalqaba.
+          Barnoota kee jalqabuuf Login page seeni.
         </p>
+
       </div>
+
 
       <div class="access-wrap">
 
         <div class="card access-info">
 
-          <h3>👨‍🎓 Student Learning Access</h3>
+          <h3>
+            👨‍🎓 Student Learning
+          </h3>
 
           <p>
-            Yoo galmaa'uun kee fi kaffaltiin kee adminiin mirkanaa'e,
-            odeeffannoo seensaa kee fayyadamuun barnoota kee jalqabi.
+            Barataan galmaa'ee fi access argate
+            login godhee dashboard isaa irraa
+            koorsii fi video barnootaa argachuu danda'a.
           </p>
 
+
           <ul class="access-list">
+
             <li>
               <span>✓</span>
-              <div>Phone number kee fayyadami.</div>
+              <div>
+                Login page seeni.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>PIN kee galchi.</div>
+              <div>
+                Phone number kee galchi.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>OTP mirkaneessaa galchi.</div>
+              <div>
+                PIN kee galchi.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>Access yoo mirkanaa'e gara Dashboard deemta.</div>
+              <div>
+                OTP yoo siif kenname galchi.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>Koorsii kee fi video barnootaa achitti argatta.</div>
+              <div>
+                Erga mirkanaa'ee booda Dashboard seeni.
+              </div>
             </li>
+
           </ul>
 
+
           <div class="notice">
-            ℹ️ Hubachiisa: OTP, PIN fi payment approval dhugumaan
-            mirkaneessuuf backend/authentication server barbaachisa.
-            Koodiin kun bakka API backend itti hidhamu qopheesseera.
+
+            🔐 Barnoota dhuunfaa argachuuf
+            login fi access mirkaneessuun barbaachisaa dha.
+
           </div>
 
         </div>
@@ -741,80 +842,41 @@
 
         <div class="card">
 
-          <div class="form-title">
-            🔐 Seensa Barataa
-          </div>
-
-          <form id="accessForm">
-
-            <div class="field">
-              <label for="studentPhone">
-                Lakkoofsa Bilbilaa
-              </label>
-
-              <input
-                type="tel"
-                id="studentPhone"
-                placeholder="09xxxxxxxx ykn 07xxxxxxxx"
-                maxlength="10"
-                required
-              >
-            </div>
+          <h3 style="margin-bottom:15px;">
+            🔐 Gara Login Seeni
+          </h3>
 
 
-            <div class="field">
-              <label for="studentPin">
-                PIN
-              </label>
-
-              <input
-                type="password"
-                id="studentPin"
-                placeholder="PIN kee galchi"
-                maxlength="20"
-                required
-              >
-            </div>
+          <p
+            style="
+              color:var(--muted);
+              margin-bottom:20px;
+            "
+          >
+            Barnoota kee jalqabuuf button armaan
+            gadii cuqaasi.
+          </p>
 
 
-            <div class="field">
-              <label for="studentOtp">
-                OTP
-              </label>
-
-              <input
-                type="text"
-                id="studentOtp"
-                placeholder="OTP kee galchi"
-                maxlength="8"
-                inputmode="numeric"
-                required
-              >
-            </div>
+          <a
+            href="login.html"
+            class="btn primary"
+            style="width:100%;"
+          >
+            🚀 Login → Barnoota Jalqabi
+          </a>
 
 
-            <div class="access-buttons">
-
-              <button
-                type="submit"
-                class="btn primary"
-              >
-                🔓 Seeni
-              </button>
-
-              <a
-                href="register.html"
-                class="btn secondary"
-              >
-                📝 Galmaa'i
-              </a>
-
-            </div>
-
-          </form>
-
-
-          <div id="accessStatus" class="status"></div>
+          <a
+            href="register.html"
+            class="btn secondary"
+            style="
+              width:100%;
+              margin-top:10px;
+            "
+          >
+            📝 Barataa Haaraa Galmaa'i
+          </a>
 
         </div>
 
@@ -825,47 +887,73 @@
   </section>
 
 
-  <!-- COURSES -->
+  <!-- =========================
+       COURSES
+  ========================= -->
+
   <section id="courses">
 
     <div class="container">
 
       <div class="section-head">
-        <h2>📚 Barnoota Keenya</h2>
+
+        <h2>
+          📚 Barnoota Keenya
+        </h2>
+
         <p>
           Koorsiiwwan KENA DESIGN keessatti argaman.
         </p>
+
       </div>
 
-      <div id="courseGrid" class="course-grid"></div>
+
+      <div
+        id="courseGrid"
+        class="course-grid"
+      ></div>
 
     </div>
 
   </section>
 
 
-  <!-- ABOUT -->
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
   <section id="about">
 
     <div class="container">
 
       <div class="section-head">
-        <h2>💡 Waa'ee KENA DESIGN</h2>
+
+        <h2>
+          💡 Waa'ee KENA DESIGN
+        </h2>
+
         <p>
-          Kaayyoon keenya dargaggootaaf ogummaa digital design barsiisuu dha.
+          Kaayyoon keenya ogummaa digital
+          barsiisuu dha.
         </p>
+
       </div>
+
 
       <div class="about-grid">
 
         <div class="about-box">
 
-          <h3>🎯 Kaayyoo Keenya</h3>
+          <h3>
+            🎯 Kaayyoo Keenya
+          </h3>
 
           <p>
-            KENA DESIGN'n namoota design fi digital skills barachuu
-            barbaadaniif barnoota salphaa, qabatamaa fi tartiiba qabu
-            dhiyeessuuf kan hojjetudha.
+            KENA DESIGN'n namoota design fi
+            digital skills barachuu barbaadaniif
+            barnoota salphaa, qabatamaa fi
+            tartiiba qabu dhiyeessuuf kan
+            hojjetudha.
           </p>
 
         </div>
@@ -873,12 +961,15 @@
 
         <div class="about-box">
 
-          <h3>🚀 Maal Baratta?</h3>
+          <h3>
+            🚀 Maal Baratta?
+          </h3>
 
           <p>
-            Video Editing, Logo Maker, YouTube Thumbnail, Business Card,
-            Flyer fi ogummaa design biroo irratti bu'uura irraa kaasee
-            hanga hojii qabatamaatti barachuu dandeessa.
+            Video Editing, Logo Maker,
+            YouTube Thumbnail, Business Card,
+            Flyer fi ogummaa design biroo
+            barachuu dandeessa.
           </p>
 
         </div>
@@ -890,57 +981,108 @@
   </section>
 
 
-  <!-- QUIZ -->
+  <!-- =========================
+       QUIZ
+  ========================= -->
+
   <section id="quiz">
 
     <div class="container">
 
       <div class="section-head">
-        <h2>🧠 Quiz</h2>
+
+        <h2>
+          🧠 Quiz
+        </h2>
+
         <p>
           Waan baratte qoradhu.
         </p>
+
       </div>
 
-      <div id="quizBox" class="quiz-box"></div>
+
+      <div
+        id="quizBox"
+        class="quiz-box"
+      ></div>
 
     </div>
 
   </section>
 
 
-  <!-- CONTACT -->
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
   <section id="contact">
 
     <div class="container">
 
       <div class="section-head">
-        <h2>📞 Contact</h2>
+
+        <h2>
+          📞 Contact
+        </h2>
+
         <p>
           KENA DESIGN waliin qunnamuuf.
         </p>
+
       </div>
+
 
       <div class="contact-grid">
 
         <div class="contact-card">
-          <div class="big">📱</div>
-          <h3>Phone</h3>
-          <p>+251 923 502 464</p>
+
+          <div class="big">
+            📱
+          </div>
+
+          <h3>
+            Phone
+          </h3>
+
+          <p>
+            +251 923 502 464
+          </p>
+
         </div>
 
 
         <div class="contact-card">
-          <div class="big">📧</div>
-          <h3>Email</h3>
-          <p>ameegizachew@gmail.com</p>
+
+          <div class="big">
+            📧
+          </div>
+
+          <h3>
+            Email
+          </h3>
+
+          <p>
+            ameegizachew@gmail.com
+          </p>
+
         </div>
 
 
         <div class="contact-card">
-          <div class="big">📍</div>
-          <h3>Address</h3>
-          <p>Oromia, Shambu, Horro Buluk</p>
+
+          <div class="big">
+            📍
+          </div>
+
+          <h3>
+            Address
+          </h3>
+
+          <p>
+            Oromia, Shambu, Horro Buluk
+          </p>
+
         </div>
 
       </div>
@@ -950,13 +1092,17 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
 
     <div class="container">
 
       <p>
-        © 2026 <strong>KENA DESIGN</strong>.
+        © 2026
+        <strong>KENA DESIGN</strong>.
         All Rights Reserved.
       </p>
 
@@ -969,18 +1115,45 @@
   </footer>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
 
-    /* =========================================
-       KENA DESIGN COURSES
-    ========================================= */
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
+    function toggleMenu(){
+
+      document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+
+    }
+
+
+    function closeMenu(){
+
+      document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    }
+
+
+    /* =========================
+       COURSES
+    ========================= */
 
     const courses = [
 
       {
         icon:"🎬",
         title:"Video Editing",
-        desc:"Viidiyoo kee qulqulluu fi nama hawwatu taasisuu baradhu.",
+        desc:
+          "Viidiyoo kee qulqulluu fi nama hawwatu taasisuu baradhu.",
         lessons:[
           "Cut fi trim gochuu",
           "Transition fi effect",
@@ -990,10 +1163,12 @@
         ]
       },
 
+
       {
         icon:"✨",
         title:"Logo Maker",
-        desc:"Logo brand kee bakka bu'u professional hojjedhu.",
+        desc:
+          "Logo brand kee bakka bu'u professional hojjedhu.",
         lessons:[
           "Maqaa brand filachuu",
           "Font fi typography",
@@ -1003,10 +1178,12 @@
         ]
       },
 
+
       {
         icon:"▶️",
         title:"YouTube Thumbnail",
-        desc:"Thumbnail namni yeroo argu akka cuqaasuuf qopheessi.",
+        desc:
+          "Thumbnail namni yeroo argu akka cuqaasuuf qopheessi.",
         lessons:[
           "Canvas 1280×720",
           "Composition",
@@ -1016,10 +1193,12 @@
         ]
       },
 
+
       {
         icon:"💳",
         title:"Business Card",
-        desc:"Kaardii daldalaa qulqulluu fi print-ready hojjedhu.",
+        desc:
+          "Kaardii daldalaa qulqulluu fi print-ready hojjedhu.",
         lessons:[
           "Name fi logo",
           "Phone, email fi address",
@@ -1029,10 +1208,12 @@
         ]
       },
 
+
       {
         icon:"📣",
         title:"Flyer Package",
-        desc:"Flyer hojii, event ykn promotion siif hojjedhu.",
+        desc:
+          "Flyer hojii, event ykn promotion siif hojjedhu.",
         lessons:[
           "Headline cimaa",
           "Service/offer",
@@ -1045,68 +1226,82 @@
     ];
 
 
-    const courseGrid =
+    const grid =
       document.getElementById("courseGrid");
 
 
-    courseGrid.innerHTML = courses.map((course,index)=>`
+    grid.innerHTML = courses.map(
+      (course,index)=>`
 
-      <article class="course">
+        <article class="course">
 
-        <div class="icon">
-          ${course.icon}
-        </div>
+          <div class="icon">
+            ${course.icon}
+          </div>
 
-        <h3>
-          ${course.title}
-        </h3>
+          <h3>
+            ${course.title}
+          </h3>
 
-        <p>
-          ${course.desc}
-        </p>
-
-        <button
-          type="button"
-          onclick="toggleLesson(${index})"
-        >
-          Barnoota Bani ▾
-        </button>
-
-        <div
-          class="lesson"
-          id="lesson${index}"
-        >
-
-          <b>
-            Kutaa barnootaa:
-          </b>
-
-          <ul>
-            ${
-              course.lessons
-              .map(item=>`<li>✓ ${item}</li>`)
-              .join("")
-            }
-          </ul>
+          <p>
+            ${course.desc}
+          </p>
 
           <button
             type="button"
-            onclick="completeLesson(${index})"
+            onclick="toggleLesson(${index})"
           >
-            ✓ Kutaa kana xumureera
+            Barnoota Bani ▾
           </button>
 
-        </div>
 
-      </article>
+          <div
+            class="lesson"
+            id="lesson${index}"
+          >
 
-    `).join("");
+            <b>
+              Kutaa barnootaa:
+            </b>
+
+            <ul>
+
+              ${
+                course.lessons
+                .map(
+                  item=>`
+                    <li>
+                      ✓ ${item}
+                    </li>
+                  `
+                )
+                .join("")
+              }
+
+            </ul>
+
+
+            <button
+              type="button"
+              onclick="completeLesson(${index})"
+            >
+              ✓ Kutaa kana xumureera
+            </button>
+
+          </div>
+
+        </article>
+
+      `
+    ).join("");
 
 
     function toggleLesson(index){
 
       const lesson =
-        document.getElementById("lesson"+index);
+        document.getElementById(
+          "lesson"+index
+        );
 
       lesson.classList.toggle("open");
 
@@ -1124,9 +1319,9 @@
     }
 
 
-    /* =========================================
+    /* =========================
        QUIZ
-    ========================================= */
+    ========================= */
 
     const questions = [
 
@@ -1140,6 +1335,7 @@
         0
       ],
 
+
       [
         "Logo keessatti color palette jechuun maal?",
         [
@@ -1149,6 +1345,7 @@
         ],
         1
       ],
+
 
       [
         "YouTube Thumbnail standard tokko kam?",
@@ -1160,6 +1357,7 @@
         0
       ],
 
+
       [
         "Business Card irratti maal galchuun barbaachisaa dha?",
         [
@@ -1170,6 +1368,7 @@
         0
       ],
 
+
       [
         "Flyer keessatti CTA jechuun maal?",
         [
@@ -1179,6 +1378,7 @@
         ],
         0
       ],
+
 
       [
         "Design keessatti contrast maal gargaara?",
@@ -1199,47 +1399,55 @@
 
     quizBox.innerHTML =
 
-      questions.map((q,index)=>`
+      questions.map(
+        (question,index)=>`
 
-        <div class="q">
+          <div class="q">
 
-          <b>
-            ${index+1}. ${q[0]}
-          </b>
+            <b>
+              ${index+1}. ${question[0]}
+            </b>
 
-          ${
-            q[1].map((option,optionIndex)=>`
 
-              <label>
+            ${
+              question[1]
+              .map(
+                (option,optionIndex)=>`
 
-                <input
-                  type="radio"
-                  name="q${index}"
-                  value="${optionIndex}"
-                >
+                  <label>
 
-                ${option}
+                    <input
+                      type="radio"
+                      name="q${index}"
+                      value="${optionIndex}"
+                    >
 
-              </label>
+                    ${option}
 
-            `).join("")
-          }
+                  </label>
 
-        </div>
+                `
+              )
+              .join("")
+            }
 
-      `).join("")
+          </div>
+
+        `
+      ).join("")
 
       +
 
       `
 
         <button
-          class="btn primary quiz-btn"
           type="button"
+          class="btn primary quiz-btn"
           onclick="checkQuiz()"
         >
           Qabxii Koo Ilaali
         </button>
+
 
         <div
           id="result"
@@ -1253,278 +1461,42 @@
 
       let score = 0;
 
-      questions.forEach((question,index)=>{
 
-        const answer =
-          document.querySelector(
-            'input[name="q'+index+'"]:checked'
-          );
+      questions.forEach(
+        (question,index)=>{
 
-        if(
-          answer &&
-          Number(answer.value) === question[2]
-        ){
-          score++;
-        }
-
-      });
-
-
-      document.getElementById("result")
-        .textContent =
-        `Qabxii kee: ${score}/${questions.length} 🎉`;
-
-    }
-
-
-    /* =========================================
-       MOBILE MENU
-    ========================================= */
-
-    function toggleMenu(){
-
-      document
-        .getElementById("navLinks")
-        .classList.toggle("active");
-
-    }
-
-
-    function closeMenu(){
-
-      document
-        .getElementById("navLinks")
-        .classList.remove("active");
-
-    }
-
-
-    /* =========================================
-       STUDENT ACCESS
-       
-       IMPORTANT:
-       Backend API URL asitti booda galchita.
-
-       Fakkeenya:
-       const ACCESS_API_URL =
-       "https://YOUR-SUPABASE-PROJECT.supabase.co/functions/v1/student-login";
-
-       Backend response:
-       {
-         "success": true,
-         "redirect": "dashboard.html"
-       }
-    ========================================= */
-
-    const ACCESS_API_URL = "";
-
-
-    const accessForm =
-      document.getElementById("accessForm");
-
-
-    const accessStatus =
-      document.getElementById("accessStatus");
-
-
-    function showAccessStatus(message,type){
-
-      accessStatus.textContent = message;
-
-      accessStatus.className =
-        "status show " + type;
-
-    }
-
-
-    accessForm.addEventListener(
-      "submit",
-      async function(event){
-
-        event.preventDefault();
-
-
-        const phone =
-          document
-          .getElementById("studentPhone")
-          .value
-          .trim();
-
-
-        const pin =
-          document
-          .getElementById("studentPin")
-          .value
-          .trim();
-
-
-        const otp =
-          document
-          .getElementById("studentOtp")
-          .value
-          .trim();
-
-
-        if(!phone || !pin || !otp){
-
-          showAccessStatus(
-            "Mee Phone, PIN fi OTP hunda guuti.",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        if(!/^0[79][0-9]{8}$/.test(phone)){
-
-          showAccessStatus(
-            "Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        /*
-          Backend hin qindaa'in yoo ta'e
-          redirect sobaa hin goonu.
-        */
-
-        if(!ACCESS_API_URL){
-
-          showAccessStatus(
-            "Backend OTP/PIN ammallee hin hidhamne. API authentication erga qindaa'ee booda as irraa dashboard.html seenta.",
-            "error"
-          );
-
-          return;
-
-        }
-
-
-        try{
-
-          showAccessStatus(
-            "Mirkaneessaa jira... ⏳",
-            "success"
-          );
-
-
-          const controller =
-            new AbortController();
-
-
-          const timeout =
-            setTimeout(
-              ()=>controller.abort(),
-              30000
+          const answer =
+            document.querySelector(
+              'input[name="q' +
+              index +
+              '"]:checked'
             );
-
-
-          const response =
-            await fetch(
-              ACCESS_API_URL,
-              {
-                method:"POST",
-
-                headers:{
-                  "Content-Type":
-                  "application/json"
-                },
-
-                body:JSON.stringify({
-
-                  phone:phone,
-                  pin:pin,
-                  otp:otp
-
-                }),
-
-                signal:controller.signal
-              }
-            );
-
-
-          clearTimeout(timeout);
-
-
-          const data =
-            await response.json();
 
 
           if(
-            response.ok &&
-            data.success === true
+            answer &&
+            Number(answer.value) ===
+            question[2]
           ){
 
-            /*
-              Session token yoo backend
-              kennu localStorage keessatti
-              yeroo gabaabaa tursiisa.
-            */
-
-            if(data.token){
-
-              sessionStorage.setItem(
-                "KENA_STUDENT_TOKEN",
-                data.token
-              );
-
-            }
-
-
-            sessionStorage.setItem(
-              "KENA_STUDENT_PHONE",
-              phone
-            );
-
-
-            const redirect =
-              data.redirect ||
-              "dashboard.html";
-
-
-            window.location.href =
-              redirect;
-
-            return;
-
-          }
-
-
-          showAccessStatus(
-            data.message ||
-            "Phone, PIN ykn OTP sirrii miti ykn access hin kennamne.",
-            "error"
-          );
-
-
-        }catch(error){
-
-          if(error.name === "AbortError"){
-
-            showAccessStatus(
-              "Server deebii kennuuf yeroo dheeraa fudhate. Mee irra deebi'i.",
-              "error"
-            );
-
-          }else{
-
-            showAccessStatus(
-              "Rakkoo server waliin uumame. Mee yeroo muraasa booda irra deebi'i.",
-              "error"
-            );
+            score++;
 
           }
 
         }
+      );
 
-      }
-    );
+
+      document.getElementById(
+        "result"
+      ).textContent =
+        "Qabxii kee: " +
+        score +
+        "/" +
+        questions.length +
+        " 🎉";
+
+    }
 
   </script>
 

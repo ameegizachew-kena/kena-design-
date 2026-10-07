@@ -1,1648 +1,1532 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>KENA DESIGN | Barnoota Design</title>
-
-<meta name="description"
-      content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Logo Maker, Thumbnail, Business Card fi Flyer.">
-
-<style>
-
-:root {
-  --bg:#08111f;
-  --panel:#101d30;
-  --panel2:#14243b;
-  --text:#f5f7fb;
-  --muted:#aebbd0;
-  --accent:#35d07f;
-  --accent2:#16a8ff;
-  --border:rgba(255,255,255,.09);
-}
-
-* {
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-body {
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.6;
-}
-
-a {
-  text-decoration:none;
-  color:inherit;
-}
-
-button,
-input {
-  font-family:inherit;
-}
-
-/* =========================
-   NAVBAR
-========================= */
-
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(8,17,31,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-}
-
-.nav {
-  max-width:1150px;
-  margin:auto;
-  padding:15px 22px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:relative;
-}
-
-.brand {
-  font-weight:900;
-  letter-spacing:1px;
-  display:flex;
-  align-items:center;
-}
-
-.brand span {
-  width:35px;
-  height:35px;
-  margin-right:8px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent2)
-  );
-  color:#06101c;
-  border-radius:12px;
-  font-weight:900;
-}
-
-#navLinks {
-  display:flex;
-  gap:22px;
-  align-items:center;
-}
-
-#navLinks a {
-  color:var(--muted);
-  font-weight:700;
-}
-
-#navLinks a:hover {
-  color:var(--accent);
-}
-
-.menu {
-  display:none;
-  background:none;
-  color:white;
-  border:0;
-  font-size:28px;
-  cursor:pointer;
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  max-width:1150px;
-  margin:auto;
-  padding:85px 22px 70px;
-  display:grid;
-  grid-template-columns:1.5fr .8fr;
-  gap:60px;
-  align-items:center;
-  min-height:650px;
-}
-
-.tag {
-  color:var(--accent);
-  font-weight:900;
-  letter-spacing:1.2px;
-  font-size:13px;
-}
-
-.hero h1 {
-  font-size:clamp(42px,6vw,72px);
-  line-height:1.05;
-  margin:18px 0;
-}
-
-.hero h1 span {
-  background:linear-gradient(
-    90deg,
-    var(--accent),
-    var(--accent2)
-  );
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-.hero p {
-  color:var(--muted);
-  font-size:18px;
-  max-width:680px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:28px;
-}
-
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:13px 20px;
-  border-radius:12px;
-  font-weight:900;
-  border:1px solid var(--border);
-  cursor:pointer;
-}
-
-.primary {
-  background:var(--accent);
-  color:#06101c;
-}
-
-.ghost {
-  background:transparent;
-  color:white;
-}
-
-/* =========================
-   HERO CARD
-========================= */
-
-.hero-card {
-  background:linear-gradient(
-    145deg,
-    var(--panel2),
-    var(--panel)
-  );
-  padding:36px;
-  border:1px solid var(--border);
-  border-radius:28px;
-  box-shadow:0 25px 80px rgba(0,0,0,.3);
-}
-
-.mini-logo {
-  width:76px;
-  height:76px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(
-    135deg,
-    var(--accent),
-    var(--accent2)
-  );
-  color:#06101c;
-  border-radius:18px;
-  font-size:40px;
-  font-weight:900;
-}
-
-.hero-card h3 {
-  font-size:25px;
-  margin-bottom:0;
-}
-
-.hero-card p {
-  font-size:14px;
-}
-
-.stats {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:5px 20px;
-  margin-top:28px;
-}
-
-.stats b {
-  font-size:28px;
-}
-
-.stats small {
-  color:var(--muted);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.section {
-  max-width:1150px;
-  margin:auto;
-  padding:85px 22px;
-}
-
-.section-head {
-  text-align:center;
-  max-width:700px;
-  margin:0 auto 42px;
-}
-
-.section h2 {
-  font-size:42px;
-  line-height:1.1;
-  margin:8px 0 12px;
-}
-
-.section-head p:not(.tag) {
-  color:var(--muted);
-}
-
-/* =========================
-   ACCESS
-========================= */
-
-.access-section {
-  max-width:850px;
-}
-
-.access-card {
-  background:linear-gradient(
-    145deg,
-    var(--panel2),
-    var(--panel)
-  );
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:32px;
-}
-
-.access-card h3 {
-  text-align:center;
-  font-size:28px;
-  margin-top:0;
-}
-
-.access-card > p {
-  color:var(--muted);
-  text-align:center;
-}
-
-.access-form {
-  max-width:520px;
-  margin:25px auto 0;
-}
-
-.access-form label {
-  display:block;
-  margin:15px 0 7px;
-  font-weight:800;
-}
-
-.access-form input {
-  width:100%;
-  padding:14px;
-  border-radius:11px;
-  border:1px solid var(--border);
-  background:#0b1728;
-  color:white;
-  outline:none;
-  font-size:16px;
-}
-
-.access-form input:focus {
-  border-color:var(--accent);
-}
-
-.access-form button {
-  width:100%;
-  margin-top:20px;
-  padding:14px;
-  border:0;
-  border-radius:11px;
-  background:var(--accent);
-  color:#06101c;
-  font-weight:900;
-  font-size:16px;
-  cursor:pointer;
-}
-
-.otp-note {
-  margin-top:15px;
-  padding:13px;
-  background:rgba(22,168,255,.08);
-  border:1px solid rgba(22,168,255,.2);
-  border-radius:10px;
-  color:var(--muted);
-  font-size:14px;
-}
-
-.access-message {
-  display:none;
-  margin-top:18px;
-  padding:14px;
-  border-radius:10px;
-  font-weight:800;
-}
-
-/* =========================
-   COURSES
-========================= */
-
-.course-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.course {
-  background:var(--panel);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:25px;
-  transition:.25s;
-}
-
-.course:hover {
-  transform:translateY(-5px);
-  border-color:rgba(53,208,127,.45);
-}
-
-.icon {
-  font-size:38px;
-}
-
-.course h3 {
-  margin:10px 0 6px;
-}
-
-.course > p {
-  color:var(--muted);
-  min-height:52px;
-}
-
-.lesson {
-  display:none;
-  border-top:1px solid var(--border);
-  margin-top:18px;
-  padding-top:16px;
-}
-
-.lesson.open {
-  display:block;
-}
-
-.lesson li {
-  color:#d5deeb;
-  margin:7px 0;
-}
-
-.course button {
-  margin-top:12px;
-  width:100%;
-  padding:11px;
-  border:0;
-  border-radius:10px;
-  background:var(--panel2);
-  color:white;
-  font-weight:800;
-  cursor:pointer;
-}
-
-.course button:hover {
-  background:#203654;
-}
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-  display:grid;
-  grid-template-columns:1.4fr .8fr;
-  gap:50px;
-  align-items:center;
-}
-
-.about p {
-  color:var(--muted);
-}
-
-.feature {
-  margin:15px 0;
-  font-weight:700;
-}
-
-.feature span {
-  color:var(--accent);
-  margin-right:10px;
-}
-
-.about-box {
-  background:linear-gradient(
-    145deg,
-    var(--panel2),
-    var(--panel)
-  );
-  padding:35px;
-  border-radius:24px;
-  border:1px solid var(--border);
-}
-
-.about-box strong {
-  font-size:24px;
-}
-
-/* =========================
-   QUIZ
-========================= */
-
-.quiz-section {
-  max-width:900px;
-}
-
-.quiz-box {
-  background:var(--panel);
-  padding:30px;
-  border-radius:22px;
-  border:1px solid var(--border);
-}
-
-.q {
-  padding:18px 0;
-  border-bottom:1px solid var(--border);
-}
-
-.q:last-child {
-  border-bottom:0;
-}
-
-.q label {
-  display:block;
-  background:var(--panel2);
-  padding:10px 12px;
-  margin:8px 0;
-  border-radius:9px;
-  cursor:pointer;
-}
-
-.q label:hover {
-  background:#203654;
-}
-
-.result {
-  margin-top:22px;
-  font-size:20px;
-  font-weight:900;
-}
-
-.quiz-btn {
-  margin-top:20px;
-  border:0;
-  cursor:pointer;
-}
-
-/* =========================
-   CONTACT
-========================= */
-
-.contact-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.contact-card {
-  background:var(--panel);
-  border:1px solid var(--border);
-  padding:25px;
-  border-radius:18px;
-}
-
-.contact-card p {
-  color:var(--muted);
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  border-top:1px solid var(--border);
-  padding:30px 22px;
-  text-align:center;
-  color:var(--muted);
-}
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width:800px) {
-
-  .menu {
-    display:block;
-  }
-
-  #navLinks {
-    display:none;
-    position:absolute;
-    top:66px;
-    left:0;
-    right:0;
-    width:100%;
-    background:var(--bg);
-    padding:20px;
-    flex-direction:column;
-    gap:0;
-    border-bottom:1px solid var(--border);
-  }
-
-  #navLinks.active {
-    display:flex;
-  }
-
-  #navLinks a {
-    width:100%;
-    padding:12px 0;
-    text-align:center;
-  }
-
-  .hero {
-    grid-template-columns:1fr;
-    padding-top:60px;
-  }
-
-  .course-grid {
-    grid-template-columns:1fr 1fr;
-  }
-
-  .about {
-    grid-template-columns:1fr;
-  }
-
-  .contact-grid {
-    grid-template-columns:1fr;
-  }
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width:520px) {
-
-  .nav {
-    padding:15px 20px;
-  }
-
-  .hero {
-    padding:55px 15px 50px;
-    min-height:auto;
-  }
-
-  .hero h1 {
-    font-size:42px;
-  }
-
-  .hero p {
-    font-size:16px;
-  }
-
-  .actions {
-    flex-direction:column;
-    width:100%;
-  }
-
-  .actions .btn {
-    width:100%;
-  }
-
-  .section {
-    padding:60px 15px;
-  }
-
-  .section h2 {
-    font-size:32px;
-  }
-
-  .course-grid {
-    grid-template-columns:1fr;
-  }
-
-  .quiz-box {
-    padding:20px 15px;
-  }
-
-  .access-card {
-    padding:20px 15px;
-  }
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>KENA DESIGN | Barnoota Design</title>
+
+  <meta name="description" content="KENA DESIGN - Barnoota Video Editing, Logo Design, Thumbnail, Business Card fi Flyer.">
+  <meta name="theme-color" content="#08111f">
+
+  <style>
+    :root{
+      --bg:#08111f;
+      --panel:#101d30;
+      --panel2:#14243b;
+      --text:#f5f7fb;
+      --muted:#aebbd0;
+      --accent:#35d07f;
+      --accent2:#16a8ff;
+      --danger:#ff5d6c;
+      --warning:#ffbf47;
+      --border:rgba(255,255,255,.09);
+      --shadow:0 20px 50px rgba(0,0,0,.28);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top right,rgba(22,168,255,.12),transparent 35%),
+        radial-gradient(circle at top left,rgba(53,208,127,.08),transparent 30%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    button,
+    input,
+    select{
+      font:inherit;
+    }
+
+    .container{
+      width:min(1120px,92%);
+      margin:auto;
+    }
+
+    /* NAVBAR */
+    nav{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(8,17,31,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:21px;
+      font-weight:900;
+      letter-spacing:.5px;
+    }
+
+    .logo-mark{
+      width:42px;
+      height:42px;
+      display:grid;
+      place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#06101b;
+      font-weight:900;
+      box-shadow:0 10px 30px rgba(22,168,255,.2);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:7px;
+    }
+
+    .nav-links a{
+      color:var(--muted);
+      padding:10px 13px;
+      border-radius:10px;
+      transition:.2s;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+      background:rgba(255,255,255,.06);
+    }
+
+    .menu-btn{
+      display:none;
+      border:1px solid var(--border);
+      background:var(--panel);
+      color:#fff;
+      padding:9px 12px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    /* HERO */
+    .hero{
+      padding:90px 0 75px;
+      text-align:center;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border:1px solid rgba(53,208,127,.25);
+      background:rgba(53,208,127,.08);
+      color:var(--accent);
+      border-radius:999px;
+      font-size:14px;
+      margin-bottom:20px;
+    }
+
+    .hero h1{
+      font-size:clamp(42px,8vw,82px);
+      line-height:1;
+      margin-bottom:20px;
+      font-weight:950;
+      letter-spacing:-2px;
+    }
+
+    .hero h1 span{
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:0 auto 30px;
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    .hero-actions{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      border:0;
+      cursor:pointer;
+      border-radius:12px;
+      padding:13px 20px;
+      font-weight:800;
+      transition:.2s;
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .primary{
+      background:linear-gradient(135deg,var(--accent),#25bdff);
+      color:#04101a;
+      box-shadow:0 12px 30px rgba(53,208,127,.18);
+    }
+
+    .secondary{
+      background:var(--panel);
+      color:#fff;
+      border:1px solid var(--border);
+    }
+
+    .danger{
+      background:rgba(255,93,108,.12);
+      color:#ff8b96;
+      border:1px solid rgba(255,93,108,.2);
+    }
+
+    /* SECTION */
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      text-align:center;
+      margin-bottom:35px;
+    }
+
+    .section-head h2{
+      font-size:34px;
+      margin-bottom:9px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+    }
+
+    /* ACCESS */
+    .access-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:25px;
+      align-items:stretch;
+    }
+
+    .card{
+      background:linear-gradient(145deg,rgba(20,36,59,.96),rgba(16,29,48,.96));
+      border:1px solid var(--border);
+      border-radius:22px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .access-info h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .access-info p{
+      color:var(--muted);
+      margin-bottom:20px;
+    }
+
+    .access-list{
+      list-style:none;
+      display:grid;
+      gap:12px;
+    }
+
+    .access-list li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#dbe5f4;
+    }
+
+    .access-list span{
+      color:var(--accent);
+      font-weight:bold;
+    }
+
+    .form-title{
+      font-size:22px;
+      margin-bottom:18px;
+    }
+
+    .field{
+      margin-bottom:15px;
+    }
+
+    .field label{
+      display:block;
+      margin-bottom:7px;
+      color:#dbe5f4;
+      font-size:14px;
+      font-weight:700;
+    }
+
+    .field input,
+    .field select{
+      width:100%;
+      padding:13px 14px;
+      border-radius:11px;
+      border:1px solid var(--border);
+      background:#0a1626;
+      color:#fff;
+      outline:none;
+    }
+
+    .field input:focus,
+    .field select:focus{
+      border-color:var(--accent2);
+      box-shadow:0 0 0 3px rgba(22,168,255,.1);
+    }
+
+    .access-buttons{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .notice{
+      margin-top:16px;
+      padding:12px 14px;
+      border-radius:11px;
+      background:rgba(255,191,71,.08);
+      border:1px solid rgba(255,191,71,.18);
+      color:#ffd98b;
+      font-size:13px;
+    }
+
+    .status{
+      display:none;
+      margin-top:15px;
+      padding:12px 14px;
+      border-radius:11px;
+      font-weight:700;
+    }
+
+    .status.show{
+      display:block;
+    }
+
+    .status.success{
+      background:rgba(53,208,127,.1);
+      color:var(--accent);
+      border:1px solid rgba(53,208,127,.2);
+    }
+
+    .status.error{
+      background:rgba(255,93,108,.1);
+      color:#ff929c;
+      border:1px solid rgba(255,93,108,.2);
+    }
+
+    /* COURSES */
+    .course-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .course{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:23px;
+      transition:.25s;
+    }
+
+    .course:hover{
+      transform:translateY(-4px);
+      border-color:rgba(53,208,127,.25);
+    }
+
+    .icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:15px;
+      background:var(--panel2);
+      font-size:26px;
+      margin-bottom:16px;
+    }
+
+    .course h3{
+      font-size:21px;
+      margin-bottom:8px;
+    }
+
+    .course p{
+      color:var(--muted);
+      min-height:68px;
+      margin-bottom:15px;
+    }
+
+    .course > button{
+      width:100%;
+      padding:11px;
+      border:1px solid var(--border);
+      background:var(--panel2);
+      color:#fff;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    .lesson{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .35s ease;
+    }
+
+    .lesson.open{
+      max-height:500px;
+      margin-top:15px;
+    }
+
+    .lesson ul{
+      list-style:none;
+      color:var(--muted);
+      padding:10px 0;
+    }
+
+    .lesson li{
+      padding:5px 0;
+    }
+
+    .lesson button{
+      width:100%;
+      border:0;
+      padding:10px;
+      border-radius:9px;
+      background:var(--accent);
+      color:#04120b;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    /* ABOUT */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:25px;
+    }
+
+    .about-box{
+      padding:28px;
+      border-radius:20px;
+      background:var(--panel);
+      border:1px solid var(--border);
+    }
+
+    .about-box h3{
+      margin-bottom:12px;
+      font-size:23px;
+    }
+
+    .about-box p{
+      color:var(--muted);
+    }
+
+    /* QUIZ */
+    .quiz-box{
+      max-width:850px;
+      margin:auto;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:25px;
+    }
+
+    .q{
+      padding:18px 0;
+      border-bottom:1px solid var(--border);
+    }
+
+    .q:last-of-type{
+      border-bottom:0;
+    }
+
+    .q b{
+      display:block;
+      margin-bottom:10px;
+    }
+
+    .q label{
+      display:block;
+      color:var(--muted);
+      padding:7px 0;
+      cursor:pointer;
+    }
+
+    .q input{
+      margin-right:7px;
+    }
+
+    .quiz-btn{
+      margin-top:20px;
+    }
+
+    .result{
+      margin-top:18px;
+      font-size:20px;
+      font-weight:900;
+      color:var(--accent);
+    }
+
+    /* CONTACT */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+
+    .contact-card{
+      text-align:center;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:25px;
+    }
+
+    .contact-card .big{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .contact-card h3{
+      margin-bottom:6px;
+    }
+
+    .contact-card p{
+      color:var(--muted);
+      word-break:break-word;
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:30px;
+      padding:35px 0;
+      border-top:1px solid var(--border);
+      text-align:center;
+      color:var(--muted);
+    }
+
+    footer strong{
+      color:#fff;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .course-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .access-wrap,
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    @media(max-width:680px){
+      .nav-links{
+        display:none;
+        position:absolute;
+        left:4%;
+        right:4%;
+        top:66px;
+        padding:10px;
+        background:#0c1829;
+        border:1px solid var(--border);
+        border-radius:14px;
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .nav-links a{
+        width:100%;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .hero{
+        padding:65px 0 50px;
+      }
+
+      .hero h1{
+        letter-spacing:-1px;
+      }
+
+      section{
+        padding:55px 0;
+      }
+
+      .course-grid,
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .access-buttons{
+        grid-template-columns:1fr;
+      }
+
+      .card,
+      .quiz-box,
+      .about-box{
+        padding:20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =========================
-     NAVBAR
-========================= -->
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
 
-<header>
-
-  <div class="nav">
-
-    <div class="brand">
-      <span>K</span>
-      KENA DESIGN
-    </div>
-
-    <button
-      class="menu"
-      onclick="toggleMenu()"
-      aria-label="Menu">
-      ☰
-    </button>
-
-    <nav id="navLinks">
-
-      <a href="#home">
-        Home
+      <a href="#home" class="logo">
+        <span class="logo-mark">KD</span>
+        <span>KENA DESIGN</span>
       </a>
 
-      <a href="#courses">
-        Barnoota
-      </a>
-
-      <a href="#access">
-        Learning Access
-      </a>
-
-      <a href="#quiz">
-        Quiz
-      </a>
-
-      <a href="#about">
-        Waa'ee Keenya
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
-    </nav>
-
-  </div>
-
-</header>
-
-
-<main>
-
-<!-- =========================
-     HOME
-========================= -->
-
-<section
-  id="home"
-  class="hero">
-
-  <div class="hero-content">
-
-    <p class="tag">
-      🎨 BARNOOTA DESIGN SALPHAA FI HOJII IRRA OOLU
-    </p>
-
-    <h1>
-      Design Baradhu.<br>
-      <span>Ogummaa Kee Ijaari.</span>
-    </h1>
-
-    <p>
-      KENA DESIGN keessatti Video Editing,
-      Logo Maker, YouTube Thumbnail,
-      Business Card fi Flyer Design
-      tartiiba salphaan baradhu.
-    </p>
-
-    <div class="actions">
-
-      <a
-        class="btn primary"
-        href="#courses">
-        Barnoota Jalqabi
-      </a>
-
-      <a
-        class="btn ghost"
-        href="#access">
-        🎓 Learning Access
-      </a>
-
-      <a
-        class="btn ghost"
-        href="register.html">
-        Galmaa'i
-      </a>
-
-    </div>
-
-  </div>
-
-
-  <div class="hero-card">
-
-    <div class="mini-logo">
-      K
-    </div>
-
-    <h3>
-      KENA DESIGN
-    </h3>
-
-    <p>
-      Learn • Create • Grow
-    </p>
-
-    <div class="stats">
-
-      <b>5+</b>
-      <small>Courses</small>
-
-      <b>100%</b>
-      <small>Practice</small>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     LEARNING ACCESS
-========================= -->
-
-<section
-  id="access"
-  class="section access-section">
-
-  <div class="section-head">
-
-    <p class="tag">
-      BARATAA GALMAA'E
-    </p>
-
-    <h2>
-      Learning Access
-    </h2>
-
-    <p>
-      Barataa galmaa'ee fi mirkanaa'e yoo taate,
-      Phone, PIN fi OTP fayyadamuun barnoota kee seeni.
-    </p>
-
-  </div>
-
-
-  <div class="access-card">
-
-    <h3>
-      🎓 Seensa Barataa
-    </h3>
-
-    <p>
-      Odeeffannoo kee galchiitii dashboard
-      barnootaa bani.
-    </p>
-
-
-    <form
-      id="accessForm"
-      class="access-form">
-
-      <label for="accessPhone">
-        📱 Lakkoofsa Bilbila
-      </label>
-
-      <input
-        type="tel"
-        id="accessPhone"
-        placeholder="09xxxxxxxx"
-        maxlength="10"
-        required
-      >
-
-
-      <label for="accessPin">
-        🔐 PIN
-      </label>
-
-      <input
-        type="password"
-        id="accessPin"
-        placeholder="PIN kee galchi"
-        maxlength="20"
-        required
-      >
-
-
-      <label for="accessOtp">
-        🔑 OTP Code
-      </label>
-
-      <input
-        type="text"
-        id="accessOtp"
-        placeholder="OTP Code galchi"
-        maxlength="6"
-        inputmode="numeric"
-        required
-      >
-
-
-      <button type="submit">
-        Learning Access Bani →
+      <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+        ☰
       </button>
 
-
-      <div class="otp-note">
-
-        📩 <strong>OTP:</strong>
-        Koodiin OTP lakkoofsa bilbila kee irratti
-        ergame yoo jiraate asitti galchi.
-
-        <br><br>
-
-        🔐 <strong>PIN:</strong>
-        PIN kee akkuma duraan kennameetti fayyadami.
-
+      <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="closeMenu()">Home</a>
+        <a href="#access" onclick="closeMenu()">Barnoota Jalqabi</a>
+        <a href="#courses" onclick="closeMenu()">Barnoota</a>
+        <a href="#quiz" onclick="closeMenu()">Quiz</a>
+        <a href="#about" onclick="closeMenu()">Waa'ee Keenya</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
       </div>
 
+    </div>
+  </nav>
 
-      <div
-        id="accessMessage"
-        class="access-message">
+
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+
+      <div class="badge">
+        ✨ KENA DESIGN ONLINE LEARNING
       </div>
 
-    </form>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     COURSES
-========================= -->
-
-<section
-  id="courses"
-  class="section">
-
-  <div class="section-head">
-
-    <p class="tag">
-      BARNOOTA
-    </p>
-
-    <h2>
-      Koorsiiwwan Keenya
-    </h2>
-
-    <p>
-      Koorsii tokko filadhu;
-      kutaa barnootaa banuun jalqabi.
-    </p>
-
-  </div>
-
-
-  <div
-    class="course-grid"
-    id="courseGrid">
-  </div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section
-  id="about"
-  class="section about">
-
-  <div>
-
-    <p class="tag">
-      WAA'EE KENA DESIGN
-    </p>
-
-    <h2>
-      Ogummaa kee gara hojiiitti jijjiiri.
-    </h2>
-
-    <p>
-      KENA DESIGN bakka barattoonni fi
-      namoonni design jaalatan ogummaa
-      isaanii itti guddisanidha.
-      Barnoonni keenya hojii irra oolmaa
-      irratti xiyyeeffata.
-    </p>
-
-
-    <div class="feature">
-      <span>✓</span>
-      Barnoota tartiiba qabu
-    </div>
-
-
-    <div class="feature">
-      <span>✓</span>
-      Shaakala hojii dhugaa
-    </div>
-
-
-    <div class="feature">
-      <span>✓</span>
-      Quiz fi of-qorannoo
-    </div>
-
-  </div>
-
-
-  <div class="about-box">
-
-    <strong>
-      🎯 Kaayyoo
-    </strong>
-
-    <p>
-      Nama jalqaba irraa kaasee design
-      bu'uuraa hanga hojii professionalitti
-      geessu.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     QUIZ
-========================= -->
-
-<section
-  id="quiz"
-  class="section quiz-section">
-
-  <div class="section-head">
-
-    <p class="tag">
-      OF QORI
-    </p>
-
-    <h2>
-      KENA DESIGN Quiz
-    </h2>
-
-    <p>
-      Gaaffilee armaan gadii deebisi;
-      dhuma irratti qabxii kee argatta.
-    </p>
-
-  </div>
-
-
-  <div
-    id="quizBox"
-    class="quiz-box">
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section
-  id="contact"
-  class="section contact">
-
-  <div class="section-head">
-
-    <p class="tag">
-      CONTACT
-    </p>
-
-    <h2>
-      Nu Qunnami
-    </h2>
-
-    <p>
-      Odeeffannoo dabalataa ykn barnoota
-      irratti gaaffii yoo qabaatte nu qunnami.
-    </p>
-
-  </div>
-
-
-  <div class="contact-grid">
-
-
-    <div class="contact-card">
-
-      <b>
-        📱 WhatsApp
-      </b>
+      <h1>
+        Barnoota <span>KENA DESIGN</span>
+      </h1>
 
       <p>
-        +251 923 502 464
+        Design, Video Editing, Logo, Thumbnail, Business Card fi
+        Flyer professional ta'een hojjechuu baradhu.
       </p>
 
-      <a
-        class="btn primary"
-        href="https://wa.me/251923502464"
-        target="_blank"
-        rel="noopener">
-
-        WhatsApp Bani
-
-      </a>
-
-    </div>
-
-
-    <div class="contact-card">
-
-      <b>
-        ✉️ Email
-      </b>
-
-      <p>
-
-        <a
-          href="mailto:ameegizachew@gmail.com">
-
-          ameegizachew@gmail.com
-
+      <div class="hero-actions">
+        <a href="#access" class="btn primary">
+          🚀 Barnoota Jalqabi
         </a>
 
-      </p>
+        <a href="#courses" class="btn secondary">
+          📚 Koorsii Ilaali
+        </a>
 
-    </div>
-
-
-    <div class="contact-card">
-
-      <b>
-        📍 Teessoo
-      </b>
-
-      <p>
-        Oromia, Shambu, Horro Buluk
-      </p>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-</main>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <h3>
-    KENA DESIGN
-  </h3>
-
-  <p>
-    Learn • Create • Grow
-  </p>
-
-  <p>
-    © 2026 KENA DESIGN.
-    Mirgi hundi seeraan eegama.
-  </p>
-
-</footer>
-
-
-<script>
-
-/* =========================
-   COURSES
-========================= */
-
-const courses = [
-
-  {
-    icon:"🎬",
-    title:"Video Editing",
-    desc:"Viidiyoo kee qulqulluu fi nama hawwatu taasisuu baradhu.",
-    lessons:[
-      "Cut fi trim gochuu",
-      "Transition fi effect",
-      "Text fi subtitle",
-      "Music fi audio",
-      "Export qulqullina gaariin"
-    ]
-  },
-
-  {
-    icon:"✨",
-    title:"Logo Maker",
-    desc:"Logo brand kee bakka bu'u professional hojjedhu.",
-    lessons:[
-      "Maqaa brand filachuu",
-      "Font fi typography",
-      "Color palette",
-      "Icon fi shape",
-      "PNG/SVG export"
-    ]
-  },
-
-  {
-    icon:"▶️",
-    title:"YouTube Thumbnail",
-    desc:"Thumbnail namni yeroo argu akka cuqaasuuf qopheessi.",
-    lessons:[
-      "Canvas 1280×720",
-      "Composition",
-      "Text guddaa fi dubbifamuu danda'u",
-      "Contrast fi image",
-      "Export web-ready"
-    ]
-  },
-
-  {
-    icon:"💳",
-    title:"Business Card",
-    desc:"Kaardii daldalaa qulqulluu fi print-ready hojjedhu.",
-    lessons:[
-      "Name fi logo",
-      "Phone, email fi address",
-      "Layout",
-      "Print size fi bleed",
-      "PDF print export"
-    ]
-  },
-
-  {
-    icon:"📣",
-    title:"Flyer Package",
-    desc:"Flyer hojii, event ykn promotion siif hojjedhu.",
-    lessons:[
-      "Headline cimaa",
-      "Service/offer",
-      "Image placement",
-      "Call to action",
-      "Social & print export"
-    ]
-  }
-
-];
-
-
-const grid =
-  document.getElementById("courseGrid");
-
-
-grid.innerHTML =
-  courses.map((c,i) => `
-
-    <article class="course">
-
-      <div class="icon">
-        ${c.icon}
+        <a href="register.html" class="btn secondary">
+          📝 Galmaa'i
+        </a>
       </div>
 
-      <h3>
-        ${c.title}
-      </h3>
-
-      <p>
-        ${c.desc}
-      </p>
-
-      <button
-        onclick="toggleLesson(${i})">
-
-        Barnoota Bani ▾
-
-      </button>
+    </div>
+  </header>
 
 
-      <div
-        class="lesson"
-        id="lesson${i}">
+  <!-- LEARNING ACCESS -->
+  <section id="access">
 
-        <b>
-          Kutaa barnootaa:
-        </b>
+    <div class="container">
 
-        <ul>
-
-          ${c.lessons
-            .map(x => `
-              <li>
-                ✓ ${x}
-              </li>
-            `)
-            .join("")}
-
-        </ul>
-
-        <button
-          onclick="openLearningAccess()">
-
-          🎓 Barnoota Kana Baradhu
-
-        </button>
-
+      <div class="section-head">
+        <h2>🎓 Barnoota Jalqabi</h2>
+        <p>
+          Barataan galmaa'ee fi access argate as irraa barnoota isaa jalqaba.
+        </p>
       </div>
 
-    </article>
+      <div class="access-wrap">
 
-  `)
-  .join("");
+        <div class="card access-info">
 
+          <h3>👨‍🎓 Student Learning Access</h3>
 
-function toggleLesson(i) {
+          <p>
+            Yoo galmaa'uun kee fi kaffaltiin kee adminiin mirkanaa'e,
+            odeeffannoo seensaa kee fayyadamuun barnoota kee jalqabi.
+          </p>
 
-  document
-    .getElementById("lesson" + i)
-    .classList
-    .toggle("open");
+          <ul class="access-list">
+            <li>
+              <span>✓</span>
+              <div>Phone number kee fayyadami.</div>
+            </li>
 
-}
+            <li>
+              <span>✓</span>
+              <div>PIN kee galchi.</div>
+            </li>
 
+            <li>
+              <span>✓</span>
+              <div>OTP mirkaneessaa galchi.</div>
+            </li>
 
-function openLearningAccess() {
+            <li>
+              <span>✓</span>
+              <div>Access yoo mirkanaa'e gara Dashboard deemta.</div>
+            </li>
 
-  document
-    .getElementById("access")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
+            <li>
+              <span>✓</span>
+              <div>Koorsii kee fi video barnootaa achitti argatta.</div>
+            </li>
+          </ul>
 
-}
+          <div class="notice">
+            ℹ️ Hubachiisa: OTP, PIN fi payment approval dhugumaan
+            mirkaneessuuf backend/authentication server barbaachisa.
+            Koodiin kun bakka API backend itti hidhamu qopheesseera.
+          </div>
 
-
-/* =========================
-   MOBILE MENU
-========================= */
-
-function toggleMenu() {
-
-  document
-    .getElementById("navLinks")
-    .classList
-    .toggle("active");
-
-}
-
-
-/* =========================
-   QUIZ
-========================= */
-
-const questions = [
-
-  [
-    "Video Editing keessatti 'Cut' jechuun maal?",
-    [
-      "Viidiyoo qooduu/haquu",
-      "Logo hojjechuu",
-      "Email barreessuu"
-    ],
-    0
-  ],
-
-  [
-    "Logo keessatti color palette jechuun maal?",
-    [
-      "Maqaa namaa",
-      "Walitti dhufeenya halluuwwanii",
-      "Sagalee"
-    ],
-    1
-  ],
-
-  [
-    "YouTube Thumbnail standard tokko kam?",
-    [
-      "1280×720",
-      "500×5000",
-      "100×100"
-    ],
-    0
-  ],
-
-  [
-    "Business Card irratti maal galchuun barbaachisaa dha?",
-    [
-      "Contact info",
-      "Password",
-      "Game"
-    ],
-    0
-  ],
-
-  [
-    "Flyer keessatti CTA jechuun maal?",
-    [
-      "Call to Action",
-      "Color Text Area",
-      "Camera Type"
-    ],
-    0
-  ],
-
-  [
-    "Design keessatti contrast maal gargaara?",
-    [
-      "Wantoota adda baasuuf",
-      "File balleessuuf",
-      "Internet cufuuf"
-    ],
-    0
-  ]
-
-];
+        </div>
 
 
-const qb =
-  document.getElementById("quizBox");
+        <div class="card">
 
+          <div class="form-title">
+            🔐 Seensa Barataa
+          </div>
 
-qb.innerHTML =
+          <form id="accessForm">
 
-  questions.map((q,i) => `
-
-    <div class="q">
-
-      <b>
-        ${i+1}. ${q[0]}
-      </b>
-
-      ${
-        q[1]
-          .map((o,j) => `
-
-            <label>
+            <div class="field">
+              <label for="studentPhone">
+                Lakkoofsa Bilbilaa
+              </label>
 
               <input
-                type="radio"
-                name="q${i}"
-                value="${j}"
+                type="tel"
+                id="studentPhone"
+                placeholder="09xxxxxxxx ykn 07xxxxxxxx"
+                maxlength="10"
+                required
               >
+            </div>
 
-              ${o}
 
-            </label>
+            <div class="field">
+              <label for="studentPin">
+                PIN
+              </label>
 
-          `)
-          .join("")
-      }
+              <input
+                type="password"
+                id="studentPin"
+                placeholder="PIN kee galchi"
+                maxlength="20"
+                required
+              >
+            </div>
+
+
+            <div class="field">
+              <label for="studentOtp">
+                OTP
+              </label>
+
+              <input
+                type="text"
+                id="studentOtp"
+                placeholder="OTP kee galchi"
+                maxlength="8"
+                inputmode="numeric"
+                required
+              >
+            </div>
+
+
+            <div class="access-buttons">
+
+              <button
+                type="submit"
+                class="btn primary"
+              >
+                🔓 Seeni
+              </button>
+
+              <a
+                href="register.html"
+                class="btn secondary"
+              >
+                📝 Galmaa'i
+              </a>
+
+            </div>
+
+          </form>
+
+
+          <div id="accessStatus" class="status"></div>
+
+        </div>
+
+      </div>
 
     </div>
 
-  `)
-  .join("")
+  </section>
 
-  +
 
-  `
+  <!-- COURSES -->
+  <section id="courses">
 
-    <button
-      class="btn primary quiz-btn"
-      onclick="checkQuiz()">
+    <div class="container">
 
-      Qabxii Koo Ilaali
+      <div class="section-head">
+        <h2>📚 Barnoota Keenya</h2>
+        <p>
+          Koorsiiwwan KENA DESIGN keessatti argaman.
+        </p>
+      </div>
 
-    </button>
+      <div id="courseGrid" class="course-grid"></div>
 
-    <div
-      id="result"
-      class="result">
     </div>
 
-  `;
+  </section>
 
 
-function checkQuiz() {
+  <!-- ABOUT -->
+  <section id="about">
 
-  let score = 0;
+    <div class="container">
 
-  questions.forEach(
-    (q,i) => {
+      <div class="section-head">
+        <h2>💡 Waa'ee KENA DESIGN</h2>
+        <p>
+          Kaayyoon keenya dargaggootaaf ogummaa digital design barsiisuu dha.
+        </p>
+      </div>
 
-      const answer =
-        document.querySelector(
-          `input[name="q${i}"]:checked`
-        );
+      <div class="about-grid">
 
-      if (
-        answer &&
-        +answer.value === q[2]
-      ) {
+        <div class="about-box">
 
-        score++;
+          <h3>🎯 Kaayyoo Keenya</h3>
 
+          <p>
+            KENA DESIGN'n namoota design fi digital skills barachuu
+            barbaadaniif barnoota salphaa, qabatamaa fi tartiiba qabu
+            dhiyeessuuf kan hojjetudha.
+          </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+          <h3>🚀 Maal Baratta?</h3>
+
+          <p>
+            Video Editing, Logo Maker, YouTube Thumbnail, Business Card,
+            Flyer fi ogummaa design biroo irratti bu'uura irraa kaasee
+            hanga hojii qabatamaatti barachuu dandeessa.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUIZ -->
+  <section id="quiz">
+
+    <div class="container">
+
+      <div class="section-head">
+        <h2>🧠 Quiz</h2>
+        <p>
+          Waan baratte qoradhu.
+        </p>
+      </div>
+
+      <div id="quizBox" class="quiz-box"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="section-head">
+        <h2>📞 Contact</h2>
+        <p>
+          KENA DESIGN waliin qunnamuuf.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <div class="big">📱</div>
+          <h3>Phone</h3>
+          <p>+251 923 502 464</p>
+        </div>
+
+
+        <div class="contact-card">
+          <div class="big">📧</div>
+          <h3>Email</h3>
+          <p>ameegizachew@gmail.com</p>
+        </div>
+
+
+        <div class="contact-card">
+          <div class="big">📍</div>
+          <h3>Address</h3>
+          <p>Oromia, Shambu, Horro Buluk</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container">
+
+      <p>
+        © 2026 <strong>KENA DESIGN</strong>.
+        All Rights Reserved.
+      </p>
+
+      <p style="margin-top:7px;">
+        Design • Learn • Create 🚀
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* =========================================
+       KENA DESIGN COURSES
+    ========================================= */
+
+    const courses = [
+
+      {
+        icon:"🎬",
+        title:"Video Editing",
+        desc:"Viidiyoo kee qulqulluu fi nama hawwatu taasisuu baradhu.",
+        lessons:[
+          "Cut fi trim gochuu",
+          "Transition fi effect",
+          "Text fi subtitle",
+          "Music fi audio",
+          "Export qulqullina gaariin"
+        ]
+      },
+
+      {
+        icon:"✨",
+        title:"Logo Maker",
+        desc:"Logo brand kee bakka bu'u professional hojjedhu.",
+        lessons:[
+          "Maqaa brand filachuu",
+          "Font fi typography",
+          "Color palette",
+          "Icon fi shape",
+          "PNG/SVG export"
+        ]
+      },
+
+      {
+        icon:"▶️",
+        title:"YouTube Thumbnail",
+        desc:"Thumbnail namni yeroo argu akka cuqaasuuf qopheessi.",
+        lessons:[
+          "Canvas 1280×720",
+          "Composition",
+          "Text guddaa fi dubbifamuu danda'u",
+          "Contrast fi image",
+          "Export web-ready"
+        ]
+      },
+
+      {
+        icon:"💳",
+        title:"Business Card",
+        desc:"Kaardii daldalaa qulqulluu fi print-ready hojjedhu.",
+        lessons:[
+          "Name fi logo",
+          "Phone, email fi address",
+          "Layout",
+          "Print size fi bleed",
+          "PDF print export"
+        ]
+      },
+
+      {
+        icon:"📣",
+        title:"Flyer Package",
+        desc:"Flyer hojii, event ykn promotion siif hojjedhu.",
+        lessons:[
+          "Headline cimaa",
+          "Service/offer",
+          "Image placement",
+          "Call to action",
+          "Social & print export"
+        ]
       }
+
+    ];
+
+
+    const courseGrid =
+      document.getElementById("courseGrid");
+
+
+    courseGrid.innerHTML = courses.map((course,index)=>`
+
+      <article class="course">
+
+        <div class="icon">
+          ${course.icon}
+        </div>
+
+        <h3>
+          ${course.title}
+        </h3>
+
+        <p>
+          ${course.desc}
+        </p>
+
+        <button
+          type="button"
+          onclick="toggleLesson(${index})"
+        >
+          Barnoota Bani ▾
+        </button>
+
+        <div
+          class="lesson"
+          id="lesson${index}"
+        >
+
+          <b>
+            Kutaa barnootaa:
+          </b>
+
+          <ul>
+            ${
+              course.lessons
+              .map(item=>`<li>✓ ${item}</li>`)
+              .join("")
+            }
+          </ul>
+
+          <button
+            type="button"
+            onclick="completeLesson(${index})"
+          >
+            ✓ Kutaa kana xumureera
+          </button>
+
+        </div>
+
+      </article>
+
+    `).join("");
+
+
+    function toggleLesson(index){
+
+      const lesson =
+        document.getElementById("lesson"+index);
+
+      lesson.classList.toggle("open");
 
     }
-  );
 
 
-  document
-    .getElementById("result")
-    .textContent =
-      `Qabxii kee: ${score}/${questions.length} 🎉`;
+    function completeLesson(index){
 
-}
-
-
-/* =========================
-   PHONE
-========================= */
-
-document
-  .getElementById("accessPhone")
-  .addEventListener(
-    "input",
-    function() {
-
-      this.value =
-        this.value
-          .replace(
-            /[^0-9]/g,
-            ""
-          )
-          .slice(
-            0,
-            10
-          );
-
-    }
-  );
-
-
-/* =========================
-   LEARNING ACCESS
-========================= */
-
-document
-  .getElementById("accessForm")
-  .addEventListener(
-    "submit",
-    function(event) {
-
-      event.preventDefault();
-
-
-      const phone =
-        document
-          .getElementById("accessPhone")
-          .value
-          .trim();
-
-      const pin =
-        document
-          .getElementById("accessPin")
-          .value
-          .trim();
-
-      const otp =
-        document
-          .getElementById("accessOtp")
-          .value
-          .trim();
-
-      const message =
-        document
-          .getElementById("accessMessage");
-
-
-      message.style.display =
-        "block";
-
-
-      if (
-        !/^(09|07)[0-9]{8}$/.test(phone)
-      ) {
-
-        message.style.background =
-          "#ffecec";
-
-        message.style.color =
-          "#9b1c1c";
-
-        message.textContent =
-          "❌ Lakkoofsa bilbila sirrii galchi.";
-
-        return;
-
-      }
-
-
-      if (!pin) {
-
-        message.style.background =
-          "#ffecec";
-
-        message.style.color =
-          "#9b1c1c";
-
-        message.textContent =
-          "❌ PIN kee galchi.";
-
-        return;
-
-      }
-
-
-      if (
-        !/^[0-9]{4,6}$/.test(otp)
-      ) {
-
-        message.style.background =
-          "#ffecec";
-
-        message.style.color =
-          "#9b1c1c";
-
-        message.textContent =
-          "❌ OTP code sirrii galchi.";
-
-        return;
-
-      }
-
-
-      /*
-       * IMPORTANT:
-       *
-       * As keessatti dashboard.htmltti qajeelchina.
-       *
-       * OTP/PIN dhugaa mirkaneessuuf
-       * backend authentication barbaachisa.
-       */
-
-      message.style.background =
-        "rgba(53,208,127,.12)";
-
-      message.style.color =
-        "#35d07f";
-
-      message.textContent =
-        "✅ Odeeffannoon kee fudhatame. Dashboard banamaa jira...";
-
-
-      setTimeout(
-        function() {
-
-          window.location.href =
-            "dashboard.html";
-
-        },
-        800
+      alert(
+        "Gaarii! " +
+        courses[index].title +
+        " keessatti kutaa kana xumurteetta. 👏"
       );
 
     }
-  );
 
-</script>
+
+    /* =========================================
+       QUIZ
+    ========================================= */
+
+    const questions = [
+
+      [
+        "Video Editing keessatti 'Cut' jechuun maal?",
+        [
+          "Viidiyoo qooduu/haquu",
+          "Logo hojjechuu",
+          "Email barreessuu"
+        ],
+        0
+      ],
+
+      [
+        "Logo keessatti color palette jechuun maal?",
+        [
+          "Maqaa namaa",
+          "Walitti dhufeenya halluuwwanii",
+          "Sagalee"
+        ],
+        1
+      ],
+
+      [
+        "YouTube Thumbnail standard tokko kam?",
+        [
+          "1280×720",
+          "500×5000",
+          "100×100"
+        ],
+        0
+      ],
+
+      [
+        "Business Card irratti maal galchuun barbaachisaa dha?",
+        [
+          "Contact info",
+          "Password",
+          "Game"
+        ],
+        0
+      ],
+
+      [
+        "Flyer keessatti CTA jechuun maal?",
+        [
+          "Call to Action",
+          "Color Text Area",
+          "Camera Type"
+        ],
+        0
+      ],
+
+      [
+        "Design keessatti contrast maal gargaara?",
+        [
+          "Wantoota adda baasuuf",
+          "File balleessuuf",
+          "Internet cufuuf"
+        ],
+        0
+      ]
+
+    ];
+
+
+    const quizBox =
+      document.getElementById("quizBox");
+
+
+    quizBox.innerHTML =
+
+      questions.map((q,index)=>`
+
+        <div class="q">
+
+          <b>
+            ${index+1}. ${q[0]}
+          </b>
+
+          ${
+            q[1].map((option,optionIndex)=>`
+
+              <label>
+
+                <input
+                  type="radio"
+                  name="q${index}"
+                  value="${optionIndex}"
+                >
+
+                ${option}
+
+              </label>
+
+            `).join("")
+          }
+
+        </div>
+
+      `).join("")
+
+      +
+
+      `
+
+        <button
+          class="btn primary quiz-btn"
+          type="button"
+          onclick="checkQuiz()"
+        >
+          Qabxii Koo Ilaali
+        </button>
+
+        <div
+          id="result"
+          class="result"
+        ></div>
+
+      `;
+
+
+    function checkQuiz(){
+
+      let score = 0;
+
+      questions.forEach((question,index)=>{
+
+        const answer =
+          document.querySelector(
+            'input[name="q'+index+'"]:checked'
+          );
+
+        if(
+          answer &&
+          Number(answer.value) === question[2]
+        ){
+          score++;
+        }
+
+      });
+
+
+      document.getElementById("result")
+        .textContent =
+        `Qabxii kee: ${score}/${questions.length} 🎉`;
+
+    }
+
+
+    /* =========================================
+       MOBILE MENU
+    ========================================= */
+
+    function toggleMenu(){
+
+      document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+
+    }
+
+
+    function closeMenu(){
+
+      document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    }
+
+
+    /* =========================================
+       STUDENT ACCESS
+       
+       IMPORTANT:
+       Backend API URL asitti booda galchita.
+
+       Fakkeenya:
+       const ACCESS_API_URL =
+       "https://YOUR-SUPABASE-PROJECT.supabase.co/functions/v1/student-login";
+
+       Backend response:
+       {
+         "success": true,
+         "redirect": "dashboard.html"
+       }
+    ========================================= */
+
+    const ACCESS_API_URL = "";
+
+
+    const accessForm =
+      document.getElementById("accessForm");
+
+
+    const accessStatus =
+      document.getElementById("accessStatus");
+
+
+    function showAccessStatus(message,type){
+
+      accessStatus.textContent = message;
+
+      accessStatus.className =
+        "status show " + type;
+
+    }
+
+
+    accessForm.addEventListener(
+      "submit",
+      async function(event){
+
+        event.preventDefault();
+
+
+        const phone =
+          document
+          .getElementById("studentPhone")
+          .value
+          .trim();
+
+
+        const pin =
+          document
+          .getElementById("studentPin")
+          .value
+          .trim();
+
+
+        const otp =
+          document
+          .getElementById("studentOtp")
+          .value
+          .trim();
+
+
+        if(!phone || !pin || !otp){
+
+          showAccessStatus(
+            "Mee Phone, PIN fi OTP hunda guuti.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        if(!/^0[79][0-9]{8}$/.test(phone)){
+
+          showAccessStatus(
+            "Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        /*
+          Backend hin qindaa'in yoo ta'e
+          redirect sobaa hin goonu.
+        */
+
+        if(!ACCESS_API_URL){
+
+          showAccessStatus(
+            "Backend OTP/PIN ammallee hin hidhamne. API authentication erga qindaa'ee booda as irraa dashboard.html seenta.",
+            "error"
+          );
+
+          return;
+
+        }
+
+
+        try{
+
+          showAccessStatus(
+            "Mirkaneessaa jira... ⏳",
+            "success"
+          );
+
+
+          const controller =
+            new AbortController();
+
+
+          const timeout =
+            setTimeout(
+              ()=>controller.abort(),
+              30000
+            );
+
+
+          const response =
+            await fetch(
+              ACCESS_API_URL,
+              {
+                method:"POST",
+
+                headers:{
+                  "Content-Type":
+                  "application/json"
+                },
+
+                body:JSON.stringify({
+
+                  phone:phone,
+                  pin:pin,
+                  otp:otp
+
+                }),
+
+                signal:controller.signal
+              }
+            );
+
+
+          clearTimeout(timeout);
+
+
+          const data =
+            await response.json();
+
+
+          if(
+            response.ok &&
+            data.success === true
+          ){
+
+            /*
+              Session token yoo backend
+              kennu localStorage keessatti
+              yeroo gabaabaa tursiisa.
+            */
+
+            if(data.token){
+
+              sessionStorage.setItem(
+                "KENA_STUDENT_TOKEN",
+                data.token
+              );
+
+            }
+
+
+            sessionStorage.setItem(
+              "KENA_STUDENT_PHONE",
+              phone
+            );
+
+
+            const redirect =
+              data.redirect ||
+              "dashboard.html";
+
+
+            window.location.href =
+              redirect;
+
+            return;
+
+          }
+
+
+          showAccessStatus(
+            data.message ||
+            "Phone, PIN ykn OTP sirrii miti ykn access hin kennamne.",
+            "error"
+          );
+
+
+        }catch(error){
+
+          if(error.name === "AbortError"){
+
+            showAccessStatus(
+              "Server deebii kennuuf yeroo dheeraa fudhate. Mee irra deebi'i.",
+              "error"
+            );
+
+          }else{
+
+            showAccessStatus(
+              "Rakkoo server waliin uumame. Mee yeroo muraasa booda irra deebi'i.",
+              "error"
+            );
+
+          }
+
+        }
+
+      }
+    );
+
+  </script>
 
 </body>
 </html>

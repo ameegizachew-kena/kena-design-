@@ -11,9 +11,9 @@
 
   <style>
     :root{
-      --bg:#071525;
-      --panel:#101f35;
-      --panel2:#142943;
+      --bg:#08111f;
+      --panel:#101d30;
+      --panel2:#14243b;
       --text:#f5f7fb;
       --muted:#aebbd0;
       --accent:#35d07f;
@@ -56,7 +56,8 @@
     }
 
     button,
-    input{
+    input,
+    select{
       font:inherit;
     }
 
@@ -73,7 +74,7 @@
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(7,21,37,.94);
+      background:rgba(8,17,31,.92);
       backdrop-filter:blur(14px);
       border-bottom:1px solid var(--border);
     }
@@ -89,27 +90,27 @@
     .logo{
       display:flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
       font-size:21px;
       font-weight:900;
       letter-spacing:.5px;
     }
 
     .logo-mark{
-      width:48px;
-      height:48px;
+      width:42px;
+      height:42px;
       display:grid;
       place-items:center;
-      border-radius:13px;
+      border-radius:12px;
       background:linear-gradient(
         135deg,
         var(--accent),
         var(--accent2)
       );
       color:#06101b;
-      font-size:23px;
       font-weight:900;
-      box-shadow:0 10px 30px rgba(22,168,255,.2);
+      box-shadow:
+        0 10px 30px rgba(22,168,255,.2);
     }
 
     .nav-links{
@@ -135,10 +136,9 @@
       border:1px solid var(--border);
       background:var(--panel);
       color:#fff;
-      padding:10px 13px;
-      border-radius:12px;
+      padding:9px 12px;
+      border-radius:10px;
       cursor:pointer;
-      font-size:22px;
     }
 
     /* =========================
@@ -146,30 +146,27 @@
     ========================= */
 
     .hero{
-      min-height:650px;
-      padding:70px 0 100px;
+      padding:90px 0 75px;
       text-align:center;
-      display:flex;
-      align-items:center;
     }
 
     .badge{
       display:inline-flex;
       align-items:center;
       gap:8px;
-      padding:9px 16px;
+      padding:8px 14px;
       border:1px solid rgba(53,208,127,.25);
       background:rgba(53,208,127,.08);
       color:var(--accent);
       border-radius:999px;
       font-size:14px;
-      margin-bottom:25px;
+      margin-bottom:20px;
     }
 
     .hero h1{
-      font-size:clamp(42px,8vw,78px);
-      line-height:1.05;
-      margin-bottom:25px;
+      font-size:clamp(42px,8vw,82px);
+      line-height:1;
+      margin-bottom:20px;
       font-weight:950;
       letter-spacing:-2px;
     }
@@ -187,8 +184,8 @@
     }
 
     .hero p{
-      max-width:760px;
-      margin:0 auto 35px;
+      max-width:700px;
+      margin:0 auto 30px;
       color:var(--muted);
       font-size:18px;
     }
@@ -207,8 +204,8 @@
       gap:8px;
       border:0;
       cursor:pointer;
-      border-radius:13px;
-      padding:14px 22px;
+      border-radius:12px;
+      padding:13px 20px;
       font-weight:800;
       transition:.2s;
     }
@@ -236,7 +233,7 @@
     }
 
     /* =========================
-       SECTIONS
+       SECTION
     ========================= */
 
     section{
@@ -258,7 +255,7 @@
     }
 
     /* =========================
-       ACCESS
+       LEARNING ACCESS
     ========================= */
 
     .access-wrap{
@@ -271,8 +268,8 @@
       background:
         linear-gradient(
           145deg,
-          rgba(20,41,67,.96),
-          rgba(16,31,53,.96)
+          rgba(20,36,59,.96),
+          rgba(16,29,48,.96)
         );
       border:1px solid var(--border);
       border-radius:22px;
@@ -530,7 +527,7 @@
     }
 
     /* =========================
-       MOBILE
+       RESPONSIVE
     ========================= */
 
     @media(max-width:900px){
@@ -556,7 +553,7 @@
         position:absolute;
         left:4%;
         right:4%;
-        top:70px;
+        top:66px;
         padding:10px;
         background:#0c1829;
         border:1px solid var(--border);
@@ -578,25 +575,11 @@
       }
 
       .hero{
-        min-height:auto;
-        padding:55px 0 80px;
+        padding:65px 0 50px;
       }
 
       .hero h1{
-        font-size:48px;
         letter-spacing:-1px;
-      }
-
-      .hero p{
-        font-size:17px;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-      }
-
-      .hero-actions .btn{
-        width:100%;
       }
 
       section{
@@ -612,15 +595,6 @@
       .quiz-box,
       .about-box{
         padding:20px;
-      }
-
-      .logo{
-        font-size:19px;
-      }
-
-      .logo-mark{
-        width:46px;
-        height:46px;
       }
     }
   </style>
@@ -661,27 +635,43 @@
         id="navLinks"
       >
 
-        <a href="#home" onclick="closeMenu()">
+        <a
+          href="#home"
+          onclick="closeMenu()"
+        >
           Home
         </a>
 
+        <!-- LOGIN -->
         <a href="login.html">
           Barnoota Jalqabi
         </a>
 
-        <a href="#courses" onclick="closeMenu()">
+        <a
+          href="#courses"
+          onclick="closeMenu()"
+        >
           Barnoota
         </a>
 
-        <a href="#quiz" onclick="closeMenu()">
+        <a
+          href="#quiz"
+          onclick="closeMenu()"
+        >
           Quiz
         </a>
 
-        <a href="#about" onclick="closeMenu()">
+        <a
+          href="#about"
+          onclick="closeMenu()"
+        >
           Waa'ee Keenya
         </a>
 
-        <a href="#contact" onclick="closeMenu()">
+        <a
+          href="#contact"
+          onclick="closeMenu()"
+        >
           Contact
         </a>
 
@@ -696,7 +686,10 @@
        HERO
   ========================= -->
 
-  <header class="hero" id="home">
+  <header
+    class="hero"
+    id="home"
+  >
 
     <div class="container">
 
@@ -720,8 +713,8 @@
       <div class="hero-actions">
 
         <!--
-          BUTTON KUNI LOGIN.HTML BANUUF QOPHAA'E
-          SCROLL HIN GODHU
+          BARNOOTA JALQABI:
+          DIRECTLY OPENS login.html
         -->
 
         <a
@@ -753,7 +746,7 @@
 
 
   <!-- =========================
-       ACCESS
+       QUICK ACCESS
   ========================= -->
 
   <section id="access">
@@ -790,22 +783,30 @@
 
             <li>
               <span>✓</span>
-              <div>Login page seeni.</div>
+              <div>
+                Login page seeni.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>Phone number kee galchi.</div>
+              <div>
+                Phone number kee galchi.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>PIN kee galchi.</div>
+              <div>
+                PIN kee galchi.
+              </div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>OTP yoo siif kenname galchi.</div>
+              <div>
+                OTP yoo siif kenname galchi.
+              </div>
             </li>
 
             <li>
@@ -916,7 +917,8 @@
         </h2>
 
         <p>
-          Kaayyoon keenya ogummaa digital barsiisuu dha.
+          Kaayyoon keenya ogummaa digital
+          barsiisuu dha.
         </p>
 
       </div>
@@ -933,7 +935,8 @@
             KENA DESIGN'n namoota design fi
             digital skills barachuu barbaadaniif
             barnoota salphaa, qabatamaa fi
-            tartiiba qabu dhiyeessuuf kan hojjetudha.
+            tartiiba qabu dhiyeessuuf kan
+            hojjetudha.
           </p>
 
         </div>
@@ -1014,9 +1017,13 @@
 
         <div class="contact-card">
 
-          <div class="big">📱</div>
+          <div class="big">
+            📱
+          </div>
 
-          <h3>Phone</h3>
+          <h3>
+            Phone
+          </h3>
 
           <p>
             +251 923 502 464
@@ -1024,11 +1031,16 @@
 
         </div>
 
+
         <div class="contact-card">
 
-          <div class="big">📧</div>
+          <div class="big">
+            📧
+          </div>
 
-          <h3>Email</h3>
+          <h3>
+            Email
+          </h3>
 
           <p>
             ameegizachew@gmail.com
@@ -1036,11 +1048,16 @@
 
         </div>
 
+
         <div class="contact-card">
 
-          <div class="big">📍</div>
+          <div class="big">
+            📍
+          </div>
 
-          <h3>Address</h3>
+          <h3>
+            Address
+          </h3>
 
           <p>
             Oromia, Shambu, Horro Buluk
@@ -1084,6 +1101,10 @@
 
   <script>
 
+    /* =========================
+       MOBILE MENU
+    ========================= */
+
     function toggleMenu(){
 
       document
@@ -1111,7 +1132,8 @@
       {
         icon:"🎬",
         title:"Video Editing",
-        desc:"Viidiyoo kee qulqulluu fi nama hawwatu taasisuu baradhu.",
+        desc:
+          "Viidiyoo kee qulqulluu fi nama hawwatu taasisuu baradhu.",
         lessons:[
           "Cut fi trim gochuu",
           "Transition fi effect",
@@ -1124,7 +1146,8 @@
       {
         icon:"✨",
         title:"Logo Maker",
-        desc:"Logo brand kee bakka bu'u professional hojjedhu.",
+        desc:
+          "Logo brand kee bakka bu'u professional hojjedhu.",
         lessons:[
           "Maqaa brand filachuu",
           "Font fi typography",
@@ -1137,7 +1160,8 @@
       {
         icon:"▶️",
         title:"YouTube Thumbnail",
-        desc:"Thumbnail namni yeroo argu akka cuqaasuuf qopheessi.",
+        desc:
+          "Thumbnail namni yeroo argu akka cuqaasuuf qopheessi.",
         lessons:[
           "Canvas 1280×720",
           "Composition",
@@ -1150,7 +1174,8 @@
       {
         icon:"💳",
         title:"Business Card",
-        desc:"Kaardii daldalaa qulqulluu fi print-ready hojjedhu.",
+        desc:
+          "Kaardii daldalaa qulqulluu fi print-ready hojjedhu.",
         lessons:[
           "Name fi logo",
           "Phone, email fi address",
@@ -1163,7 +1188,8 @@
       {
         icon:"📣",
         title:"Flyer Package",
-        desc:"Flyer hojii, event ykn promotion siif hojjedhu.",
+        desc:
+          "Flyer hojii, event ykn promotion siif hojjedhu.",
         lessons:[
           "Headline cimaa",
           "Service/offer",
@@ -1402,6 +1428,7 @@
 
       let score = 0;
 
+
       questions.forEach(
         (question,index)=>{
 
@@ -1412,11 +1439,15 @@
               '"]:checked'
             );
 
+
           if(
             answer &&
-            Number(answer.value) === question[2]
+            Number(answer.value) ===
+            question[2]
           ){
+
             score++;
+
           }
 
         }

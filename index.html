@@ -66,9 +66,7 @@
       margin:auto;
     }
 
-    /* =========================
-       NAVBAR
-    ========================= */
+    /* NAVBAR */
 
     nav{
       position:sticky;
@@ -109,8 +107,7 @@
       );
       color:#06101b;
       font-weight:900;
-      box-shadow:
-        0 10px 30px rgba(22,168,255,.2);
+      box-shadow:0 10px 30px rgba(22,168,255,.2);
     }
 
     .nav-links{
@@ -141,9 +138,7 @@
       cursor:pointer;
     }
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero{
       padding:90px 0 75px;
@@ -222,8 +217,7 @@
           #25bdff
         );
       color:#04101a;
-      box-shadow:
-        0 12px 30px rgba(53,208,127,.18);
+      box-shadow:0 12px 30px rgba(53,208,127,.18);
     }
 
     .secondary{
@@ -232,9 +226,7 @@
       border:1px solid var(--border);
     }
 
-    /* =========================
-       SECTION
-    ========================= */
+    /* SECTION */
 
     section{
       padding:70px 0;
@@ -254,9 +246,7 @@
       color:var(--muted);
     }
 
-    /* =========================
-       LEARNING ACCESS
-    ========================= */
+    /* ACCESS */
 
     .access-wrap{
       display:grid;
@@ -315,9 +305,7 @@
       font-size:13px;
     }
 
-    /* =========================
-       COURSES
-    ========================= */
+    /* COURSES */
 
     .course-grid{
       display:grid;
@@ -403,9 +391,7 @@
       cursor:pointer;
     }
 
-    /* =========================
-       ABOUT
-    ========================= */
+    /* ABOUT */
 
     .about-grid{
       display:grid;
@@ -429,9 +415,7 @@
       color:var(--muted);
     }
 
-    /* =========================
-       QUIZ
-    ========================= */
+    /* QUIZ */
 
     .quiz-box{
       max-width:850px;
@@ -478,9 +462,7 @@
       color:var(--accent);
     }
 
-    /* =========================
-       CONTACT
-    ========================= */
+    /* CONTACT */
 
     .contact-grid{
       display:grid;
@@ -510,9 +492,7 @@
       word-break:break-word;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     footer{
       margin-top:30px;
@@ -526,9 +506,7 @@
       color:#fff;
     }
 
-    /* =========================
-       RESPONSIVE
-    ========================= */
+    /* RESPONSIVE */
 
     @media(max-width:900px){
 
@@ -602,24 +580,14 @@
 
 <body>
 
-  <!-- =========================
-       NAVBAR
-  ========================= -->
+  <!-- NAVBAR -->
 
   <nav>
-
     <div class="container nav-inner">
 
       <a href="#home" class="logo">
-
-        <span class="logo-mark">
-          KD
-        </span>
-
-        <span>
-          KENA DESIGN
-        </span>
-
+        <span class="logo-mark">KD</span>
+        <span>KENA DESIGN</span>
       </a>
 
       <button
@@ -630,66 +598,41 @@
         ☰
       </button>
 
-      <div
-        class="nav-links"
-        id="navLinks"
-      >
+      <div class="nav-links" id="navLinks">
 
-        <a
-          href="#home"
-          onclick="closeMenu()"
-        >
+        <a href="#home" onclick="closeMenu()">
           Home
         </a>
 
-        <!-- LOGIN -->
+        <!-- BARNOOTA JALQABI = LOGIN PAGE -->
         <a href="login.html">
           Barnoota Jalqabi
         </a>
 
-        <a
-          href="#courses"
-          onclick="closeMenu()"
-        >
+        <a href="#courses" onclick="closeMenu()">
           Barnoota
         </a>
 
-        <a
-          href="#quiz"
-          onclick="closeMenu()"
-        >
+        <a href="#quiz" onclick="closeMenu()">
           Quiz
         </a>
 
-        <a
-          href="#about"
-          onclick="closeMenu()"
-        >
+        <a href="#about" onclick="closeMenu()">
           Waa'ee Keenya
         </a>
 
-        <a
-          href="#contact"
-          onclick="closeMenu()"
-        >
+        <a href="#contact" onclick="closeMenu()">
           Contact
         </a>
 
       </div>
-
     </div>
-
   </nav>
 
 
-  <!-- =========================
-       HERO
-  ========================= -->
+  <!-- HERO -->
 
-  <header
-    class="hero"
-    id="home"
-  >
+  <header class="hero" id="home">
 
     <div class="container">
 
@@ -699,9 +642,7 @@
 
       <h1>
         Barnoota
-        <span>
-          KENA DESIGN
-        </span>
+        <span>KENA DESIGN</span>
       </h1>
 
       <p>
@@ -713,10 +654,10 @@
       <div class="hero-actions">
 
         <!--
-          BARNOOTA JALQABI:
-          DIRECTLY OPENS login.html
+          IMPORTANT:
+          Button kun gara login.html qofa deema.
+          Scroll hin godhu.
         -->
-
         <a
           href="login.html"
           class="btn primary"
@@ -741,13 +682,10 @@
       </div>
 
     </div>
-
   </header>
 
 
-  <!-- =========================
-       QUICK ACCESS
-  ========================= -->
+  <!-- QUICK ACCESS -->
 
   <section id="access">
 
@@ -783,30 +721,22 @@
 
             <li>
               <span>✓</span>
-              <div>
-                Login page seeni.
-              </div>
+              <div>Login page seeni.</div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>
-                Phone number kee galchi.
-              </div>
+              <div>Phone number kee galchi.</div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>
-                PIN kee galchi.
-              </div>
+              <div>PIN kee galchi.</div>
             </li>
 
             <li>
               <span>✓</span>
-              <div>
-                OTP yoo siif kenname galchi.
-              </div>
+              <div>OTP yoo siif kenname galchi.</div>
             </li>
 
             <li>
@@ -844,6 +774,7 @@
             gadii cuqaasi.
           </p>
 
+          <!-- LOGIN BUTTON -->
           <a
             href="login.html"
             class="btn primary"
@@ -872,9 +803,7 @@
   </section>
 
 
-  <!-- =========================
-       COURSES
-  ========================= -->
+  <!-- COURSES -->
 
   <section id="courses">
 
@@ -902,9 +831,7 @@
   </section>
 
 
-  <!-- =========================
-       ABOUT
-  ========================= -->
+  <!-- ABOUT -->
 
   <section id="about">
 
@@ -963,9 +890,7 @@
   </section>
 
 
-  <!-- =========================
-       QUIZ
-  ========================= -->
+  <!-- QUIZ -->
 
   <section id="quiz">
 
@@ -993,9 +918,7 @@
   </section>
 
 
-  <!-- =========================
-       CONTACT
-  ========================= -->
+  <!-- CONTACT -->
 
   <section id="contact">
 
@@ -1017,13 +940,9 @@
 
         <div class="contact-card">
 
-          <div class="big">
-            📱
-          </div>
+          <div class="big">📱</div>
 
-          <h3>
-            Phone
-          </h3>
+          <h3>Phone</h3>
 
           <p>
             +251 923 502 464
@@ -1034,13 +953,9 @@
 
         <div class="contact-card">
 
-          <div class="big">
-            📧
-          </div>
+          <div class="big">📧</div>
 
-          <h3>
-            Email
-          </h3>
+          <h3>Email</h3>
 
           <p>
             ameegizachew@gmail.com
@@ -1051,13 +966,9 @@
 
         <div class="contact-card">
 
-          <div class="big">
-            📍
-          </div>
+          <div class="big">📍</div>
 
-          <h3>
-            Address
-          </h3>
+          <h3>Address</h3>
 
           <p>
             Oromia, Shambu, Horro Buluk
@@ -1072,9 +983,7 @@
   </section>
 
 
-  <!-- =========================
-       FOOTER
-  ========================= -->
+  <!-- FOOTER -->
 
   <footer>
 
@@ -1095,15 +1004,11 @@
   </footer>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================= -->
+  <!-- JAVASCRIPT -->
 
   <script>
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+    /* MOBILE MENU */
 
     function toggleMenu(){
 
@@ -1123,9 +1028,7 @@
     }
 
 
-    /* =========================
-       COURSES
-    ========================= */
+    /* COURSES */
 
     const courses = [
 
@@ -1293,9 +1196,7 @@
     }
 
 
-    /* =========================
-       QUIZ
-    ========================= */
+    /* QUIZ */
 
     const questions = [
 

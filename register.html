@@ -194,6 +194,7 @@
     }
 
     @media (max-width: 600px) {
+
       .container {
         margin: 10px auto;
         padding: 10px;
@@ -222,14 +223,27 @@
   <div class="card">
 
     <div class="logo">
-      <h1>KENA DESIGN</h1>
-      <p>Student Registration Form</p>
+
+      <h1>
+        KENA DESIGN
+      </h1>
+
+      <p>
+        Student Registration Form
+      </p>
+
     </div>
+
 
     <form id="registrationForm">
 
+
       <!-- FULL NAME -->
-      <label for="fullname">Full Name *</label>
+
+      <label for="fullname">
+        Full Name *
+      </label>
+
       <input
         type="text"
         id="fullname"
@@ -238,8 +252,13 @@
         required
       >
 
+
       <!-- FATHER NAME -->
-      <label for="fathername">Father's Name *</label>
+
+      <label for="fathername">
+        Father's Name *
+      </label>
+
       <input
         type="text"
         id="fathername"
@@ -248,25 +267,45 @@
         required
       >
 
+
       <!-- GENDER + AGE -->
+
       <div class="row">
 
         <div>
-          <label for="gender">Gender *</label>
+
+          <label for="gender">
+            Gender *
+          </label>
 
           <select
             id="gender"
             name="gender"
             required
           >
-            <option value="">Select gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
+
+            <option value="">
+              Select gender
+            </option>
+
+            <option value="Male">
+              Male
+            </option>
+
+            <option value="Female">
+              Female
+            </option>
+
           </select>
+
         </div>
 
+
         <div>
-          <label for="age">Age *</label>
+
+          <label for="age">
+            Age *
+          </label>
 
           <input
             type="number"
@@ -277,12 +316,17 @@
             placeholder="Age"
             required
           >
+
         </div>
 
       </div>
 
+
       <!-- PHONE -->
-      <label for="phone">Phone Number *</label>
+
+      <label for="phone">
+        Phone Number *
+      </label>
 
       <input
         type="tel"
@@ -294,8 +338,12 @@
         required
       >
 
+
       <!-- EMAIL -->
-      <label for="email">Email (Optional)</label>
+
+      <label for="email">
+        Email (Optional)
+      </label>
 
       <input
         type="email"
@@ -304,8 +352,12 @@
         placeholder="example@gmail.com"
       >
 
+
       <!-- COURSE -->
-      <label for="course">Choose Course *</label>
+
+      <label for="course">
+        Choose Course *
+      </label>
 
       <select
         id="course"
@@ -313,7 +365,9 @@
         required
       >
 
-        <option value="">Select course</option>
+        <option value="">
+          Select course
+        </option>
 
         <option
           value="Video Editing"
@@ -373,8 +427,12 @@
 
       </select>
 
+
       <!-- ADDRESS -->
-      <label for="address">Address *</label>
+
+      <label for="address">
+        Address *
+      </label>
 
       <select
         id="address"
@@ -480,7 +538,9 @@
 
       </select>
 
+
       <!-- OTHER ADDRESS -->
+
       <div
         id="otherAddressBox"
         class="hidden"
@@ -499,7 +559,9 @@
 
       </div>
 
+
       <!-- PAYMENT INFORMATION -->
+
       <div class="payment-box">
 
         <h3>
@@ -512,17 +574,23 @@
         </p>
 
         <div class="account">
+
           📱 Telebirr:
+
           <strong>
             0923502464 — Amanuel
           </strong>
+
         </div>
 
         <div class="account">
+
           🏦 CBE Birr:
+
           <strong>
             0923502464 — Amanuel
           </strong>
+
         </div>
 
         <div
@@ -534,7 +602,9 @@
 
       </div>
 
+
       <!-- PAYMENT METHOD -->
+
       <label for="payment_method">
         Payment Method *
       </label>
@@ -559,7 +629,9 @@
 
       </select>
 
-      <!-- SCREENSHOT -->
+
+      <!-- PAYMENT SCREENSHOT -->
+
       <label for="screenshot">
         Payment Screenshot *
       </label>
@@ -581,7 +653,9 @@
 
       </div>
 
+
       <!-- NOTICE -->
+
       <div class="notice">
 
         ⚠️ After registration, your payment status
@@ -593,13 +667,16 @@
 
       </div>
 
+
       <!-- SUBMIT -->
+
       <button
         type="submit"
         id="submitBtn"
       >
         Submit Registration
       </button>
+
 
       <div
         class="loading"
@@ -609,19 +686,24 @@
         Mee xiqqoo eegi.
       </div>
 
+
       <!-- SUCCESS -->
+
       <div
         id="successMessage"
         class="message success"
       ></div>
 
+
       <!-- ERROR -->
+
       <div
         id="errorMessage"
         class="message error"
       ></div>
 
     </form>
+
 
     <div class="footer">
       © Kena Design
@@ -640,6 +722,7 @@
 
 const EDGE_FUNCTION_URL =
   "https://baoczirnzoxwyguily.supabase.co/functions/v1/upload-payment-proof";
+
 
 /* =========================================================
    ELEMENTS
@@ -846,6 +929,7 @@ form.addEventListener(
 
     event.preventDefault();
 
+
     successMessage.style.display =
       "none";
 
@@ -864,9 +948,10 @@ form.addEventListener(
 
     try {
 
-      /* ---------------------------------------------
+
+      /* =================================================
          GET VALUES
-         --------------------------------------------- */
+         ================================================= */
 
       const fullname =
         document
@@ -876,6 +961,7 @@ form.addEventListener(
           .value
           .trim();
 
+
       const fathername =
         document
           .getElementById(
@@ -884,12 +970,14 @@ form.addEventListener(
           .value
           .trim();
 
+
       const gender =
         document
           .getElementById(
             "gender"
           )
           .value;
+
 
       const age =
         Number(
@@ -900,6 +988,7 @@ form.addEventListener(
             .value
         );
 
+
       const phone =
         document
           .getElementById(
@@ -907,6 +996,7 @@ form.addEventListener(
           )
           .value
           .trim();
+
 
       const email =
         document
@@ -916,14 +1006,18 @@ form.addEventListener(
           .value
           .trim();
 
+
       const selectedCourse =
         course.value;
+
 
       const selectedAddress =
         address.value;
 
+
       const selectedOtherAddress =
         otherAddress.value.trim();
+
 
       const paymentMethod =
         document
@@ -933,12 +1027,13 @@ form.addEventListener(
           .value;
 
 
-      /* ---------------------------------------------
-         PHONE
-         --------------------------------------------- */
+      /* =================================================
+         PHONE VALIDATION
+         ================================================= */
 
       const phonePattern =
         /^(09|07)[0-9]{8}$/;
+
 
       if (
         !phonePattern.test(
@@ -953,9 +1048,9 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------------
+      /* =================================================
          COURSE
-         --------------------------------------------- */
+         ================================================= */
 
       if (
         !selectedCourse
@@ -968,14 +1063,15 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------------
+      /* =================================================
          COURSE PRICE
-         --------------------------------------------- */
+         ================================================= */
 
       const selectedOption =
         course.options[
           course.selectedIndex
         ];
+
 
       const paymentAmount =
         Number(
@@ -985,9 +1081,9 @@ form.addEventListener(
         );
 
 
-      /* ---------------------------------------------
+      /* =================================================
          ADDRESS
-         --------------------------------------------- */
+         ================================================= */
 
       if (
         !selectedAddress
@@ -1012,9 +1108,9 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------------
+      /* =================================================
          PAYMENT METHOD
-         --------------------------------------------- */
+         ================================================= */
 
       if (
         !paymentMethod
@@ -1027,9 +1123,9 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------------
+      /* =================================================
          SCREENSHOT
-         --------------------------------------------- */
+         ================================================= */
 
       if (
         !screenshot.files.length
@@ -1041,16 +1137,18 @@ form.addEventListener(
 
       }
 
+
       const screenshotFile =
         screenshot.files[0];
 
 
-      /* ---------------------------------------------
+      /* =================================================
          MAX 5MB
-         --------------------------------------------- */
+         ================================================= */
 
       const maxSize =
         5 * 1024 * 1024;
+
 
       if (
         screenshotFile.size >
@@ -1064,15 +1162,16 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------------
+      /* =================================================
          FILE TYPE
-         --------------------------------------------- */
+         ================================================= */
 
       const allowedTypes = [
         "image/jpeg",
         "image/png",
         "image/webp"
       ];
+
 
       if (
         !allowedTypes.includes(
@@ -1088,7 +1187,7 @@ form.addEventListener(
 
 
       /* =================================================
-         SEND EVERYTHING TO EDGE FUNCTION
+         SEND TO EDGE FUNCTION
          ================================================= */
 
       const formData =
@@ -1100,40 +1199,48 @@ form.addEventListener(
         fullname
       );
 
+
       formData.append(
         "fathername",
         fathername
       );
+
 
       formData.append(
         "gender",
         gender
       );
 
+
       formData.append(
         "age",
         String(age)
       );
+
 
       formData.append(
         "phone",
         phone
       );
 
+
       formData.append(
         "email",
         email
       );
+
 
       formData.append(
         "course",
         selectedCourse
       );
 
+
       formData.append(
         "address",
         selectedAddress
       );
+
 
       formData.append(
         "other_address",
@@ -1142,25 +1249,26 @@ form.addEventListener(
           : ""
       );
 
+
+      /* PAYMENT STATUS */
+
       formData.append(
         "payment_status",
         "PENDING"
       );
+
 
       formData.append(
         "payment_amount",
         String(paymentAmount)
       );
 
+
       formData.append(
         "payment_method",
         paymentMethod
       );
 
-      /*
-        Transaction/reference number
-        intentionally NOT included.
-      */
 
       formData.append(
         "screenshot",
@@ -1170,22 +1278,25 @@ form.addEventListener(
 
       /* =================================================
          ABORT CONTROLLER
-         Prevent endless loading
          ================================================= */
 
       const controller =
         new AbortController();
 
+
       const timeout =
         setTimeout(
           function () {
+
             controller.abort();
+
           },
           90000
         );
 
 
       let response;
+
 
       try {
 
@@ -1215,7 +1326,9 @@ form.addEventListener(
       const responseText =
         await response.text();
 
+
       let result = null;
+
 
       try {
 
@@ -1234,7 +1347,7 @@ form.addEventListener(
 
 
       /* =================================================
-         EDGE FUNCTION ERROR
+         SERVER ERROR
          ================================================= */
 
       if (
@@ -1253,6 +1366,7 @@ form.addEventListener(
               )
             : responseText ||
               "Server error";
+
 
         throw new Error(
           "Galmeen hin milkoofne: " +
@@ -1280,7 +1394,48 @@ form.addEventListener(
 
 
       /* =================================================
-         SUCCESS
+         IMPORTANT:
+         SAVE STUDENT INFORMATION
+         FOR DASHBOARD
+         ================================================= */
+
+      localStorage.setItem(
+        "studentName",
+        fullname
+      );
+
+
+      localStorage.setItem(
+        "fatherName",
+        fathername
+      );
+
+
+      localStorage.setItem(
+        "studentPhone",
+        phone
+      );
+
+
+      localStorage.setItem(
+        "studentCourse",
+        selectedCourse
+      );
+
+
+      /*
+        Payment is PENDING until admin
+        confirms the payment.
+      */
+
+      localStorage.setItem(
+        "studentPayment",
+        "PENDING"
+      );
+
+
+      /* =================================================
+         SUCCESS MESSAGE
          ================================================= */
 
       showSuccess(
@@ -1291,22 +1446,28 @@ form.addEventListener(
       );
 
 
-      /* Clear form */
+      /* =================================================
+         CLEAR FORM
+         ================================================= */
 
       form.reset();
+
 
       courseAmount.textContent =
         "Course fee: —";
 
+
       otherAddressBox.classList.add(
         "hidden"
       );
+
 
       otherAddress.required =
         false;
 
 
     } catch (error) {
+
 
       console.error(
         "Registration error:",
@@ -1336,11 +1497,14 @@ form.addEventListener(
 
     } finally {
 
+
       submitBtn.disabled =
         false;
 
+
       submitBtn.textContent =
         "Submit Registration";
+
 
       loadingMessage.style.display =
         "none";

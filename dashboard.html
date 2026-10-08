@@ -2,8 +2,13 @@
 <html lang="om">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
 
 <title>KENA DESIGN - Dashboard</title>
 
@@ -23,7 +28,7 @@ line-height:1.6;
 }
 
 header{
-background:white;
+background:#ffffff;
 border-bottom:1px solid #dce8f0;
 padding:16px 20px;
 position:sticky;
@@ -38,6 +43,7 @@ margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
+gap:20px;
 }
 
 .logo{
@@ -56,8 +62,8 @@ color:white;
 border:none;
 padding:12px 20px;
 border-radius:12px;
-font-weight:bold;
 font-size:16px;
+font-weight:bold;
 cursor:pointer;
 }
 
@@ -67,7 +73,10 @@ margin:auto;
 padding:30px 18px;
 }
 
-/* WELCOME */
+
+/* =========================
+   WELCOME
+========================= */
 
 .welcome{
 background:linear-gradient(
@@ -97,10 +106,13 @@ font-size:17px;
 margin-top:8px;
 }
 
-/* STUDENT INFORMATION */
+
+/* =========================
+   STUDENT INFORMATION
+========================= */
 
 .student-info{
-background:white;
+background:#ffffff;
 border:1px solid #dbe9f2;
 border-radius:22px;
 padding:25px;
@@ -110,6 +122,7 @@ box-shadow:0 8px 30px rgba(20,50,80,.05);
 
 .student-info h2{
 font-size:27px;
+color:#102a43;
 margin-bottom:20px;
 }
 
@@ -125,18 +138,23 @@ margin-bottom:14px;
 color:#71869a;
 font-size:14px;
 margin-bottom:5px;
+font-weight:600;
 }
 
 .info-value{
 font-size:20px;
 font-weight:bold;
 color:#102a43;
+word-break:break-word;
 }
 
-/* LESSONS */
+
+/* =========================
+   LESSONS
+========================= */
 
 .lessons-section{
-background:white;
+background:#ffffff;
 border:1px solid #dbe9f2;
 border-radius:22px;
 padding:25px;
@@ -145,11 +163,13 @@ box-shadow:0 8px 30px rgba(20,50,80,.05);
 
 .lessons-section h2{
 font-size:27px;
+color:#102a43;
 }
 
 .description{
 color:#637b91;
 margin:5px 0 22px;
+font-size:17px;
 }
 
 .lesson-card{
@@ -169,15 +189,19 @@ background:linear-gradient(
 #18b6e8,
 #6c5ce7
 );
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 color:white;
 font-size:30px;
+
 margin-bottom:15px;
 }
 
 .lesson-card h3{
+color:#102a43;
 font-size:22px;
 margin-bottom:8px;
 }
@@ -185,6 +209,7 @@ margin-bottom:8px;
 .lesson-card p{
 color:#607890;
 margin-bottom:18px;
+font-size:16px;
 }
 
 .btn{
@@ -200,11 +225,24 @@ background:#12a879;
 color:white;
 }
 
+.btn-primary:hover{
+background:#0d956a;
+}
+
 .btn-secondary{
 background:white;
 color:#0875d1;
 border:1px solid #0875d1;
 }
+
+.btn-secondary:hover{
+background:#eef8ff;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
 text-align:center;
@@ -212,7 +250,16 @@ color:#71869a;
 padding:30px 15px;
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:600px){
+
+.welcome{
+padding:25px;
+}
 
 .welcome h1{
 font-size:28px;
@@ -227,6 +274,18 @@ padding:20px 12px;
 padding:18px;
 }
 
+.logo{
+font-size:21px;
+}
+
+.logout{
+padding:10px 15px;
+}
+
+.info-value{
+font-size:18px;
+}
+
 }
 
 </style>
@@ -235,6 +294,11 @@ padding:18px;
 
 
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
@@ -246,7 +310,8 @@ KENA <span>DESIGN</span>
 
 <button
 class="logout"
-onclick="logout()">
+onclick="logout()"
+>
 Logout
 </button>
 
@@ -260,26 +325,36 @@ Logout
 <div class="container">
 
 
-<!-- WELCOME -->
+<!-- =========================
+     WELCOME
+========================= -->
 
 <section class="welcome">
 
 <h1>
+
 👋 Baga nagaan dhuftan,
+
 <span id="welcomeName">
 Barataa!
 </span>
+
 </h1>
 
 <p>
+
 KENA DESIGN Learning Platform irratti
 barnoota kee jalqabi.
+
 </p>
 
 </section>
 
 
-<!-- STUDENT INFORMATION -->
+
+<!-- =========================
+     STUDENT INFORMATION
+========================= -->
 
 <section class="student-info">
 
@@ -288,61 +363,92 @@ barnoota kee jalqabi.
 </h2>
 
 
+<!-- STUDENT NAME -->
+
 <div class="info-box">
 
 <div class="info-label">
+
 👤 Maqaa Barataa
+
 </div>
 
 <div
 class="info-value"
-id="studentName">
+id="studentName"
+>
+
 -
-</div>
 
 </div>
 
+</div>
+
+
+
+<!-- FATHER NAME -->
 
 <div class="info-box">
 
 <div class="info-label">
+
 👨‍👦 Maqaa Abbaa
+
 </div>
 
 <div
 class="info-value"
-id="fatherName">
+id="fatherName"
+>
+
 -
-</div>
 
 </div>
 
+</div>
+
+
+
+<!-- COURSE -->
 
 <div class="info-box">
 
 <div class="info-label">
+
 📚 Course
+
 </div>
 
 <div
 class="info-value"
-id="studentCourse">
+id="studentCourse"
+>
+
 -
-</div>
 
 </div>
 
+</div>
+
+
+
+<!-- PHONE -->
 
 <div class="info-box">
 
 <div class="info-label">
+
 📱 Bilbila
+
 </div>
 
 <div
 class="info-value"
-id="studentPhone">
+id="studentPhone"
+>
+
 -
+
 </div>
 
 </div>
@@ -351,18 +457,26 @@ id="studentPhone">
 </section>
 
 
-<!-- LESSONS -->
+
+<!-- =========================
+     LESSONS
+========================= -->
 
 <section class="lessons-section">
 
 <h2>
+
 📚 Barnoota Kee
+
 </h2>
 
 <p class="description">
+
 KENA DESIGN barnoota dijitaalaa waliin
 gara beekumsa guddaatti si geessa.
+
 </p>
+
 
 
 <!-- LESSON 1 -->
@@ -374,24 +488,30 @@ P
 </div>
 
 <h3>
+
 Lesson 1 - PixelLab
+
 </h3>
 
 <p>
+
 PixelLab fayyadamuun text, image,
 background, effect fi poster design
 hojjechuu baradhu.
+
 </p>
 
 <a
 href="lesson.html"
-class="btn btn-primary">
+class="btn btn-primary"
+>
 
 📖 Barnoota Jalqabi →
 
 </a>
 
 </div>
+
 
 
 <!-- LESSON 2 -->
@@ -403,17 +523,22 @@ Aa
 </div>
 
 <h3>
+
 Lesson 2 - Font Haaraa
+
 </h3>
 
 <p>
+
 PixelLab keessatti font haaraa galchuu
 fi itti fayyadamuu baradhu.
+
 </p>
 
 <a
 href="lesson2.html"
-class="btn btn-secondary">
+class="btn btn-secondary"
+>
 
 → Lesson 2 Ilaali
 
@@ -437,28 +562,33 @@ class="btn btn-secondary">
 </footer>
 
 
+
 <script>
 
-/* ================================
-   LOAD STUDENT INFORMATION
-================================ */
+
+/* =====================================
+   LOAD REGISTRATION INFORMATION
+===================================== */
 
 function loadStudent(){
+
+/*
+  Registration irraa odeeffannoo
+  localStorage keessaa dubbisa.
+*/
+
 
 const name =
 localStorage.getItem(
 "studentName"
 );
 
+
 const father =
 localStorage.getItem(
 "fatherName"
 );
 
-const phone =
-localStorage.getItem(
-"studentPhone"
-);
 
 const course =
 localStorage.getItem(
@@ -466,13 +596,27 @@ localStorage.getItem(
 );
 
 
-/* MAQAA */
+const phone =
+localStorage.getItem(
+"studentPhone"
+);
+
+
+/* =========================
+   STUDENT NAME
+========================= */
 
 if(name){
 
 document.getElementById(
 "studentName"
 ).textContent = name;
+
+
+/*
+  Welcome irratti
+  maqaa nama sana QOFA agarsiisa.
+*/
 
 document.getElementById(
 "welcomeName"
@@ -481,7 +625,9 @@ document.getElementById(
 }
 
 
-/* MAQAA ABBAA */
+/* =========================
+   FATHER NAME
+========================= */
 
 if(father){
 
@@ -492,7 +638,9 @@ document.getElementById(
 }
 
 
-/* COURSE */
+/* =========================
+   COURSE
+========================= */
 
 if(course){
 
@@ -503,7 +651,9 @@ document.getElementById(
 }
 
 
-/* PHONE */
+/* =========================
+   PHONE
+========================= */
 
 if(phone){
 
@@ -516,9 +666,9 @@ document.getElementById(
 }
 
 
-/* ================================
+/* =====================================
    LOGOUT
-================================ */
+===================================== */
 
 function logout(){
 
@@ -528,9 +678,9 @@ window.location.href =
 }
 
 
-/* ================================
-   START
-================================ */
+/* =====================================
+   PAGE LOAD
+===================================== */
 
 window.onload =
 function(){

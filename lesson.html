@@ -1,1716 +1,672 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lesson 1 - PixelLab | KENA DESIGN</title>
-
-<meta name="description"
-content="KENA DESIGN Lesson 1 - PixelLab barnoota guutuu Afaan Oromootiin.">
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial, sans-serif;
-  background:#07111f;
-  color:#fff;
-  line-height:1.7;
-}
-
-a{
-  color:inherit;
-}
-
-.container{
-  width:min(1100px,92%);
-  margin:auto;
-}
-
-/* HEADER */
-header{
-  background:#0b1828;
-  border-bottom:1px solid #20344b;
-  position:sticky;
-  top:0;
-  z-index:100;
-}
-
-.nav{
-  width:min(1100px,92%);
-  margin:auto;
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-}
-
-.logo{
-  font-size:21px;
-  font-weight:900;
-  color:#16e0a5;
-}
-
-.logo span{
-  color:#fff;
-}
-
-nav{
-  display:flex;
-  gap:18px;
-}
-
-nav a{
-  text-decoration:none;
-  color:#dce8f0;
-  font-weight:bold;
-}
-
-nav a:hover{
-  color:#16e0a5;
-}
-
-.menu{
-  display:none;
-  border:0;
-  background:#16e0a5;
-  color:#03121d;
-  padding:9px 13px;
-  border-radius:10px;
-  font-size:20px;
-  cursor:pointer;
-}
-
-/* HERO */
-.hero{
-  padding:55px 0 35px;
-  text-align:center;
-}
-
-.tag{
-  display:inline-block;
-  color:#16e0a5;
-  font-size:13px;
-  font-weight:bold;
-  letter-spacing:1px;
-  margin-bottom:10px;
-}
-
-.hero h1{
-  font-size:clamp(30px,6vw,55px);
-  line-height:1.15;
-  margin-bottom:18px;
-}
-
-.hero h1 span{
-  color:#16e0a5;
-}
-
-.hero p{
-  max-width:800px;
-  margin:auto;
-  color:#c8d5df;
-  font-size:17px;
-}
-
-/* BUTTON */
-.btn{
-  display:inline-block;
-  text-decoration:none;
-  border:0;
-  cursor:pointer;
-  padding:13px 20px;
-  border-radius:12px;
-  font-weight:bold;
-  margin:8px 5px;
-}
-
-.primary{
-  background:#16e0a5;
-  color:#03121d;
-}
-
-.primary:hover{
-  background:#28f2b5;
-}
-
-.secondary{
-  background:#13283d;
-  color:#fff;
-  border:1px solid #2a4964;
-}
-
-/* SECTIONS */
-section{
-  padding:40px 0;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  font-size:clamp(25px,5vw,38px);
-  margin-bottom:8px;
-}
-
-.section-title p{
-  color:#aebdca;
-}
-
-/* VIDEO */
-.video-box{
-  background:#0d1d2e;
-  border:1px solid #1f3a52;
-  border-radius:20px;
-  padding:15px;
-  max-width:900px;
-  margin:auto;
-  box-shadow:0 15px 50px rgba(0,0,0,.25);
-}
-
-.video-box iframe{
-  width:100%;
-  height:500px;
-  border:0;
-  border-radius:14px;
-}
-
-/* INSTALL */
-.install-card{
-  max-width:900px;
-  margin:25px auto;
-  padding:22px;
-  background:#0d1d2e;
-  border:2px solid #16e0a5;
-  border-radius:18px;
-  display:flex;
-  align-items:center;
-  gap:18px;
-}
-
-.install-icon{
-  width:72px;
-  height:72px;
-  min-width:72px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#18dfff,#087ce8);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:42px;
-  font-weight:bold;
-  box-shadow:0 0 20px rgba(22,224,165,.25);
-}
-
-.install-content h2{
-  color:#16e0a5;
-  margin-bottom:5px;
-}
-
-.install-content p{
-  color:#cbd8e2;
-  margin-bottom:12px;
-}
-
-.install-btn{
-  display:inline-block;
-  background:#16e0a5;
-  color:#03121d;
-  text-decoration:none;
-  padding:12px 20px;
-  border-radius:12px;
-  font-weight:bold;
-}
-
-.install-btn:hover{
-  background:#28f2b5;
-}
-
-/* NOTE */
-.note{
-  max-width:900px;
-  margin:25px auto;
-  background:#101f31;
-  border-left:5px solid #16e0a5;
-  padding:22px;
-  border-radius:14px;
-  color:#d8e4ec;
-}
-
-.note strong{
-  color:#16e0a5;
-}
-
-/* TOOLS */
-.tool-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
-}
-
-.tool-card{
-  background:#0d1d2e;
-  border:1px solid #203b54;
-  border-radius:18px;
-  overflow:hidden;
-  transition:.25s;
-}
-
-.tool-card:hover{
-  transform:translateY(-4px);
-  border-color:#16e0a5;
-}
-
-.tool-image{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  display:block;
-  cursor:pointer;
-  background:#14283d;
-}
-
-.tool-content{
-  padding:20px;
-}
-
-.tool-number{
-  display:inline-flex;
-  width:34px;
-  height:34px;
-  align-items:center;
-  justify-content:center;
-  background:#16e0a5;
-  color:#03121d;
-  border-radius:50%;
-  font-weight:900;
-  margin-bottom:10px;
-}
-
-.tool-content h3{
-  color:#fff;
-  margin-bottom:8px;
-  font-size:21px;
-}
-
-.tool-content p{
-  color:#bdccd7;
-  margin-bottom:9px;
-}
-
-.location{
-  background:#07111f;
-  border:1px solid #263f56;
-  border-radius:10px;
-  padding:10px;
-  margin-top:10px;
-  color:#e5f0f6;
-}
-
-.location b{
-  color:#16e0a5;
-}
-
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.gallery img{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  border-radius:15px;
-  border:1px solid #24445d;
-  cursor:pointer;
-  transition:.25s;
-}
-
-.gallery img:hover{
-  transform:scale(1.02);
-  border-color:#16e0a5;
-}
-
-/* ASSIGNMENT */
-.assignment{
-  background:linear-gradient(145deg,#0d1d2e,#101f31);
-  border:2px solid #16e0a5;
-  border-radius:22px;
-  padding:28px;
-  max-width:900px;
-  margin:auto;
-}
-
-.assignment h2{
-  color:#16e0a5;
-  margin-bottom:10px;
-}
-
-.steps{
-  margin:18px 0;
-  padding-left:22px;
-}
-
-.steps li{
-  margin:8px 0;
-  color:#d2dfe8;
-}
-
-.poster-wrap{
-  max-width:500px;
-  margin:25px auto;
-  cursor:pointer;
-}
-
-.poster{
-  aspect-ratio:4/5;
-  border-radius:18px;
-  padding:35px 25px;
-  background:
-    radial-gradient(circle at top right,#16e0a5 0,transparent 30%),
-    linear-gradient(145deg,#07111f,#142c43);
-  border:2px solid #16e0a5;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  text-align:center;
-  box-shadow:0 20px 50px rgba(0,0,0,.35);
-}
-
-.poster small{
-  color:#16e0a5;
-  letter-spacing:3px;
-  font-weight:bold;
-}
-
-.poster h3{
-  font-size:42px;
-  line-height:1.05;
-  margin:15px 0;
-}
-
-.poster p{
-  color:#d5e4ed;
-}
-
-.poster .line{
-  height:2px;
-  background:#16e0a5;
-  width:70%;
-  margin:18px auto;
-}
-
-/* COMPLETION */
-.complete-box{
-  text-align:center;
-  margin-top:25px;
-}
-
-.complete-message{
-  display:none;
-  margin-top:18px;
-  background:#123a31;
-  border:1px solid #16e0a5;
-  padding:15px;
-  border-radius:12px;
-  color:#aaffdf;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.88);
-  z-index:999;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal img{
-  max-width:95%;
-  max-height:88vh;
-  object-fit:contain;
-  border-radius:12px;
-  box-shadow:0 0 40px rgba(0,0,0,.6);
-}
-
-.close{
-  position:absolute;
-  right:20px;
-  top:15px;
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  border:0;
-  background:#16e0a5;
-  color:#03121d;
-  font-size:28px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid #20344b;
-  padding:35px 0;
-  text-align:center;
-  margin-top:30px;
-  background:#081522;
-}
-
-footer h3{
-  color:#16e0a5;
-}
-
-footer p{
-  color:#91a4b3;
-  margin-top:5px;
-}
-
-/* MOBILE */
-@media(max-width:750px){
-
-  .menu{
-    display:block;
-  }
-
-  nav{
-    display:none;
-    position:absolute;
-    top:70px;
-    left:0;
-    right:0;
-    background:#0b1828;
-    flex-direction:column;
-    padding:15px 5%;
-    border-bottom:1px solid #20344b;
-  }
-
-  nav.show{
-    display:flex;
-  }
-
-  .tool-grid{
-    grid-template-columns:1fr;
-  }
-
-  .gallery{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .video-box iframe{
-    height:230px;
-  }
-
-  .install-card{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .install-btn{
-    width:100%;
-  }
-
-  .poster h3{
-    font-size:32px;
-  }
-}
-
-@media(max-width:450px){
-
-  .gallery{
-    grid-template-columns:1fr;
-  }
-
-  .gallery img{
-    height:240px;
-  }
-
-  .hero{
-    padding-top:35px;
-  }
-
-  .tool-image{
-    height:200px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Lesson 1 - PixelLab | KENA DESIGN</title>
+
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body{
+      font-family:Arial,sans-serif;
+      background:#07111d;
+      color:#fff;
+      line-height:1.7;
+    }
+
+    header{
+      background:#0b1724;
+      padding:18px 20px;
+      border-bottom:1px solid #16e0a5;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .nav{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo{
+      color:#16e0a5;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    .menu a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:15px;
+      font-size:14px;
+    }
+
+    .menu a:hover{
+      color:#16e0a5;
+    }
+
+    .hero{
+      text-align:center;
+      padding:55px 20px;
+      background:linear-gradient(135deg,#0b1c2d,#07111d);
+    }
+
+    .tag{
+      color:#16e0a5;
+      font-weight:bold;
+      font-size:14px;
+    }
+
+    h1{
+      font-size:38px;
+      margin:10px 0;
+    }
+
+    .hero p{
+      color:#c8d5df;
+      max-width:700px;
+      margin:10px auto;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:25px 18px;
+    }
+
+    section{
+      margin-bottom:30px;
+    }
+
+    .card{
+      background:#0d1d2e;
+      border:1px solid #17334b;
+      border-radius:18px;
+      padding:25px;
+      margin-bottom:22px;
+    }
+
+    h2{
+      color:#16e0a5;
+      margin-bottom:15px;
+    }
+
+    h3{
+      color:#fff;
+      margin-bottom:8px;
+    }
+
+    p{
+      color:#c8d5df;
+    }
+
+    ul,ol{
+      padding-left:25px;
+      color:#c8d5df;
+    }
+
+    li{
+      margin:8px 0;
+    }
+
+    .video{
+      position:relative;
+      width:100%;
+      padding-bottom:56.25%;
+      height:0;
+      overflow:hidden;
+      border-radius:15px;
+      margin-top:15px;
+    }
+
+    .video iframe{
+      position:absolute;
+      width:100%;
+      height:100%;
+      left:0;
+      top:0;
+      border:0;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 20px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:bold;
+      margin:8px 5px 0 0;
+      cursor:pointer;
+      border:none;
+    }
+
+    .primary{
+      background:#16e0a5;
+      color:#06111b;
+    }
+
+    .secondary{
+      background:#18334a;
+      color:#fff;
+    }
+
+    .btn:hover{
+      opacity:.85;
+    }
+
+    .tool{
+      background:#091827;
+      border-left:4px solid #16e0a5;
+      padding:15px;
+      margin:12px 0;
+      border-radius:10px;
+    }
+
+    .tool strong{
+      color:#16e0a5;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+      margin-top:15px;
+    }
+
+    .gallery img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:14px;
+      border:1px solid #1d405b;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.02);
+    }
+
+    .assignment{
+      border:2px solid #16e0a5;
+      background:#0b1c2b;
+    }
+
+    .assignment ul{
+      margin-top:10px;
+    }
+
+    .lesson-next{
+      max-width:900px;
+      margin:30px auto;
+      padding:30px;
+      text-align:center;
+      background:#0d1d2e;
+      border:2px solid #16e0a5;
+      border-radius:22px;
+    }
+
+    .lesson-next h2{
+      margin:10px 0;
+      color:#fff;
+    }
+
+    .lesson-next p{
+      color:#c8d5df;
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 15px;
+      color:#8da1b2;
+      border-top:1px solid #17334b;
+      margin-top:30px;
+    }
+
+    /* IMAGE MODAL */
+    .modal{
+      display:none;
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.9);
+      z-index:999;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
+    }
+
+    .modal img{
+      max-width:95%;
+      max-height:90vh;
+      border-radius:12px;
+    }
+
+    .close{
+      position:absolute;
+      top:15px;
+      right:25px;
+      color:#fff;
+      font-size:38px;
+      cursor:pointer;
+    }
+
+    @media(max-width:600px){
+      h1{
+        font-size:29px;
+      }
+
+      h2{
+        font-size:23px;
+      }
+
+      .card{
+        padding:18px;
+      }
+
+      .menu a{
+        margin-left:7px;
+        font-size:12px;
+      }
+
+      .gallery{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
   <div class="nav">
+    <div class="logo">KENA DESIGN</div>
 
-    <div class="logo">
-      <span>K</span> KENA DESIGN
+    <div class="menu">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="lesson.html">Lesson 1</a>
+      <a href="lesson2.html">Lesson 2</a>
     </div>
-
-    <button class="menu" onclick="toggleMenu()">☰</button>
-
-    <nav id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#video">Video</a>
-      <a href="#tools">Tools</a>
-      <a href="#gallery">Suuraa</a>
-      <a href="#assignment">Assignment</a>
-    </nav>
-
   </div>
 </header>
 
-
-<main id="home">
-
 <!-- HERO -->
-<section class="hero">
+<div class="hero">
   <div class="container">
+    <p class="tag">KENA DESIGN • COURSE 8</p>
 
-    <p class="tag">KENA DESIGN • LESSON 1</p>
+    <h1>🎨 Lesson 1</h1>
 
-    <h1>
-      PixelLab
-      <br>
-      <span>Text on Pictures</span>
-    </h1>
+    <h2>PixelLab</h2>
 
     <p>
-      Lesson kana keessatti PixelLab Android app fayyadamuun
-      text, font, color, 3D text, stickers, image, background,
-      drawing, layers, background removal, perspective,
-      image effects fi export akkamitti akka fayyadamtu baratta.
+      PixelLab fayyadamuun suuraa irratti barruu,
+      design fi poster hojjechuu baradhu.
     </p>
 
+    <a class="btn primary" href="#lesson">
+      📚 Barnoota Jalqabi
+    </a>
   </div>
-</section>
+</div>
 
+<main id="lesson">
 
-<!-- VIDEO -->
-<section id="video">
   <div class="container">
 
-    <div class="section-title">
-      <p class="tag">VIDEO BARNOOTAA</p>
-      <h2>PixelLab Lesson 1</h2>
-      <p>Video kana ilaali, sana booda tool tokko tokko shaakali.</p>
-    </div>
+    <!-- INTRO -->
+    <section class="card">
+      <h2>📖 Lesson 1: PixelLab</h2>
 
-    <div class="video-box">
+      <p>
+        Lesson kana keessatti PixelLab maal akka ta'e,
+        akkamitti itti fayyadamnu fi design salphaa
+        akkamitti hojjenne baranna.
+      </p>
 
-      <iframe
-        src="https://www.youtube.com/embed/OuPJGRQSt3k"
-        title="KENA DESIGN PixelLab Lesson 1"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-      </iframe>
+      <p style="margin-top:12px;">
+        PixelLab app design hojjechuuf baay'ee fayyaduudha.
+        Keessattuu barruu suuraa irratti barreessuu,
+        poster, logo fi social media design hojjechuuf ni fayyada.
+      </p>
+    </section>
 
-    </div>
+    <!-- VIDEO -->
+    <section class="card">
+      <h2>🎥 Video Lesson</h2>
 
-  </div>
-</section>
+      <p>
+        Video kana ilaali. Sana booda tartiiba barnootaa
+        armaan gadii hordofi.
+      </p>
 
+      <div class="video">
+        <iframe
+          src="https://www.youtube.com/embed/OuPJGRQSt3k"
+          title="KENA DESIGN PixelLab Lesson 1"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
 
-<!-- INSTALL -->
-<section>
-  <div class="container">
+    <!-- INSTALL -->
+    <section class="card">
+      <h2>📱 PixelLab Buufadhu</h2>
 
-    <div class="install-card">
+      <p>
+        Yoo PixelLab bilbila kee keessa hin jirre,
+        button armaan gadii fayyadamuun Google Play irraa
+        buufachuu dandeessa.
+      </p>
 
-      <div class="install-icon">
-        P
+      <a
+        class="btn primary"
+        href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
+        target="_blank">
+        📲 PixelLab Buufadhu
+      </a>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="card">
+      <h2>🛠️ PixelLab Tools</h2>
+
+      <div class="tool">
+        <strong>1. Text</strong>
+        <p>
+          Barruu haaraa design kee irratti galchuuf fayyadami.
+        </p>
       </div>
 
-      <div class="install-content">
+      <div class="tool">
+        <strong>2. 3D Text</strong>
+        <p>
+          Barruu kee bifa 3D fakkaatuun hojjechuuf fayyada.
+        </p>
+      </div>
 
-        <h2>📱 PixelLab App Install Godhi</h2>
+      <div class="tool">
+        <strong>3. Text Effects</strong>
+        <p>
+          Shadow, stroke fi effects garaagaraa barruu irratti dabali.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>4. Font</strong>
+        <p>
+          Akkaataa qubee barruu kee jijjiiri.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>5. Color</strong>
+        <p>
+          Halluu barruu kee filadhu.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>6. Stickers</strong>
+        <p>
+          Sticker garaagaraa design kee irratti dabali.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>7. Image Import</strong>
+        <p>
+          Suuraa bilbila kee keessa jiru gara PixelLab galchi.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>8. Draw</strong>
+        <p>
+          Harka keetiin wanta barbaadde design irratti kaasi.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>9. Background</strong>
+        <p>
+          Background design kee jijjiiri ykn halluu itti dabali.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>10. Save Project</strong>
+        <p>
+          Project kee gara fuulduraatti itti fufuuf save godhi.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>11. Background Removal</strong>
+        <p>
+          Background suuraa irraa haquuf fayyadami.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>12. Perspective / Warp</strong>
+        <p>
+          Suuraa ykn barruu bifa isaa jijjiiruuf fayyada.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>13. Image Effects</strong>
+        <p>
+          Effects garaagaraa suuraa kee irratti dabali.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>14. Layers</strong>
+        <p>
+          Wanti design keessa jiru tokko tokkoon to'achuuf fayyada.
+        </p>
+      </div>
+
+      <div class="tool">
+        <strong>15. Export / Save Image</strong>
+        <p>
+          Design xumurame gara suuraatti baasuuf fayyadami.
+        </p>
+      </div>
+    </section>
+
+    <!-- HOW TO -->
+    <section class="card">
+      <h2>📝 Tartiiba Design Hojjechuu</h2>
+
+      <ol>
+        <li>PixelLab bani.</li>
+        <li>New Project jalqabi.</li>
+        <li>Background filadhu.</li>
+        <li>Text dabali.</li>
+        <li>Font filadhu.</li>
+        <li>Halluu barruu jijjiiri.</li>
+        <li>Shadow ykn Stroke dabali.</li>
+        <li>Suuraa galchi.</li>
+        <li>Suuraa fi barruu sirreessi.</li>
+        <li>Design kee save/export godhi.</li>
+      </ol>
+    </section>
+
+    <!-- EXAMPLE -->
+    <section class="card">
+      <h2>🖼️ Fakkeenya Design</h2>
+
+      <p>
+        Fakkeenya design ilaaluuf suuraa armaan gadii tuqi.
+        Suuraan guddatee siif banama.
+      </p>
+
+      <div class="gallery">
+
+        <img
+          src="https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=900&q=80"
+          alt="Design example"
+          onclick="openModal(this.src)">
+
+        <img
+          src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80"
+          alt="Graphic design example"
+          onclick="openModal(this.src)">
+
+        <img
+          src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=900&q=80"
+          alt="Creative design example"
+          onclick="openModal(this.src)">
+
+      </div>
+    </section>
+
+    <!-- ASSIGNMENT -->
+    <section class="card assignment">
+      <h2>🎯 Assignment</h2>
+
+      <p>
+        Amma hojii kee hojjedhu.
+      </p>
+
+      <ul>
+        <li>PixelLab bani.</li>
+        <li>Background tokko filadhu.</li>
+        <li>“KENA DESIGN” jedhu barreessi.</li>
+        <li>Font bareedaa filadhu.</li>
+        <li>Halluu barruu jijjiiri.</li>
+        <li>Shadow ykn Stroke itti dabali.</li>
+        <li>Suuraa tokko itti dabali.</li>
+        <li>Design kee xumuri.</li>
+        <li>Suuraa sana save godhi.</li>
+      </ul>
+
+      <button
+        class="btn primary"
+        onclick="completeAssignment()">
+        ✅ Assignment Xumureera
+      </button>
+
+      <p
+        id="completedMessage"
+        style="display:none;color:#16e0a5;margin-top:15px;font-weight:bold;">
+        🎉 Gaarii! Assignment Lesson 1 xumurameera.
+      </p>
+    </section>
+
+    <!-- SUMMARY -->
+    <section class="card">
+      <h2>📌 Summary</h2>
+
+      <p>
+        Lesson 1 keessatti PixelLab bu'uura irraa baratte.
+        Amma Text, Font, Color, Image, Background, Effects,
+        Layers fi Export fayyadamuun design salphaa hojjechuu
+        dandeessa.
+      </p>
+    </section>
+
+    <!-- NEXT LESSON -->
+    <section>
+      <div class="lesson-next">
+
+        <p class="tag">KENA DESIGN • COURSE 8</p>
+
+        <h2>🎨 Lesson 1 Xumurteetta?</h2>
 
         <p>
-          Lesson kana hordofuuf dura PixelLab Android
-          kee irratti install godhi.
-          Button armaan gadii cuqaasiitii Google Play irraa
-          PixelLab buufadhu.
+          Yoo Lesson 1 xumurte, gara Lesson 2tti itti fufi.
         </p>
 
         <a
-          class="install-btn"
-          href="https://play.google.com/store/apps/details?id=com.imaginstudio.imagetools.pixellab"
-          target="_blank"
-          rel="noopener noreferrer">
-          📲 PixelLab Install Godhi
+          class="btn primary"
+          href="lesson2.html">
+          ➡️ Lesson 2tti Itti Fufi
+        </a>
+
+        <br>
+
+        <a
+          class="btn secondary"
+          href="dashboard.html">
+          🏠 Dashboard
         </a>
 
       </div>
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- NOTE -->
-<section>
-  <div class="container">
-
-    <div class="note">
-
-      <strong>📌 Hubachiisa:</strong>
-
-      <br><br>
-
-      PixelLab app keessatti meeshaaleen gara garaa jiru.
-      Tool tokkoon tokkoon isaanii hojii adda addaa qabu.
-
-      <br><br>
-
-      Lesson kana keessatti:
-      <br>
-      <b>1.</b> Toolichi maal akka ta'e
-      <br>
-      <b>2.</b> Maaliif akka fayyadu
-      <br>
-      <b>3.</b> Akkamitti akka itti fayyadamtu
-      <br>
-      <b>4.</b> Eessa akka argamu
-      <br>
-      <b>5.</b> Fakkeenya isaa
-      <br>
-      ifatti ilaalla.
-
-      <br><br>
-
-      <strong>👆 Suuraa kamiyyuu cuqaasi.</strong>
-      Suuraan guddatee screen guutuu irratti siif mul'ata.
-
-    </div>
+    </section>
 
   </div>
-</section>
-
-
-<!-- TOOLS -->
-<section id="tools">
-  <div class="container">
-
-    <div class="section-title">
-
-      <p class="tag">PIXELLAB TOOLS</p>
-
-      <h2>🛠️ Tool Tokkoon Tokkoon Baradhu</h2>
-
-      <p>
-        Suuraa tool tokkoon tokkoo cuqaasuun guddisuu dandeessa.
-      </p>
-
-    </div>
-
-
-    <div class="tool-grid">
-
-
-      <!-- 1 TEXT -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
-          alt="PixelLab Text Tool">
-
-        <div class="tool-content">
-
-          <span class="tool-number">1</span>
-
-          <h3>📝 Text</h3>
-
-          <p>
-            <b>Text</b> jechuun barruu ykn jecha design kee
-            irratti barreessuuf fayyadu.
-          </p>
-
-          <p>
-            Fakkeenyaaf:
-            KENA DESIGN, maqaa namaa, title,
-            quote ykn beeksisa barreessuu dandeessa.
-          </p>
-
-          <p>
-            Text erga dabaltanii booda size, position,
-            rotation fi style isaa jijjiiruu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            PixelLab → Add (+) → Text
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 2 3D TEXT -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
-          alt="PixelLab 3D Text">
-
-        <div class="tool-content">
-
-          <span class="tool-number">2</span>
-
-          <h3>🧊 3D Text</h3>
-
-          <p>
-            3D Text jechuun barruu kee akka dheerina
-            fi depth qabu fakkeessuuf fayyada.
-          </p>
-
-          <p>
-            Logo, title fi poster irratti text
-            nama hawwatu hojjechuuf gaarii dha.
-          </p>
-
-          <p>
-            Text filadhu → Text effects keessaa
-            3D ykn perspective fakkaatu fayyadami.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Text filadhu → Text Effects → 3D
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 3 TEXT EFFECTS -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
-          alt="PixelLab Text Effects">
-
-        <div class="tool-content">
-
-          <span class="tool-number">3</span>
-
-          <h3>✨ Text Effects</h3>
-
-          <p>
-            Text Effects keessatti Shadow, Inner Shadow,
-            Stroke, Background, Reflection, Emboss,
-            Mask fi effects biroo argatta.
-          </p>
-
-          <p>
-            Text plain ta'e gara text professionalitti
-            jijjiiruuf fayyada.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Text filadhu → Effects
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 4 FONT -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
-          alt="PixelLab Fonts">
-
-        <div class="tool-content">
-
-          <span class="tool-number">4</span>
-
-          <h3>🔤 Font</h3>
-
-          <p>
-            Font jechuun bifa qubee barruu keetii.
-          </p>
-
-          <p>
-            Font adda addaa keessaa filachuun
-            poster kee professional ykn modern gochuu dandeessa.
-          </p>
-
-          <p>
-            PixelLab keessatti fonts hedduu qaba.
-            Font ofii kees import gochuu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Text → Font
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 5 COLOR -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
-          alt="PixelLab Colors">
-
-        <div class="tool-content">
-
-          <span class="tool-number">5</span>
-
-          <h3>🎨 Color</h3>
-
-          <p>
-            Color text ykn object kee halluu ittiin
-            kennituudha.
-          </p>
-
-          <p>
-            Simple color qofa osoo hin taane
-            gradient, radial gradient fi image texture
-            illee fayyadamuu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Text → Color
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 6 STICKERS -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://techylist.com/wp-content/uploads/2023/04/PixelLab1.jpeg"
-          alt="PixelLab Stickers">
-
-        <div class="tool-content">
-
-          <span class="tool-number">6</span>
-
-          <h3>😀 Stickers</h3>
-
-          <p>
-            Stickers jechuun emoji, mallattoo fi
-            graphics xixiqqoo design irratti dabaluudha.
-          </p>
-
-          <p>
-            Poster, YouTube thumbnail fi social media
-            design keessatti nama hawwata.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Add (+) → Stickers
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 7 IMAGE -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg"
-          alt="PixelLab Import Image">
-
-        <div class="tool-content">
-
-          <span class="tool-number">7</span>
-
-          <h3>🖼️ Image Import</h3>
-
-          <p>
-            Image import jechuun gallery kee keessaa
-            suuraa gara PixelLab keessa galchuu dha.
-          </p>
-
-          <p>
-            Suuraa namaa, logo, product ykn background
-            gara project keessa galchuu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Add (+) → From Gallery / Image
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 8 DRAW -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg"
-          alt="PixelLab Drawing">
-
-        <div class="tool-content">
-
-          <span class="tool-number">8</span>
-
-          <h3>✏️ Draw</h3>
-
-          <p>
-            Draw tool'n harkaan drawing ykn mallattoo
-            mataa keetii hojjechuuf fayyada.
-          </p>
-
-          <p>
-            Line, shape ykn freehand drawing hojjechuu
-            dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Add (+) → Draw
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 9 BACKGROUND -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg"
-          alt="PixelLab Background">
-
-        <div class="tool-content">
-
-          <span class="tool-number">9</span>
-
-          <h3>🌈 Background</h3>
-
-          <p>
-            Background jechuun duubbee project kee.
-          </p>
-
-          <p>
-            Halluu tokko, gradient ykn image akka
-            background godhachuu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Background → Color / Gradient / Image
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 10 SAVE PROJECT -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPsMzXlGEHIWSys7-maLNYs3La9Gc8OXgCLcBGAsYHQ/s568/crop%2Bgambar.png"
-          alt="PixelLab Save Project">
-
-        <div class="tool-content">
-
-          <span class="tool-number">10</span>
-
-          <h3>💾 Save Project</h3>
-
-          <p>
-            Project save gochuun hojii kee gara boodaatti
-            deebitee itti fufuuf si gargaara.
-          </p>
-
-          <p>
-            Project format keessatti yoo save goote,
-            text fi layers gara fuulduraatti edit gochuu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Menu → Save as Project
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 11 BACKGROUND REMOVAL -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg"
-          alt="PixelLab Background Removal">
-
-        <div class="tool-content">
-
-          <span class="tool-number">11</span>
-
-          <h3>✂️ Background Removal</h3>
-
-          <p>
-            Background removal'n background suuraa keessaa
-            baasuun object ykn nama qofa hambisa.
-          </p>
-
-          <p>
-            Logo, product photo fi poster irratti
-            baay'ee fayyada.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Image/Object → Remove Background
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 12 PERSPECTIVE -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg"
-          alt="PixelLab Perspective">
-
-        <div class="tool-content">
-
-          <span class="tool-number">12</span>
-
-          <h3>📐 Perspective / Warp</h3>
-
-          <p>
-            Perspective editing'n suuraa ykn text
-            gara bifa angle adda addaatti jijjiira.
-          </p>
-
-          <p>
-            3D fakkaatu, billboard fakkaatu ykn
-            design realistic gochuuf fayyada.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Object → Perspective / related transform tools
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 13 IMAGE EFFECTS -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://assets.jabarekspres.com/sumedang/2023/03/pixellab.png"
-          alt="PixelLab Image Effects">
-
-        <div class="tool-content">
-
-          <span class="tool-number">13</span>
-
-          <h3>🌟 Image Effects</h3>
-
-          <p>
-            Image Effects suuraa kee miidhagsuuf
-            fi mood adda addaa uumuuf fayyada.
-          </p>
-
-          <p>
-            Vignette, stripes, hue, saturation fi
-            effects biroo fayyadamuun suuraa fooyyessuu dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Image → Effects
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 14 LAYERS -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://make.supercell.com/images/creation/79419302-3ac7-45cd-b873-b3186ff3c2c9/gallery/3_9b8b9d49-dd31-40b0-82a4-501a6897cb6e_resized.jpg"
-          alt="PixelLab Layers">
-
-        <div class="tool-content">
-
-          <span class="tool-number">14</span>
-
-          <h3>📚 Layers</h3>
-
-          <p>
-            Layers jechuun object tokko tokko addaan
-            addaan to'achuuf fayyadu.
-          </p>
-
-          <p>
-            Text, image, sticker fi shape gara
-            fuulduraa ykn duubaatti dabarsuu dandeessa.
-          </p>
-
-          <p>
-            Layer tokko hide, lock ykn edit gochuu
-            dandeessa.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Top toolbar → Layers icon
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- 15 EXPORT -->
-      <div class="tool-card">
-
-        <img
-          class="tool-image"
-          onclick="openImage(this.src)"
-          src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPsMzXlGEHIWSys7-maLNYs3La9Gc8OXgCLcBGAsYHQ/s568/crop%2Bgambar.png"
-          alt="PixelLab Export">
-
-        <div class="tool-content">
-
-          <span class="tool-number">15</span>
-
-          <h3>📤 Export / Save Image</h3>
-
-          <p>
-            Export'n hojii xumurte gara image akka
-            PNG ykn JPGtti baasuuf fayyada.
-          </p>
-
-          <p>
-            Social media, WhatsApp, YouTube thumbnail,
-            poster ykn printing irratti fayyadamuuf
-            image godha.
-          </p>
-
-          <div class="location">
-            <b>📍 Bakka:</b>
-            Menu → Export / Save as Image
-          </div>
-
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-</section>
-
-
-<!-- GALLERY -->
-<section id="gallery">
-  <div class="container">
-
-    <div class="section-title">
-
-      <p class="tag">FAKKEENYA</p>
-
-      <h2>🖼️ PixelLab Screenshots</h2>
-
-      <p>
-        Suuraa tokko cuqaasiitii guddisi.
-      </p>
-
-    </div>
-
-
-    <div class="gallery">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://images.sftcdn.net/images/t_app-cover-l%2Cf_auto/p/88860adb-24d9-40c0-9f6c-ca3732a7e179/2844837063/pixellab-text-on-image-screenshot.png"
-        alt="PixelLab Screenshot 1">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg"
-        alt="PixelLab Screenshot 2">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://1.bp.blogspot.com/-a55o2e36xgU/Xy0emsDDXPI/AAAAAAAAGMQ/ru-5WmEX1cYk4v9I56pkdOlk9djg-vhOQCLcBGAsYHQ/d-rw/PixelLab.webp"
-        alt="PixelLab Screenshot 3">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://techylist.com/wp-content/uploads/2023/04/PixelLab1.jpeg"
-        alt="PixelLab Screenshot 4">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://assets.jabarekspres.com/sumedang/2023/03/pixellab.png"
-        alt="PixelLab Screenshot 5">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180221-182909_orig.jpg"
-        alt="PixelLab Screenshot 6">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://1.bp.blogspot.com/-kKKEWEvWDwg/YJecRh13S9I/AAAAAAAAB70/UPsMzXlGEHIWSys7-maLNYs3La9Gc8OXgCLcBGAsYHQ/s568/crop%2Bgambar.png"
-        alt="PixelLab Screenshot 7">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://images.hive.blog/0x0/https%3A/files.peakd.com/file/peakd-hive/vickoly/23tSeuntmudXwRLD1S5nDmTwRPvXkiys97FvzgQDatY6hNHn6XvMgGM4Ugft172CvuSU3.jpg"
-        alt="PixelLab Screenshot 8">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://make.supercell.com/images/creation/79419302-3ac7-45cd-b873-b3186ff3c2c9/gallery/3_9b8b9d49-dd31-40b0-82a4-501a6897cb6e_resized.jpg"
-        alt="PixelLab Screenshot 9">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://pbs.twimg.com/media/G40FhlLXkAAaY7p.jpg"
-        alt="PixelLab Screenshot 10">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://lifebydesignblog.weebly.com/uploads/3/0/8/6/30862503/20180220-192634_orig.jpg"
-        alt="PixelLab Screenshot 11">
-
-      <img
-        onclick="openImage(this.src)"
-        src="https://1.bp.blogspot.com/-1ThbxyVvjiE/YHgK4vw-FkI/AAAAAAAABt8/qdQezvQzM28_hsHtpIP2EGqbQmYX1wUtgCLcBGAsYHQ/s2557/20210415_152513.jpg"
-        alt="PixelLab Screenshot 12">
-
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ASSIGNMENT -->
-<section id="assignment">
-  <div class="container">
-
-    <div class="section-title">
-
-      <p class="tag">SHAKALA</p>
-
-      <h2>🎯 KENA DESIGN Assignment</h2>
-
-      <p>
-        Amma waan baratte hojii irra oolchi.
-      </p>
-
-    </div>
-
-
-    <div class="assignment">
-
-      <h2>🎨 Assignment: KENA DESIGN Poster</h2>
-
-      <p>
-        PixelLab fayyadamuun poster KENA DESIGN fakkaatu
-        tokko hojjedhu.
-      </p>
-
-
-      <ol class="steps">
-
-        <li>
-          PixelLab bani.
-        </li>
-
-        <li>
-          Background bareedaa filadhu.
-        </li>
-
-        <li>
-          Text "KENA DESIGN" jedhu dabali.
-        </li>
-
-        <li>
-          Font bareedaa filadhu.
-        </li>
-
-        <li>
-          Text color jijjiiri.
-        </li>
-
-        <li>
-          Shadow ykn Stroke itti dabali.
-        </li>
-
-        <li>
-          Logo ykn sticker tokko itti dabali.
-        </li>
-
-        <li>
-          Poster kee PNG ykn JPGtti export godhi.
-        </li>
-
-      </ol>
-
-
-      <div class="poster-wrap" onclick="openPoster()">
-
-        <div class="poster">
-
-          <small>KENA DESIGN</small>
-
-          <h3>
-            DESIGN<br>
-            YOUR<br>
-            FUTURE
-          </h3>
-
-          <div class="line"></div>
-
-          <p>
-            Learn • Create • Grow
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div class="complete-box">
-
-        <button
-          class="btn primary"
-          onclick="startAssignment()">
-          🚀 Assignment Jalqabi
-        </button>
-
-        <button
-          class="btn secondary"
-          onclick="completeAssignment()">
-          ✅ Assignment Xumure
-        </button>
-
-        <div
-          id="completeMessage"
-          class="complete-message">
-          🎉 Galatoomi! Assignment Lesson 1 xumurteetta.
-          Milkaa'ina!
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
 
 </main>
 
+<footer>
+  <p>© 2026 KENA DESIGN • Learning Platform</p>
+</footer>
 
 <!-- IMAGE MODAL -->
 <div
-  id="imageModal"
   class="modal"
-  onclick="closeImage(event)">
+  id="imageModal"
+  onclick="closeModal()">
 
-  <button
-    class="close"
-    onclick="closeModalButton()">
-    ×
-  </button>
+  <span class="close">&times;</span>
 
   <img
     id="modalImage"
     src=""
-    alt="PixelLab enlarged screenshot">
+    alt="Zoomed image"
+    onclick="event.stopPropagation()">
 
 </div>
-
-
-<!-- POSTER MODAL -->
-<div
-  id="posterModal"
-  class="modal"
-  onclick="closePoster(event)">
-
-  <button
-    class="close"
-    onclick="closePosterButton()">
-    ×
-  </button>
-
-  <div class="poster"
-       style="width:min(500px,90vw);height:auto;aspect-ratio:4/5;">
-
-    <small>KENA DESIGN</small>
-
-    <h3>
-      DESIGN<br>
-      YOUR<br>
-      FUTURE
-    </h3>
-
-    <div class="line"></div>
-
-    <p>
-      Learn • Create • Grow
-    </p>
-
-  </div>
-
-</div>
-
-
-<footer>
-
-  <div class="container">
-
-    <h3>KENA DESIGN</h3>
-
-    <p>
-      PixelLab Lesson 1
-    </p>
-
-    <p>
-      Learn • Create • Grow
-    </p>
-
-    <p>
-      © 2026 KENA DESIGN. Mirgi hundi seeraan eegama.
-    </p>
-
-  </div>
-
-</footer>
-
 
 <script>
 
-/* MENU */
-function toggleMenu(){
-
-  const nav = document.getElementById("navLinks");
-
-  nav.classList.toggle("show");
-
-}
-
-
-/* CLOSE MENU AFTER CLICK */
-document.querySelectorAll("#navLinks a").forEach(link => {
-
-  link.addEventListener("click", () => {
-
-    document
-      .getElementById("navLinks")
-      .classList.remove("show");
-
-  });
-
-});
-
-
-/* IMAGE MODAL */
-function openImage(src){
-
-  const modal = document.getElementById("imageModal");
-  const image = document.getElementById("modalImage");
-
-  image.src = src;
-
-  modal.classList.add("show");
-
-  document.body.style.overflow = "hidden";
-}
-
-
-function closeImage(event){
-
-  if(event.target.id === "imageModal"){
-
-    closeModalButton();
-
+  function openModal(src){
+    document.getElementById("modalImage").src = src;
+    document.getElementById("imageModal").style.display = "flex";
   }
 
-}
-
-
-function closeModalButton(){
-
-  document
-    .getElementById("imageModal")
-    .classList.remove("show");
-
-  document.body.style.overflow = "";
-
-}
-
-
-/* POSTER MODAL */
-function openPoster(){
-
-  document
-    .getElementById("posterModal")
-    .classList.add("show");
-
-  document.body.style.overflow = "hidden";
-}
-
-
-function closePoster(event){
-
-  if(event.target.id === "posterModal"){
-
-    closePosterButton();
-
+  function closeModal(){
+    document.getElementById("imageModal").style.display = "none";
   }
 
-}
+  function completeAssignment(){
 
-
-function closePosterButton(){
-
-  document
-    .getElementById("posterModal")
-    .classList.remove("show");
-
-  document.body.style.overflow = "";
-
-}
-
-
-/* ESC KEY */
-document.addEventListener("keydown", function(event){
-
-  if(event.key === "Escape"){
-
-    closeModalButton();
-    closePosterButton();
-
-  }
-
-});
-
-
-/* ASSIGNMENT START */
-function startAssignment(){
-
-  document
-    .getElementById("assignment")
-    .scrollIntoView({
-      behavior:"smooth"
-    });
-
-  setTimeout(() => {
-
-    alert(
-      "🚀 Assignment jalqabsiisi!\n\n" +
-      "PixelLab baniitii KENA DESIGN Poster kee hojjedhu."
+    localStorage.setItem(
+      "kena_lesson1_assignment",
+      "completed"
     );
 
-  },500);
-
-}
-
-
-/* ASSIGNMENT COMPLETE */
-function completeAssignment(){
-
-  localStorage.setItem(
-    "kena_lesson1_assignment",
-    "completed"
-  );
-
-  showCompleteMessage();
-
-}
-
-
-function showCompleteMessage(){
-
-  document
-    .getElementById("completeMessage")
-    .style.display = "block";
-
-}
-
-
-/* CHECK COMPLETION */
-window.addEventListener("load", function(){
-
-  const completed =
-    localStorage.getItem(
-      "kena_lesson1_assignment"
-    );
-
-  if(completed === "completed"){
-
-    showCompleteMessage();
-
+    document.getElementById(
+      "completedMessage"
+    ).style.display = "block";
   }
 
-});
+  window.onload = function(){
+
+    if(
+      localStorage.getItem(
+        "kena_lesson1_assignment"
+      ) === "completed"
+    ){
+
+      document.getElementById(
+        "completedMessage"
+      ).style.display = "block";
+    }
+
+  };
 
 </script>
 

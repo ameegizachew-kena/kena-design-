@@ -21,7 +21,7 @@
     }
 
     header{
-      background:white;
+      background:#ffffff;
       border-bottom:1px solid #dce8f0;
       padding:16px 20px;
       position:sticky;
@@ -106,10 +106,33 @@
       font-size:17px;
     }
 
-    /* LESSONS */
+
+    /* STUDENT INFORMATION */
+
+    .student-info{
+      margin-top:20px;
+      display:grid;
+      gap:10px;
+    }
+
+    .info-box{
+      background:white;
+      border:1px solid #dce9f1;
+      border-radius:12px;
+      padding:13px 16px;
+      color:#58708a;
+    }
+
+    .info-box strong{
+      color:#102a43;
+      margin-right:5px;
+    }
+
+
+    /* LESSON SECTION */
 
     .lessons-section{
-      background:white;
+      background:#ffffff;
       border:1px solid #dbe9f2;
       border-radius:22px;
       padding:25px;
@@ -215,6 +238,7 @@
       background:#eef8ff;
     }
 
+
     /* MOTIVATION */
 
     .motivation{
@@ -241,11 +265,13 @@
       color:#607890;
     }
 
+
     footer{
       text-align:center;
       color:#71869a;
       padding:30px 15px;
     }
+
 
     /* MOBILE */
 
@@ -263,6 +289,7 @@
         font-size:28px;
       }
     }
+
 
     @media(max-width:500px){
 
@@ -290,10 +317,15 @@
         padding:9px 13px;
       }
     }
+
   </style>
 </head>
 
+
 <body>
+
+
+<!-- HEADER -->
 
 <header>
 
@@ -302,6 +334,7 @@
     <div class="logo">
       KENA <span>DESIGN</span>
     </div>
+
 
     <div class="nav-links">
 
@@ -319,7 +352,11 @@
 
     </div>
 
-    <button class="logout" onclick="logout()">
+
+    <button
+      class="logout"
+      onclick="logout()"
+    >
       Logout
     </button>
 
@@ -328,30 +365,95 @@
 </header>
 
 
+
+<!-- MAIN -->
+
 <main>
 
   <div class="container">
+
 
     <!-- WELCOME -->
 
     <section class="welcome">
 
       <h1>
+
         👋 Baga nagaan dhuftan,
-        <span id="welcomeName">Barataa!</span>
+
+        <span id="welcomeName">
+          Barataa!
+        </span>
+
       </h1>
+
 
       <p>
         KENA DESIGN Learning Platform irratti
         barnoota kee jalqabi.
       </p>
 
+
+      <!-- STUDENT INFORMATION -->
+
+      <div class="student-info">
+
+
+        <div class="info-box">
+
+          👤
+
+          <strong>
+            Maqaa:
+          </strong>
+
+          <span id="studentName">
+            -
+          </span>
+
+        </div>
+
+
+        <div class="info-box">
+
+          👨
+
+          <strong>
+            Maqaa Abbaa:
+          </strong>
+
+          <span id="fatherName">
+            -
+          </span>
+
+        </div>
+
+
+        <div class="info-box">
+
+          📱
+
+          <strong>
+            Bilbila:
+          </strong>
+
+          <span id="studentPhone">
+            -
+          </span>
+
+        </div>
+
+
+      </div>
+
     </section>
+
 
 
     <!-- LESSONS -->
 
     <section class="lessons-section">
+
 
       <div class="section-title">
 
@@ -360,9 +462,11 @@
         </div>
 
         <div>
+
           <h2>
             Barnoota Kee
           </h2>
+
         </div>
 
       </div>
@@ -376,6 +480,7 @@
       </p>
 
 
+
       <div class="lessons">
 
 
@@ -387,24 +492,32 @@
             P
           </div>
 
+
           <h3>
             Lesson 1 - PixelLab
           </h3>
 
+
           <p>
+
             PixelLab fayyadamuun text, image,
             background, effect fi poster design
             hojjechuu baradhu.
+
           </p>
+
 
           <a
             href="lesson.html"
             class="btn btn-primary"
           >
+
             📖 Barnoota Jalqabi →
+
           </a>
 
         </div>
+
 
 
         <!-- LESSON 2 -->
@@ -415,25 +528,34 @@
             Aa
           </div>
 
+
           <h3>
             Lesson 2 - Font Haaraa
           </h3>
 
+
           <p>
+
             PixelLab keessatti font haaraa
             galchuu fi itti fayyadamuu baradhu.
+
           </p>
+
 
           <a
             href="lesson2.html"
             class="btn btn-secondary"
           >
+
             → Lesson 2 Ilaali
+
           </a>
 
         </div>
 
+
       </div>
+
 
 
       <!-- MOTIVATION -->
@@ -444,28 +566,37 @@
           🎯
         </div>
 
+
         <div>
 
           <h3>
             Milkaa'ina!
           </h3>
 
+
           <p>
+
             Barnoota kee har'a jalqabi;
             tarkaanfii xiqqoo har'a fudhatte
             gara milkaa'ina guddaatti si geessa.
+
           </p>
 
         </div>
 
       </div>
 
+
     </section>
+
 
   </div>
 
 </main>
 
+
+
+<!-- FOOTER -->
 
 <footer>
 
@@ -474,43 +605,117 @@
 </footer>
 
 
+
+<!-- JAVASCRIPT -->
+
 <script>
 
-  /* MAQAA BARATAA GALMAA'EE */
 
-  function loadStudent(){
+/* =====================================================
+   LOAD STUDENT INFORMATION
+   ===================================================== */
 
-    const name =
-      localStorage.getItem("studentName");
+function loadStudent(){
 
-    if(name){
 
-      document.getElementById("welcomeName")
-        .textContent = name + "!";
+  const name =
+    localStorage.getItem(
+      "studentName"
+    );
 
-    }
+
+  const father =
+    localStorage.getItem(
+      "fatherName"
+    );
+
+
+  const phone =
+    localStorage.getItem(
+      "studentPhone"
+    );
+
+
+  /* STUDENT NAME */
+
+  if(name){
+
+    document
+      .getElementById(
+        "welcomeName"
+      )
+      .textContent =
+        name + "!";
+
+
+    document
+      .getElementById(
+        "studentName"
+      )
+      .textContent =
+        name;
 
   }
 
 
-  /* LOGOUT */
+  /* FATHER NAME */
 
-  function logout(){
+  if(father){
 
-    window.location.href = "login.html";
+    document
+      .getElementById(
+        "fatherName"
+      )
+      .textContent =
+        father;
 
   }
 
 
-  /* PAGE LOAD */
+  /* PHONE */
 
-  window.onload = function(){
+  if(phone){
+
+    document
+      .getElementById(
+        "studentPhone"
+      )
+      .textContent =
+        phone;
+
+  }
+
+}
+
+
+
+/* =====================================================
+   LOGOUT
+   ===================================================== */
+
+function logout(){
+
+  window.location.href =
+    "login.html";
+
+}
+
+
+
+/* =====================================================
+   PAGE LOAD
+   ===================================================== */
+
+window.onload =
+  function(){
 
     loadStudent();
 
   };
 
+
 </script>
+
 
 </body>
 </html>

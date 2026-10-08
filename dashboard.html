@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KENA DESIGN - Student Dashboard</title>
+  <title>KENA DESIGN - Dashboard</title>
 
   <style>
     *{
@@ -14,15 +14,14 @@
     }
 
     body{
-      font-family:Arial, sans-serif;
+      font-family:Arial,sans-serif;
       background:#f5f9fc;
       color:#102a43;
       line-height:1.6;
     }
 
-    /* HEADER */
     header{
-      background:#ffffff;
+      background:white;
       border-bottom:1px solid #dce8f0;
       padding:16px 20px;
       position:sticky;
@@ -76,7 +75,6 @@
       cursor:pointer;
     }
 
-    /* MAIN */
     .container{
       max-width:1200px;
       margin:auto;
@@ -84,13 +82,9 @@
     }
 
     /* WELCOME */
-    .welcome{
-      background:linear-gradient(
-        120deg,
-        #e9fbf5,
-        #f3faff
-      );
 
+    .welcome{
+      background:linear-gradient(120deg,#e9fbf5,#f3faff);
       border:1px solid #cdeee4;
       border-radius:22px;
       padding:32px;
@@ -112,13 +106,13 @@
       font-size:17px;
     }
 
-    /* STUDENT INFORMATION */
-    .student-section{
-      background:#ffffff;
+    /* LESSONS */
+
+    .lessons-section{
+      background:white;
       border:1px solid #dbe9f2;
       border-radius:22px;
       padding:25px;
-      margin-bottom:28px;
       box-shadow:0 8px 30px rgba(20,50,80,.05);
     }
 
@@ -126,7 +120,7 @@
       display:flex;
       align-items:center;
       gap:12px;
-      margin-bottom:20px;
+      margin-bottom:10px;
     }
 
     .section-title .icon{
@@ -141,106 +135,6 @@
     }
 
     .section-title h2{
-      color:#102a43;
-      font-size:27px;
-    }
-
-    .section-title p{
-      color:#70849a;
-      font-size:14px;
-    }
-
-    /* FORM */
-    .student-form{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-    }
-
-    .form-box{
-      background:#f8fbfd;
-      border:1px solid #dceaf2;
-      border-radius:14px;
-      padding:15px;
-    }
-
-    .form-box label{
-      display:block;
-      color:#607890;
-      font-size:13px;
-      margin-bottom:7px;
-      font-weight:600;
-    }
-
-    .form-box input{
-      width:100%;
-      border:1px solid #d2e1eb;
-      background:white;
-      padding:12px;
-      border-radius:9px;
-      color:#102a43;
-      font-size:15px;
-      outline:none;
-    }
-
-    .form-box input:focus{
-      border-color:#12a879;
-      box-shadow:0 0 0 3px rgba(18,168,121,.10);
-    }
-
-    .save-btn{
-      margin-top:18px;
-      background:#12a879;
-      color:white;
-      border:none;
-      padding:12px 22px;
-      border-radius:10px;
-      font-weight:bold;
-      cursor:pointer;
-    }
-
-    .save-btn:hover{
-      background:#0d956a;
-    }
-
-    /* PROFILE RESULT */
-    .profile{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:15px;
-      margin-top:20px;
-    }
-
-    .profile-box{
-      background:#ffffff;
-      border:1px solid #dce9f1;
-      border-radius:14px;
-      padding:16px;
-    }
-
-    .profile-label{
-      color:#71869a;
-      font-size:13px;
-      margin-bottom:4px;
-    }
-
-    .profile-value{
-      color:#102a43;
-      font-size:17px;
-      font-weight:bold;
-      word-break:break-word;
-    }
-
-    /* LESSON AREA */
-    .lessons-section{
-      background:#ffffff;
-      border:1px solid #dbe9f2;
-      border-radius:22px;
-      padding:25px;
-      box-shadow:0 8px 30px rgba(20,50,80,.05);
-    }
-
-    .lessons-section h2{
       color:#102a43;
       font-size:27px;
     }
@@ -273,11 +167,7 @@
       width:65px;
       height:65px;
       border-radius:18px;
-      background:linear-gradient(
-        135deg,
-        #18b6e8,
-        #6c5ce7
-      );
+      background:linear-gradient(135deg,#18b6e8,#6c5ce7);
       display:flex;
       align-items:center;
       justify-content:center;
@@ -326,6 +216,7 @@
     }
 
     /* MOTIVATION */
+
     .motivation{
       margin-top:25px;
       background:#f0f8ff;
@@ -350,7 +241,6 @@
       color:#607890;
     }
 
-    /* FOOTER */
     footer{
       text-align:center;
       color:#71869a;
@@ -358,18 +248,11 @@
     }
 
     /* MOBILE */
+
     @media(max-width:800px){
 
       .nav-links{
         display:none;
-      }
-
-      .student-form{
-        grid-template-columns:1fr;
-      }
-
-      .profile{
-        grid-template-columns:1fr 1fr;
       }
 
       .lessons{
@@ -395,13 +278,8 @@
         font-size:25px;
       }
 
-      .student-section,
       .lessons-section{
         padding:18px;
-      }
-
-      .profile{
-        grid-template-columns:1fr;
       }
 
       .logo{
@@ -415,10 +293,8 @@
   </style>
 </head>
 
-
 <body>
 
-<!-- HEADER -->
 <header>
 
   <div class="nav">
@@ -443,9 +319,7 @@
 
     </div>
 
-    <button
-      class="logout"
-      onclick="logout()">
+    <button class="logout" onclick="logout()">
       Logout
     </button>
 
@@ -458,12 +332,12 @@
 
   <div class="container">
 
-
     <!-- WELCOME -->
+
     <section class="welcome">
 
       <h1>
-        Baga nagaan dhuftan
+        👋 Baga nagaan dhuftan,
         <span id="welcomeName">Barataa!</span>
       </h1>
 
@@ -475,178 +349,8 @@
     </section>
 
 
-    <!-- STUDENT INFORMATION -->
-    <section class="student-section">
-
-      <div class="section-title">
-
-        <div class="icon">
-          👨‍🎓
-        </div>
-
-        <div>
-          <h2>
-            Odeeffannoo Barataa
-          </h2>
-
-          <p>
-            Maqaa fi odeeffannoo kee guuti
-          </p>
-        </div>
-
-      </div>
-
-
-      <!-- FORM -->
-      <div class="student-form">
-
-        <div class="form-box">
-
-          <label>
-            Maqaa Guutuu
-          </label>
-
-          <input
-            type="text"
-            id="nameInput"
-            placeholder="Maqaa kee guutuu galchi">
-
-        </div>
-
-
-        <div class="form-box">
-
-          <label>
-            Course
-          </label>
-
-          <input
-            type="text"
-            id="courseInput"
-            value="KENA DESIGN">
-
-        </div>
-
-
-        <div class="form-box">
-
-          <label>
-            Lakkoofsa Bilbila
-          </label>
-
-          <input
-            type="tel"
-            id="phoneInput"
-            placeholder="Lakkoofsa bilbila galchi">
-
-        </div>
-
-
-        <div class="form-box">
-
-          <label>
-            Kaffaltii
-          </label>
-
-          <input
-            type="text"
-            id="paymentInput"
-            value="Paid">
-
-        </div>
-
-      </div>
-
-
-      <button
-        class="save-btn"
-        onclick="saveStudent()">
-        💾 Odeeffannoo Olkaa'i
-      </button>
-
-
-      <!-- PROFILE -->
-      <div class="profile">
-
-        <div class="profile-box">
-
-          <div class="profile-label">
-            Maqaa Guutuu
-          </div>
-
-          <div
-            class="profile-value"
-            id="studentName">
-            Barataa
-          </div>
-
-        </div>
-
-
-        <div class="profile-box">
-
-          <div class="profile-label">
-            Course
-          </div>
-
-          <div
-            class="profile-value"
-            id="studentCourse">
-            KENA DESIGN
-          </div>
-
-        </div>
-
-
-        <div class="profile-box">
-
-          <div class="profile-label">
-            Bilbila
-          </div>
-
-          <div
-            class="profile-value"
-            id="studentPhone">
-            -
-          </div>
-
-        </div>
-
-
-        <div class="profile-box">
-
-          <div class="profile-label">
-            Kaffaltii
-          </div>
-
-          <div
-            class="profile-value"
-            id="studentPayment">
-            Paid
-          </div>
-
-        </div>
-
-
-        <div class="profile-box">
-
-          <div class="profile-label">
-            Learning Access
-          </div>
-
-          <div
-            class="profile-value">
-            🟢 Active
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
     <!-- LESSONS -->
+
     <section class="lessons-section">
 
       <div class="section-title">
@@ -656,19 +360,19 @@
         </div>
 
         <div>
-
           <h2>
             Barnoota Kee
           </h2>
-
         </div>
 
       </div>
 
 
       <p class="lessons-description">
-        KENA DESIGN barnoota dijitaalaa waliin gara
-        beekumsa guddaatti si geessa.
+
+        KENA DESIGN barnoota dijitaalaa waliin
+        gara beekumsa guddaatti si geessa.
+
       </p>
 
 
@@ -676,6 +380,7 @@
 
 
         <!-- LESSON 1 -->
+
         <div class="lesson-card">
 
           <div class="lesson-icon">
@@ -692,12 +397,10 @@
             hojjechuu baradhu.
           </p>
 
-
-          <!-- LINK TO LESSON 1 -->
           <a
             href="lesson.html"
-            class="btn btn-primary">
-
+            class="btn btn-primary"
+          >
             📖 Barnoota Jalqabi →
           </a>
 
@@ -705,6 +408,7 @@
 
 
         <!-- LESSON 2 -->
+
         <div class="lesson-card">
 
           <div class="lesson-icon">
@@ -716,16 +420,14 @@
           </h3>
 
           <p>
-            PixelLab keessatti font haaraa galchuu
-            fi itti fayyadamuu baradhu.
+            PixelLab keessatti font haaraa
+            galchuu fi itti fayyadamuu baradhu.
           </p>
 
-
-          <!-- LINK TO LESSON 2 -->
           <a
             href="lesson2.html"
-            class="btn btn-secondary">
-
+            class="btn btn-secondary"
+          >
             → Lesson 2 Ilaali
           </a>
 
@@ -735,6 +437,7 @@
 
 
       <!-- MOTIVATION -->
+
       <div class="motivation">
 
         <div class="motivation-icon">
@@ -748,9 +451,9 @@
           </h3>
 
           <p>
-            Amma Lesson 1 fi 2 hundaa barachuu
-            dandeesseetta. Gara design kee gaarii fi
-            bareedaa jaajjuutti itti fufi.
+            Barnoota kee har'a jalqabi;
+            tarkaanfii xiqqoo har'a fudhatte
+            gara milkaa'ina guddaatti si geessa.
           </p>
 
         </div>
@@ -773,188 +476,33 @@
 
 <script>
 
-  /* =========================
-     LOAD STUDENT INFORMATION
-     ========================= */
+  /* MAQAA BARATAA GALMAA'EE */
 
   function loadStudent(){
 
     const name =
       localStorage.getItem("studentName");
 
-    const course =
-      localStorage.getItem("studentCourse");
-
-    const phone =
-      localStorage.getItem("studentPhone");
-
-    const payment =
-      localStorage.getItem("studentPayment");
-
-
     if(name){
 
-      document.getElementById(
-        "nameInput"
-      ).value = name;
-
-      document.getElementById(
-        "studentName"
-      ).textContent = name;
-
-      document.getElementById(
-        "welcomeName"
-      ).textContent = name + "!";
-
-    }
-
-
-    if(course){
-
-      document.getElementById(
-        "courseInput"
-      ).value = course;
-
-      document.getElementById(
-        "studentCourse"
-      ).textContent = course;
-
-    }
-
-
-    if(phone){
-
-      document.getElementById(
-        "phoneInput"
-      ).value = phone;
-
-      document.getElementById(
-        "studentPhone"
-      ).textContent = phone;
-
-    }
-
-
-    if(payment){
-
-      document.getElementById(
-        "paymentInput"
-      ).value = payment;
-
-      document.getElementById(
-        "studentPayment"
-      ).textContent = payment;
+      document.getElementById("welcomeName")
+        .textContent = name + "!";
 
     }
 
   }
 
 
-  /* =========================
-     SAVE STUDENT INFORMATION
-     ========================= */
-
-  function saveStudent(){
-
-    const name =
-      document.getElementById(
-        "nameInput"
-      ).value.trim();
-
-    const course =
-      document.getElementById(
-        "courseInput"
-      ).value.trim();
-
-    const phone =
-      document.getElementById(
-        "phoneInput"
-      ).value.trim();
-
-    const payment =
-      document.getElementById(
-        "paymentInput"
-      ).value.trim();
-
-
-    if(name === ""){
-
-      alert(
-        "Maaloo maqaa kee guutuu galchi."
-      );
-
-      return;
-    }
-
-
-    localStorage.setItem(
-      "studentName",
-      name
-    );
-
-    localStorage.setItem(
-      "studentCourse",
-      course
-    );
-
-    localStorage.setItem(
-      "studentPhone",
-      phone
-    );
-
-    localStorage.setItem(
-      "studentPayment",
-      payment
-    );
-
-
-    document.getElementById(
-      "studentName"
-    ).textContent = name;
-
-
-    document.getElementById(
-      "studentCourse"
-    ).textContent = course;
-
-
-    document.getElementById(
-      "studentPhone"
-    ).textContent = phone;
-
-
-    document.getElementById(
-      "studentPayment"
-    ).textContent = payment;
-
-
-    document.getElementById(
-      "welcomeName"
-    ).textContent = name + "!";
-
-
-    alert(
-      "Odeeffannoon kee sirriitti olkaa'ameera."
-    );
-
-  }
-
-
-  /* =========================
-     LOGOUT
-     ========================= */
+  /* LOGOUT */
 
   function logout(){
 
-    window.location.href =
-      "login.html";
+    window.location.href = "login.html";
 
   }
 
 
-  /* =========================
-     START
-     ========================= */
+  /* PAGE LOAD */
 
   window.onload = function(){
 

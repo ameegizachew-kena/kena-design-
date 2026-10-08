@@ -2,6 +2,7 @@
 <html lang="om">
 
 <head>
+
 <meta charset="UTF-8">
 
 <meta
@@ -11,7 +12,12 @@
 
 <title>KENA DESIGN - Dashboard</title>
 
+
 <style>
+
+/* =========================
+   GENERAL
+========================= */
 
 *{
   box-sizing:border-box;
@@ -26,22 +32,34 @@ body{
   line-height:1.6;
 }
 
+
+/* =========================
+   HEADER
+========================= */
+
 header{
   background:white;
   border-bottom:1px solid #dce8f0;
+
   padding:16px 20px;
+
   position:sticky;
   top:0;
   z-index:100;
-  box-shadow:0 3px 15px rgba(20,50,80,.06);
+
+  box-shadow:
+    0 3px 15px
+    rgba(20,50,80,.06);
 }
 
 .nav{
   max-width:1200px;
   margin:auto;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
+
   gap:20px;
 }
 
@@ -66,15 +84,33 @@ header{
   font-weight:600;
 }
 
+.nav-links a:hover{
+  color:#12a879;
+}
+
 .logout{
   background:#ff3b3b;
   color:white;
+
   border:none;
+
   padding:11px 18px;
+
   border-radius:10px;
+
   font-weight:bold;
+
   cursor:pointer;
 }
+
+.logout:hover{
+  background:#dc2626;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
   max-width:1200px;
@@ -82,18 +118,26 @@ header{
   padding:30px 18px;
 }
 
-/* WELCOME */
+
+/* =========================
+   WELCOME
+========================= */
 
 .welcome{
-  background:linear-gradient(
-    120deg,
-    #e9fbf5,
-    #f3faff
-  );
+
+  background:
+    linear-gradient(
+      120deg,
+      #e9fbf5,
+      #f3faff
+    );
 
   border:1px solid #cdeee4;
+
   border-radius:22px;
+
   padding:32px;
+
   margin-bottom:25px;
 }
 
@@ -112,91 +156,159 @@ header{
   font-size:17px;
 }
 
-/* STUDENT INFORMATION */
+
+/* =========================
+   STUDENT NAME
+========================= */
 
 .student-info{
+
   margin-top:20px;
+
   display:grid;
+
   gap:10px;
 }
 
 .info-box{
+
   background:white;
+
   border:1px solid #dce9f1;
+
   border-radius:12px;
-  padding:14px 16px;
+
+  padding:18px 20px;
+
   color:#58708a;
+
 }
 
 .info-box strong{
+
   color:#102a43;
+
   margin-right:5px;
+
 }
 
 .info-value{
+
   color:#102a43;
+
   font-weight:bold;
+
 }
 
-/* LESSON */
+
+/* =========================
+   LESSON SECTION
+========================= */
 
 .lessons-section{
+
   background:white;
+
   border:1px solid #dbe9f2;
+
   border-radius:22px;
+
   padding:25px;
 
   box-shadow:
     0 8px 30px
     rgba(20,50,80,.05);
+
 }
+
 
 .section-title{
+
   display:flex;
+
   align-items:center;
+
   gap:12px;
+
   margin-bottom:10px;
+
 }
 
+
 .section-title .icon{
+
   width:52px;
+
   height:52px;
+
   border-radius:50%;
+
   background:#e6f4ff;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   font-size:27px;
+
 }
+
 
 .section-title h2{
+
   color:#102a43;
+
   font-size:27px;
+
 }
+
 
 .lessons-description{
+
   color:#637b91;
+
   margin:5px 0 22px;
+
 }
+
+
+/* =========================
+   LESSON CARDS
+========================= */
 
 .lessons{
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:20px;
+
 }
+
 
 .lesson-card{
+
   background:#f8fcff;
+
   border:1px solid #d6e8f4;
+
   border-radius:18px;
+
   padding:23px;
+
 }
 
+
 .lesson-icon{
+
   width:65px;
+
   height:65px;
+
   border-radius:18px;
 
   background:
@@ -207,48 +319,99 @@ header{
     );
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   color:white;
+
   font-size:30px;
 
   margin-bottom:15px;
+
 }
+
 
 .lesson-card h3{
+
   color:#102a43;
+
   font-size:22px;
+
   margin-bottom:8px;
+
 }
+
 
 .lesson-card p{
+
   color:#607890;
+
   margin-bottom:18px;
+
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .btn{
+
   display:inline-block;
+
   text-decoration:none;
+
   padding:12px 20px;
+
   border-radius:10px;
+
   font-weight:bold;
+
 }
+
 
 .btn-primary{
+
   background:#12a879;
+
   color:white;
+
 }
+
+
+.btn-primary:hover{
+
+  background:#0d956a;
+
+}
+
 
 .btn-secondary{
+
   background:white;
+
   color:#0875d1;
+
   border:1px solid #0875d1;
+
 }
 
-/* MOTIVATION */
+
+.btn-secondary:hover{
+
+  background:#eef8ff;
+
+}
+
+
+/* =========================
+   MOTIVATION
+========================= */
 
 .motivation{
+
   margin-top:25px;
 
   background:#f0f8ff;
@@ -264,19 +427,35 @@ header{
   align-items:center;
 
   gap:15px;
+
 }
+
 
 .motivation-icon{
+
   font-size:35px;
+
 }
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
+
   text-align:center;
+
   color:#71869a;
+
   padding:30px 15px;
+
 }
 
-/* MOBILE */
+
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:800px){
 
@@ -293,6 +472,11 @@ footer{
   }
 
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:500px){
 
@@ -316,23 +500,33 @@ footer{
     font-size:20px;
   }
 
+  .logout{
+    padding:9px 13px;
+  }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 
-<!-- HEADER -->
+<!-- =========================
+     HEADER
+========================= -->
 
 <header>
 
 <div class="nav">
 
+
 <div class="logo">
+
 KENA <span>DESIGN</span>
+
 </div>
 
 
@@ -342,9 +536,11 @@ KENA <span>DESIGN</span>
 🏠 Dashboard
 </a>
 
+
 <a href="lesson.html">
 📖 Lesson 1
 </a>
+
 
 <a href="lesson2.html">
 🔤 Lesson 2
@@ -354,11 +550,14 @@ KENA <span>DESIGN</span>
 
 
 <button
-class="logout"
-onclick="logout()"
+  class="logout"
+  onclick="logout()"
 >
+
 Logout
+
 </button>
+
 
 </div>
 
@@ -366,16 +565,21 @@ Logout
 
 
 
-<!-- MAIN -->
+<!-- =========================
+     MAIN
+========================= -->
 
 <main>
 
 <div class="container">
 
 
-<!-- WELCOME -->
+<!-- =========================
+     WELCOME
+========================= -->
 
 <section class="welcome">
+
 
 <h1>
 
@@ -396,12 +600,12 @@ irratti barnoota kee jalqabi.
 </p>
 
 
-<!-- STUDENT DATA -->
+<!-- =========================
+     STUDENT NAME ONLY
+========================= -->
 
 <div class="student-info">
 
-
-<!-- MAQAA BARATAA -->
 
 <div class="info-box">
 
@@ -411,102 +615,57 @@ irratti barnoota kee jalqabi.
 Maqaa Barataa:
 </strong>
 
-<span
-id="studentName"
-class="info-value"
->
--
-</span>
-
-</div>
-
-
-<!-- MAQAA ABBAA -->
-
-<div class="info-box">
-
-👨‍👦
-
-<strong>
-Maqaa Abbaa:
-</strong>
 
 <span
-id="fatherName"
-class="info-value"
+  id="studentName"
+  class="info-value"
 >
+
 -
+
 </span>
 
-</div>
-
-
-<!-- COURSE -->
-
-<div class="info-box">
-
-📚
-
-<strong>
-Course:
-</strong>
-
-<span
-id="studentCourse"
-class="info-value"
->
--
-</span>
-
-</div>
-
-
-<!-- BILBILA -->
-
-<div class="info-box">
-
-📱
-
-<strong>
-Bilbila:
-</strong>
-
-<span
-id="studentPhone"
-class="info-value"
->
--
-</span>
 
 </div>
 
 
 </div>
+
 
 </section>
 
 
 
-<!-- LESSONS -->
+<!-- =========================
+     LESSONS
+========================= -->
 
 <section class="lessons-section">
 
 
 <div class="section-title">
 
+
 <div class="icon">
+
 📚
+
 </div>
+
 
 <div>
 
 <h2>
+
 Barnoota Kee
+
 </h2>
 
 </div>
 
+
 </div>
+
 
 
 <p class="lessons-description">
@@ -518,20 +677,28 @@ si geessa.
 </p>
 
 
+
 <div class="lessons">
 
 
-<!-- LESSON 1 -->
+<!-- =========================
+     LESSON 1
+========================= -->
 
 <div class="lesson-card">
 
+
 <div class="lesson-icon">
+
 P
+
 </div>
 
 
 <h3>
+
 Lesson 1 - PixelLab
+
 </h3>
 
 
@@ -546,29 +713,37 @@ hojjechuu baradhu.
 
 
 <a
-href="lesson.html"
-class="btn btn-primary"
+  href="lesson.html"
+  class="btn btn-primary"
 >
 
 📖 Barnoota Jalqabi →
 
 </a>
 
+
 </div>
 
 
 
-<!-- LESSON 2 -->
+<!-- =========================
+     LESSON 2
+========================= -->
 
 <div class="lesson-card">
 
+
 <div class="lesson-icon">
+
 Aa
+
 </div>
 
 
 <h3>
+
 Lesson 2 - Font Haaraa
+
 </h3>
 
 
@@ -582,34 +757,43 @@ fayyadamuu baradhu.
 
 
 <a
-href="lesson2.html"
-class="btn btn-secondary"
+  href="lesson2.html"
+  class="btn btn-secondary"
 >
 
 → Lesson 2 Ilaali
 
 </a>
 
-</div>
-
 
 </div>
 
 
+</div>
 
-<!-- MOTIVATION -->
+
+
+<!-- =========================
+     MOTIVATION
+========================= -->
 
 <div class="motivation">
 
+
 <div class="motivation-icon">
+
 🎯
+
 </div>
 
 
 <div>
 
+
 <h3>
+
 Milkaa'ina!
+
 </h3>
 
 
@@ -621,18 +805,25 @@ gara milkaa'ina guddaatti si geessa.
 
 </p>
 
+
 </div>
+
 
 </div>
 
 
 </section>
 
+
 </div>
 
 </main>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -644,93 +835,50 @@ gara milkaa'ina guddaatti si geessa.
 
 <script>
 
+
 /* =========================================
-   LOAD STUDENT DATA
+   LOAD STUDENT NAME
 ========================================= */
 
 function loadStudent(){
 
-  /* Maqaa barataa */
+
+  /* Maqaa barataa qofa */
+
   const name =
-    localStorage.getItem("studentName");
-
-
-  /* Maqaa abbaa */
-  const fatherName =
-    localStorage.getItem("fatherName");
-
-
-  /* Course */
-  const course =
-    localStorage.getItem("studentCourse");
-
-
-  /* Lakkoofsa bilbilaa */
-  const phone =
-    localStorage.getItem("studentPhone");
-
-
-  /* =========================
-     WELCOME
-  ========================= */
-
-  if(name){
-
-    document.getElementById(
-      "welcomeName"
-    ).textContent = name;
-
-  }
-
-
-  /* =========================
-     MAQAA BARATAA
-  ========================= */
-
-  if(name){
-
-    document.getElementById(
+    localStorage.getItem(
       "studentName"
-    ).textContent = name;
+    );
+
+
+  /* =========================
+     WELCOME NAME
+  ========================= */
+
+  if(name){
+
+    document
+      .getElementById(
+        "welcomeName"
+      )
+      .textContent =
+        name;
 
   }
 
 
   /* =========================
-     MAQAA ABBAA
+     STUDENT NAME
   ========================= */
 
-  if(fatherName){
+  if(name){
 
-    document.getElementById(
-      "fatherName"
-    ).textContent = fatherName;
-
-  }
-
-
-  /* =========================
-     COURSE
-  ========================= */
-
-  if(course){
-
-    document.getElementById(
-      "studentCourse"
-    ).textContent = course;
-
-  }
-
-
-  /* =========================
-     BILBILA
-  ========================= */
-
-  if(phone){
-
-    document.getElementById(
-      "studentPhone"
-    ).textContent = phone;
+    document
+      .getElementById(
+        "studentName"
+      )
+      .textContent =
+        name;
 
   }
 
@@ -743,7 +891,8 @@ function loadStudent(){
 
 function logout(){
 
-  window.location.href = "login.html";
+  window.location.href =
+    "login.html";
 
 }
 
@@ -752,7 +901,8 @@ function logout(){
    PAGE LOAD
 ========================================= */
 
-window.onload = function(){
+window.onload =
+function(){
 
   loadStudent();
 

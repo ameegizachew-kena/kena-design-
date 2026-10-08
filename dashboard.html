@@ -4,24 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Student Dashboard</title>
+  <title>Student Dashboard - Kena Design</title>
 
   <style>
     * {
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
 
     body {
       margin: 0;
+      font-family: Arial, sans-serif;
       background: #f2f5f9;
+      color: #222;
     }
 
     .header {
       background: #0066ff;
       color: white;
-      padding: 22px;
+      padding: 20px;
       text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .header p {
+      margin: 8px 0 0;
+      font-size: 15px;
     }
 
     .container {
@@ -30,34 +41,116 @@
       margin: 25px auto;
     }
 
-    .card {
+    .welcome {
       background: white;
       padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 14px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .card h3 {
+    .welcome h2 {
       margin-top: 0;
+      color: #0066ff;
     }
 
-    .info {
-      margin: 10px 0;
-      padding: 10px;
-      background: #f5f7fa;
-      border-radius: 8px;
+    .info-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
     }
 
-    .logout {
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .value {
+      text-align: right;
+      color: #111;
+    }
+
+    .paid {
+      color: green;
+      font-weight: bold;
+    }
+
+    .active {
+      color: green;
+      font-weight: bold;
+    }
+
+    .lesson-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .lesson-card h2 {
+      margin-top: 0;
+      color: #0066ff;
+    }
+
+    .lesson-card p {
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .lesson-btn {
+      display: block;
       width: 100%;
-      padding: 13px;
+      padding: 14px;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      background: #0066ff;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .lesson-btn:hover {
+      background: #0052cc;
+    }
+
+    .logout-btn {
+      width: 100%;
+      padding: 14px;
       border: none;
       border-radius: 8px;
-      background: #d62828;
+      background: #e53935;
       color: white;
-      font-size: 16px;
+      font-size: 17px;
       font-weight: bold;
+      cursor: pointer;
+    }
+
+    .logout-btn:hover {
+      background: #c62828;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
@@ -65,159 +158,135 @@
 <body>
 
   <div class="header">
-    <h2>🎓 Student Dashboard</h2>
-    <p>Learning Platform</p>
+    <h1>🎨 KENA DESIGN</h1>
+    <p>Student Dashboard</p>
   </div>
 
   <div class="container">
 
-    <div class="card">
+    <div class="welcome">
+      <h2>🎓 Baga Nagaan Dhuftan</h2>
+      <p id="welcomeText">
+        Student Dashboard keessanitti baga nagaan dhuftan.
+      </p>
+    </div>
 
-      <h3>👋 Baga Nagaan Dhuftan</h3>
+    <div class="info-card">
 
-      <div class="info">
-        <strong>Maqaa:</strong>
-        <span id="fullname">Loading...</span>
+      <div class="info-row">
+        <span class="label">Maqaa:</span>
+        <span class="value" id="fullname">-</span>
       </div>
 
-      <div class="info">
-        <strong>Course:</strong>
-        <span id="course">Loading...</span>
+      <div class="info-row">
+        <span class="label">Course:</span>
+        <span class="value" id="course">-</span>
       </div>
 
-      <div class="info">
-        <strong>Phone:</strong>
-        <span id="phone">Loading...</span>
+      <div class="info-row">
+        <span class="label">Phone:</span>
+        <span class="value" id="phone">-</span>
       </div>
 
-      <div class="info">
-        <strong>Payment:</strong>
-        <span id="payment">Loading...</span>
+      <div class="info-row">
+        <span class="label">Payment:</span>
+        <span class="value paid" id="payment">-</span>
       </div>
 
-      <div class="info">
-        <strong>Learning Access:</strong>
-        <span id="access">Loading...</span>
+      <div class="info-row">
+        <span class="label">Learning Access:</span>
+        <span class="value active" id="access">-</span>
       </div>
 
     </div>
 
+    <div class="lesson-card">
 
-    <div class="card">
-
-      <h3>📚 Barnoota Kee</h3>
+      <h2>📚 Barnoota Kee</h2>
 
       <p>
-        Course kee keessatti barnoota jalqabuuf
-        as irraa itti fufi.
+        Course kee keessatti barnoota jalqabuu fi itti fufuuf
+        button armaan gadii cuqaasi.
       </p>
 
-      <button class="logout" onclick="logout()">
-        🚪 Logout
-      </button>
+      <a
+        class="lesson-btn"
+        href="https://ameegizachew-kena.github.io/kena-design-/student.html"
+        target="_blank"
+        rel="noopener"
+      >
+        📚 Barnoota Jalqabi
+      </a>
 
     </div>
+
+    <button class="logout-btn" onclick="logout()">
+      🚪 Logout
+    </button>
 
   </div>
 
-
-<script>
-
-  /* =================================
-     CHECK LOGIN
-  ================================= */
-
-  const loggedIn =
-    localStorage.getItem("loggedIn");
-
-  const studentData =
-    localStorage.getItem("student");
+  <div class="footer">
+    © 2026 Kena Design
+  </div>
 
 
-  if (
-    loggedIn !== "true" ||
-    !studentData
-  ) {
+  <script>
 
-    window.location.href =
-      "login.html";
+    // Student information localStorage keessaa fudhata
+    const loggedIn = localStorage.getItem("loggedIn");
+    const studentData = localStorage.getItem("student");
 
-  }
+    // Yoo login hin taane gara loginitti deebisa
+    if (loggedIn !== "true" || !studentData) {
+      window.location.href = "login.html";
+    }
 
+    try {
 
-  /* =================================
-     STUDENT DATA
-  ================================= */
+      const student = JSON.parse(studentData);
 
-  try {
+      document.getElementById("fullname").textContent =
+        student.fullname || "-";
 
-    const student =
-      JSON.parse(studentData);
+      document.getElementById("course").textContent =
+        student.course || "-";
 
+      document.getElementById("phone").textContent =
+        student.phone || "-";
 
-    document.getElementById(
-      "fullname"
-    ).textContent =
-      student.fullname || "-";
+      document.getElementById("payment").textContent =
+        student.payment_status || "-";
 
+      document.getElementById("access").textContent =
+        student.learning_access ? "Active" : "Inactive";
 
-    document.getElementById(
-      "course"
-    ).textContent =
-      student.course || "-";
+      document.getElementById("welcomeText").textContent =
+        "Baga Nagaan Dhuftan, " +
+        (student.fullname || "Student") +
+        "!";
 
+    } catch (error) {
 
-    document.getElementById(
-      "phone"
-    ).textContent =
-      student.phone || "-";
+      console.log("Student data error:", error);
 
+      localStorage.removeItem("student");
+      localStorage.removeItem("loggedIn");
 
-    document.getElementById(
-      "payment"
-    ).textContent =
-      student.payment_status || "-";
-
-
-    document.getElementById(
-      "access"
-    ).textContent =
-      student.learning_access === true
-        ? "✅ Active"
-        : "❌ Inactive";
-
-  }
-
-  catch (error) {
-
-    console.error(error);
-
-    localStorage.clear();
-
-    window.location.href =
-      "login.html";
-  }
+      window.location.href = "login.html";
+    }
 
 
-  /* =================================
-     LOGOUT
-  ================================= */
+    // Logout
+    function logout() {
 
-  function logout() {
+      localStorage.removeItem("student");
+      localStorage.removeItem("loggedIn");
 
-    localStorage.removeItem(
-      "student"
-    );
+      window.location.href = "login.html";
+    }
 
-    localStorage.removeItem(
-      "loggedIn"
-    );
-
-    window.location.href =
-      "login.html";
-  }
-
-</script>
+  </script>
 
 </body>
 </html>

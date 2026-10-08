@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="om">
 <head>
   <meta charset="UTF-8">
@@ -68,9 +68,12 @@
       text-decoration:none;
     }
 
-    button,input{
+    button,
+    input{
       font:inherit;
     }
+
+    /* HEADER */
 
     header{
       width:100%;
@@ -120,9 +123,12 @@
 
     .home-link{
       color:var(--muted);
+
       padding:9px 13px;
+
       border:1px solid var(--border);
       border-radius:10px;
+
       transition:.2s;
     }
 
@@ -130,6 +136,8 @@
       color:#fff;
       background:rgba(255,255,255,.06);
     }
+
+    /* MAIN */
 
     main{
       flex:1;
@@ -200,12 +208,15 @@
       line-height:1.5;
     }
 
+    /* FORM */
+
     .field{
       margin-bottom:17px;
     }
 
     .field label{
       display:block;
+
       margin-bottom:7px;
 
       font-size:14px;
@@ -283,14 +294,11 @@
       color:#fff;
     }
 
-    .otp-help{
-      margin-top:7px;
+    /* OTP */
 
-      color:#8291a8;
-
-      font-size:12px;
-
-      line-height:1.5;
+    #otpArea{
+      display:none;
+      margin-top:12px;
     }
 
     .send-otp-btn{
@@ -298,7 +306,7 @@
 
       margin-top:8px;
 
-      padding:12px;
+      padding:13px;
 
       border-radius:12px;
 
@@ -359,6 +367,18 @@
 
       color:#fff;
     }
+
+    .otp-help{
+      margin-top:8px;
+
+      color:#8291a8;
+
+      font-size:12px;
+
+      line-height:1.5;
+    }
+
+    /* BUTTON */
 
     .login-btn{
       width:100%;
@@ -421,6 +441,8 @@
       background:#1a2c47;
     }
 
+    /* STATUS */
+
     .status{
       display:none;
 
@@ -472,6 +494,8 @@
         rgba(22,168,255,.20);
     }
 
+    /* SECURITY */
+
     .security-box{
       margin-top:22px;
 
@@ -518,6 +542,8 @@
       font-weight:800;
     }
 
+    /* FOOTER */
+
     footer{
       border-top:1px solid var(--border);
 
@@ -533,6 +559,8 @@
     footer strong{
       color:#fff;
     }
+
+    /* MOBILE */
 
     @media(max-width:500px){
 
@@ -562,7 +590,9 @@
   </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -583,6 +613,7 @@
 
     </a>
 
+
     <a
       href="index.html"
       class="home-link"
@@ -600,6 +631,7 @@
   <div class="login-container">
 
     <div class="login-card">
+
 
       <div class="login-top">
 
@@ -619,7 +651,11 @@
       </div>
 
 
-      <form id="loginForm">
+      <form
+        id="loginForm"
+        novalidate
+      >
+
 
         <!-- PHONE -->
 
@@ -689,24 +725,12 @@
 
         <div class="field">
 
-          <label for="otp">
+          <label>
             🔢 OTP
           </label>
 
-          <div class="input-wrap">
 
-            <input
-              type="text"
-              id="otp"
-              name="otp"
-              placeholder="OTP galchi"
-              maxlength="6"
-              inputmode="numeric"
-              autocomplete="one-time-code"
-              required
-            >
-
-          </div>
+          <!-- OTP SEND BUTTON -->
 
           <button
             type="button"
@@ -716,21 +740,45 @@
             📩 OTP Ergi
           </button>
 
-          <div
-            id="otpTestMessage"
-            class="otp-test"
-          ></div>
 
-          <div class="otp-help">
-            Lakkoofsa bilbilaa kee erga galchitee booda
-            <strong>OTP Ergi</strong> cuqaasi.
-            Testing yeroo kana OTP as irratti ni mul'ata.
+          <!-- OTP AREA HIDDEN AT FIRST -->
+
+          <div
+            id="otpArea"
+          >
+
+            <div class="input-wrap">
+
+              <input
+                type="text"
+                id="otp"
+                name="otp"
+                placeholder="OTP galchi"
+                maxlength="6"
+                inputmode="numeric"
+                autocomplete="one-time-code"
+              >
+
+            </div>
+
+
+            <div
+              id="otpTestMessage"
+              class="otp-test"
+            ></div>
+
+
+            <div class="otp-help">
+              OTP uumame booda asitti
+              mul'ata. Testing qofaaf.
+            </div>
+
           </div>
 
         </div>
 
 
-        <!-- LOGIN -->
+        <!-- LOGIN BUTTON -->
 
         <button
           type="submit"
@@ -749,6 +797,7 @@
         >
           📝 Barataa Haaraa — Galmaa'i
         </a>
+
 
       </form>
 
@@ -790,6 +839,7 @@
 
       </div>
 
+
     </div>
 
   </div>
@@ -811,19 +861,13 @@
 <script>
 
 /* =====================================================
-   SUPABASE URLS
+   SUPABASE EDGE FUNCTIONS
    ===================================================== */
 
-/*
-  OTP TESTING
-*/
 const SEND_OTP_API_URL =
   "https://baoczirnzoxwyguily.supabase.co/functions/v1/send-otp";
 
 
-/*
-  LOGIN
-*/
 const LOGIN_API_URL =
   "https://baoczirnzoxwyguily.supabase.co/functions/v1/student-login";
 
@@ -847,9 +891,19 @@ const statusBox =
     "status"
   );
 
+const phoneInput =
+  document.getElementById(
+    "phone"
+  );
+
 const pinInput =
   document.getElementById(
     "pin"
+  );
+
+const otpInput =
+  document.getElementById(
+    "otp"
   );
 
 const pinToggle =
@@ -862,24 +916,19 @@ const sendOtpButton =
     "sendOtpButton"
   );
 
+const otpArea =
+  document.getElementById(
+    "otpArea"
+  );
+
 const otpTestMessage =
   document.getElementById(
     "otpTestMessage"
   );
 
-const phoneInput =
-  document.getElementById(
-    "phone"
-  );
-
-const otpInput =
-  document.getElementById(
-    "otp"
-  );
-
 
 /* =====================================================
-   STATUS
+   STATUS FUNCTIONS
    ===================================================== */
 
 function showStatus(
@@ -937,7 +986,7 @@ pinToggle.addEventListener(
 
 
 /* =====================================================
-   PHONE NUMBERS ONLY
+   PHONE ONLY NUMBERS
    ===================================================== */
 
 phoneInput.addEventListener(
@@ -960,7 +1009,7 @@ phoneInput.addEventListener(
 
 
 /* =====================================================
-   OTP NUMBERS ONLY
+   OTP ONLY NUMBERS
    ===================================================== */
 
 otpInput.addEventListener(
@@ -1014,12 +1063,14 @@ sendOtpButton.addEventListener(
       phoneInput.value.trim();
 
 
+    /* CHECK PHONE */
+
     if(
       !validPhone(phone)
     ){
 
       showStatus(
-        "Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
+        "❌ Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
         "error"
       );
 
@@ -1030,6 +1081,8 @@ sendOtpButton.addEventListener(
     }
 
 
+    /* SHOW LOADING */
+
     sendOtpButton.disabled =
       true;
 
@@ -1038,6 +1091,21 @@ sendOtpButton.addEventListener(
 
 
     try{
+
+      const controller =
+        new AbortController();
+
+
+      const timeout =
+        setTimeout(
+          function(){
+
+            controller.abort();
+
+          },
+          30000
+        );
+
 
       const response =
         await fetch(
@@ -1052,12 +1120,21 @@ sendOtpButton.addEventListener(
 
             body:JSON.stringify({
               phone:phone
-            })
+            }),
+
+            signal:
+              controller.signal
           }
         );
 
 
+      clearTimeout(
+        timeout
+      );
+
+
       let data = {};
+
 
       try{
 
@@ -1071,17 +1148,29 @@ sendOtpButton.addEventListener(
       }
 
 
+      /* SUCCESS */
+
       if(
         response.ok &&
         data.success === true
       ){
 
         /*
-          OTP testing irratti
-          input keessa galcha.
+          OTP AREA AMMA MUL'ATA
         */
 
-        if(data.otp){
+        otpArea.style.display =
+          "block";
+
+
+        /*
+          OTP input keessa
+          ofumaan galcha
+        */
+
+        if(
+          data.otp
+        ){
 
           otpInput.value =
             data.otp;
@@ -1089,25 +1178,43 @@ sendOtpButton.addEventListener(
         }
 
 
+        /*
+          TESTING OTP
+        */
+
         otpTestMessage.innerHTML =
           "✅ OTP uumameera." +
+
           "<span class='otp-number'>" +
+
           (
             data.otp ||
             "------"
           ) +
+
           "</span>" +
+
           "⏱️ Yeroo: daqiiqaa 10." +
+
           "<br>⚠️ Testing qofaaf. SMS ammallee hin ergamne.";
+
 
         otpTestMessage.style.display =
           "block";
 
 
         showStatus(
-          "OTP uumameera. Amma PIN kee galchiitii Seeni cuqaasi.",
+          "✅ OTP uumameera. Amma PIN kee galchiitii Seeni cuqaasi.",
           "success"
         );
+
+
+        /*
+          OTP area keessatti
+          cursor kaa'a
+        */
+
+        otpInput.focus();
 
 
       }else{
@@ -1125,15 +1232,29 @@ sendOtpButton.addEventListener(
     }catch(error){
 
       console.error(
-        "OTP error:",
+        "OTP ERROR:",
         error
       );
 
 
-      showStatus(
-        "Server OTP waliin wal qunnamuun hin danda'amne. Mee Edge Function `send-otp` ilaali.",
-        "error"
-      );
+      if(
+        error.name ===
+        "AbortError"
+      ){
+
+        showStatus(
+          "⏳ Server OTP irraa deebiin yeroo isaa darbe. Mee irra deebi'i.",
+          "error"
+        );
+
+      }else{
+
+        showStatus(
+          "❌ Server OTP waliin wal qunnamuun hin danda'amne. `send-otp` Edge Function kee ilaali.",
+          "error"
+        );
+
+      }
 
 
     }finally{
@@ -1180,9 +1301,11 @@ loginForm.addEventListener(
     ){
 
       showStatus(
-        "Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
+        "❌ Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
         "error"
       );
+
+      phoneInput.focus();
 
       return;
 
@@ -1196,8 +1319,27 @@ loginForm.addEventListener(
     ){
 
       showStatus(
-        "PIN kee sirrii galchi. PIN yoo xiqqaate lakkoofsa 4 qabaachuu qaba.",
+        "❌ PIN kee sirrii galchi. PIN yoo xiqqaate lakkoofsa 4 qabaachuu qaba.",
         "error"
+      );
+
+      pinInput.focus();
+
+      return;
+
+    }
+
+
+    /* OTP AREA */
+
+    if(
+      otpArea.style.display !==
+      "block"
+    ){
+
+      showStatus(
+        "📩 Dura `OTP Ergi` cuqaasi.",
+        "info"
       );
 
       return;
@@ -1208,20 +1350,24 @@ loginForm.addEventListener(
     /* OTP */
 
     if(
-      !/^[0-9]{6}$/.test(otp)
+      !/^[0-9]{6}$/.test(
+        otp
+      )
     ){
 
       showStatus(
-        "OTP lakkoofsa 6 ta'e galchi.",
+        "❌ OTP lakkoofsa 6 ta'e galchi.",
         "error"
       );
+
+      otpInput.focus();
 
       return;
 
     }
 
 
-    /* LOADING */
+    /* LOGIN LOADING */
 
     loginButton.disabled =
       true;
@@ -1259,9 +1405,13 @@ loginForm.addEventListener(
             },
 
             body:JSON.stringify({
+
               phone:phone,
+
               pin:pin,
+
               otp:otp
+
             }),
 
             signal:
@@ -1277,6 +1427,7 @@ loginForm.addEventListener(
 
       let data = {};
 
+
       try{
 
         data =
@@ -1289,14 +1440,18 @@ loginForm.addEventListener(
       }
 
 
-      /* SUCCESS */
+      /* LOGIN SUCCESS */
 
       if(
         response.ok &&
         data.success === true
       ){
 
-        if(data.token){
+        /* TOKEN */
+
+        if(
+          data.token
+        ){
 
           sessionStorage.setItem(
             "KENA_STUDENT_TOKEN",
@@ -1306,13 +1461,19 @@ loginForm.addEventListener(
         }
 
 
+        /* PHONE */
+
         sessionStorage.setItem(
           "KENA_STUDENT_PHONE",
           phone
         );
 
 
-        if(data.course){
+        /* COURSE */
+
+        if(
+          data.course
+        ){
 
           sessionStorage.setItem(
             "KENA_STUDENT_COURSE",
@@ -1345,12 +1506,12 @@ loginForm.addEventListener(
       }
 
 
-      /* ERROR */
+      /* LOGIN ERROR */
 
       showStatus(
         data.message ||
         data.error ||
-        "Phone, PIN ykn OTP sirrii miti; ykn barnootaaf access hin kennamne.",
+        "❌ Phone, PIN ykn OTP sirrii miti; ykn barnootaaf access hin kennamne.",
         "error"
       );
 
@@ -1358,7 +1519,7 @@ loginForm.addEventListener(
     }catch(error){
 
       console.error(
-        "Login error:",
+        "LOGIN ERROR:",
         error
       );
 
@@ -1369,14 +1530,14 @@ loginForm.addEventListener(
       ){
 
         showStatus(
-          "Server irraa deebiin yeroo isaa darbe. Mee irra deebi'i.",
+          "⏳ Server irraa deebiin yeroo isaa darbe. Mee irra deebi'i.",
           "error"
         );
 
       }else{
 
         showStatus(
-          "Rakkoo server waliin uumame. Mee connection kee ilaali.",
+          "❌ Rakkoo server waliin uumame. Mee connection kee ilaali.",
           "error"
         );
 

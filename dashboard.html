@@ -14,176 +14,433 @@
     }
 
     body{
-      font-family:Arial,sans-serif;
-      background:#07111d;
-      color:white;
-      min-height:100vh;
+      font-family:Arial, sans-serif;
+      background:#f5f9fc;
+      color:#102a43;
+      line-height:1.6;
     }
 
+    /* HEADER */
     header{
-      background:#0b1724;
-      border-bottom:1px solid #16e0a5;
-      padding:18px 20px;
+      background:#ffffff;
+      border-bottom:1px solid #dce8f0;
+      padding:16px 20px;
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 3px 15px rgba(20,50,80,.06);
     }
 
     .nav{
-      max-width:1100px;
+      max-width:1200px;
       margin:auto;
       display:flex;
-      justify-content:space-between;
       align-items:center;
+      justify-content:space-between;
+      gap:20px;
     }
 
     .logo{
-      color:#16e0a5;
-      font-size:22px;
-      font-weight:bold;
+      font-size:24px;
+      font-weight:800;
+      color:#102a43;
+    }
+
+    .logo span{
+      color:#12a879;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:20px;
+    }
+
+    .nav-links a{
+      color:#173b63;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .nav-links a:hover{
+      color:#12a879;
     }
 
     .logout{
-      background:#e74c3c;
+      background:#ff3b3b;
       color:white;
-      border:0;
-      padding:9px 15px;
-      border-radius:8px;
+      border:none;
+      padding:11px 18px;
+      border-radius:10px;
+      font-weight:bold;
       cursor:pointer;
     }
 
+    /* MAIN */
     .container{
-      max-width:1000px;
+      max-width:1200px;
       margin:auto;
       padding:30px 18px;
     }
 
+    /* WELCOME */
     .welcome{
-      text-align:center;
-      margin-bottom:30px;
-    }
+      background:linear-gradient(
+        120deg,
+        #e9fbf5,
+        #f3faff
+      );
 
-    .welcome h1{
-      font-size:32px;
-      margin-bottom:8px;
-    }
-
-    .welcome p{
-      color:#aebdca;
-    }
-
-    .student-card{
-      background:#0d1d2e;
-      border:1px solid #17334b;
-      border-radius:18px;
-      padding:25px;
+      border:1px solid #cdeee4;
+      border-radius:22px;
+      padding:32px;
       margin-bottom:25px;
     }
 
-    .student-card h2{
-      color:#16e0a5;
+    .welcome h1{
+      font-size:34px;
+      color:#102a43;
+      margin-bottom:5px;
+    }
+
+    .welcome h1 span{
+      color:#0da87a;
+    }
+
+    .welcome p{
+      color:#58708a;
+      font-size:17px;
+    }
+
+    /* STUDENT INFORMATION */
+    .student-section{
+      background:#ffffff;
+      border:1px solid #dbe9f2;
+      border-radius:22px;
+      padding:25px;
+      margin-bottom:28px;
+      box-shadow:0 8px 30px rgba(20,50,80,.05);
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      gap:12px;
       margin-bottom:20px;
     }
 
-    .info{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:15px;
+    .section-title .icon{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      background:#e6f4ff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:27px;
     }
 
-    .info-box{
-      background:#091827;
-      border-radius:12px;
+    .section-title h2{
+      color:#102a43;
+      font-size:27px;
+    }
+
+    .section-title p{
+      color:#70849a;
+      font-size:14px;
+    }
+
+    /* FORM */
+    .student-form{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    .form-box{
+      background:#f8fbfd;
+      border:1px solid #dceaf2;
+      border-radius:14px;
       padding:15px;
     }
 
-    .label{
-      color:#8296a8;
+    .form-box label{
+      display:block;
+      color:#607890;
+      font-size:13px;
+      margin-bottom:7px;
+      font-weight:600;
+    }
+
+    .form-box input{
+      width:100%;
+      border:1px solid #d2e1eb;
+      background:white;
+      padding:12px;
+      border-radius:9px;
+      color:#102a43;
+      font-size:15px;
+      outline:none;
+    }
+
+    .form-box input:focus{
+      border-color:#12a879;
+      box-shadow:0 0 0 3px rgba(18,168,121,.10);
+    }
+
+    .save-btn{
+      margin-top:18px;
+      background:#12a879;
+      color:white;
+      border:none;
+      padding:12px 22px;
+      border-radius:10px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .save-btn:hover{
+      background:#0d956a;
+    }
+
+    /* PROFILE RESULT */
+    .profile{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:15px;
+      margin-top:20px;
+    }
+
+    .profile-box{
+      background:#ffffff;
+      border:1px solid #dce9f1;
+      border-radius:14px;
+      padding:16px;
+    }
+
+    .profile-label{
+      color:#71869a;
       font-size:13px;
       margin-bottom:4px;
     }
 
-    .value{
-      color:white;
+    .profile-value{
+      color:#102a43;
+      font-size:17px;
       font-weight:bold;
+      word-break:break-word;
     }
 
-    .course-card{
-      background:#0d1d2e;
-      border:2px solid #16e0a5;
-      border-radius:20px;
-      padding:28px;
+    /* LESSON AREA */
+    .lessons-section{
+      background:#ffffff;
+      border:1px solid #dbe9f2;
+      border-radius:22px;
+      padding:25px;
+      box-shadow:0 8px 30px rgba(20,50,80,.05);
     }
 
-    .course-card h2{
-      color:#16e0a5;
-      margin-bottom:10px;
+    .lessons-section h2{
+      color:#102a43;
+      font-size:27px;
     }
 
-    .course-card p{
-      color:#c8d5df;
-      margin-bottom:20px;
+    .lessons-description{
+      color:#637b91;
+      margin:5px 0 22px;
     }
 
-    .lesson{
-      background:#091827;
-      border-radius:15px;
-      padding:20px;
-      margin-top:15px;
-      border:1px solid #17334b;
+    .lessons{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
     }
 
-    .lesson h3{
+    .lesson-card{
+      background:#f8fcff;
+      border:1px solid #d6e8f4;
+      border-radius:18px;
+      padding:23px;
+      transition:.2s;
+    }
+
+    .lesson-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 25px rgba(20,60,90,.08);
+    }
+
+    .lesson-icon{
+      width:65px;
+      height:65px;
+      border-radius:18px;
+      background:linear-gradient(
+        135deg,
+        #18b6e8,
+        #6c5ce7
+      );
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:30px;
+      margin-bottom:15px;
+    }
+
+    .lesson-card h3{
+      color:#102a43;
+      font-size:22px;
       margin-bottom:8px;
     }
 
-    .lesson p{
-      margin-bottom:15px;
+    .lesson-card p{
+      color:#607890;
+      margin-bottom:18px;
     }
 
     .btn{
       display:inline-block;
-      background:#16e0a5;
-      color:#06111b;
       text-decoration:none;
-      font-weight:bold;
       padding:12px 20px;
       border-radius:10px;
-      border:0;
+      font-weight:bold;
       cursor:pointer;
     }
 
-    .btn:hover{
-      opacity:.85;
+    .btn-primary{
+      background:#12a879;
+      color:white;
     }
 
+    .btn-primary:hover{
+      background:#0d956a;
+    }
+
+    .btn-secondary{
+      background:white;
+      color:#0875d1;
+      border:1px solid #0875d1;
+    }
+
+    .btn-secondary:hover{
+      background:#eef8ff;
+    }
+
+    /* MOTIVATION */
+    .motivation{
+      margin-top:25px;
+      background:#f0f8ff;
+      border:1px solid #d5e9f7;
+      border-radius:18px;
+      padding:22px;
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .motivation-icon{
+      font-size:35px;
+    }
+
+    .motivation h3{
+      color:#102a43;
+      margin-bottom:3px;
+    }
+
+    .motivation p{
+      color:#607890;
+    }
+
+    /* FOOTER */
     footer{
       text-align:center;
-      color:#718596;
+      color:#71869a;
       padding:30px 15px;
-      margin-top:30px;
     }
 
-    @media(max-width:600px){
-      .info{
+    /* MOBILE */
+    @media(max-width:800px){
+
+      .nav-links{
+        display:none;
+      }
+
+      .student-form{
+        grid-template-columns:1fr;
+      }
+
+      .profile{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .lessons{
         grid-template-columns:1fr;
       }
 
       .welcome h1{
-        font-size:26px;
+        font-size:28px;
+      }
+    }
+
+    @media(max-width:500px){
+
+      .container{
+        padding:20px 12px;
+      }
+
+      .welcome{
+        padding:22px;
+      }
+
+      .welcome h1{
+        font-size:25px;
+      }
+
+      .student-section,
+      .lessons-section{
+        padding:18px;
+      }
+
+      .profile{
+        grid-template-columns:1fr;
       }
 
       .logo{
-        font-size:18px;
+        font-size:20px;
+      }
+
+      .logout{
+        padding:9px 13px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
+<!-- HEADER -->
 <header>
+
   <div class="nav">
 
     <div class="logo">
-      KENA DESIGN
+      KENA <span>DESIGN</span>
+    </div>
+
+    <div class="nav-links">
+
+      <a href="dashboard.html">
+        🏠 Dashboard
+      </a>
+
+      <a href="lesson.html">
+        📖 Lesson 1
+      </a>
+
+      <a href="lesson2.html">
+        🔤 Lesson 2
+      </a>
+
     </div>
 
     <button
@@ -193,6 +450,7 @@
     </button>
 
   </div>
+
 </header>
 
 
@@ -200,72 +458,169 @@
 
   <div class="container">
 
-    <!-- WELCOME -->
-    <div class="welcome">
 
-      <h1>Student Dashboard</h1>
+    <!-- WELCOME -->
+    <section class="welcome">
+
+      <h1>
+        Baga nagaan dhuftan
+        <span id="welcomeName">Barataa!</span>
+      </h1>
 
       <p>
-        Baga nagaan dhuftan gara KENA DESIGN Learning Platform
+        KENA DESIGN Learning Platform irratti
+        barnoota kee jalqabi.
       </p>
 
-    </div>
+    </section>
 
 
     <!-- STUDENT INFORMATION -->
-    <div class="student-card">
+    <section class="student-section">
 
-      <h2>👨‍🎓 Odeeffannoo Barataa</h2>
+      <div class="section-title">
 
-      <div class="info">
+        <div class="icon">
+          👨‍🎓
+        </div>
 
-        <div class="info-box">
-          <div class="label">
+        <div>
+          <h2>
+            Odeeffannoo Barataa
+          </h2>
+
+          <p>
+            Maqaa fi odeeffannoo kee guuti
+          </p>
+        </div>
+
+      </div>
+
+
+      <!-- FORM -->
+      <div class="student-form">
+
+        <div class="form-box">
+
+          <label>
+            Maqaa Guutuu
+          </label>
+
+          <input
+            type="text"
+            id="nameInput"
+            placeholder="Maqaa kee guutuu galchi">
+
+        </div>
+
+
+        <div class="form-box">
+
+          <label>
+            Course
+          </label>
+
+          <input
+            type="text"
+            id="courseInput"
+            value="KENA DESIGN">
+
+        </div>
+
+
+        <div class="form-box">
+
+          <label>
+            Lakkoofsa Bilbila
+          </label>
+
+          <input
+            type="tel"
+            id="phoneInput"
+            placeholder="Lakkoofsa bilbila galchi">
+
+        </div>
+
+
+        <div class="form-box">
+
+          <label>
+            Kaffaltii
+          </label>
+
+          <input
+            type="text"
+            id="paymentInput"
+            value="Paid">
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="save-btn"
+        onclick="saveStudent()">
+        💾 Odeeffannoo Olkaa'i
+      </button>
+
+
+      <!-- PROFILE -->
+      <div class="profile">
+
+        <div class="profile-box">
+
+          <div class="profile-label">
             Maqaa Guutuu
           </div>
 
           <div
-            class="value"
+            class="profile-value"
             id="studentName">
             Barataa
           </div>
+
         </div>
 
 
-        <div class="info-box">
-          <div class="label">
+        <div class="profile-box">
+
+          <div class="profile-label">
             Course
           </div>
 
           <div
-            class="value"
+            class="profile-value"
             id="studentCourse">
             KENA DESIGN
           </div>
+
         </div>
 
 
-        <div class="info-box">
-          <div class="label">
+        <div class="profile-box">
+
+          <div class="profile-label">
             Bilbila
           </div>
 
           <div
-            class="value"
+            class="profile-value"
             id="studentPhone">
             -
           </div>
+
         </div>
 
 
-        <div class="info-box">
+        <div class="profile-box">
 
-          <div class="label">
+          <div class="profile-label">
             Kaffaltii
           </div>
 
           <div
-            class="value"
+            class="profile-value"
             id="studentPayment">
             Paid
           </div>
@@ -273,81 +628,136 @@
         </div>
 
 
-        <div class="info-box">
+        <div class="profile-box">
 
-          <div class="label">
+          <div class="profile-label">
             Learning Access
           </div>
 
           <div
-            class="value"
-            id="learningAccess">
-            Active
+            class="profile-value">
+            🟢 Active
           </div>
 
         </div>
 
       </div>
 
-    </div>
+    </section>
 
 
     <!-- LESSONS -->
-    <div class="course-card">
+    <section class="lessons-section">
 
-      <h2>📚 Barnoota Kee</h2>
+      <div class="section-title">
 
-      <p>
-        Barnoota KENA DESIGN jalqabuuf Lesson 1 irraa eegali.
-        Erga Lesson 1 xumurtee booda gara Lesson 2tti ceeta.
+        <div class="icon">
+          📚
+        </div>
+
+        <div>
+
+          <h2>
+            Barnoota Kee
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <p class="lessons-description">
+        KENA DESIGN barnoota dijitaalaa waliin gara
+        beekumsa guddaatti si geessa.
       </p>
 
 
-      <!-- LESSON 1 -->
-      <div class="lesson">
-
-        <h3>
-          🎨 Lesson 1 - PixelLab
-        </h3>
-
-        <p>
-          PixelLab fayyadamuun text, image, background,
-          effect fi poster design hojjechuu baradhu.
-        </p>
+      <div class="lessons">
 
 
-        <!-- IMPORTANT LINK -->
-        <a
-          href="lesson.html"
-          class="btn">
-          📚 Barnoota Jalqabi
-        </a>
+        <!-- LESSON 1 -->
+        <div class="lesson-card">
+
+          <div class="lesson-icon">
+            P
+          </div>
+
+          <h3>
+            Lesson 1 - PixelLab
+          </h3>
+
+          <p>
+            PixelLab fayyadamuun text, image,
+            background, effect fi poster design
+            hojjechuu baradhu.
+          </p>
+
+
+          <!-- LINK TO LESSON 1 -->
+          <a
+            href="lesson.html"
+            class="btn btn-primary">
+
+            📖 Barnoota Jalqabi →
+          </a>
+
+        </div>
+
+
+        <!-- LESSON 2 -->
+        <div class="lesson-card">
+
+          <div class="lesson-icon">
+            Aa
+          </div>
+
+          <h3>
+            Lesson 2 - Font Haaraa
+          </h3>
+
+          <p>
+            PixelLab keessatti font haaraa galchuu
+            fi itti fayyadamuu baradhu.
+          </p>
+
+
+          <!-- LINK TO LESSON 2 -->
+          <a
+            href="lesson2.html"
+            class="btn btn-secondary">
+
+            → Lesson 2 Ilaali
+          </a>
+
+        </div>
 
       </div>
 
 
-      <!-- LESSON 2 -->
-      <div class="lesson">
+      <!-- MOTIVATION -->
+      <div class="motivation">
 
-        <h3>
-          🔤 Lesson 2 - Font Haaraa
-        </h3>
+        <div class="motivation-icon">
+          🎯
+        </div>
 
-        <p>
-          PixelLab keessatti font haaraa galchuu fi
-          itti fayyadamuu baradhu.
-        </p>
+        <div>
 
+          <h3>
+            Milkaa'ina!
+          </h3>
 
-        <a
-          href="lesson2.html"
-          class="btn">
-          ➡️ Lesson 2 Ilaali
-        </a>
+          <p>
+            Amma Lesson 1 fi 2 hundaa barachuu
+            dandeesseetta. Gara design kee gaarii fi
+            bareedaa jaajjuutti itti fufi.
+          </p>
+
+        </div>
 
       </div>
 
-    </div>
+    </section>
 
   </div>
 
@@ -363,75 +773,194 @@
 
 <script>
 
-  /*
-    Student information
-    localStorage irraa dubbisa.
-  */
+  /* =========================
+     LOAD STUDENT INFORMATION
+     ========================= */
 
-  const name =
-    localStorage.getItem("studentName");
+  function loadStudent(){
 
-  const course =
-    localStorage.getItem("studentCourse");
+    const name =
+      localStorage.getItem("studentName");
 
-  const phone =
-    localStorage.getItem("studentPhone");
+    const course =
+      localStorage.getItem("studentCourse");
 
-  const payment =
-    localStorage.getItem("studentPayment");
+    const phone =
+      localStorage.getItem("studentPhone");
+
+    const payment =
+      localStorage.getItem("studentPayment");
 
 
-  if(name){
+    if(name){
+
+      document.getElementById(
+        "nameInput"
+      ).value = name;
+
+      document.getElementById(
+        "studentName"
+      ).textContent = name;
+
+      document.getElementById(
+        "welcomeName"
+      ).textContent = name + "!";
+
+    }
+
+
+    if(course){
+
+      document.getElementById(
+        "courseInput"
+      ).value = course;
+
+      document.getElementById(
+        "studentCourse"
+      ).textContent = course;
+
+    }
+
+
+    if(phone){
+
+      document.getElementById(
+        "phoneInput"
+      ).value = phone;
+
+      document.getElementById(
+        "studentPhone"
+      ).textContent = phone;
+
+    }
+
+
+    if(payment){
+
+      document.getElementById(
+        "paymentInput"
+      ).value = payment;
+
+      document.getElementById(
+        "studentPayment"
+      ).textContent = payment;
+
+    }
+
+  }
+
+
+  /* =========================
+     SAVE STUDENT INFORMATION
+     ========================= */
+
+  function saveStudent(){
+
+    const name =
+      document.getElementById(
+        "nameInput"
+      ).value.trim();
+
+    const course =
+      document.getElementById(
+        "courseInput"
+      ).value.trim();
+
+    const phone =
+      document.getElementById(
+        "phoneInput"
+      ).value.trim();
+
+    const payment =
+      document.getElementById(
+        "paymentInput"
+      ).value.trim();
+
+
+    if(name === ""){
+
+      alert(
+        "Maaloo maqaa kee guutuu galchi."
+      );
+
+      return;
+    }
+
+
+    localStorage.setItem(
+      "studentName",
+      name
+    );
+
+    localStorage.setItem(
+      "studentCourse",
+      course
+    );
+
+    localStorage.setItem(
+      "studentPhone",
+      phone
+    );
+
+    localStorage.setItem(
+      "studentPayment",
+      payment
+    );
+
 
     document.getElementById(
       "studentName"
     ).textContent = name;
 
-  }
-
-
-  if(course){
 
     document.getElementById(
       "studentCourse"
     ).textContent = course;
 
-  }
-
-
-  if(phone){
 
     document.getElementById(
       "studentPhone"
     ).textContent = phone;
 
-  }
-
-
-  if(payment){
 
     document.getElementById(
       "studentPayment"
     ).textContent = payment;
 
+
+    document.getElementById(
+      "welcomeName"
+    ).textContent = name + "!";
+
+
+    alert(
+      "Odeeffannoon kee sirriitti olkaa'ameera."
+    );
+
   }
 
 
-  /*
-    Logout
-  */
+  /* =========================
+     LOGOUT
+     ========================= */
 
   function logout(){
-
-    localStorage.removeItem("studentName");
-    localStorage.removeItem("studentCourse");
-    localStorage.removeItem("studentPhone");
-    localStorage.removeItem("studentPayment");
 
     window.location.href =
       "login.html";
 
   }
+
+
+  /* =========================
+     START
+     ========================= */
+
+  window.onload = function(){
+
+    loadStudent();
+
+  };
 
 </script>
 

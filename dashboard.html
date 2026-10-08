@@ -4,289 +4,436 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Student Dashboard - Kena Design</title>
+  <title>KENA DESIGN - Student Dashboard</title>
 
   <style>
-    * {
-      box-sizing: border-box;
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f5f9;
-      color: #222;
+    body{
+      font-family:Arial,sans-serif;
+      background:#07111d;
+      color:white;
+      min-height:100vh;
     }
 
-    .header {
-      background: #0066ff;
-      color: white;
-      padding: 20px;
-      text-align: center;
+    header{
+      background:#0b1724;
+      border-bottom:1px solid #16e0a5;
+      padding:18px 20px;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 25px;
+    .nav{
+      max-width:1100px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
     }
 
-    .header p {
-      margin: 8px 0 0;
-      font-size: 15px;
+    .logo{
+      color:#16e0a5;
+      font-size:22px;
+      font-weight:bold;
     }
 
-    .container {
-      width: 92%;
-      max-width: 600px;
-      margin: 25px auto;
+    .logout{
+      background:#e74c3c;
+      color:white;
+      border:0;
+      padding:9px 15px;
+      border-radius:8px;
+      cursor:pointer;
     }
 
-    .welcome {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:30px 18px;
     }
 
-    .welcome h2 {
-      margin-top: 0;
-      color: #0066ff;
+    .welcome{
+      text-align:center;
+      margin-bottom:30px;
     }
 
-    .info-card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    .welcome h1{
+      font-size:32px;
+      margin-bottom:8px;
     }
 
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 12px 0;
-      border-bottom: 1px solid #eee;
+    .welcome p{
+      color:#aebdca;
     }
 
-    .info-row:last-child {
-      border-bottom: none;
+    .student-card{
+      background:#0d1d2e;
+      border:1px solid #17334b;
+      border-radius:18px;
+      padding:25px;
+      margin-bottom:25px;
     }
 
-    .label {
-      font-weight: bold;
-      color: #555;
+    .student-card h2{
+      color:#16e0a5;
+      margin-bottom:20px;
     }
 
-    .value {
-      text-align: right;
-      color: #111;
+    .info{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px;
     }
 
-    .paid {
-      color: green;
-      font-weight: bold;
+    .info-box{
+      background:#091827;
+      border-radius:12px;
+      padding:15px;
     }
 
-    .active {
-      color: green;
-      font-weight: bold;
+    .label{
+      color:#8296a8;
+      font-size:13px;
+      margin-bottom:4px;
     }
 
-    .lesson-card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    .value{
+      color:white;
+      font-weight:bold;
     }
 
-    .lesson-card h2 {
-      margin-top: 0;
-      color: #0066ff;
+    .course-card{
+      background:#0d1d2e;
+      border:2px solid #16e0a5;
+      border-radius:20px;
+      padding:28px;
     }
 
-    .lesson-card p {
-      line-height: 1.6;
-      color: #555;
+    .course-card h2{
+      color:#16e0a5;
+      margin-bottom:10px;
     }
 
-    .lesson-btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 8px;
-      background: #0066ff;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      margin-top: 15px;
+    .course-card p{
+      color:#c8d5df;
+      margin-bottom:20px;
     }
 
-    .lesson-btn:hover {
-      background: #0052cc;
+    .lesson{
+      background:#091827;
+      border-radius:15px;
+      padding:20px;
+      margin-top:15px;
+      border:1px solid #17334b;
     }
 
-    .logout-btn {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 8px;
-      background: #e53935;
-      color: white;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
+    .lesson h3{
+      margin-bottom:8px;
     }
 
-    .logout-btn:hover {
-      background: #c62828;
+    .lesson p{
+      margin-bottom:15px;
     }
 
-    .footer {
-      text-align: center;
-      padding: 20px;
-      color: #777;
-      font-size: 14px;
+    .btn{
+      display:inline-block;
+      background:#16e0a5;
+      color:#06111b;
+      text-decoration:none;
+      font-weight:bold;
+      padding:12px 20px;
+      border-radius:10px;
+      border:0;
+      cursor:pointer;
+    }
+
+    .btn:hover{
+      opacity:.85;
+    }
+
+    footer{
+      text-align:center;
+      color:#718596;
+      padding:30px 15px;
+      margin-top:30px;
+    }
+
+    @media(max-width:600px){
+      .info{
+        grid-template-columns:1fr;
+      }
+
+      .welcome h1{
+        font-size:26px;
+      }
+
+      .logo{
+        font-size:18px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="header">
-    <h1>🎨 KENA DESIGN</h1>
-    <p>Student Dashboard</p>
+<header>
+  <div class="nav">
+
+    <div class="logo">
+      KENA DESIGN
+    </div>
+
+    <button
+      class="logout"
+      onclick="logout()">
+      Logout
+    </button>
+
   </div>
+</header>
+
+
+<main>
 
   <div class="container">
 
+    <!-- WELCOME -->
     <div class="welcome">
-      <h2>🎓 Baga Nagaan Dhuftan</h2>
-      <p id="welcomeText">
-        Student Dashboard keessanitti baga nagaan dhuftan.
+
+      <h1>Student Dashboard</h1>
+
+      <p>
+        Baga nagaan dhuftan gara KENA DESIGN Learning Platform
       </p>
-    </div>
-
-    <div class="info-card">
-
-      <div class="info-row">
-        <span class="label">Maqaa:</span>
-        <span class="value" id="fullname">-</span>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Course:</span>
-        <span class="value" id="course">-</span>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Phone:</span>
-        <span class="value" id="phone">-</span>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Payment:</span>
-        <span class="value paid" id="payment">-</span>
-      </div>
-
-      <div class="info-row">
-        <span class="label">Learning Access:</span>
-        <span class="value active" id="access">-</span>
-      </div>
 
     </div>
 
-    <div class="lesson-card">
+
+    <!-- STUDENT INFORMATION -->
+    <div class="student-card">
+
+      <h2>👨‍🎓 Odeeffannoo Barataa</h2>
+
+      <div class="info">
+
+        <div class="info-box">
+          <div class="label">
+            Maqaa Guutuu
+          </div>
+
+          <div
+            class="value"
+            id="studentName">
+            Barataa
+          </div>
+        </div>
+
+
+        <div class="info-box">
+          <div class="label">
+            Course
+          </div>
+
+          <div
+            class="value"
+            id="studentCourse">
+            KENA DESIGN
+          </div>
+        </div>
+
+
+        <div class="info-box">
+          <div class="label">
+            Bilbila
+          </div>
+
+          <div
+            class="value"
+            id="studentPhone">
+            -
+          </div>
+        </div>
+
+
+        <div class="info-box">
+
+          <div class="label">
+            Kaffaltii
+          </div>
+
+          <div
+            class="value"
+            id="studentPayment">
+            Paid
+          </div>
+
+        </div>
+
+
+        <div class="info-box">
+
+          <div class="label">
+            Learning Access
+          </div>
+
+          <div
+            class="value"
+            id="learningAccess">
+            Active
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- LESSONS -->
+    <div class="course-card">
 
       <h2>📚 Barnoota Kee</h2>
 
       <p>
-        Course kee keessatti barnoota jalqabuu fi itti fufuuf
-        button armaan gadii cuqaasi.
+        Barnoota KENA DESIGN jalqabuuf Lesson 1 irraa eegali.
+        Erga Lesson 1 xumurtee booda gara Lesson 2tti ceeta.
       </p>
 
-      <a
-        class="lesson-btn"
-        href="https://ameegizachew-kena.github.io/kena-design-/student.html"
-        target="_blank"
-        rel="noopener"
-      >
-        📚 Barnoota Jalqabi
-      </a>
+
+      <!-- LESSON 1 -->
+      <div class="lesson">
+
+        <h3>
+          🎨 Lesson 1 - PixelLab
+        </h3>
+
+        <p>
+          PixelLab fayyadamuun text, image, background,
+          effect fi poster design hojjechuu baradhu.
+        </p>
+
+
+        <!-- IMPORTANT LINK -->
+        <a
+          href="lesson.html"
+          class="btn">
+          📚 Barnoota Jalqabi
+        </a>
+
+      </div>
+
+
+      <!-- LESSON 2 -->
+      <div class="lesson">
+
+        <h3>
+          🔤 Lesson 2 - Font Haaraa
+        </h3>
+
+        <p>
+          PixelLab keessatti font haaraa galchuu fi
+          itti fayyadamuu baradhu.
+        </p>
+
+
+        <a
+          href="lesson2.html"
+          class="btn">
+          ➡️ Lesson 2 Ilaali
+        </a>
+
+      </div>
 
     </div>
 
-    <button class="logout-btn" onclick="logout()">
-      🚪 Logout
-    </button>
-
   </div>
 
-  <div class="footer">
-    © 2026 Kena Design
-  </div>
+</main>
 
 
-  <script>
+<footer>
 
-    // Student information localStorage keessaa fudhata
-    const loggedIn = localStorage.getItem("loggedIn");
-    const studentData = localStorage.getItem("student");
+  © 2026 KENA DESIGN • Learning Platform
 
-    // Yoo login hin taane gara loginitti deebisa
-    if (loggedIn !== "true" || !studentData) {
-      window.location.href = "login.html";
-    }
-
-    try {
-
-      const student = JSON.parse(studentData);
-
-      document.getElementById("fullname").textContent =
-        student.fullname || "-";
-
-      document.getElementById("course").textContent =
-        student.course || "-";
-
-      document.getElementById("phone").textContent =
-        student.phone || "-";
-
-      document.getElementById("payment").textContent =
-        student.payment_status || "-";
-
-      document.getElementById("access").textContent =
-        student.learning_access ? "Active" : "Inactive";
-
-      document.getElementById("welcomeText").textContent =
-        "Baga Nagaan Dhuftan, " +
-        (student.fullname || "Student") +
-        "!";
-
-    } catch (error) {
-
-      console.log("Student data error:", error);
-
-      localStorage.removeItem("student");
-      localStorage.removeItem("loggedIn");
-
-      window.location.href = "login.html";
-    }
+</footer>
 
 
-    // Logout
-    function logout() {
+<script>
 
-      localStorage.removeItem("student");
-      localStorage.removeItem("loggedIn");
+  /*
+    Student information
+    localStorage irraa dubbisa.
+  */
 
-      window.location.href = "login.html";
-    }
+  const name =
+    localStorage.getItem("studentName");
 
-  </script>
+  const course =
+    localStorage.getItem("studentCourse");
+
+  const phone =
+    localStorage.getItem("studentPhone");
+
+  const payment =
+    localStorage.getItem("studentPayment");
+
+
+  if(name){
+
+    document.getElementById(
+      "studentName"
+    ).textContent = name;
+
+  }
+
+
+  if(course){
+
+    document.getElementById(
+      "studentCourse"
+    ).textContent = course;
+
+  }
+
+
+  if(phone){
+
+    document.getElementById(
+      "studentPhone"
+    ).textContent = phone;
+
+  }
+
+
+  if(payment){
+
+    document.getElementById(
+      "studentPayment"
+    ).textContent = payment;
+
+  }
+
+
+  /*
+    Logout
+  */
+
+  function logout(){
+
+    localStorage.removeItem("studentName");
+    localStorage.removeItem("studentCourse");
+    localStorage.removeItem("studentPhone");
+    localStorage.removeItem("studentPayment");
+
+    window.location.href =
+      "login.html";
+
+  }
+
+</script>
 
 </body>
 </html>

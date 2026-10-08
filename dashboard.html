@@ -1,721 +1,547 @@
 <!DOCTYPE html>
 <html lang="om">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>KENA DESIGN - Dashboard</title>
+<title>KENA DESIGN - Dashboard</title>
 
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+<style>
 
-    body{
-      font-family:Arial,sans-serif;
-      background:#f5f9fc;
-      color:#102a43;
-      line-height:1.6;
-    }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-    header{
-      background:#ffffff;
-      border-bottom:1px solid #dce8f0;
-      padding:16px 20px;
-      position:sticky;
-      top:0;
-      z-index:100;
-      box-shadow:0 3px 15px rgba(20,50,80,.06);
-    }
+body{
+font-family:Arial,sans-serif;
+background:#f5f9fc;
+color:#102a43;
+line-height:1.6;
+}
 
-    .nav{
-      max-width:1200px;
-      margin:auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
+header{
+background:white;
+border-bottom:1px solid #dce8f0;
+padding:16px 20px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 3px 15px rgba(20,50,80,.06);
+}
 
-    .logo{
-      font-size:24px;
-      font-weight:800;
-      color:#102a43;
-    }
+.nav{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
 
-    .logo span{
-      color:#12a879;
-    }
+.logo{
+font-size:24px;
+font-weight:800;
+color:#102a43;
+}
 
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:20px;
-    }
+.logo span{
+color:#12a879;
+}
 
-    .nav-links a{
-      color:#173b63;
-      text-decoration:none;
-      font-weight:600;
-    }
+.logout{
+background:#ff3b3b;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:12px;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
+}
 
-    .nav-links a:hover{
-      color:#12a879;
-    }
+.container{
+max-width:1200px;
+margin:auto;
+padding:30px 18px;
+}
 
-    .logout{
-      background:#ff3b3b;
-      color:white;
-      border:none;
-      padding:11px 18px;
-      border-radius:10px;
-      font-weight:bold;
-      cursor:pointer;
-    }
+/* WELCOME */
 
-    .container{
-      max-width:1200px;
-      margin:auto;
-      padding:30px 18px;
-    }
+.welcome{
+background:linear-gradient(
+120deg,
+#e9fbf5,
+#f3faff
+);
 
-    /* WELCOME */
+border:1px solid #cdeee4;
+border-radius:22px;
+padding:32px;
+margin-bottom:25px;
+}
 
-    .welcome{
-      background:linear-gradient(120deg,#e9fbf5,#f3faff);
-      border:1px solid #cdeee4;
-      border-radius:22px;
-      padding:32px;
-      margin-bottom:25px;
-    }
+.welcome h1{
+font-size:34px;
+color:#102a43;
+}
 
-    .welcome h1{
-      font-size:34px;
-      color:#102a43;
-      margin-bottom:5px;
-    }
+.welcome h1 span{
+color:#0da87a;
+}
 
-    .welcome h1 span{
-      color:#0da87a;
-    }
+.welcome p{
+color:#58708a;
+font-size:17px;
+margin-top:8px;
+}
 
-    .welcome p{
-      color:#58708a;
-      font-size:17px;
-    }
+/* STUDENT INFORMATION */
 
+.student-info{
+background:white;
+border:1px solid #dbe9f2;
+border-radius:22px;
+padding:25px;
+margin-bottom:28px;
+box-shadow:0 8px 30px rgba(20,50,80,.05);
+}
 
-    /* STUDENT INFORMATION */
+.student-info h2{
+font-size:27px;
+margin-bottom:20px;
+}
 
-    .student-info{
-      margin-top:20px;
-      display:grid;
-      gap:10px;
-    }
+.info-box{
+background:#f8fbfd;
+border:1px solid #dceaf2;
+border-radius:14px;
+padding:18px;
+margin-bottom:14px;
+}
 
-    .info-box{
-      background:white;
-      border:1px solid #dce9f1;
-      border-radius:12px;
-      padding:13px 16px;
-      color:#58708a;
-    }
+.info-label{
+color:#71869a;
+font-size:14px;
+margin-bottom:5px;
+}
 
-    .info-box strong{
-      color:#102a43;
-      margin-right:5px;
-    }
+.info-value{
+font-size:20px;
+font-weight:bold;
+color:#102a43;
+}
 
+/* LESSONS */
 
-    /* LESSON SECTION */
+.lessons-section{
+background:white;
+border:1px solid #dbe9f2;
+border-radius:22px;
+padding:25px;
+box-shadow:0 8px 30px rgba(20,50,80,.05);
+}
 
-    .lessons-section{
-      background:#ffffff;
-      border:1px solid #dbe9f2;
-      border-radius:22px;
-      padding:25px;
-      box-shadow:0 8px 30px rgba(20,50,80,.05);
-    }
+.lessons-section h2{
+font-size:27px;
+}
 
-    .section-title{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:10px;
-    }
+.description{
+color:#637b91;
+margin:5px 0 22px;
+}
 
-    .section-title .icon{
-      width:52px;
-      height:52px;
-      border-radius:50%;
-      background:#e6f4ff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:27px;
-    }
+.lesson-card{
+background:#f8fcff;
+border:1px solid #d6e8f4;
+border-radius:18px;
+padding:23px;
+margin-bottom:20px;
+}
 
-    .section-title h2{
-      color:#102a43;
-      font-size:27px;
-    }
+.lesson-icon{
+width:65px;
+height:65px;
+border-radius:18px;
+background:linear-gradient(
+135deg,
+#18b6e8,
+#6c5ce7
+);
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:30px;
+margin-bottom:15px;
+}
 
-    .lessons-description{
-      color:#637b91;
-      margin:5px 0 22px;
-    }
+.lesson-card h3{
+font-size:22px;
+margin-bottom:8px;
+}
 
-    .lessons{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
-    }
+.lesson-card p{
+color:#607890;
+margin-bottom:18px;
+}
 
-    .lesson-card{
-      background:#f8fcff;
-      border:1px solid #d6e8f4;
-      border-radius:18px;
-      padding:23px;
-      transition:.2s;
-    }
+.btn{
+display:inline-block;
+text-decoration:none;
+padding:12px 20px;
+border-radius:10px;
+font-weight:bold;
+}
 
-    .lesson-card:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 25px rgba(20,60,90,.08);
-    }
+.btn-primary{
+background:#12a879;
+color:white;
+}
 
-    .lesson-icon{
-      width:65px;
-      height:65px;
-      border-radius:18px;
-      background:linear-gradient(135deg,#18b6e8,#6c5ce7);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-size:30px;
-      margin-bottom:15px;
-    }
+.btn-secondary{
+background:white;
+color:#0875d1;
+border:1px solid #0875d1;
+}
 
-    .lesson-card h3{
-      color:#102a43;
-      font-size:22px;
-      margin-bottom:8px;
-    }
+footer{
+text-align:center;
+color:#71869a;
+padding:30px 15px;
+}
 
-    .lesson-card p{
-      color:#607890;
-      margin-bottom:18px;
-    }
+@media(max-width:600px){
 
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      padding:12px 20px;
-      border-radius:10px;
-      font-weight:bold;
-      cursor:pointer;
-    }
+.welcome h1{
+font-size:28px;
+}
 
-    .btn-primary{
-      background:#12a879;
-      color:white;
-    }
+.container{
+padding:20px 12px;
+}
 
-    .btn-primary:hover{
-      background:#0d956a;
-    }
+.student-info,
+.lessons-section{
+padding:18px;
+}
 
-    .btn-secondary{
-      background:white;
-      color:#0875d1;
-      border:1px solid #0875d1;
-    }
+}
 
-    .btn-secondary:hover{
-      background:#eef8ff;
-    }
+</style>
 
-
-    /* MOTIVATION */
-
-    .motivation{
-      margin-top:25px;
-      background:#f0f8ff;
-      border:1px solid #d5e9f7;
-      border-radius:18px;
-      padding:22px;
-      display:flex;
-      align-items:center;
-      gap:15px;
-    }
-
-    .motivation-icon{
-      font-size:35px;
-    }
-
-    .motivation h3{
-      color:#102a43;
-      margin-bottom:3px;
-    }
-
-    .motivation p{
-      color:#607890;
-    }
-
-
-    footer{
-      text-align:center;
-      color:#71869a;
-      padding:30px 15px;
-    }
-
-
-    /* MOBILE */
-
-    @media(max-width:800px){
-
-      .nav-links{
-        display:none;
-      }
-
-      .lessons{
-        grid-template-columns:1fr;
-      }
-
-      .welcome h1{
-        font-size:28px;
-      }
-    }
-
-
-    @media(max-width:500px){
-
-      .container{
-        padding:20px 12px;
-      }
-
-      .welcome{
-        padding:22px;
-      }
-
-      .welcome h1{
-        font-size:25px;
-      }
-
-      .lessons-section{
-        padding:18px;
-      }
-
-      .logo{
-        font-size:20px;
-      }
-
-      .logout{
-        padding:9px 13px;
-      }
-    }
-
-  </style>
 </head>
 
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
 
-  <div class="nav">
+<div class="nav">
 
-    <div class="logo">
-      KENA <span>DESIGN</span>
-    </div>
+<div class="logo">
+KENA <span>DESIGN</span>
+</div>
 
+<button
+class="logout"
+onclick="logout()">
+Logout
+</button>
 
-    <div class="nav-links">
-
-      <a href="dashboard.html">
-        🏠 Dashboard
-      </a>
-
-      <a href="lesson.html">
-        📖 Lesson 1
-      </a>
-
-      <a href="lesson2.html">
-        🔤 Lesson 2
-      </a>
-
-    </div>
-
-
-    <button
-      class="logout"
-      onclick="logout()"
-    >
-      Logout
-    </button>
-
-  </div>
+</div>
 
 </header>
 
 
-
-<!-- MAIN -->
-
 <main>
 
-  <div class="container">
+<div class="container">
 
 
-    <!-- WELCOME -->
+<!-- WELCOME -->
 
-    <section class="welcome">
+<section class="welcome">
 
-      <h1>
+<h1>
+👋 Baga nagaan dhuftan,
+<span id="welcomeName">
+Barataa!
+</span>
+</h1>
 
-        👋 Baga nagaan dhuftan,
+<p>
+KENA DESIGN Learning Platform irratti
+barnoota kee jalqabi.
+</p>
 
-        <span id="welcomeName">
-          Barataa!
-        </span>
+</section>
 
-      </h1>
 
+<!-- STUDENT INFORMATION -->
 
-      <p>
-        KENA DESIGN Learning Platform irratti
-        barnoota kee jalqabi.
-      </p>
+<section class="student-info">
 
+<h2>
+👨‍🎓 Odeeffannoo Barataa
+</h2>
 
-      <!-- STUDENT INFORMATION -->
 
-      <div class="student-info">
+<div class="info-box">
 
+<div class="info-label">
+👤 Maqaa Barataa
+</div>
 
-        <div class="info-box">
+<div
+class="info-value"
+id="studentName">
+-
+</div>
 
-          👤
+</div>
 
-          <strong>
-            Maqaa:
-          </strong>
 
-          <span id="studentName">
-            -
-          </span>
+<div class="info-box">
 
-        </div>
+<div class="info-label">
+👨‍👦 Maqaa Abbaa
+</div>
 
+<div
+class="info-value"
+id="fatherName">
+-
+</div>
 
-        <div class="info-box">
+</div>
 
-          👨
 
-          <strong>
-            Maqaa Abbaa:
-          </strong>
+<div class="info-box">
 
-          <span id="fatherName">
-            -
-          </span>
+<div class="info-label">
+📚 Course
+</div>
 
-        </div>
+<div
+class="info-value"
+id="studentCourse">
+-
+</div>
 
+</div>
 
-        <div class="info-box">
 
-          📱
+<div class="info-box">
 
-          <strong>
-            Bilbila:
-          </strong>
+<div class="info-label">
+📱 Bilbila
+</div>
 
-          <span id="studentPhone">
-            -
-          </span>
+<div
+class="info-value"
+id="studentPhone">
+-
+</div>
 
-        </div>
+</div>
 
 
-      </div>
+</section>
 
-    </section>
 
+<!-- LESSONS -->
 
+<section class="lessons-section">
 
-    <!-- LESSONS -->
+<h2>
+📚 Barnoota Kee
+</h2>
 
-    <section class="lessons-section">
+<p class="description">
+KENA DESIGN barnoota dijitaalaa waliin
+gara beekumsa guddaatti si geessa.
+</p>
 
 
-      <div class="section-title">
+<!-- LESSON 1 -->
 
-        <div class="icon">
-          📚
-        </div>
+<div class="lesson-card">
 
-        <div>
+<div class="lesson-icon">
+P
+</div>
 
-          <h2>
-            Barnoota Kee
-          </h2>
+<h3>
+Lesson 1 - PixelLab
+</h3>
 
-        </div>
+<p>
+PixelLab fayyadamuun text, image,
+background, effect fi poster design
+hojjechuu baradhu.
+</p>
 
-      </div>
+<a
+href="lesson.html"
+class="btn btn-primary">
 
+📖 Barnoota Jalqabi →
 
-      <p class="lessons-description">
+</a>
 
-        KENA DESIGN barnoota dijitaalaa waliin
-        gara beekumsa guddaatti si geessa.
+</div>
 
-      </p>
 
+<!-- LESSON 2 -->
 
+<div class="lesson-card">
 
-      <div class="lessons">
+<div class="lesson-icon">
+Aa
+</div>
 
+<h3>
+Lesson 2 - Font Haaraa
+</h3>
 
-        <!-- LESSON 1 -->
+<p>
+PixelLab keessatti font haaraa galchuu
+fi itti fayyadamuu baradhu.
+</p>
 
-        <div class="lesson-card">
+<a
+href="lesson2.html"
+class="btn btn-secondary">
 
-          <div class="lesson-icon">
-            P
-          </div>
+→ Lesson 2 Ilaali
 
+</a>
 
-          <h3>
-            Lesson 1 - PixelLab
-          </h3>
+</div>
 
 
-          <p>
+</section>
 
-            PixelLab fayyadamuun text, image,
-            background, effect fi poster design
-            hojjechuu baradhu.
 
-          </p>
-
-
-          <a
-            href="lesson.html"
-            class="btn btn-primary"
-          >
-
-            📖 Barnoota Jalqabi →
-
-          </a>
-
-        </div>
-
-
-
-        <!-- LESSON 2 -->
-
-        <div class="lesson-card">
-
-          <div class="lesson-icon">
-            Aa
-          </div>
-
-
-          <h3>
-            Lesson 2 - Font Haaraa
-          </h3>
-
-
-          <p>
-
-            PixelLab keessatti font haaraa
-            galchuu fi itti fayyadamuu baradhu.
-
-          </p>
-
-
-          <a
-            href="lesson2.html"
-            class="btn btn-secondary"
-          >
-
-            → Lesson 2 Ilaali
-
-          </a>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- MOTIVATION -->
-
-      <div class="motivation">
-
-        <div class="motivation-icon">
-          🎯
-        </div>
-
-
-        <div>
-
-          <h3>
-            Milkaa'ina!
-          </h3>
-
-
-          <p>
-
-            Barnoota kee har'a jalqabi;
-            tarkaanfii xiqqoo har'a fudhatte
-            gara milkaa'ina guddaatti si geessa.
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </section>
-
-
-  </div>
+</div>
 
 </main>
 
 
-
-<!-- FOOTER -->
-
 <footer>
 
-  © 2026 KENA DESIGN • Learning Platform
+© 2026 KENA DESIGN • Learning Platform
 
 </footer>
 
 
-
-<!-- JAVASCRIPT -->
-
 <script>
 
-
-/* =====================================================
+/* ================================
    LOAD STUDENT INFORMATION
-   ===================================================== */
+================================ */
 
 function loadStudent(){
 
+const name =
+localStorage.getItem(
+"studentName"
+);
 
-  const name =
-    localStorage.getItem(
-      "studentName"
-    );
+const father =
+localStorage.getItem(
+"fatherName"
+);
 
+const phone =
+localStorage.getItem(
+"studentPhone"
+);
 
-  const father =
-    localStorage.getItem(
-      "fatherName"
-    );
-
-
-  const phone =
-    localStorage.getItem(
-      "studentPhone"
-    );
-
-
-  /* STUDENT NAME */
-
-  if(name){
-
-    document
-      .getElementById(
-        "welcomeName"
-      )
-      .textContent =
-        name + "!";
+const course =
+localStorage.getItem(
+"studentCourse"
+);
 
 
-    document
-      .getElementById(
-        "studentName"
-      )
-      .textContent =
-        name;
+/* MAQAA */
 
-  }
+if(name){
 
+document.getElementById(
+"studentName"
+).textContent = name;
 
-  /* FATHER NAME */
-
-  if(father){
-
-    document
-      .getElementById(
-        "fatherName"
-      )
-      .textContent =
-        father;
-
-  }
-
-
-  /* PHONE */
-
-  if(phone){
-
-    document
-      .getElementById(
-        "studentPhone"
-      )
-      .textContent =
-        phone;
-
-  }
+document.getElementById(
+"welcomeName"
+).textContent = name;
 
 }
 
 
+/* MAQAA ABBAA */
 
-/* =====================================================
+if(father){
+
+document.getElementById(
+"fatherName"
+).textContent = father;
+
+}
+
+
+/* COURSE */
+
+if(course){
+
+document.getElementById(
+"studentCourse"
+).textContent = course;
+
+}
+
+
+/* PHONE */
+
+if(phone){
+
+document.getElementById(
+"studentPhone"
+).textContent = phone;
+
+}
+
+}
+
+
+/* ================================
    LOGOUT
-   ===================================================== */
+================================ */
 
 function logout(){
 
-  window.location.href =
-    "login.html";
+window.location.href =
+"login.html";
 
 }
 
 
-
-/* =====================================================
-   PAGE LOAD
-   ===================================================== */
+/* ================================
+   START
+================================ */
 
 window.onload =
-  function(){
+function(){
 
-    loadStudent();
+loadStudent();
 
-  };
-
+};
 
 </script>
 
 
 </body>
+
 </html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Student Dashboard</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f2f5f9;
+    }
+
+    .header {
+      background: #0066ff;
+      color: white;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 600px;
+      margin: 25px auto;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 14px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .info {
+      margin: 10px 0;
+      padding: 10px;
+      background: #f5f7fa;
+      border-radius: 8px;
+    }
+
+    .logout {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      border-radius: 8px;
+      background: #d62828;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <h2>🎓 Student Dashboard</h2>
+    <p>Learning Platform</p>
+  </div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <h3>👋 Baga Nagaan Dhuftan</h3>
+
+      <div class="info">
+        <strong>Maqaa:</strong>
+        <span id="fullname">Loading...</span>
+      </div>
+
+      <div class="info">
+        <strong>Course:</strong>
+        <span id="course">Loading...</span>
+      </div>
+
+      <div class="info">
+        <strong>Phone:</strong>
+        <span id="phone">Loading...</span>
+      </div>
+
+      <div class="info">
+        <strong>Payment:</strong>
+        <span id="payment">Loading...</span>
+      </div>
+
+      <div class="info">
+        <strong>Learning Access:</strong>
+        <span id="access">Loading...</span>
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h3>📚 Barnoota Kee</h3>
+
+      <p>
+        Course kee keessatti barnoota jalqabuuf
+        as irraa itti fufi.
+      </p>
+
+      <button class="logout" onclick="logout()">
+        🚪 Logout
+      </button>
+
+    </div>
+
+  </div>
+
+
+<script>
+
+  /* =================================
+     CHECK LOGIN
+  ================================= */
+
+  const loggedIn =
+    localStorage.getItem("loggedIn");
+
+  const studentData =
+    localStorage.getItem("student");
+
+
+  if (
+    loggedIn !== "true" ||
+    !studentData
+  ) {
+
+    window.location.href =
+      "login.html";
+
+  }
+
+
+  /* =================================
+     STUDENT DATA
+  ================================= */
+
+  try {
+
+    const student =
+      JSON.parse(studentData);
+
+
+    document.getElementById(
+      "fullname"
+    ).textContent =
+      student.fullname || "-";
+
+
+    document.getElementById(
+      "course"
+    ).textContent =
+      student.course || "-";
+
+
+    document.getElementById(
+      "phone"
+    ).textContent =
+      student.phone || "-";
+
+
+    document.getElementById(
+      "payment"
+    ).textContent =
+      student.payment_status || "-";
+
+
+    document.getElementById(
+      "access"
+    ).textContent =
+      student.learning_access === true
+        ? "✅ Active"
+        : "❌ Inactive";
+
+  }
+
+  catch (error) {
+
+    console.error(error);
+
+    localStorage.clear();
+
+    window.location.href =
+      "login.html";
+  }
+
+
+  /* =================================
+     LOGOUT
+  ================================= */
+
+  function logout() {
+
+    localStorage.removeItem(
+      "student"
+    );
+
+    localStorage.removeItem(
+      "loggedIn"
+    );
+
+    window.location.href =
+      "login.html";
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,23 +1,27 @@
 {
-  "name": "Kena Design",
-  "short_name": "Kena Design",
-  "description": "Kena Design - Barnoota fi Galmee Barattootaa",
-  "start_url": "./index.html",
-  "scope": "./",
+  "id": "/",
+  "name": "KENA DESIGN",
+  "short_name": "KENA",
+  "description": "KENA DESIGN - Online Design Training and Student Learning App",
+  "lang": "om",
+  "start_url": "/kena-design-/?source=pwa",
+  "scope": "/kena-design-/",
   "display": "standalone",
-  "background_color": "#07111f",
-  "theme_color": "#32d583",
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "./icons/icon-192.png",
+      "src": "/kena-design-/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "./icons/icon-512.png",
+      "src": "/kena-design-/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

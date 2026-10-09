@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="om">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>KENA DESIGN - Student Login</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       font-family: Arial, sans-serif;
@@ -16,58 +23,68 @@
       margin: 0;
       min-height: 100vh;
       background: #f2f5f9;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       padding: 20px;
     }
 
     .login-box {
       width: 100%;
       max-width: 420px;
+
       background: white;
+
       padding: 28px;
+
       border-radius: 18px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+
+      box-shadow:
+        0 5px 25px rgba(0,0,0,0.12);
     }
 
     h2 {
       text-align: center;
-      margin: 0 0 28px;
-      color: #111;
+      margin: 0 0 10px;
     }
 
     .subtitle {
       text-align: center;
       color: #666;
-      margin-top: -15px;
       margin-bottom: 25px;
     }
 
     label {
       display: block;
+
       font-weight: bold;
-      margin-bottom: 8px;
+
       margin-top: 18px;
-      color: #222;
+      margin-bottom: 8px;
     }
 
     input {
       width: 100%;
+
       padding: 14px;
+
       border: 1px solid #ccc;
+
       border-radius: 9px;
+
       font-size: 16px;
+
       outline: none;
     }
 
     input:focus {
       border-color: #008f45;
-      box-shadow: 0 0 0 2px rgba(0,143,69,0.1);
-    }
 
-    #phone {
-      letter-spacing: 1px;
+      box-shadow:
+        0 0 0 2px
+        rgba(0,143,69,0.1);
     }
 
     #pin {
@@ -77,14 +94,23 @@
 
     button {
       width: 100%;
+
       padding: 15px;
+
       border: none;
+
       border-radius: 9px;
+
       background: #008f45;
+
       color: white;
+
       font-size: 17px;
+
       font-weight: bold;
+
       cursor: pointer;
+
       margin-top: 25px;
     }
 
@@ -99,50 +125,61 @@
 
     #message {
       display: none;
+
       padding: 14px;
+
       border-radius: 9px;
+
       text-align: center;
+
       margin-top: 18px;
+
       line-height: 1.5;
-      font-size: 15px;
     }
 
     .info {
       background: #eef7ff;
       color: #285577;
-      border: 1px solid #c9e3f7;
     }
 
     .success {
       background: #e8f8ee;
       color: #126331;
-      border: 1px solid #a9d9b8;
     }
 
     .error {
       background: #ffe8e8;
       color: #8b1e1e;
-      border: 1px solid #e3aaaa;
     }
 
     .footer {
       text-align: center;
+
       margin-top: 22px;
+
       color: #777;
+
       font-size: 13px;
     }
+
   </style>
+
 </head>
+
 
 <body>
 
+
 <div class="login-box">
 
-  <h2>🎓 Student Login</h2>
+  <h2>
+    🎓 Student Login
+  </h2>
 
   <div class="subtitle">
     KENA DESIGN Online Learning
   </div>
+
 
   <!-- PHONE -->
 
@@ -156,10 +193,10 @@
     placeholder="0923502464"
     maxlength="10"
     inputmode="numeric"
-    autocomplete="tel"
   >
 
-  <!-- PIN -->
+
+  <!-- COURSE PIN -->
 
   <label for="pin">
     🔑 Course PIN
@@ -168,11 +205,12 @@
   <input
     type="text"
     id="pin"
-    placeholder="PIN kee galchi"
-    maxlength="8"
-    minlength="8"
+    placeholder="Fakkeenya: KD2350"
+    maxlength="6"
+    minlength="6"
     autocomplete="off"
   >
+
 
   <button
     id="loginBtn"
@@ -182,7 +220,9 @@
     🔐 Login
   </button>
 
+
   <div id="message"></div>
+
 
   <div class="footer">
     © KENA DESIGN
@@ -193,26 +233,27 @@
 
 <script>
 
-/* =====================================================
+
+/* ==========================================
    SUPABASE
-===================================================== */
+========================================== */
 
 const SUPABASE_URL =
   "https://baoczizarrnzxwguyili.supabase.co";
 
 
-/* =====================================================
+/* ==========================================
    LOGIN EDGE FUNCTION
-===================================================== */
+========================================== */
 
 const LOGIN_URL =
   SUPABASE_URL +
   "/functions/v1/student-login";
 
 
-/* =====================================================
+/* ==========================================
    ELEMENTS
-===================================================== */
+========================================== */
 
 const phoneInput =
   document.getElementById("phone");
@@ -227,9 +268,9 @@ const messageBox =
   document.getElementById("message");
 
 
-/* =====================================================
-   PHONE ONLY NUMBERS
-===================================================== */
+/* ==========================================
+   PHONE
+========================================== */
 
 phoneInput.addEventListener(
   "input",
@@ -244,9 +285,9 @@ phoneInput.addEventListener(
 );
 
 
-/* =====================================================
+/* ==========================================
    PIN
-===================================================== */
+========================================== */
 
 pinInput.addEventListener(
   "input",
@@ -255,25 +296,27 @@ pinInput.addEventListener(
     this.value =
       this.value
         .toUpperCase()
-        .replace(/\s/g, "")
-        .slice(0, 8);
+        .replace(/[^A-Z0-9]/g, "")
+        .slice(0, 6);
 
   }
 );
 
 
-/* =====================================================
+/* ==========================================
    MESSAGE
-===================================================== */
+========================================== */
 
 function showMessage(
   text,
-  type = "error"
+  type
 ) {
 
-  messageBox.style.display = "block";
+  messageBox.style.display =
+    "block";
 
-  messageBox.textContent = text;
+  messageBox.textContent =
+    text;
 
   messageBox.className = "";
 
@@ -284,9 +327,9 @@ function showMessage(
 }
 
 
-/* =====================================================
+/* ==========================================
    LOGIN
-===================================================== */
+========================================== */
 
 async function loginStudent() {
 
@@ -294,17 +337,19 @@ async function loginStudent() {
     phoneInput.value.trim();
 
   const pin =
-    pinInput.value.trim().toUpperCase();
+    pinInput.value
+      .trim()
+      .toUpperCase();
 
 
-  /* -----------------------------------------------
-     PHONE VALIDATION
-  ------------------------------------------------ */
+  /* PHONE */
 
-  if (!/^(09|07)[0-9]{8}$/.test(phone)) {
+  if (
+    !/^(09|07)[0-9]{8}$/.test(phone)
+  ) {
 
     showMessage(
-      "❌ Lakkoofsa bilbilaa sirrii galchi. Fakkeenya: 0923502464",
+      "❌ Lakkoofsa bilbilaa sirrii galchi.",
       "error"
     );
 
@@ -312,14 +357,14 @@ async function loginStudent() {
   }
 
 
-  /* -----------------------------------------------
-     PIN VALIDATION
-  ------------------------------------------------ */
+  /* PIN */
 
-  if (pin.length !== 8) {
+  if (
+    !/^KD[0-9]{4}$/.test(pin)
+  ) {
 
     showMessage(
-      "❌ Course PIN characters 8 qabaachuu qaba.",
+      "❌ Course PIN sirrii miti. Fakkeenya: KD2350",
       "error"
     );
 
@@ -327,14 +372,12 @@ async function loginStudent() {
   }
 
 
-  /* -----------------------------------------------
-     LOADING
-  ------------------------------------------------ */
+  /* LOADING */
 
   loginBtn.disabled = true;
 
   loginBtn.textContent =
-    "⏳ Login hojjetamaa jira...";
+    "⏳ Login...";
 
   showMessage(
     "Mee xiqqoo eegi...",
@@ -344,10 +387,6 @@ async function loginStudent() {
 
   try {
 
-    /* ---------------------------------------------
-       SEND LOGIN REQUEST
-    --------------------------------------------- */
-
     const response =
       await fetch(
         LOGIN_URL,
@@ -355,7 +394,8 @@ async function loginStudent() {
           method: "POST",
 
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type":
+              "application/json"
           },
 
           body: JSON.stringify({
@@ -366,11 +406,7 @@ async function loginStudent() {
       );
 
 
-    /* ---------------------------------------------
-       READ RESPONSE
-    --------------------------------------------- */
-
-    const text =
+    const responseText =
       await response.text();
 
     let data = null;
@@ -378,8 +414,8 @@ async function loginStudent() {
     try {
 
       data =
-        text
-          ? JSON.parse(text)
+        responseText
+          ? JSON.parse(responseText)
           : null;
 
     } catch (e) {
@@ -389,9 +425,7 @@ async function loginStudent() {
     }
 
 
-    /* ---------------------------------------------
-       SERVER ERROR
-    --------------------------------------------- */
+    /* SERVER ERROR */
 
     if (!response.ok) {
 
@@ -406,16 +440,16 @@ async function loginStudent() {
     }
 
 
-    /* ---------------------------------------------
-       LOGIN FAILED
-    --------------------------------------------- */
+    /* LOGIN FAILED */
 
-    if (!data || !data.success) {
+    if (
+      !data ||
+      !data.success
+    ) {
 
       showMessage(
         data?.error ||
-        data?.message ||
-        "❌ Lakkoofsa bilbilaa ykn PIN sirrii miti.",
+        "❌ Login hin milkoofne.",
         "error"
       );
 
@@ -423,9 +457,7 @@ async function loginStudent() {
     }
 
 
-    /* ---------------------------------------------
-       LOGIN SUCCESS
-    --------------------------------------------- */
+    /* LOGIN SUCCESS */
 
     localStorage.setItem(
       "loggedIn",
@@ -446,9 +478,7 @@ async function loginStudent() {
     );
 
 
-    /* ---------------------------------------------
-       DASHBOARD
-    --------------------------------------------- */
+    /* DASHBOARD */
 
     setTimeout(
       function () {
@@ -460,9 +490,8 @@ async function loginStudent() {
       1000
     );
 
-  }
 
-  catch (error) {
+  } catch (error) {
 
     console.error(
       "LOGIN ERROR:",
@@ -474,11 +503,11 @@ async function loginStudent() {
       "error"
     );
 
-  }
 
-  finally {
+  } finally {
 
-    loginBtn.disabled = false;
+    loginBtn.disabled =
+      false;
 
     loginBtn.textContent =
       "🔐 Login";
@@ -490,4 +519,5 @@ async function loginStudent() {
 </script>
 
 </body>
+
 </html>

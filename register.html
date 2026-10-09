@@ -1,919 +1,1356 @@
 <!DOCTYPE html>
-<html lang="om">
-
+<html lang="en">
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
-  <title>
-    KENA DESIGN - Dashboard
-  </title>
-
+  <title>Kena Design - Registration</title>
 
   <style>
-
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+    * {
+      box-sizing: border-box;
     }
 
-
-    body{
-
-      font-family:Arial,sans-serif;
-
-      background:#f5f9fc;
-
-      color:#102a43;
-
-      line-height:1.6;
-
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
     }
 
-
-    header{
-
-      background:white;
-
-      border-bottom:1px solid #dce8f0;
-
-      padding:16px 20px;
-
-      position:sticky;
-
-      top:0;
-
-      z-index:100;
-
-      box-shadow:
-        0 3px 15px
-        rgba(20,50,80,.06);
-
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 30px auto;
+      padding: 20px;
     }
 
-
-    .nav{
-
-      max-width:1200px;
-
-      margin:auto;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:space-between;
-
-      gap:20px;
-
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.08);
     }
 
-
-    .logo{
-
-      font-size:24px;
-
-      font-weight:800;
-
-      color:#102a43;
-
+    .logo {
+      text-align: center;
+      margin-bottom: 25px;
     }
 
-
-    .logo span{
-
-      color:#12a879;
-
+    .logo h1 {
+      margin: 0;
+      color: #0b7a3e;
+      font-size: 30px;
     }
 
-
-    .nav-links{
-
-      display:flex;
-
-      gap:20px;
-
+    .logo p {
+      margin-top: 8px;
+      color: #666;
     }
 
-
-    .nav-links a{
-
-      color:#173b63;
-
-      text-decoration:none;
-
-      font-weight:600;
-
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 7px;
     }
 
-
-    .logout{
-
-      background:#ff3b3b;
-
-      color:white;
-
-      border:none;
-
-      padding:11px 18px;
-
-      border-radius:10px;
-
-      font-weight:bold;
-
-      cursor:pointer;
-
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 9px;
+      font-size: 15px;
+      background: #fff;
     }
 
-
-    .container{
-
-      max-width:1200px;
-
-      margin:auto;
-
-      padding:30px 18px;
-
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0b7a3e;
+      box-shadow: 0 0 0 2px rgba(11,122,62,0.1);
     }
 
-
-    /* WELCOME */
-
-    .welcome{
-
-      background:
-        linear-gradient(
-          120deg,
-          #e9fbf5,
-          #f3faff
-        );
-
-      border:1px solid #cdeee4;
-
-      border-radius:22px;
-
-      padding:32px;
-
-      margin-bottom:25px;
-
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
     }
 
-
-    .welcome h1{
-
-      font-size:34px;
-
-      color:#102a43;
-
-      margin-bottom:8px;
-
+    .payment-box {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: #f1faf5;
+      border: 1px solid #bde5cc;
     }
 
-
-    .welcome h1 span{
-
-      color:#0da87a;
-
+    .payment-box h3 {
+      margin-top: 0;
+      color: #0b7a3e;
     }
 
-
-    .welcome p{
-
-      color:#58708a;
-
-      font-size:17px;
-
+    .account {
+      background: white;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
-
-    /* STUDENT INFO */
-
-    .student-info{
-
-      margin-top:20px;
-
-      display:grid;
-
-      gap:10px;
-
+    .amount {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #0b7a3e;
     }
 
-
-    .info-box{
-
-      background:white;
-
-      border:1px solid #dce9f1;
-
-      border-radius:12px;
-
-      padding:14px 16px;
-
-      color:#58708a;
-
+    .notice {
+      margin-top: 15px;
+      padding: 13px;
+      border-radius: 9px;
+      background: #fff8e5;
+      border: 1px solid #f0d98a;
+      color: #735b00;
+      font-size: 14px;
     }
 
-
-    .info-box strong{
-
-      color:#102a43;
-
-      margin-right:5px;
-
+    .file-box {
+      margin-top: 10px;
+      padding: 15px;
+      border: 2px dashed #bbb;
+      border-radius: 10px;
+      background: #fafafa;
     }
 
-
-    /* LESSON */
-
-    .lessons-section{
-
-      background:white;
-
-      border:1px solid #dbe9f2;
-
-      border-radius:22px;
-
-      padding:25px;
-
-      box-shadow:
-        0 8px 30px
-        rgba(20,50,80,.05);
-
+    .file-box input {
+      border: none;
+      padding: 5px 0;
     }
 
-
-    .section-title{
-
-      display:flex;
-
-      align-items:center;
-
-      gap:12px;
-
-      margin-bottom:10px;
-
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #0b7a3e;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
     }
 
-
-    .section-title .icon{
-
-      width:52px;
-
-      height:52px;
-
-      border-radius:50%;
-
-      background:#e6f4ff;
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      font-size:27px;
-
+    button:hover {
+      background: #075d2f;
     }
 
-
-    .section-title h2{
-
-      color:#102a43;
-
-      font-size:27px;
-
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
     }
 
-
-    .lessons-description{
-
-      color:#637b91;
-
-      margin:5px 0 22px;
-
+    .message {
+      display: none;
+      margin-top: 18px;
+      padding: 15px;
+      border-radius: 10px;
+      font-weight: bold;
+      line-height: 1.5;
     }
 
-
-    .lessons{
-
-      display:grid;
-
-      grid-template-columns:
-        repeat(2,1fr);
-
-      gap:20px;
-
+    .success {
+      background: #e8f8ee;
+      border: 1px solid #9ed5b1;
+      color: #126331;
     }
 
-
-    .lesson-card{
-
-      background:#f8fcff;
-
-      border:1px solid #d6e8f4;
-
-      border-radius:18px;
-
-      padding:23px;
-
+    .error {
+      background: #ffecec;
+      border: 1px solid #e5aaaa;
+      color: #9b1c1c;
     }
 
-
-    .lesson-icon{
-
-      width:65px;
-
-      height:65px;
-
-      border-radius:18px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #18b6e8,
-          #6c5ce7
-        );
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      color:white;
-
-      font-size:30px;
-
-      margin-bottom:15px;
-
+    .hidden {
+      display: none;
     }
 
-
-    .lesson-card h3{
-
-      color:#102a43;
-
-      font-size:22px;
-
-      margin-bottom:8px;
-
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      color: #777;
+      font-size: 13px;
     }
 
-
-    .lesson-card p{
-
-      color:#607890;
-
-      margin-bottom:18px;
-
+    .loading {
+      text-align: center;
+      margin-top: 12px;
+      color: #0b7a3e;
+      font-size: 14px;
+      display: none;
     }
 
-
-    .btn{
-
-      display:inline-block;
-
-      text-decoration:none;
-
-      padding:12px 20px;
-
-      border-radius:10px;
-
-      font-weight:bold;
-
-    }
-
-
-    .btn-primary{
-
-      background:#12a879;
-
-      color:white;
-
-    }
-
-
-    .btn-secondary{
-
-      background:white;
-
-      color:#0875d1;
-
-      border:1px solid #0875d1;
-
-    }
-
-
-    .motivation{
-
-      margin-top:25px;
-
-      background:#f0f8ff;
-
-      border:1px solid #d5e9f7;
-
-      border-radius:18px;
-
-      padding:22px;
-
-      display:flex;
-
-      align-items:center;
-
-      gap:15px;
-
-    }
-
-
-    .motivation-icon{
-
-      font-size:35px;
-
-    }
-
-
-    footer{
-
-      text-align:center;
-
-      color:#71869a;
-
-      padding:30px 15px;
-
-    }
-
-
-    @media(max-width:800px){
-
-      .nav-links{
-
-        display:none;
-
+    @media (max-width: 600px) {
+      .container {
+        margin: 10px auto;
+        padding: 10px;
       }
 
-
-      .lessons{
-
-        grid-template-columns:1fr;
-
+      .card {
+        padding: 18px;
       }
 
-
-      .welcome h1{
-
-        font-size:28px;
-
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0;
       }
 
+      .logo h1 {
+        font-size: 25px;
+      }
     }
-
-
-    @media(max-width:500px){
-
-      .container{
-
-        padding:20px 12px;
-
-      }
-
-
-      .welcome{
-
-        padding:22px;
-
-      }
-
-
-      .welcome h1{
-
-        font-size:25px;
-
-      }
-
-
-      .lessons-section{
-
-        padding:18px;
-
-      }
-
-
-      .logo{
-
-        font-size:20px;
-
-      }
-
-    }
-
   </style>
-
 </head>
-
 
 <body>
 
+<div class="container">
 
-<!-- HEADER -->
-
-<header>
-
-  <div class="nav">
-
+  <div class="card">
 
     <div class="logo">
-
-      KENA <span>DESIGN</span>
-
+      <h1>KENA DESIGN</h1>
+      <p>Student Registration Form</p>
     </div>
 
+    <form id="registrationForm">
 
-    <div class="nav-links">
+      <!-- FULL NAME -->
+      <label for="fullname">Full Name *</label>
+      <input
+        type="text"
+        id="fullname"
+        name="fullname"
+        placeholder="Enter your full name"
+        required
+      >
 
-      <a href="dashboard.html">
-        🏠 Dashboard
-      </a>
+      <!-- FATHER NAME -->
+      <label for="fathername">Father's Name *</label>
+      <input
+        type="text"
+        id="fathername"
+        name="fathername"
+        placeholder="Enter father's name"
+        required
+      >
 
-      <a href="lesson.html">
-        📖 Lesson 1
-      </a>
+      <!-- GENDER + AGE -->
+      <div class="row">
 
-      <a href="lesson2.html">
-        🔤 Lesson 2
-      </a>
+        <div>
+          <label for="gender">Gender *</label>
 
+          <select
+            id="gender"
+            name="gender"
+            required
+          >
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="age">Age *</label>
+
+          <input
+            type="number"
+            id="age"
+            name="age"
+            min="10"
+            max="100"
+            placeholder="Age"
+            required
+          >
+        </div>
+
+      </div>
+
+      <!-- PHONE -->
+      <label for="phone">Phone Number *</label>
+
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="09xxxxxxxx or 07xxxxxxxx"
+        maxlength="10"
+        pattern="(09|07)[0-9]{8}"
+        required
+      >
+
+      <!-- EMAIL -->
+      <label for="email">Email (Optional)</label>
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="example@gmail.com"
+      >
+
+      <!-- COURSE -->
+      <label for="course">Choose Course *</label>
+
+      <select
+        id="course"
+        name="course"
+        required
+      >
+
+        <option value="">Select course</option>
+
+        <option
+          value="Video Editing"
+          data-price="530"
+        >
+          Video Editing - 530 ETB
+        </option>
+
+        <option
+          value="Web Design"
+          data-price="1000"
+        >
+          Web Design - 1,000 ETB
+        </option>
+
+        <option
+          value="Graphic Design"
+          data-price="400"
+        >
+          Graphic Design - 400 ETB
+        </option>
+
+        <option
+          value="Digital Marketing"
+          data-price="400"
+        >
+          Digital Marketing - 400 ETB
+        </option>
+
+        <option
+          value="Photography"
+          data-price="400"
+        >
+          Photography - 400 ETB
+        </option>
+
+        <option
+          value="Flayer Package"
+          data-price="400"
+        >
+          Flayer Package - 400 ETB
+        </option>
+
+        <option
+          value="YouTube Thumbnail"
+          data-price="400"
+        >
+          YouTube Thumbnail - 400 ETB
+        </option>
+
+        <option
+          value="Poster Design"
+          data-price="400"
+        >
+          Poster Design - 400 ETB
+        </option>
+
+      </select>
+
+      <!-- ADDRESS -->
+      <label for="address">Address *</label>
+
+      <select
+        id="address"
+        name="address"
+        required
+      >
+
+        <option value="">
+          Select your address
+        </option>
+
+        <option value="Finfinnee">
+          Finfinnee
+        </option>
+
+        <option value="Adamaa">
+          Adamaa
+        </option>
+
+        <option value="Bishooftuu">
+          Bishooftuu
+        </option>
+
+        <option value="Jimmaa">
+          Jimmaa
+        </option>
+
+        <option value="Baahir Daar">
+          Baahir Daar
+        </option>
+
+        <option value="Dirree Dhawaa">
+          Dirree Dhawaa
+        </option>
+
+        <option value="Maqalee">
+          Maqalee
+        </option>
+
+        <option value="Naqamtee">
+          Naqamtee
+        </option>
+
+        <option value="Harar">
+          Harar
+        </option>
+
+        <option value="Booranaa">
+          Booranaa
+        </option>
+
+        <option value="Wallaggaa">
+          Wallaggaa
+        </option>
+
+        <option value="Arsii">
+          Arsii
+        </option>
+
+        <option value="Bale">
+          Bale
+        </option>
+
+        <option value="Guji">
+          Guji
+        </option>
+
+        <option value="Shambu">
+          Shambu
+        </option>
+
+        <option value="Amboo">
+          Amboo
+        </option>
+
+        <option value="Baakko">
+          Baakko
+        </option>
+
+        <option value="Saqalaa">
+          Saqalaa
+        </option>
+
+        <option value="Gimbi">
+          Gimbi
+        </option>
+
+        <option value="Najjoo">
+          Najjoo
+        </option>
+
+        <option value="Mandii">
+          Mandii
+        </option>
+
+        <option value="Assosa">
+          Assosa
+        </option>
+
+        <option value="Other">
+          Other
+        </option>
+
+      </select>
+
+      <!-- OTHER ADDRESS -->
+      <div
+        id="otherAddressBox"
+        class="hidden"
+      >
+
+        <label for="other_address">
+          Other Address *
+        </label>
+
+        <input
+          type="text"
+          id="other_address"
+          name="other_address"
+          placeholder="Write your address"
+        >
+
+      </div>
+
+      <!-- PAYMENT INFORMATION -->
+      <div class="payment-box">
+
+        <h3>
+          Payment Information
+        </h3>
+
+        <p>
+          Please pay the course fee using one
+          of the following payment methods.
+        </p>
+
+        <div class="account">
+          📱 Telebirr:
+          <strong>
+            0923502464 — Amanuel
+          </strong>
+        </div>
+
+        <div class="account">
+          🏦 CBE Birr:
+          <strong>
+            0923502464 — Amanuel
+          </strong>
+        </div>
+
+        <div
+          class="amount"
+          id="courseAmount"
+        >
+          Course fee: —
+        </div>
+
+      </div>
+
+      <!-- PAYMENT METHOD -->
+      <label for="payment_method">
+        Payment Method *
+      </label>
+
+      <select
+        id="payment_method"
+        name="payment_method"
+        required
+      >
+
+        <option value="">
+          Select payment method
+        </option>
+
+        <option value="Telebirr">
+          Telebirr
+        </option>
+
+        <option value="CBE Birr">
+          CBE Birr
+        </option>
+
+      </select>
+
+      <!-- SCREENSHOT -->
+      <label for="screenshot">
+        Payment Screenshot *
+      </label>
+
+      <div class="file-box">
+
+        <input
+          type="file"
+          id="screenshot"
+          name="screenshot"
+          accept="image/jpeg,image/png,image/webp"
+          required
+        >
+
+        <small>
+          Upload a clear screenshot of your payment.
+          Maximum size: 5MB.
+        </small>
+
+      </div>
+
+      <!-- NOTICE -->
+      <div class="notice">
+
+        ⚠️ After registration, your payment status
+        will be <strong>PENDING</strong>.
+
+        The Kena Design admin will check your
+        payment screenshot before confirming
+        your registration.
+
+      </div>
+
+      <!-- SUBMIT -->
+      <button
+        type="submit"
+        id="submitBtn"
+      >
+        Submit Registration
+      </button>
+
+      <div
+        class="loading"
+        id="loadingMessage"
+      >
+        ⏳ Galmee kee ergaa jira...
+        Mee xiqqoo eegi.
+      </div>
+
+      <!-- SUCCESS -->
+      <div
+        id="successMessage"
+        class="message success"
+      ></div>
+
+      <!-- ERROR -->
+      <div
+        id="errorMessage"
+        class="message error"
+      ></div>
+
+    </form>
+
+    <div class="footer">
+      © Kena Design
     </div>
-
-
-    <button
-      class="logout"
-      onclick="logout()"
-    >
-      Logout
-    </button>
-
 
   </div>
 
-</header>
-
-
-
-<!-- MAIN -->
-
-<main>
-
-  <div class="container">
-
-
-    <!-- WELCOME -->
-
-    <section class="welcome">
-
-
-      <h1>
-
-        👋 Baga nagaan dhuftan,
-
-        <span id="welcomeName">
-          Barataa!
-        </span>
-
-      </h1>
-
-
-      <p>
-
-        KENA DESIGN Learning Platform
-        irratti barnoota kee jalqabi.
-
-      </p>
-
-
-      <!-- STUDENT DATA -->
-
-      <div class="student-info">
-
-
-        <div class="info-box">
-
-          👤
-
-          <strong>
-            Maqaa:
-          </strong>
-
-          <span id="studentName">
-            -
-          </span>
-
-        </div>
-
-
-        <div class="info-box">
-
-          📚
-
-          <strong>
-            Course:
-          </strong>
-
-          <span id="studentCourse">
-            -
-          </span>
-
-        </div>
-
-
-        <div class="info-box">
-
-          📱
-
-          <strong>
-            Bilbila:
-          </strong>
-
-          <span id="studentPhone">
-            -
-          </span>
-
-        </div>
-
-
-      </div>
-
-
-    </section>
-
-
-
-    <!-- LESSONS -->
-
-    <section class="lessons-section">
-
-
-      <div class="section-title">
-
-        <div class="icon">
-          📚
-        </div>
-
-
-        <div>
-
-          <h2>
-            Barnoota Kee
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <p class="lessons-description">
-
-        KENA DESIGN barnoota dijitaalaa
-        waliin gara beekumsa guddaatti
-        si geessa.
-
-      </p>
-
-
-
-      <div class="lessons">
-
-
-        <!-- LESSON 1 -->
-
-        <div class="lesson-card">
-
-          <div class="lesson-icon">
-            P
-          </div>
-
-
-          <h3>
-            Lesson 1 - PixelLab
-          </h3>
-
-
-          <p>
-
-            PixelLab fayyadamuun
-            text, image, background,
-            effect fi poster design
-            hojjechuu baradhu.
-
-          </p>
-
-
-          <a
-            href="lesson.html"
-            class="btn btn-primary"
-          >
-
-            📖 Barnoota Jalqabi →
-
-          </a>
-
-        </div>
-
-
-
-        <!-- LESSON 2 -->
-
-        <div class="lesson-card">
-
-          <div class="lesson-icon">
-            Aa
-          </div>
-
-
-          <h3>
-            Lesson 2 - Font Haaraa
-          </h3>
-
-
-          <p>
-
-            PixelLab keessatti font
-            haaraa galchuu fi itti
-            fayyadamuu baradhu.
-
-          </p>
-
-
-          <a
-            href="lesson2.html"
-            class="btn btn-secondary"
-          >
-
-            → Lesson 2 Ilaali
-
-          </a>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- MOTIVATION -->
-
-      <div class="motivation">
-
-        <div class="motivation-icon">
-          🎯
-        </div>
-
-
-        <div>
-
-          <h3>
-            Milkaa'ina!
-          </h3>
-
-
-          <p>
-
-            Barnoota kee har'a jalqabi;
-            tarkaanfii xiqqoo har'a fudhatte
-            gara milkaa'ina guddaatti si geessa.
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-    </section>
-
-
-  </div>
-
-</main>
-
-
-
-<footer>
-
-  © 2026 KENA DESIGN • Learning Platform
-
-</footer>
-
+</div>
 
 
 <script>
 
+/* =========================================================
+   KENA DESIGN EDGE FUNCTION
+   ========================================================= */
 
-/* =====================================================
-   LOAD STUDENT DATA
-   ===================================================== */
+const EDGE_FUNCTION_URL =
+  "https://baoczirnzoxwyguily.supabase.co/functions/v1/upload-payment-proof";
 
-function loadStudent(){
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const form =
+  document.getElementById(
+    "registrationForm"
+  );
+
+const course =
+  document.getElementById(
+    "course"
+  );
+
+const address =
+  document.getElementById(
+    "address"
+  );
+
+const otherAddressBox =
+  document.getElementById(
+    "otherAddressBox"
+  );
+
+const otherAddress =
+  document.getElementById(
+    "other_address"
+  );
+
+const courseAmount =
+  document.getElementById(
+    "courseAmount"
+  );
+
+const screenshot =
+  document.getElementById(
+    "screenshot"
+  );
+
+const submitBtn =
+  document.getElementById(
+    "submitBtn"
+  );
+
+const loadingMessage =
+  document.getElementById(
+    "loadingMessage"
+  );
+
+const successMessage =
+  document.getElementById(
+    "successMessage"
+  );
+
+const errorMessage =
+  document.getElementById(
+    "errorMessage"
+  );
 
 
-  const name =
-    localStorage.getItem(
-      "studentName"
-    );
+/* =========================================================
+   COURSE PRICE
+   ========================================================= */
 
+course.addEventListener(
+  "change",
+  function () {
 
-  const course =
-    localStorage.getItem(
-      "studentCourse"
-    );
+    const selected =
+      course.options[
+        course.selectedIndex
+      ];
 
+    const price =
+      selected.getAttribute(
+        "data-price"
+      );
 
-  const phone =
-    localStorage.getItem(
-      "studentPhone"
-    );
+    if (price) {
 
+      courseAmount.textContent =
+        "Course fee: " +
+        Number(price).toLocaleString() +
+        " ETB";
 
-  if(name){
+    } else {
 
-    document
-      .getElementById(
-        "welcomeName"
-      )
-      .textContent =
-        name + "!";
+      courseAmount.textContent =
+        "Course fee: —";
 
-
-    document
-      .getElementById(
-        "studentName"
-      )
-      .textContent =
-        name;
+    }
 
   }
+);
 
 
-  if(course){
+/* =========================================================
+   OTHER ADDRESS
+   ========================================================= */
 
-    document
-      .getElementById(
-        "studentCourse"
-      )
-      .textContent =
-        course;
+address.addEventListener(
+  "change",
+  function () {
+
+    if (
+      address.value === "Other"
+    ) {
+
+      otherAddressBox.classList.remove(
+        "hidden"
+      );
+
+      otherAddress.required = true;
+
+    } else {
+
+      otherAddressBox.classList.add(
+        "hidden"
+      );
+
+      otherAddress.required = false;
+
+      otherAddress.value = "";
+
+    }
 
   }
+);
 
 
-  if(phone){
+/* =========================================================
+   PHONE VALIDATION
+   ========================================================= */
 
-    document
-      .getElementById(
-        "studentPhone"
-      )
-      .textContent =
-        phone;
+document
+  .getElementById("phone")
+  .addEventListener(
+    "input",
+    function () {
 
-  }
+      this.value =
+        this.value
+          .replace(
+            /[^0-9]/g,
+            ""
+          )
+          .slice(
+            0,
+            10
+          );
 
+    }
+  );
+
+
+/* =========================================================
+   MESSAGE FUNCTIONS
+   ========================================================= */
+
+function showError(
+  message
+) {
+
+  successMessage.style.display =
+    "none";
+
+  loadingMessage.style.display =
+    "none";
+
+  errorMessage.style.display =
+    "block";
+
+  errorMessage.textContent =
+    message;
 }
 
 
+function showSuccess(
+  message
+) {
 
-/* =====================================================
-   LOGOUT
-   ===================================================== */
+  errorMessage.style.display =
+    "none";
 
-function logout(){
+  loadingMessage.style.display =
+    "none";
 
-  window.location.href =
-    "login.html";
+  successMessage.style.display =
+    "block";
 
+  successMessage.textContent =
+    message;
 }
 
 
+/* =========================================================
+   FORM SUBMIT
+   ========================================================= */
 
-/* =====================================================
-   LOAD PAGE
-   ===================================================== */
+form.addEventListener(
+  "submit",
+  async function (event) {
 
-window.onload =
-  function(){
+    event.preventDefault();
 
-    loadStudent();
+    successMessage.style.display =
+      "none";
 
-  };
+    errorMessage.style.display =
+      "none";
 
+    loadingMessage.style.display =
+      "block";
+
+    submitBtn.disabled =
+      true;
+
+    submitBtn.textContent =
+      "Submitting...";
+
+
+    try {
+
+      /* ---------------------------------------------
+         GET VALUES
+         --------------------------------------------- */
+
+      const fullname =
+        document
+          .getElementById(
+            "fullname"
+          )
+          .value
+          .trim();
+
+      const fathername =
+        document
+          .getElementById(
+            "fathername"
+          )
+          .value
+          .trim();
+
+      const gender =
+        document
+          .getElementById(
+            "gender"
+          )
+          .value;
+
+      const age =
+        Number(
+          document
+            .getElementById(
+              "age"
+            )
+            .value
+        );
+
+      const phone =
+        document
+          .getElementById(
+            "phone"
+          )
+          .value
+          .trim();
+
+      const email =
+        document
+          .getElementById(
+            "email"
+          )
+          .value
+          .trim();
+
+      const selectedCourse =
+        course.value;
+
+      const selectedAddress =
+        address.value;
+
+      const selectedOtherAddress =
+        otherAddress.value.trim();
+
+      const paymentMethod =
+        document
+          .getElementById(
+            "payment_method"
+          )
+          .value;
+
+
+      /* ---------------------------------------------
+         PHONE
+         --------------------------------------------- */
+
+      const phonePattern =
+        /^(09|07)[0-9]{8}$/;
+
+      if (
+        !phonePattern.test(
+          phone
+        )
+      ) {
+
+        throw new Error(
+          "Phone number sirrii galchi. Fakkeenya: 0912345678"
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         COURSE
+         --------------------------------------------- */
+
+      if (
+        !selectedCourse
+      ) {
+
+        throw new Error(
+          "Course tokko filadhu."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         COURSE PRICE
+         --------------------------------------------- */
+
+      const selectedOption =
+        course.options[
+          course.selectedIndex
+        ];
+
+      const paymentAmount =
+        Number(
+          selectedOption.getAttribute(
+            "data-price"
+          )
+        );
+
+
+      /* ---------------------------------------------
+         ADDRESS
+         --------------------------------------------- */
+
+      if (
+        !selectedAddress
+      ) {
+
+        throw new Error(
+          "Address kee filadhu."
+        );
+
+      }
+
+
+      if (
+        selectedAddress === "Other" &&
+        !selectedOtherAddress
+      ) {
+
+        throw new Error(
+          "Other address kee barreessi."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         PAYMENT METHOD
+         --------------------------------------------- */
+
+      if (
+        !paymentMethod
+      ) {
+
+        throw new Error(
+          "Payment method filadhu."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         SCREENSHOT
+         --------------------------------------------- */
+
+      if (
+        !screenshot.files.length
+      ) {
+
+        throw new Error(
+          "Payment screenshot olchi."
+        );
+
+      }
+
+      const screenshotFile =
+        screenshot.files[0];
+
+
+      /* ---------------------------------------------
+         MAX 5MB
+         --------------------------------------------- */
+
+      const maxSize =
+        5 * 1024 * 1024;
+
+      if (
+        screenshotFile.size >
+        maxSize
+      ) {
+
+        throw new Error(
+          "Screenshot 5MB oluu ta'uu hin qabu."
+        );
+
+      }
+
+
+      /* ---------------------------------------------
+         FILE TYPE
+         --------------------------------------------- */
+
+      const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+      ];
+
+      if (
+        !allowedTypes.includes(
+          screenshotFile.type
+        )
+      ) {
+
+        throw new Error(
+          "Screenshot JPEG, PNG ykn WEBP ta'uu qaba."
+        );
+
+      }
+
+
+      /* =================================================
+         SEND EVERYTHING TO EDGE FUNCTION
+         ================================================= */
+
+      const formData =
+        new FormData();
+
+
+      formData.append(
+        "fullname",
+        fullname
+      );
+
+      formData.append(
+        "fathername",
+        fathername
+      );
+
+      formData.append(
+        "gender",
+        gender
+      );
+
+      formData.append(
+        "age",
+        String(age)
+      );
+
+      formData.append(
+        "phone",
+        phone
+      );
+
+      formData.append(
+        "email",
+        email
+      );
+
+      formData.append(
+        "course",
+        selectedCourse
+      );
+
+      formData.append(
+        "address",
+        selectedAddress
+      );
+
+      formData.append(
+        "other_address",
+        selectedAddress === "Other"
+          ? selectedOtherAddress
+          : ""
+      );
+
+      formData.append(
+        "payment_status",
+        "PENDING"
+      );
+
+      formData.append(
+        "payment_amount",
+        String(paymentAmount)
+      );
+
+      formData.append(
+        "payment_method",
+        paymentMethod
+      );
+
+      /*
+        Transaction/reference number
+        intentionally NOT included.
+      */
+
+      formData.append(
+        "screenshot",
+        screenshotFile
+      );
+
+
+      /* =================================================
+         ABORT CONTROLLER
+         Prevent endless loading
+         ================================================= */
+
+      const controller =
+        new AbortController();
+
+      const timeout =
+        setTimeout(
+          function () {
+            controller.abort();
+          },
+          90000
+        );
+
+
+      let response;
+
+      try {
+
+        response =
+          await fetch(
+            EDGE_FUNCTION_URL,
+            {
+              method: "POST",
+              body: formData,
+              signal: controller.signal
+            }
+          );
+
+      } finally {
+
+        clearTimeout(
+          timeout
+        );
+
+      }
+
+
+      /* =================================================
+         READ RESPONSE
+         ================================================= */
+
+      const responseText =
+        await response.text();
+
+      let result = null;
+
+      try {
+
+        result =
+          responseText
+            ? JSON.parse(
+                responseText
+              )
+            : null;
+
+      } catch (jsonError) {
+
+        result = null;
+
+      }
+
+
+      /* =================================================
+         EDGE FUNCTION ERROR
+         ================================================= */
+
+      if (
+        !response.ok
+      ) {
+
+        const serverMessage =
+          result &&
+          (
+            result.error ||
+            result.message
+          )
+            ? (
+                result.error ||
+                result.message
+              )
+            : responseText ||
+              "Server error";
+
+        throw new Error(
+          "Galmeen hin milkoofne: " +
+          serverMessage
+        );
+
+      }
+
+
+      /* =================================================
+         SUCCESS CHECK
+         ================================================= */
+
+      if (
+        result &&
+        result.success === false
+      ) {
+
+        throw new Error(
+          result.error ||
+          "Galmeen hin milkoofne."
+        );
+
+      }
+
+
+      /* =================================================
+         SUCCESS
+         ================================================= */
+
+      showSuccess(
+        "✅ Galmeen kee milkaa'eera! " +
+        "Payment status kee PENDING dha. " +
+        "Adminiin screenshot payment kee ilaalee " +
+        "erga mirkaneesse booda galmeen kee ni mirkanaa'a."
+      );
+
+
+      /* Clear form */
+
+      form.reset();
+
+      courseAmount.textContent =
+        "Course fee: —";
+
+      otherAddressBox.classList.add(
+        "hidden"
+      );
+
+      otherAddress.required =
+        false;
+
+
+    } catch (error) {
+
+      console.error(
+        "Registration error:",
+        error
+      );
+
+
+      if (
+        error.name ===
+        "AbortError"
+      ) {
+
+        showError(
+          "⏳ Server irraa deebiin yeroo dheeraa fudhate. " +
+          "Mee Edge Function Logs ilaali; booda irra deebi'ii yaali."
+        );
+
+      } else {
+
+        showError(
+          error.message ||
+          "Dogoggorri hin beekamne uumame."
+        );
+
+      }
+
+
+    } finally {
+
+      submitBtn.disabled =
+        false;
+
+      submitBtn.textContent =
+        "Submit Registration";
+
+      loadingMessage.style.display =
+        "none";
+
+    }
+
+  }
+);
 
 </script>
 
-
 </body>
-
 </html>

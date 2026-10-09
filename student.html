@@ -1,1384 +1,182 @@
 <!DOCTYPE html>
 <html lang="om">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>KENA DESIGN - Student Login</title>
 
-
 <style>
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
-
   font-family:Arial,sans-serif;
-
   background:#07111f;
-
   color:white;
-
   min-height:100vh;
-
 }
-
-
-.container{
-
-  width:100%;
-
-  max-width:600px;
-
-  margin:auto;
-
-  padding:20px;
-
-}
-
-
+.container{max-width:600px;margin:auto;padding:20px}
 header{
-
-  text-align:center;
-
-  padding:30px 10px;
-
-  border-bottom:1px solid #24364d;
-
-  margin-bottom:25px;
-
+  text-align:center;padding:30px 10px;
+  border-bottom:1px solid #24364d;margin-bottom:25px
 }
-
-
-header h1{
-
-  color:#32d583;
-
-  font-size:32px;
-
-  margin-bottom:8px;
-
-}
-
-
-header p{
-
-  color:#b9c5d3;
-
-  font-size:15px;
-
-}
-
-
+header h1{color:#32d583;font-size:30px;margin-bottom:8px}
+header p{color:#b9c5d3}
 .box{
-
-  background:#101c2c;
-
-  border:1px solid #21334a;
-
-  border-radius:18px;
-
-  padding:25px;
-
-  margin-bottom:20px;
-
-  box-shadow:
-    0 10px 30px
-    rgba(0,0,0,.18);
-
+  background:#101c2c;border:1px solid #21334a;
+  border-radius:18px;padding:25px;margin-bottom:20px
 }
-
-
-.box h2{
-
-  color:#32d583;
-
-  margin-bottom:18px;
-
-}
-
-
+.box h2{color:#32d583;margin-bottom:18px}
 label{
-
-  display:block;
-
-  margin:14px 0 7px;
-
-  color:#dce5ef;
-
-  font-weight:bold;
-
+  display:block;margin:14px 0 7px;
+  color:#dce5ef;font-weight:bold
 }
-
-
 input{
-
-  width:100%;
-
-  padding:14px;
-
-  border-radius:10px;
-
-  border:1px solid #344a63;
-
-  background:#07111f;
-
-  color:white;
-
-  font-size:16px;
-
-  outline:none;
-
+  width:100%;padding:14px;border-radius:10px;
+  border:1px solid #344a63;background:#07111f;
+  color:white;font-size:16px;outline:none
 }
-
-
-input:focus{
-
-  border-color:#32d583;
-
-}
-
-
+input:focus{border-color:#32d583}
 button{
-
-  width:100%;
-
-  margin-top:20px;
-
-  padding:14px;
-
-  border:0;
-
-  border-radius:10px;
-
-  background:#32d583;
-
-  color:#061018;
-
-  font-size:17px;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
+  width:100%;margin-top:20px;padding:14px;
+  border:0;border-radius:10px;background:#32d583;
+  color:#061018;font-size:17px;font-weight:bold
 }
-
-
-button:hover{
-
-  opacity:.9;
-
-}
-
-
-button:disabled{
-
-  opacity:.55;
-
-  cursor:not-allowed;
-
-}
-
-
-.verify-button{
-
-  background:#3b82f6;
-
-  color:white;
-
-}
-
-
+button:disabled{opacity:.55}
 .message{
-
-  display:none;
-
-  padding:14px;
-
-  border-radius:10px;
-
-  margin-top:15px;
-
-  line-height:1.5;
-
+  display:none;padding:14px;border-radius:10px;
+  margin-top:15px;line-height:1.5;overflow-wrap:anywhere
 }
-
-
-.error{
-
-  background:#421b22;
-
-  color:#ffb4bd;
-
-  border:1px solid #74303a;
-
-}
-
-
-.success{
-
-  background:#10382a;
-
-  color:#9ff0c7;
-
-  border:1px solid #216c4c;
-
-}
-
-
-.otp-box{
-
-  margin-top:20px;
-
-  padding-top:20px;
-
-  border-top:1px solid #263b52;
-
-}
-
-
-.otp-box input{
-
-  text-align:center;
-
-  letter-spacing:8px;
-
-  font-size:24px;
-
-  font-weight:bold;
-
-}
-
-
-.countdown{
-
-  text-align:center;
-
-  color:#9fb0c2;
-
-  margin-top:10px;
-
-  font-size:14px;
-
-}
-
-
-.register-link{
-
-  text-align:center;
-
-  margin-top:20px;
-
-  color:#9fb0c2;
-
-}
-
-
-.register-link a{
-
-  color:#32d583;
-
-  font-weight:bold;
-
-  text-decoration:none;
-
-}
-
-
-.register-link a:hover{
-
-  text-decoration:underline;
-
-}
-
-
-.hidden{
-
-  display:none !important;
-
-}
-
-
-@media(max-width:650px){
-
-  .container{
-
-    padding:14px;
-
-  }
-
-
-  header h1{
-
-    font-size:27px;
-
-  }
-
-
-  .box{
-
-    padding:18px;
-
-  }
-
-}
-
+.error{background:#421b22;color:#ffb4bd}
+.success{background:#10382a;color:#9ff0c7}
+.register-link{text-align:center;margin-top:20px;color:#9fb0c2}
+.register-link a{color:#32d583;font-weight:bold;text-decoration:none}
+@media(max-width:650px){.container{padding:14px}.box{padding:18px}}
 </style>
-
 </head>
 
-
 <body>
-
-
 <div class="container">
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
-
-<h1>
-🎨 KENA DESIGN
-</h1>
-
-<p>
-Student Login
-</p>
-
+  <h1>🎨 KENA DESIGN</h1>
+  <p>Student Login</p>
 </header>
 
-
-
-<!-- =========================
-     LOGIN
-========================= -->
-
 <section class="box">
-
-
-<h2>
-🎓 Student Login
-</h2>
-
-
-<!-- PHONE -->
-
-<label for="phone">
-
-📱 Phone Number
-
-</label>
-
-
-<input
-
-type="tel"
-
-id="phone"
-
-placeholder="09xxxxxxxx ykn 07xxxxxxxx"
-
-maxlength="10"
-
-autocomplete="tel"
-
->
-
-
-
-<!-- PIN -->
-
-<label for="pin">
-
-🔐 Course PIN
-
-</label>
-
-
-<input
-
-type="password"
-
-id="pin"
-
-placeholder="Course PIN galchi"
-
-autocomplete="off"
-
->
-
-
-
-<!-- SEND OTP -->
-
-<button
-
-id="sendOtpButton"
-
-onclick="sendOTP()"
-
->
-
-📩 OTP Ergi
-
-</button>
-
-
-
-<!-- OTP MESSAGE -->
-
-<div
-
-id="otpMessage"
-
-class="message"
-
-></div>
-
-
-
-<!-- OTP -->
-
-<div
-
-id="otpBox"
-
-class="otp-box hidden"
-
->
-
-
-<label for="otp">
-
-🔢 OTP Code
-
-</label>
-
-
-<input
-
-type="text"
-
-id="otp"
-
-placeholder="000000"
-
-maxlength="6"
-
-inputmode="numeric"
-
-autocomplete="one-time-code"
-
->
-
-
-<button
-
-id="verifyButton"
-
-class="verify-button"
-
-onclick="verifyOTP()"
-
->
-
-✅ OTP Mirkaneessi
-
-</button>
-
-
-<div
-
-id="countdown"
-
-class="countdown"
-
-></div>
-
-
-</div>
-
-
-
-<!-- ERROR -->
-
-<div
-
-id="loginError"
-
-class="message error"
-
-></div>
-
-
-
-<!-- REGISTER -->
-
-<div class="register-link">
-
-Barataa haaraa?
-
-<a href="register.html">
-
-Galmaa'i
-
-</a>
-
-</div>
-
-
+  <h2>🎓 Student Login</h2>
+
+  <label for="phone">📱 Lakkoofsa Bilbilaa</label>
+  <input
+    type="tel"
+    id="phone"
+    placeholder="09xxxxxxxx ykn 07xxxxxxxx"
+    maxlength="10"
+    autocomplete="tel"
+  >
+
+  <label for="pin">🔐 Course PIN</label>
+  <input
+    type="password"
+    id="pin"
+    placeholder="Course PIN galchi"
+    autocomplete="off"
+  >
+
+  <button id="loginButton" onclick="loginStudent()">
+    🔐 Login
+  </button>
+
+  <div id="message" class="message"></div>
+
+  <div class="register-link">
+    Barataa haaraa?
+    <a href="register.html">Galmaa'i</a>
+  </div>
 </section>
-
-
 </div>
-
-
 
 <script>
+const LOGIN_URL =
+  "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
 
-
-/* =====================================================
-   SUPABASE EDGE FUNCTIONS
-===================================================== */
-
-
-/*
-  OTP gara bilbila barataa
-  SMS/message dhaan erga.
-*/
-
-const SEND_OTP_URL =
-"https://baoczizarrnzxwguyili.supabase.co/functions/v1/send-otp";
-
-
-/*
-  OTP mirkaneessa.
-*/
-
-const VERIFY_OTP_URL =
-"https://baoczizarrnzxwguyili.supabase.co/functions/v1/verify-otp";
-
-
-
-/* =====================================================
-   VARIABLES
-===================================================== */
-
-let cooldownTimer = null;
-
-let cooldownSeconds = 0;
-
-
-
-/* =====================================================
-   SHOW MESSAGE
-===================================================== */
-
-function showMessage(
-  elementId,
-  message,
-  type
-){
-
-  const box =
-    document.getElementById(
-      elementId
-    );
-
-  box.textContent =
-    message;
-
-  box.className =
-    "message " + type;
-
-  box.style.display =
-    "block";
-
+function showMessage(text, type) {
+  const box = document.getElementById("message");
+  box.textContent = text;
+  box.className = "message " + type;
+  box.style.display = "block";
 }
 
+async function loginStudent() {
+  const phone = document.getElementById("phone").value.trim();
+  const pin = document.getElementById("pin").value.trim().toUpperCase();
+  const button = document.getElementById("loginButton");
 
+  document.getElementById("message").style.display = "none";
 
-/* =====================================================
-   HIDE MESSAGE
-===================================================== */
-
-function hideMessage(elementId){
-
-  const box =
-    document.getElementById(
-      elementId
-    );
-
-  box.style.display =
-    "none";
-
-  box.textContent =
-    "";
-
-}
-
-
-
-/* =====================================================
-   PHONE VALIDATION
-===================================================== */
-
-function validPhone(phone){
-
-  return /^(09|07)[0-9]{8}$/.test(
-    phone
-  );
-
-}
-
-
-
-/* =====================================================
-   SEND OTP
-===================================================== */
-
-async function sendOTP(){
-
-  hideMessage(
-    "loginError"
-  );
-
-  hideMessage(
-    "otpMessage"
-  );
-
-
-  const phone =
-    document
-      .getElementById("phone")
-      .value
-      .trim();
-
-
-  const pin =
-    document
-      .getElementById("pin")
-      .value
-      .trim()
-      .toUpperCase();
-
-
-  const button =
-    document.getElementById(
-      "sendOtpButton"
-    );
-
-
-  /* PHONE */
-
-  if(!phone){
-
-    showMessage(
-      "loginError",
-      "⚠️ Phone number galchi.",
-      "error"
-    );
-
+  if (!/^(09|07)[0-9]{8}$/.test(phone)) {
+    showMessage("Lakkoofsa bilbilaa sirrii galchi.", "error");
     return;
-
   }
 
-
-  if(!validPhone(phone)){
-
-    showMessage(
-      "loginError",
-      "⚠️ Phone number sirrii galchi. Fakkeenya: 0912345678",
-      "error"
-    );
-
+  if (!pin) {
+    showMessage("Course PIN galchi.", "error");
     return;
-
   }
 
+  button.disabled = true;
+  button.textContent = "⏳ Seenaa jira...";
 
-  /* PIN */
+  try {
+    const response = await fetch(LOGIN_URL, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({phone, pin})
+    });
 
-  if(!pin){
+    const data = await response.json().catch(() => ({}));
 
-    showMessage(
-      "loginError",
-      "⚠️ Course PIN galchi.",
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  /* COOLDOWN */
-
-  if(cooldownSeconds > 0){
-
-    showMessage(
-      "loginError",
-      `⏳ Mee ${cooldownSeconds} seconds eegi.`,
-      "error"
-    );
-
-    return;
-
-  }
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    "⏳ OTP ergamaa jira...";
-
-
-  try{
-
-
-    /*
-      SMS OTP request
-    */
-
-    const response =
-      await fetch(
-        SEND_OTP_URL,
-        {
-
-          method:"POST",
-
-          headers:{
-            "Content-Type":
-              "application/json"
-          },
-
-          body:JSON.stringify({
-
-            phone:phone,
-
-            pin:pin
-
-          })
-
-        }
-      );
-
-
-    const data =
-      await response
-        .json()
-        .catch(
-          () => ({})
-        );
-
-
-    if(!response.ok){
-
-      if(
-        response.status === 429 &&
-        data.cooldown
-      ){
-
-        startCooldown(
-          Number(
-            data.cooldown
-          )
-        );
-
-      }
-
-
+    if (!response.ok || data.success === false) {
       throw new Error(
-
-        data.error ||
-
-        data.message ||
-
-        "OTP erguun hin milkoofne."
-
+        data.error || data.message || "Login hin milkoofne."
       );
-
     }
 
+    const student = data.student || data.data;
 
-
-    /* OTP BOX BANU */
-
-    document
-      .getElementById(
-        "otpBox"
-      )
-      .classList
-      .remove(
-        "hidden"
-      );
-
-
-    showMessage(
-
-      "otpMessage",
-
-      "✅ OTP karaa SMS/message gara bilbila keetti ergameera. Mee OTP sana asitti galchi.",
-
-      "success"
-
-    );
-
-
-    /*
-      Cooldown
-    */
-
-    startCooldown(
-      60
-    );
-
-
-    /*
-      OTP irratti focus
-    */
-
-    document
-      .getElementById(
-        "otp"
-      )
-      .focus();
-
-
-  }
-
-  catch(error){
-
-    console.error(
-      "SEND OTP ERROR:",
-      error
-    );
-
-
-    showMessage(
-
-      "loginError",
-
-      "❌ " +
-      (
-        error.message ||
-        "OTP erguu irratti rakkoon uumame."
-      ),
-
-      "error"
-
-    );
-
-  }
-
-
-  finally{
-
-    if(
-      cooldownSeconds <= 0
-    ){
-
-      button.disabled =
-        false;
-
-      button.textContent =
-        "📩 OTP Ergi";
-
+    if (!student) {
+      throw new Error("Odeeffannoon barataa hin argamne.");
     }
 
-  }
-
-}
-
-
-
-/* =====================================================
-   COOLDOWN
-===================================================== */
-
-function startCooldown(
-  seconds
-){
-
-  clearInterval(
-    cooldownTimer
-  );
-
-
-  cooldownSeconds =
-    Number(seconds) || 60;
-
-
-  const button =
-    document.getElementById(
-      "sendOtpButton"
-    );
-
-
-  const countdown =
-    document.getElementById(
-      "countdown"
-    );
-
-
-  button.disabled =
-    true;
-
-
-  function update(){
-
-    if(
-      cooldownSeconds <= 0
-    ){
-
-      clearInterval(
-        cooldownTimer
-      );
-
-
-      countdown.textContent =
-        "";
-
-
-      button.disabled =
-        false;
-
-
-      button.textContent =
-        "📩 OTP Ergi";
-
-
-      return;
-
-    }
-
-
-    button.textContent =
-      `⏳ ${cooldownSeconds}s`;
-
-
-    countdown.textContent =
-      `OTP haaraa erguuf ${cooldownSeconds} seconds hafe.`;
-
-
-    cooldownSeconds--;
-
-  }
-
-
-  update();
-
-
-  cooldownTimer =
-    setInterval(
-      update,
-      1000
-    );
-
-}
-
-
-
-/* =====================================================
-   VERIFY OTP
-===================================================== */
-
-async function verifyOTP(){
-
-  hideMessage(
-    "loginError"
-  );
-
-  hideMessage(
-    "otpMessage"
-  );
-
-
-  const phone =
-    document
-      .getElementById("phone")
-      .value
-      .trim();
-
-
-  const pin =
-    document
-      .getElementById("pin")
-      .value
-      .trim()
-      .toUpperCase();
-
-
-  const otp =
-    document
-      .getElementById("otp")
-      .value
-      .trim();
-
-
-  const button =
-    document.getElementById(
-      "verifyButton"
-    );
-
-
-  /* CHECK */
-
-  if(
-    !phone ||
-    !pin ||
-    !otp
-  ){
-
-    showMessage(
-
-      "loginError",
-
-      "⚠️ Phone, PIN fi OTP guuti.",
-
-      "error"
-
-    );
-
-    return;
-
-  }
-
-
-  if(
-    !validPhone(phone)
-  ){
-
-    showMessage(
-
-      "loginError",
-
-      "⚠️ Phone number sirrii miti.",
-
-      "error"
-
-    );
-
-    return;
-
-  }
-
-
-  if(
-    !/^[0-9]{6}$/.test(
-      otp
-    )
-  ){
-
-    showMessage(
-
-      "loginError",
-
-      "⚠️ OTP lakkoofsa 6 qabaachuu qaba.",
-
-      "error"
-
-    );
-
-    return;
-
-  }
-
-
-  button.disabled =
-    true;
-
-
-  button.textContent =
-    "⏳ Mirkanaa'aa jira...";
-
-
-  try{
-
-
-    const response =
-      await fetch(
-        VERIFY_OTP_URL,
-        {
-
-          method:"POST",
-
-          headers:{
-            "Content-Type":
-              "application/json"
-          },
-
-          body:JSON.stringify({
-
-            phone:phone,
-
-            pin:pin,
-
-            otp:otp
-
-          })
-
-        }
-      );
-
-
-    const data =
-      await response
-        .json()
-        .catch(
-          () => ({})
-        );
-
-
-    if(!response.ok){
-
-      throw new Error(
-
-        data.error ||
-
-        data.message ||
-
-        "OTP sirrii miti."
-
-      );
-
-    }
-
-
-    /*
-      Student data
-    */
-
-    const student =
-      data.student ||
-      data.data ||
-      data;
-
-
-    if(
-      !student
-    ){
-
-      throw new Error(
-        "Odeeffannoon student hin argamne."
-      );
-
-    }
-
-
-    /* =========================================
-       SAVE STUDENT DATA
-    ========================================= */
-
-
-    const studentName =
-      student.fullname ||
-      student.name ||
-      student["Full name"] ||
-      "";
-
-
-    const fatherName =
-      student.fathername ||
-      student.father_name ||
-      "";
-
-
-    const course =
-      student.course ||
-      "";
-
-
-    const studentPhone =
-      student.phone ||
-      phone;
-
-
-    const paymentStatus =
-      student.payment_status ||
-      "PAID";
-
-
-    /*
-      Dashboard irratti
-      maqaa barataa agarsiisuuf
-      localStorage keessatti kuusi.
-    */
-
+    sessionStorage.setItem("kena_student", JSON.stringify(student));
     localStorage.setItem(
       "studentName",
-      studentName
+      student.fullname || student.name || student["Full name"] || ""
     );
+    localStorage.setItem("fatherName", student.fathername || "");
+    localStorage.setItem("studentCourse", student.course || "");
+    localStorage.setItem("studentPhone", student.phone || phone);
+    localStorage.setItem("studentPayment", student.payment_status || "");
 
+    showMessage("Login milkaa'eera. Gara dashboard deemaa jirta...", "success");
 
-    localStorage.setItem(
-      "fatherName",
-      fatherName
-    );
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 700);
 
-
-    localStorage.setItem(
-      "studentCourse",
-      course
-    );
-
-
-    localStorage.setItem(
-      "studentPhone",
-      studentPhone
-    );
-
-
-    localStorage.setItem(
-      "studentPayment",
-      paymentStatus
-    );
-
-
-    /*
-      Session
-    */
-
-    sessionStorage.setItem(
-
-      "kena_student",
-
-      JSON.stringify(
-        student
-      )
-
-    );
-
-
-    /* =========================================
-       DASHBOARDTTI DEEMI
-    ========================================= */
-
+  } catch (error) {
+    console.error("STUDENT LOGIN ERROR:", error);
     showMessage(
-
-      "otpMessage",
-
-      "✅ OTP sirriitti mirkanaa'eera. Dashboardtti seenaa jirta...",
-
-      "success"
-
-    );
-
-
-    setTimeout(
-      function(){
-
-        window.location.href =
-          "dashboard.html";
-
-      },
-      800
-    );
-
-
-  }
-
-  catch(error){
-
-    console.error(
-      "VERIFY OTP ERROR:",
-      error
-    );
-
-
-    showMessage(
-
-      "loginError",
-
-      "❌ " +
-      (
-        error.message ||
-        "OTP mirkaneessuu irratti rakkoon uumame."
-      ),
-
+      error.message || "Rakkoo login irratti uumame.",
       "error"
-
     );
-
+  } finally {
+    button.disabled = false;
+    button.textContent = "🔐 Login";
   }
-
-
-  finally{
-
-    button.disabled =
-      false;
-
-    button.textContent =
-      "✅ OTP Mirkaneessi";
-
-  }
-
 }
 
-
-
-/* =====================================================
-   ENTER KEY
-===================================================== */
-
-document
-  .getElementById(
-    "pin"
-  )
-  .addEventListener(
-    "keydown",
-    function(event){
-
-      if(
-        event.key === "Enter"
-      ){
-
-        sendOTP();
-
-      }
-
-    }
-  );
-
-
-document
-  .getElementById(
-    "otp"
-  )
-  .addEventListener(
-    "keydown",
-    function(event){
-
-      if(
-        event.key === "Enter"
-      ){
-
-        verifyOTP();
-
-      }
-
-    }
-  );
-
-
+document.getElementById("pin").addEventListener("keydown", event => {
+  if (event.key === "Enter") loginStudent();
+});
 </script>
-
-
 </body>
-
 </html>

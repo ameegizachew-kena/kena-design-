@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="om">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08111f">
 <title>KENA DESIGN - Dashboard</title>
 
-
 <style>
-
-/* =========================
-   GENERAL
-========================= */
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:Arial,sans-serif;
@@ -32,34 +16,22 @@ body{
   line-height:1.6;
 }
 
-
-/* =========================
-   HEADER
-========================= */
-
 header{
   background:white;
   border-bottom:1px solid #dce8f0;
-
   padding:16px 20px;
-
   position:sticky;
   top:0;
   z-index:100;
-
-  box-shadow:
-    0 3px 15px
-    rgba(20,50,80,.06);
+  box-shadow:0 3px 15px rgba(20,50,80,.06);
 }
 
 .nav{
   max-width:1200px;
   margin:auto;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
   gap:20px;
 }
 
@@ -69,14 +41,9 @@ header{
   color:#102a43;
 }
 
-.logo span{
-  color:#12a879;
-}
+.logo span{color:#12a879}
 
-.nav-links{
-  display:flex;
-  gap:20px;
-}
+.nav-links{display:flex;gap:20px}
 
 .nav-links a{
   color:#173b63;
@@ -84,33 +51,19 @@ header{
   font-weight:600;
 }
 
-.nav-links a:hover{
-  color:#12a879;
-}
+.nav-links a:hover{color:#12a879}
 
 .logout{
   background:#ff3b3b;
   color:white;
-
   border:none;
-
   padding:11px 18px;
-
   border-radius:10px;
-
   font-weight:bold;
-
   cursor:pointer;
 }
 
-.logout:hover{
-  background:#dc2626;
-}
-
-
-/* =========================
-   CONTAINER
-========================= */
+.logout:hover{background:#dc2626}
 
 .container{
   max-width:1200px;
@@ -118,26 +71,11 @@ header{
   padding:30px 18px;
 }
 
-
-/* =========================
-   WELCOME
-========================= */
-
 .welcome{
-
-  background:
-    linear-gradient(
-      120deg,
-      #e9fbf5,
-      #f3faff
-    );
-
+  background:linear-gradient(120deg,#e9fbf5,#f3faff);
   border:1px solid #cdeee4;
-
   border-radius:22px;
-
   padding:32px;
-
   margin-bottom:25px;
 }
 
@@ -147,770 +85,310 @@ header{
   margin-bottom:8px;
 }
 
-.welcome h1 span{
-  color:#0da87a;
-}
+.welcome h1 span{color:#0da87a}
 
 .welcome p{
   color:#58708a;
   font-size:17px;
 }
 
-
-/* =========================
-   STUDENT NAME
-========================= */
-
 .student-info{
-
   margin-top:20px;
-
   display:grid;
-
   gap:10px;
 }
 
 .info-box{
-
   background:white;
-
   border:1px solid #dce9f1;
-
   border-radius:12px;
-
   padding:18px 20px;
-
   color:#58708a;
-
 }
 
 .info-box strong{
-
   color:#102a43;
-
   margin-right:5px;
-
 }
 
 .info-value{
-
   color:#102a43;
-
   font-weight:bold;
-
 }
-
-
-/* =========================
-   LESSON SECTION
-========================= */
 
 .lessons-section{
-
   background:white;
-
   border:1px solid #dbe9f2;
-
   border-radius:22px;
-
   padding:25px;
-
-  box-shadow:
-    0 8px 30px
-    rgba(20,50,80,.05);
-
+  box-shadow:0 8px 30px rgba(20,50,80,.05);
 }
-
 
 .section-title{
-
   display:flex;
-
   align-items:center;
-
   gap:12px;
-
   margin-bottom:10px;
-
 }
-
 
 .section-title .icon{
-
   width:52px;
-
   height:52px;
-
   border-radius:50%;
-
   background:#e6f4ff;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   font-size:27px;
-
 }
-
 
 .section-title h2{
-
   color:#102a43;
-
   font-size:27px;
-
 }
-
 
 .lessons-description{
-
   color:#637b91;
-
   margin:5px 0 22px;
-
 }
-
-
-/* =========================
-   LESSON CARDS
-========================= */
 
 .lessons{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(2,1fr);
   gap:20px;
-
 }
-
 
 .lesson-card{
-
   background:#f8fcff;
-
   border:1px solid #d6e8f4;
-
   border-radius:18px;
-
   padding:23px;
-
 }
-
 
 .lesson-icon{
-
   width:65px;
-
   height:65px;
-
   border-radius:18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #18b6e8,
-      #6c5ce7
-    );
-
+  background:linear-gradient(135deg,#18b6e8,#6c5ce7);
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   color:white;
-
   font-size:30px;
-
   margin-bottom:15px;
-
 }
-
 
 .lesson-card h3{
-
   color:#102a43;
-
   font-size:22px;
-
   margin-bottom:8px;
-
 }
-
 
 .lesson-card p{
-
   color:#607890;
-
   margin-bottom:18px;
-
 }
-
-
-/* =========================
-   BUTTONS
-========================= */
 
 .btn{
-
   display:inline-block;
-
   text-decoration:none;
-
   padding:12px 20px;
-
   border-radius:10px;
-
   font-weight:bold;
-
 }
-
 
 .btn-primary{
-
   background:#12a879;
-
   color:white;
-
 }
 
-
-.btn-primary:hover{
-
-  background:#0d956a;
-
-}
-
+.btn-primary:hover{background:#0d956a}
 
 .btn-secondary{
-
   background:white;
-
   color:#0875d1;
-
   border:1px solid #0875d1;
-
 }
 
-
-.btn-secondary:hover{
-
-  background:#eef8ff;
-
-}
-
-
-/* =========================
-   MOTIVATION
-========================= */
+.btn-secondary:hover{background:#eef8ff}
 
 .motivation{
-
   margin-top:25px;
-
   background:#f0f8ff;
-
   border:1px solid #d5e9f7;
-
   border-radius:18px;
-
   padding:22px;
-
   display:flex;
-
   align-items:center;
-
   gap:15px;
-
 }
 
-
-.motivation-icon{
-
-  font-size:35px;
-
-}
-
-
-/* =========================
-   FOOTER
-========================= */
+.motivation-icon{font-size:35px}
 
 footer{
-
   text-align:center;
-
   color:#71869a;
-
   padding:30px 15px;
-
 }
-
-
-/* =========================
-   TABLET
-========================= */
 
 @media(max-width:800px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .lessons{
-    grid-template-columns:1fr;
-  }
-
-  .welcome h1{
-    font-size:28px;
-  }
-
+  .nav-links{display:none}
+  .lessons{grid-template-columns:1fr}
+  .welcome h1{font-size:28px}
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:500px){
-
-  .container{
-    padding:20px 12px;
-  }
-
-  .welcome{
-    padding:22px;
-  }
-
-  .welcome h1{
-    font-size:25px;
-  }
-
-  .lessons-section{
-    padding:18px;
-  }
-
-  .logo{
-    font-size:20px;
-  }
-
-  .logout{
-    padding:9px 13px;
-  }
-
+  .container{padding:20px 12px}
+  .welcome{padding:22px}
+  .welcome h1{font-size:25px}
+  .lessons-section{padding:18px}
+  .logo{font-size:20px}
+  .logout{padding:9px 13px}
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
+  <div class="nav">
+    <div class="logo">KENA <span>DESIGN</span></div>
 
-<div class="nav">
+    <div class="nav-links">
+      <a href="dashboard.html">🏠 Dashboard</a>
+      <a href="lesson.html">📖 Lesson 1</a>
+      <a href="lesson2.html">🔤 Lesson 2</a>
+    </div>
 
-
-<div class="logo">
-
-KENA <span>DESIGN</span>
-
-</div>
-
-
-<div class="nav-links">
-
-<a href="dashboard.html">
-🏠 Dashboard
-</a>
-
-
-<a href="lesson.html">
-📖 Lesson 1
-</a>
-
-
-<a href="lesson2.html">
-🔤 Lesson 2
-</a>
-
-</div>
-
-
-<button
-  class="logout"
-  onclick="logout()"
->
-
-Logout
-
-</button>
-
-
-</div>
-
+    <button class="logout" type="button" onclick="logout()">
+      Logout
+    </button>
+  </div>
 </header>
 
-
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <main>
-
-<div class="container">
-
-
-<!-- =========================
-     WELCOME
-========================= -->
-
-<section class="welcome">
-
-
-<h1>
-
-👋 Baga nagaan dhuftan,
-
-<span id="welcomeName">
-Barataa!
-</span>
-
-</h1>
-
-
-<p>
-
-KENA DESIGN Learning Platform
-irratti barnoota kee jalqabi.
-
-</p>
-
-
-<!-- =========================
-     STUDENT NAME ONLY
-========================= -->
-
-<div class="student-info">
-
-
-<div class="info-box">
-
-👤
-
-<strong>
-Maqaa Barataa:
-</strong>
-
-
-<span
-  id="studentName"
-  class="info-value"
->
-
--
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-<!-- =========================
-     LESSONS
-========================= -->
-
-<section class="lessons-section">
-
-
-<div class="section-title">
-
-
-<div class="icon">
-
-📚
-
-</div>
-
-
-<div>
-
-<h2>
-
-Barnoota Kee
-
-</h2>
-
-</div>
-
-
-</div>
-
-
-
-<p class="lessons-description">
-
-KENA DESIGN barnoota dijitaalaa
-waliin gara beekumsa guddaatti
-si geessa.
-
-</p>
-
-
-
-<div class="lessons">
-
-
-<!-- =========================
-     LESSON 1
-========================= -->
-
-<div class="lesson-card">
-
-
-<div class="lesson-icon">
-
-P
-
-</div>
-
-
-<h3>
-
-Lesson 1 - PixelLab
-
-</h3>
-
-
-<p>
-
-PixelLab fayyadamuun
-text, image, background,
-effect fi poster design
-hojjechuu baradhu.
-
-</p>
-
-
-<a
-  href="lesson.html"
-  class="btn btn-primary"
->
-
-📖 Barnoota Jalqabi →
-
-</a>
-
-
-</div>
-
-
-
-<!-- =========================
-     LESSON 2
-========================= -->
-
-<div class="lesson-card">
-
-
-<div class="lesson-icon">
-
-Aa
-
-</div>
-
-
-<h3>
-
-Lesson 2 - Font Haaraa
-
-</h3>
-
-
-<p>
-
-PixelLab keessatti font
-haaraa galchuu fi itti
-fayyadamuu baradhu.
-
-</p>
-
-
-<a
-  href="lesson2.html"
-  class="btn btn-secondary"
->
-
-→ Lesson 2 Ilaali
-
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
-<!-- =========================
-     MOTIVATION
-========================= -->
-
-<div class="motivation">
-
-
-<div class="motivation-icon">
-
-🎯
-
-</div>
-
-
-<div>
-
-
-<h3>
-
-Milkaa'ina!
-
-</h3>
-
-
-<p>
-
-Barnoota kee har'a jalqabi;
-tarkaanfii xiqqoo har'a fudhatte
-gara milkaa'ina guddaatti si geessa.
-
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</section>
-
-
-</div>
-
+  <div class="container">
+
+    <section class="welcome">
+      <h1>
+        👋 Baga nagaan dhuftan,
+        <span id="welcomeName">Barataa!</span>
+      </h1>
+
+      <p>
+        KENA DESIGN Learning Platform irratti
+        barnoota kee jalqabi.
+      </p>
+
+      <div class="student-info">
+        <div class="info-box">
+          👤 <strong>Maqaa Barataa:</strong>
+          <span id="studentName" class="info-value">-</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="lessons-section">
+      <div class="section-title">
+        <div class="icon">📚</div>
+        <div><h2>Barnoota Kee</h2></div>
+      </div>
+
+      <p class="lessons-description">
+        KENA DESIGN barnoota dijitaalaa waliin
+        gara beekumsa guddaatti si geessa.
+      </p>
+
+      <div class="lessons">
+
+        <div class="lesson-card">
+          <div class="lesson-icon">P</div>
+          <h3>Lesson 1 - PixelLab</h3>
+          <p>
+            PixelLab fayyadamuun text, image,
+            background, effect fi poster design
+            hojjechuu baradhu.
+          </p>
+          <a href="lesson.html" class="btn btn-primary">
+            📖 Barnoota Jalqabi →
+          </a>
+        </div>
+
+        <div class="lesson-card">
+          <div class="lesson-icon">Aa</div>
+          <h3>Lesson 2 - Font Haaraa</h3>
+          <p>
+            PixelLab keessatti font haaraa
+            galchuu fi itti fayyadamuu baradhu.
+          </p>
+          <a href="lesson2.html" class="btn btn-secondary">
+            → Lesson 2 Ilaali
+          </a>
+        </div>
+
+      </div>
+
+      <div class="motivation">
+        <div class="motivation-icon">🎯</div>
+        <div>
+          <h3>Milkaa'ina!</h3>
+          <p>
+            Barnoota kee har'a jalqabi;
+            tarkaanfii xiqqoo har'a fudhatte
+            gara milkaa'ina guddaatti si geessa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </main>
 
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-© 2026 KENA DESIGN • Learning Platform
-
+  © 2026 KENA DESIGN • Learning Platform
 </footer>
 
-
-
 <script>
-
-
-/* =========================================
-   LOAD STUDENT NAME
-========================================= */
-
+/* Barataa login godhe */
 function loadStudent(){
+  let student = {};
 
-
-  /* Maqaa barataa qofa */
+  try{
+    student = JSON.parse(
+      sessionStorage.getItem("kena_student") || "{}"
+    );
+  }catch(error){
+    student = {};
+  }
 
   const name =
-    localStorage.getItem(
-      "studentName"
-    );
+    student.fullname ||
+    student.name ||
+    localStorage.getItem("studentName") ||
+    "";
 
+  document.getElementById("welcomeName").textContent =
+    name || "Barataa!";
 
-  /* =========================
-     WELCOME NAME
-  ========================= */
-
-  if(name){
-
-    document
-      .getElementById(
-        "welcomeName"
-      )
-      .textContent =
-        name;
-
-  }
-
-
-  /* =========================
-     STUDENT NAME
-  ========================= */
-
-  if(name){
-
-    document
-      .getElementById(
-        "studentName"
-      )
-      .textContent =
-        name;
-
-  }
-
+  document.getElementById("studentName").textContent =
+    name || "-";
 }
 
-
-/* =========================================
-   LOGOUT
-========================================= */
-
+/* Logout: login OTP hin qabne irratti deebi'a */
 function logout(){
+  sessionStorage.removeItem("kena_student");
 
-  window.location.href =
-    "login.html";
+  localStorage.removeItem("studentName");
+  localStorage.removeItem("fatherName");
+  localStorage.removeItem("studentCourse");
+  localStorage.removeItem("studentPhone");
+  localStorage.removeItem("studentPayment");
 
+  window.location.replace("student.html?v=7");
 }
 
-
-/* =========================================
-   PAGE LOAD
-========================================= */
-
-window.onload =
-function(){
-
-  loadStudent();
-
-};
-
+document.addEventListener("DOMContentLoaded", loadStudent);
 </script>
 
-
 </body>
-
 </html>

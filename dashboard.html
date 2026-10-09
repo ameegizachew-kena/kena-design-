@@ -7,22 +7,20 @@
 <title>KENA DESIGN - Dashboard</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
-body{
+html,body{
+  background:#ffffff!important;
+  color:#102a43!important;
   font-family:Arial,Helvetica,sans-serif;
-  background:#f5f9fc;
-  color:#102a43;
   line-height:1.6;
+  min-height:100%;
 }
 
-/* HEADER */
+body{background:#ffffff!important}
+
 header{
-  background:#ffffff;
+  background:#ffffff!important;
   border-bottom:1px solid #dce8f0;
   padding:16px 20px;
   position:sticky;
@@ -43,17 +41,12 @@ header{
 .logo{
   font-size:24px;
   font-weight:800;
-  color:#102a43;
+  color:#102a43!important;
 }
 
-.logo span{
-  color:#12a879;
-}
+.logo span{color:#12a879!important}
 
-.nav-links{
-  display:flex;
-  gap:20px;
-}
+.nav-links{display:flex;gap:20px}
 
 .nav-links a{
   color:#173b63;
@@ -61,13 +54,11 @@ header{
   font-weight:600;
 }
 
-.nav-links a:hover{
-  color:#12a879;
-}
+.nav-links a:hover{color:#12a879}
 
 .logout{
   background:#dc2626;
-  color:white;
+  color:#ffffff;
   border:none;
   padding:11px 18px;
   border-radius:10px;
@@ -75,20 +66,16 @@ header{
   cursor:pointer;
 }
 
-.logout:hover{
-  background:#b91c1c;
-}
+.logout:hover{background:#b91c1c}
 
-/* MAIN CONTAINER */
 .container{
   max-width:1200px;
   margin:auto;
   padding:30px 18px;
 }
 
-/* WELCOME */
 .welcome{
-  background:linear-gradient(120deg,#e9fbf5,#f3faff);
+  background:linear-gradient(120deg,#e9fbf5,#f3faff)!important;
   border:1px solid #cdeee4;
   border-radius:22px;
   padding:32px;
@@ -97,20 +84,17 @@ header{
 
 .welcome h1{
   font-size:34px;
-  color:#102a43;
+  color:#102a43!important;
   margin-bottom:8px;
 }
 
-.welcome h1 span{
-  color:#0da87a;
-}
+.welcome h1 span{color:#0da87a!important}
 
 .welcome p{
-  color:#58708a;
+  color:#58708a!important;
   font-size:17px;
 }
 
-/* STUDENT INFORMATION */
 .student-info{
   margin-top:20px;
   display:grid;
@@ -118,26 +102,25 @@ header{
 }
 
 .info-box{
-  background:#ffffff;
+  background:#ffffff!important;
   border:1px solid #dce9f1;
   border-radius:12px;
   padding:18px 20px;
-  color:#58708a;
+  color:#58708a!important;
 }
 
 .info-box strong{
-  color:#102a43;
+  color:#102a43!important;
   margin-right:5px;
 }
 
 .info-value{
-  color:#102a43;
+  color:#102a43!important;
   font-weight:bold;
 }
 
-/* LESSON SECTION */
 .lessons-section{
-  background:#ffffff;
+  background:#ffffff!important;
   border:1px solid #dbe9f2;
   border-radius:22px;
   padding:25px;
@@ -163,24 +146,23 @@ header{
 }
 
 .section-title h2{
-  color:#102a43;
+  color:#102a43!important;
   font-size:27px;
 }
 
 .lessons-description{
-  color:#637b91;
+  color:#637b91!important;
   margin:5px 0 22px;
 }
 
-/* LESSON CARDS */
 .lessons{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:20px;
 }
 
 .lesson-card{
-  background:#f8fcff;
+  background:#ffffff!important;
   border:1px solid #d6e8f4;
   border-radius:18px;
   padding:23px;
@@ -200,23 +182,22 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  color:white;
+  color:#ffffff!important;
   font-size:30px;
   margin-bottom:15px;
 }
 
 .lesson-card h3{
-  color:#102a43;
+  color:#102a43!important;
   font-size:22px;
   margin-bottom:8px;
 }
 
 .lesson-card p{
-  color:#607890;
+  color:#607890!important;
   margin-bottom:18px;
 }
 
-/* BUTTONS */
 .btn{
   display:inline-block;
   text-decoration:none;
@@ -227,28 +208,23 @@ header{
 }
 
 .btn-primary{
-  background:#12a879;
-  color:#ffffff;
+  background:#12a879!important;
+  color:#ffffff!important;
 }
 
-.btn-primary:hover{
-  background:#0d956a;
-}
+.btn-primary:hover{background:#0d956a!important}
 
 .btn-secondary{
-  background:#ffffff;
-  color:#0875d1;
+  background:#ffffff!important;
+  color:#0875d1!important;
   border:1px solid #0875d1;
 }
 
-.btn-secondary:hover{
-  background:#eef8ff;
-}
+.btn-secondary:hover{background:#eef8ff!important}
 
-/* MOTIVATION */
 .motivation{
   margin-top:25px;
-  background:#f0f8ff;
+  background:#f0f8ff!important;
   border:1px solid #d5e9f7;
   border-radius:18px;
   padding:22px;
@@ -257,61 +233,33 @@ header{
   gap:15px;
 }
 
-.motivation-icon{
-  font-size:35px;
-}
+.motivation-icon{font-size:35px}
 
-/* FOOTER */
+.motivation h3{color:#102a43!important}
+.motivation p{color:#58708a!important}
+
 footer{
+  background:#ffffff!important;
   text-align:center;
-  color:#71869a;
+  color:#71869a!important;
   padding:30px 15px;
+  border-top:1px solid #e3edf4;
 }
 
-/* TABLET */
 @media(max-width:800px){
-  .nav-links{
-    display:none;
-  }
-
-  .lessons{
-    grid-template-columns:1fr;
-  }
-
-  .welcome h1{
-    font-size:28px;
-  }
+  .nav-links{display:none}
+  .lessons{grid-template-columns:1fr}
+  .welcome h1{font-size:28px}
 }
 
-/* MOBILE */
 @media(max-width:500px){
-  .container{
-    padding:20px 12px;
-  }
-
-  .welcome{
-    padding:22px;
-  }
-
-  .welcome h1{
-    font-size:25px;
-  }
-
-  .lessons-section{
-    padding:18px;
-  }
-
-  .logo{
-    font-size:20px;
-  }
-
-  .logout{
-    padding:9px 13px;
-  }
-
-  .btn{
-    max-width:100%;
-  }
+  .container{padding:20px 12px}
+  .welcome{padding:22px}
+  .welcome h1{font-size:25px}
+  .lessons-section{padding:18px}
+  .logo{font-size:20px}
+  .logout{padding:9px 13px}
+  .btn{max-width:100%}
 }
 </style>
 </head>
@@ -320,10 +268,7 @@ footer{
 
 <header>
   <div class="nav">
-
-    <div class="logo">
-      KENA <span>DESIGN</span>
-    </div>
+    <div class="logo">KENA <span>DESIGN</span></div>
 
     <div class="nav-links">
       <a href="dashboard.html">🏠 Dashboard</a>
@@ -334,7 +279,6 @@ footer{
     <button class="logout" type="button" onclick="logout()">
       Logout
     </button>
-
   </div>
 </header>
 
@@ -342,7 +286,6 @@ footer{
   <div class="container">
 
     <section class="welcome">
-
       <h1>
         👋 Baga nagaan dhuftan,
         <span id="welcomeName">Barataa!</span>
@@ -359,16 +302,12 @@ footer{
           <span id="studentName" class="info-value">-</span>
         </div>
       </div>
-
     </section>
 
     <section class="lessons-section">
-
       <div class="section-title">
         <div class="icon">📚</div>
-        <div>
-          <h2>Barnoota Kee</h2>
-        </div>
+        <div><h2>Barnoota Kee</h2></div>
       </div>
 
       <p class="lessons-description">
@@ -380,15 +319,12 @@ footer{
 
         <div class="lesson-card">
           <div class="lesson-icon">P</div>
-
           <h3>Lesson 1 - PixelLab</h3>
-
           <p>
             PixelLab fayyadamuun text, image,
             background, effect fi poster design
             hojjechuu baradhu.
           </p>
-
           <a href="lesson.html" class="btn btn-primary">
             📖 Barnoota Jalqabi →
           </a>
@@ -396,14 +332,11 @@ footer{
 
         <div class="lesson-card">
           <div class="lesson-icon">Aa</div>
-
           <h3>Lesson 2 - Font Haaraa</h3>
-
           <p>
             PixelLab keessatti font haaraa
             galchuu fi itti fayyadamuu baradhu.
           </p>
-
           <a href="lesson2.html" class="btn btn-secondary">
             → Lesson 2 Ilaali
           </a>
@@ -413,10 +346,8 @@ footer{
 
       <div class="motivation">
         <div class="motivation-icon">🎯</div>
-
         <div>
           <h3>Milkaa'ina!</h3>
-
           <p>
             Barnoota kee har'a jalqabi;
             tarkaanfii xiqqoo har'a fudhatte
@@ -424,8 +355,8 @@ footer{
           </p>
         </div>
       </div>
-
     </section>
+
   </div>
 </main>
 
@@ -434,7 +365,6 @@ footer{
 </footer>
 
 <script>
-/* MAQAA BARATAA AGARSIISI */
 function loadStudent(){
   let student = {};
 
@@ -459,7 +389,6 @@ function loadStudent(){
     name || "-";
 }
 
-/* LOGOUT: LOGIN OTP HIN QABNE BANAA */
 function logout(){
   sessionStorage.removeItem("kena_student");
 
@@ -469,7 +398,7 @@ function logout(){
   localStorage.removeItem("studentPhone");
   localStorage.removeItem("studentPayment");
 
-  window.location.replace("student.html?v=8");
+  window.location.replace("student.html?v=9");
 }
 
 document.addEventListener("DOMContentLoaded",loadStudent);

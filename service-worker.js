@@ -1,57 +1,61 @@
-const CACHE_NAME = "kena-design-v3";
+const CACHE_NAME = "kena-design-v1";
 
-const FILES_TO_CACHE = [
+const APP_FILES = [
   "./",
   "./index.html",
-  "./login.html",
-  "./register.html",
-  "./student.html",
-  "./lesson.html",
-  "./lesson2.html",
-  "./admin.html",
-  "./style.css",
-  "./script.js",
   "./manifest.json"
 ];
 
-self.addEventListener("install", event => {
-  self.skipWaiting();
-
+self.addEventListener("install", function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(FILES_TO_CACHE);
+    caches.open(CACHE_NAME).then(function (cache) {
+      return cache.addAll(APP_FILES);
     })
   );
+
+  self.skipWaiting();
 });
 
-self.addEventListener("activate", event => {
+self.addEventListener("activate", function (event) {
   event.waitUntil(
-    caches.keys().then(keys => {
+    caches.keys().then(function (cacheNames) {
       return Promise.all(
-        keys.map(key => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
+        cacheNames
+          .filter(function (name) {
+            return name !== CACHE_NAME;
+          })
+          .map(function (name) {
+            return caches.delete(name);
+          })
       );
-    }).then(() => self.clients.claim())
+    })
   );
+
+  self.clients.claim();
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", function (event) {
+  if (event.request.method !== "GET") {
+    return;
+  }
+
   event.respondWith(
     fetch(event.request)
-      .then(response => {
-        const copy = response.clone();
+      .then(function (response) {
+        if (response && response.ok) {
+          const copy = response.clone();
 
-        caches.open(CACHE_NAME).then(cache => {
-          cache.put(event.request, copy);
-        });
+          caches.open(CACHE_NAME).then(function (cache) {
+            cache.put(event.request, copy);
+          });
+        }
 
         return response;
       })
-      .catch(() => {
-        return caches.match(event.request);
+      .catch(function () {
+        return caches.match(event.request).then(function (cached) {
+          return cached || caches.match("./index.html");
+        });
       })
   );
 });

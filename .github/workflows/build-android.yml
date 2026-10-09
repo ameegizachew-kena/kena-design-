@@ -1,0 +1,72 @@
+name: Build KENA DESIGN Android APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get project
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Prepare web app
+        run: |
+          mkdir -p www
+
+          test -f index.html || {
+            echo "ERROR: index.html hin jiru."
+            exit 1
+          }
+
+          cp index.html www/
+
+          for file in student.html dashboard.html register.html admin.html lesson.html lesson2.html manifest.json; do
+            if [ -f "$file" ]; then
+              cp "$file" www/
+            fi
+          done
+
+          if [ -d icons ]; then
+            cp -r icons www/
+          fi
+
+      - name: Install Capacitor
+        run: |
+          npm init -y
+          npm install @capacitor/core@latest @capacitor/android@latest
+          npm install --save-dev @capacitor/cli@latest
+
+      - name: Configure Capacitor
+        run: |
+          npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir www
+          npx cap add android
+          npx cap sync android
+
+      - name: Build APK
+        run: |
+          cd android
+          chmod +x gradlew
+          ./gradlew assembleDebug
+
+      - name: Save APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: KENA-DESIGN-APK
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error

@@ -1,1466 +1,1113 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>KENA DESIGN | Barnoota Design fi Digital Skills</title>
-
-  <meta name="description"
-        content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Web Design, Digital Marketing fi Digital Skills online.">
-
-  <meta name="theme-color" content="#08111f">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="KENA DESIGN">
-
-  <link rel="manifest" href="./manifest.json">
-  <link rel="icon" href="./icons/icon-192.png" type="image/png">
-  <link rel="apple-touch-icon" href="./icons/icon-192.png">
-
-  <style>
-    :root {
-      --bg: #08111f;
-      --card: #101c2c;
-      --card2: #142338;
-      --text: #ffffff;
-      --muted: #b5c3d5;
-      --green: #32d583;
-      --green-dark: #20a765;
-      --border: #25374d;
-      --blue: #38bdf8;
-      --radius: 18px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input {
-      font: inherit;
-    }
-
-    button,
-    .btn {
-      cursor: pointer;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    /* NAVIGATION */
-
-    header {
-      background: rgba(8, 17, 31, 0.96);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(12px);
-    }
-
-    .navbar {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .logo {
-      color: var(--green);
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--green);
-    }
-
-    .menu-btn {
-      display: none;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: white;
-      border-radius: 10px;
-      padding: 8px 13px;
-      font-size: 23px;
-    }
-
-    /* BUTTONS */
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      border: none;
-      border-radius: 11px;
-      padding: 12px 19px;
-      font-weight: 800;
-      transition: 0.2s;
-      text-align: center;
-    }
-
-    .btn-primary {
-      color: #052515;
-      background: var(--green);
-    }
-
-    .btn-primary:hover {
-      background: #59e99d;
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--green);
-      color: var(--green);
-    }
-
-    .btn-outline:hover {
-      background: var(--green);
-      color: #052515;
-    }
-
-    .btn-blue {
-      background: #1685cf;
-      color: white;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 85px 0 75px;
-      background:
-        radial-gradient(
-          circle at 85% 15%,
-          rgba(50, 213, 131, 0.13),
-          transparent 32%
-        ),
-        radial-gradient(
-          circle at 5% 90%,
-          rgba(56, 189, 248, 0.09),
-          transparent 30%
-        );
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      align-items: center;
-      gap: 45px;
-    }
-
-    .badge {
-      display: inline-block;
-      color: var(--green);
-      background: rgba(50, 213, 131, 0.1);
-      border: 1px solid rgba(50, 213, 131, 0.3);
-      padding: 7px 13px;
-      border-radius: 50px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(35px, 5vw, 60px);
-      line-height: 1.18;
-      margin-bottom: 20px;
-      letter-spacing: -1px;
-    }
-
-    .hero h1 span {
-      color: var(--green);
-    }
-
-    .hero p {
-      color: var(--muted);
-      max-width: 650px;
-      margin-bottom: 25px;
-      font-size: 17px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .hero-card {
-      background: linear-gradient(145deg, var(--card2), var(--card));
-      border: 1px solid var(--border);
-      padding: 30px;
-      border-radius: 25px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero-icon {
-      font-size: 65px;
-      margin-bottom: 10px;
-    }
-
-    .hero-card h2 {
-      color: var(--green);
-      margin-bottom: 12px;
-    }
-
-    .hero-card p {
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-
-    .hero-card ul {
-      list-style: none;
-      color: var(--muted);
-    }
-
-    .hero-card li {
-      margin: 8px 0;
-    }
-
-    /* GENERAL SECTIONS */
-
-    section {
-      padding: 70px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(27px, 4vw, 38px);
-      margin-bottom: 10px;
-    }
-
-    .section-heading h2 span {
-      color: var(--green);
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      max-width: 680px;
-      margin: auto;
-    }
-
-    /* STATS */
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 25px 15px;
-      text-align: center;
-      border-radius: var(--radius);
-    }
-
-    .stat-card strong {
-      display: block;
-      color: var(--green);
-      font-size: 30px;
-    }
-
-    .stat-card span {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* COURSES */
-
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .course-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      transition: 0.25s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .course-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--green);
-    }
-
-    .course-icon {
-      font-size: 38px;
-      margin-bottom: 12px;
-    }
-
-    .course-card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .course-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 15px;
-      flex-grow: 1;
-    }
-
-    .course-info {
-      border-top: 1px solid var(--border);
-      padding-top: 13px;
-      margin-bottom: 15px;
-    }
-
-    .course-price {
-      color: var(--green);
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .course-duration {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .course-card .btn {
-      width: 100%;
-    }
-
-    .price-note {
-      color: var(--muted);
-      text-align: center;
-      margin-top: 25px;
-      font-size: 14px;
-    }
-
-    /* WHY US */
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .feature-card {
-      padding: 24px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-
-    .feature-card .icon {
-      font-size: 35px;
-      margin-bottom: 10px;
-    }
-
-    .feature-card h3 {
-      margin-bottom: 8px;
-    }
-
-    .feature-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* REGISTRATION CTA */
-
-    .register-banner {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(50, 213, 131, 0.12),
-          rgba(56, 189, 248, 0.08)
-        );
-      border: 1px solid var(--border);
-      padding: 40px 25px;
-      border-radius: 25px;
-      text-align: center;
-    }
-
-    .register-banner h2 {
-      font-size: clamp(25px, 4vw, 36px);
-      margin-bottom: 12px;
-    }
-
-    .register-banner p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto 22px;
-    }
-
-    /* QUIZ */
-
-    .quiz-box {
-      max-width: 750px;
-      margin: auto;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 25px;
-    }
-
-    .quiz-box h3 {
-      margin-bottom: 15px;
-    }
-
-    .quiz-option {
-      display: block;
-      width: 100%;
-      text-align: left;
-      padding: 13px;
-      margin: 10px 0;
-      background: var(--card2);
-      color: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-
-    .quiz-option:hover {
-      border-color: var(--green);
-    }
-
-    .quiz-option:disabled {
-      cursor: default;
-      opacity: 0.95;
-    }
-
-    .quiz-result {
-      margin: 15px 0;
-      color: var(--green);
-      font-weight: 800;
-    }
-
-    /* CONTACT */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 25px;
-    }
-
-    .contact-card h3 {
-      margin-bottom: 12px;
-    }
-
-    .contact-card p {
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    .contact-list {
-      list-style: none;
-    }
-
-    .contact-list li {
-      margin: 12px 0;
-      color: var(--muted);
-      overflow-wrap: anywhere;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 30px 0;
-      border-top: 1px solid var(--border);
-      background: #060d17;
-      text-align: center;
-    }
-
-    footer p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    footer .logo {
-      display: inline-block;
-      margin-bottom: 8px;
-    }
-
-    /* INSTALL MESSAGE */
-
-    .install-note {
-      display: none;
-      position: fixed;
-      left: 15px;
-      right: 15px;
-      bottom: 15px;
-      z-index: 2000;
-      max-width: 480px;
-      margin: auto;
-      background: var(--card2);
-      border: 1px solid var(--green);
-      border-radius: 15px;
-      padding: 15px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    }
-
-    .install-note p {
-      font-size: 13px;
-      color: var(--muted);
-      margin: 5px 0 10px;
-    }
-
-    .install-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .small-btn {
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: none;
-      font-weight: 800;
-    }
-
-    .hidden {
-      display: none !important;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .nav-links {
-        gap: 12px;
-      }
-
-      .nav-links a {
-        font-size: 13px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .navbar {
-        min-height: 65px;
-      }
-
-      .logo {
-        font-size: 20px;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        left: 4%;
-        right: 4%;
-        top: 65px;
-        padding: 18px;
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: 15px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-      }
-
-      .nav-links.show {
-        display: flex;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 11px 5px;
-        border-bottom: 1px solid var(--border);
-        font-size: 15px;
-      }
-
-      .nav-links a:last-child {
-        border-bottom: none;
-      }
-
-      .hero {
-        padding: 55px 0;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .hero-card {
-        padding: 22px;
-      }
-
-      section {
-        padding: 50px 0;
-      }
-
-      .courses-grid,
-      .features-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .course-card {
-        padding: 20px;
-      }
-
-      .quiz-box {
-        padding: 18px;
-      }
-
-      .register-banner {
-        padding: 30px 18px;
-      }
-
-      .hero-buttons .btn {
-        width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<title>KENA DESIGN | Barnoota Design</title>
+
+<meta name="description" content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Web Design fi Digital Skills.">
+<meta name="theme-color" content="#ffffff">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="KENA DESIGN">
+
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+
+<style>
+:root {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --panel2: #edf2f8;
+  --text: #172033;
+  --muted: #5f6b7b;
+  --accent: #159957;
+  --accent2: #1689d8;
+  --border: #dce3ec;
+  --shadow: 0 14px 35px rgba(24, 39, 75, .09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(22,137,216,.08), transparent 35%),
+    radial-gradient(circle at top left, rgba(21,153,87,.07), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: .3px;
+}
+
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  font-weight: 900;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.nav-links a {
+  color: var(--muted);
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: var(--panel2);
+}
+
+.menu-btn {
+  display: none;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 13px 20px;
+  font-weight: 800;
+  text-align: center;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(21,153,87,.16);
+}
+
+.secondary {
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* HERO */
+
+.hero {
+  padding: 85px 0 70px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid #b8e8cf;
+  background: #eaf8f0;
+  color: #117a43;
+  border-radius: 999px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 8vw, 78px);
+  line-height: 1.15;
+  margin-bottom: 20px;
+  font-weight: 900;
+}
+
+.hero h1 span {
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 65px 0;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-head h2 {
+  font-size: 32px;
+  margin-bottom: 9px;
+}
+
+.section-head p {
+  color: var(--muted);
+}
+
+/* STUDENT ACCESS */
+
+.access-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+
+.card h3 {
+  margin-bottom: 12px;
+}
+
+.access-info p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.access-list {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.access-list li {
+  display: flex;
+  gap: 10px;
+  color: #344054;
+}
+
+.access-list span {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.notice {
+  margin-top: 20px;
+  padding: 13px;
+  border-radius: 11px;
+  background: #fff8e8;
+  border: 1px solid #f5dfaa;
+  color: #815b0a;
+  font-size: 13px;
+}
+
+/* COURSES */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.course {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 6px 20px rgba(24,39,75,.04);
+}
+
+.course:hover {
+  border-color: #a9dfc2;
+  box-shadow: var(--shadow);
+}
+
+.icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: var(--panel2);
+  font-size: 26px;
+  margin-bottom: 16px;
+}
+
+.course h3 {
+  font-size: 21px;
+  margin-bottom: 8px;
+}
+
+.course p {
+  color: var(--muted);
+  min-height: 68px;
+  margin-bottom: 15px;
+}
+
+.course-toggle {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  color: var(--text);
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.lesson {
+  display: none;
+  margin-top: 15px;
+}
+
+.lesson.open {
+  display: block;
+}
+
+.lesson ul {
+  list-style: none;
+  color: var(--muted);
+  padding: 10px 0;
+}
+
+.lesson li {
+  padding: 5px 0;
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.about-box {
+  padding: 27px;
+  border-radius: 20px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 20px rgba(24,39,75,.04);
+}
+
+.about-box h3 {
+  margin-bottom: 12px;
+}
+
+.about-box p {
+  color: var(--muted);
+}
+
+/* QUIZ */
+
+.quiz-box {
+  max-width: 850px;
+  margin: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+
+.q {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.q b {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.q label {
+  display: block;
+  color: var(--muted);
+  padding: 7px 0;
+  cursor: pointer;
+}
+
+.q input {
+  margin-right: 7px;
+  accent-color: var(--accent);
+}
+
+.result {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* CONTACT */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.contact-card {
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(24,39,75,.04);
+}
+
+.contact-card .big {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.contact-card p {
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* APP INSTALL */
+
+.install-box {
+  max-width: 750px;
+  margin: auto;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+
+.install-box p {
+  color: var(--muted);
+  margin: 8px 0 18px;
+}
+
+#installBtn {
+  display: none;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: 30px;
+  padding: 35px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--muted);
+  background: #fff;
+}
+
+footer strong {
+  color: var(--text);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .access-wrap,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width:680px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    top: 72px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    padding: 60px 0 45px;
+  }
+
+  section {
+    padding: 50px 0;
+  }
+
+  .course-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .quiz-box,
+  .about-box {
+    padding: 20px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
-  <header>
-    <div class="container navbar">
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav-inner">
 
-      <a class="logo" href="#home">KENA DESIGN</a>
+    <a href="#home" class="logo">
+      <span class="logo-mark">KD</span>
+      <span>KENA DESIGN</span>
+    </a>
 
-      <button
-        class="menu-btn"
-        id="menuBtn"
-        type="button"
-        aria-label="Menu bani"
-        aria-expanded="false">
-        ☰
-      </button>
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Menu bani"
+      aria-expanded="false">☰</button>
 
-      <nav class="nav-links" id="navLinks">
-        <a href="#home">Mana</a>
-        <a href="#courses">Koorsii</a>
-        <a href="#about">Waa'ee Keenya</a>
-        <a href="#quiz">Qormaata</a>
-        <a href="#contact">Nu Qunnamaa</a>
-        <a href="./student.html">Barataa</a>
-        <a href="./register.html">Galmaa'i</a>
-      </nav>
-
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="login.html">Barnoota Jalqabi</a>
+      <a href="#courses">Barnoota</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#about">Waa'ee Keenya</a>
+      <a href="#contact">Contact</a>
+      <a href="register.html">Galmaa'i</a>
     </div>
-  </header>
 
+  </div>
+</nav>
 
-  <main>
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="container">
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <div class="container hero-grid">
+    <div class="badge">✨ KENA DESIGN ONLINE LEARNING</div>
 
-        <div>
-          <span class="badge">🎓 Barnoota Online • KENA DESIGN</span>
-
-          <h1>
-            Dandeettii Kee
-            <span>Guddifadhu!</span>
-          </h1>
-
-          <p>
-            Gara fuulduraatti tarkaanfadhu!
-            KENA DESIGN waliin Graphic Design, Video Editing,
-            Web Design fi Digital Skills baradhu.
-            Barnoota qabatamaa, hojii shaakalaa fi qophii gaarii
-            argachuuf nu waliin jalqabi.
-          </p>
-
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="./register.html">
-              🚀 Amma Galmaa'i
-            </a>
-
-            <a class="btn btn-outline" href="#courses">
-              📚 Koorsii Ilaali
-            </a>
-
-            <a class="btn btn-blue" href="./student.html">
-              👨‍🎓 Barataa Seeni
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="hero-icon">💻🎨</div>
-
-          <h2>Baga Gara KENA DESIGN Dhufte!</h2>
-
-          <p>
-            Dandeettii dijitaalaa kee guddisi; yaada kee gara
-            hojii kalaqaatti jijjiiri.
-          </p>
-
-          <ul>
-            <li>✅ Barnoota Digital Skills</li>
-            <li>✅ Hojii qabatamaa fi shaakala</li>
-            <li>✅ Koorsii adda addaa</li>
-            <li>✅ Galmee karaa website</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- STATS -->
-    <section style="padding-top: 10px;">
-      <div class="container stats-grid">
-
-        <div class="stat-card">
-          <strong>8</strong>
-          <span>Koorsii Filannoo</span>
-        </div>
-
-        <div class="stat-card">
-          <strong>30</strong>
-          <span>Guyyaa Turtii Koorsii</span>
-        </div>
-
-        <div class="stat-card">
-          <strong>100%</strong>
-          <span>Kaayyoo Barachuu</span>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- COURSES -->
-    <section id="courses">
-      <div class="container">
-
-        <div class="section-heading">
-          <h2>Koorsii <span>Keenya</span></h2>
-
-          <p>
-            Koorsii siif mijatu filadhu.
-            Gatiin koorsii tokkoon tokkoo isaa asii gadiitti
-            ibsameera.
-          </p>
-        </div>
-
-        <div class="courses-grid">
-
-          <article class="course-card">
-            <div class="course-icon">🎨</div>
-            <h3>Graphic Design</h3>
-
-            <p>
-              Design bareedaa, logo, social media graphics
-              fi hojii kalaqaa hojjechuu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">400 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">🎬</div>
-            <h3>Video Editing</h3>
-
-            <p>
-              Viidiyoo sirreessuu, clips walitti hidhuu,
-              effects fi hojii viidiyoo bareedaa hojjechuu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">530 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">🌐</div>
-            <h3>Web Design</h3>
-
-            <p>
-              Bu'uura website design, HTML, CSS fi ijaarsa
-              website salphaa baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">1000 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">📱</div>
-            <h3>Digital Marketing</h3>
-
-            <p>
-              Beeksisa online, social media marketing fi
-              mala ittiin tajaajila kee beeksiftu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">400 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">📸</div>
-            <h3>Photography</h3>
-
-            <p>
-              Suuraa ka'uu, composition, lighting fi
-              suuraa qulqullina qabu hojjechuu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">400 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">🖼️</div>
-            <h3>Flayer Package</h3>
-
-            <p>
-              Flayer fi beeksisa daldalaa qulqullina qabu
-              dizaayinii gochuu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">400 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">▶️</div>
-            <h3>YouTube Thumbnail</h3>
-
-            <p>
-              Thumbnail nama hawwatu fi YouTube irratti
-              mul'atu hojjechuu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">400 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-
-          <article class="course-card">
-            <div class="course-icon">📰</div>
-            <h3>Poster Design</h3>
-
-            <p>
-              Poster beeksisaa, event fi hojii daldalaa
-              bareedaa qopheessuu baradhu.
-            </p>
-
-            <div class="course-info">
-              <span class="course-price">400 Birr</span>
-              <span class="course-duration">⏱ Turtii: Guyyaa 30</span>
-            </div>
-
-            <a class="btn btn-primary" href="./register.html">
-              Koorsii Kana Filadhu
-            </a>
-          </article>
-
-        </div>
-
-        <p class="price-note">
-          Hubachiisa: Gatiin koorsii tokkoon tokkoo isaa
-          fuula galmee irratti illee ilaaluun ni danda'ama.
-        </p>
-
-      </div>
-    </section>
-
-
-    <!-- ABOUT / BENEFITS -->
-    <section id="about">
-      <div class="container">
-
-        <div class="section-heading">
-          <h2>Maaliif <span>KENA DESIGN?</span></h2>
-
-          <p>
-            Dandeettii haaraa barachuun carraa hojii fi
-            kalaqa kee guddisuuf tarkaanfii fudhadhu.
-          </p>
-        </div>
-
-        <div class="features-grid">
-
-          <div class="feature-card">
-            <div class="icon">📚</div>
-            <h3>Barnoota Qindaa'aa</h3>
-            <p>
-              Barnoota qindaa'aa hordofuun dandeettii kee
-              tartiibaan guddisi.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">🛠️</div>
-            <h3>Hojii Qabatamaa</h3>
-            <p>
-              Waan baratte shaakali; hojii kalaqaa
-              mataa keetii hojjechuuf carraa argadhu.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">💡</div>
-            <h3>Dandeettii Kalaqaa</h3>
-            <p>
-              Yaada kee gara hojii dijitaalaa fi
-              dizaayinii bareedaatti jijjiiri.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">📱</div>
-            <h3>Digital Skills</h3>
-            <p>
-              Meeshaalee fi mala hojii dijitaalaa
-              barachuuf of qopheessi.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">📝</div>
-            <h3>Shaakala fi Assignment</h3>
-            <p>
-              Hojii shaakalaa irratti xiyyeeffadhu;
-              waan baratte hojiidhaan cimsadhu.
-            </p>
-          </div>
-
-          <div class="feature-card">
-            <div class="icon">🚀</div>
-            <h3>Jalqabi</h3>
-            <p>
-              Koorsii siif mijatu filadhu; galmee kee
-              karaa website keenyaa jalqabi.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- REGISTER CTA -->
-    <section>
-      <div class="container">
-
-        <div class="register-banner">
-          <h2>Barachuu Har'a Jalqabi!</h2>
-
-          <p>
-            Koorsii barbaadde filadhu. Gatii koorsii ilaaluuf
-            fi galmaa'uuf button <strong>“Galmaa'i”</strong>
-            jedhu tuqi. Odeeffannoo barbaachisu guuti;
-            qajeelfama fuula galmee irratti siif kennamu hordofi.
-          </p>
-
-          <a class="btn btn-primary" href="./register.html">
-            📝 Galmaa'i Amma
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- QUIZ -->
-    <section id="quiz">
-      <div class="container">
-
-        <div class="section-heading">
-          <h2>Qormaata <span>Xiqqaa</span></h2>
-
-          <p>
-            Gaaffii armaan gadii deebisuun beekumsa kee
-            bu'uuraa qoradhu.
-          </p>
-        </div>
-
-        <div class="quiz-box" id="quizBox">
-
-          <h3 id="questionText">
-            Gaaffii qormaataa
-          </h3>
-
-          <div id="answers"></div>
-
-          <p class="quiz-result" id="quizResult" aria-live="polite"></p>
-
-          <button
-            class="btn btn-primary hidden"
-            id="nextQuestion"
-            type="button">
-            Gaaffii Itti Aanu →
-          </button>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="container">
-
-        <div class="section-heading">
-          <h2>Nu <span>Qunnamaa</span></h2>
-
-          <p>
-            Waa'ee koorsii fi galmee odeeffannoo dabalataa
-            barbaadde? Fuula galmee keenya daawwadhu.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-
-          <div class="contact-card">
-            <h3>📩 KENA DESIGN</h3>
-
-            <p>
-              Koorsii filachuu, gatii ilaaluufi galmaa'uuf
-              website keenya fayyadami.
-            </p>
-
-            <a
-              class="btn btn-primary"
-              href="./register.html">
-              Fuula Galmee Bani
-            </a>
-          </div>
-
-          <div class="contact-card">
-            <h3>🔗 Linkiiwwan Barbaachisoo</h3>
-
-            <ul class="contact-list">
-              <li>
-                🏠 <a href="./">Fuula Jalqabaa</a>
-              </li>
-
-              <li>
-                📝 <a href="./register.html">Galmee Barataa</a>
-              </li>
-
-              <li>
-                🎓 <a href="./student.html">Fuula Barataa</a>
-              </li>
-
-              <li>
-                📚 <a href="#courses">Koorsiiwwan</a>
-              </li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-
-      <a class="logo" href="#home">KENA DESIGN</a>
-
-      <p>
-        Baradhu • Shaakali • Kalaqi • Guddadhu
-      </p>
-
-      <p style="margin-top: 10px;">
-        © <span id="year"></span> KENA DESIGN.
-        Mirgi hundi eegamaadha.
-      </p>
-
-    </div>
-  </footer>
-
-
-  <!-- INSTALL APP MESSAGE -->
-  <div class="install-note" id="installNote">
-
-    <strong>📲 KENA DESIGN App</strong>
+    <h1>Barnoota <span>KENA DESIGN</span></h1>
 
     <p>
-      Website kana app godhii bilbila kee irratti
-      install gochuu dandeessa, yoo browser kee deeggaru.
+      Design, Video Editing, Logo, Thumbnail, Business Card
+      fi Flyer professional ta'een hojjechuu baradhu.
     </p>
 
-    <div class="install-actions">
+    <div class="hero-actions">
+      <a href="login.html" class="btn primary">🚀 Barnoota Jalqabi</a>
+      <a href="#courses" class="btn secondary">📚 Koorsii Ilaali</a>
+      <a href="register.html" class="btn secondary">📝 Galmaa'i</a>
+    </div>
 
-      <button
-        class="small-btn btn-primary"
-        id="installBtn"
-        type="button">
-        Install App
-      </button>
+  </div>
+</header>
 
-      <button
-        class="small-btn"
-        id="closeInstall"
-        type="button"
-        style="background: #26374b; color: white;">
-        Cufi
-      </button>
+<!-- STUDENT ACCESS -->
+<section id="access">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>🎓 Barnoota Jalqabi</h2>
+      <p>Barnoota kee jalqabuuf Login page seeni.</p>
+    </div>
+
+    <div class="access-wrap">
+
+      <div class="card access-info">
+        <h3>👨‍🎓 Student Learning</h3>
+
+        <p>
+          Barataan galmaa'ee fi access argate login godhee
+          dashboard isaa irraa koorsii fi video barnootaa argachuu danda'a.
+        </p>
+
+        <ul class="access-list">
+          <li><span>✓</span><div>Login page seeni.</div></li>
+          <li><span>✓</span><div>Phone number kee galchi.</div></li>
+          <li><span>✓</span><div>PIN kee galchi.</div></li>
+          <li><span>✓</span><div>OTP yoo siif kenname galchi.</div></li>
+          <li><span>✓</span><div>Erga mirkanaa'ee booda Dashboard seeni.</div></li>
+        </ul>
+
+        <div class="notice">
+          🔐 Barnoota dhuunfaa argachuuf login fi access
+          mirkaneessuun barbaachisaa dha.
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🔐 Gara Login Seeni</h3>
+
+        <p style="color:var(--muted);margin-bottom:20px;">
+          Barnoota kee jalqabuuf button armaan gadii cuqaasi.
+        </p>
+
+        <a href="login.html" class="btn primary" style="width:100%;">
+          🚀 Login → Barnoota Jalqabi
+        </a>
+
+        <a href="register.html" class="btn secondary"
+           style="width:100%;margin-top:10px;">
+          📝 Barataa Haaraa Galmaa'i
+        </a>
+      </div>
 
     </div>
   </div>
+</section>
 
+<!-- COURSES -->
+<section id="courses">
+  <div class="container">
 
-  <script>
-    /* YEAR */
+    <div class="section-head">
+      <h2>📚 Barnoota Keenya</h2>
+      <p>Koorsiiwwan KENA DESIGN keessatti argaman.</p>
+    </div>
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    <div id="courseGrid" class="course-grid"></div>
 
+  </div>
+</section>
 
-    /* MOBILE MENU */
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
 
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
+    <div class="section-head">
+      <h2>💡 Waa'ee KENA DESIGN</h2>
+      <p>Kaayyoon keenya ogummaa digital barsiisuu dha.</p>
+    </div>
 
-    menuBtn.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("show");
+    <div class="about-grid">
 
-      menuBtn.setAttribute("aria-expanded", String(isOpen));
-      menuBtn.textContent = isOpen ? "✕" : "☰";
-    });
+      <div class="about-box">
+        <h3>🎯 Kaayyoo Keenya</h3>
+        <p>
+          KENA DESIGN'n namoota design fi digital skills barachuu
+          barbaadaniif barnoota salphaa, qabatamaa fi tartiiba qabu
+          dhiyeessuuf kan hojjetudha.
+        </p>
+      </div>
 
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("show");
-        menuBtn.setAttribute("aria-expanded", "false");
-        menuBtn.textContent = "☰";
-      });
-    });
+      <div class="about-box">
+        <h3>🚀 Maal Baratta?</h3>
+        <p>
+          Video Editing, Graphic Design, Web Design, Digital Marketing,
+          Photography, Thumbnail, Business Card fi Flyer barachuu dandeessa.
+        </p>
+      </div>
 
+    </div>
+  </div>
+</section>
 
-    /* QUIZ */
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="container">
 
-    const quizQuestions = [
-      {
-        question: "Graphic Design jechuun maal jechuudha?",
-        answers: [
-          "Suuraa fi barreeffama fayyadamuun ergaa mul'isu",
-          "Nyaata qopheessuu",
-          "Muuziqaa qofa dhaggeeffachuu"
-        ],
-        correct: 0
-      },
-      {
-        question: "HTML hojii maaliif oola?",
-        answers: [
-          "Bilbila chaarjii gochuuf",
-          "Caasaalee website ijaaruuf",
-          "Suuraa kaasuuf qofa"
-        ],
-        correct: 1
-      },
-      {
-        question: "Video Editing keessatti maal hojjenna?",
-        answers: [
-          "Viidiyoo gulaaluu fi qindeessuu",
-          "Mana ijaaruu",
-          "Kitaaba qofa dubbisuu"
-        ],
-        correct: 0
-      },
-      {
-        question: "Digital Marketing jechuun maal jechuudha?",
-        answers: [
-          "Beeksisa karaa dijitaalaa raawwachuu",
-          "Muka dhaabuu",
-          "Bishaan qulqulleessuu"
-        ],
-        correct: 0
-      },
-      {
-        question: "Web Design barachuun maal si gargaara?",
-        answers: [
-          "Website dizaayinii gochuu",
-          "Qilleensa uumu",
-          "Bilbila malee interneetii uumu"
-        ],
-        correct: 0
-      }
-    ];
+    <div class="section-head">
+      <h2>🧠 Quiz</h2>
+      <p>Waan baratte qoradhu.</p>
+    </div>
 
-    let currentQuestion = 0;
-    let score = 0;
-    let answered = false;
+    <div id="quizBox" class="quiz-box"></div>
 
-    const questionText = document.getElementById("questionText");
-    const answersBox = document.getElementById("answers");
-    const quizResult = document.getElementById("quizResult");
-    const nextQuestion = document.getElementById("nextQuestion");
+  </div>
+</section>
 
-    function showQuestion() {
-      answered = false;
+<!-- APP INSTALL -->
+<section id="install">
+  <div class="container">
 
-      const q = quizQuestions[currentQuestion];
+    <div class="section-head">
+      <h2>📲 KENA DESIGN App</h2>
+      <p>Appii kee bilbila irratti itti fayyadami.</p>
+    </div>
 
-      questionText.textContent =
-        (currentQuestion + 1) + ". " + q.question;
+    <div class="install-box">
+      <h3>📱 KENA DESIGN</h3>
 
-      answersBox.innerHTML = "";
-      quizResult.textContent = "";
-      nextQuestion.classList.add("hidden");
+      <p>
+        Yoo browser kee install gochuu deeggaru, app kana bilbila kee
+        irratti install gochuu dandeessa. Yoo button hin mul'anne,
+        menu Chrome keessaa “Add to Home screen” filadhu.
+      </p>
 
-      q.answers.forEach(function (answer, index) {
-        const button = document.createElement("button");
+      <button id="installBtn" class="btn primary" type="button">
+        📲 Install App
+      </button>
 
-        button.type = "button";
-        button.className = "quiz-option";
-        button.textContent = answer;
+      <p id="installMessage" aria-live="polite"></p>
+    </div>
 
-        button.addEventListener("click", function () {
-          checkAnswer(index, button);
-        });
+  </div>
+</section>
 
-        answersBox.appendChild(button);
-      });
-    }
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
 
-    function checkAnswer(selected, selectedButton) {
-      if (answered) return;
+    <div class="section-head">
+      <h2>📞 Contact</h2>
+      <p>KENA DESIGN waliin qunnamuuf.</p>
+    </div>
 
-      answered = true;
+    <div class="contact-grid">
 
-      const q = quizQuestions[currentQuestion];
-      const buttons = answersBox.querySelectorAll("button");
+      <div class="contact-card">
+        <div class="big">📱</div>
+        <h3>Phone</h3>
+        <p>+251 923 502 464</p>
+      </div>
 
-      buttons.forEach(function (button) {
-        button.disabled = true;
-      });
+      <div class="contact-card">
+        <div class="big">📧</div>
+        <h3>Email</h3>
+        <p>ameegizachew@gmail.com</p>
+      </div>
 
-      if (selected === q.correct) {
+      <div class="contact-card">
+        <div class="big">📍</div>
+        <h3>Address</h3>
+        <p>Oromia, Shambu, Horro Buluk</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p>© 2026 <strong>KENA DESIGN</strong>. All Rights Reserved.</p>
+    <p style="margin-top:7px;">Design • Learn • Create 🚀</p>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+/* MOBILE MENU */
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function() {
+  const opened = navLinks.classList.toggle("active");
+
+  menuBtn.setAttribute("aria-expanded", String(opened));
+  menuBtn.textContent = opened ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    navLinks.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+/* COURSES */
+const courses = [
+  {
+    icon: "🎬",
+    title: "Video Editing",
+    desc: "Viidiyoo qulqulluu fi nama hawwatu hojjechuu baradhu.",
+    lessons: [
+      "Cut fi trim gochuu",
+      "Transition fi effect",
+      "Text fi subtitle",
+      "Music fi audio",
+      "Export qulqullina gaariin"
+    ]
+  },
+  {
+    icon: "🎨",
+    title: "Graphic Design",
+    desc: "Poster, logo fi social media design hojjechuu baradhu.",
+    lessons: [
+      "Design basics",
+      "Typography",
+      "Color palette",
+      "Layout fi composition",
+      "Export"
+    ]
+  },
+  {
+    icon: "🌐",
+    title: "Web Design",
+    desc: "Website bareedaa fi mobile irratti hojjetu qopheessi.",
+    lessons: [
+      "HTML basics",
+      "CSS basics",
+      "Responsive design",
+      "Links fi forms",
+      "Publish website"
+    ]
+  },
+  {
+    icon: "📣",
+    title: "Digital Marketing",
+    desc: "Beeksisa online fi social media marketing baradhu.",
+    lessons: [
+      "Marketing basics",
+      "Content plan",
+      "Social media",
+      "Audience",
+      "Measure results"
+    ]
+  },
+  {
+    icon: "📷",
+    title: "Photography",
+    desc: "Suuraa qulqullina qabu kaasu fi gulaaluu baradhu.",
+    lessons: [
+      "Camera basics",
+      "Lighting",
+      "Composition",
+      "Editing",
+      "Export"
+    ]
+  },
+  {
+    icon: "🧾",
+    title: "Flayer Package",
+    desc: "Flyer daldalaa fi beeksisa event qopheessi.",
+    lessons: [
+      "Headline",
+      "Color",
+      "Image placement",
+      "Call to action",
+      "Export"
+    ]
+  },
+  {
+    icon: "▶️",
+    title: "YouTube Thumbnail",
+    desc: "Thumbnail nama hawwatu hojjedhu.",
+    lessons: [
+      "Canvas size",
+      "Composition",
+      "Text",
+      "Contrast",
+      "Export"
+    ]
+  },
+  {
+    icon: "🪧",
+    title: "Poster Design",
+    desc: "Poster event fi daldalaa qopheessi.",
+    lessons: [
+      "Purpose",
+      "Typography",
+      "Color",
+      "Layout",
+      "Export"
+    ]
+  }
+];
+
+const courseGrid = document.getElementById("courseGrid");
+
+courseGrid.innerHTML = courses.map(function(course, index) {
+  return `
+    <article class="course">
+      <div class="icon">${course.icon}</div>
+
+      <h3>${course.title}</h3>
+
+      <p>${course.desc}</p>
+
+      <button
+        class="course-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="lesson${index}"
+        data-index="${index}">
+        Qabiyyee Ilaali ▾
+      </button>
+
+      <div class="lesson" id="lesson${index}">
+        <ul>
+          ${course.lessons.map(function(item) {
+            return `<li>✓ ${item}</li>`;
+          }).join("")}
+        </ul>
+
+        <a class="btn primary" style="width:100%;" href="login.html">
+          🔐 Login godhi
+        </a>
+      </div>
+    </article>
+  `;
+}).join("");
+
+document.querySelectorAll(".course-toggle").forEach(function(button) {
+  button.addEventListener("click", function() {
+    const lesson = document.getElementById(
+      "lesson" + button.dataset.index
+    );
+
+    const opened = lesson.classList.toggle("open");
+
+    button.setAttribute("aria-expanded", String(opened));
+
+    button.textContent = opened
+      ? "Qabiyyee Cufi ▴"
+      : "Qabiyyee Ilaali ▾";
+  });
+});
+
+/* QUIZ */
+const questions = [
+  [
+    "Design keessatti typography jechuun maal?",
+    ["Bifa qubee fi barreeffamaa", "Sagalee", "Internet"],
+    0
+  ],
+  [
+    "Contrast maaliif fayyada?",
+    ["Wantoota adda baasuuf", "Faayila balleessuuf", "Login cufuuf"],
+    0
+  ],
+  [
+    "Video editing keessatti cut jechuun maal?",
+    ["Kutuu/qooduu", "Email", "Logo"],
+    0
+  ],
+  [
+    "Thumbnail maaliif barbaachisa?",
+    ["Viidiyoo beeksisuuf", "Password jijjiiruuf", "Internet cufuuf"],
+    0
+  ],
+  [
+    "CTA jechuun maal?",
+    ["Call to Action", "Color Type Area", "Camera Tool"],
+    0
+  ]
+];
+
+const quizBox = document.getElementById("quizBox");
+
+quizBox.innerHTML = questions.map(function(question, index) {
+  return `
+    <div class="q">
+      <b>${index + 1}. ${question[0]}</b>
+
+      ${question[1].map(function(option, optionIndex) {
+        return `
+          <label>
+            <input
+              type="radio"
+              name="q${index}"
+              value="${optionIndex}">
+            ${option}
+          </label>
+        `;
+      }).join("")}
+    </div>
+  `;
+}).join("") + `
+  <button type="button" class="btn primary" id="quizSubmit">
+    Qabxii Koo Ilaali
+  </button>
+
+  <div id="result" class="result" aria-live="polite"></div>
+`;
+
+document.getElementById("quizSubmit").addEventListener("click", function() {
+  let score = 0;
+  let answered = 0;
+
+  questions.forEach(function(question, index) {
+    const answer = document.querySelector(
+      'input[name="q' + index + '"]:checked'
+    );
+
+    if (answer) {
+      answered++;
+
+      if (Number(answer.value) === question[2]) {
         score++;
-        quizResult.textContent = "Sirrii dha! 🎉";
-      } else {
-        quizResult.textContent =
-          "Deebiin sirrii: " + q.answers[q.correct];
       }
-
-      selectedButton.style.borderColor =
-        selected === q.correct ? "#32d583" : "#ef4444";
-
-      nextQuestion.classList.remove("hidden");
-
-      nextQuestion.textContent =
-        currentQuestion === quizQuestions.length - 1
-          ? "Bu'aa Ilaali"
-          : "Gaaffii Itti Aanu →";
     }
+  });
 
-    nextQuestion.addEventListener("click", function () {
-      if (!answered) return;
+  const result = document.getElementById("result");
 
-      if (currentQuestion < quizQuestions.length - 1) {
-        currentQuestion++;
-        showQuestion();
-      } else {
-        questionText.textContent = "Qormaanni Xumurame!";
+  if (answered !== questions.length) {
+    result.textContent =
+      "Maaloo gaaffii hunda deebisi. Deebifte: " +
+      answered + "/" + questions.length;
 
-        answersBox.innerHTML = "";
+    return;
+  }
 
-        quizResult.textContent =
-          "Bu'aa kee: " + score + " / " +
-          quizQuestions.length;
+  result.textContent =
+    "Qabxii kee: " + score + "/" + questions.length + " 🎉";
+});
 
-        nextQuestion.textContent = "Irra Deebi'i";
+/* PWA INSTALL */
+let deferredInstallPrompt = null;
 
-        nextQuestion.onclick = function () {
-          currentQuestion = 0;
-          score = 0;
-          nextQuestion.onclick = null;
-          showQuestion();
-        };
-      }
-    });
+const installBtn = document.getElementById("installBtn");
+const installMessage = document.getElementById("installMessage");
 
-    showQuestion();
+window.addEventListener("beforeinstallprompt", function(event) {
+  event.preventDefault();
 
+  deferredInstallPrompt = event;
+  installBtn.style.display = "inline-flex";
+  installMessage.textContent = "";
+});
 
-    /* PWA SERVICE WORKER */
+installBtn.addEventListener("click", async function() {
+  if (!deferredInstallPrompt) {
+    installMessage.textContent =
+      'Chrome menu bani, "Add to Home screen" filadhu.';
 
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", function () {
-        navigator.serviceWorker
-          .register("./service-worker.js")
-          .catch(function (error) {
-            console.warn(
-              "Service worker hin galmoofne:",
-              error
-            );
-          });
+    return;
+  }
+
+  deferredInstallPrompt.prompt();
+
+  await deferredInstallPrompt.userChoice;
+
+  deferredInstallPrompt = null;
+  installBtn.style.display = "none";
+});
+
+window.addEventListener("appinstalled", function() {
+  installBtn.style.display = "none";
+
+  installMessage.textContent =
+    "KENA DESIGN app install ta'eera. ✓";
+});
+
+/* SERVICE WORKER */
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("./service-worker.js")
+      .catch(function(error) {
+        console.error("Service worker error:", error);
       });
-    }
-
-
-    /* INSTALL APP */
-
-    let deferredInstallPrompt = null;
-
-    const installNote = document.getElementById("installNote");
-    const installBtn = document.getElementById("installBtn");
-    const closeInstall = document.getElementById("closeInstall");
-
-    window.addEventListener("beforeinstallprompt", function (event) {
-      event.preventDefault();
-
-      deferredInstallPrompt = event;
-
-      if (!window.matchMedia("(display-mode: standalone)").matches) {
-        installNote.style.display = "block";
-      }
-    });
-
-    installBtn.addEventListener("click", async function () {
-      if (!deferredInstallPrompt) {
-        alert(
-          "Install option amma hin jiru. Browser menu keessatti " +
-          "'Add to Home screen' ykn 'Install app' ilaali."
-        );
-        return;
-      }
-
-      deferredInstallPrompt.prompt();
-
-      await deferredInstallPrompt.userChoice;
-
-      deferredInstallPrompt = null;
-      installNote.style.display = "none";
-    });
-
-    closeInstall.addEventListener("click", function () {
-      installNote.style.display = "none";
-    });
-
-    window.addEventListener("appinstalled", function () {
-      installNote.style.display = "none";
-      deferredInstallPrompt = null;
-    });
-
-  </script>
+  });
+}
+</script>
 
 </body>
 </html>

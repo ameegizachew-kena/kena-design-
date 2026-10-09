@@ -1,332 +1,372 @@
 <!DOCTYPE html>
 <html lang="om">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#08111f">
-  <title>KENA DESIGN - Student Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<title>KENA DESIGN - Student Login</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #08111f;
-      color: #f5f7fb;
-      min-height: 100vh;
-      line-height: 1.5;
-    }
+html,body{
+  background:#ffffff !important;
+  color:#102a43;
+  font-family:Arial,Helvetica,sans-serif;
+  min-height:100%;
+  line-height:1.6;
+}
 
-    .container {
-      width: min(600px, 92%);
-      margin: auto;
-      padding: 24px 0;
-    }
+body{
+  padding:20px 0;
+}
 
-    header {
-      text-align: center;
-      padding: 35px 10px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      margin-bottom: 28px;
-    }
+.container{
+  width:min(600px,92%);
+  margin:auto;
+}
 
-    header h1 {
-      color: #35d07f;
-      font-size: clamp(27px, 6vw, 38px);
-      margin-bottom: 8px;
-    }
+header{
+  text-align:center;
+  padding:35px 10px;
+  border-bottom:1px solid #e1eaf0;
+  margin-bottom:28px;
+  background:#ffffff;
+}
 
-    header p {
-      color: #aebbd0;
-      font-size: 18px;
-    }
+header h1{
+  color:#12a879;
+  font-size:clamp(27px,6vw,38px);
+  margin-bottom:8px;
+}
 
-    .box {
-      background: #101d30;
-      border: 1px solid rgba(255,255,255,.1);
-      border-radius: 22px;
-      padding: 25px;
-      box-shadow: 0 20px 50px rgba(0,0,0,.25);
-    }
+header p{
+  color:#58708a;
+  font-size:18px;
+}
 
-    .box h2 {
-      color: #35d07f;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
+.box{
+  background:#ffffff !important;
+  border:1px solid #d9eaf4;
+  border-radius:22px;
+  padding:25px;
+  box-shadow:0 12px 35px rgba(20,50,80,.08);
+}
 
-    label {
-      display: block;
-      margin: 16px 0 8px;
-      font-weight: bold;
-      color: #eaf0f8;
-    }
+.box h2{
+  color:#12a879;
+  font-size:28px;
+  margin-bottom:20px;
+}
 
-    input {
-      width: 100%;
-      padding: 15px;
-      border-radius: 13px;
-      border: 1px solid #344a63;
-      background: #07111f;
-      color: white;
-      font-size: 17px;
-      outline: none;
-    }
+label{
+  display:block;
+  margin:16px 0 8px;
+  font-weight:bold;
+  color:#173b63;
+}
 
-    input:focus {
-      border-color: #35d07f;
-    }
+input{
+  width:100%;
+  padding:15px;
+  border-radius:13px;
+  border:1px solid #d1dce6;
+  background:#ffffff !important;
+  color:#102a43 !important;
+  font-size:17px;
+  outline:none;
+}
 
-    button, .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin-top: 20px;
-      padding: 15px;
-      border: 0;
-      border-radius: 12px;
-      background: #35d07f;
-      color: #04120b;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-    }
+input::placeholder{
+  color:#8293a5;
+}
 
-    button:disabled {
-      opacity: .6;
-      cursor: wait;
-    }
+input:focus{
+  border-color:#12a879;
+  box-shadow:0 0 0 3px rgba(18,168,121,.10);
+}
 
-    .message {
-      display: none;
-      margin-top: 16px;
-      padding: 13px;
-      border-radius: 10px;
-      overflow-wrap: anywhere;
-    }
+button,.btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  margin-top:20px;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:#12a879;
+  color:#ffffff;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+}
 
-    .error {
-      display: block;
-      background: #421b22;
-      color: #ffb4bd;
-    }
+button:hover,.btn:hover{
+  background:#0d956a;
+}
 
-    .success {
-      display: block;
-      background: #10382a;
-      color: #9ff0c7;
-    }
+button:disabled{
+  opacity:.6;
+  cursor:wait;
+}
 
-    .register, .back {
-      text-align: center;
-      margin-top: 20px;
-      color: #aebbd0;
-    }
+.message{
+  display:none;
+  margin-top:16px;
+  padding:13px;
+  border-radius:10px;
+  overflow-wrap:anywhere;
+}
 
-    .register a, .back a {
-      color: #35d07f;
-      font-weight: bold;
-    }
-  </style>
+.error{
+  display:block;
+  background:#fff0f1;
+  color:#b42332;
+  border:1px solid #ffd1d6;
+}
+
+.success{
+  display:block;
+  background:#e9fbf2;
+  color:#087443;
+  border:1px solid #b9efd2;
+}
+
+.register,.back{
+  text-align:center;
+  margin-top:20px;
+  color:#58708a;
+}
+
+.register a,.back a{
+  color:#0d956a;
+  font-weight:bold;
+}
+
+@media(max-width:500px){
+  .container{
+    width:92%;
+  }
+
+  .box{
+    padding:20px;
+  }
+
+  .box h2{
+    font-size:25px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="container">
 
-    <header>
-      <h1>🎨 KENA DESIGN</h1>
-      <p>Student Login</p>
-    </header>
+<div class="container">
 
-    <section class="box">
-      <h2>🎓 Student Login</h2>
+  <header>
+    <h1>🎨 KENA DESIGN</h1>
+    <p>Student Login</p>
+  </header>
 
-      <form id="loginForm">
+  <section class="box">
 
-        <label for="phone">📱 Lakkoofsa Bilbilaa</label>
-        <input
-          type="tel"
-          id="phone"
-          placeholder="09xxxxxxxx ykn 07xxxxxxxx"
-          maxlength="10"
-          autocomplete="tel"
-          inputmode="numeric"
-          required
-        >
+    <h2>🎓 Student Login</h2>
 
-        <label for="pin">🔐 Course PIN</label>
-        <input
-          type="password"
-          id="pin"
-          placeholder="Course PIN galchi"
-          autocomplete="off"
-          required
-        >
+    <form id="loginForm">
 
-        <button id="loginButton" type="submit">
-          🔐 Login
-        </button>
+      <label for="phone">📱 Lakkoofsa Bilbilaa</label>
 
-        <div
-          id="message"
-          class="message"
-          role="status"
-          aria-live="polite"
-        ></div>
+      <input
+        type="tel"
+        id="phone"
+        placeholder="09xxxxxxxx ykn 07xxxxxxxx"
+        maxlength="10"
+        autocomplete="tel"
+        inputmode="numeric"
+        required
+      >
 
-      </form>
+      <label for="pin">🔐 Course PIN</label>
 
-      <div class="register">
-        Barataa haaraa?
-        <a href="register.html">Galmaa'i</a>
-      </div>
+      <input
+        type="password"
+        id="pin"
+        placeholder="Course PIN galchi"
+        autocomplete="off"
+        required
+      >
 
-      <div class="back">
-        <a href="index.html">← Gara Home deebi'i</a>
-      </div>
+      <button id="loginButton" type="submit">
+        🔐 Login
+      </button>
 
-    </section>
-  </div>
+      <div
+        id="message"
+        class="message"
+        role="status"
+        aria-live="polite"
+      ></div>
 
-  <script>
-    const LOGIN_URL =
-      "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
+    </form>
 
-    const form = document.getElementById("loginForm");
-    const button = document.getElementById("loginButton");
-    const message = document.getElementById("message");
+    <div class="register">
+      Barataa haaraa?
+      <a href="register.html">Galmaa'i</a>
+    </div>
 
-    function showMessage(text, type) {
-      message.textContent = text;
-      message.className = "message " + type;
-    }
+    <div class="back">
+      <a href="index.html">← Gara Home deebi'i</a>
+    </div>
 
-    function normalizePhone(phone) {
-      let p = phone.replace(/[\s()-]/g, "");
+  </section>
 
-      if (/^\+?251(9|7)\d{8}$/.test(p)) {
-        p = p.replace(/^\+?251/, "0");
-      }
+</div>
 
-      return p;
-    }
+<script>
+const LOGIN_URL =
+  "https://baoczizarrnzxwguyili.supabase.co/functions/v1/student-login";
 
-    form.addEventListener("submit", async function(event) {
-      event.preventDefault();
+const form = document.getElementById("loginForm");
+const button = document.getElementById("loginButton");
+const message = document.getElementById("message");
 
-      message.className = "message";
-      message.textContent = "";
+function showMessage(text,type){
+  message.textContent = text;
+  message.className = "message " + type;
+}
 
-      const phone = normalizePhone(
-        document.getElementById("phone").value.trim()
-      );
+function normalizePhone(phone){
+  let p = phone.replace(/[\s()-]/g,"");
 
-      const pin = document.getElementById("pin")
-        .value.trim().toUpperCase();
+  if(/^\+?251(9|7)\d{8}$/.test(p)){
+    p = p.replace(/^\+?251/,"0");
+  }
 
-      if (!/^(09|07)\d{8}$/.test(phone)) {
-        showMessage(
-          "Lakkoofsa bilbilaa sirrii galchi: 09xxxxxxxx ykn 07xxxxxxxx.",
-          "error"
-        );
-        return;
-      }
+  return p;
+}
 
-      if (!pin) {
-        showMessage("Course PIN galchi.", "error");
-        return;
-      }
+form.addEventListener("submit", async function(event){
+  event.preventDefault();
 
-      button.disabled = true;
-      button.textContent = "⏳ Seenaa jira...";
+  message.className = "message";
+  message.textContent = "";
 
-      try {
-        const response = await fetch(LOGIN_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ phone, pin })
-        });
+  const phone = normalizePhone(
+    document.getElementById("phone").value.trim()
+  );
 
-        const data = await response.json().catch(() => ({}));
+  const pin = document.getElementById("pin")
+    .value.trim().toUpperCase();
 
-        if (!response.ok || data.success === false) {
-          throw new Error(
-            data.error ||
-            data.message ||
-            "Login hin milkoofne."
-          );
-        }
+  if(!/^(09|07)\d{8}$/.test(phone)){
+    showMessage(
+      "Lakkoofsa bilbilaa sirrii galchi: 09xxxxxxxx ykn 07xxxxxxxx.",
+      "error"
+    );
+    return;
+  }
 
-        const student = data.student || data.data || data;
+  if(!pin){
+    showMessage("Course PIN galchi.","error");
+    return;
+  }
 
-        if (
-          !student ||
-          (!student.id && !student.fullname && !student.phone)
-        ) {
-          throw new Error("Odeeffannoon barataa hin argamne.");
-        }
+  button.disabled = true;
+  button.textContent = "⏳ Seenaa jira...";
 
-        if (
-          String(student.payment_status || "").toUpperCase() !== "PAID" ||
-          !(
-            student.learning_access === true ||
-            String(student.learning_access).toLowerCase() === "true" ||
-            String(student.learning_access) === "1"
-          )
-        ) {
-          throw new Error(
-            "Kaffaltiin kee ykn hayyamni barnootaa ammallee hin mirkanoofne. Admin qunnami."
-          );
-        }
-
-        sessionStorage.setItem(
-          "kena_student",
-          JSON.stringify(student)
-        );
-
-        localStorage.setItem(
-          "studentName",
-          student.fullname ||
-          student.name ||
-          student["Full name"] ||
-          ""
-        );
-
-        localStorage.setItem("fatherName", student.fathername || "");
-        localStorage.setItem("studentCourse", student.course || "");
-        localStorage.setItem("studentPhone", student.phone || phone);
-        localStorage.setItem("studentPayment", student.payment_status || "");
-
-        showMessage(
-          "Login milkaa'eera. Dashboard banamaa jira...",
-          "success"
-        );
-
-        setTimeout(function() {
-          window.location.href = "dashboard.html";
-        }, 500);
-
-      } catch (error) {
-        console.error("STUDENT LOGIN ERROR:", error);
-
-        showMessage(
-          error.message || "Rakkoo login irratti uumame.",
-          "error"
-        );
-
-      } finally {
-        button.disabled = false;
-        button.textContent = "🔐 Login";
-      }
+  try{
+    const response = await fetch(LOGIN_URL,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({phone,pin})
     });
-  </script>
+
+    const data = await response.json().catch(()=>({}));
+
+    if(!response.ok || data.success === false){
+      throw new Error(
+        data.error || data.message || "Login hin milkoofne."
+      );
+    }
+
+    const student = data.student || data.data || data;
+
+    if(!student || (!student.id && !student.fullname && !student.phone)){
+      throw new Error("Odeeffannoon barataa hin argamne.");
+    }
+
+    if(
+      String(student.payment_status || "").toUpperCase() !== "PAID" ||
+      !(
+        student.learning_access === true ||
+        String(student.learning_access).toLowerCase() === "true" ||
+        String(student.learning_access) === "1"
+      )
+    ){
+      throw new Error(
+        "Kaffaltiin kee ykn hayyamni barnootaa ammallee hin mirkanoofne. Admin qunnami."
+      );
+    }
+
+    sessionStorage.setItem(
+      "kena_student",
+      JSON.stringify(student)
+    );
+
+    localStorage.setItem(
+      "studentName",
+      student.fullname || student.name || ""
+    );
+
+    localStorage.setItem(
+      "fatherName",
+      student.fathername || ""
+    );
+
+    localStorage.setItem(
+      "studentCourse",
+      student.course || ""
+    );
+
+    localStorage.setItem(
+      "studentPhone",
+      student.phone || phone
+    );
+
+    localStorage.setItem(
+      "studentPayment",
+      student.payment_status || ""
+    );
+
+    showMessage(
+      "Login milkaa'eera. Dashboard banamaa jira...",
+      "success"
+    );
+
+    setTimeout(function(){
+      window.location.replace("dashboard.html");
+    },500);
+
+  }catch(error){
+    console.error("STUDENT LOGIN ERROR:",error);
+
+    showMessage(
+      error.message || "Rakkoo login irratti uumame.",
+      "error"
+    );
+
+  }finally{
+    button.disabled = false;
+    button.textContent = "🔐 Login";
+  }
+});
+</script>
+
 </body>
 </html>

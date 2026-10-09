@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Student Login</title>
+  <title>Kena Design - Student Login</title>
 
   <style>
     * {
@@ -40,12 +40,13 @@
       display: block;
       font-weight: bold;
       margin-bottom: 7px;
+      margin-top: 15px;
     }
 
     input {
       width: 100%;
       padding: 13px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 16px;
@@ -58,15 +59,19 @@
 
     button {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       border: none;
       border-radius: 8px;
-      background: #0066ff;
+      background: #008f45;
       color: white;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      margin-bottom: 10px;
+      margin-top: 18px;
+    }
+
+    button:hover {
+      background: #00753a;
     }
 
     button:disabled {
@@ -74,32 +79,24 @@
       cursor: not-allowed;
     }
 
-    #loginBtn {
-      background: #008f45;
-    }
-
-    .otp-box {
-      display: none;
-      background: #fff3cd;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    .otp-number {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 5px;
-      margin-top: 5px;
-    }
-
     #message {
       display: none;
       padding: 12px;
       border-radius: 8px;
       text-align: center;
-      margin-top: 10px;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .info {
+      margin-top: 18px;
+      padding: 12px;
+      background: #eef6ff;
+      border: 1px solid #c8def7;
+      border-radius: 8px;
+      color: #174a78;
+      font-size: 14px;
+      text-align: center;
     }
   </style>
 </head>
@@ -112,78 +109,47 @@
 
   <!-- PHONE -->
 
-  <label>📱 Lakkoofsa Bilbilaa</label>
+  <label for="phone">
+    📱 Lakkoofsa Bilbilaa
+  </label>
 
   <input
     type="tel"
     id="phone"
     placeholder="0923502464"
-    maxlength="13"
+    maxlength="10"
+    inputmode="numeric"
+    autocomplete="tel"
   >
 
-  <!-- COURSE PIN -->
+  <!-- PIN -->
 
-  <label>🔑 Course PIN</label>
+  <label for="pin">
+    🔑 Course PIN
+  </label>
 
   <input
     type="text"
     id="pin"
     placeholder="Fakkeenya: KD2350"
     maxlength="10"
+    autocomplete="off"
     style="text-transform:uppercase;"
-  >
-
-  <!-- SEND OTP -->
-
-  <button
-    id="sendOtpBtn"
-    onclick="sendOTP()"
-  >
-    📩 OTP Ergi
-  </button>
-
-  <!-- TESTING OTP -->
-
-  <div
-    id="otpBox"
-    class="otp-box"
-  >
-
-    <div>OTP kee:</div>
-
-    <div
-      id="otpNumber"
-      class="otp-number"
-    >
-      ------
-    </div>
-
-    <small>
-      Testing mode
-    </small>
-
-  </div>
-
-  <!-- OTP INPUT -->
-
-  <label>🔢 OTP</label>
-
-  <input
-    type="text"
-    id="otp"
-    placeholder="OTP 6-digit"
-    maxlength="6"
-    inputmode="numeric"
   >
 
   <!-- LOGIN -->
 
   <button
     id="loginBtn"
+    type="button"
     onclick="login()"
   >
     🔐 Login
   </button>
+
+  <div class="info">
+    Lakkoofsa bilbilaa fi Course PIN kee galchi.
+  </div>
 
   <div id="message"></div>
 
@@ -192,83 +158,148 @@
 
 <script>
 
-/* ==========================================
-   SUPABASE
-========================================== */
-
-const SUPABASE_URL =
-  "https://baoczizarrnzxwguyili.supabase.co";
+/* =========================================================
+   KENA DESIGN STUDENT LOGIN
+   ========================================================= */
 
 
-/* ==========================================
-   EDGE FUNCTIONS
-========================================== */
+/*
+  IMPORTANT:
 
-const SEND_OTP_URL =
-  SUPABASE_URL +
-  "/functions/v1/send-otp";
+  Backend login endpoint kee asitti galchi.
 
-const VERIFY_OTP_URL =
-  SUPABASE_URL +
-  "/functions/v1/verify-otp";
+  Fakkeenya:
+
+  https://baoczizarrnzxwguyili.supabase.co/functions/v1/login-student
+
+  Endpoint kun phone + PIN fudhachuu qaba.
+
+  Body:
+  {
+    "phone": "0923502464",
+    "pin": "KD2350"
+  }
+
+  Response milkaa'e:
+  {
+    "success": true,
+    "student": {
+      ...
+    }
+  }
+*/
+
+const LOGIN_API_URL =
+  "https://baoczizarrnzxwguyili.supabase.co/functions/v1/login-student";
 
 
-/* ==========================================
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const phoneInput =
+  document.getElementById("phone");
+
+const pinInput =
+  document.getElementById("pin");
+
+const loginBtn =
+  document.getElementById("loginBtn");
+
+const messageBox =
+  document.getElementById("message");
+
+
+/* =========================================================
+   PHONE INPUT
+   ========================================================= */
+
+phoneInput.addEventListener(
+  "input",
+  function () {
+
+    this.value =
+      this.value
+        .replace(/[^0-9]/g, "")
+        .slice(0, 10);
+
+  }
+);
+
+
+/* =========================================================
+   PIN INPUT
+   ========================================================= */
+
+pinInput.addEventListener(
+  "input",
+  function () {
+
+    this.value =
+      this.value
+        .toUpperCase()
+        .replace(/\s/g, "")
+        .slice(0, 10);
+
+  }
+);
+
+
+/* =========================================================
    MESSAGE
-========================================== */
+   ========================================================= */
 
 function showMessage(
   text,
   success = false
 ) {
 
-  const box =
-    document.getElementById("message");
+  messageBox.style.display =
+    "block";
 
-  box.style.display = "block";
-
-  box.textContent = text;
+  messageBox.textContent =
+    text;
 
   if (success) {
 
-    box.style.background =
+    messageBox.style.background =
       "#d4edda";
 
-    box.style.color =
+    messageBox.style.color =
       "#155724";
 
   } else {
 
-    box.style.background =
+    messageBox.style.background =
       "#f8d7da";
 
-    box.style.color =
+    messageBox.style.color =
       "#721c24";
   }
 }
 
 
-/* ==========================================
-   SEND OTP
-========================================== */
+/* =========================================================
+   LOGIN
+   ========================================================= */
 
-async function sendOTP() {
+async function login() {
 
   const phone =
-    document
-      .getElementById("phone")
-      .value
-      .trim();
+    phoneInput.value.trim();
 
-  const button =
-    document
-      .getElementById("sendOtpBtn");
+  const pin =
+    pinInput.value
+      .trim()
+      .toUpperCase();
 
 
-  /* PHONE CHECK */
+  /* =======================================================
+     PHONE VALIDATION
+     ======================================================= */
 
   if (
-    !/^(09|07)\d{8}$/.test(phone)
+    !/^(09|07)[0-9]{8}$/.test(phone)
   ) {
 
     showMessage(
@@ -279,193 +310,51 @@ async function sendOTP() {
   }
 
 
-  button.disabled = true;
-
-  button.textContent =
-    "⏳ OTP ergamaa jira...";
-
-
-  try {
-
-    const response =
-      await fetch(
-        SEND_OTP_URL,
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type":
-              "application/json"
-          },
-
-          body: JSON.stringify({
-            phone: phone
-          })
-        }
-      );
-
-
-    const data =
-      await response.json();
-
-
-    if (
-      !response.ok ||
-      !data.success
-    ) {
-
-      showMessage(
-        data.message ||
-        "OTP erguun hin milkoofne."
-      );
-
-      return;
-    }
-
-
-    /* ==============================
-       SHOW OTP
-       TESTING ONLY
-    ============================== */
-
-    document
-      .getElementById("otpBox")
-      .style.display = "block";
-
-
-    document
-      .getElementById("otpNumber")
-      .textContent =
-        data.otp || "------";
-
-
-    /* OTP INPUT AUTO FILL */
-
-    if (data.otp) {
-
-      document
-        .getElementById("otp")
-        .value =
-          data.otp;
-    }
-
-
-    showMessage(
-      "✅ OTP milkaa'inaan uumameera.",
-      true
-    );
-
-  }
-
-  catch (error) {
-
-    console.error(
-      "SEND OTP ERROR:",
-      error
-    );
-
-    showMessage(
-      "Server waliin wal qunnamuun hin danda'amne."
-    );
-
-  }
-
-  finally {
-
-    button.disabled = false;
-
-    button.textContent =
-      "📩 OTP Ergi";
-  }
-}
-
-
-/* ==========================================
-   LOGIN / VERIFY OTP
-========================================== */
-
-async function login() {
-
-  const phone =
-    document
-      .getElementById("phone")
-      .value
-      .trim();
-
-
-  const pin =
-    document
-      .getElementById("pin")
-      .value
-      .trim()
-      .toUpperCase();
-
-
-  const otp =
-    document
-      .getElementById("otp")
-      .value
-      .trim();
-
-
-  /* PHONE */
-
-  if (
-    !/^(09|07)\d{8}$/.test(phone)
-  ) {
-
-    showMessage(
-      "Lakkoofsa bilbilaa sirrii galchi."
-    );
-
-    return;
-  }
-
-
-  /* PIN */
+  /* =======================================================
+     PIN VALIDATION
+     ======================================================= */
 
   if (!pin) {
 
     showMessage(
-      "Course PIN galchi."
+      "Course PIN kee galchi."
     );
 
     return;
   }
 
 
-  /* OTP */
-
-  if (
-    !/^\d{6}$/.test(otp)
-  ) {
+  if (pin.length < 4) {
 
     showMessage(
-      "OTP digit 6 qabaachuu qaba."
+      "Course PIN sirrii galchi."
     );
 
     return;
   }
 
 
-  const button =
-    document
-      .getElementById("loginBtn");
+  /* =======================================================
+     LOGIN BUTTON
+     ======================================================= */
 
+  loginBtn.disabled =
+    true;
 
-  button.disabled = true;
-
-  button.textContent =
+  loginBtn.textContent =
     "⏳ Login hojjetamaa jira...";
 
 
   try {
 
+    /* =====================================================
+       SEND PHONE + PIN TO BACKEND
+       ===================================================== */
+
     const response =
       await fetch(
-        VERIFY_OTP_URL,
+        LOGIN_API_URL,
         {
-
           method: "POST",
 
           headers: {
@@ -477,40 +366,68 @@ async function login() {
 
             phone: phone,
 
-            pin: pin,
-
-            otp: otp
+            pin: pin
 
           })
-
         }
       );
 
 
-    const data =
-      await response.json();
+    /* =====================================================
+       READ RESPONSE
+       ===================================================== */
+
+    const responseText =
+      await response.text();
+
+    let data = null;
+
+    try {
+
+      data =
+        responseText
+          ? JSON.parse(
+              responseText
+            )
+          : null;
+
+    } catch (error) {
+
+      data = null;
+
+    }
 
 
-    /* LOGIN FAILED */
+    /* =====================================================
+       LOGIN FAILED
+       ===================================================== */
 
     if (
       !response.ok ||
-      !data.success
+      !data ||
+      data.success !== true
     ) {
 
       showMessage(
-        data.error ||
-        data.message ||
-        "Login hin milkoofne."
+        data &&
+        (
+          data.error ||
+          data.message
+        )
+          ? (
+              data.error ||
+              data.message
+            )
+          : "Lakkoofsa bilbilaa ykn Course PIN sirrii miti."
       );
 
       return;
     }
 
 
-    /* ==================================
+    /* =====================================================
        LOGIN SUCCESS
-    ================================== */
+       ===================================================== */
 
     showMessage(
       "✅ Login milkaa'eera! Dashboard banamaa jira...",
@@ -518,14 +435,20 @@ async function login() {
     );
 
 
-    /* STUDENT DATA SAVE */
+    /* =====================================================
+       SAVE STUDENT DATA
+       ===================================================== */
 
-    localStorage.setItem(
-      "student",
-      JSON.stringify(
-        data.student
-      )
-    );
+    if (data.student) {
+
+      localStorage.setItem(
+        "student",
+        JSON.stringify(
+          data.student
+        )
+      );
+
+    }
 
 
     localStorage.setItem(
@@ -534,10 +457,12 @@ async function login() {
     );
 
 
-    /* DASHBOARD REDIRECT */
+    /* =====================================================
+       DASHBOARD
+       ===================================================== */
 
     setTimeout(
-      function() {
+      function () {
 
         window.location.href =
           "dashboard.html";
@@ -546,9 +471,8 @@ async function login() {
       1000
     );
 
-  }
 
-  catch (error) {
+  } catch (error) {
 
     console.error(
       "LOGIN ERROR:",
@@ -556,18 +480,20 @@ async function login() {
     );
 
     showMessage(
-      "Server waliin wal qunnamuun hin danda'amne."
+      "Server waliin wal qunnamuun hin danda'amne. Mee connection fi Login API kee ilaali."
     );
 
-  }
 
-  finally {
+  } finally {
 
-    button.disabled = false;
+    loginBtn.disabled =
+      false;
 
-    button.textContent =
+    loginBtn.textContent =
       "🔐 Login";
+
   }
+
 }
 
 </script>

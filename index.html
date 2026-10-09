@@ -2,10 +2,20 @@
 <html lang="om">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
 <title>KENA DESIGN | Barnoota Design</title>
+
 <meta name="description" content="KENA DESIGN - Barnoota Design, Video Editing, Web Design fi Digital Skills.">
 <meta name="theme-color" content="#08111f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="KENA DESIGN">
+
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 
 <style>
 :root{
@@ -19,8 +29,18 @@
   --border:rgba(255,255,255,.09);
   --shadow:0 20px 50px rgba(0,0,0,.28);
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:85px;
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
@@ -29,189 +49,541 @@ body{
     var(--bg);
   color:var(--text);
   line-height:1.6;
+  min-height:100vh;
+  padding-bottom:env(safe-area-inset-bottom);
 }
-a{color:inherit;text-decoration:none}
-button,input,select{font:inherit}
-.container{width:min(1120px,92%);margin:auto}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,input,select{
+  font:inherit;
+}
+
+button{
+  -webkit-tap-highlight-color:transparent;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+/* NAVIGATION */
 
 nav{
-  position:sticky;top:0;z-index:1000;
-  background:rgba(8,17,31,.92);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(8,17,31,.95);
   backdrop-filter:blur(14px);
   border-bottom:1px solid var(--border);
-}
-.nav-inner{
-  min-height:72px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px;
-}
-.logo{
-  display:flex;align-items:center;gap:10px;
-  font-size:21px;font-weight:900;letter-spacing:.5px;
-}
-.logo-mark{
-  width:42px;height:42px;display:grid;place-items:center;
-  border-radius:12px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-  color:#06101b;font-weight:900;
-}
-.nav-links{display:flex;align-items:center;gap:7px}
-.nav-links a{
-  color:var(--muted);padding:10px 13px;border-radius:10px;
-}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,.06)}
-.menu-btn{
-  display:none;border:1px solid var(--border);
-  background:var(--panel);color:#fff;
-  padding:9px 12px;border-radius:10px;cursor:pointer;
+  padding-top:env(safe-area-inset-top);
 }
 
-.hero{padding:90px 0 75px;text-align:center}
-.badge{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 14px;border:1px solid rgba(53,208,127,.25);
-  background:rgba(53,208,127,.08);color:var(--accent);
-  border-radius:999px;font-size:14px;margin-bottom:20px;
+.nav-inner{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-.hero h1{
-  font-size:clamp(42px,8vw,82px);
-  line-height:1;margin-bottom:20px;
-  font-weight:950;letter-spacing:-2px;
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:.5px;
 }
-.hero h1 span{
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;background-clip:text;color:transparent;
+
+.logo-mark{
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#06101b;
+  font-weight:900;
 }
-.hero p{
-  max-width:700px;margin:0 auto 30px;
-  color:var(--muted);font-size:18px;
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:7px;
 }
-.hero-actions{
-  display:flex;justify-content:center;flex-wrap:wrap;gap:12px;
+
+.nav-links a{
+  color:var(--muted);
+  padding:10px 13px;
+  border-radius:10px;
 }
+
+.nav-links a:hover{
+  color:#fff;
+  background:rgba(255,255,255,.06);
+}
+
+.menu-btn{
+  display:none;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:#fff;
+  padding:9px 12px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+/* BUTTONS */
+
 .btn{
-  display:inline-flex;justify-content:center;align-items:center;
-  gap:8px;border:0;cursor:pointer;border-radius:12px;
-  padding:13px 20px;font-weight:800;transition:.2s;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  border:0;
+  cursor:pointer;
+  border-radius:12px;
+  padding:13px 20px;
+  font-weight:800;
+  transition:.2s;
+  text-align:center;
 }
-.btn:hover{transform:translateY(-2px)}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
 .primary{
   background:linear-gradient(135deg,var(--accent),#25bdff);
-  color:#04101a;box-shadow:0 12px 30px rgba(53,208,127,.18);
+  color:#04101a;
+  box-shadow:0 12px 30px rgba(53,208,127,.18);
 }
+
 .secondary{
-  background:var(--panel);color:#fff;
+  background:var(--panel);
+  color:#fff;
   border:1px solid var(--border);
 }
 
-section{padding:70px 0}
-.section-head{text-align:center;margin-bottom:35px}
-.section-head h2{font-size:34px;margin-bottom:9px}
-.section-head p{color:var(--muted)}
+/* HERO */
+
+.hero{
+  padding:90px 0 75px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border:1px solid rgba(53,208,127,.25);
+  background:rgba(53,208,127,.08);
+  color:var(--accent);
+  border-radius:999px;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(42px,8vw,82px);
+  line-height:1.1;
+  margin-bottom:20px;
+  font-weight:950;
+  letter-spacing:-2px;
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  max-width:700px;
+  margin:0 auto 30px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+/* SECTIONS */
+
+section{
+  padding:70px 0;
+}
+
+.section-head{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.section-head h2{
+  font-size:34px;
+  margin-bottom:9px;
+}
+
+.section-head p{
+  color:var(--muted);
+}
+
+/* STUDENT ACCESS */
 
 .access-wrap{
-  display:grid;grid-template-columns:1fr 1fr;gap:25px;
-}
-.card{
-  background:linear-gradient(145deg,rgba(20,36,59,.96),rgba(16,29,48,.96));
-  border:1px solid var(--border);border-radius:22px;
-  padding:28px;box-shadow:var(--shadow);
-}
-.access-info h3{font-size:28px;margin-bottom:12px}
-.access-info p{color:var(--muted);margin-bottom:20px}
-.access-list{list-style:none;display:grid;gap:12px}
-.access-list li{
-  display:flex;gap:10px;align-items:flex-start;color:#dbe5f4;
-}
-.access-list span{color:var(--accent);font-weight:bold}
-.notice{
-  margin-top:20px;padding:13px 14px;border-radius:11px;
-  background:rgba(255,191,71,.08);
-  border:1px solid rgba(255,191,71,.18);
-  color:#ffd98b;font-size:13px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
-.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.course{
-  background:var(--panel);border:1px solid var(--border);
-  border-radius:18px;padding:23px;transition:.25s;
+.card{
+  background:linear-gradient(
+    145deg,
+    rgba(20,36,59,.96),
+    rgba(16,29,48,.96)
+  );
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:28px;
+  box-shadow:var(--shadow);
 }
+
+.access-info h3{
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+.access-info p{
+  color:var(--muted);
+  margin-bottom:20px;
+}
+
+.access-list{
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+
+.access-list li{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:#dbe5f4;
+}
+
+.access-list span{
+  color:var(--accent);
+  font-weight:bold;
+}
+
+.notice{
+  margin-top:20px;
+  padding:13px 14px;
+  border-radius:11px;
+  background:rgba(255,191,71,.08);
+  border:1px solid rgba(255,191,71,.18);
+  color:#ffd98b;
+  font-size:13px;
+}
+
+/* COURSES */
+
+.course-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.course{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:23px;
+  transition:.25s;
+}
+
 .course:hover{
   transform:translateY(-4px);
   border-color:rgba(53,208,127,.25);
 }
-.icon{
-  width:52px;height:52px;display:grid;place-items:center;
-  border-radius:15px;background:var(--panel2);
-  font-size:26px;margin-bottom:16px;
-}
-.course h3{font-size:21px;margin-bottom:8px}
-.course p{color:var(--muted);min-height:68px;margin-bottom:15px}
-.course>.course-toggle{
-  width:100%;padding:11px;border:1px solid var(--border);
-  background:var(--panel2);color:#fff;border-radius:10px;
-  cursor:pointer;font-weight:700;
-}
-.lesson{max-height:0;overflow:hidden;transition:max-height .35s ease}
-.lesson.open{max-height:500px;margin-top:15px}
-.lesson ul{list-style:none;color:var(--muted);padding:10px 0}
-.lesson li{padding:5px 0}
 
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
-.about-box{
-  padding:28px;border-radius:20px;
-  background:var(--panel);border:1px solid var(--border);
+.icon{
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:var(--panel2);
+  font-size:26px;
+  margin-bottom:16px;
 }
-.about-box h3{margin-bottom:12px;font-size:23px}
-.about-box p{color:var(--muted)}
+
+.course h3{
+  font-size:21px;
+  margin-bottom:8px;
+}
+
+.course p{
+  color:var(--muted);
+  min-height:68px;
+  margin-bottom:15px;
+}
+
+.course-toggle{
+  width:100%;
+  padding:11px;
+  border:1px solid var(--border);
+  background:var(--panel2);
+  color:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.lesson{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .35s ease;
+}
+
+.lesson.open{
+  max-height:500px;
+  margin-top:15px;
+}
+
+.lesson ul{
+  list-style:none;
+  color:var(--muted);
+  padding:10px 0;
+}
+
+.lesson li{
+  padding:5px 0;
+}
+
+/* ABOUT */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+}
+
+.about-box{
+  padding:28px;
+  border-radius:20px;
+  background:var(--panel);
+  border:1px solid var(--border);
+}
+
+.about-box h3{
+  margin-bottom:12px;
+  font-size:23px;
+}
+
+.about-box p{
+  color:var(--muted);
+}
+
+/* QUIZ */
 
 .quiz-box{
-  max-width:850px;margin:auto;background:var(--panel);
-  border:1px solid var(--border);border-radius:20px;padding:25px;
+  max-width:850px;
+  margin:auto;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
 }
-.q{padding:18px 0;border-bottom:1px solid var(--border)}
-.q:last-of-type{border-bottom:0}
-.q b{display:block;margin-bottom:10px}
-.q label{display:block;color:var(--muted);padding:7px 0;cursor:pointer}
-.q input{margin-right:7px}
-.quiz-btn{margin-top:20px}
-.result{margin-top:18px;font-size:20px;font-weight:900;color:var(--accent)}
 
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.contact-card{
-  text-align:center;background:var(--panel);
-  border:1px solid var(--border);border-radius:18px;padding:25px;
+.q{
+  padding:18px 0;
+  border-bottom:1px solid var(--border);
 }
-.contact-card .big{font-size:28px;margin-bottom:10px}
-.contact-card h3{margin-bottom:6px}
-.contact-card p{color:var(--muted);word-break:break-word}
+
+.q:last-of-type{
+  border-bottom:0;
+}
+
+.q b{
+  display:block;
+  margin-bottom:10px;
+}
+
+.q label{
+  display:block;
+  color:var(--muted);
+  padding:7px 0;
+  cursor:pointer;
+}
+
+.q input{
+  margin-right:7px;
+  accent-color:var(--accent);
+}
+
+.quiz-btn{
+  margin-top:20px;
+}
+
+.result{
+  margin-top:18px;
+  font-size:20px;
+  font-weight:900;
+  color:var(--accent);
+}
+
+/* CONTACT */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.contact-card{
+  text-align:center;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px;
+}
+
+.contact-card .big{
+  font-size:28px;
+  margin-bottom:10px;
+}
+
+.contact-card h3{
+  margin-bottom:6px;
+}
+
+.contact-card p{
+  color:var(--muted);
+  word-break:break-word;
+}
+
+/* FOOTER */
 
 footer{
-  margin-top:30px;padding:35px 0;
+  margin-top:30px;
+  padding:35px 0;
   border-top:1px solid var(--border);
-  text-align:center;color:var(--muted);
+  text-align:center;
+  color:var(--muted);
 }
-footer strong{color:#fff}
+
+footer strong{
+  color:#fff;
+}
+
+/* INSTALL APP */
+
+.install-box{
+  max-width:750px;
+  margin:0 auto;
+  text-align:center;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+}
+
+.install-box p{
+  color:var(--muted);
+  margin:8px 0 18px;
+}
+
+#installBtn{
+  display:none;
+}
+
+/* RESPONSIVE */
 
 @media(max-width:900px){
-  .course-grid{grid-template-columns:repeat(2,1fr)}
-  .access-wrap,.about-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr 1fr}
+  .course-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .access-wrap,
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-grid{
+    grid-template-columns:1fr 1fr;
+  }
 }
+
 @media(max-width:680px){
   .nav-links{
-    display:none;position:absolute;left:4%;right:4%;top:66px;
-    padding:10px;background:#0c1829;
-    border:1px solid var(--border);border-radius:14px;
-    flex-direction:column;align-items:stretch;
+    display:none;
+    position:absolute;
+    left:4%;
+    right:4%;
+    top:calc(66px + env(safe-area-inset-top));
+    padding:10px;
+    background:#0c1829;
+    border:1px solid var(--border);
+    border-radius:14px;
+    flex-direction:column;
+    align-items:stretch;
   }
-  .nav-links.active{display:flex}
-  .nav-links a{width:100%}
-  .menu-btn{display:block}
-  .hero{padding:65px 0 50px}
-  .hero h1{letter-spacing:-1px}
-  section{padding:55px 0}
-  .course-grid,.contact-grid{grid-template-columns:1fr}
-  .card,.quiz-box,.about-box{padding:20px}
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a{
+    width:100%;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero{
+    padding:65px 0 50px;
+  }
+
+  .hero h1{
+    letter-spacing:-1px;
+  }
+
+  section{
+    padding:55px 0;
+  }
+
+  .course-grid,
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card,
+  .quiz-box,
+  .about-box{
+    padding:20px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    scroll-behavior:auto!important;
+    transition:none!important;
+  }
 }
 </style>
 </head>
@@ -220,51 +592,76 @@ footer strong{color:#fff}
 
 <nav>
   <div class="container nav-inner">
+
     <a href="#home" class="logo">
       <span class="logo-mark">KD</span>
       <span>KENA DESIGN</span>
     </a>
 
-    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    <button
+      class="menu-btn"
+      id="menuBtn"
+      type="button"
+      aria-label="Menu bani"
+      aria-expanded="false"
+    >☰</button>
 
     <div class="nav-links" id="navLinks">
-      <a href="#home" onclick="closeMenu()">Home</a>
-      <a href="student.html" onclick="closeMenu()">Barnoota Jalqabi</a>
-      <a href="#courses" onclick="closeMenu()">Barnoota</a>
-      <a href="#quiz" onclick="closeMenu()">Quiz</a>
-      <a href="#about" onclick="closeMenu()">Waa'ee Keenya</a>
-      <a href="#contact" onclick="closeMenu()">Contact</a>
+      <a href="#home">Home</a>
+      <a href="student.html">Barnoota Jalqabi</a>
+      <a href="#courses">Barnoota</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#about">Waa'ee Keenya</a>
+      <a href="#contact">Contact</a>
+      <a href="register.html">Galmaa'i</a>
     </div>
+
   </div>
 </nav>
 
 <header class="hero" id="home">
   <div class="container">
+
     <div class="badge">✨ KENA DESIGN ONLINE LEARNING</div>
+
     <h1>Barnoota <span>KENA DESIGN</span></h1>
+
     <p>
-      Design, Video Editing, Logo, Thumbnail,
-      Business Card fi Flyer professional ta'een hojjechuu baradhu.
+      Design, Video Editing, Logo, Thumbnail, Business Card
+      fi Flyer professional ta'een hojjechuu baradhu.
     </p>
 
     <div class="hero-actions">
-      <a href="student.html" class="btn primary">🚀 Barnoota Jalqabi</a>
-      <a href="#courses" class="btn secondary">📚 Koorsii Ilaali</a>
-      <a href="register.html" class="btn secondary">📝 Galmaa'i</a>
+      <a href="student.html" class="btn primary">
+        🚀 Barnoota Jalqabi
+      </a>
+
+      <a href="#courses" class="btn secondary">
+        📚 Koorsii Ilaali
+      </a>
+
+      <a href="register.html" class="btn secondary">
+        📝 Galmaa'i
+      </a>
     </div>
+
   </div>
 </header>
 
 <section id="access">
   <div class="container">
+
     <div class="section-head">
       <h2>🎓 Barnoota Jalqabi</h2>
       <p>Barnoota kee jalqabuuf login page seeni.</p>
     </div>
 
     <div class="access-wrap">
+
       <div class="card access-info">
+
         <h3>👨‍🎓 Student Learning</h3>
+
         <p>
           Barataan galmaa'ee fi kaffaltiin isaa mirkanaa'e
           login godhee dashboard irraa koorsii fi barnoota argata.
@@ -278,12 +675,16 @@ footer strong{color:#fff}
         </ul>
 
         <div class="notice">
-          🔐 Barnoota dhuunfaa argachuuf login fi payment mirkaneessuun barbaachisaa dha.
+          🔐 Barnoota dhuunfaa argachuuf login fi payment
+          mirkaneessuun barbaachisaa dha.
         </div>
+
       </div>
 
       <div class="card">
+
         <h3 style="margin-bottom:15px;">🔐 Gara Login Seeni</h3>
+
         <p style="color:var(--muted);margin-bottom:20px;">
           Barnoota kee jalqabuuf button armaan gadii cuqaasi.
         </p>
@@ -292,34 +693,43 @@ footer strong{color:#fff}
           🚀 Login → Barnoota Jalqabi
         </a>
 
-        <a href="register.html" class="btn secondary" style="width:100%;margin-top:10px;">
+        <a href="register.html" class="btn secondary"
+           style="width:100%;margin-top:10px;">
           📝 Barataa Haaraa Galmaa'i
         </a>
+
       </div>
+
     </div>
   </div>
 </section>
 
 <section id="courses">
   <div class="container">
+
     <div class="section-head">
       <h2>📚 Barnoota Keenya</h2>
       <p>Koorsiiwwan KENA DESIGN keessatti argaman.</p>
     </div>
+
     <div id="courseGrid" class="course-grid"></div>
+
   </div>
 </section>
 
 <section id="about">
   <div class="container">
+
     <div class="section-head">
       <h2>💡 Waa'ee KENA DESIGN</h2>
       <p>Kaayyoon keenya ogummaa digital barsiisuu dha.</p>
     </div>
 
     <div class="about-grid">
+
       <div class="about-box">
         <h3>🎯 Kaayyoo Keenya</h3>
+
         <p>
           KENA DESIGN'n namoota design fi digital skills barachuu
           barbaadaniif barnoota salphaa, qabatamaa fi tartiiba qabu
@@ -329,33 +739,67 @@ footer strong{color:#fff}
 
       <div class="about-box">
         <h3>🚀 Maal Baratta?</h3>
+
         <p>
           Video Editing, Graphic Design, Web Design, Digital Marketing,
           Photography, Thumbnail, Business Card fi Flyer barachuu dandeessa.
         </p>
       </div>
+
     </div>
   </div>
 </section>
 
 <section id="quiz">
   <div class="container">
+
     <div class="section-head">
       <h2>🧠 Quiz</h2>
       <p>Waan baratte qoradhu.</p>
     </div>
+
     <div id="quizBox" class="quiz-box"></div>
+
+  </div>
+</section>
+
+<section id="install">
+  <div class="container">
+
+    <div class="section-head">
+      <h2>📲 KENA DESIGN App</h2>
+      <p>Appii kee bilbila irratti itti fayyadami.</p>
+    </div>
+
+    <div class="install-box">
+
+      <h3>📱 KENA DESIGN</h3>
+
+      <p>
+        Yoo browser kee install gochuu deeggaru, app kana
+        bilbila kee irratti install gochuu dandeessa.
+      </p>
+
+      <button id="installBtn" class="btn primary" type="button">
+        📲 Install App
+      </button>
+
+      <p id="installMessage" aria-live="polite"></p>
+
+    </div>
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
+
     <div class="section-head">
       <h2>📞 Contact</h2>
       <p>KENA DESIGN waliin qunnamuuf.</p>
     </div>
 
     <div class="contact-grid">
+
       <div class="contact-card">
         <div class="big">📱</div>
         <h3>Phone</h3>
@@ -373,6 +817,7 @@ footer strong{color:#fff}
         <h3>Address</h3>
         <p>Oromia, Shambu, Horro Buluk</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -385,13 +830,28 @@ footer strong{color:#fff}
 </footer>
 
 <script>
-function toggleMenu(){
-  document.getElementById("navLinks").classList.toggle("active");
-}
+"use strict";
 
-function closeMenu(){
-  document.getElementById("navLinks").classList.remove("active");
-}
+/* MOBILE MENU */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  const opened = navLinks.classList.toggle("active");
+  menuBtn.setAttribute("aria-expanded", String(opened));
+  menuBtn.textContent = opened ? "✕" : "☰";
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.textContent = "☰";
+  });
+});
+
+/* COURSES */
 
 const courses = [
   {
@@ -492,19 +952,26 @@ const courses = [
   }
 ];
 
-document.getElementById("courseGrid").innerHTML = courses.map((c,i)=>`
-  <article class="course">
-    <div class="icon">${c.icon}</div>
-    <h3>${c.title}</h3>
-    <p>${c.desc}</p>
+const courseGrid = document.getElementById("courseGrid");
 
-    <button class="course-toggle" type="button" onclick="toggleLesson(${i})">
+courseGrid.innerHTML = courses.map((course,index) => `
+  <article class="course">
+    <div class="icon">${course.icon}</div>
+    <h3>${course.title}</h3>
+    <p>${course.desc}</p>
+
+    <button
+      class="course-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="lesson${index}"
+      data-course-index="${index}">
       Qabiyyee Ilaali ▾
     </button>
 
-    <div class="lesson" id="lesson${i}">
+    <div class="lesson" id="lesson${index}">
       <ul>
-        ${c.lessons.map(l=>`<li>✓ ${l}</li>`).join("")}
+        ${course.lessons.map(item => `<li>✓ ${item}</li>`).join("")}
       </ul>
 
       <a class="btn primary" style="width:100%" href="student.html">
@@ -514,9 +981,18 @@ document.getElementById("courseGrid").innerHTML = courses.map((c,i)=>`
   </article>
 `).join("");
 
-function toggleLesson(i){
-  document.getElementById("lesson"+i).classList.toggle("open");
-}
+document.querySelectorAll(".course-toggle").forEach(button => {
+  button.addEventListener("click", () => {
+    const index = button.dataset.courseIndex;
+    const lesson = document.getElementById("lesson" + index);
+    const opened = lesson.classList.toggle("open");
+
+    button.setAttribute("aria-expanded", String(opened));
+    button.textContent = opened ? "Qabiyyee Cufi ▴" : "Qabiyyee Ilaali ▾";
+  });
+});
+
+/* QUIZ */
 
 const questions = [
   [
@@ -548,36 +1024,100 @@ const questions = [
 
 const quizBox = document.getElementById("quizBox");
 
-quizBox.innerHTML = questions.map((q,i)=>`
+quizBox.innerHTML = questions.map((question,index) => `
   <div class="q">
-    <b>${i+1}. ${q[0]}</b>
-    ${q[1].map((o,j)=>`
+    <b>${index+1}. ${question[0]}</b>
+
+    ${question[1].map((option,optionIndex) => `
       <label>
-        <input type="radio" name="q${i}" value="${j}">
-        ${o}
+        <input
+          type="radio"
+          name="q${index}"
+          value="${optionIndex}">
+        ${option}
       </label>
     `).join("")}
   </div>
 `).join("") + `
-  <button type="button" class="btn primary quiz-btn" onclick="checkQuiz()">
+  <button type="button" class="btn primary quiz-btn" id="quizSubmit">
     Qabxii Koo Ilaali
   </button>
-  <div id="result" class="result"></div>
+  <div id="result" class="result" aria-live="polite"></div>
 `;
 
-function checkQuiz(){
+document.getElementById("quizSubmit").addEventListener("click", () => {
   let score = 0;
+  let answered = 0;
 
-  questions.forEach((q,i)=>{
-    const answer = document.querySelector('input[name="q'+i+'"]:checked');
+  questions.forEach((question,index) => {
+    const answer = document.querySelector(
+      'input[name="q' + index + '"]:checked'
+    );
 
-    if(answer && Number(answer.value) === q[2]){
-      score++;
+    if (answer) {
+      answered++;
+
+      if (Number(answer.value) === question[2]) {
+        score++;
+      }
     }
   });
 
-  document.getElementById("result").textContent =
+  const result = document.getElementById("result");
+
+  if (answered < questions.length) {
+    result.textContent =
+      "Maaloo gaaffii hunda deebisi. Deebifte: " +
+      answered + "/" + questions.length;
+    return;
+  }
+
+  result.textContent =
     "Qabxii kee: " + score + "/" + questions.length + " 🎉";
+});
+
+/* PWA INSTALL */
+
+let deferredInstallPrompt = null;
+
+const installBtn = document.getElementById("installBtn");
+const installMessage = document.getElementById("installMessage");
+
+window.addEventListener("beforeinstallprompt", event => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+  installBtn.style.display = "inline-flex";
+  installMessage.textContent = "";
+});
+
+installBtn.addEventListener("click", async () => {
+  if (!deferredInstallPrompt) {
+    installMessage.textContent =
+      "Install filannoon amma hin argamne. Chrome menu irraa 'Add to Home screen' ilaali.";
+    return;
+  }
+
+  deferredInstallPrompt.prompt();
+
+  await deferredInstallPrompt.userChoice;
+
+  deferredInstallPrompt = null;
+  installBtn.style.display = "none";
+});
+
+window.addEventListener("appinstalled", () => {
+  installBtn.style.display = "none";
+  installMessage.textContent = "KENA DESIGN app install ta'eera. ✓";
+});
+
+/* SERVICE WORKER */
+
+if ("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => console.log("KENA DESIGN service worker registered"))
+      .catch(error => console.error("Service worker error:", error));
+  });
 }
 </script>
 

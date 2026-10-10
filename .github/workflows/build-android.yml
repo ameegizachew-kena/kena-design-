@@ -34,9 +34,21 @@ jobs:
             exit 1
           }
 
-          cp index.html www/
+          cp -r index.html www/
 
-          for file in student.html dashboard.html register.html admin.html lesson.html lesson2.html manifest.json; do
+          for file in \
+            login.html \
+            register.html \
+            student.html \
+            dashboard.html \
+            admin.html \
+            lesson.html \
+            lesson2.html \
+            script.js \
+            style.css \
+            manifest.json \
+            service-worker.js
+          do
             if [ -f "$file" ]; then
               cp "$file" www/
             fi
@@ -44,6 +56,10 @@ jobs:
 
           if [ -d icons ]; then
             cp -r icons www/
+          fi
+
+          if [ -d media ]; then
+            cp -r media www/
           fi
 
       - name: Install Capacitor
@@ -70,3 +86,4 @@ jobs:
           name: KENA-DESIGN-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
+          retention-days: 7

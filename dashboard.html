@@ -1,851 +1,407 @@
 <!DOCTYPE html>
 <html lang="om">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KENA DESIGN - Dashboard</title>
 
 <style>
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:Arial,sans-serif;
   background:#f5f9fc;
   color:#102a43;
-  line-height:1.6;
+  line-height:1.6
 }
 
 header{
   background:white;
   border-bottom:1px solid #dce8f0;
-  padding:16px 20px;
+  padding:15px 20px;
   position:sticky;
   top:0;
-  z-index:100;
-  box-shadow:0 3px 15px rgba(20,50,80,.06);
+  z-index:10
 }
 
 .nav{
-  max-width:1200px;
+  max-width:1100px;
   margin:auto;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:20px;
+  align-items:center;
+  gap:12px
 }
 
-.logo{
-  font-size:24px;
-  font-weight:800;
-  color:#102a43;
-}
-
-.logo span{
-  color:#12a879;
-}
-
-.nav-links{
-  display:flex;
-  gap:20px;
-}
-
-.nav-links a{
-  color:#173b63;
-  text-decoration:none;
-  font-weight:600;
-}
-
-.nav-links a:hover{
-  color:#12a879;
-}
+.logo{font-size:23px;font-weight:800}
+.logo span{color:#12a879}
 
 .logout{
-  background:#ff3b3b;
+  background:#ef4444;
   color:white;
-  border:none;
-  padding:11px 18px;
-  border-radius:10px;
+  border:0;
+  padding:10px 15px;
+  border-radius:9px;
   font-weight:bold;
-  cursor:pointer;
+  cursor:pointer
 }
 
-.logout:hover{
-  background:#dc2626;
-}
-
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:30px 18px;
-}
+.container{max-width:1100px;margin:auto;padding:25px 15px}
 
 .welcome{
   background:linear-gradient(120deg,#e9fbf5,#f3faff);
   border:1px solid #cdeee4;
-  border-radius:22px;
-  padding:32px;
-  margin-bottom:25px;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:25px
 }
 
-.welcome h1{
-  font-size:34px;
-  color:#102a43;
-  margin-bottom:8px;
-}
+.welcome h1{font-size:28px;margin-bottom:8px}
+.welcome h1 span{color:#0da87a}
 
-.welcome h1 span{
-  color:#0da87a;
-}
-
-.welcome p{
-  color:#58708a;
-  font-size:17px;
-}
-
-.student-info{
-  margin-top:20px;
-  display:grid;
-  gap:10px;
-}
-
-.info-box{
+.info{
   background:white;
+  padding:15px;
+  margin-top:15px;
   border:1px solid #dce9f1;
-  border-radius:12px;
-  padding:18px 20px;
-  color:#58708a;
+  border-radius:10px
 }
 
-.info-box strong{
-  color:#102a43;
-  margin-right:5px;
-}
+.info strong{color:#087d5d}
 
-.info-value{
-  color:#102a43;
-  font-weight:bold;
-}
-
-.course-box{
-  margin-top:12px;
-  background:#eaf8f3;
-  border:1px solid #c7ecdf;
-  border-radius:12px;
-  padding:15px 20px;
-}
-
-.course-box strong{
-  color:#087d5d;
-}
-
-.lessons-section{
+.section{
   background:white;
   border:1px solid #dbe9f2;
-  border-radius:22px;
-  padding:25px;
-  box-shadow:0 8px 30px rgba(20,50,80,.05);
+  border-radius:18px;
+  padding:22px
 }
 
-.section-title{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:10px;
-}
-
-.section-title .icon{
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  background:#e6f4ff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:27px;
-}
-
-.section-title h2{
-  color:#102a43;
-  font-size:27px;
-}
-
-.lessons-description{
-  color:#637b91;
-  margin:5px 0 22px;
-}
+.section h2{margin-bottom:8px}
+.description{color:#607890;margin-bottom:20px}
 
 .lessons{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:20px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px
 }
 
-.lesson-card{
+.card{
   background:#f8fcff;
   border:1px solid #d6e8f4;
-  border-radius:18px;
-  padding:23px;
+  border-radius:15px;
+  padding:20px
 }
 
-.lesson-icon{
-  width:65px;
-  height:65px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#18b6e8,#6c5ce7);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
+.icon{
   font-size:30px;
-  margin-bottom:15px;
-  font-weight:bold;
+  margin-bottom:8px
 }
 
-.lesson-card h3{
-  color:#102a43;
-  font-size:22px;
-  margin-bottom:8px;
-}
-
-.lesson-card p{
-  color:#607890;
-  margin-bottom:18px;
-}
+.card h3{margin-bottom:8px}
+.card p{color:#607890;margin-bottom:15px}
 
 .btn{
   display:inline-block;
+  padding:11px 16px;
+  border-radius:9px;
   text-decoration:none;
-  padding:12px 20px;
-  border-radius:10px;
   font-weight:bold;
-}
-
-.btn-primary{
   background:#12a879;
-  color:white;
+  color:white
 }
 
-.btn-primary:hover{
-  background:#0d956a;
+.notice{
+  background:#fff8e6;
+  border:1px solid #f5df9b;
+  border-radius:12px;
+  padding:15px;
+  color:#78580b;
+  margin-top:18px
 }
 
-.btn-secondary{
-  background:white;
-  color:#0875d1;
-  border:1px solid #0875d1;
-}
-
-.btn-secondary:hover{
-  background:#eef8ff;
-}
-
-.progress-box{
-  margin-top:25px;
+.progress{
+  margin-top:22px;
+  padding:18px;
   background:#f7fbff;
   border:1px solid #d8e8f4;
-  border-radius:18px;
-  padding:22px;
+  border-radius:14px
 }
 
-.progress-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:10px;
-}
-
-.progress-title strong{
-  color:#102a43;
-}
-
-.progress-bar{
-  width:100%;
+.bar{
   height:12px;
   background:#dce8f0;
   border-radius:20px;
   overflow:hidden;
+  margin-top:10px
 }
 
-.progress-fill{
+.fill{
   height:100%;
-  width:0%;
+  width:0;
   background:#12a879;
-  border-radius:20px;
-  transition:.3s;
+  transition:width .3s
 }
 
-.progress-text{
-  margin-top:8px;
-  color:#607890;
-  font-size:14px;
+footer{text-align:center;color:#71869a;padding:25px 10px}
+
+@media(max-width:650px){
+  .lessons{grid-template-columns:1fr}
+  .welcome h1{font-size:23px}
+  .section{padding:15px}
 }
-
-.motivation{
-  margin-top:25px;
-  background:#f0f8ff;
-  border:1px solid #d5e9f7;
-  border-radius:18px;
-  padding:22px;
-  display:flex;
-  align-items:center;
-  gap:15px;
-}
-
-.motivation-icon{
-  font-size:35px;
-}
-
-footer{
-  text-align:center;
-  color:#71869a;
-  padding:30px 15px;
-}
-
-@media(max-width:800px){
-
-  .nav-links{
-    display:none;
-  }
-
-  .lessons{
-    grid-template-columns:1fr;
-  }
-
-  .welcome h1{
-    font-size:28px;
-  }
-
-}
-
-@media(max-width:500px){
-
-  .container{
-    padding:20px 12px;
-  }
-
-  .welcome{
-    padding:22px;
-  }
-
-  .welcome h1{
-    font-size:25px;
-  }
-
-  .lessons-section{
-    padding:18px;
-  }
-
-  .logo{
-    font-size:20px;
-  }
-
-  .logout{
-    padding:9px 13px;
-  }
-
-}
-
 </style>
-
 </head>
 
 <body>
 
 <header>
-
-<div class="nav">
-
-<div class="logo">
-KENA <span>DESIGN</span>
-</div>
-
-<div class="nav-links">
-
-<a href="dashboard.html">
-🏠 Dashboard
-</a>
-
-<a href="lesson.html">
-📖 Lesson 1
-</a>
-
-<a href="lesson2.html">
-🔤 Lesson 2
-</a>
-
-</div>
-
-<button
-  class="logout"
-  onclick="logout()"
->
-Logout
-</button>
-
-</div>
-
+  <div class="nav">
+    <div class="logo">KENA <span>DESIGN</span></div>
+    <button class="logout" onclick="logout()">Logout</button>
+  </div>
 </header>
 
-
-<main>
-
-<div class="container">
-
-
-<section class="welcome">
-
-<h1>
-👋 Baga nagaan dhuftan,
-<span id="welcomeName">Barataa!</span>
-</h1>
-
-<p>
-KENA DESIGN Learning Platform
-irratti barnoota kee itti fufi.
-</p>
-
-<div class="student-info">
-
-<div class="info-box">
-
-👤
-<strong>Maqaa Barataa:</strong>
-
-<span
-  id="studentName"
-  class="info-value"
->
--
-</span>
-
-</div>
-
-
-<div class="course-box">
-
-🎓
-<strong>Course:</strong>
-
-<span
-  id="studentCourse"
-  class="info-value"
->
--
-</span>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section class="lessons-section">
-
-<div class="section-title">
-
-<div class="icon">
-📚
-</div>
-
-<div>
-<h2>Barnoota Kee</h2>
-</div>
-
-</div>
-
-<p class="lessons-description">
-
-Barnoota kee bakka duraan gahe irraa
-itti fufi. Lesson ati xumurte hin badu.
-
-</p>
-
-
-<div class="lessons">
-
-
-<!-- LESSON 1 -->
-
-<div class="lesson-card">
-
-<div class="lesson-icon">
-P
-</div>
-
-<h3>
-Lesson 1 - PixelLab
-</h3>
-
-<p>
-
-PixelLab fayyadamuun
-text, image, background,
-effect fi poster design
-hojjechuu baradhu.
-
-</p>
-
-<a
-  href="lesson.html"
-  class="btn btn-primary"
->
-📖 Lesson 1 Seeni →
-</a>
-
-</div>
-
-
-
-<!-- LESSON 2 -->
-
-<div class="lesson-card">
-
-<div class="lesson-icon">
-Aa
-</div>
-
-<h3>
-Lesson 2 - Font Haaraa
-</h3>
-
-<p>
-
-PixelLab keessatti font
-haaraa galchuu fi itti
-fayyadamuu baradhu.
-
-</p>
-
-<a
-  href="lesson2.html"
-  class="btn btn-secondary"
->
-→ Lesson 2 Ilaali
-</a>
-
-</div>
-
-
-</div>
-
-
-
-<!-- PROGRESS -->
-
-<div class="progress-box">
-
-<div class="progress-title">
-
-<strong>
-📊 Progress Barnootaa
-</strong>
-
-<strong id="progressPercent">
-0%
-</strong>
-
-</div>
-
-<div class="progress-bar">
-
-<div
-  class="progress-fill"
-  id="progressFill"
->
-</div>
-
-</div>
-
-<div
-  class="progress-text"
-  id="progressText"
->
-Progress kee ilaalaa...
-</div>
-
-</div>
-
-
-
-<div class="motivation">
-
-<div class="motivation-icon">
-🎯
-</div>
-
-<div>
-
-<h3>
-Milkaa'ina!
-</h3>
-
-<p>
-Barnoota kee bakka duraan
-gahe irraa itti fufi.
-Tarkaanfiin xiqqaan har'a
-gara milkaa'ina guddaatti
-si geessa.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-</div>
+<main class="container">
+
+  <section class="welcome">
+    <h1>👋 Baga nagaan dhuftan, <span id="welcomeName">Barataa!</span></h1>
+    <p>KENA DESIGN Learning Platform irratti barnoota kee itti fufi.</p>
+
+    <div class="info">
+      👤 <strong>Maqaa Barataa:</strong>
+      <span id="studentName">-</span>
+    </div>
+
+    <div class="info">
+      🎓 <strong>Course kee:</strong>
+      <span id="studentCourse">-</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>📚 Barnoota Kee</h2>
+    <p class="description" id="courseDescription">
+      Barnoota course kee qofa asitti argita.
+    </p>
+
+    <div class="lessons" id="lessonList"></div>
+
+    <div class="notice" id="courseNotice" hidden>
+      Barnoonni course kanaa yeroo ammaa qophaa'aa jira.
+      Yeroo qophaa'u asitti ni mul'ata.
+    </div>
+
+    <div class="progress">
+      <strong>📊 Progress Barnootaa</strong>
+      <div class="bar">
+        <div class="fill" id="progressFill"></div>
+      </div>
+      <p id="progressText">Barnoota kee jalqabi.</p>
+    </div>
+  </section>
 
 </main>
 
-
-<footer>
-
-© 2026 KENA DESIGN • Learning Platform
-
-</footer>
-
+<footer>© 2026 KENA DESIGN • Learning Platform</footer>
 
 <script>
-
-/* =========================================
-   STUDENT LOGIN CHECK
-========================================= */
-
 function checkLogin(){
+  const loggedIn = localStorage.getItem("loggedIn");
+  const savedStudent = localStorage.getItem("student");
 
-  const loggedIn =
-    localStorage.getItem("loggedIn");
-
-  const student =
-    localStorage.getItem("student");
-
-  /*
-    Login hin taane yoo ta'e
-    gara login deebi'a.
-  */
-
-  if(
-    loggedIn !== "true" ||
-    !student
-  ){
-
-    window.location.href =
-      "login.html";
-
+  if(loggedIn !== "true" || !savedStudent){
+    location.href = "login.html";
     return null;
   }
 
   try{
-
-    return JSON.parse(student);
-
+    return JSON.parse(savedStudent);
   }catch(error){
-
     localStorage.removeItem("student");
     localStorage.removeItem("loggedIn");
-
-    window.location.href =
-      "login.html";
-
+    location.href = "login.html";
     return null;
   }
-
 }
 
+function normalizeCourse(value){
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[_-]+/g," ")
+    .replace(/\s+/g," ");
+}
 
-/* =========================================
-   LOAD STUDENT
-========================================= */
+const courseLessons = {
+  "graphic design": {
+    title:"Graphic Design",
+    description:"Barnoota Graphic Design fi PixelLab.",
+    lessons:[
+      {
+        icon:"🎨",
+        title:"Lesson 1 - PixelLab",
+        description:"Text, image, background, effect fi poster design baradhu.",
+        link:"lesson.html"
+      },
+      {
+        icon:"🔤",
+        title:"Lesson 2 - Font Haaraa",
+        description:"PixelLab keessatti font haaraa galchuu baradhu.",
+        link:"lesson2.html"
+      }
+    ]
+  },
+
+  "video editing": {
+    title:"Video Editing",
+    description:"Barnoota Video Editing.",
+    lessons:[]
+  },
+
+  "web design": {
+    title:"Web Design",
+    description:"Barnoota Web Design.",
+    lessons:[]
+  },
+
+  "digital marketing": {
+    title:"Digital Marketing",
+    description:"Barnoota Digital Marketing.",
+    lessons:[]
+  },
+
+  "photography": {
+    title:"Photography",
+    description:"Barnoota Photography.",
+    lessons:[]
+  },
+
+  "flayer package": {
+    title:"Flayer Package",
+    description:"Barnoota Flyer Design.",
+    lessons:[]
+  },
+
+  "flyer package": {
+    title:"Flayer Package",
+    description:"Barnoota Flyer Design.",
+    lessons:[]
+  },
+
+  "youtube thumbnail": {
+    title:"YouTube Thumbnail",
+    description:"Barnoota YouTube Thumbnail.",
+    lessons:[]
+  },
+
+  "poster design": {
+    title:"Poster Design",
+    description:"Barnoota Poster Design.",
+    lessons:[]
+  }
+};
+
+function createLessonCard(lesson){
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const icon = document.createElement("div");
+  icon.className = "icon";
+  icon.textContent = lesson.icon;
+
+  const title = document.createElement("h3");
+  title.textContent = lesson.title;
+
+  const description = document.createElement("p");
+  description.textContent = lesson.description;
+
+  const link = document.createElement("a");
+  link.className = "btn";
+  link.href = lesson.link;
+  link.textContent = "📖 Baradhu →";
+
+  card.append(icon,title,description,link);
+  return card;
+}
 
 function loadStudent(){
+  const student = checkLogin();
+  if(!student) return;
 
-  const student =
-    checkLogin();
+  const name = student.fullname || "Barataa!";
+  const course = student.course || "";
 
-  if(!student){
+  document.getElementById("welcomeName").textContent = name;
+  document.getElementById("studentName").textContent = name;
+  document.getElementById("studentCourse").textContent = course || "-";
+
+  const key = normalizeCourse(course);
+  const courseData = courseLessons[key];
+  const lessonList = document.getElementById("lessonList");
+  const notice = document.getElementById("courseNotice");
+
+  lessonList.replaceChildren();
+
+  if(!courseData){
+    document.getElementById("courseDescription").textContent =
+      "Maqaan course kee hin beekamne. Admin waliin dubbadhu.";
+    notice.hidden = false;
+    notice.textContent =
+      "Course kee: " + (course || "Hin ibsamne") +
+      ". Maqaa course Supabase keessa jiru mirkaneessuun barbaachisa.";
     return;
   }
 
+  document.getElementById("courseDescription").textContent =
+    courseData.description;
 
-  /* =========================
-     NAME
-  ========================= */
+  if(courseData.lessons.length === 0){
+    notice.hidden = false;
+    notice.textContent =
+      "Barnoonni " + courseData.title +
+      " yeroo ammaa qophaa'aa jira. PixelLab hin agarsiifamu.";
+  }else{
+    notice.hidden = true;
+    courseData.lessons.forEach(lesson=>{
+      lessonList.appendChild(createLessonCard(lesson));
+    });
+  }
 
-  const name =
-    student.fullname || "Barataa!";
-
-
-  document
-    .getElementById("welcomeName")
-    .textContent =
-      name;
-
-
-  document
-    .getElementById("studentName")
-    .textContent =
-      name;
-
-
-  /* =========================
-     COURSE
-  ========================= */
-
-  document
-    .getElementById("studentCourse")
-    .textContent =
-      student.course || "-";
-
-
-  /*
-    studentName duraan fayyadamaa
-    turre yoo jiraate illee
-    hin badu.
-  */
-
-  localStorage.setItem(
-    "studentName",
-    name
-  );
-
-
-  /* =========================
-     PROGRESS
-  ========================= */
-
-  loadProgress();
-
+  loadProgress(key,courseData.lessons.length);
 }
 
-
-/* =========================================
-   LOAD PROGRESS
-========================================= */
-
-function loadProgress(){
-
-  /*
-    Lesson 2 irra gahe jechuun
-    Lesson 1 fi Lesson 2
-    akka xumuraman ilaalla.
-  */
-
-  const lesson1 =
-    localStorage.getItem(
-      "lesson1Completed"
-    ) === "true";
-
-
-  const lesson2 =
-    localStorage.getItem(
-      "lesson2Completed"
-    ) === "true";
-
+function loadProgress(courseKey,totalLessons){
+  const lesson1Done =
+    localStorage.getItem("lesson1Completed") === "true";
+  const lesson2Done =
+    localStorage.getItem("lesson2Completed") === "true";
 
   let percent = 0;
-  let text = "Lesson 1 irraa jalqabi.";
+  let message = "Barnoota kee jalqabi.";
 
-  if(lesson1 && lesson2){
-
-    percent = 100;
-
-    text =
-      "🎉 Lesson 1 fi Lesson 2 xumuramanii jiru.";
-
-  }
-  else if(lesson1){
-
-    percent = 50;
-
-    text =
-      "Lesson 1 xumurteetta. Amma Lesson 2 itti fufi.";
-
-  }
-  else{
-
-    percent = 0;
-
-    text =
-      "Lesson 1 irraa barnoota kee jalqabi.";
-
+  if(courseKey === "graphic design"){
+    const completed = Number(lesson1Done) + Number(lesson2Done);
+    percent = completed * 50;
+    message = percent === 100
+      ? "🎉 Lesson lamaan xumurteetta!"
+      : percent === 50
+        ? "Lesson tokko xumurteetta. Itti fufi!"
+        : "Lesson 1 irraa jalqabi.";
   }
 
-
-  document
-    .getElementById("progressFill")
-    .style.width =
-      percent + "%";
-
-
-  document
-    .getElementById("progressPercent")
-    .textContent =
-      percent + "%";
-
-
-  document
-    .getElementById("progressText")
-    .textContent =
-      text;
-
+  document.getElementById("progressFill").style.width = percent + "%";
+  document.getElementById("progressText").textContent =
+    message + " (" + percent + "%)";
 }
-
-
-/* =========================================
-   LOGOUT
-========================================= */
 
 function logout(){
-
-  /*
-    Student login qofa haqna.
-
-    Progress barnootaa hin haqnu.
-  */
-
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("student");
-
-  /*
-    studentName fi lesson progress
-    hin haqamu.
-  */
-
-  window.location.href =
-    "login.html";
-
+  location.href = "login.html";
 }
 
-
-/* =========================================
-   PAGE LOAD
-========================================= */
-
-window.addEventListener(
-  "load",
-  function(){
-
-    loadStudent();
-
-  }
-);
-
+window.addEventListener("DOMContentLoaded",loadStudent);
 </script>
 
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-     name: Build KENA DESIGN Android APK
+name: Build KENA DESIGN Android APK
 
 on:
   workflow_dispatch:
@@ -56,4 +56,4 @@ jobs:
           name: KENA-DESIGN-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
-          retention-days: 7   
+          retention-days: 7

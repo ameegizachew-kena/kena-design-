@@ -1,92 +1,79 @@
-"use strict";
-
 const CACHE_NAME = "kena-design-v2";
 
-const APP_FILES = [
+const FILES_TO_CACHE = [
   "./",
   "./index.html",
-  "./manifest.json"
+  "./login.html",
+  "./register.html",
+  "./student.html",
+  "./dashboard.html",
+  "./admin.html",
+  "./lesson.html",
+  "./lesson2.html",
+  "./lesson3.html",
+  "./script.js",
+  "./style.css",
+  "./manifest.json",
+
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
-// Install app files
-self.addEventListener("install", function (event) {
+
+self.addEventListener("install", event => {
+
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function (cache) {
-        return cache.addAll(APP_FILES);
-      })
+    .then(cache => {
+      return cache.addAll(FILES_TO_CACHE);
+    })
   );
 
   self.skipWaiting();
+
 });
 
-// Activate the new version without deleting other apps' caches
-self.addEventListener("activate", function (event) {
+
+self.addEventListener("activate", event => {
+
   event.waitUntil(
-    caches.keys().then(function (cacheNames) {
+
+    caches.keys().then(keys => {
+
       return Promise.all(
-        cacheNames
-          .filter(function (name) {
-            return name.startsWith("kena-design-") &&
-                   name !== CACHE_NAME;
-          })
-          .map(function (name) {
-            return caches.delete(name);
-          })
+
+        keys.map(key => {
+
+          if(key !== CACHE_NAME){
+
+            return caches.delete(key);
+
+          }
+
+        })
+
       );
-    }).then(function () {
-      return self.clients.claim();
+
     })
+
   );
+
+  self.clients.claim();
+
 });
 
-// Fetch and offline support
-self.addEventListener("fetch", function (event) {
-  const request = event.request;
 
-  if (request.method !== "GET") {
-    return;
-  }
-
-  const url = new URL(request.url);
-
-  // Do not cache external websites or services
-  if (url.origin !== self.location.origin) {
-    return;
-  }
+self.addEventListener("fetch", event => {
 
   event.respondWith(
-    fetch(request)
-      .then(function (response) {
-        if (response && response.ok) {
-          const copy = response.clone();
 
-          caches.open(CACHE_NAME).then(function (cache) {
-            cache.put(request, copy);
-          });
-        }
+    caches.match(event.request)
+    .then(response => {
 
-        return response;
-      })
-      .catch(function () {
-        return caches.match(request).then(function (cached) {
-          if (cached) {
-            return cached;
-          }
+      return response || fetch(event.request);
 
-          // Show the homepage offline only for navigation requests
-          if (request.mode === "navigate") {
-            return caches.match("./index.html");
-          }
+    })
 
-          return new Response("Internet hin jiru. Maaloo irra deebi'i.", {
-            status: 503,
-            statusText: "Offline",
-            headers: {
-              "Content-Type": "text/plain; charset=utf-8"
-            }
-          });
-        });
-      })
   );
+
 });

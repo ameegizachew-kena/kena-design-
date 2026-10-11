@@ -1,32 +1,49 @@
 {
-  "id": "./",
   "name": "KENA DESIGN",
   "short_name": "KENA DESIGN",
-  "description": "KENA DESIGN - Learn, Create, Grow",
+  "description": "KENA DESIGN - Learn Graphic Design, Video Editing, Web Design and Digital Skills",
+  "lang": "om",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#07111f",
-  "theme_color": "#07111f",
+  "theme_color": "#32d583",
+
   "icons": [
     {
       "src": "./icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "./icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
-    },
+      "purpose": "any maskable"
+    }
+  ],
+
+  "categories": [
+    "education",
+    "design",
+    "learning"
+  ],
+
+  "screenshots": [],
+
+  "shortcuts": [
     {
-      "src": "./icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "name": "Student Login",
+      "short_name": "Login",
+      "url": "./student-login.html",
+      "icons": [
+        {
+          "src": "./icons/icon-192.png",
+          "sizes": "192x192"
+        }
+      ]
     }
   ]
 }

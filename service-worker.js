@@ -1,79 +1,65 @@
 const CACHE_NAME = "kena-design-v2";
 
-const FILES_TO_CACHE = [
+const APP_FILES = [
   "./",
   "./index.html",
-  "./login.html",
-  "./register.html",
-  "./student.html",
-  "./dashboard.html",
-  "./admin.html",
-  "./lesson.html",
-  "./lesson2.html",
-  "./lesson3.html",
-  "./script.js",
-  "./style.css",
   "./manifest.json",
-
   "./icons/icon-192.png",
   "./icons/icon-512.png"
 ];
 
-
-self.addEventListener("install", event => {
-
+self.addEventListener("install", (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then(cache => {
-      return cache.addAll(FILES_TO_CACHE);
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(APP_FILES);
     })
   );
 
   self.skipWaiting();
-
 });
 
-
-self.addEventListener("activate", event => {
-
+self.addEventListener("activate", (event) => {
   event.waitUntil(
-
-    caches.keys().then(keys => {
-
+    caches.keys().then((cacheNames) => {
       return Promise.all(
-
-        keys.map(key => {
-
-          if(key !== CACHE_NAME){
-
-            return caches.delete(key);
-
-          }
-
-        })
-
+        cacheNames
+          .filter((cacheName) => cacheName !== CACHE_NAME)
+          .map((cacheName) => caches.delete(cacheName))
       );
-
     })
-
   );
 
   self.clients.claim();
-
 });
 
-
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") {
+    return;
+  }
 
   event.respondWith(
+    fetch(event.request)
+      .then((response) => {
+        if (response && response.ok) {
+          const responseCopy = response.clone();
 
-    caches.match(event.request)
-    .then(response => {
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(event.request, responseCopy);
+          });
+        }
 
-      return response || fetch(event.request);
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
+          }
 
-    })
-
+          if (event.request.mode === "navigate") {
+            return caches.match("./index.html");
+          }
+        });
+      })
   );
-
 });

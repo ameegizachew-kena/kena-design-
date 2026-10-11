@@ -6,20 +6,27 @@ on:
 permissions:
   contents: read
 
+
 jobs:
+
   build:
+
     runs-on: ubuntu-latest
+
 
     steps:
 
-      - name: Get project
+
+      - name: Checkout project
         uses: actions/checkout@v4
+
 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
 
 
       - name: Setup Java
@@ -29,28 +36,46 @@ jobs:
           java-version: 21
 
 
+
       - name: Install Capacitor
         run: |
           npm init -y
-          npm install @capacitor/core@latest @capacitor/android@latest
+          npm install @capacitor/core@latest
+          npm install @capacitor/android@latest
           npm install --save-dev @capacitor/cli@latest
 
 
-      - name: Configure Capacitor
+
+      - name: Create Capacitor App
         run: |
           npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir .
+          
           npx cap add android
+
+          npx cap copy android
+
           npx cap sync android
 
 
-      - name: Build APK
+
+      - name: Check Web Files
+        run: |
+          ls -la
+          echo "Checking login.html"
+          test -f login.html
+          echo "login.html FOUND"
+
+
+
+      - name: Build Android APK
         run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
 
 
-      - name: Save APK
+
+      - name: Upload KENA DESIGN APK
         uses: actions/upload-artifact@v4
         with:
           name: KENA-DESIGN-APK

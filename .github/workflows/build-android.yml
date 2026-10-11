@@ -1,4 +1,4 @@
-name: Build KENA DESIGN Android APK
+     name: Build KENA DESIGN Android APK
 
 on:
   workflow_dispatch:
@@ -11,13 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Get project
         uses: actions/checkout@v4
+
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -25,42 +28,6 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Prepare web app
-        run: |
-          mkdir -p www
-
-          test -f index.html || {
-            echo "ERROR: index.html hin jiru."
-            exit 1
-          }
-
-          cp -r index.html www/
-
-          for file in \
-            login.html \
-            register.html \
-            student.html \
-            dashboard.html \
-            admin.html \
-            lesson.html \
-            lesson2.html \
-            script.js \
-            style.css \
-            manifest.json \
-            service-worker.js
-          do
-            if [ -f "$file" ]; then
-              cp "$file" www/
-            fi
-          done
-
-          if [ -d icons ]; then
-            cp -r icons www/
-          fi
-
-          if [ -d media ]; then
-            cp -r media www/
-          fi
 
       - name: Install Capacitor
         run: |
@@ -68,11 +35,13 @@ jobs:
           npm install @capacitor/core@latest @capacitor/android@latest
           npm install --save-dev @capacitor/cli@latest
 
+
       - name: Configure Capacitor
         run: |
-          npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir www
+          npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir .
           npx cap add android
           npx cap sync android
+
 
       - name: Build APK
         run: |
@@ -80,10 +49,11 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug
 
+
       - name: Save APK
         uses: actions/upload-artifact@v4
         with:
           name: KENA-DESIGN-APK
           path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 7   

@@ -3,6 +3,7 @@ name: Build KENA DESIGN Android APK
 on:
   workflow_dispatch:
 
+
 permissions:
   contents: read
 
@@ -37,19 +38,38 @@ jobs:
 
 
 
+      - name: Prepare Web Folder
+        run: |
+          mkdir -p www
+
+          cp *.html www/ || true
+          cp *.js www/ || true
+          cp *.css www/ || true
+          cp manifest.json www/ || true
+          cp service-worker.js www/ || true
+
+          cp -r icons www/ || true
+
+          echo "WEB FILES:"
+          ls -la www
+
+
+
       - name: Install Capacitor
         run: |
           npm init -y
+
           npm install @capacitor/core@latest
           npm install @capacitor/android@latest
           npm install --save-dev @capacitor/cli@latest
 
 
 
-      - name: Create Capacitor App
+      - name: Configure Capacitor
         run: |
-          npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir .
-          
+
+          npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir www
+
           npx cap add android
 
           npx cap copy android
@@ -58,27 +78,36 @@ jobs:
 
 
 
-      - name: Check Web Files
+      - name: Check Android Web Files
         run: |
-          ls -la
-          echo "Checking login.html"
-          test -f login.html
-          echo "login.html FOUND"
+
+          echo "Checking login file..."
+
+          test -f www/login.html
+
+          echo "login.html exists"
 
 
 
-      - name: Build Android APK
+      - name: Build APK
         run: |
+
           cd android
+
           chmod +x gradlew
+
           ./gradlew assembleDebug
 
 
 
-      - name: Upload KENA DESIGN APK
+      - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
+
           name: KENA-DESIGN-APK
+
           path: android/app/build/outputs/apk/debug/app-debug.apk
+
           if-no-files-found: error
+
           retention-days: 7

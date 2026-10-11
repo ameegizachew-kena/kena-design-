@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>KENA DESIGN | Barnoota Design</title>
-
 <meta name="description" content="KENA DESIGN - Barnoota Graphic Design, Video Editing, Web Design fi Digital Skills.">
 <meta name="theme-color" content="#ffffff">
 <meta name="mobile-web-app-capable" content="yes">
@@ -18,537 +17,502 @@
 
 <style>
 :root {
-  --bg: #f5f7fb;
-  --panel: #ffffff;
-  --panel2: #edf2f8;
-  --text: #172033;
-  --muted: #5f6b7b;
-  --accent: #159957;
-  --accent2: #1689d8;
-  --border: #dce3ec;
-  --shadow: 0 14px 35px rgba(24, 39, 75, .09);
+  --bg:#f5f7fb;
+  --panel:#ffffff;
+  --panel2:#edf2f8;
+  --text:#172033;
+  --muted:#5f6b7b;
+  --accent:#159957;
+  --accent2:#1689d8;
+  --border:#dce3ec;
+  --shadow:0 14px 35px rgba(24,39,75,.09);
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 85px;
+  scroll-behavior:smooth;
+  scroll-padding-top:85px;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at top right, rgba(22,137,216,.08), transparent 35%),
-    radial-gradient(circle at top left, rgba(21,153,87,.07), transparent 30%),
+    radial-gradient(circle at top right,rgba(22,137,216,.08),transparent 35%),
+    radial-gradient(circle at top left,rgba(21,153,87,.07),transparent 30%),
     var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  min-height: 100vh;
+  color:var(--text);
+  line-height:1.6;
+  min-height:100vh;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color:inherit;
+  text-decoration:none;
 }
 
-button, input, select {
-  font: inherit;
+button,input {
+  font:inherit;
 }
 
 button {
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
 }
 
 .container {
-  width: min(1120px, 92%);
-  margin: auto;
+  width:min(1120px,92%);
+  margin:auto;
 }
 
 /* NAVIGATION */
-
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
 }
 
 .nav-inner {
-  min-height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: .3px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:21px;
+  font-weight:900;
 }
 
 .logo-mark {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: white;
-  font-weight: 900;
+  width:42px;
+  height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  font-weight:900;
 }
 
 .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 7px;
+  display:flex;
+  align-items:center;
+  gap:7px;
 }
 
 .nav-links a {
-  color: var(--muted);
-  padding: 10px 12px;
-  border-radius: 10px;
+  color:var(--muted);
+  padding:10px 12px;
+  border-radius:10px;
 }
 
 .nav-links a:hover {
-  color: var(--text);
-  background: var(--panel2);
+  color:var(--text);
+  background:var(--panel2);
 }
 
 .menu-btn {
-  display: none;
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--text);
-  padding: 9px 12px;
-  border-radius: 10px;
-  cursor: pointer;
+  display:none;
+  border:1px solid var(--border);
+  background:white;
+  padding:9px 12px;
+  border-radius:10px;
 }
 
 /* BUTTONS */
-
 .btn {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  border: 0;
-  cursor: pointer;
-  border-radius: 12px;
-  padding: 13px 20px;
-  font-weight: 800;
-  text-align: center;
-  transition: transform .2s, box-shadow .2s;
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  border:0;
+  border-radius:12px;
+  padding:13px 20px;
+  font-weight:800;
+  text-align:center;
+  transition:transform .2s,box-shadow .2s;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
+  transform:translateY(-2px);
 }
 
 .primary {
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  color: #fff;
-  box-shadow: 0 10px 24px rgba(21,153,87,.16);
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;
+  box-shadow:0 10px 24px rgba(21,153,87,.16);
 }
 
 .secondary {
-  background: #fff;
-  color: var(--text);
-  border: 1px solid var(--border);
+  background:white;
+  color:var(--text);
+  border:1px solid var(--border);
 }
 
 /* HERO */
-
 .hero {
-  padding: 85px 0 70px;
-  text-align: center;
+  padding:85px 0 70px;
+  text-align:center;
 }
 
 .badge {
-  display: inline-block;
-  padding: 8px 14px;
-  border: 1px solid #b8e8cf;
-  background: #eaf8f0;
-  color: #117a43;
-  border-radius: 999px;
-  font-size: 14px;
-  margin-bottom: 20px;
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid #b8e8cf;
+  background:#eaf8f0;
+  color:#117a43;
+  border-radius:999px;
+  font-size:14px;
+  margin-bottom:20px;
 }
 
 .hero h1 {
-  font-size: clamp(38px, 8vw, 78px);
-  line-height: 1.15;
-  margin-bottom: 20px;
-  font-weight: 900;
+  font-size:clamp(38px,8vw,78px);
+  line-height:1.15;
+  margin-bottom:20px;
+  font-weight:900;
 }
 
 .hero h1 span {
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
 .hero p {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  color: var(--muted);
-  font-size: 18px;
+  max-width:700px;
+  margin:0 auto 30px;
+  color:var(--muted);
+  font-size:18px;
 }
 
 .hero-actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
 }
 
 /* SECTIONS */
-
 section {
-  padding: 65px 0;
+  padding:65px 0;
 }
 
 .section-head {
-  text-align: center;
-  margin-bottom: 35px;
+  text-align:center;
+  margin-bottom:35px;
 }
 
 .section-head h2 {
-  font-size: 32px;
-  margin-bottom: 9px;
+  font-size:32px;
+  margin-bottom:9px;
 }
 
 .section-head p {
-  color: var(--muted);
+  color:var(--muted);
 }
 
-/* STUDENT ACCESS */
-
-.access-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
+/* CARDS */
+.access-wrap,
+.about-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
 }
 
-.card {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 26px;
-  box-shadow: var(--shadow);
+.card,
+.about-box {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:26px;
+  box-shadow:var(--shadow);
 }
 
-.card h3 {
-  margin-bottom: 12px;
+.card h3,
+.about-box h3 {
+  margin-bottom:12px;
 }
 
-.access-info p {
-  color: var(--muted);
-  margin-bottom: 20px;
+.access-info p,
+.about-box p {
+  color:var(--muted);
+  margin-bottom:20px;
 }
 
 .access-list {
-  list-style: none;
-  display: grid;
-  gap: 12px;
+  list-style:none;
+  display:grid;
+  gap:12px;
 }
 
 .access-list li {
-  display: flex;
-  gap: 10px;
-  color: #344054;
+  display:flex;
+  gap:10px;
+  color:#344054;
 }
 
 .access-list span {
-  color: var(--accent);
-  font-weight: bold;
+  color:var(--accent);
+  font-weight:bold;
 }
 
 .notice {
-  margin-top: 20px;
-  padding: 13px;
-  border-radius: 11px;
-  background: #fff8e8;
-  border: 1px solid #f5dfaa;
-  color: #815b0a;
-  font-size: 13px;
+  margin-top:20px;
+  padding:13px;
+  border-radius:11px;
+  background:#fff8e8;
+  border:1px solid #f5dfaa;
+  color:#815b0a;
+  font-size:13px;
 }
 
 /* COURSES */
-
 .course-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
 .course {
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 22px;
-  box-shadow: 0 6px 20px rgba(24,39,75,.04);
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 6px 20px rgba(24,39,75,.04);
 }
 
 .course:hover {
-  border-color: #a9dfc2;
-  box-shadow: var(--shadow);
+  border-color:#a9dfc2;
+  box-shadow:var(--shadow);
 }
 
 .icon {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border-radius: 15px;
-  background: var(--panel2);
-  font-size: 26px;
-  margin-bottom: 16px;
+  width:52px;
+  height:52px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:var(--panel2);
+  font-size:26px;
+  margin-bottom:16px;
 }
 
 .course h3 {
-  font-size: 21px;
-  margin-bottom: 8px;
+  font-size:21px;
+  margin-bottom:8px;
 }
 
 .course p {
-  color: var(--muted);
-  min-height: 68px;
-  margin-bottom: 15px;
+  color:var(--muted);
+  min-height:68px;
+  margin-bottom:15px;
 }
 
 .course-toggle {
-  width: 100%;
-  padding: 11px;
-  border: 1px solid var(--border);
-  background: var(--panel2);
-  color: var(--text);
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 700;
+  width:100%;
+  padding:11px;
+  border:1px solid var(--border);
+  background:var(--panel2);
+  color:var(--text);
+  border-radius:10px;
+  font-weight:700;
 }
 
 .lesson {
-  display: none;
-  margin-top: 15px;
+  display:none;
+  margin-top:15px;
 }
 
 .lesson.open {
-  display: block;
+  display:block;
 }
 
 .lesson ul {
-  list-style: none;
-  color: var(--muted);
-  padding: 10px 0;
+  list-style:none;
+  color:var(--muted);
+  padding:10px 0;
 }
 
 .lesson li {
-  padding: 5px 0;
-}
-
-/* ABOUT */
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 25px;
-}
-
-.about-box {
-  padding: 27px;
-  border-radius: 20px;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 20px rgba(24,39,75,.04);
-}
-
-.about-box h3 {
-  margin-bottom: 12px;
-}
-
-.about-box p {
-  color: var(--muted);
+  padding:5px 0;
 }
 
 /* QUIZ */
-
 .quiz-box {
-  max-width: 850px;
-  margin: auto;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: var(--shadow);
+  max-width:850px;
+  margin:auto;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:var(--shadow);
 }
 
 .q {
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border);
+  padding:18px 0;
+  border-bottom:1px solid var(--border);
 }
 
 .q b {
-  display: block;
-  margin-bottom: 10px;
+  display:block;
+  margin-bottom:10px;
 }
 
 .q label {
-  display: block;
-  color: var(--muted);
-  padding: 7px 0;
-  cursor: pointer;
+  display:block;
+  color:var(--muted);
+  padding:7px 0;
+  cursor:pointer;
 }
 
 .q input {
-  margin-right: 7px;
-  accent-color: var(--accent);
+  margin-right:7px;
+  accent-color:var(--accent);
 }
 
 .result {
-  margin-top: 18px;
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--accent);
+  margin-top:18px;
+  font-size:20px;
+  font-weight:900;
+  color:var(--accent);
 }
 
 /* CONTACT */
-
 .contact-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
 .contact-card {
-  text-align: center;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 25px;
-  box-shadow: 0 6px 20px rgba(24,39,75,.04);
+  text-align:center;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 6px 20px rgba(24,39,75,.04);
 }
 
 .contact-card .big {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size:28px;
+  margin-bottom:10px;
 }
 
 .contact-card p {
-  color: var(--muted);
-  overflow-wrap: anywhere;
+  color:var(--muted);
+  overflow-wrap:anywhere;
 }
 
-/* APP INSTALL */
-
+/* INSTALL */
 .install-box {
-  max-width: 750px;
-  margin: auto;
-  text-align: center;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: var(--shadow);
+  max-width:750px;
+  margin:auto;
+  text-align:center;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:var(--shadow);
 }
 
 .install-box p {
-  color: var(--muted);
-  margin: 8px 0 18px;
+  color:var(--muted);
+  margin:8px 0 18px;
 }
 
 #installBtn {
-  display: none;
+  display:none;
 }
 
 /* FOOTER */
-
 footer {
-  margin-top: 30px;
-  padding: 35px 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  color: var(--muted);
-  background: #fff;
+  margin-top:30px;
+  padding:35px 0;
+  border-top:1px solid var(--border);
+  text-align:center;
+  color:var(--muted);
+  background:white;
 }
 
 footer strong {
-  color: var(--text);
+  color:var(--text);
 }
 
 /* RESPONSIVE */
-
 @media(max-width:900px) {
   .course-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .access-wrap,
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .contact-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 }
 
 @media(max-width:680px) {
   .nav-links {
-    display: none;
-    position: absolute;
-    left: 4%;
-    right: 4%;
-    top: 72px;
-    padding: 10px;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    flex-direction: column;
-    align-items: stretch;
-    box-shadow: var(--shadow);
+    display:none;
+    position:absolute;
+    left:4%;
+    right:4%;
+    top:72px;
+    padding:10px;
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    flex-direction:column;
+    align-items:stretch;
+    box-shadow:var(--shadow);
   }
 
   .nav-links.active {
-    display: flex;
+    display:flex;
   }
 
   .nav-links a {
-    width: 100%;
+    width:100%;
   }
 
   .menu-btn {
-    display: block;
+    display:block;
   }
 
   .hero {
-    padding: 60px 0 45px;
+    padding:60px 0 45px;
   }
 
   section {
-    padding: 50px 0;
+    padding:50px 0;
   }
 
   .course-grid,
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .card,
   .quiz-box,
   .about-box {
-    padding: 20px;
+    padding:20px;
   }
 }
 
@@ -556,8 +520,8 @@ footer strong {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
-    transition: none !important;
+    scroll-behavior:auto!important;
+    transition:none!important;
   }
 }
 </style>
@@ -565,7 +529,6 @@ footer strong {
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
   <div class="container nav-inner">
 
@@ -574,34 +537,22 @@ footer strong {
       <span>KENA DESIGN</span>
     </a>
 
-    <button
-      class="menu-btn"
-      id="menuBtn"
-      type="button"
-      aria-label="Menu bani"
-      aria-expanded="false">☰</button>
+    <button class="menu-btn" id="menuBtn" type="button"
+      aria-label="Menu bani" aria-expanded="false">☰</button>
 
     <div class="nav-links" id="navLinks">
-  <a href="#home">Home</a>
-
-  <a href="https://ameegizachew-kena.github.io/kena-design-/login.html">
-    Barnoota Jalqabi
-  </a>
-
-  <a href="#courses">Barnoota</a>
-  <a href="#quiz">Quiz</a>
-  <a href="#about">Waa'ee Keenya</a>
-  <a href="#contact">Contact</a>
-
-  <a href="https://ameegizachew-kena.github.io/kena-design-/register.html">
-    Galmaa'i
-  </a>
-</div>
+      <a href="#home">Home</a>
+      <a href="#access">Barnoota Jalqabi</a>
+      <a href="#courses">Barnoota</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#about">Waa'ee Keenya</a>
+      <a href="#contact">Contact</a>
+      <a href="register.html">Galmaa'i</a>
+    </div>
 
   </div>
 </nav>
 
-<!-- HERO -->
 <header class="hero" id="home">
   <div class="container">
 
@@ -623,7 +574,6 @@ footer strong {
   </div>
 </header>
 
-<!-- STUDENT ACCESS -->
 <section id="access">
   <div class="container">
 
@@ -677,7 +627,6 @@ footer strong {
   </div>
 </section>
 
-<!-- COURSES -->
 <section id="courses">
   <div class="container">
 
@@ -691,7 +640,6 @@ footer strong {
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="container">
 
@@ -723,7 +671,6 @@ footer strong {
   </div>
 </section>
 
-<!-- QUIZ -->
 <section id="quiz">
   <div class="container">
 
@@ -737,7 +684,6 @@ footer strong {
   </div>
 </section>
 
-<!-- APP INSTALL -->
 <section id="install">
   <div class="container">
 
@@ -765,7 +711,6 @@ footer strong {
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
 
@@ -778,14 +723,14 @@ footer strong {
 
       <div class="contact-card">
         <div class="big">📱</div>
-        <h3>Phone</h3>
-        <p>+251 923 502 464</p>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/251923502464">+251 923 502 464</a></p>
       </div>
 
       <div class="contact-card">
         <div class="big">📧</div>
         <h3>Email</h3>
-        <p>ameegizachew@gmail.com</p>
+        <p><a href="mailto:ameegizachew@gmail.com">ameegizachew@gmail.com</a></p>
       </div>
 
       <div class="contact-card">
@@ -798,7 +743,6 @@ footer strong {
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="container">
     <p>© 2026 <strong>KENA DESIGN</strong>. All Rights Reserved.</p>
@@ -809,13 +753,17 @@ footer strong {
 <script>
 "use strict";
 
-/* MOBILE MENU */
+/*
+  LINKII BARBAACHISAA:
+  Faayiloonni login.html fi register.html repo keessa jiraachuu qabu.
+  APK keessatti relative link fayyadami; https://localhost/login.html hin fayyadamin.
+*/
+
 const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
 menuBtn.addEventListener("click", function() {
   const opened = navLinks.classList.toggle("active");
-
   menuBtn.setAttribute("aria-expanded", String(opened));
   menuBtn.textContent = opened ? "✕" : "☰";
 });
@@ -831,119 +779,66 @@ navLinks.querySelectorAll("a").forEach(function(link) {
 /* COURSES */
 const courses = [
   {
-    icon: "🎬",
-    title: "Video Editing",
-    desc: "Viidiyoo qulqulluu fi nama hawwatu hojjechuu baradhu.",
-    lessons: [
-      "Cut fi trim gochuu",
-      "Transition fi effect",
-      "Text fi subtitle",
-      "Music fi audio",
-      "Export qulqullina gaariin"
-    ]
+    icon:"🎬",
+    title:"Video Editing",
+    desc:"Viidiyoo qulqulluu fi nama hawwatu hojjechuu baradhu.",
+    lessons:["Cut fi trim gochuu","Transition fi effect","Text fi subtitle","Music fi audio","Export qulqullina gaariin"]
   },
   {
-    icon: "🎨",
-    title: "Graphic Design",
-    desc: "Poster, logo fi social media design hojjechuu baradhu.",
-    lessons: [
-      "Design basics",
-      "Typography",
-      "Color palette",
-      "Layout fi composition",
-      "Export"
-    ]
+    icon:"🎨",
+    title:"Graphic Design",
+    desc:"Poster, logo fi social media design hojjechuu baradhu.",
+    lessons:["Design basics","Typography","Color palette","Layout fi composition","Export"]
   },
   {
-    icon: "🌐",
-    title: "Web Design",
-    desc: "Website bareedaa fi mobile irratti hojjetu qopheessi.",
-    lessons: [
-      "HTML basics",
-      "CSS basics",
-      "Responsive design",
-      "Links fi forms",
-      "Publish website"
-    ]
+    icon:"🌐",
+    title:"Web Design",
+    desc:"Website bareedaa fi mobile irratti hojjetu qopheessi.",
+    lessons:["HTML basics","CSS basics","Responsive design","Links fi forms","Publish website"]
   },
   {
-    icon: "📣",
-    title: "Digital Marketing",
-    desc: "Beeksisa online fi social media marketing baradhu.",
-    lessons: [
-      "Marketing basics",
-      "Content plan",
-      "Social media",
-      "Audience",
-      "Measure results"
-    ]
+    icon:"📣",
+    title:"Digital Marketing",
+    desc:"Beeksisa online fi social media marketing baradhu.",
+    lessons:["Marketing basics","Content plan","Social media","Audience","Measure results"]
   },
   {
-    icon: "📷",
-    title: "Photography",
-    desc: "Suuraa qulqullina qabu kaasu fi gulaaluu baradhu.",
-    lessons: [
-      "Camera basics",
-      "Lighting",
-      "Composition",
-      "Editing",
-      "Export"
-    ]
+    icon:"📷",
+    title:"Photography",
+    desc:"Suuraa qulqullina qabu kaasu fi gulaaluu baradhu.",
+    lessons:["Camera basics","Lighting","Composition","Editing","Export"]
   },
   {
-    icon: "🧾",
-    title: "Flayer Package",
-    desc: "Flyer daldalaa fi beeksisa event qopheessi.",
-    lessons: [
-      "Headline",
-      "Color",
-      "Image placement",
-      "Call to action",
-      "Export"
-    ]
+    icon:"🧾",
+    title:"Flayer Package",
+    desc:"Flyer daldalaa fi beeksisa event qopheessi.",
+    lessons:["Headline","Color","Image placement","Call to action","Export"]
   },
   {
-    icon: "▶️",
-    title: "YouTube Thumbnail",
-    desc: "Thumbnail nama hawwatu hojjedhu.",
-    lessons: [
-      "Canvas size",
-      "Composition",
-      "Text",
-      "Contrast",
-      "Export"
-    ]
+    icon:"▶️",
+    title:"YouTube Thumbnail",
+    desc:"Thumbnail nama hawwatu hojjedhu.",
+    lessons:["Canvas size","Composition","Text","Contrast","Export"]
   },
   {
-    icon: "🪧",
-    title: "Poster Design",
-    desc: "Poster event fi daldalaa qopheessi.",
-    lessons: [
-      "Purpose",
-      "Typography",
-      "Color",
-      "Layout",
-      "Export"
-    ]
+    icon:"🪧",
+    title:"Poster Design",
+    desc:"Poster event fi daldalaa qopheessi.",
+    lessons:["Purpose","Typography","Color","Layout","Export"]
   }
 ];
 
 const courseGrid = document.getElementById("courseGrid");
 
-courseGrid.innerHTML = courses.map(function(course, index) {
+courseGrid.innerHTML = courses.map(function(course,index) {
   return `
     <article class="course">
       <div class="icon">${course.icon}</div>
-
       <h3>${course.title}</h3>
-
       <p>${course.desc}</p>
 
-      <button
-        class="course-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-controls="lesson${index}"
+      <button class="course-toggle" type="button"
+        aria-expanded="false" aria-controls="lesson${index}"
         data-index="${index}">
         Qabiyyee Ilaali ▾
       </button>
@@ -965,63 +860,33 @@ courseGrid.innerHTML = courses.map(function(course, index) {
 
 document.querySelectorAll(".course-toggle").forEach(function(button) {
   button.addEventListener("click", function() {
-    const lesson = document.getElementById(
-      "lesson" + button.dataset.index
-    );
-
+    const lesson = document.getElementById("lesson" + button.dataset.index);
     const opened = lesson.classList.toggle("open");
 
     button.setAttribute("aria-expanded", String(opened));
-
-    button.textContent = opened
-      ? "Qabiyyee Cufi ▴"
-      : "Qabiyyee Ilaali ▾";
+    button.textContent = opened ? "Qabiyyee Cufi ▴" : "Qabiyyee Ilaali ▾";
   });
 });
 
 /* QUIZ */
 const questions = [
-  [
-    "Design keessatti typography jechuun maal?",
-    ["Bifa qubee fi barreeffamaa", "Sagalee", "Internet"],
-    0
-  ],
-  [
-    "Contrast maaliif fayyada?",
-    ["Wantoota adda baasuuf", "Faayila balleessuuf", "Login cufuuf"],
-    0
-  ],
-  [
-    "Video editing keessatti cut jechuun maal?",
-    ["Kutuu/qooduu", "Email", "Logo"],
-    0
-  ],
-  [
-    "Thumbnail maaliif barbaachisa?",
-    ["Viidiyoo beeksisuuf", "Password jijjiiruuf", "Internet cufuuf"],
-    0
-  ],
-  [
-    "CTA jechuun maal?",
-    ["Call to Action", "Color Type Area", "Camera Tool"],
-    0
-  ]
+  ["Design keessatti typography jechuun maal?",["Bifa qubee fi barreeffamaa","Sagalee","Internet"],0],
+  ["Contrast maaliif fayyada?",["Wantoota adda baasuuf","Faayila balleessuuf","Login cufuuf"],0],
+  ["Video editing keessatti cut jechuun maal?",["Kutuu/qooduu","Email","Logo"],0],
+  ["Thumbnail maaliif barbaachisa?",["Viidiyoo beeksisuuf","Password jijjiiruuf","Internet cufuuf"],0],
+  ["CTA jechuun maal?",["Call to Action","Color Type Area","Camera Tool"],0]
 ];
 
 const quizBox = document.getElementById("quizBox");
 
-quizBox.innerHTML = questions.map(function(question, index) {
+quizBox.innerHTML = questions.map(function(question,index) {
   return `
     <div class="q">
       <b>${index + 1}. ${question[0]}</b>
-
-      ${question[1].map(function(option, optionIndex) {
+      ${question[1].map(function(option,optionIndex) {
         return `
           <label>
-            <input
-              type="radio"
-              name="q${index}"
-              value="${optionIndex}">
+            <input type="radio" name="q${index}" value="${optionIndex}">
             ${option}
           </label>
         `;
@@ -1032,85 +897,70 @@ quizBox.innerHTML = questions.map(function(question, index) {
   <button type="button" class="btn primary" id="quizSubmit">
     Qabxii Koo Ilaali
   </button>
-
   <div id="result" class="result" aria-live="polite"></div>
 `;
 
-document.getElementById("quizSubmit").addEventListener("click", function() {
+document.getElementById("quizSubmit").addEventListener("click",function() {
   let score = 0;
   let answered = 0;
 
-  questions.forEach(function(question, index) {
-    const answer = document.querySelector(
-      'input[name="q' + index + '"]:checked'
-    );
+  questions.forEach(function(question,index) {
+    const answer = document.querySelector('input[name="q' + index + '"]:checked');
 
-    if (answer) {
+    if(answer) {
       answered++;
-
-      if (Number(answer.value) === question[2]) {
-        score++;
-      }
+      if(Number(answer.value) === question[2]) score++;
     }
   });
 
   const result = document.getElementById("result");
 
-  if (answered !== questions.length) {
-    result.textContent =
-      "Maaloo gaaffii hunda deebisi. Deebifte: " +
+  if(answered !== questions.length) {
+    result.textContent = "Maaloo gaaffii hunda deebisi. Deebifte: " +
       answered + "/" + questions.length;
-
     return;
   }
 
-  result.textContent =
-    "Qabxii kee: " + score + "/" + questions.length + " 🎉";
+  result.textContent = "Qabxii kee: " + score + "/" +
+    questions.length + " 🎉";
 });
 
 /* PWA INSTALL */
 let deferredInstallPrompt = null;
-
 const installBtn = document.getElementById("installBtn");
 const installMessage = document.getElementById("installMessage");
 
-window.addEventListener("beforeinstallprompt", function(event) {
+window.addEventListener("beforeinstallprompt",function(event) {
   event.preventDefault();
-
   deferredInstallPrompt = event;
   installBtn.style.display = "inline-flex";
   installMessage.textContent = "";
 });
 
-installBtn.addEventListener("click", async function() {
-  if (!deferredInstallPrompt) {
+installBtn.addEventListener("click",async function() {
+  if(!deferredInstallPrompt) {
     installMessage.textContent =
       'Chrome menu bani, "Add to Home screen" filadhu.';
-
     return;
   }
 
   deferredInstallPrompt.prompt();
-
   await deferredInstallPrompt.userChoice;
-
   deferredInstallPrompt = null;
   installBtn.style.display = "none";
 });
 
-window.addEventListener("appinstalled", function() {
+window.addEventListener("appinstalled",function() {
   installBtn.style.display = "none";
-
-  installMessage.textContent =
-    "KENA DESIGN app install ta'eera. ✓";
+  installMessage.textContent = "KENA DESIGN app install ta'eera. ✓";
 });
 
 /* SERVICE WORKER */
-if ("serviceWorker" in navigator && location.protocol === "https:") {
-  window.addEventListener("load", function() {
+if("serviceWorker" in navigator && location.protocol === "https:") {
+  window.addEventListener("load",function() {
     navigator.serviceWorker.register("./service-worker.js")
       .catch(function(error) {
-        console.error("Service worker error:", error);
+        console.error("Service worker error:",error);
       });
   });
 }

@@ -1,8 +1,19 @@
-const CACHE_NAME = "kena-design-v2";
+const CACHE_NAME = "kena-design-v1";
 
-const APP_FILES = [
+const FILES_TO_CACHE = [
   "./",
   "./index.html",
+  "./login.html",
+  "./register.html",
+  "./student.html",
+  "./student-login.html",
+  "./dashboard.html",
+  "./admin.html",
+  "./lesson.html",
+  "./lesson2.html",
+  "./lesson3.html",
+  "./script.js",
+  "./style.css",
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
@@ -11,20 +22,23 @@ const APP_FILES = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(APP_FILES);
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
 
   self.skipWaiting();
 });
 
+
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
+    caches.keys().then((keys) => {
       return Promise.all(
-        cacheNames
-          .filter((cacheName) => cacheName !== CACHE_NAME)
-          .map((cacheName) => caches.delete(cacheName))
+        keys.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
       );
     })
   );
@@ -32,34 +46,12 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
+
 self.addEventListener("fetch", (event) => {
-  if (event.request.method !== "GET") {
-    return;
-  }
-
   event.respondWith(
-    fetch(event.request)
+    caches.match(event.request)
       .then((response) => {
-        if (response && response.ok) {
-          const responseCopy = response.clone();
-
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseCopy);
-          });
-        }
-
-        return response;
-      })
-      .catch(() => {
-        return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-
-          if (event.request.mode === "navigate") {
-            return caches.match("./index.html");
-          }
-        });
+        return response || fetch(event.request);
       })
   );
 });

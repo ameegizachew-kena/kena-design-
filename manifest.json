@@ -1,14 +1,13 @@
 {
   "name": "KENA DESIGN",
   "short_name": "KENA DESIGN",
-  "description": "KENA DESIGN - Learn Graphic Design, Video Editing, Web Design and Digital Skills",
-  "lang": "om",
+  "description": "Barnoota Graphic Design, Video Editing fi Digital Skills",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#07111f",
-  "theme_color": "#32d583",
+  "background_color": "#ffffff",
+  "theme_color": "#159957",
 
   "icons": [
     {
@@ -22,28 +21,6 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
-    }
-  ],
-
-  "categories": [
-    "education",
-    "design",
-    "learning"
-  ],
-
-  "screenshots": [],
-
-  "shortcuts": [
-    {
-      "name": "Student Login",
-      "short_name": "Login",
-      "url": "./student-login.html",
-      "icons": [
-        {
-          "src": "./icons/icon-192.png",
-          "sizes": "192x192"
-        }
-      ]
     }
   ]
 }

@@ -3,32 +3,21 @@ name: Build KENA DESIGN Android APK
 on:
   workflow_dispatch:
 
-
 permissions:
   contents: read
 
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
-
     steps:
-
-
       - name: Checkout project
         uses: actions/checkout@v4
-
-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -36,78 +25,102 @@ jobs:
           distribution: temurin
           java-version: 21
 
-
-
-      - name: Prepare Web Folder
+      - name: Check required files
         run: |
+          echo "Checking KENA DESIGN files..."
+
+          test -f index.html || {
+            echo "ERROR: index.html hin jiru"
+            exit 1
+          }
+
+          test -f login.html || {
+            echo "ERROR: login.html hin jiru"
+            exit 1
+          }
+
+          test -f register.html || {
+            echo "ERROR: register.html hin jiru"
+            exit 1
+          }
+
+          test -f dashboard.html || {
+            echo "ERROR: dashboard.html hin jiru"
+            exit 1
+          }
+
+      - name: Prepare www folder
+        run: |
+          rm -rf www
           mkdir -p www
 
-          cp *.html www/ || true
-          cp *.js www/ || true
-          cp *.css www/ || true
-          cp manifest.json www/ || true
-          cp service-worker.js www/ || true
+          cp -v *.html www/
 
-          cp -r icons www/ || true
+          for file in *.js *.css *.json *.webmanifest; do
+            if [ -f "$file" ]; then
+              cp -v "$file" www/
+            fi
+          done
 
-          echo "WEB FILES:"
-          ls -la www
+          for folder in icons images media assets; do
+            if [ -d "$folder" ]; then
+              cp -r "$folder" www/
+            fi
+          done
 
+          echo "===== FILES COPIED TO WWW ====="
+          find www -maxdepth 3 -type f | sort
 
+          test -f www/index.html
+          test -f www/login.html
+          test -f www/register.html
+          test -f www/dashboard.html
 
       - name: Install Capacitor
         run: |
           npm init -y
-
-          npm install @capacitor/core@latest
-          npm install @capacitor/android@latest
+          npm install @capacitor/core@latest @capacitor/android@latest
           npm install --save-dev @capacitor/cli@latest
 
-
-
-      - name: Configure Capacitor
+      - name: Create Capacitor config
         run: |
+          cat > capacitor.config.json <<'EOF'
+          {
+            "appId": "com.kenadesign.app",
+            "appName": "KENA DESIGN",
+            "webDir": "www",
+            "server": {
+              "androidScheme": "https"
+            }
+          }
+          EOF
 
-          npx cap init "KENA DESIGN" "com.kenadesign.app" --web-dir www
+          cat capacitor.config.json
 
+      - name: Add Android platform
+        run: |
           npx cap add android
 
-          npx cap copy android
-
+      - name: Copy web files into Android
+        run: |
           npx cap sync android
 
+          echo "===== CHECK ANDROID ASSETS ====="
+          find android/app/src/main/assets/public -maxdepth 2 -type f | sort
 
+          test -f android/app/src/main/assets/public/index.html
+          test -f android/app/src/main/assets/public/login.html
 
-      - name: Check Android Web Files
+      - name: Build Android APK
         run: |
-
-          echo "Checking login file..."
-
-          test -f www/login.html
-
-          echo "login.html exists"
-
-
-
-      - name: Build APK
-        run: |
-
           cd android
-
           chmod +x gradlew
-
           ./gradlew assembleDebug
-
-
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-
           name: KENA-DESIGN-APK
-
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
           if-no-files-found: error
-
           retention-days: 7

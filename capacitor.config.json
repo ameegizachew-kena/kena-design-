@@ -2,7 +2,6 @@
   "appId": "com.kenadesign.app",
   "appName": "KENA DESIGN",
   "webDir": "www",
-  "bundledWebRuntime": false,
   "server": {
     "androidScheme": "https"
   }

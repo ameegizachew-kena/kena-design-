@@ -6,7 +6,11 @@
 <title>KENA DESIGN - Dashboard</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
 
 body{
   font-family:Arial,sans-serif;
@@ -33,8 +37,14 @@ header{
   gap:12px
 }
 
-.logo{font-size:23px;font-weight:800}
-.logo span{color:#12a879}
+.logo{
+  font-size:23px;
+  font-weight:800
+}
+
+.logo span{
+  color:#12a879
+}
 
 .logout{
   background:#ef4444;
@@ -46,7 +56,11 @@ header{
   cursor:pointer
 }
 
-.container{max-width:1100px;margin:auto;padding:25px 15px}
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:25px 15px
+}
 
 .welcome{
   background:linear-gradient(120deg,#e9fbf5,#f3faff);
@@ -56,18 +70,27 @@ header{
   margin-bottom:25px
 }
 
-.welcome h1{font-size:28px;margin-bottom:8px}
-.welcome h1 span{color:#0da87a}
+.welcome h1{
+  font-size:28px;
+  margin-bottom:8px
+}
+
+.welcome h1 span{
+  color:#0da87a
+}
 
 .info{
   background:white;
   padding:15px;
   margin-top:15px;
   border:1px solid #dce9f1;
-  border-radius:10px
+  border-radius:10px;
+  overflow-wrap:anywhere
 }
 
-.info strong{color:#087d5d}
+.info strong{
+  color:#087d5d
+}
 
 .section{
   background:white;
@@ -76,8 +99,14 @@ header{
   padding:22px
 }
 
-.section h2{margin-bottom:8px}
-.description{color:#607890;margin-bottom:20px}
+.section h2{
+  margin-bottom:8px
+}
+
+.description{
+  color:#607890;
+  margin-bottom:20px
+}
 
 .lessons{
   display:grid;
@@ -89,16 +118,26 @@ header{
   background:#f8fcff;
   border:1px solid #d6e8f4;
   border-radius:15px;
-  padding:20px
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start
 }
 
 .icon{
-  font-size:30px;
+  font-size:34px;
   margin-bottom:8px
 }
 
-.card h3{margin-bottom:8px}
-.card p{color:#607890;margin-bottom:15px}
+.card h3{
+  margin-bottom:8px
+}
+
+.card p{
+  color:#607890;
+  margin-bottom:15px;
+  flex-grow:1
+}
 
 .btn{
   display:inline-block;
@@ -107,7 +146,12 @@ header{
   text-decoration:none;
   font-weight:bold;
   background:#12a879;
-  color:white
+  color:white;
+  transition:background .2s
+}
+
+.btn:hover{
+  background:#087d5d
 }
 
 .notice{
@@ -139,15 +183,28 @@ header{
   height:100%;
   width:0;
   background:#12a879;
+  border-radius:20px;
   transition:width .3s
 }
 
-footer{text-align:center;color:#71869a;padding:25px 10px}
+footer{
+  text-align:center;
+  color:#71869a;
+  padding:25px 10px
+}
 
 @media(max-width:650px){
-  .lessons{grid-template-columns:1fr}
-  .welcome h1{font-size:23px}
-  .section{padding:15px}
+  .lessons{
+    grid-template-columns:1fr
+  }
+
+  .welcome h1{
+    font-size:23px
+  }
+
+  .section{
+    padding:15px
+  }
 }
 </style>
 </head>
@@ -164,7 +221,11 @@ footer{text-align:center;color:#71869a;padding:25px 10px}
 <main class="container">
 
   <section class="welcome">
-    <h1>👋 Baga nagaan dhuftan, <span id="welcomeName">Barataa!</span></h1>
+    <h1>
+      👋 Baga nagaan dhuftan,
+      <span id="welcomeName">Barataa!</span>
+    </h1>
+
     <p>KENA DESIGN Learning Platform irratti barnoota kee itti fufi.</p>
 
     <div class="info">
@@ -179,7 +240,9 @@ footer{text-align:center;color:#71869a;padding:25px 10px}
   </section>
 
   <section class="section">
+
     <h2>📚 Barnoota Kee</h2>
+
     <p class="description" id="courseDescription">
       Barnoota course kee qofa asitti argita.
     </p>
@@ -188,24 +251,29 @@ footer{text-align:center;color:#71869a;padding:25px 10px}
 
     <div class="notice" id="courseNotice" hidden>
       Barnoonni course kanaa yeroo ammaa qophaa'aa jira.
-      Yeroo qophaa'u asitti ni mul'ata.
     </div>
 
     <div class="progress">
       <strong>📊 Progress Barnootaa</strong>
+
       <div class="bar">
         <div class="fill" id="progressFill"></div>
       </div>
+
       <p id="progressText">Barnoota kee jalqabi.</p>
     </div>
+
   </section>
 
 </main>
 
-<footer>© 2026 KENA DESIGN • Learning Platform</footer>
+<footer>
+  © 2026 KENA DESIGN • Learning Platform
+</footer>
 
 <script>
 function checkLogin(){
+
   const loggedIn = localStorage.getItem("loggedIn");
   const savedStudent = localStorage.getItem("student");
 
@@ -217,14 +285,17 @@ function checkLogin(){
   try{
     return JSON.parse(savedStudent);
   }catch(error){
+
     localStorage.removeItem("student");
     localStorage.removeItem("loggedIn");
+
     location.href = "login.html";
     return null;
   }
 }
 
 function normalizeCourse(value){
+
   return String(value || "")
     .trim()
     .toLowerCase()
@@ -232,23 +303,43 @@ function normalizeCourse(value){
     .replace(/\s+/g," ");
 }
 
+/* BARNOOTA COURSE GARA GARA */
+
 const courseLessons = {
+
   "graphic design": {
+
     title:"Graphic Design",
-    description:"Barnoota Graphic Design fi PixelLab.",
+
+    description:
+      "Barnoota Graphic Design, PixelLab, font fi logo design.",
+
     lessons:[
+
       {
         icon:"🎨",
         title:"Lesson 1 - PixelLab",
-        description:"Text, image, background, effect fi poster design baradhu.",
+        description:
+          "Text, image, background, effect fi poster design baradhu.",
         link:"lesson.html"
       },
+
       {
         icon:"🔤",
         title:"Lesson 2 - Font Haaraa",
-        description:"PixelLab keessatti font haaraa galchuu baradhu.",
+        description:
+          "PixelLab keessatti font haaraa galchuu fi fayyadamuu baradhu.",
         link:"lesson2.html"
+      },
+
+      {
+        icon:"🖌️",
+        title:"Lesson 3 - Logo Design",
+        description:
+          "PixelLab keessatti logo design jalqabuu, halluu filachuu, barruu fi mallattoo qindeessuu baradhu.",
+        link:"lesson3.html"
       }
+
     ]
   },
 
@@ -283,7 +374,7 @@ const courseLessons = {
   },
 
   "flyer package": {
-    title:"Flayer Package",
+    title:"Flyer Package",
     description:"Barnoota Flyer Design.",
     lessons:[]
   },
@@ -301,7 +392,10 @@ const courseLessons = {
   }
 };
 
+/* KAARDII BARNOOTAA UUMUU */
+
 function createLessonCard(lesson){
+
   const card = document.createElement("article");
   card.className = "card";
 
@@ -321,11 +415,16 @@ function createLessonCard(lesson){
   link.textContent = "📖 Baradhu →";
 
   card.append(icon,title,description,link);
+
   return card;
 }
 
+/* BARNOOTA BARATAA AGARSIISUU */
+
 function loadStudent(){
+
   const student = checkLogin();
+
   if(!student) return;
 
   const name = student.fullname || "Barataa!";
@@ -337,18 +436,26 @@ function loadStudent(){
 
   const key = normalizeCourse(course);
   const courseData = courseLessons[key];
+
   const lessonList = document.getElementById("lessonList");
   const notice = document.getElementById("courseNotice");
 
   lessonList.replaceChildren();
+  notice.hidden = true;
 
   if(!courseData){
+
     document.getElementById("courseDescription").textContent =
       "Maqaan course kee hin beekamne. Admin waliin dubbadhu.";
+
     notice.hidden = false;
+
     notice.textContent =
       "Course kee: " + (course || "Hin ibsamne") +
-      ". Maqaa course Supabase keessa jiru mirkaneessuun barbaachisa.";
+      ". Maqaa course sirrii ta'uu isaa mirkaneessi.";
+
+    loadProgress(key,0);
+
     return;
   }
 
@@ -356,13 +463,16 @@ function loadStudent(){
     courseData.description;
 
   if(courseData.lessons.length === 0){
+
     notice.hidden = false;
+
     notice.textContent =
       "Barnoonni " + courseData.title +
-      " yeroo ammaa qophaa'aa jira. PixelLab hin agarsiifamu.";
+      " yeroo ammaa qophaa'aa jira.";
+
   }else{
-    notice.hidden = true;
-    courseData.lessons.forEach(lesson=>{
+
+    courseData.lessons.forEach(function(lesson){
       lessonList.appendChild(createLessonCard(lesson));
     });
   }
@@ -370,35 +480,58 @@ function loadStudent(){
   loadProgress(key,courseData.lessons.length);
 }
 
+/* PROGRESS BAR */
+
 function loadProgress(courseKey,totalLessons){
-  const lesson1Done =
-    localStorage.getItem("lesson1Completed") === "true";
-  const lesson2Done =
-    localStorage.getItem("lesson2Completed") === "true";
+
+  const completedKeys = [
+    "lesson1Completed",
+    "lesson2Completed",
+    "lesson3Completed"
+  ];
 
   let percent = 0;
   let message = "Barnoota kee jalqabi.";
 
   if(courseKey === "graphic design"){
-    const completed = Number(lesson1Done) + Number(lesson2Done);
-    percent = completed * 50;
+
+    let completed = 0;
+
+    completedKeys.forEach(function(key){
+      if(localStorage.getItem(key) === "true"){
+        completed++;
+      }
+    });
+
+    percent = totalLessons > 0
+      ? Math.round((completed / totalLessons) * 100)
+      : 0;
+
     message = percent === 100
-      ? "🎉 Lesson lamaan xumurteetta!"
-      : percent === 50
-        ? "Lesson tokko xumurteetta. Itti fufi!"
+      ? "🎉 Barnoota Graphic Design hunda xumurteetta!"
+      : completed > 0
+        ? "Gaarii! Barnoota kee itti fufi."
         : "Lesson 1 irraa jalqabi.";
   }
 
-  document.getElementById("progressFill").style.width = percent + "%";
+  document.getElementById("progressFill").style.width =
+    percent + "%";
+
   document.getElementById("progressText").textContent =
     message + " (" + percent + "%)";
 }
 
+/* LOGOUT */
+
 function logout(){
+
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("student");
+
   location.href = "login.html";
 }
+
+/* DASHBOARD JALQABUU */
 
 window.addEventListener("DOMContentLoaded",loadStudent);
 </script>

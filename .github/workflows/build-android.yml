@@ -27,11 +27,12 @@ jobs:
 
       - name: Check required files
         run: |
+          echo "Checking required files..."
+          ls -la
+
           for file in index.html login.html register.html dashboard.html; do
             if [ ! -f "$file" ]; then
               echo "ERROR: $file hin jiru!"
-              echo "Faayiloota root keessaa:"
-              ls -la
               exit 1
             fi
           done
@@ -41,9 +42,9 @@ jobs:
           rm -rf www
           mkdir -p www
 
-          cp -v *.html www/
+          cp -v index.html login.html register.html dashboard.html www/
 
-          for file in *.js *.css *.json *.webmanifest; do
+          for file in *.html *.js *.css *.json *.webmanifest; do
             if [ -f "$file" ]; then
               cp -v "$file" www/
             fi
@@ -55,13 +56,13 @@ jobs:
             fi
           done
 
+          echo "===== WWW FILES ====="
+          find www -maxdepth 3 -type f | sort
+
           test -f www/index.html
           test -f www/login.html
           test -f www/register.html
           test -f www/dashboard.html
-
-          echo "Faayiloonni www keessa jiru:"
-          find www -maxdepth 3 -type f | sort
 
       - name: Install Capacitor
         run: |
@@ -82,10 +83,12 @@ jobs:
           }
           EOF
 
+          cat capacitor.config.json
+
       - name: Add Android platform
         run: npx cap add android
 
-      - name: Copy and verify Android assets
+      - name: Sync and verify Android assets
         run: |
           npx cap sync android
 
@@ -101,7 +104,7 @@ jobs:
             fi
           done
 
-          echo "Faayiloonni barbaachisoo hundi argamaniiru."
+          echo "All required HTML files are present."
 
       - name: Build Android APK
         run: |

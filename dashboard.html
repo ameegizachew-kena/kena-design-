@@ -2,27 +2,23 @@
 <html lang="om">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KENA DESIGN - Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KENA DESIGN - Student Dashboard</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:Arial,sans-serif;
-  background:#f5f9fc;
+  background:#f3f7fb;
   color:#102a43;
   line-height:1.6
 }
 
 header{
-  background:white;
-  border-bottom:1px solid #dce8f0;
-  padding:15px 20px;
+  background:#fff;
+  padding:15px;
+  border-bottom:1px solid #dce6ee;
   position:sticky;
   top:0;
   z-index:10
@@ -37,174 +33,104 @@ header{
   gap:12px
 }
 
-.logo{
-  font-size:23px;
-  font-weight:800
-}
+.logo{font-size:22px;font-weight:bold}
+.logo span{color:#10a878}
 
-.logo span{
-  color:#12a879
-}
-
-.logout{
-  background:#ef4444;
-  color:white;
+button,.btn{
   border:0;
-  padding:10px 15px;
   border-radius:9px;
+  padding:11px 15px;
   font-weight:bold;
-  cursor:pointer
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-block
 }
 
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:25px 15px
+.logout{background:#ef4444;color:white}
+.primary{background:#10a878;color:white}
+
+.container{max-width:1100px;margin:auto;padding:22px 15px}
+
+.welcome,.section{
+  background:white;
+  border:1px solid #dce8f0;
+  border-radius:16px;
+  padding:22px;
+  margin-bottom:22px
 }
 
 .welcome{
-  background:linear-gradient(120deg,#e9fbf5,#f3faff);
-  border:1px solid #cdeee4;
-  border-radius:18px;
-  padding:25px;
-  margin-bottom:25px
+  background:linear-gradient(120deg,#e8fbf3,#f0f8ff)
 }
 
-.welcome h1{
-  font-size:28px;
-  margin-bottom:8px
-}
-
-.welcome h1 span{
-  color:#0da87a
-}
+h1{font-size:25px;margin-bottom:8px}
+h2{font-size:21px;margin-bottom:12px}
+.muted{color:#63798d}
 
 .info{
   background:white;
-  padding:15px;
-  margin-top:15px;
-  border:1px solid #dce9f1;
-  border-radius:10px;
+  border:1px solid #dce8f0;
+  border-radius:9px;
+  padding:12px;
+  margin-top:12px;
   overflow-wrap:anywhere
 }
 
-.info strong{
-  color:#087d5d
-}
-
-.section{
-  background:white;
-  border:1px solid #dbe9f2;
-  border-radius:18px;
-  padding:22px
-}
-
-.section h2{
-  margin-bottom:8px
-}
-
-.description{
-  color:#607890;
-  margin-bottom:20px
-}
-
-.lessons{
+.grid{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px
+  gap:15px
 }
 
 .card{
-  background:#f8fcff;
-  border:1px solid #d6e8f4;
-  border-radius:15px;
-  padding:20px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start
+  border:1px solid #d7e5ee;
+  background:#f9fcff;
+  border-radius:13px;
+  padding:17px;
+  min-width:0
 }
 
-.icon{
-  font-size:34px;
-  margin-bottom:8px
-}
+.icon{font-size:30px}
+.card h3{margin:5px 0}
+.card p{color:#63798d;margin-bottom:13px}
 
-.card h3{
-  margin-bottom:8px
-}
+.btn{background:#10a878;color:white}
+.btn:hover,.primary:hover{background:#087c59}
 
-.card p{
-  color:#607890;
-  margin-bottom:15px;
-  flex-grow:1
-}
-
-.btn{
-  display:inline-block;
-  padding:11px 16px;
-  border-radius:9px;
-  text-decoration:none;
-  font-weight:bold;
-  background:#12a879;
-  color:white;
-  transition:background .2s
-}
-
-.btn:hover{
-  background:#087d5d
-}
+.secondary{background:#e6f5ef;color:#087c59}
 
 .notice{
   background:#fff8e6;
-  border:1px solid #f5df9b;
-  border-radius:12px;
-  padding:15px;
-  color:#78580b;
-  margin-top:18px
+  color:#76580b;
+  border:1px solid #f1dfa4;
+  border-radius:10px;
+  padding:13px;
+  margin-top:15px
 }
 
-.progress{
-  margin-top:22px;
-  padding:18px;
-  background:#f7fbff;
-  border:1px solid #d8e8f4;
-  border-radius:14px
-}
-
+.progress{margin-top:18px}
 .bar{
   height:12px;
-  background:#dce8f0;
+  background:#dce7ee;
   border-radius:20px;
   overflow:hidden;
-  margin-top:10px
+  margin:9px 0
 }
-
 .fill{
   height:100%;
   width:0;
-  background:#12a879;
-  border-radius:20px;
+  background:#10a878;
   transition:width .3s
 }
 
-footer{
-  text-align:center;
-  color:#71869a;
-  padding:25px 10px
-}
+.hidden{display:none!important}
 
-@media(max-width:650px){
-  .lessons{
-    grid-template-columns:1fr
-  }
+footer{text-align:center;padding:25px;color:#71869a}
 
-  .welcome h1{
-    font-size:23px
-  }
-
-  .section{
-    padding:15px
-  }
+@media(max-width:600px){
+  .grid{grid-template-columns:1fr}
+  .welcome,.section{padding:16px}
+  h1{font-size:22px}
 }
 </style>
 </head>
@@ -221,15 +147,11 @@ footer{
 <main class="container">
 
   <section class="welcome">
-    <h1>
-      👋 Baga nagaan dhuftan,
-      <span id="welcomeName">Barataa!</span>
-    </h1>
-
+    <h1>👋 Baga nagaan dhuftan, <span id="welcomeName">Barataa!</span></h1>
     <p>KENA DESIGN Learning Platform irratti barnoota kee itti fufi.</p>
 
     <div class="info">
-      👤 <strong>Maqaa Barataa:</strong>
+      👤 <strong>Maqaa:</strong>
       <span id="studentName">-</span>
     </div>
 
@@ -239,41 +161,35 @@ footer{
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="courseSection">
+    <h2>📚 Course Koo</h2>
+    <p class="muted">Course kee filadhu; achii booda barnoota kee bani.</p>
+    <div class="grid" id="courseList"></div>
+  </section>
 
-    <h2>📚 Barnoota Kee</h2>
+  <section class="section hidden" id="lessonSection">
+    <button class="secondary" onclick="showCourses()">← Course Deebi'i</button>
 
-    <p class="description" id="courseDescription">
-      Barnoota course kee qofa asitti argita.
-    </p>
+    <h2 id="courseTitle" style="margin-top:16px">Barnoota</h2>
+    <p class="muted" id="courseDescription"></p>
 
-    <div class="lessons" id="lessonList"></div>
+    <div class="grid" id="lessonList" style="margin-top:18px"></div>
 
-    <div class="notice" id="courseNotice" hidden>
-      Barnoonni course kanaa yeroo ammaa qophaa'aa jira.
-    </div>
+    <div class="notice hidden" id="lessonNotice"></div>
 
     <div class="progress">
       <strong>📊 Progress Barnootaa</strong>
-
-      <div class="bar">
-        <div class="fill" id="progressFill"></div>
-      </div>
-
-      <p id="progressText">Barnoota kee jalqabi.</p>
+      <div class="bar"><div class="fill" id="progressFill"></div></div>
+      <p class="muted" id="progressText">Barnoota kee jalqabi.</p>
     </div>
-
   </section>
 
 </main>
 
-<footer>
-  © 2026 KENA DESIGN • Learning Platform
-</footer>
+<footer>© 2026 KENA DESIGN • Learning Platform</footer>
 
 <script>
 function checkLogin(){
-
   const loggedIn = localStorage.getItem("loggedIn");
   const savedStudent = localStorage.getItem("student");
 
@@ -284,18 +200,15 @@ function checkLogin(){
 
   try{
     return JSON.parse(savedStudent);
-  }catch(error){
-
+  }catch(e){
     localStorage.removeItem("student");
     localStorage.removeItem("loggedIn");
-
     location.href = "login.html";
     return null;
   }
 }
 
-function normalizeCourse(value){
-
+function normalize(value){
   return String(value || "")
     .trim()
     .toLowerCase()
@@ -303,235 +216,539 @@ function normalizeCourse(value){
     .replace(/\s+/g," ");
 }
 
-/* BARNOOTA COURSE GARA GARA */
+/* COURSE LIST */
 
-const courseLessons = {
-
-  "graphic design": {
-
+const courses = [
+  {
+    id:"graphic design",
     title:"Graphic Design",
-
-    description:
-      "Barnoota Graphic Design, PixelLab, font fi logo design.",
-
-    lessons:[
-
-      {
-        icon:"🎨",
-        title:"Lesson 1 - PixelLab",
-        description:
-          "Text, image, background, effect fi poster design baradhu.",
-        link:"lesson.html"
-      },
-
-      {
-        icon:"🔤",
-        title:"Lesson 2 - Font Haaraa",
-        description:
-          "PixelLab keessatti font haaraa galchuu fi fayyadamuu baradhu.",
-        link:"lesson2.html"
-      },
-
-      {
-        icon:"🖌️",
-        title:"Lesson 3 - Logo Design",
-        description:
-          "PixelLab keessatti logo design jalqabuu, halluu filachuu, barruu fi mallattoo qindeessuu baradhu.",
-        link:"lesson3.html"
-      }
-
-    ]
+    icon:"🎨",
+    description:"PixelLab, logo, flyer, poster fi business card."
   },
-
-  "video editing": {
+  {
+    id:"video editing",
     title:"Video Editing",
-    description:"Barnoota Video Editing.",
-    lessons:[]
+    icon:"🎬",
+    description:"Cutting, transitions, music, effects fi video editing."
   },
-
-  "web design": {
+  {
+    id:"web design",
     title:"Web Design",
-    description:"Barnoota Web Design.",
-    lessons:[]
+    icon:"🌐",
+    description:"HTML, CSS, JavaScript fi website design."
   },
-
-  "digital marketing": {
+  {
+    id:"digital marketing",
     title:"Digital Marketing",
-    description:"Barnoota Digital Marketing.",
-    lessons:[]
+    icon:"📱",
+    description:"Social media, content fi digital promotion."
   },
-
-  "photography": {
+  {
+    id:"photography",
     title:"Photography",
-    description:"Barnoota Photography.",
-    lessons:[]
+    icon:"📸",
+    description:"Camera, lighting, portrait fi photo editing."
   },
-
-  "flayer package": {
+  {
+    id:"flayer package",
     title:"Flayer Package",
-    description:"Barnoota Flyer Design.",
-    lessons:[]
+    icon:"📰",
+    description:"Flyer, advertisement fi promotional design."
   },
-
-  "flyer package": {
-    title:"Flyer Package",
-    description:"Barnoota Flyer Design.",
-    lessons:[]
-  },
-
-  "youtube thumbnail": {
+  {
+    id:"youtube thumbnail",
     title:"YouTube Thumbnail",
-    description:"Barnoota YouTube Thumbnail.",
-    lessons:[]
+    icon:"▶️",
+    description:"Thumbnail nama harkisu fi professional."
   },
-
-  "poster design": {
+  {
+    id:"poster design",
     title:"Poster Design",
-    description:"Barnoota Poster Design.",
-    lessons:[]
+    icon:"🖼️",
+    description:"Event, business fi promotional poster."
   }
+];
+
+/* LESSON TITLES */
+
+const graphicLessons = [
+ "PixelLab Bu'uuraa",
+ "Font Haaraa Dabaluu",
+ "Logo Design Jalqabuu",
+ "Halluu Walitti Simsiisuu",
+ "Font fi Typography",
+ "Alignment fi Spacing",
+ "Background Design",
+ "Shapes fi Elements",
+ "Text Effects",
+ "Gradient Design",
+ "Suuraa Galchuu",
+ "Background Suuraa Haquu",
+ "Layers Fayyadamuu",
+ "Professional Logo Design",
+ "Business Card Design",
+ "YouTube Thumbnail Design",
+ "YouTube Channel Banner",
+ "Facebook Post Design",
+ "Instagram Post Design",
+ "Flyer Design",
+ "Event Poster Design",
+ "Wedding Invitation Design",
+ "Birthday Poster Design",
+ "Photo Manipulation",
+ "Double Exposure Effect",
+ "Product Advertisement",
+ "Brand Identity",
+ "Layout fi Composition",
+ "Project Hojiirra Oolchuu",
+ "Final Assignment"
+];
+
+const videoLessons = [
+ "Video Editing Bu'uuraa",
+ "CapCut Install fi Setup",
+ "Video Import Gochuu",
+ "Cut fi Trim",
+ "Video Walitti Qabuu",
+ "Music Dabaluu",
+ "Voice-over",
+ "Text fi Subtitle",
+ "Transitions",
+ "Video Effects",
+ "Slow Motion",
+ "Speed Ramp",
+ "Green Screen",
+ "Background Haquu",
+ "Color Correction",
+ "Cinematic Color Grading",
+ "Video Stabilization",
+ "Sound Effects",
+ "Audio Editing",
+ "Reels fi TikTok Video",
+ "YouTube Video Editing",
+ "Wedding Video Editing",
+ "Birthday Video Editing",
+ "Photo Slideshow",
+ "Logo Animation",
+ "Intro fi Outro",
+ "Export Settings",
+ "Professional Editing",
+ "Project Hojiirra Oolchuu",
+ "Final Assignment"
+];
+
+const flyerLessons = [
+ "Flyer Design Bu'uuraa",
+ "Canva fi PixelLab Setup",
+ "Flyer Layout",
+ "Halluu Filachuu",
+ "Font Filachuu",
+ "Suuraa Filachuu",
+ "Background Design",
+ "Text Effects",
+ "Business Flyer",
+ "Sale Promotion Flyer",
+ "Restaurant Flyer",
+ "Photography Flyer",
+ "Wedding Flyer",
+ "Birthday Flyer",
+ "Event Flyer",
+ "Community Event Flyer",
+ "School Advertisement",
+ "Product Advertisement",
+ "Social Media Flyer",
+ "Real Estate Flyer",
+ "Beauty Salon Flyer",
+ "Music Event Flyer",
+ "Professional Service Flyer",
+ "Image Manipulation",
+ "Logo fi Branding",
+ "Flyer 3D Effect",
+ "Flyer Printing",
+ "Resolution fi Export",
+ "Client Project",
+ "Final Assignment"
+];
+
+const webLessons = [
+ "HTML Bu'uuraa",
+ "HTML Tags",
+ "Headings fi Paragraphs",
+ "Links fi Images",
+ "Lists fi Tables",
+ "Forms",
+ "CSS Bu'uuraa",
+ "Colors fi Backgrounds",
+ "Fonts fi Text",
+ "Box Model",
+ "Margins fi Padding",
+ "Flexbox",
+ "CSS Grid",
+ "Responsive Design",
+ "Navigation Bar",
+ "Buttons",
+ "Cards",
+ "Website Layout",
+ "JavaScript Bu'uuraa",
+ "Variables",
+ "Functions",
+ "Events",
+ "Form Validation",
+ "DOM Bu'uuraa",
+ "Interactive Website",
+ "Website Security Bu'uuraa",
+ "Website Testing",
+ "Website Publishing",
+ "Project Hojiirra Oolchuu",
+ "Final Assignment"
+];
+
+const marketingLessons = [
+ "Digital Marketing Bu'uuraa",
+ "Target Audience",
+ "Branding",
+ "Content Planning",
+ "Content Creation",
+ "Social Media Marketing",
+ "Facebook Page",
+ "Instagram Marketing",
+ "TikTok Marketing",
+ "YouTube Marketing",
+ "Content Calendar",
+ "Copywriting",
+ "Hashtags",
+ "Audience Engagement",
+ "Customer Service",
+ "Product Promotion",
+ "Organic Marketing",
+ "Paid Advertising Bu'uuraa",
+ "Ad Objectives",
+ "Campaign Planning",
+ "Marketing Budget",
+ "Landing Pages",
+ "Email Marketing",
+ "WhatsApp Business",
+ "Analytics Bu'uuraa",
+ "Measuring Results",
+ "Marketing Strategy",
+ "Brand Growth",
+ "Campaign Project",
+ "Final Assignment"
+];
+
+const photographyLessons = [
+ "Photography Bu'uuraa",
+ "Camera Settings",
+ "Exposure",
+ "Aperture",
+ "Shutter Speed",
+ "ISO",
+ "Composition",
+ "Rule of Thirds",
+ "Lighting Bu'uuraa",
+ "Natural Light",
+ "Studio Lighting",
+ "Portrait Photography",
+ "Outdoor Photography",
+ "Product Photography",
+ "Wedding Photography",
+ "Event Photography",
+ "Background Selection",
+ "Focus fi Sharpness",
+ "Lens Bu'uuraa",
+ "Camera Angles",
+ "Photo Editing",
+ "Color Correction",
+ "Retouching Bu'uuraa",
+ "Photo Organization",
+ "Client Communication",
+ "Photography Branding",
+ "Portfolio Uumuu",
+ "Print Preparation",
+ "Practical Project",
+ "Final Assignment"
+];
+
+const thumbnailLessons = [
+ "Thumbnail Bu'uuraa",
+ "YouTube Thumbnail Size",
+ "Background Selection",
+ "Background Removal",
+ "Text Design",
+ "Font Selection",
+ "Color Contrast",
+ "Image Selection",
+ "Cutout Effect",
+ "Shadow Effects",
+ "Outline Effects",
+ "Face Expression",
+ "Composition",
+ "Visual Hierarchy",
+ "Curiosity in Design",
+ "Gaming Thumbnail",
+ "Educational Thumbnail",
+ "Vlog Thumbnail",
+ "News Thumbnail",
+ "Product Thumbnail",
+ "Photo Manipulation",
+ "Color Grading",
+ "Brand Consistency",
+ "Mobile Readability",
+ "A/B Testing Bu'uuraa",
+ "Thumbnail Templates",
+ "Export Settings",
+ "Client Brief",
+ "Practical Project",
+ "Final Assignment"
+];
+
+const posterLessons = [
+ "Poster Design Bu'uuraa",
+ "Poster Layout",
+ "Typography",
+ "Color Combination",
+ "Image Selection",
+ "Background Design",
+ "Visual Hierarchy",
+ "Event Poster",
+ "Business Poster",
+ "Promotion Poster",
+ "Concert Poster",
+ "Wedding Poster",
+ "Birthday Poster",
+ "School Poster",
+ "Community Event Poster",
+ "Product Poster",
+ "Sports Poster",
+ "Social Media Poster",
+ "Text Effects",
+ "Image Manipulation",
+ "Shapes fi Elements",
+ "Logo Placement",
+ "Spacing fi Alignment",
+ "Poster Branding",
+ "Print Resolution",
+ "Poster Export",
+ "Poster Mockup",
+ "Client Brief",
+ "Practical Project",
+ "Final Assignment"
+];
+
+const lessonTitles = {
+  "graphic design":graphicLessons,
+  "video editing":videoLessons,
+  "web design":webLessons,
+  "digital marketing":marketingLessons,
+  "photography":photographyLessons,
+  "flayer package":flyerLessons,
+  "youtube thumbnail":thumbnailLessons,
+  "poster design":posterLessons
 };
 
-/* KAARDII BARNOOTAA UUMUU */
+/* COURSE CARD */
 
-function createLessonCard(lesson){
-
+function createCourseCard(course){
   const card = document.createElement("article");
   card.className = "card";
 
   const icon = document.createElement("div");
   icon.className = "icon";
-  icon.textContent = lesson.icon;
+  icon.textContent = course.icon;
 
   const title = document.createElement("h3");
-  title.textContent = lesson.title;
+  title.textContent = course.title;
 
   const description = document.createElement("p");
-  description.textContent = lesson.description;
+  description.textContent = course.description;
 
-  const link = document.createElement("a");
-  link.className = "btn";
-  link.href = lesson.link;
-  link.textContent = "📖 Baradhu →";
+  const button = document.createElement("button");
+  button.className = "primary";
+  button.textContent = "📚 Barnoota Bani";
+  button.addEventListener("click",function(){
+    showLessons(course.id);
+  });
 
-  card.append(icon,title,description,link);
-
+  card.append(icon,title,description,button);
   return card;
 }
 
-/* BARNOOTA BARATAA AGARSIISUU */
+/* LESSON CARD */
+
+function createLessonCard(courseId,title,index){
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const icon = document.createElement("div");
+  icon.className = "icon";
+  icon.textContent = index === 30 ? "🏆" : "📘";
+
+  const heading = document.createElement("h3");
+  heading.textContent = "Lesson " + (index + 1) + " - " + title;
+
+  const description = document.createElement("p");
+  description.textContent =
+    "Barnoota kana baradhu; ibsa fi hojii shaakala isaa hordofi.";
+
+  const link = document.createElement("a");
+  link.className = "btn";
+  link.textContent = "📖 Baradhu →";
+
+  /*
+    Linkiiwwan faayilii jiran qofaaf.
+    Lesson 1-3 Graphic Design irratti maqaa faayilii beekamaa fayyadama.
+    Lessonwwan biroo yeroo faayiliin isaanii uumamu walqabsiisuu qabda.
+  */
+
+  if(courseId === "graphic design" && index === 0){
+    link.href = "lesson.html";
+  }else if(courseId === "graphic design" && index === 1){
+    link.href = "lesson2.html";
+  }else if(courseId === "graphic design" && index === 2){
+    link.href = "lesson3.html";
+  }else{
+    link.href = "#";
+    link.addEventListener("click",function(event){
+      event.preventDefault();
+      alert(
+        "Lesson kanaaf fuulli barnootaa ammallee hin uumamne. " +
+        "Faayilii lesson kanaa uumuu qabda."
+      );
+    });
+  }
+
+  const completed = document.createElement("p");
+  completed.style.marginTop = "10px";
+
+  const key = completionKey(courseId,index + 1);
+
+  if(localStorage.getItem(key) === "true"){
+    completed.textContent = "✅ Barnoota kana xumurteetta.";
+  }
+
+  card.append(icon,heading,description,link,completed);
+  return card;
+}
+
+function completionKey(courseId,lessonNumber){
+  return "completed_" +
+    courseId.replace(/\s+/g,"_") +
+    "_lesson_" + lessonNumber;
+}
+
+/* DASHBOARD */
 
 function loadStudent(){
-
   const student = checkLogin();
-
   if(!student) return;
 
   const name = student.fullname || "Barataa!";
-  const course = student.course || "";
+  const course = normalize(student.course);
 
   document.getElementById("welcomeName").textContent = name;
   document.getElementById("studentName").textContent = name;
-  document.getElementById("studentCourse").textContent = course || "-";
+  document.getElementById("studentCourse").textContent =
+    student.course || "-";
 
-  const key = normalizeCourse(course);
-  const courseData = courseLessons[key];
+  const courseList = document.getElementById("courseList");
+  courseList.replaceChildren();
 
-  const lessonList = document.getElementById("lessonList");
-  const notice = document.getElementById("courseNotice");
+  /*
+    Barataan course tokko qofa qaba yoo ta'e,
+    course isaa qofa agarsiisi.
+    Yoo admin course hedduu kenne, coursewwan sana agarsiisi.
+  */
 
-  lessonList.replaceChildren();
-  notice.hidden = true;
+  const studentCourses = Array.isArray(student.courses)
+    ? student.courses.map(normalize)
+    : [course];
 
-  if(!courseData){
+  const availableCourses = courses.filter(function(item){
+    return studentCourses.includes(item.id);
+  });
 
-    document.getElementById("courseDescription").textContent =
-      "Maqaan course kee hin beekamne. Admin waliin dubbadhu.";
-
-    notice.hidden = false;
-
+  if(availableCourses.length === 0){
+    const notice = document.createElement("div");
+    notice.className = "notice";
     notice.textContent =
-      "Course kee: " + (course || "Hin ibsamne") +
-      ". Maqaa course sirrii ta'uu isaa mirkaneessi.";
-
-    loadProgress(key,0);
-
+      "Course kee hin beekamne. Admin waliin dubbadhu. " +
+      "Maqaan course sirrii ta'uu isaa mirkaneessi.";
+    courseList.appendChild(notice);
     return;
   }
 
-  document.getElementById("courseDescription").textContent =
-    courseData.description;
-
-  if(courseData.lessons.length === 0){
-
-    notice.hidden = false;
-
-    notice.textContent =
-      "Barnoonni " + courseData.title +
-      " yeroo ammaa qophaa'aa jira.";
-
-  }else{
-
-    courseData.lessons.forEach(function(lesson){
-      lessonList.appendChild(createLessonCard(lesson));
-    });
-  }
-
-  loadProgress(key,courseData.lessons.length);
+  availableCourses.forEach(function(item){
+    courseList.appendChild(createCourseCard(item));
+  });
 }
 
-/* PROGRESS BAR */
+/* LESSON LIST */
 
-function loadProgress(courseKey,totalLessons){
+function showLessons(courseId){
+  const titles = lessonTitles[courseId];
+  const course = courses.find(function(item){
+    return item.id === courseId;
+  });
 
-  const completedKeys = [
-    "lesson1Completed",
-    "lesson2Completed",
-    "lesson3Completed"
-  ];
+  if(!titles || !course) return;
 
-  let percent = 0;
-  let message = "Barnoota kee jalqabi.";
+  document.getElementById("courseSection").classList.add("hidden");
+  document.getElementById("lessonSection").classList.remove("hidden");
 
-  if(courseKey === "graphic design"){
+  document.getElementById("courseTitle").textContent =
+    "📚 " + course.title + " - Lesson 1–30";
 
-    let completed = 0;
+  document.getElementById("courseDescription").textContent =
+    course.description;
 
-    completedKeys.forEach(function(key){
-      if(localStorage.getItem(key) === "true"){
-        completed++;
-      }
-    });
+  const list = document.getElementById("lessonList");
+  list.replaceChildren();
 
-    percent = totalLessons > 0
-      ? Math.round((completed / totalLessons) * 100)
-      : 0;
+  titles.forEach(function(title,index){
+    list.appendChild(createLessonCard(courseId,title,index));
+  });
 
-    message = percent === 100
-      ? "🎉 Barnoota Graphic Design hunda xumurteetta!"
-      : completed > 0
-        ? "Gaarii! Barnoota kee itti fufi."
-        : "Lesson 1 irraa jalqabi.";
+  document.getElementById("lessonNotice").classList.add("hidden");
+
+  updateProgress(courseId,titles.length);
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showCourses(){
+  document.getElementById("lessonSection").classList.add("hidden");
+  document.getElementById("courseSection").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* PROGRESS */
+
+function updateProgress(courseId,total){
+  let completed = 0;
+
+  for(let i=1;i<=total;i++){
+    if(localStorage.getItem(completionKey(courseId,i)) === "true"){
+      completed++;
+    }
   }
+
+  const percent = Math.round((completed / total) * 100);
 
   document.getElementById("progressFill").style.width =
     percent + "%";
 
   document.getElementById("progressText").textContent =
-    message + " (" + percent + "%)";
+    completed + " / " + total + " Lesson xumurteetta (" +
+    percent + "%).";
 }
 
 /* LOGOUT */
 
 function logout(){
-
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("student");
-
   location.href = "login.html";
 }
-
-/* DASHBOARD JALQABUU */
 
 window.addEventListener("DOMContentLoaded",loadStudent);
 </script>

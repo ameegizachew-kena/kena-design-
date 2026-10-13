@@ -528,7 +528,47 @@ footer strong {
 </head>
 
 <body>
+<!-- KENA DESIGN BACK BUTTON -->
+<button id="appBackButton" type="button" aria-label="Duubatti">
+  ← Duubatti
+</button>
 
+<style>
+#appBackButton {
+  position: fixed;
+  left: 14px;
+  bottom: 18px;
+  z-index: 99999;
+  display: block;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  background: #159957;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 14px #0003;
+  cursor: pointer;
+}
+
+#appBackButton:active {
+  transform: scale(0.96);
+}
+</style>
+
+<script>
+(function () {
+  const backButton = document.getElementById("appBackButton");
+
+  backButton.addEventListener("click", function () {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.href = "./index.html";
+    }
+  });
+})();
+</script>
 <nav>
   <div class="container nav-inner">
 

@@ -42,27 +42,33 @@ jobs:
           rm -rf www
           mkdir -p www
 
-          cp -v index.html login.html register.html dashboard.html www/
-
-          for file in *.html *.js *.css *.json *.webmanifest; do
+          for file in *.html; do
             if [ -f "$file" ]; then
               cp -v "$file" www/
             fi
           done
 
-          for folder in icons images media assets; do
+          for file in *.js *.css *.json *.webmanifest *.svg; do
+            if [ -f "$file" ]; then
+              cp -v "$file" www/
+            fi
+          done
+
+          for folder in icons images media assets fonts videos; do
             if [ -d "$folder" ]; then
               cp -r "$folder" www/
             fi
           done
 
           echo "===== WWW FILES ====="
-          find www -maxdepth 3 -type f | sort
+          find www -maxdepth 4 -type f | sort
 
           test -f www/index.html
           test -f www/login.html
           test -f www/register.html
           test -f www/dashboard.html
+
+          echo "Website files prepared successfully."
 
       - name: Install Capacitor
         run: |
@@ -88,14 +94,16 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
 
-      - name: Sync and verify Android assets
+      - name: Sync Android assets
         run: |
           npx cap sync android
 
+      - name: Verify Android assets
+        run: |
           ASSETS="android/app/src/main/assets/public"
 
           echo "===== ANDROID ASSETS ====="
-          find "$ASSETS" -maxdepth 3 -type f | sort
+          find "$ASSETS" -maxdepth 4 -type f | sort
 
           for file in index.html login.html register.html dashboard.html; do
             if [ ! -f "$ASSETS/$file" ]; then
@@ -105,6 +113,17 @@ jobs:
           done
 
           echo "All required HTML files are present."
+
+      - name: Verify local login link
+        run: |
+          grep -n 'login.html' www/index.html || true
+
+          if [ ! -s www/login.html ]; then
+            echo "ERROR: login.html duwwaa dha ykn hin jiru!"
+            exit 1
+          fi
+
+          echo "login.html exists and is not empty."
 
       - name: Build Android APK
         run: |

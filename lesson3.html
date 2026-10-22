@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="om">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +17,7 @@
 body {
   margin: 0;
   background: #07111f;
-  color: #fff;
+  color: white;
   line-height: 1.7;
 }
 
@@ -34,13 +35,13 @@ header {
 }
 
 header h1 {
-  font-size: clamp(27px, 6vw, 36px);
+  font-size: 34px;
   margin: 0;
 }
 
 header h2 {
-  font-size: clamp(18px, 4vw, 24px);
-  color: #fff;
+  font-size: 23px;
+  color: white;
 }
 
 .card {
@@ -49,7 +50,6 @@ header h2 {
   padding: 22px;
   border-radius: 18px;
   box-shadow: 0 8px 25px #0005;
-  overflow: hidden;
 }
 
 h2 {
@@ -57,7 +57,7 @@ h2 {
 }
 
 h3 {
-  color: #fff;
+  color: white;
 }
 
 .note {
@@ -71,8 +71,7 @@ h3 {
 .video {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 14px;
   background: #000;
@@ -95,8 +94,11 @@ h3 {
   text-decoration: none;
   font-weight: bold;
   margin-top: 10px;
-  border: none;
   cursor: pointer;
+}
+
+.btn:hover {
+  background: #21bd70;
 }
 
 .gallery {
@@ -114,114 +116,32 @@ h3 {
   min-width: 0;
 }
 
-.visual {
+.image-card img {
   width: 100%;
-  min-height: 220px;
+  height: 230px;
+  object-fit: cover;
   border-radius: 12px;
-  background: linear-gradient(145deg, #e8f1ff, #cbd9f0);
-  color: #101c2c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 12px;
+  cursor: pointer;
+  transition: transform .3s;
 }
 
-.phone {
-  width: 145px;
-  min-height: 190px;
-  border: 5px solid #18283c;
-  border-radius: 18px;
-  background: #fff;
-  padding: 10px;
-  box-shadow: 0 5px 12px #0004;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.image-card img:hover {
+  transform: scale(1.03);
 }
 
-.phone-bar {
-  width: 48px;
-  height: 5px;
-  background: #18283c;
-  border-radius: 10px;
-  margin-bottom: 5px;
-}
-
-.mini-title {
-  font-size: 10px;
-  color: #1689d8;
-  font-weight: bold;
-}
-
-.mini-text {
-  font-size: 12px;
-  font-weight: bold;
+.logo-example {
+  background: #f4f7fb;
+  color: #07111f;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  text-align: center;
   overflow-wrap: anywhere;
 }
 
-.mini-circle {
-  width: 55px;
-  height: 55px;
-  border: 4px solid #1689d8;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 25px;
-}
-
-.mini-button {
-  background: #32d583;
-  padding: 5px 10px;
-  font-size: 9px;
-  border-radius: 5px;
+.logo-example h2,
+.logo-example h3 {
   color: #07111f;
-}
-
-.palette {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.swatch {
-  width: 35px;
-  height: 35px;
-  border-radius: 8px;
-  border: 2px solid #ffffff;
-  box-shadow: 0 2px 5px #0003;
-}
-
-.logo-demo {
-  width: 100%;
-  min-height: 180px;
-  border-radius: 12px;
-  background: #fff;
-  color: #07111f;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  padding: 15px;
-  gap: 5px;
-}
-
-.logo-mark {
-  width: 65px;
-  height: 65px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #159957, #1689d8);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  font-weight: bold;
 }
 
 .assignment {
@@ -237,12 +157,11 @@ h3 {
 
 .question label {
   display: block;
-  padding: 7px 5px;
+  padding: 5px;
   cursor: pointer;
 }
 
 .question input {
-  accent-color: #32d583;
   margin-right: 8px;
 }
 
@@ -251,7 +170,7 @@ button {
   color: #07111f;
   border: 0;
   padding: 12px 17px;
-  margin-top: 12px;
+  margin: 12px 6px 0 0;
   border-radius: 9px;
   font-weight: bold;
   cursor: pointer;
@@ -260,7 +179,7 @@ button {
 .result {
   margin-top: 15px;
   padding: 12px;
-  border-radius: 9px;
+  border-radius: 10px;
   background: #16283d;
   font-weight: bold;
 }
@@ -278,7 +197,47 @@ footer {
   padding: 25px;
 }
 
+/* Suuraa guddisanii ilaaluu */
+
+#imageViewer {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .92);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+#imageViewer img {
+  max-width: 95%;
+  max-height: 85%;
+  object-fit: contain;
+  border-radius: 15px;
+}
+
+#imageViewer .close-viewer {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: #32d583;
+  color: #07111f;
+  font-size: 24px;
+  padding: 5px 15px;
+}
+
 @media (max-width: 480px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  header h2 {
+    font-size: 20px;
+  }
+
   .card {
     padding: 16px;
   }
@@ -286,26 +245,37 @@ footer {
   .gallery {
     grid-template-columns: 1fr;
   }
+
+  .image-card img {
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+  }
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
   <h1>🎨 KENA DESIGN</h1>
-  <h2>Lesson 3 — PixelLab keessatti Logo Design</h2>
+  <h2>Lesson 3 — PixelLab keessatti Logo Design Jalqabuu</h2>
   <p>Graphic Design Course | Afaan Oromoo + English</p>
 </header>
 
 <main class="container">
 
 <!-- KAAYYOO -->
+
 <section class="card">
+
   <h2>📘 Kaayyoo Lesson 3</h2>
 
-  <p>Barnoota kana booda barataan PixelLab keessatti
-  Logo Design jalqabuu ni danda'a.</p>
+  <p>
+    Barnoota kana booda barataan PixelLab keessatti
+    Logo Design jalqabuu ni danda'a.
+  </p>
 
   <ul>
     <li>Logo jechuun maal akka ta'e ni beeka.</li>
@@ -315,19 +285,26 @@ footer {
   </ul>
 
   <div class="note">
-    <b>Yaadadhu:</b> Logo gaariin salphaa, qulqulluu
-    fi yaadatamaa ta'uu qaba.
+    <b>Yaadadhu:</b>
+    Logo gaariin salphaa, qulqulluu fi yaadatamaa ta'uu qaba.
   </div>
+
 </section>
 
-<!-- VIDEO -->
-<section class="card">
-  <h2>🎬 Video Lesson 3</h2>
+<!-- VIDEO LESSON 3 -->
 
-  <p>Video kana ilaaliitii tarkaanfiiwwan keessa jiran
-  hojiitti hiiki.</p>
+<section class="card">
+
+  <h2>🎬 Video Lesson 3 — Logo Design</h2>
+
+  <p>
+    Video kana ilaaliitii tarkaanfiiwwan keessa jiran
+    hojiitti hiiki. Yoo video keessaa hin banamne,
+    button YouTube irratti banu jedhu fayyadami.
+  </p>
 
   <div class="video">
+
     <iframe
       src="https://www.youtube.com/embed/_83Aovxqc68"
       title="KENA DESIGN Lesson 3 Logo Design"
@@ -336,227 +313,162 @@ footer {
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen>
     </iframe>
+
   </div>
 
-  <a class="btn"
-     href="https://youtu.be/_83Aovxqc68"
-     target="_blank"
-     rel="noopener">
-    ▶ YouTube irratti bani
+  <a
+    class="btn"
+    href="https://www.youtube.com/watch?v=_83Aovxqc68"
+    target="_blank"
+    rel="noopener noreferrer">
+    ▶ YouTube irratti Ilaali
   </a>
 
   <div class="note">
-    Yoo viidiyoon as keessatti hin banamne,
-    button armaan olii tuqi. Viidiyoon YouTube
-    irraa haqame ykn daangeffame ta'uu danda'a.
+    <b>Ibsa Video:</b><br>
+    Video kana keessatti PixelLab fayyadamuun logo
+    hojjechuu, text dabaluu, font filachuu, color
+    qindeessuu fi logo xumuraa export gochuu baratta.
   </div>
+
 </section>
 
 <!-- VISUAL GUIDE -->
-<section class="card">
-  <h2>📱 PixelLab Logo Design — Visual Guide</h2>
 
-  <p>Suuraawwan fakkeenyaa kana keessatti tarkaanfiiwwan
-  Logo Design ilaali. Fakkiiwwan kun HTML keessatti
-  ijaaraman; faayilota suuraa dabalataa hin barbaadan.</p>
+<section class="card">
+
+  <h2>📱 KENA DESIGN — PixelLab Logo Design Visual Guide</h2>
+
+  <p>
+    Suuraawwan armaan gadiitti PixelLab keessatti Logo
+    Design hojjechuuf tarkaanfiiwwan ijoo agarsiifamu.
+    Suuraa tokko tuquun guddisuu dandeessa.
+  </p>
 
   <div class="gallery">
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div style="font-size:45px">📱</div>
-          <b>PixelLab</b>
-          <div class="mini-button">OPEN APP</div>
-        </div>
-      </div>
+      <img src="lesson3-1.png" alt="PixelLab banuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>1️⃣ PixelLab Banuu</h3>
       <p>PixelLab baniitii project haaraa jalqabi.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">NEW PROJECT</div>
-          <div style="background:#edf2f7;border:2px dashed #1689d8;
-                      width:100px;height:100px;
-                      display:flex;align-items:center;
-                      justify-content:center;font-size:12px">
-            Canvas
-          </div>
-          <div class="mini-text">Square 1:1</div>
-        </div>
-      </div>
+      <img src="lesson3-2.png" alt="Canvas qopheessuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>2️⃣ Canvas Qopheessuu</h3>
-      <p>Canvas logo keetiif mijatu filadhu.</p>
+      <p>Size fi qulqullina canvas sirreessi.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone" style="background:#fff">
-          <div class="phone-bar"></div>
-          <div class="mini-title">BACKGROUND</div>
-          <div class="palette">
-            <div class="swatch" style="background:#fff"></div>
-            <div class="swatch" style="background:#07111f"></div>
-            <div class="swatch" style="background:#1689d8"></div>
-            <div class="swatch" style="background:#32d583"></div>
-          </div>
-          <div class="mini-text">Choose Color</div>
-        </div>
-      </div>
+      <img src="lesson3-3.png" alt="Background filachuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>3️⃣ Background Filachuu</h3>
-      <p>Halluu logo keetiif mijatu filadhu.</p>
+      <p>Background logo keetiif mijatu filadhu.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">ADD TEXT</div>
-          <div style="border:2px solid #1689d8;
-                      padding:12px 6px;text-align:center">
-            <b style="font-size:13px">MY BRAND</b>
-          </div>
-          <div class="mini-button">EDIT TEXT</div>
-        </div>
-      </div>
+      <img src="lesson3-4.png" alt="Text dabaluun"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>4️⃣ Text Dabaluun</h3>
-      <p>Maqaa brand kee barreessi.</p>
+      <p>Maqaa brand kee barreessi; bakka isaa sirreessi.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">FONT STYLE</div>
-          <div style="font-size:17px;font-weight:bold">Modern</div>
-          <div style="font-family:Georgia;font-size:18px">Classic</div>
-          <div style="font-size:15px;font-style:italic">Creative</div>
-          <div style="font-size:12px;letter-spacing:2px">SIMPLE</div>
-        </div>
-      </div>
+      <img src="lesson3-5.png" alt="Font filachuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>5️⃣ Font Filachuu</h3>
       <p>Font dubbifamuu danda'u filadhu.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">COLOR PALETTE</div>
-          <div class="palette">
-            <div class="swatch" style="background:#159957"></div>
-            <div class="swatch" style="background:#1689d8"></div>
-            <div class="swatch" style="background:#07111f"></div>
-          </div>
-          <div class="mini-text">Brand Colors</div>
-        </div>
-      </div>
+      <img src="lesson3-6.png" alt="Color qindeessuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>6️⃣ Color Qindeessuu</h3>
-      <p>Halluu 2 ykn 3 qofa fayyadami.</p>
+      <p>Halluu lama ykn sadii fayyadami.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">ADD ICON</div>
-          <div class="mini-circle">✦</div>
-          <div class="mini-text">BRAND ICON</div>
-          <div class="mini-button">INSERT</div>
-        </div>
-      </div>
+      <img src="lesson3-7.png" alt="Icon dabaluun"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>7️⃣ Icon Dabaluun</h3>
       <p>Icon hojii brand kee ibsu itti dabali.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">SHAPES</div>
-          <div style="display:flex;gap:12px;align-items:center">
-            <div style="width:45px;height:45px;
-                        background:#1689d8;border-radius:50%"></div>
-            <div style="width:45px;height:45px;
-                        background:#32d583;border-radius:8px"></div>
-          </div>
-          <div style="font-size:25px;color:#1689d8">◆</div>
-        </div>
-      </div>
+      <img src="lesson3-8.png" alt="Shape fayyadamuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>8️⃣ Shape Fayyadamuu</h3>
-      <p>Shape salphaa fayyadamuun logo bareechisi.</p>
+      <p>Shape salphaa fayyadamuun logo kee bareechisi.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div class="mini-title">TEXT EFFECTS</div>
-          <div style="font-size:27px;font-weight:bold;
-                      color:#1689d8;text-shadow:3px 3px 2px #777">
-            LOGO
-          </div>
-          <div style="font-size:12px">Shadow • Stroke</div>
-        </div>
-      </div>
+      <img src="lesson3-9.png" alt="Shadow fi effect"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>9️⃣ Shadow fi Effect</h3>
-      <p>Shadow ykn Stroke xiqqoo fayyadami.</p>
+      <p>Shadow fi Stroke xiqqoo fayyadami.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="logo-demo">
-          <div class="logo-mark">K</div>
-          <b style="font-size:21px">KENA DESIGN</b>
-          <small>DESIGN • LEARN • CREATE</small>
-        </div>
-      </div>
+      <img src="lesson3-10.png" alt="Logo sirreessuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>🔟 Logo Sirreessuu</h3>
       <p>Text, icon fi color wal madaalchisi.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div style="font-size:40px">🖼️</div>
-          <div class="mini-title">EXPORT IMAGE</div>
-          <div class="mini-text">PNG</div>
-          <div class="mini-button">SAVE TO GALLERY</div>
-        </div>
-      </div>
+      <img src="lesson3-11.png" alt="Logo PNG export gochuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>1️⃣1️⃣ Export PNG</h3>
       <p>Logo xumuraa PNG ta'een save godhi.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div style="font-size:40px">📝</div>
-          <div class="mini-title">YOUR ASSIGNMENT</div>
-          <div class="mini-text">Create Your Logo</div>
-          <div class="mini-button">COMPLETE</div>
-        </div>
-      </div>
+      <img src="lesson3-12.png" alt="Assignment hojjechuu"
+           loading="lazy" onclick="openImage(this.src)">
       <h3>1️⃣2️⃣ Assignment Hojjechuu</h3>
       <p>Logo mataa kee hojjedhu; screenshot fudhadhu.</p>
     </div>
 
   </div>
+
 </section>
 
-<!-- LOGO DEFINITION -->
+<!-- IMAGE VIEWER -->
+
+<div
+  id="imageViewer"
+  role="dialog"
+  aria-label="Suuraa guddisanii ilaaluu"
+  aria-modal="true"
+  onclick="closeImage()">
+
+  <button
+    type="button"
+    class="close-viewer"
+    aria-label="Cufi"
+    onclick="closeImage()">
+    ✕
+  </button>
+
+  <img id="bigImage" alt="Suuraa guddisame">
+
+</div>
+
+<!-- LOGO MAAL? -->
+
 <section class="card">
+
   <h2>🖌️ Logo jechuun maal?</h2>
 
-  <p>Logo jechuun mallattoo, fakkii ykn barreeffama
-  brand tokko bakka bu'uudha. Namni logo ilaaluun
-  maqaa hojii ykn daldalaa sana yaadachuu danda'a.</p>
+  <p>
+    Logo jechuun mallattoo, fakkii ykn barreeffama brand tokko
+    bakka bu'uudha. Namni logo tokko ilaaluun maqaa hojii ykn
+    daldalaa sana salphaatti yaadachuu danda'a.
+  </p>
+
+  <p>Fakkeenyaaf:</p>
 
   <ul>
     <li>🎨 Design Company Logo</li>
@@ -567,47 +479,61 @@ footer {
   </ul>
 
   <div class="note">
-    <b>Logo gaariin:</b>
-    <br>✅ Salphaa ta'uu qaba.
-    <br>✅ Dubbifamuu qaba.
-    <br>✅ Yaadatamuu qaba.
-    <br>✅ Hojii brand kee ibsuu qaba.
+    <b>Logo gaariin:</b><br>
+    ✅ Salphaa ta'uu qaba.<br>
+    ✅ Dubbifamuu qaba.<br>
+    ✅ Yaadatamuu qaba.<br>
+    ✅ Hojii brand kee ibsuu qaba.
   </div>
+
 </section>
 
-<!-- TYPES -->
+<!-- GOSA LOGO -->
+
 <section class="card">
+
   <h2>🔰 Gosoota Logo</h2>
 
   <h3>1️⃣ Text Logo</h3>
-  <p>Logo maqaa qofa irratti hundaa'a.</p>
 
-  <div class="logo-demo">
-    <b style="font-size:27px">KENA DESIGN</b>
-    <small>DESIGN • LEARN • CREATE</small>
+  <p>Logo maqaa qofa irratti hundaa'u.</p>
+
+  <div class="logo-example">
+    <h2>KENA DESIGN</h2>
+    <p>Design • Learn • Create</p>
   </div>
 
   <h3>2️⃣ Icon Logo</h3>
-  <p>Logo mallattoo ykn fakkii fayyadamuudha.</p>
 
-  <div class="logo-demo">
-    <div class="logo-mark">📷</div>
-    <b>PICTURE STUDIO</b>
+  <p>Logo fakkii ykn mallattoo tokko fayyadamuudha.</p>
+
+  <div class="logo-example">
+    <div style="font-size:60px">📷</div>
+    <h3>PICTURE STUDIO</h3>
   </div>
 
   <h3>3️⃣ Combination Logo</h3>
-  <p>Text fi icon walitti makuun uumama.</p>
 
-  <div class="logo-demo">
-    <div class="logo-mark">K</div>
-    <b style="font-size:23px">KENA DESIGN</b>
-    <small>DESIGN • LEARN • CREATE</small>
+  <p>Text fi Icon walitti makuun logo uumuudha.</p>
+
+  <div class="logo-example">
+    <div style="font-size:45px">🎨</div>
+    <h2>KENA DESIGN</h2>
+    <small>Design • Learn • Create</small>
   </div>
+
 </section>
 
 <!-- COLOR -->
+
 <section class="card">
+
   <h2>🎨 Color Sirrii Filachuu</h2>
+
+  <p>
+    Halluun logo keessatti ergaa addaa qaba.
+    Halluu sirrii filachuun brand kee ibsuuf gargaara.
+  </p>
 
   <ul>
     <li>🟢 <b>Green:</b> guddina fi uumama.</li>
@@ -618,112 +544,127 @@ footer {
   </ul>
 
   <div class="note">
-    Logo tokko keessatti halluu 2 ykn 3 filachuun
-    jalqabaaf gaarii dha.
+    Logo tokko keessatti halluu baay'ee hin fayyadamin.
+    Jalqabaaf halluu lama ykn sadii filadhu.
   </div>
+
 </section>
 
 <!-- FONT -->
+
 <section class="card">
+
   <h2>🔤 Font Filachuu</h2>
 
-  <p>Font jechuun bifa qubee ykn barreeffamaa ti.</p>
+  <p>
+    Font jechuun bifa qubee barreeffamaa ti.
+    Font sirrii filachuun logo kee professional taasisa.
+  </p>
 
   <ul>
-    <li>Font dubbifamuu danda'u filadhu.</li>
-    <li>Font baay'ee walitti hin makiin.</li>
-    <li>Font maqaa brand waliin wal simsiisi.</li>
-    <li>Font salphaa yeroo baay'ee caala.</li>
+    <li>✅ Font dubbifamuu danda'u filadhu.</li>
+    <li>✅ Font baay'ee walitti hin makiin.</li>
+    <li>✅ Maqaa brand waliin wal simsiisi.</li>
+    <li>✅ Font salphaa fayyadami.</li>
   </ul>
 
   <div class="note">
-    <b>Modern:</b> Brand haaraa fi technology.
-    <br><b>Bold:</b> Humna fi jabina.
-    <br><b>Simple:</b> Salphina fi qulqullina.
+    <b>Modern:</b> Brand ammayyaaf.<br>
+    <b>Bold:</b> Humna agarsiisuuf.<br>
+    <b>Simple:</b> Salphinaa fi qulqullinaaf.
   </div>
+
 </section>
 
 <!-- EFFECTS -->
+
 <section class="card">
+
   <h2>✨ Shadow, Stroke fi Effect</h2>
 
   <h3>🌑 Shadow</h3>
-  <p>Shadow jechuun gaaddisa text ykn object duuba jiru.</p>
+  <p>Shadow jechuun gaaddisa text ykn object duuba jiruudha.</p>
 
   <h3>⭕ Stroke</h3>
-  <p>Stroke jechuun daangaa text naannoo jiru.</p>
+  <p>Stroke jechuun daangaa ykn sarara naannoo text jiruudha.</p>
 
   <h3>💡 Opacity</h3>
-  <p>Opacity jechuun wanti tokko hammam ifa ykn
-  dukkanaa'aa akka mul'atu to'achuu dha.</p>
+  <p>Opacity jechuun wanti tokko hammam ifaa ykn dukkanaa'aa akka mul'atu to'achuu dha.</p>
 
   <div class="note">
-    Effect baay'ee hin dabalin. Logo salphaa fi
-    qulqulluun yeroo baay'ee caala.
+    Effect baay'ee hin dabalin.
+    Logo salphaa fi qulqulluun yeroo baay'ee caala.
   </div>
+
 </section>
 
 <!-- ASSIGNMENT -->
+
 <section class="card">
+
   <h2>📝 Assignment Lesson 3 — Logo Design</h2>
 
   <div class="assignment">
+
     <h3>🎯 Hojii Barataa</h3>
 
-    <p>PixelLab fayyadamuun logo brand mataa kee hojjedhu.
-    Logo kee hojii ykn daldala ati filatte bakka bu'uu qaba.</p>
+    <p>
+      PixelLab fayyadamuun logo brand mataa kee hojjedhu.
+      Logo kee hojii ykn daldala ati filatte bakka bu'uu qaba.
+    </p>
 
-    <h3>Wantoota kana guuti:</h3>
+    <h3>Logo kee keessatti wantoota kana guuti:</h3>
 
     <ul>
       <li>☐ Maqaa brand kee barreessi.</li>
       <li>☐ Font dubbifamuu danda'u filadhu.</li>
-      <li>☐ Icon hojii kee ibsu tokko dabali.</li>
-      <li>☐ Halluu 2 ykn 3 qofa fayyadami.</li>
+      <li>☐ Icon hojii kee ibsu dabali.</li>
+      <li>☐ Halluu lama ykn sadii fayyadami.</li>
       <li>☐ Background sirrii qindeessi.</li>
       <li>☐ Shadow ykn Stroke yoo barbaachise fayyadami.</li>
       <li>☐ Logo kee PNG ta'een save godhi.</li>
     </ul>
+
   </div>
+
 </section>
 
-<!-- ASSIGNMENT EXAMPLE -->
+<!-- ASSIGNMENT EXAMPLES -->
+
 <section class="card">
+
   <h2>📸 Fakkeenya Assignment</h2>
 
-  <p>Fakkeenya hojii xumuraa kana ilaali.</p>
+  <p>Barataan erga logo hojjetee booda hojii isaa ilaallachuu qaba.</p>
 
   <div class="gallery">
+
     <div class="image-card">
-      <div class="visual">
-        <div class="logo-demo">
-          <div class="logo-mark">K</div>
-          <b style="font-size:21px">KENA DESIGN</b>
-          <small>CREATIVE STUDIO</small>
-        </div>
-      </div>
+      <img src="assignment-example.png"
+           alt="Fakkeenya logo xumuraa"
+           loading="lazy"
+           onclick="openImage(this.src)">
       <h3>Logo Xumuraa</h3>
-      <p>Fakkeenya logo qulqulluu, maqaa fi icon waliin.</p>
+      <p>Fakkeenya hojii xumuraa.</p>
     </div>
 
     <div class="image-card">
-      <div class="visual">
-        <div class="phone">
-          <div class="phone-bar"></div>
-          <div style="font-size:35px">📱</div>
-          <div class="mini-title">MY LOGO</div>
-          <div class="mini-text">SAVED PROJECT</div>
-          <div class="mini-button">PNG</div>
-        </div>
-      </div>
+      <img src="student-work.png"
+           alt="Screenshot hojii barataa"
+           loading="lazy"
+           onclick="openImage(this.src)">
       <h3>Screenshot Hojii</h3>
-      <p>Screenshot hojii kee fudhadhuutii barsiisaaf qopheessi.</p>
+      <p>Screenshot hojii PixelLab keessaa fudhatame.</p>
     </div>
+
   </div>
+
 </section>
 
-<!-- SUBMISSION -->
+<!-- AKKA ERGAMU -->
+
 <section class="card">
+
   <h2>📤 Akka Assignment Ergamuu Qabu</h2>
 
   <ol>
@@ -734,20 +675,19 @@ footer {
   </ol>
 
   <div class="note">
-    <b>Fakkeenya Ergaa:</b>
-    <br><br>
-    Maqaa: __________
-    <br>
-    Course: Graphic Design
-    <br>
-    Lesson: 3 — Logo Design
-    <br>
+    <b>Fakkeenya Ergaa:</b><br><br>
+    Maqaa: __________<br>
+    Course: Graphic Design<br>
+    Lesson: 3 Logo Design<br>
     Assignment: Logo Design xumureera.
   </div>
+
 </section>
 
 <!-- CHECKLIST -->
+
 <section class="card">
+
   <h2>✅ Checklist Lesson 3</h2>
 
   <ul>
@@ -760,16 +700,38 @@ footer {
     <li>☐ Logo PNG ta'een export gochuu nan danda'a.</li>
     <li>☐ Assignment koo xumuree erguu nan danda'a.</li>
   </ul>
+
+</section>
+
+<!-- COMPLETE -->
+
+<section class="complete">
+
+  <h2>🎉 Lesson 3 Complete!</h2>
+
+  <p>
+    Ati PixelLab keessatti Logo Design jalqabuu baratteetta.
+    Amma assignment hojjedhu, hojii kee save godhi,
+    achiis Lesson itti aanuuf qophaa'i.
+  </p>
+
+  <a class="btn" href="./dashboard.html">
+    ← Gara Dashboard Deebi'i
+  </a>
+
 </section>
 
 <!-- QUIZ -->
+
 <section class="card">
+
   <h2>🧠 Quiz Lesson 3 — Logo Design</h2>
 
   <form id="quiz">
 
     <div class="question">
       <b>1. Logo jechuun maal?</b>
+
       <label><input type="radio" name="q1" value="a"> A. Video qofa</label>
       <label><input type="radio" name="q1" value="b"> B. Mallattoo brand bakka bu'u</label>
       <label><input type="radio" name="q1" value="c"> C. Music</label>
@@ -777,6 +739,7 @@ footer {
 
     <div class="question">
       <b>2. Logo gaariin maal qabaachuu qaba?</b>
+
       <label><input type="radio" name="q2" value="a"> A. Wantoota baay'ee</label>
       <label><input type="radio" name="q2" value="b"> B. Salphina fi qulqullina</label>
       <label><input type="radio" name="q2" value="c"> C. Halluu baay'ee</label>
@@ -784,6 +747,7 @@ footer {
 
     <div class="question">
       <b>3. PixelLab keessatti text eessaa daballa?</b>
+
       <label><input type="radio" name="q3" value="a"> A. Text menu</label>
       <label><input type="radio" name="q3" value="b"> B. Camera</label>
       <label><input type="radio" name="q3" value="c"> C. Internet</label>
@@ -791,6 +755,7 @@ footer {
 
     <div class="question">
       <b>4. Logo keessatti halluu meeqa fayyadamuun gaarii dha?</b>
+
       <label><input type="radio" name="q4" value="a"> A. 2 ykn 3</label>
       <label><input type="radio" name="q4" value="b"> B. 20</label>
       <label><input type="radio" name="q4" value="c"> C. Hunda</label>
@@ -798,47 +763,59 @@ footer {
 
     <div class="question">
       <b>5. Export PNG jechuun maal?</b>
+
       <label><input type="radio" name="q5" value="a"> A. Hojii xumuraa save gochuu</label>
       <label><input type="radio" name="q5" value="b"> B. App cufuu</label>
       <label><input type="radio" name="q5" value="c"> C. Delete gochuu</label>
     </div>
 
-    <button type="button" id="checkQuiz">Deebii Sakatta'i</button>
-    <button type="reset">Irra Deebi'i</button>
+    <button type="button" onclick="checkQuiz()">
+      Deebii Sakatta'i
+    </button>
+
+    <button type="reset" onclick="resetQuiz()">
+      Irra Deebi'i
+    </button>
 
     <div id="result" class="result" aria-live="polite"></div>
+
   </form>
-</section>
 
-<!-- COMPLETE -->
-<section class="complete">
-  <h2>🎉 Lesson 3 Complete!</h2>
-
-  <p>Ati Logo Design jalqabuu baratteetta.
-  Amma assignment hojjedhu, hojii kee save godhi,
-  achiis barnoota itti aanuuf qophaa'i.</p>
-
-  <a class="btn" href="./dashboard.html">
-    ← Gara Dashboard Deebi'i
-  </a>
 </section>
 
 </main>
 
 <footer>
-  🎨 KENA DESIGN
-  <br>
-  Design • Learn • Create
-  <br><br>
+  🎨 KENA DESIGN<br>
+  Design • Learn • Create<br><br>
   © 2026 KENA DESIGN Learning Platform
 </footer>
 
 <script>
-(function () {
-  const form = document.getElementById("quiz");
-  const result = document.getElementById("result");
-  const checkButton = document.getElementById("checkQuiz");
+/* Suuraa guddisanii ilaaluu */
 
+function openImage(src) {
+  const viewer = document.getElementById("imageViewer");
+  const img = document.getElementById("bigImage");
+
+  img.src = src;
+  viewer.style.display = "flex";
+}
+
+function closeImage() {
+  document.getElementById("imageViewer").style.display = "none";
+  document.getElementById("bigImage").src = "";
+}
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") {
+    closeImage();
+  }
+});
+
+/* Quiz Lesson 3 */
+
+function checkQuiz() {
   const answers = {
     q1: "b",
     q2: "b",
@@ -847,40 +824,39 @@ footer {
     q5: "a"
   };
 
-  checkButton.addEventListener("click", function () {
-    let score = 0;
-    let unanswered = 0;
+  let score = 0;
+  let unanswered = 0;
 
-    for (const question in answers) {
-      const selected = form.querySelector(
-        'input[name="' + question + '"]:checked'
-      );
+  for (const q in answers) {
+    const selected = document.querySelector(
+      'input[name="' + q + '"]:checked'
+    );
 
-      if (!selected) {
-        unanswered++;
-      } else if (selected.value === answers[question]) {
-        score++;
-      }
+    if (!selected) {
+      unanswered++;
+    } else if (selected.value === answers[q]) {
+      score++;
     }
+  }
 
-    if (unanswered > 0) {
-      result.textContent =
-        "Maaloo gaaffii hunda deebisi. Deebii hafan: " +
-        unanswered;
-      return;
-    }
+  const result = document.getElementById("result");
 
+  if (unanswered > 0) {
     result.textContent =
-      "Qabxii kee: " + score + "/5. " +
-      (score === 5
-        ? "Baay'ee gaarii! 🎉"
-        : "Barnoota irra deebi'ii yaali.");
-  });
+      "Maaloo gaaffii hunda deebisi. Deebii hafan: " + unanswered;
+    return;
+  }
 
-  form.addEventListener("reset", function () {
-    result.textContent = "";
-  });
-})();
+  result.textContent =
+    "Qabxii kee: " + score + "/5. " +
+    (score === 5
+      ? "Baay'ee gaarii! 🎉"
+      : "Gaarii! Deebii sirrii irra deebi'ii baradhu.");
+}
+
+function resetQuiz() {
+  document.getElementById("result").textContent = "";
+}
 </script>
 
 </body>

@@ -189,7 +189,11 @@ footer{text-align:center;padding:25px;color:#71869a}
 <footer>© 2026 KENA DESIGN • Learning Platform</footer>
 
 <script>
+
+/* LOGIN CHECK */
+
 function checkLogin(){
+
   const loggedIn = localStorage.getItem("loggedIn");
   const savedStudent = localStorage.getItem("student");
 
@@ -208,6 +212,9 @@ function checkLogin(){
   }
 }
 
+
+/* NORMALIZE */
+
 function normalize(value){
   return String(value || "")
     .trim()
@@ -215,6 +222,7 @@ function normalize(value){
     .replace(/[_-]+/g," ")
     .replace(/\s+/g," ");
 }
+
 
 /* COURSE LIST */
 
@@ -268,6 +276,7 @@ const courses = [
     description:"Event, business fi promotional poster."
   }
 ];
+
 
 /* LESSON TITLES */
 
@@ -535,6 +544,7 @@ const posterLessons = [
  "Final Assignment"
 ];
 
+
 const lessonTitles = {
   "graphic design":graphicLessons,
   "video editing":videoLessons,
@@ -546,9 +556,11 @@ const lessonTitles = {
   "poster design":posterLessons
 };
 
+
 /* COURSE CARD */
 
 function createCourseCard(course){
+
   const card = document.createElement("article");
   card.className = "card";
 
@@ -565,17 +577,32 @@ function createCourseCard(course){
   const button = document.createElement("button");
   button.className = "primary";
   button.textContent = "📚 Barnoota Bani";
+
   button.addEventListener("click",function(){
     showLessons(course.id);
   });
 
   card.append(icon,title,description,button);
+
   return card;
 }
+
+
+/* COMPLETION KEY */
+
+function completionKey(courseId,lessonNumber){
+
+  return "completed_" +
+    normalize(courseId).replace(/\s+/g,"_") +
+    "_lesson_" + lessonNumber;
+
+}
+
 
 /* LESSON CARD */
 
 function createLessonCard(courseId,title,index){
+
   const card = document.createElement("article");
   card.className = "card";
 
@@ -597,8 +624,19 @@ function createLessonCard(courseId,title,index){
   link.className = "btn";
   link.textContent = "📖 Baradhu →";
 
-  // Graphic Design Lesson 1–30
-  if(courseId === "graphic design"){
+  /*
+    GRAPHIC DESIGN LESSON LINKS
+
+    Lesson 1 = lesson.html
+    Lesson 2 = lesson2.html
+    Lesson 3 = lesson3.html
+    Lesson 4 = lesson4.html
+    Lesson 5 = lesson5.html
+    ...
+    Lesson 30 = lesson30.html
+  */
+
+  if(normalize(courseId) === "graphic design"){
 
     if(lessonNumber === 1){
       link.href = "lesson.html";
@@ -607,11 +645,17 @@ function createLessonCard(courseId,title,index){
     }
 
   }else{
+
     link.href = "#";
+
     link.addEventListener("click",function(event){
       event.preventDefault();
-      alert("Fuulli barnootaa kanaa ammallee hin uumamne.");
+
+      alert(
+        "Fuulli barnootaa kanaa ammallee hin uumamne."
+      );
     });
+
   }
 
   const completed = document.createElement("p");
@@ -623,56 +667,24 @@ function createLessonCard(courseId,title,index){
     completed.textContent = "✅ Barnoota kana xumurteetta.";
   }
 
-  card.append(icon,heading,description,link,completed);
+  card.append(
+    icon,
+    heading,
+    description,
+    link,
+    completed
+  );
 
   return card;
 }
-  /*
-    Linkiiwwan faayilii jiran qofaaf.
-    Lesson 1-4 Graphic Design irratti maqaa faayilii beekamaa fayyadama.
-    Lessonwwan biroo yeroo faayiliin isaanii uumamu walqabsiisuu qabda.
-  */
 
-  if(courseId === "graphic design" && index === 0){
-    link.href = "lesson.html";
-  }else if(courseId === "graphic design" && index === 1){
-    link.href = "lesson2.html";
-  }else if(courseId === "graphic design" && index === 2){
-    link.href = "lesson3.html";
-  }else{
-    link.href = "#";
-    link.addEventListener("click",function(event){
-      event.preventDefault();
-      alert(
-        "Lesson kanaaf fuulli barnootaa ammallee hin uumamne. " +
-        "Faayilii lesson kanaa uumuu qabda."
-      );
-    });
-  }
-
-  const completed = document.createElement("p");
-  completed.style.marginTop = "10px";
-
-  const key = completionKey(courseId,index + 1);
-
-  if(localStorage.getItem(key) === "true"){
-    completed.textContent = "✅ Barnoota kana xumurteetta.";
-  }
-
-  card.append(icon,heading,description,link,completed);
-  return card;
-}
-
-function completionKey(courseId,lessonNumber){
-  return "completed_" +
-    courseId.replace(/\s+/g,"_") +
-    "_lesson_" + lessonNumber;
-}
 
 /* DASHBOARD */
 
 function loadStudent(){
+
   const student = checkLogin();
+
   if(!student) return;
 
   const name = student.fullname || "Barataa!";
@@ -680,52 +692,57 @@ function loadStudent(){
 
   document.getElementById("welcomeName").textContent = name;
   document.getElementById("studentName").textContent = name;
+
   document.getElementById("studentCourse").textContent =
     student.course || "-";
 
   const courseList = document.getElementById("courseList");
-  courseList.replaceChildren();
 
-  /*
-    Barataan course tokko qofa qaba yoo ta'e,
-    course isaa qofa agarsiisi.
-    Yoo admin course hedduu kenne, coursewwan sana agarsiisi.
-  */
+  courseList.replaceChildren();
 
   const studentCourses = Array.isArray(student.courses)
     ? student.courses.map(normalize)
     : [course];
 
   const availableCourses = courses.filter(function(item){
-    return studentCourses.includes(item.id);
+    return studentCourses.includes(normalize(item.id));
   });
 
   if(availableCourses.length === 0){
+
     const notice = document.createElement("div");
     notice.className = "notice";
+
     notice.textContent =
       "Course kee hin beekamne. Admin waliin dubbadhu. " +
       "Maqaan course sirrii ta'uu isaa mirkaneessi.";
+
     courseList.appendChild(notice);
+
     return;
   }
 
   availableCourses.forEach(function(item){
     courseList.appendChild(createCourseCard(item));
   });
+
 }
+
 
 /* LESSON LIST */
 
 function showLessons(courseId){
-  const titles = lessonTitles[courseId];
+
+  const titles = lessonTitles[normalize(courseId)];
+
   const course = courses.find(function(item){
-    return item.id === courseId;
+    return normalize(item.id) === normalize(courseId);
   });
 
   if(!titles || !course) return;
 
   document.getElementById("courseSection").classList.add("hidden");
+
   document.getElementById("lessonSection").classList.remove("hidden");
 
   document.getElementById("courseTitle").textContent =
@@ -735,6 +752,7 @@ function showLessons(courseId){
     course.description;
 
   const list = document.getElementById("lessonList");
+
   list.replaceChildren();
 
   titles.forEach(function(title,index){
@@ -746,23 +764,33 @@ function showLessons(courseId){
   updateProgress(courseId,titles.length);
 
   window.scrollTo({top:0,behavior:"smooth"});
+
 }
 
+
 function showCourses(){
+
   document.getElementById("lessonSection").classList.add("hidden");
+
   document.getElementById("courseSection").classList.remove("hidden");
+
   window.scrollTo({top:0,behavior:"smooth"});
+
 }
+
 
 /* PROGRESS */
 
 function updateProgress(courseId,total){
+
   let completed = 0;
 
   for(let i=1;i<=total;i++){
+
     if(localStorage.getItem(completionKey(courseId,i)) === "true"){
       completed++;
     }
+
   }
 
   const percent = Math.round((completed / total) * 100);
@@ -773,17 +801,26 @@ function updateProgress(courseId,total){
   document.getElementById("progressText").textContent =
     completed + " / " + total + " Lesson xumurteetta (" +
     percent + "%).";
+
 }
+
 
 /* LOGOUT */
 
 function logout(){
+
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("student");
+
   location.href = "login.html";
+
 }
 
+
+/* START DASHBOARD */
+
 window.addEventListener("DOMContentLoaded",loadStudent);
+
 </script>
 
 </body>

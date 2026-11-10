@@ -627,39 +627,41 @@ function createLessonCard(courseId,title,index){
 }
 
   /*
-    Linkiiwwan faayilii jiran qofaaf.
-    Lesson 1-3 Graphic Design irratti maqaa faayilii beekamaa fayyadama.
-    Lessonwwan biroo yeroo faayiliin isaanii uumamu walqabsiisuu qabda.
-  */
+    // GRAPHIC DESIGN LESSON 1-30
 
-  if(courseId === "graphic design" && index === 0){
+if(courseId === "graphic design"){
+
+  if(index === 0){
     link.href = "lesson.html";
-  }else if(courseId === "graphic design" && index === 1){
-    link.href = "lesson2.html";
-  }else if(courseId === "graphic design" && index === 2){
-    link.href = "lesson3.html";
   }else{
-    link.href = "#";
-    link.addEventListener("click",function(event){
-      event.preventDefault();
-      alert(
-        "Lesson kanaaf fuulli barnootaa ammallee hin uumamne. " +
-        "Faayilii lesson kanaa uumuu qabda."
-      );
-    });
+    link.href = "lesson" + (index + 1) + ".html";
   }
 
-  const completed = document.createElement("p");
-  completed.style.marginTop = "10px";
+}else{
 
-  const key = completionKey(courseId,index + 1);
+  link.href = "#";
 
-  if(localStorage.getItem(key) === "true"){
-    completed.textContent = "✅ Barnoota kana xumurteetta.";
-  }
+  link.addEventListener("click",function(event){
+    event.preventDefault();
 
-  card.append(icon,heading,description,link,completed);
-  return card;
+    alert(
+      "Fuulli barnootaa kanaa ammallee hin uumamne."
+    );
+  });
+
+}
+
+const completed = document.createElement("p");
+completed.style.marginTop = "10px";
+
+const key = completionKey(courseId,index + 1);
+
+if(localStorage.getItem(key) === "true"){
+  completed.textContent = "✅ Barnoota kana xumurteetta.";
+}
+
+card.append(icon,heading,description,link,completed);
+return card;
 }
 
 function completionKey(courseId,lessonNumber){
@@ -667,6 +669,7 @@ function completionKey(courseId,lessonNumber){
     courseId.replace(/\s+/g,"_") +
     "_lesson_" + lessonNumber;
 }
+    
 
 /* DASHBOARD */
 

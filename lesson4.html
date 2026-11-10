@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KENA DESIGN - Lesson 4</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ background:#f5f7fb;
+ color:#182235;
+ font-family:Arial,sans-serif;
+ line-height:1.6;
+}
+header{
+ background:linear-gradient(125deg,#171b36,#5144c7);
+ color:white;
+ padding:30px 18px;
+}
+.wrap{max-width:1000px;margin:auto;padding:0 16px}
+h1{font-size:35px}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+nav a{
+ background:#ffffff25;
+ color:white;
+ padding:9px;
+ border-radius:8px;
+ text-decoration:none;
+}
+main{padding:20px 0}
+.card{
+ background:white;
+ border:1px solid #e5e9f2;
+ border-radius:15px;
+ padding:20px;
+ margin:16px 0;
+}
+h2{color:#5144c7}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:13px;
+}
+.visual{
+ border:1px solid #ddd;
+ border-radius:12px;
+ padding:12px;
+ background:white;
+}
+.visual svg{
+ width:100%;
+ height:145px;
+ background:#f8fafc;
+ border-radius:8px;
+}
+.visual p{font-size:14px;color:#64748b}
+button{
+ border:0;
+ border-radius:10px;
+ padding:12px 16px;
+ background:#5b4bdb;
+ color:white;
+ font-weight:bold;
+ cursor:pointer;
+ margin:5px;
+}
+input,textarea{
+ width:100%;
+ padding:12px;
+ border:1px solid #ccc;
+ border-radius:8px;
+ margin:6px 0;
+}
+input[type=radio]{width:auto}
+.q{
+ border:1px solid #ddd;
+ border-radius:10px;
+ padding:12px;
+ margin:12px 0;
+}
+.q label{display:block;margin:8px}
+.video{
+ position:relative;
+ padding-bottom:56.25%;
+ height:0;
+ overflow:hidden;
+}
+.video iframe{
+ position:absolute;
+ width:100%;
+ height:100%;
+ border:0;
+}
+.note{
+ background:#f0efff;
+ padding:12px;
+ border-left:4px solid #5144c7;
+}
+footer{text-align:center;padding:20px}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="wrap">
+<h1>KENA DESIGN</h1>
+<h2 style="color:white">LESSON 4: COLOUR THEORY</h2>
+<p>Barumsa Halluu - Graphic Design Course</p>
+
+<nav>
+<a href="#lesson">Barumsa</a>
+<a href="#gallery">Suuraa</a>
+<a href="#video">Video</a>
+<a href="#quiz">Qormaata</a>
+<a href="#assignment">Assignment</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap">
+
+<section class="card" id="lesson">
+<h2>1. Kaayyoo Barumsichaa</h2>
+
+<p>Barumsa kana booda:</p>
+<ul>
+<li>Halluuwwan bu'uuraa adda baasuu.</li>
+<li>Halluuwwan lammaffaa hubachuu.</li>
+<li>Halluu ho'aa fi qabbanaa'aa adda baasuu.</li>
+<li>Halluu hojii dizaayinii keessatti fayyadamuu.</li>
+</ul>
+
+<h2>2. Primary Colors</h2>
+<p>Halluuwwan bu'uuraa sadii:</p>
+
+<p>🔴 Red - Diimaa</p>
+<p>🟡 Yellow - Keelloo</p>
+<p>🔵 Blue - Cuquliisa</p>
+
+<h2>3. Secondary Colors</h2>
+<ul>
+<li>Red + Yellow = Orange</li>
+<li>Yellow + Blue = Green</li>
+<li>Blue + Red = Purple</li>
+</ul>
+
+<h2>4. Warm and Cool Colors</h2>
+<p><b>Warm Colors:</b> Red, Orange, Yellow.</p>
+<p><b>Cool Colors:</b> Blue, Green, Purple.</p>
+
+<h2>5. Color Harmony</h2>
+<ul>
+<li>Complementary Colors</li>
+<li>Analogous Colors</li>
+<li>Monochromatic Colors</li>
+</ul>
+</section>
+
+<section class="card" id="gallery">
+<h2>6. Fakkiiwwan Barumsaa (14)</h2>
+
+<div class="grid">
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="73" height="145" fill="#e53935"/>
+<rect x="73" width="74" height="145" fill="#f5c400"/>
+<rect x="147" width="73" height="145" fill="#2456c7"/>
+</svg>
+<b>1. Primary Colors</b>
+<p>Halluu bu'uuraa sadii.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="73" height="145" fill="#e97824"/>
+<rect x="73" width="74" height="145" fill="#239b61"/>
+<rect x="147" width="73" height="145" fill="#7042a5"/>
+</svg>
+<b>2. Secondary Colors</b>
+<p>Halluu lammaffaa.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<circle cx="110" cy="72" r="60" fill="#ef4444"/>
+<path d="M110 72 L110 12 A60 60 0 0 1 162 42Z" fill="#facc15"/>
+<path d="M110 72 L162 42 A60 60 0 0 1 162 102Z" fill="#2563eb"/>
+</svg>
+<b>3. Color Wheel</b>
+<p>Marsaa halluu.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="110" height="145" fill="#ef4444"/>
+<rect x="110" width="110" height="145" fill="#f59e0b"/>
+</svg>
+<b>4. Warm Colors</b>
+<p>Halluu ho'aa.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="110" height="145" fill="#2563eb"/>
+<rect x="110" width="110" height="145" fill="#16a36a"/>
+</svg>
+<b>5. Cool Colors</b>
+<p>Halluu qabbanaa'aa.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="110" height="145" fill="#ef4444"/>
+<rect x="110" width="110" height="145" fill="#22c55e"/>
+</svg>
+<b>6. Complementary</b>
+<p>Halluu wal-faallessan.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="73" height="145" fill="#f59e0b"/>
+<rect x="73" width="74" height="145" fill="#eab308"/>
+<rect x="147" width="73" height="145" fill="#84cc16"/>
+</svg>
+<b>7. Analogous</b>
+<p>Halluu wal bira jiran.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="73" height="145" fill="#1e3a8a"/>
+<rect x="73" width="74" height="145" fill="#3b82f6"/>
+<rect x="147" width="73" height="145" fill="#bfdbfe"/>
+</svg>
+<b>8. Monochromatic</b>
+<p>Halluu tokkoo fi shades isaa.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="220" height="145" fill="#243b80"/>
+<text x="110" y="80" fill="yellow"
+font-size="22" text-anchor="middle">KENA DESIGN</text>
+</svg>
+<b>9. Contrast</b>
+<p>Halluu ifaa fi dukkanaa.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="220" height="145" fill="#fff0d9"/>
+<rect x="15" y="20" width="190" height="30" fill="#ea580c"/>
+<rect x="15" y="65" width="120" height="10" fill="#475569"/>
+<rect x="15" y="90" width="160" height="10" fill="#94a3b8"/>
+</svg>
+<b>10. Color Palette</b>
+<p>Filannoo halluu.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="220" height="145" fill="#111827"/>
+<text x="110" y="70" fill="#facc15"
+font-size="25" text-anchor="middle">SALE 50%</text>
+</svg>
+<b>11. Poster Design</b>
+<p>Poster halluu qabu.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="220" height="145" fill="#e0f2fe"/>
+<circle cx="55" cy="50" r="25" fill="#2563eb"/>
+<rect x="100" y="35" width="90" height="12" fill="#1e3a8a"/>
+<rect x="100" y="65" width="75" height="8" fill="#64748b"/>
+</svg>
+<b>12. Design Layout</b>
+<p>Qindaa'ina dizaayinii.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<rect width="73" height="145" fill="#7c3aed"/>
+<rect x="73" width="74" height="145" fill="#ec4899"/>
+<rect x="147" width="73" height="145" fill="#f97316"/>
+</svg>
+<b>13. Three Colors</b>
+<p>Halluu sadii.</p>
+</div>
+
+<div class="visual">
+<svg viewBox="0 0 220 145">
+<circle cx="55" cy="72" r="40" fill="#ef4444"/>
+<circle cx="110" cy="72" r="40" fill="#facc15"/>
+<circle cx="165" cy="72" r="40" fill="#2563eb"/>
+</svg>
+<b>14. Color Practice</b>
+<p>Shaakala halluu.</p>
+</div>
+
+</div>
+</section>
+
+<section class="card" id="video">
+<h2>7. Video Barumsaa</h2>
+<p>Video kana ilaali.</p>
+
+<div class="video">
+<iframe
+src="https://www.youtube-nocookie.com/embed/CSTZG-Dr9MY"
+allowfullscreen>
+</iframe>
+</div>
+
+<p>
+<a href="https://www.youtube.com/watch?v=CSTZG-Dr9MY">
+Video YouTube bani
+</a>
+</p>
+</section>
+
+<section class="card" id="quiz">
+<h2>8. Qormaata</h2>
+
+<div class="q">
+<b>1. Primary Colors sadan kami?</b>
+<label><input type="radio" name="q1" value="a">
+Diimaa, Keelloo, Cuquliisa</label>
+<label><input type="radio" name="q1" value="b">
+Magariisa, Adii, Gurraacha</label>
+</div>
+
+<div class="q">
+<b>2. Red + Yellow = ?</b>
+<label><input type="radio" name="q2" value="a">Green</label>
+<label><input type="radio" name="q2" value="b">Orange</label>
+</div>
+
+<div class="q">
+<b>3. Complementary colors jechuun?</b>
+<label><input type="radio" name="q3" value="a">
+Halluu wal-faallessan</label>
+<label><input type="radio" name="q3" value="b">
+Halluu tokko qofa</label>
+</div>
+
+<div class="q">
+<b>4. Monochromatic jechuun?</b>
+<label><input type="radio" name="q4" value="a">
+Halluu baay'ee</label>
+<label><input type="radio" name="q4" value="b">
+Halluu tokkoo fi shades isaa</label>
+</div>
+
+<button onclick="checkQuiz()">Deebii Ilaali</button>
+<div id="quizResult"></div>
+</section>
+
+<section class="card" id="assignment">
+<h2>9. Assignment</h2>
+
+<p><b>Hojii:</b> Poster mata-duree
+“KENA DESIGN - Learn Graphic Design”
+jedhu qopheessi.</p>
+
+<ol>
+<li>Halluu sadii filadhu.</li>
+<li>Background sirrii filadhu.</li>
+<li>Mata-duree guddaa barreessi.</li>
+<li>Halluuwwan maaliif filatte ibsi.</li>
+</ol>
+
+<label>Maqaa Barataa</label>
+<input id="student" placeholder="Maqaa kee barreessi">
+
+<label>Ibsa Assignment</label>
+<textarea id="work" placeholder="Ibsa hojii kee barreessi"></textarea>
+
+<label>Suuraa Poster kee filadhu</label>
+<input type="file" id="file" accept="image/*">
+
+<button onclick="downloadAssignment()">
+Assignment Buufadhu
+</button>
+
+<button onclick="window.print()">
+PDF / Print
+</button>
+
+<div id="assignmentResult"></div>
+</section>
+
+</main>
+
+<footer>
+KENA DESIGN | GRAPHIC DESIGN | LESSON 4
+</footer>
+
+<script>
+function checkQuiz(){
+
+const answers={
+q1:"a",
+q2:"b",
+q3:"a",
+q4:"b"
+};
+
+let score=0;
+let done=0;
+
+for(const [q,a] of Object.entries(answers)){
+const p=document.querySelector(
+'input[name="'+q+'"]:checked'
+);
+
+if(p){
+done++;
+if(p.value===a)score++;
+}
+}
+
+const result=document.getElementById("quizResult");
+
+if(done<4){
+result.innerHTML="Gaaffii hunda deebisi.";
+return;
+}
+
+result.innerHTML=
+"Bu'aa kee: "+score+"/4";
+}
+
+function downloadAssignment(){
+
+const name=document.getElementById("student").value.trim();
+const work=document.getElementById("work").value.trim();
+
+if(!name || !work){
+document.getElementById("assignmentResult").innerHTML=
+"Maqaa fi ibsa guuti.";
+return;
+}
+
+const content=
+"KENA DESIGN - LESSON 4 ASSIGNMENT\n"+
+"Barataa: "+name+"\n\n"+
+"Ibsa hojii:\n"+work;
+
+const blob=new Blob([content],{
+type:"text/plain;charset=utf-8"
+});
+
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+
+a.href=url;
+a.download="KENA_DESIGN_Assignment.txt";
+a.click();
+
+URL.revokeObjectURL(url);
+
+document.getElementById("assignmentResult").innerHTML=
+"Assignment buufachuun jalqabame.";
+}
+</script>
+
+</body>
+</html>

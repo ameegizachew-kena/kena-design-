@@ -573,19 +573,18 @@ function createCourseCard(course){
   return card;
 }
 
+/* LESSON CARD */
+
 function createLessonCard(courseId,title,index){
   const card = document.createElement("article");
   card.className = "card";
 
-  const lessonNumber = index + 1;
-
   const icon = document.createElement("div");
   icon.className = "icon";
-  icon.textContent = lessonNumber === 30 ? "🏆" : "📘";
+  icon.textContent = index === 30 ? "🏆" : "📘";
 
   const heading = document.createElement("h3");
-  heading.textContent =
-    "Lesson " + lessonNumber + " - " + title;
+  heading.textContent = "Lesson " + (index + 1) + " - " + title;
 
   const description = document.createElement("p");
   description.textContent =
@@ -594,37 +593,6 @@ function createLessonCard(courseId,title,index){
   const link = document.createElement("a");
   link.className = "btn";
   link.textContent = "📖 Baradhu →";
-
-  // Graphic Design Lesson 1–30
-  if(courseId === "graphic design"){
-
-    if(lessonNumber === 1){
-      link.href = "lesson.html";
-    }else{
-      link.href = "lesson" + lessonNumber + ".html";
-    }
-
-  }else{
-    link.href = "#";
-    link.addEventListener("click",function(event){
-      event.preventDefault();
-      alert("Fuulli barnootaa kanaa ammallee hin uumamne.");
-    });
-  }
-
-  const completed = document.createElement("p");
-  completed.style.marginTop = "10px";
-
-  const key = completionKey(courseId,lessonNumber);
-
-  if(localStorage.getItem(key) === "true"){
-    completed.textContent = "✅ Barnoota kana xumurteetta.";
-  }
-
-  card.append(icon,heading,description,link,completed);
-
-  return card;
-}
 
   /*
     Linkiiwwan faayilii jiran qofaaf.

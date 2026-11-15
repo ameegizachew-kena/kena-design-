@@ -675,44 +675,78 @@ function loadStudent(){
   const student = checkLogin();
   if(!student) return;
 
-  const name = student.fullname || "Barataa!";
-  const course = normalize(student.course);
+  // Maqaa barataa dubbisuu
+  const name =
+    student.fullname ||
+    student.fullName ||
+    student.name ||
+    student.studentName ||
+    student.username ||
+    (
+      (student.firstName || "") + " " +
+      (student.lastName || "")
+    ).trim() ||
+    "Barataa!";
 
+  // Course barataa dubbisuu
+  let savedCourse =
+    student.course ||
+    student.courseName ||
+    student.selectedCourse ||
+    student.selected_course ||
+    student.program ||
+    "";
+
+  // Yoo course array ta'e
+  let studentCourses = [];
+
+  if(Array.isArray(student.courses)){
+    studentCourses = student.courses.map(item => {
+      if(typeof item === "string"){
+        return normalize(item);
+      }
+
+      return normalize(
+        item.id || item.title || item.name || ""
+      );
+    });
+  }
+
+  if(savedCourse){
+    studentCourses.push(normalize(savedCourse));
+  }
+
+  // Maqaa fi Course agarsiisuu
   document.getElementById("welcomeName").textContent = name;
   document.getElementById("studentName").textContent = name;
-  document.getElementById("studentCourse").textContent =
-    student.course || "-";
 
+  document.getElementById("studentCourse").textContent =
+    savedCourse || studentCourses.join(", ") || "Course hin argamne";
+
+  // Course filachuu
   const courseList = document.getElementById("courseList");
   courseList.replaceChildren();
 
-  /*
-    Barataan course tokko qofa qaba yoo ta'e,
-    course isaa qofa agarsiisi.
-    Yoo admin course hedduu kenne, coursewwan sana agarsiisi.
-  */
+  let availableCourses = courses.filter(item =>
+    studentCourses.includes(normalize(item.id)) ||
+    studentCourses.includes(normalize(item.title))
+  );
 
-  const studentCourses = Array.isArray(student.courses)
-    ? student.courses.map(normalize)
-    : [course];
-
-  const availableCourses = courses.filter(function(item){
-    return studentCourses.includes(item.id);
-  });
-
+  // Yoo course hin argamne, course hunda agarsiisi
   if(availableCourses.length === 0){
+    availableCourses = courses;
+
     const notice = document.createElement("div");
     notice.className = "notice";
     notice.textContent =
-      "Course kee hin beekamne. Admin waliin dubbadhu. " +
-      "Maqaan course sirrii ta'uu isaa mirkaneessi.";
+      "Hubachiisa: Course barataa hin argamne. " +
+      "Course barbaadde filadhu; odeeffannoo Register irrattis sirreessi.";
     courseList.appendChild(notice);
-    return;
   }
 
-  availableCourses.forEach(function(item){
+  availableCourses.forEach(item => {
     courseList.appendChild(createCourseCard(item));
-  });
+  }
 }
 
 /* LESSON LIST */
